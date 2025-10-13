@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Atomic Shop Bundle Image Order Tool</title>
+  <style>
+    body { background: #222; color: #eee; font-family: sans-serif; }
+    select, button { font-size: 1em; }
+    .bundle-list { margin: 1em 0; }
+    .img-list { display: flex; flex-wrap: wrap; gap: 16px; margin: 1em 0; }
+    .img-item { background: #333; border-radius: 8px; padding: 8px; display: flex; flex-direction: column; align-items: center; }
+    .img-item img { width: 120px; height: 120px; object-fit: cover; border: 2px solid #555; margin-bottom: 8px; background: #111; }
+    .img-item input { width: 220px; margin-bottom: 4px; }
+    .img-item button { margin: 2px 0; }
+    .includes-list { margin: 1em 0; background: #181818; padding: 8px; border-radius: 8px; }
+    .output { margin-top: 2em; }
+    textarea { width: 100%; min-height: 60px; }
+    .include-item {
+      background: #222;
+      margin: 2px 0;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: grab;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Bundle Image Order & Includes Checker</h2>
+  <input type="file" id="jsonfile" accept=".json">
+  <button id="load-json">Load storepagedata.json</button>
+  <button onclick="location.reload()">Reload JSON from disk</button>
+  <div class="bundle-list"></div>
+  <div id="bundle-details"></div>
+  <div class="output"></div>
+  <script>
+let storeData = null;
+let currentItem = null;
+let tempImages = [];
+let lastItem = null;
+
+function saveTempImagesToItem() {
+  if (!lastItem) return;
+  // First image with _isPrimary is the primaryImage
+  const primary = tempImages.find(img => img._isPrimary);
+  if (primary) {
+    lastItem.primaryImage = { ...primary };
+    delete lastItem.primaryImage._isPrimary;
+  }
+  // The rest are carouselImages
+  lastItem.carouselImages = tempImages.filter(img => !img._isPrimary).map(img => {
+    const copy = { ...img };
+    delete copy._isPrimary;
+    return copy;
+  });
+}
+
+// Show ALL items, not just bundles
+function showItems() {
+  const itemsList = [];
+  (storeData.StorePageData.pages || []).forEach((page, pageIdx) => {
+    (page.items || []).forEach((item, itemIdx) => {
+      itemsList.push({ name: item.itemName, pageIdx, itemIdx });
+    });
+  });
+  const listDiv = document.querySelector('.bundle-list');
+  listDiv.innerHTML = '';
+  if (!itemsList.length) {
+    listDiv.textContent = 'No items found.';
+    return;
+  }
+  const select = document.createElement('select');
+  select.innerHTML = itemsList.map((b, i) =>
+    `<option value="${b.pageIdx},${b.itemIdx}">${b.name}</option>`
+  ).join('');
+  select.addEventListener('change', function() {
+    const [pageIdx, itemIdx] = this.value.split(',').map(Number);
+    showItemDetails(pageIdx, itemIdx);
+  });
+  listDiv.appendChild(document.createTextNode('Select item: '));
+  listDiv.appendChild(select);
+  // Show first by default
+  const [pageIdx, itemIdx] = select.value.split(',').map(Number);
+  showItemDetails(pageIdx, itemIdx);
+}
+
+function showItemDetails(pageIdx, itemIdx) {
+  saveTempImagesToItem();
+
+  const item = storeData.StorePageData.pages[pageIdx].items[itemIdx];
+  currentItem = item;
+  lastItem = item;
+
+  // Compose tempImages: primaryImage first (if present), then carouselImages
+  tempImages = [];
+  if (item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
+    tempImages.push({ ...item.primaryImage, _isPrimary: true });
+  }
+  if (Array.isArray(item.carouselImages)) {
+    tempImages.push(...item.carouselImages.map(img => ({ ...img, _isPrimary: false })));
+  }
+
+  // Get includes (dynamicBundleItems or similar)
+  let includes = [];
+  if (Array.isArray(item.dynamicBundleItems)) {
+    includes = item.dynamicBundleItems.map(i => i.szItemName || '[unknown]');
+  }
+
+  // --- TIMER BLOCK START ---
+  function getRelativeTimeString(targetIso) {
+    if (!targetIso) return '';
+    const now = new Date();
+    const target = new Date(targetIso);
+    let diff = Math.floor((target - now) / 1000); // Sekunden
+    if (isNaN(diff)) return '';
+    if (diff < 0) return 'abgelaufen';
+
+    const days = Math.floor(diff / 86400);
+    diff %= 86400;
+    const hours = Math.floor(diff / 3600);
+    diff %= 3600;
+    const minutes = Math.floor(diff / 60);
+    const seconds = diff % 60;
+
+    let str = '';
+    if (days > 0) str += days + ' Tag' + (days > 1 ? 'e' : '') + ', ';
+    if (hours > 0 || days > 0) str += hours + ' Std, ';
+    if (minutes > 0 || hours > 0 || days > 0) str += minutes + ' Min, ';
+    str += seconds + ' Sek';
+    return str;
+  }
+
+  // Lese ltoTimer aus allen möglichen Feldern
+  let ltoRaw = item.lowPrice && item.lowPrice.ltoTimer;
+  let ltoDateObj;
+  if (typeof ltoRaw === "string" && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?Z$/.test(ltoRaw)) {
+    ltoDateObj = new Date(ltoRaw);
+  } else {
+    ltoDateObj = new Date();
+  }
+  function toDatetimeLocalValue(date) {
+    const off = date.getTimezoneOffset();
+    const local = new Date(date.getTime() - off * 60 * 1000);
+    return local.toISOString().slice(0, 16);
+  }
+  const localValue = toDatetimeLocalValue(ltoDateObj);
+  const relValue = getRelativeTimeString(ltoDateObj.toISOString());
+  // --- TIMER BLOCK END ---
+
+  // Render
+  const details = document.getElementById('bundle-details');
+  details.innerHTML = `
+    <h3>${item.itemName || ''}</h3>
+    <div><b>Description:</b> ${item.itemDesc || ''}</div>
+    <div class="includes-list"><b>Includes:</b>
+      <div id="includes-list">
+        ${includes.map((i, idx) => `
+          <div class="include-item" draggable="true" data-idx="${idx}">${i}</div>
+        `).join('')}
+      </div>
+    </div>
+    <div>
+      <input id="new-image-name" placeholder="imageName (e.g. abc123.webp)">
+      <input id="new-image-dir" placeholder="directory (optional)">
+      <button onclick="addImage()">Add Image</button>
+    </div>
+    <div><b>Images:</b></div>
+    <div class="img-list" id="img-list"></div>
+    <button onclick="outputOrder()">Output New Order as JSON</button>
+    <button onclick="saveJson()">Save Modified JSON</button>
+    <button onclick="outputImageList()">Output All Used Image Paths</button>
+    <div>
+      <b>Ablaufzeit (ltoTimer):</b>
+      <input type="datetime-local" id="ltotimer-input" value="${localValue}">
+      <button id="save-ltotimer-btn">Speichern</button>
+      <span id="ltotimer-status" style="margin-left:8px;color:#ffe082;"></span>
+      <div style="margin-top:4px;font-size:0.95em;opacity:0.8;">
+        Relativ: <span id="ltotimer-rel">${relValue}</span>
+      </div>
+    </div>
+  `;
+  renderImages();
+
+  // Drag & Drop für Includes
+  const includesList = document.getElementById('includes-list');
+  if (includesList) {
+    let dragIdx = null;
+    includesList.querySelectorAll('.include-item').forEach(item => {
+      item.addEventListener('dragstart', e => {
+        dragIdx = Number(item.getAttribute('data-idx'));
+        item.style.opacity = '0.5';
+      });
+      item.addEventListener('dragend', e => {
+        item.style.opacity = '';
+      });
+      item.addEventListener('dragover', e => {
+        e.preventDefault();
+        item.style.border = '2px dashed #ffe082';
+      });
+      item.addEventListener('dragleave', e => {
+        item.style.border = '';
+      });
+      item.addEventListener('drop', e => {
+        e.preventDefault();
+        item.style.border = '';
+        const dropIdx = Number(item.getAttribute('data-idx'));
+        if (dragIdx === null || dragIdx === dropIdx) return;
+        // Reihenfolge im Array ändern
+        const arr = currentItem.dynamicBundleItems;
+        const moved = arr.splice(dragIdx, 1)[0];
+        arr.splice(dropIdx, 0, moved);
+        showItemDetails(pageIdx, itemIdx); // neu rendern
+      });
+    });
+  }
+
+  // --- TIMER EVENTS ---
+  const ltotimerInput = document.getElementById('ltotimer-input');
+  const relSpan = document.getElementById('ltotimer-rel');
+  ltotimerInput.addEventListener('input', () => {
+    const d = new Date(ltotimerInput.value);
+    relSpan.textContent = getRelativeTimeString(d.toISOString());
+  });
+  if (window._ltotimerInterval) clearInterval(window._ltotimerInterval);
+  window._ltotimerInterval = setInterval(() => {
+    const d = new Date(ltotimerInput.value);
+    relSpan.textContent = getRelativeTimeString(d.toISOString());
+  }, 1000);
+
+  document.getElementById('save-ltotimer-btn').onclick = function() {
+    const d = new Date(document.getElementById('ltotimer-input').value);
+    if (!isNaN(d)) {
+      item.lowPrice.ltoTimer = d.toISOString();
+      document.getElementById('ltotimer-status').textContent = "Gespeichert!";
+      setTimeout(() => document.getElementById('ltotimer-status').textContent = '', 1500);
+    } else {
+      document.getElementById('ltotimer-status').textContent = "Ungültiges Datum!";
+    }
+  };
+}
+
+function renderImages() {
+  const list = document.getElementById('img-list');
+  list.innerHTML = '';
+  tempImages.forEach((img, idx) => {
+    const div = document.createElement('div');
+    div.className = 'img-item';
+    div.setAttribute('draggable', 'true');
+    div.setAttribute('data-idx', idx);
+
+    // Always show .webp preview
+    const imgUrl = (img.directory + img.imageName).toLowerCase().replace(/\.(dds|png)$/i, '.webp');
+    // Detect suffix for all images
+    let currentSuffix = '';
+    if (img.imageName) {
+      const m = img.imageName.match(/(_C\d+|_L)(?=\.[^.]+$)/i);
+      currentSuffix = m ? m[1].toUpperCase() : '';
+    }
+
+    div.innerHTML = `
+      <img src="${imgUrl}" alt="${img.imageName}" 
+        onerror="this.style.opacity=0.3;this.title='Not found: '+this.src;">
+      <input value="${img.imageName}" readonly>
+      <button onclick="swapImageName(${idx})">Swap Name</button>
+      <button onclick="swapImageDir(${idx})">Swap Dir</button>
+      <select data-idx="${idx}" class="suffix-select" onchange="changeSuffix(${idx}, this.value)">
+        <option value="">(none)</option>
+        <option value="_C1"${currentSuffix === '_C1' ? ' selected' : ''}>_C1</option>
+        <option value="_C2"${currentSuffix === '_C2' ? ' selected' : ''}>_C2</option>
+        <option value="_C3"${currentSuffix === '_C3' ? ' selected' : ''}>_C3</option>
+        <option value="_C4"${currentSuffix === '_C4' ? ' selected' : ''}>_C4</option>
+        <option value="_C5"${currentSuffix === '_C5' ? ' selected' : ''}>_C5</option>
+        <option value="_C6"${currentSuffix === '_C6' ? ' selected' : ''}>_C6</option>
+        <option value="_C7"${currentSuffix === '_C7' ? ' selected' : ''}>_C7</option>
+        <option value="_L"${currentSuffix === '_L' ? ' selected' : ''}>_L</option>
+      </select>
+      <div style="font-size:0.9em;opacity:0.7;">
+        ${img._isPrimary ? '<b>Primary Image</b>' : (idx+1)}
+      </div>
+    `;
+
+    // Drag events
+    div.ondragstart = (e) => {
+      e.dataTransfer.setData('text/plain', idx);
+      div.style.opacity = '0.5';
+    };
+    div.ondragend = (e) => {
+      div.style.opacity = '';
+    };
+    div.ondragover = (e) => {
+      e.preventDefault();
+      div.style.border = '2px dashed #ffe082';
+    };
+    div.ondragleave = (e) => {
+      div.style.border = '';
+    };
+    div.ondrop = (e) => {
+      e.preventDefault();
+      div.style.border = '';
+      const fromIdx = Number(e.dataTransfer.getData('text/plain'));
+      const toIdx = idx;
+      if (fromIdx === toIdx) return;
+      // Move in tempImages array
+      const moved = tempImages.splice(fromIdx, 1)[0];
+      tempImages.splice(toIdx, 0, moved);
+      renderImages();
+    };
+
+    list.appendChild(div);
+  });
+}
+
+// Allow swapping imageName
+window.swapImageName = function(idx) {
+  const current = tempImages[idx].imageName;
+  const newName = prompt('Enter new imageName (with extension):', current);
+  if (newName && newName !== current) {
+    tempImages[idx].imageName = newName.toLowerCase();
+    renderImages();
+  }
+};
+// Allow swapping directory
+window.swapImageDir = function(idx) {
+  const current = tempImages[idx].directory || '';
+  const newDir = prompt('Enter new directory (with trailing slash):', current);
+  if (newDir && newDir !== current) {
+    tempImages[idx].directory = newDir.toLowerCase();
+    renderImages();
+  }
+};
+
+window.changeSuffix = function(idx, suffix) {
+  let img = tempImages[idx];
+  if (!img) return;
+  img.imageName = img.imageName.replace(/(_C\d+|_L)?(\.[^.]+)$/i, '') + (suffix || '') + '.webp';
+  img.imageName = img.imageName.toLowerCase();
+  renderImages();
+};
+
+window.outputOrder = function() {
+  document.querySelector('.output').innerHTML =
+    `<textarea>${JSON.stringify(tempImages.map(i => i.imageName), null, 2)}</textarea>`;
+};
+
+window.outputImageList = function() {
+  // Collect all image paths from all items
+  let allImages = [];
+  (storeData.StorePageData.pages || []).forEach(page => {
+    (page.items || []).forEach(item => {
+      if (Array.isArray(item.carouselImages)) {
+        item.carouselImages.forEach(img => {
+          if (img.directory && img.imageName) {
+            allImages.push(
+              (img.directory.replace(/\\/g, "/").replace(/\/?$/, "/") + img.imageName.replace(/\.(dds|png)$/i, '.webp')).toLowerCase().replace(/\/+/g, "/")
+            );
+          }
+        });
+      }
+      // Also include primaryImage if present
+      if (item.primaryImage && item.primaryImage.directory && item.primaryImage.imageName) {
+        allImages.push(
+          (item.primaryImage.directory.replace(/\\/g, "/").replace(/\/?$/, "/") + item.primaryImage.imageName.replace(/\.(dds|png)$/i, '.webp')).replace(/\/+/g, "/")
+        );
+      }
+    });
+  });
+  // Remove duplicates
+  allImages = [...new Set(allImages)];
+  // Output as text (one per line)
+  document.querySelector('.output').innerHTML =
+    `<textarea style="height:300px">${allImages.join('\n')}</textarea>`;
+  return allImages;
+};
+
+window.saveJson = function() {
+  // Save current edits before saving
+  saveTempImagesToItem();
+  // Download the modified JSON as a file
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(storeData, null, 2));
+  const dlAnchor = document.createElement('a');
+  dlAnchor.setAttribute("href", dataStr);
+  dlAnchor.setAttribute("download", "storepagedata.modified.json");
+  document.body.appendChild(dlAnchor);
+  dlAnchor.click();
+  document.body.removeChild(dlAnchor);
+};
+
+window.addImage = function() {
+  const name = document.getElementById('new-image-name').value.trim().toLowerCase();
+  const dir = document.getElementById('new-image-dir').value.trim().toLowerCase();
+  if (!name) {
+    alert('Please enter an imageName!');
+    return;
+  }
+  tempImages.push({ imageName: name, directory: dir, url: (dir + name).replace(/\\/g, '/') });
+  renderImages();
+  document.getElementById('new-image-name').value = '';
+  document.getElementById('new-image-dir').value = '';
+};
+
+// Load from file input
+document.getElementById('jsonfile').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    try {
+      storeData = JSON.parse(evt.target.result);
+      showItems();
+    } catch (err) {
+      alert('Invalid JSON');
+    }
+  };
+  reader.readAsText(file);
+});
+
+// Load from fixed path
+document.getElementById('load-json').addEventListener('click', async function() {
+  try {
+    const response = await fetch('storepagedata.json');
+    if (!response.ok) throw new Error('Could not load storepagedata.json');
+    storeData = await response.json();
+    showItems();
+  } catch (err) {
+    alert('Failed to load storepagedata.json: ' + err.message);
+  }
+});
+  </script>
+</body>
+</html>

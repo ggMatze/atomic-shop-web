@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="theme-color" content="#ffd454">
+  <meta property="og:title" content="Sales - Big savings!">
+  <meta property="og:description" content="Transparent pricing, correct images, and user-friendly info for the Fallout 76 Atomic Shop.">
+  <meta property="og:site_name" content="Atomic Shop - 07.10.2025">
+  <meta name="author" content="Transparent Atomic Shop">
+  <meta property="og:image" content="https://atomic-shop-web.vercel.app/snapshot41.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:src" content="https://atomic-shop-web.vercel.app/snapshot41.jpg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Friendly Atomic Shop</title>
+  <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script src="script.js" defer></script>
+
+</head>
+<body>
+  <div id="news-notice" class="hidden" hidden>
+  <strong id="news-header"></strong>
+  <div id="news-title" style="font-size:1.2em; margin:8px 0;"></div>
+  <div id="news-text"></div>
+  <button id="news-close" style="margin-top:12px;">CLOSE</button>
+</div>
+<noscript>
+  <div id="no-js-warning">
+    DISCONNECTED
+    <p id="warning-text">⚠️ This site requires JavaScript. Please enable JavaScript in your browser settings.</p>
+    <div id="fake-button">
+      OK
+    </div>
+  </div>
+</noscript>
+<div id="loading-overlay" style="
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(24, 28, 29, 0.438);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+">
+  <div class="spinner"></div>
+</div>
+<!-- Add this near the top of your body -->
+
+  <div class="music-controls">
+  <button id="mute-btn">🔇&#xFE0E</button>
+  <input type="range" id="volume-slider" min="0" max="1" step="0.005" value="0.2">
+</div>
+<div class="menu-right">
+      <div class="currency-selector">
+<label for="currency-select">💵&#xFE0E;</label>
+<select id="currency-select">
+  <option value="usd">US Dollar $</option>
+  <option value="eur">Euro €</option>
+  <option value="gbp">GBR Pound £</option>
+  <option value="cad">CA Dollar C$</option>
+  <option value="jpy">JP Yen ¥</option>
+  <option value="twd">TW Dollar NT$</option>
+  <option value="cny">CHN Yuan 元</option>
+  <option value="hkd">HK Dollar HK$</option>
+  <option value="aud">AU Dollar A$</option>
+  <option value="krw">KR Won ₩</option>
+  <option value="inr">IN Rupee ₹</option>
+  <option value="mxn">MX Peso MX$</option>
+  <option value="brl">BR Real R$</option>
+  <option value="rub" disabled>RU Ruble ₽</option>
+  <option value="atoms">Atoms ⚛</option>
+</select>
+</div>
+<div class="information-box" title="Updates to the site can take several hours,depending on the amount of changes to the shop.">
+  <div class="info-item">
+    <span class="info-label">last updated:<br>
+    <span id="last-updated"></span></span>
+</div>  
+</div>
+<script>
+  
+  const lastUpdated = '2025-10-10T19:40:00Z'; // wird angezeigt +2h
+  const date = new Date(lastUpdated);
+
+  document.getElementById('last-updated').textContent = 
+  date.toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' });
+</script>
+</div>
+
+<div class="atomic-shop">
+
+  <video class="bg-video" autoplay loop muted playsinline>
+    <source src="images/AtomicShop.webm" type="video/webm">
+    <!-- Optional: Fallback-Bild -->
+  </video>
+<audio id="bg-music" src="mus_76_special_atomicshop_season_01.mp3" autoplay loop muted></audio>
+
+
+  <!-- tabs for the pages -->
+  <div class="tab-nav-container">
+  <div class="nav-arrow left">A)</div>
+  <div class="tab-nav-scroll">
+    <!-- 8 Tabs -->
+    <div class="tab" data-json="">
+      <img src="images/tabs/default-tab.webp" alt="Tab 1">
+      <div class="tab-label">
+        <div class="tab-title">...</div>
+        <div class="tab-subtitle">.</div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-arrow right">D)</div>
+</div>
+<!-- Add this where you want the currency selector -->
+
+  <!-- SHOP GRID START -->
+  <div class="shop-grid">
+  <!-- 3 große Kacheln -->
+  <div class="shop-tile large" data-tile-id="dynamic-bundle-1">
+    <div class="tile-img"></div>
+    <div class="tile-price">
+      <span class="old-price">.</span>
+      <span class="current-price">.</span>
+    </div>
+    <div class="tile-badge">
+      <span class="discount">.</span>
+      <span class="new-label">New</span>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tile-timer">
+      <span class="timer-text">
+        <span class="line1">limited time!</span><br>
+        <span class="line2">.</span>
+      </span>
+    </div>
+    <div class="tile-1st">&nbsp;</div>
+    <div class="tile-footer large">.</div>
+  </div>
+
+  <div class="shop-tile large" data-tile-id="dynamic-bundle-2">
+    <div class="tile-img"></div>
+    <div class="tile-price">
+      <span class="old-price">.</span>
+      <span class="current-price">.</span>
+    </div>
+    <div class="tile-badge">
+      <span class="discount">.</span>
+      <span class="new-label">New</span>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tile-timer">
+      <span class="timer-text">
+        <span class="line1">limited time!</span><br>
+        <span class="line2">.</span>
+      </span>
+    </div>
+    <div class="tile-1st">&nbsp;</div>
+    <div class="tile-footer large">.</div>
+  </div>
+
+  <div class="shop-tile large" data-tile-id="dynamic-bundle-3">
+    <div class="tile-img"></div>
+    <div class="tile-price">
+      <span class="old-price">.</span>
+      <span class="current-price">.</span>
+    </div>
+    <div class="tile-badge">
+      <span class="discount">.</span>
+      <span class="new-label">New</span>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tile-timer">
+      <span class="timer-text">
+        <span class="line1">limited time!</span><br>
+        <span class="line2">.</span>
+      </span>
+    </div>
+    <div class="tile-1st">&nbsp;</div>
+    <div class="tile-footer large">.</div>
+  </div>
+
+  <!-- 6 kleine Kacheln -->
+  <div class="shop-tile small" data-tile-id="featured-entry-small-1">
+    <div class="tile-img"></div>
+    <div class="tile-price">
+      <span class="old-price">.</span>
+      <span class="current-price">.</span>
+    </div>
+    <div class="tile-badge">
+      <span class="discount">.</span>
+      <span class="new-label">New</span>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tile-timer">
+      <span class="timer-text">
+        <span class="line1">limited time!</span><br>
+        <span class="line2">.</span>
+      </span>
+    </div>
+    <div class="tile-1st">&nbsp;</div>
+    <div class="tile-footer small">.</div>
+  </div>
+
+  <div class="shop-tile small" data-tile-id="featured-entry-small-2">
+    <div class="tile-img"></div>
+    <div class="tile-price">
+      <span class="old-price">.</span>
+      <span class="current-price">.</span>
+    </div>
+    <div class="tile-badge">
+      <span class="discount">.</span>
+      <span class="new-label">New</span>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tile-timer">
+      <span class="timer-text">
+        <span class="line1">limited time!</span><br>
+        <span class="line2">.</span>
+      </span>
+    </div>
+    <div class="tile-1st">&nbsp;</div>
+    <div class="tile-footer small">.</div>
+  </div>
+
+  <div class="shop-tile small" data-tile-id="featured-entry-small-3">
+    <div class="tile-img"></div>
+    <div class="tile-price">
+      <span class="old-price">.</span>
+      <span class="current-price">.</span>
+    </div>
+    <div class="tile-badge">
+      <span class="discount">.</span>
+      <span class="new-label">New</span>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tile-timer">
+      <span class="timer-text">
+        <span class="line1">limited time!</span><br>
+        <span class="line2">.</span>
+      </span>
+    </div>
+    <div class="tile-1st">&nbsp;</div>
+    <div class="tile-footer small">.</div>
+  </div>
+
+  <div class="shop-tile small" data-tile-id="featured-entry-small-4">
+    <div class="tile-img"></div>
+    <div class="tile-price">
+      <span class="old-price">.</span>
+      <span class="current-price">.</span>
+    </div>
+    <div class="tile-badge">
+      <span class="discount">.</span>
+      <span class="new-label">New</span>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tile-timer">
+      <span class="timer-text">
+        <span class="line1">limited time!</span><br>
+        <span class="line2">.</span>
+      </span>
+    </div>
+    <div class="tile-1st">&nbsp;</div>
+    <div class="tile-footer small">.</div>
+  </div>
+
+  <div class="shop-tile small" data-tile-id="featured-entry-small-5">
+    <div class="tile-img"></div>
+    <div class="tile-price">
+      <span class="old-price">.</span>
+      <span class="current-price">.</span>
+    </div>
+    <div class="tile-badge">
+      <span class="discount">.</span>
+      <span class="new-label">New</span>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tile-timer">
+      <span class="timer-text">
+        <span class="line1">limited time!</span><br>
+        <span class="line2">.</span>
+      </span>
+    </div>
+    <div class="tile-1st">&nbsp;</div>
+    <div class="tile-footer small">.</div>
+  </div>
+
+  <div class="shop-tile small" data-tile-id="featured-entry-small-6">
+    <div class="tile-img"></div>
+    <div class="tile-price">
+      <span class="old-price">.</span>
+      <span class="current-price">.</span>
+    </div>
+    <div class="tile-badge">
+      <span class="discount">.</span>
+      <span class="new-label">New</span>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tile-timer">
+      <span class="timer-text">
+        <span class="line1">limited time!</span><br>
+        <span class="line2">.</span>
+      </span>
+    </div>
+    <div class="tile-1st">&nbsp;</div>
+    <div class="tile-footer small">.</div>
+  </div>
+</div>
+<!-- SHOP GRID END -->
+
+</div>
+<!-- Overlay -->
+<div id="item-overlay" class="item-overlay hidden">
+  <div class="overlay-content">
+    <button class="overlay-close">&times;</button>
+     <div class="price-box">
+<ul class="price-list">
+  <li>
+    <span class="price-label price-label-original">Original Cost</span>
+    <span class="price-value" id="price-original">0</span>
+  </li>
+  <li>
+    <span class="price-label price-label-discount">Limited Time Discount</span>
+    <span class="price-value" id="price-discount">0</span>
+  </li>
+  <li class="divider"></li>
+  <li>
+    <span class="price-label price-label-final">Your Cost</span>
+    <span class="price-value" id="price-final">0</span>
+  </li>
+</ul>
+</div>
+
+ <div class="overlay-disclaimer" id="overlay-disclaimer">
+   
+    </div>
+
+    <h2 class="overlay-title">Item Title</h2>
+    <div class="gallery-wrapper">
+      <img id="main-image" class="center-image" src="" alt="Main Image">
+      <div class="strip-container left-strip-container">
+        <div class="strip" id="left-strip"></div>
+      </div>
+      <div class="strip-container right-strip-container">
+        <div class="strip" id="right-strip"></div>
+      </div>
+  </div>
+    <p class="overlay-description">.</p>
+    <p class="overlay-includes">.</p>
+     <span id="overlay-link-btn" class="link-btn" title="Share this item">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffd454" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="18" cy="5" r="3"/>
+    <circle cx="6" cy="12" r="3"/>
+    <circle cx="18" cy="19" r="3"/>
+    <path d="M8.59 13.51l6.83 3.98"/>
+    <path d="M15.41 6.51L8.59 10.49"/>
+  </svg>
+</span>
+<input id="overlay-link-box" class="link-box" type="text" readonly style="display:none;" title="Press Ctrl+C to copy the link">
+    <button class="overlay-button">Tab) CLOSE TO GO BACK</button>
+    
+  </div>
+<div class="overlay-faq hidden" id="overlay-faq">
+  <h2>Questions you might have</h2>
+  <ul>
+    <li>
+      <strong>Q: What is this site?</strong><br>
+      <span>A: This is a fan project to provide transparent pricing, correct images, and user friendly information about the Atomic Shop in Fallout 76.</span>
+    </li>
+    <li>
+      <strong>Q: how does it work?</strong><br>
+      <span>A: The site uses in-game data which gets compiled with the help of a member of the Fallout 76 community.<br> Images and missing images are pulled from the game files and then reordered manually to match the order of the included items in the shop. <br> Prices are converted to various currencies based on <a href="https://steamdb.info/app/1158670/" target="_blank">SteamDB</a> Atom pricing. Daily offers compiled manually and stored as data to be automatically updated.</span>
+    <li>
+      <strong>Q: How do I use this site?</strong><br>
+      <span>A: You can browse the Atomic Shop by clicking on the tabs at the top. Click on an item to see more details, including prices and images.<br>You can also use hotkeys to scroll through the tab bar and navigate images using <u>A</u> and <u>D</u> to move left and right.</span>
+    </li>
+    <li>
+      <strong>Q: Are prices official?</strong><br>
+      <span>A: Atom Prices are pulled from in-game data and should be accurate to the time of the last update.<br>
+      Conversion to other currencies is based on SteamDB Atom pricing and may vary by region and might not be correct.</span>
+    </li>
+    <li>
+      <strong>Q: How often is the site updated?</strong><br>
+      <span>A: The site is usually updated on Tuesdays, but may take several hours depending on the extent of changes that have to be made.</span>
+    </li>
+    <li>
+      <strong>Q: Why is there an/no Weekly Offers Previer tab?</strong><br>
+      <span>A: The Weekly Offers tab provides a quick overview of the current week's daily offers for the upcoming days.<br>The data is compiled from <a href="https://fallout.bethesda.net/news/?offset=0-6" target="_blank">fallout.bethesda.net/news/</a> if available and then shown or not shown depending on the availability of data.</span>
+    <li>
+      <strong>Q: Who is behind this project?</strong><br>
+      <span>A: This site is created and maintained by a member of the Fallout 76 community, with help from another member who provided the core data<br>and <u>GitHub Copilot</u> for scripting assistance.</span>
+    </li>
+    <li >
+      <strong>Q: How can I support this project?</strong><br>
+      <span>A: You can support this project by sharing it with others, providing feedback, or contributing in any way you can.<br>I may consider adding a donation option via Ko-fi or similar platforms to help cover hosting and domain registration costs in the future.<br>No contact informations yet.</span>
+    </li>
+    <li>
+      <strong>Q: Can I buy items directly from this site?</strong><br>
+      <span>A: No, this site does not support direct purchases. You must visit the official in-game Atomic Shop in Fallout 76 to buy items.</span>
+    </li>
+    <li>
+      <strong>Q: Is this site affiliated with Bethesda?</strong><br>
+      <span>A: No, this site is unofficial and not affiliated with Bethesda.</span>
+    </li>
+    <li>
+      <strong>Q: How can I report issues or suggest improvements?</strong><br>
+      <span>A: You can report issues or suggest improvements via the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKcyjokNCPQXTsR7utXnoUoya4W1UTvrOS8t3XySNBuLFggg/viewform?usp=dialog" target="_blank">Feedback Form</a> or by contacting the site owner directly.</span>
+    </li>
+  </ul>
+  <button class="overlay-button" id="faq-close-btn">Tab) CLOSE FAQ</button>
+</div>
+
+</div>
+
+<footer class="legal-footer">
+  ⓘ This site is a fan project and is not affiliated with, endorsed, or sponsored by Bethesda Softworks or any of its affiliates. All trademarks and copyrights are property of their respective owners.<br>
+  Atom conversion is based on steam prices and may vary by region. Prices are subject to change without notice. Source: 
+  <a href="https://steamdb.info/app/1158670/" target="_blank">SteamDB</a>.<br>
+  All information is provided as-is and may not reflect the current in-game store. Please verify prices and offers in the official Atomic Shop.<br>
+  This website exists purely for transparency and convenience. <a href="#" id="faq-link">FAQ</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Daily Items Editor</title>
+  <style>
+    body {
+      background: #181c1d;
+      color: #f5f3c2;
+      font-family: "cabin", sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .container { max-width: 1100px; margin: auto; display: flex; gap: 40px; }
+    .left-panel, .right-panel { flex: 1; }
+    select, button {
+      background: #23272a;
+      color: #ffe082;
+      border: 1px solid #dcb752;
+      padding: 6px 12px;
+      margin: 4px 0;
+      font-size: 1em;
+    }
+    .day-slot {
+      background: #23272a;
+      color: #ffe082;
+      border: 2px dashed #dcb752;
+      padding: 24px;
+      min-height: 120px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      position: relative;
+    }
+    .day-slot.dragover {
+      background: #2c3136;
+      border-style: solid;
+    }
+    .day-item-img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      margin-right: 16px;
+      border: 1px solid #dcb752;
+      background: #181c1d;
+    }
+    .day-item-info {
+      display: flex;
+      align-items: center;
+    }
+    .db-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .db-item {
+      background: #23272a;
+      color: #ffe082;
+      border: 1px solid #dcb752;
+      padding: 8px;
+      cursor: grab;
+      width: 120px;
+      text-align: center;
+      border-radius: 6px;
+      transition: background 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .db-item:hover { background: #2c3136; }
+    .db-item img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      margin-bottom: 6px;
+      background: #181c1d;
+      border: 1px solid #dcb752;
+      border-radius: 4px;
+    }
+    .section-title { margin-top: 24px; font-weight: bold; }
+    .actions { margin-top: 24px; }
+    .remove-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #dcb752;
+      color: #23272a;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="left-panel">
+    <div>
+      <label for="db-file">Database file:</label>
+      <select id="db-file">
+        <option value="dailyitems-database.json">Database</option>
+        <!-- Add more as needed -->
+      </select>
+      <button id="load-btn">Load Data</button>
+    </div>
+    <div class="section-title">Select Day:</div>
+    <select id="day-select"></select>
+    <div class="section-title">Current Item for Selected Day:</div>
+    <div id="day-slot" class="day-slot"></div>
+    <div class="actions">
+      <button id="remove-btn">Remove Item</button>
+      <button id="update-dates-btn">Update Dates (Tue-Mon)</button>
+      <button onclick="exportJSON()">Export JSON</button>
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="section-title">Database Items (drag to left):</div>
+    <div id="db-list" class="db-list"></div>
+  </div>
+</div>
+
+<script>
+let dailyData = null;
+let itemsDB = null;
+let currentDBFile = 'dailyitems-database.json'; // <-- match your dropdown
+let selectedDayIdx = 0;
+
+// Load JSON files
+async function loadJSON(url) {
+  const res = await fetch(url);
+  return res.json();
+}
+
+async function initEditor() {
+  dailyData = await loadJSON('dailyitems.json');
+  itemsDB = await loadJSON(currentDBFile);
+  renderDayDropdown();
+  renderDaySlot();
+  renderDB();
+}
+
+function isFreeItem(item) {
+  return (
+    (!item.lowestPurchasablePrice || item.lowestPurchasablePrice.Amount === 0) &&
+    (!item.highPrice || item.highPrice.originalAmount === 0)
+  );
+}
+
+function renderDayDropdown() {
+  const daySelect = document.getElementById('day-select');
+  daySelect.innerHTML = '';
+  dailyData.DailyReplacements.forEach((day, idx) => {
+    if (isFreeItem(day)) {
+      const d = new Date(day.startTime);
+      const label = `${d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })} (${day.itemName || 'Empty'})`;
+      const opt = document.createElement('option');
+      opt.value = idx;
+      opt.textContent = label;
+      daySelect.appendChild(opt);
+    }
+  });
+  if (daySelect.options.length > 0) {
+    selectedDayIdx = parseInt(daySelect.options[0].value, 10);
+    daySelect.value = selectedDayIdx;
+  }
+}
+
+function renderDaySlot() {
+  const daySlot = document.getElementById('day-slot');
+  daySlot.innerHTML = '';
+  const day = dailyData.DailyReplacements[selectedDayIdx];
+  daySlot.classList.remove('dragover');
+
+  const isFree = isFreeItem(day);
+
+  if (isFree) {
+    daySlot.addEventListener('dragover', e => {
+      e.preventDefault();
+      daySlot.classList.add('dragover');
+    });
+    daySlot.addEventListener('dragleave', () => {
+      daySlot.classList.remove('dragover');
+    });
+    daySlot.addEventListener('drop', e => {
+      e.preventDefault();
+      daySlot.classList.remove('dragover');
+      let dbItems;
+      if (currentDBFile === 'dailyitems-database.json') {
+        dbItems = itemsDB.items || [];
+      } else {
+        dbItems = getFreeItems(itemsDB);
+      }
+      const itemIdx = e.dataTransfer.getData('text/plain');
+      const item = dbItems[itemIdx];
+      assignItemToDay(item);
+    });
+  } else {
+    daySlot.ondragover = null;
+    daySlot.ondragleave = null;
+    daySlot.ondrop = null;
+  }
+
+  if (day.itemName) {
+    const infoDiv = document.createElement('div');
+    infoDiv.className = 'day-item-info';
+    if (day.primaryImage && day.primaryImage.imageName) {
+      const img = document.createElement('img');
+      img.className = 'day-item-img';
+      img.src = day.primaryImage.directory + day.primaryImage.imageName;
+      img.alt = day.itemName;
+      infoDiv.appendChild(img);
+    }
+    const txt = document.createElement('span');
+    txt.textContent = day.itemName;
+    infoDiv.appendChild(txt);
+    daySlot.appendChild(infoDiv);
+
+    // --- DEBUG INFO ---
+    const debugDiv = document.createElement('div');
+    debugDiv.style.marginTop = '18px';
+    debugDiv.style.fontSize = '0.95em';
+    debugDiv.style.background = '#23272a';
+    debugDiv.style.padding = '12px';
+    debugDiv.style.borderRadius = '6px';
+    debugDiv.style.border = '1px solid #dcb752';
+    debugDiv.innerHTML = `
+      <strong>Debug Info:</strong><br>
+      <b>Start:</b> ${day.startTime ? new Date(day.startTime).toLocaleString() : '-'}<br>
+      <b>End:</b> ${day.endTime ? new Date(day.endTime).toLocaleString() : '-'}<br>
+      <b>LTO Timer:</b> ${day.lowPrice && day.lowPrice.ltoTimer ? day.lowPrice.ltoTimer : '-'}<br>
+      <b>Description:</b> ${day.itemDesc ? day.itemDesc : '-'}
+    `;
+    daySlot.appendChild(debugDiv);
+
+    if (!isFree) {
+      const msg = document.createElement('div');
+      msg.style.color = '#dcb752';
+      msg.style.marginTop = '12px';
+      msg.textContent = 'This is an offer. Drag & drop is disabled.';
+      daySlot.appendChild(msg);
+    }
+  } else {
+    daySlot.innerHTML = isFree ? '<em>Drop item here</em>' : '<em>Cannot replace offers</em>';
+  }
+}
+
+function renderDB() {
+  const dbList = document.getElementById('db-list');
+  dbList.innerHTML = '';
+  let dbItems;
+  // If database file, use all items
+  if (currentDBFile === 'dailyitems-database.json') {
+    dbItems = itemsDB.items || [];
+  } else {
+    dbItems = getFreeItems(itemsDB);
+  }
+  if (!dbItems || dbItems.length === 0) {
+    dbList.innerHTML = '<em>No items loaded.</em>';
+    return;
+  }
+  dbItems.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = 'db-item';
+    if (item.primaryImage && item.primaryImage.imageName) {
+      const img = document.createElement('img');
+      img.src = item.primaryImage.directory + item.primaryImage.imageName;
+      img.alt = item.itemName;
+      div.appendChild(img);
+    }
+    const txt = document.createElement('span');
+    txt.textContent = item.itemName;
+    div.appendChild(txt);
+    div.draggable = true;
+    div.addEventListener('dragstart', e => {
+      e.dataTransfer.setData('text/plain', idx);
+    });
+    dbList.appendChild(div);
+  });
+}
+
+// Only copy relevant fields, ignore dates
+function assignItemToDay(item) {
+  const day = dailyData.DailyReplacements[selectedDayIdx];
+  // Only update fields from the database, leave prices/dates/timers untouched
+  day.itemName = item.itemName;
+  day.itemNameShort = item.itemNameShort;
+  day.itemDesc = item.itemDesc;
+  // Convert image paths to lowercase
+  if (item.primaryImage) {
+    day.primaryImage = {
+      directory: item.primaryImage.directory.toLowerCase(),
+      imageName: item.primaryImage.imageName.toLowerCase()
+    };
+  }
+  if (item.carouselImages) {
+    day.carouselImages = item.carouselImages.map(img => ({
+      directory: img.directory.toLowerCase(),
+      imageName: img.imageName.toLowerCase()
+    }));
+  }
+  // Do NOT touch: lowPrice, lowestPurchasablePrice, highPrice, startTime, endTime, etc.
+  // Only update replaceItemID if present in database
+  if (item.replaceItemID) {
+    day.replaceItemID = item.replaceItemID;
+  }
+  renderDayDropdown();
+  renderDaySlot();
+}
+
+document.getElementById('remove-btn').addEventListener('click', () => {
+  const day = dailyData.DailyReplacements[selectedDayIdx];
+  day.itemName = '';
+  day.primaryImage = {};
+  renderDayDropdown();
+  renderDaySlot();
+});
+
+document.getElementById('day-select').addEventListener('change', function() {
+  selectedDayIdx = parseInt(this.value, 10);
+  renderDaySlot();
+});
+
+document.getElementById('load-btn').addEventListener('click', () => {
+  currentDBFile = document.getElementById('db-file').value;
+  initEditor();
+});
+document.getElementById('db-file').addEventListener('change', () => {
+  currentDBFile = document.getElementById('db-file').value;
+  initEditor();
+});
+
+// Update dates (Tuesday to Monday)
+function updateDates() {
+  let start = getNextTuesday();
+  dailyData.DailyReplacements.forEach(day => {
+    day.startTime = start.toISOString();
+    start.setDate(start.getDate() + 1);
+    day.endTime = start.toISOString();
+  });
+  renderDayDropdown();
+  renderDaySlot();
+}
+
+// Get next Tuesday from today
+function getNextTuesday() {
+  const now = new Date();
+  const utcDay = now.getUTCDay();
+  const utcHour = now.getUTCHours();
+  let daysUntilTuesday = (2 - utcDay + 7) % 7;
+  // If today is Tuesday
+  if (utcDay === 2) {
+    if (utcHour < 16) {
+      daysUntilTuesday = 0;
+    } else {
+      daysUntilTuesday = 7;
+    }
+  }
+  const d = new Date(Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate() + daysUntilTuesday,
+    16, 0, 0, 0
+  ));
+  return d;
+}
+
+// Update dates to specific week starting Tuesday
+function updateDatesToWeek() {
+  const now = new Date();
+  const utcDay = now.getUTCDay();
+  // Find the most recent Tuesday (this week)
+  const daysSinceTuesday = (utcDay - 2 + 7) % 7;
+  let start = new Date(Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate() - daysSinceTuesday,
+    16, 0, 0, 0
+  ));
+
+  // Update free items (DailyReplacements)
+  const freeItems = dailyData.DailyReplacements.filter(day =>
+    day.lowestPurchasablePrice &&
+    day.lowestPurchasablePrice.Amount === 0 &&
+    day.highPrice &&
+    day.highPrice.originalAmount === 0
+  );
+
+  for (let i = 0; i < freeItems.length; i++) {
+    freeItems[i].startTime = start.toISOString();
+    freeItems[i].endTime = new Date(start.getTime() + 24*60*60*1000).toISOString();
+    if (freeItems[i].lowPrice) {
+      freeItems[i].lowPrice.ltoTimer = freeItems[i].endTime;
+    }
+    start.setDate(start.getDate() + 1);
+    start.setUTCHours(16, 0, 0, 0);
+  }
+
+  // Update paid items for all weeks
+  if (dailyData.DailySalesByWeek) {
+    let weekStart = new Date(start); // start is now after the last free item, so recalculate
+    // Reset weekStart to the most recent Tuesday
+    weekStart = new Date(Date.UTC(
+      now.getUTCFullYear(),
+      now.getUTCMonth(),
+      now.getUTCDate() - daysSinceTuesday,
+      16, 0, 0, 0
+    ));
+
+    Object.keys(dailyData.DailySalesByWeek).forEach((weekKey, weekIdx) => {
+      let dayStart = new Date(weekStart.getTime() + weekIdx * 7 * 24 * 60 * 60 * 1000);
+      const weekArr = dailyData.DailySalesByWeek[weekKey];
+      for (let i = 0; i < weekArr.length; i++) {
+        weekArr[i].startTime = dayStart.toISOString();
+        weekArr[i].endTime = new Date(dayStart.getTime() + 24*60*60*1000).toISOString();
+        if (weekArr[i].lowPrice) {
+          weekArr[i].lowPrice.ltoTimer = weekArr[i].endTime;
+        }
+        dayStart.setDate(dayStart.getDate() + 1);
+        dayStart.setUTCHours(16, 0, 0, 0);
+      }
+    });
+  }
+
+  renderDayDropdown();
+  renderDaySlot();
+}
+
+// Export JSON
+function exportJSON() {
+  const dataStr = JSON.stringify(dailyData, null, 2);
+  const blob = new Blob([dataStr], {type: "application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'dailyitems.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function getFreeItems(db) {
+  const arr = db.items || db.DailyReplacements || [];
+  return arr.filter(item =>
+    item.lowestPurchasablePrice &&
+    item.lowestPurchasablePrice.Amount === 0 &&
+    item.highPrice &&
+    item.highPrice.originalAmount === 0
+  );
+}
+
+document.addEventListener('DOMContentLoaded', initEditor);
+window.updateDates = updateDates;
+window.exportJSON = exportJSON;
+document.getElementById('update-dates-btn').addEventListener('click', function() {
+  updateDatesToWeek();
+});
+</script>
+</body>
+</html>
