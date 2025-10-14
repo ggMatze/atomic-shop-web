@@ -362,8 +362,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         buildImageUrl(img.directory, img.imageName)
       ).filter(Boolean);
 
-      // Tile size: use tileSize property if present, otherwise fallback to old logic
-      const tileSize = item.tileSize || (idx < 3 ? "large" : "small");
+  // --- TILE SIZE LOGIC FOR NORMAL TABS ---
+  // First 3 tiles are LARGE, rest are SMALL (ignore item.tileSize override)
+  const tileSize = (idx < 3 ? "large" : "small");
+  // --- END TILE SIZE LOGIC FOR NORMAL TABS ---
       const tileClass = `shop-tile ${tileSize}`;
 
       // --- TILE HTML ---
@@ -623,7 +625,10 @@ function renderCustomDailyTab() {
       buildImageUrl(img.directory, img.imageName)
     ).filter(Boolean);
 
-    const tileSize = item.tileSize || (idx < 3 ? "large" : "small");
+  // --- TILE SIZE LOGIC FOR WEEKLY OFFERS TAB ---
+  // First 3 tiles are SMALL, rest are LARGE
+  const tileSize = item.tileSize || (idx < 3 ? "small" : "large");
+  // --- END TILE SIZE LOGIC FOR WEEKLY OFFERS TAB ---
     const tileClass = `shop-tile ${tileSize}`;
 
     let clownLabel = '';
@@ -682,7 +687,7 @@ function renderCustomDailyTab() {
         </div>
         ${dateLabel}
         <div class="tile-1st hidden">&nbsp;</div>
-        <div class="tile-footer ${tileSize}">${tileSize === 'large' ? item.itemName : item.itemNameShort}</div>
+        <div class="tile-footer ${tileSize}">${tileSize === 'small' ? item.itemName : item.itemNameShort}</div>
       </div>
     `;
 

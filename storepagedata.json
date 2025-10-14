@@ -49,7 +49,23 @@
                 "directory": "Textures/ATX/Storefront/Player/Tattoo/"
               }
             ],
-            "dynamicBundleItems": [],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Ultracite Tattoo"
+              },
+              {
+                "szItemName": "Fly Tattoo"
+              },
+              {
+                "szItemName": "Shark Tattoo"
+              },
+              {
+                "szItemName": "Skull Cherries Tattoo"
+              },
+              {
+                "szItemName": "Bomb Tattoo"
+              }
+            ],
             "lowPrice": {
               "amount": 800,
               "originalAmount": 800,
@@ -217,7 +233,10 @@
                 "directory": "Textures/ATX/Storefront/Camp/FloorDecoration/"
               }
             ],
-            "dynamicBundleItems": [],
+            "dynamicBundleItems": [
+              {"szItemName": "Ghoul Boy Cutout"},
+              {"szItemName": "Ghoul Girl Cutout"}
+            ],
             "lowPrice": {
               "amount": 500,
               "originalAmount": 500,
@@ -1476,7 +1495,7 @@
             "itemID": 2363424,
             "itemName": "Wasteland Bandit Costume",
             "itemNameShort": "Wasteland Bandit Costume",
-            "itemDesc": "Get ready to rob the Wasteland blind!\r\n\r\nIncludes: a Robber Outfit, Underarmor, Mask, and Hat.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemDesc": "Get ready to rob the Wasteland blind!\r\n\r\nIncludes: a Robber Outfit, Robber Underarmor,Robber Mask, Robber Hat.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
             "primaryImage": {
               "imageName": "atx_apparel_outfit_robber_outfit_l.webp",
               "directory": "/textures/atx/storefront/player/outfit/"
