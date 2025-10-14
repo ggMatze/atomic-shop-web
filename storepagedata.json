@@ -2673,6 +2673,48 @@
         },
         "items": [
           {
+            "itemID": 2363788,
+            "itemName": "Nuka-Cola Light-up Clock",
+            "itemNameShort": "Nuka-Cola Light-up Clock",
+            "tileSize": "large",
+            "itemDesc": "It's time for another Nuka-Cola!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "ATX_CAMP_WallDecor_NukaColaNeonClock_NukaNeonClock.dds",
+              "directory": "Textures/ATX/Storefront/Camp/WallDecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "ATX_CAMP_WallDecor_NukaColaNeonClock_NukaNeonClock_C1.dds",
+                "directory": "Textures/ATX/Storefront/Camp/WallDecoration/"
+              },
+              {
+                "imageName": "ATX_CAMP_WallDecor_NukaColaNeonClock_NukaNeonClock_C2.dds",
+                "directory": "Textures/ATX/Storefront/Camp/WallDecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": 1814304
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": false,
+              "ltoTimer": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": false,
+              "ltoTimer": 0
+            },
+            "isNew": true,
+            "isZeus": true
+          },
+          {
             "itemID": 2363733,
             "itemName": "Spooky Ghost Player Icon",
             "itemNameShort": "Spooky Ghost Icon",
@@ -2740,6 +2782,7 @@
             "itemID": 2316440,
             "itemName": "Air Guitar Pose",
             "itemNameShort": "Air Guitar",
+            "tileSize": "large",
             "itemDesc": "Just because the guitar isn't there, doesn't mean you can't rock like it is!\r\n\r\n- UNLOCKS A PHOTOMODE POSE. -\r\n\r\n",
             "primaryImage": {
               "imageName": "ATX_Photomode_Pose_AirGuitar.dds",
@@ -2885,47 +2928,7 @@
             "isNew": false,
             "isZeus": false
           },
-          {
-            "itemID": 2363788,
-            "itemName": "Nuka-Cola Light-up Clock",
-            "itemNameShort": "Nuka-Cola Light-up Clock",
-            "itemDesc": "It's time for another Nuka-Cola!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "ATX_CAMP_WallDecor_NukaColaNeonClock_NukaNeonClock.dds",
-              "directory": "Textures/ATX/Storefront/Camp/WallDecoration/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "ATX_CAMP_WallDecor_NukaColaNeonClock_NukaNeonClock_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/WallDecoration/"
-              },
-              {
-                "imageName": "ATX_CAMP_WallDecor_NukaColaNeonClock_NukaNeonClock_C2.dds",
-                "directory": "Textures/ATX/Storefront/Camp/WallDecoration/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 0,
-              "originalAmount": 0,
-              "isLto": true,
-              "ltoTimer": 1814304
-            },
-            "lowestPurchasablePrice": {
-              "amount": 0,
-              "originalAmount": 0,
-              "isLto": false,
-              "ltoTimer": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 0,
-              "isLto": false,
-              "ltoTimer": 0
-            },
-            "isNew": true,
-            "isZeus": true
-          },
+          
           {
             "itemID": 2363968,
             "itemName": "Life Above Ground Bundle",
