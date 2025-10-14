@@ -1,1241 +1,1234 @@
 {
-   "showDailyTab":true,
-   "DailySalesWeekMeta":{
-      "Week1":{
-         "hidden":false
+  "showDailyTab": true,
+  "DailySalesWeekMeta": {
+    "Week1": {
+      "hidden": true
+    },
+    "Week2": {
+      "hidden": false
+    },
+    "Week3": {
+      "hidden": false
+    },
+    "Week4": {
+      "hidden": false
+    }
+  },
+  "DailyReplacements": [
+    {
+      "replaceItemID": 2316946,
+      "itemID": 2316946,
+      "itemName": "Scrap Kit",
+      "itemNameShort": "Scrap Kit",
+      "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "atx_utility_repairkit_scraptostash_l.webp"
       },
-      "Week2":{
-         "hidden":false
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+        }
+      ],
+      "lowPrice": {
+        "ltoTimer": "2025-10-15T16:00:00.000Z",
+        "isLto": true
       },
-      "Week3":{
-         "hidden":false
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
       },
-      "Week4":{
-         "hidden":false
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-14T16:00:00.000Z",
+      "endTime": "2025-10-15T16:00:00.000Z"
+    },
+    {
+      "replaceItemID": 2316946,
+      "itemID": 2316946,
+      "itemName": "Free Carry Weight Booster",
+      "itemNameShort": "free Carry Weight",
+      "itemDesc": "Drink this and you will gain +50 Carry Weight for a half hour. \r\n\r\n- AVAILABLE FOR GOLD BULLION. UNDER THE FOOD AND DRINK TAB AND GRANTED WHEN ENTEING ADVENTURE MODE.\nSUBJECT TO PER CHARACTER MAX WEIGHT.",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "score_utility_carryweight_l.webp"
+      },
+      "carouselImages": [],
+      "lowPrice": {
+        "ltoTimer": "2025-10-16T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-15T16:00:00.000Z",
+      "endTime": "2025-10-16T16:00:00.000Z"
+    },
+    {
+      "replaceItemID": 2316946,
+      "itemID": 2316946,
+      "itemName": "Free Lunchbox",
+      "itemNameShort": "Free Lunchbox",
+      "itemDesc": "Open for you and your friends! You and those who are close by get an XP Boost and a random effect for 1 hour!",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "atx_store_lunchbox001_l.webp"
+      },
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_store_lunchbox001_l.webp"
+        }
+      ],
+      "lowPrice": {
+        "ltoTimer": "2025-10-17T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-16T16:00:00.000Z",
+      "endTime": "2025-10-17T16:00:00.000Z"
+    },
+    {
+      "replaceItemID": 2316946,
+      "itemID": 2316946,
+      "itemName": "Scrap Kit",
+      "itemNameShort": "Scrap Kit",
+      "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+      },
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+        }
+      ],
+      "lowPrice": {
+        "ltoTimer": "2025-10-18T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-17T16:00:00.000Z",
+      "endTime": "2025-10-18T16:00:00.000Z"
+    },
+    {
+      "replaceItemID": 2316946,
+      "itemID": 2316946,
+      "itemName": "Vault-Tec Supply Package (Level 2)",
+      "itemNameShort": "Vault-Tec Supply Package",
+      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "atx_utility_scrapball_level2_l.webp"
+      },
+      "carouselImages": [],
+      "lowPrice": {
+        "ltoTimer": "2025-10-19T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-18T16:00:00.000Z",
+      "endTime": "2025-10-19T16:00:00.000Z"
+    },
+    {
+      "replaceItemID": 2316946,
+      "itemID": 2316946,
+      "itemName": "Improved Bait X5",
+      "itemNameShort": "Improved Bait X5",
+      "itemDesc": "Improve your chances of hooking the big one with this Improved Bait! \r\n\r\n- CAN BE SELECTED BEFORE CASTING LINE DURING FISHING. GRANTED WHEN ENTERING ADVENTURE MODE. SUBJECT TO MAX WEIGHT.",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "score_utility_improvedbait_l.webp"
+      },
+      "carouselImages": [],
+      "lowPrice": {
+        "ltoTimer": "2025-10-20T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-19T16:00:00.000Z",
+      "endTime": "2025-10-20T16:00:00.000Z"
+    },
+    {
+      "replaceItemID": 2316946,
+      "itemID": 2316946,
+      "itemName": "Repair Kit",
+      "itemNameShort": "Repair Kit",
+      "itemDesc": "Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "atx_utility_repairkit_basic_l.webp"
+      },
+      "carouselImages": [],
+      "lowPrice": {
+        "ltoTimer": "2025-10-21T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-20T16:00:00.000Z",
+      "endTime": "2025-10-21T16:00:00.000Z"
+    }
+  ],
+  "DailySalesByWeek": {
+    "Week1": [
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day01",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Swiss Flower Cart",
+        "itemNameShort": "Flower Cart",
+        "itemDesc": "Showcase a variety of plants from the Wasteland with your very own Swiss Flower Cart! \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_floordecor_swissflowercart.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_floordecor_swissflowercart_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_camp_floordecor_swissflowercart_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-08T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-10-07T16:00:00.000Z",
+        "endTime": "2025-10-08T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day02",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Honeyycomb Paper Lamp Halloween Set",
+        "itemNameShort": "Honeyycomb Paper Lamp Set",
+        "itemDesc": "Setup some spooky papercraft lighting in your C.A.M.P. with this collection of Honeycomb Paper Lamps! \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_lights_ceiling_honeycombpaper_l.webp",
+          "directory": "textures/atx/storefront/camp/lights/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_lights_ceiling_honeycombpaperjackolantern_l.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx_entm_camp_lights_ceiling_honeycombpaperjackolantern_c1.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx_entm_camp_lights_ceiling_honeycombpaperghostlamp_l.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx_entm_camp_lights_ceiling_honeycombpaperghostlamp_c1.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx_entm_camp_lights_ceiling_honeycombpaperspiderlamp_l.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx_entm_camp_lights_ceiling_honeycombpaperspiderlamp_c1.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-09T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-10-08T16:00:00.000Z",
+        "endTime": "2025-10-09T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day03",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Tactical Paint (Pump-Action Shotgun)",
+        "itemNameShort": "Tactical Paint",
+        "itemDesc": "Accentuate the tactical nature of the Pump Action Shotgun with the Tactical Paint!\r\n\r\n- Weapon skin is craftable at Weapon Workbenches. -",
+        "primaryImage": {
+          "imageName": "atx_skin_weaponskin_pumpactionshotgun_tactical_l.webp",
+          "directory": "textures/atx/storefront/player/weaponskin/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_skin_weaponskin_pumpactionshotgun_tactical_c1.webp",
+            "directory": "textures/atx/storefront/player/weaponskin/"
+          },
+          {
+            "imageName": "atx_skin_weaponskin_pumpactionshotgun_tactical_c2.webp",
+            "directory": "textures/atx/storefront/player/weaponskin/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-10T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 400
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-09T16:00:00.000Z",
+        "endTime": "2025-10-10T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day04",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Gravestone Loot Bag",
+        "itemNameShort": "Gravestone Loot Bag",
+        "itemDesc": "Mark your final resting place, or where you left your extra scrap.\r\n\r\n- UNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS. -",
+        "primaryImage": {
+          "imageName": "atx_skin_lootbag_gravestone_l.webp",
+          "directory": "textures/atx/storefront/player/lootbags/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_skin_lootbag_gravestone_c1.webp",
+            "directory": "textures/atx/storefront/player/lootbags/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-11T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 400
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-10T16:00:00.000Z",
+        "endTime": "2025-10-11T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day05",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Coffin Backpack",
+        "itemNameShort": "Coffin Backpack",
+        "itemDesc": "Whether it is a corpse or a loose screw, the Coffin Backpack works for all your storage needs.\nThis skin can be applied to both the Small and Standard Backpack as a mod.\r\n\r\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+        "primaryImage": {
+          "imageName": "atx_skin_backpack_coffin_l.webp",
+          "directory": "textures/atx/storefront/player/backpack/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_skin_backpack_coffin_c1.webp",
+            "directory": "textures/atx/storefront/player/backpack/"
+          },
+          {
+            "imageName": "atx_skin_backpack_coffin_c2.webp",
+            "directory": "textures/atx/storefront/player/backpack/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-12T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 300
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-11T16:00:00.000Z",
+        "endTime": "2025-10-12T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day06",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Enclave Power Armor Station",
+        "itemNameShort": "Enclave Power Armor Station",
+        "itemDesc": "Upgrade your Power Armor with this Enclave Power Armor Station.\nRequires the Power Armor Station Plan to be learned. \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_machinery_workbench_powerarmor_enclave_l.webp",
+          "directory": "textures/atx/storefront/camp/machinery/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_machinery_workbench_powerarmor_enclave_c1.webp",
+            "directory": "textures/atx/storefront/camp/machinery/"
+          },
+          {
+            "imageName": "atx_camp_machinery_workbench_powerarmor_enclave_c2.webp",
+            "directory": "textures/atx/storefront/camp/machinery/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-13T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-12T16:00:00.000Z",
+        "endTime": "2025-10-13T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day07",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Zorbo Power Armor Paint Set",
+        "itemNameShort": "Zorbo Power Armor Paint Set",
+        "itemDesc": "A patentend Zorbo invention for destruction!\r\n\r\n- DISCLAIMER - Power Armor Paints are craftable at Power Armor Stations. -",
+        "primaryImage": {
+          "imageName": "score_s7_skin_powerarmor_paint_t65_zorbo_l.webp",
+          "directory": "textures/atx/storefront/player/powerarmor/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "score_s7_skin_powerarmor_paint_x01_zorbo_l.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          },
+          {
+            "imageName": "score_s7_skin_powerarmor_paint_ultracite_zorbo_l.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          },
+          {
+            "imageName": "score_s7_skin_powerarmor_paint_excavator_zorbo_l.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          },
+          {
+            "imageName": "score_s7_skin_powerarmor_paint_t45_zorbo_l.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          },
+          {
+            "imageName": "score_s7_skin_powerarmor_paint_t60_zorbo_l.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          },
+          {
+            "imageName": "score_s7_skin_powerarmor_paint_t51_zorbo_l.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-14T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 600
+        },
+        "highPrice": {
+          "originalAmount": 1200
+        },
+        "startTime": "2025-10-13T16:00:00.000Z",
+        "endTime": "2025-10-14T16:00:00.000Z"
       }
-   },
-   "DailyReplacements":[
+    ],
+    "Week2": [
       {
-         "replaceItemID":2316946,
-         "itemID":2316946,
-         "itemName":"Caps x250",
-         "itemNameShort":"Caps x250",
-         "itemDesc":"Some caps to use in Appalachia!",
-         "primaryImage":{
-            "directory":"textures/atx/storefront/utility/",
-            "imageName":"score_currency_caps_l.webp"
-         },
-         "carouselImages":[
-            
-         ],
-         "lowPrice":{
-            "ltoTimer":"2025-10-08T16:00:00.000Z",
-            "isLto":true
-         },
-         "lowestPurchasablePrice":{
-            "Amount":0,
-            "ltoTimer":1813682
-         },
-         "highPrice":{
-            "originalAmount":0
-         },
-         "startTime":"2025-10-07T16:00:00.000Z",
-         "endTime":"2025-10-08T16:00:00.000Z"
+        "replaceItemID": 2316440,
+        "itemID": "day08",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Air Guitar Pose",
+        "itemNameShort": "Air Guitar Pose",
+        "itemDesc": "Just because the guitar isn't there, doesn't mean you can't rock like it is!\r\n\r\n- UNLOCKS A PHOTOMODE POSE. -",
+        "primaryImage": {
+          "imageName": "atx_photomode_pose_airguitar_l.webp",
+          "directory": "textures/atx/storefront/player/photopose/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_photomode_pose_airguitar_c1.webp",
+            "directory": "textures/atx/storefront/player/photopose/"
+          },
+          {
+            "imageName": "atx_photomode_pose_airguitar_c2.webp",
+            "directory": "textures/atx/storefront/player/photopose/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-15T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 200
+        },
+        "highPrice": {
+          "originalAmount": 400
+        },
+        "startTime": "2025-10-14T16:00:00.000Z",
+        "endTime": "2025-10-15T16:00:00.000Z"
       },
       {
-         "replaceItemID":2316946,
-         "itemID":2316946,
-         "itemName":"Free Carry Weight Booster",
-         "itemNameShort":"free Carry Weight",
-         "itemDesc":"Drink this and you will gain +50 Carry Weight for a half hour. \r\n\r\n- AVAILABLE FOR GOLD BULLION. UNDER THE FOOD AND DRINK TAB AND GRANTED WHEN ENTEING ADVENTURE MODE.\nSUBJECT TO PER CHARACTER MAX WEIGHT.",
-         "primaryImage":{
-            "directory":"textures/atx/storefront/utility/",
-            "imageName":"score_utility_carryweight_l.webp"
-         },
-         "carouselImages":[
-            
-         ],
-         "lowPrice":{
-            "ltoTimer":"2025-10-09T16:00:00.000Z",
-            "isLto":true
-         },
-         "lowestPurchasablePrice":{
-            "Amount":0,
-            "ltoTimer":1813682
-         },
-         "highPrice":{
-            "originalAmount":0
-         },
-         "startTime":"2025-10-08T16:00:00.000Z",
-         "endTime":"2025-10-09T16:00:00.000Z"
+        "replaceItemID": 2316440,
+        "itemID": "day09",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Pegasus Weapons Workbench",
+        "itemNameShort": "Pegasus Weapons Workbench",
+        "itemDesc": "Whether it's cars or weapons, take flight with the Pegasus Weapons Workbench!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_machinery_workbench_weapon_pegasus.webp",
+          "directory": "textures/atx/storefront/camp/machinery/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_machinery_workbench_weapon_pegasus_c1.webp",
+            "directory": "textures/atx/storefront/camp/machinery/"
+          },
+          {
+            "imageName": "atx_camp_machinery_workbench_weapon_pegasus_c2.webp",
+            "directory": "textures/atx/storefront/camp/machinery/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-16T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-15T16:00:00.000Z",
+        "endTime": "2025-10-16T16:00:00.000Z"
       },
       {
-         "replaceItemID":2316946,
-         "itemID":2316946,
-         "itemName":"Free Lunchbox",
-         "itemNameShort":"Free Lunchbox",
-         "itemDesc":"Open for you and your friends! You and those who are close by get an XP Boost and a random effect for 1 hour!",
-         "primaryImage":{
-            "directory":"textures/atx/storefront/utility/",
-            "imageName":"atx_store_lunchbox001_l.webp"
-         },
-         "carouselImages":[
-            {
-               "directory":"textures/atx/storefront/utility/",
-               "imageName":"atx_store_lunchbox001_l.webp"
-            }
-         ],
-         "lowPrice":{
-            "ltoTimer":"2025-10-10T16:00:00.000Z",
-            "isLto":true
-         },
-         "lowestPurchasablePrice":{
-            "Amount":0,
-            "ltoTimer":1813682
-         },
-         "highPrice":{
-            "originalAmount":0
-         },
-         "startTime":"2025-10-09T16:00:00.000Z",
-         "endTime":"2025-10-10T16:00:00.000Z"
+        "replaceItemID": 2316440,
+        "itemID": "day10",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Camouflage Hunting Rifle Paint",
+        "itemNameShort": "Camouflage Paint",
+        "itemDesc": "For the time when you want literally everything in Camouflage patterns.\r\n\r\n- Weapon skin is craftable at Weapon Workbenches. -",
+        "primaryImage": {
+          "imageName": "atx_skin_weaponskin_huntingrifle_camo_l.webp",
+          "directory": "textures/atx/storefront/player/weaponskin/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_skin_weaponskin_huntingrifle_camo_c1.webp",
+            "directory": "textures/atx/storefront/player/weaponskin/"
+          },
+          {
+            "imageName": "atx_skin_weaponskin_huntingrifle_camo_c2.webp",
+            "directory": "textures/atx/storefront/player/weaponskin/"
+          },
+          {
+            "imageName": "atx_skin_weaponskin_huntingrifle_camo_c3.webp",
+            "directory": "textures/atx/storefront/player/weaponskin/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-17T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 400
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-16T16:00:00.000Z",
+        "endTime": "2025-10-17T16:00:00.000Z"
       },
       {
-         "replaceItemID":2316946,
-         "itemID":2316946,
-         "itemName":"Scrap Kit",
-         "itemNameShort":"Scrap Kit",
-         "itemDesc":"When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
-         "primaryImage":{
-            "directory":"textures/atx/storefront/utility/",
-            "imageName":"atx_utility_repairkit_scraptostash_l.webp"
-         },
-         "carouselImages":[
-            {
-               "directory":"textures/atx/storefront/utility/",
-               "imageName":"atx_utility_repairkit_scraptostash_l.webp"
-            }
-         ],
-         "lowPrice":{
-            "ltoTimer":"2025-10-11T16:00:00.000Z",
-            "isLto":true
-         },
-         "lowestPurchasablePrice":{
-            "Amount":0,
-            "ltoTimer":1813682
-         },
-         "highPrice":{
-            "originalAmount":0
-         },
-         "startTime":"2025-10-10T16:00:00.000Z",
-         "endTime":"2025-10-11T16:00:00.000Z"
+        "replaceItemID": 2316440,
+        "itemID": "day11",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Union Backpack",
+        "itemNameShort": "Union Backpack",
+        "itemDesc": "Pack up and get ready for another expedition with the Pitt Union Backpack!\r\n\r\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+        "primaryImage": {
+          "imageName": "atx_skin_backpack_union.webp",
+          "directory": "textures/atx/storefront/player/backpack/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_skin_backpack_union_c1.webp",
+            "directory": "textures/atx/storefront/player/backpack/"
+          },
+          {
+            "imageName": "atx_skin_backpack_union_c2.webp",
+            "directory": "textures/atx/storefront/player/backpack/"
+          },
+          {
+            "imageName": "atx_skin_backpack_union_c3.webp",
+            "directory": "textures/atx/storefront/player/backpack/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-18T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 400
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-17T16:00:00.000Z",
+        "endTime": "2025-10-18T16:00:00.000Z"
       },
       {
-         "replaceItemID":2316946,
-         "itemID":2316946,
-         "itemName":"Vault-Tec Supply Package (Level 2)",
-         "itemNameShort":"Vault-Tec Supply Package",
-         "itemDesc":"A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
-         "primaryImage":{
-            "directory":"textures/atx/storefront/utility/",
-            "imageName":"atx_utility_scrapball_level2_l.webp"
-         },
-         "carouselImages":[
-            
-         ],
-         "lowPrice":{
-            "ltoTimer":"2025-10-12T16:00:00.000Z",
-            "isLto":true
-         },
-         "lowestPurchasablePrice":{
-            "Amount":0,
-            "ltoTimer":1813682
-         },
-         "highPrice":{
-            "originalAmount":0
-         },
-         "startTime":"2025-10-11T16:00:00.000Z",
-         "endTime":"2025-10-12T16:00:00.000Z"
+        "replaceItemID": 2316440,
+        "itemID": "day12",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Western Duster Outfit",
+        "itemNameShort": "Western Duster",
+        "itemDesc": "Another settlement needs our help. I hope you can get to them quickly.\nWe need to show people that the Minutemen are back.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+        "primaryImage": {
+          "imageName": "atx_apparel_outfit_western_05_duster_l.webp",
+          "directory": "textures/atx/storefront/player/outfit/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_apparel_outfit_western_05_duster_c1.webp",
+            "directory": "textures/atx/storefront/player/outfit/"
+          },
+          {
+            "imageName": "atx_apparel_outfit_western_05_duster_c2.webp",
+            "directory": "textures/atx/storefront/player/outfit/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-19T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 300
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-18T16:00:00.000Z",
+        "endTime": "2025-10-19T16:00:00.000Z"
       },
       {
-         "replaceItemID":2316946,
-         "itemID":2316946,
-         "itemName":"Improved Bait X5",
-         "itemNameShort":"Improved Bait X5",
-         "itemDesc":"Improve your chances of hooking the big one with this Improved Bait! \r\n\r\n- CAN BE SELECTED BEFORE CASTING LINE DURING FISHING. GRANTED WHEN ENTERING ADVENTURE MODE. SUBJECT TO MAX WEIGHT.",
-         "primaryImage":{
-            "directory":"textures/atx/storefront/utility/",
-            "imageName":"score_utility_improvedbait_l.webp"
-         },
-         "carouselImages":[
-            
-         ],
-         "lowPrice":{
-            "ltoTimer":"2025-10-13T16:00:00.000Z",
-            "isLto":true
-         },
-         "lowestPurchasablePrice":{
-            "Amount":0,
-            "ltoTimer":1813682
-         },
-         "highPrice":{
-            "originalAmount":0
-         },
-         "startTime":"2025-10-12T16:00:00.000Z",
-         "endTime":"2025-10-13T16:00:00.000Z"
+        "replaceItemID": 2316440,
+        "itemID": "day13",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Animatronic Black Cat",
+        "itemNameShort": "Animatronic Black Cat",
+        "itemDesc": "Psss psss psss here nice kitty; don't blow up....\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_floordecor_animatronicblackcat_l.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_floordecor_animatronicblackcat_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_camp_floordecor_animatronicblackcat_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-20T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-19T16:00:00.000Z",
+        "endTime": "2025-10-20T16:00:00.000Z"
       },
       {
-         "replaceItemID":2316946,
-         "itemID":2316946,
-         "itemName":"Repair Kit",
-         "itemNameShort":"Repair Kit",
-         "itemDesc":"Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
-         "primaryImage":{
-            "directory":"textures/atx/storefront/utility/",
-            "imageName":"atx_utility_repairkit_basic_l.webp"
-         },
-         "carouselImages":[
-            
-         ],
-         "lowPrice":{
-            "ltoTimer":"2025-10-14T16:00:00.000Z",
-            "isLto":true
-         },
-         "lowestPurchasablePrice":{
-            "Amount":0,
-            "ltoTimer":1813682
-         },
-         "highPrice":{
-            "originalAmount":0
-         },
-         "startTime":"2025-10-13T16:00:00.000Z",
-         "endTime":"2025-10-14T16:00:00.000Z"
+        "replaceItemID": 2316440,
+        "itemID": "day14",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Free States Junkyard Power Armor Paint",
+        "itemNameShort": "Free States Junkyard Paint",
+        "itemDesc": "It is your right to gather random scraps of metal and weld them together to create military grade protection for yourself.\r\n\r\n- Power Armor Paint is craftable at Power Armor Stations. -",
+        "primaryImage": {
+          "imageName": "atx_skin_powerarmor_paint_junkyard_freestates_l.webp",
+          "directory": "textures/atx/storefront/player/powerarmor/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_skin_powerarmor_paint_junkyard_freestates_c1.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-21T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 600
+        },
+        "highPrice": {
+          "originalAmount": 1200
+        },
+        "startTime": "2025-10-20T16:00:00.000Z",
+        "endTime": "2025-10-21T16:00:00.000Z"
       }
-   ],
-   "DailySalesByWeek":{
-      "Week1":[
-         {
-            "replaceItemID":2316440,
-            "itemID":"day01",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Swiss Flower Cart",
-            "itemNameShort":"Flower Cart",
-            "itemDesc":"Showcase a variety of plants from the Wasteland with your very own Swiss Flower Cart! \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage":{
-               "imageName":"atx_camp_floordecor_swissflowercart.webp",
-               "directory":"textures/atx/storefront/camp/floordecoration/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_camp_floordecor_swissflowercart_c1.webp",
-                  "directory":"textures/atx/storefront/camp/floordecoration/"
-               },
-               {
-                  "imageName":"atx_camp_floordecor_swissflowercart_c2.webp",
-                  "directory":"textures/atx/storefront/camp/floordecoration/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-08T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":125
-            },
-            "highPrice":{
-               "originalAmount":250
-            },
-            "startTime":"2025-10-07T16:00:00.000Z",
-            "endTime":"2025-10-08T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day02",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Honeyycomb Paper Lamp Halloween Set",
-            "itemNameShort":"Honeyycomb Paper Lamp Set",
-            "itemDesc":"Setup some spooky papercraft lighting in your C.A.M.P. with this collection of Honeycomb Paper Lamps! \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage":{
-               "imageName":"atx_entm_camp_lights_ceiling_honeycombpaper_l.webp",
-               "directory":"textures/atx/storefront/camp/lights/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_entm_camp_lights_ceiling_honeycombpaperjackolantern_l.webp",
-                  "directory":"textures/atx/storefront/camp/lights/"
-               },
-               {
-                  "imageName":"atx_entm_camp_lights_ceiling_honeycombpaperjackolantern_c1.webp",
-                  "directory":"textures/atx/storefront/camp/lights/"
-               },
-               {
-                  "imageName":"atx_entm_camp_lights_ceiling_honeycombpaperghostlamp_l.webp",
-                  "directory":"textures/atx/storefront/camp/lights/"
-               },
-               {
-                  "imageName":"atx_entm_camp_lights_ceiling_honeycombpaperghostlamp_c1.webp",
-                  "directory":"textures/atx/storefront/camp/lights/"
-               },
-               {
-                  "imageName":"atx_entm_camp_lights_ceiling_honeycombpaperspiderlamp_l.webp",
-                  "directory":"textures/atx/storefront/camp/lights/"
-               },
-               {
-                  "imageName":"atx_entm_camp_lights_ceiling_honeycombpaperspiderlamp_c1.webp",
-                  "directory":"textures/atx/storefront/camp/lights/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-09T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":125
-            },
-            "highPrice":{
-               "originalAmount":250
-            },
-            "startTime":"2025-10-08T16:00:00.000Z",
-            "endTime":"2025-10-09T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day03",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Tactical Paint (Pump-Action Shotgun)",
-            "itemNameShort":"Tactical Paint",
-            "itemDesc":"Accentuate the tactical nature of the Pump Action Shotgun with the Tactical Paint!\r\n\r\n- Weapon skin is craftable at Weapon Workbenches. -",
-            "primaryImage":{
-               "imageName":"atx_skin_weaponskin_pumpactionshotgun_tactical_l.webp",
-               "directory":"textures/atx/storefront/player/weaponskin/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_skin_weaponskin_pumpactionshotgun_tactical_c1.webp",
-                  "directory":"textures/atx/storefront/player/weaponskin/"
-               },
-               {
-                  "imageName":"atx_skin_weaponskin_pumpactionshotgun_tactical_c2.webp",
-                  "directory":"textures/atx/storefront/player/weaponskin/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-10T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":400
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-09T16:00:00.000Z",
-            "endTime":"2025-10-10T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day04",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Gravestone Loot Bag",
-            "itemNameShort":"Gravestone Loot Bag",
-            "itemDesc":"Mark your final resting place, or where you left your extra scrap.\r\n\r\n- UNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS. -",
-            "primaryImage":{
-               "imageName":"atx_skin_lootbag_gravestone_l.webp",
-               "directory":"textures/atx/storefront/player/lootbags/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_skin_lootbag_gravestone_c1.webp",
-                  "directory":"textures/atx/storefront/player/lootbags/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-11T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":400
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-10T16:00:00.000Z",
-            "endTime":"2025-10-11T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day05",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Coffin Backpack",
-            "itemNameShort":"Coffin Backpack",
-            "itemDesc":"Whether it is a corpse or a loose screw, the Coffin Backpack works for all your storage needs.\nThis skin can be applied to both the Small and Standard Backpack as a mod.\r\n\r\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage":{
-               "imageName":"atx_skin_backpack_coffin_l.webp",
-               "directory":"textures/atx/storefront/player/backpack/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_skin_backpack_coffin_c1.webp",
-                  "directory":"textures/atx/storefront/player/backpack/"
-               },
-               {
-                  "imageName":"atx_skin_backpack_coffin_c2.webp",
-                  "directory":"textures/atx/storefront/player/backpack/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-12T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":300
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-11T16:00:00.000Z",
-            "endTime":"2025-10-12T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day06",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Enclave Power Armor Station",
-            "itemNameShort":"Enclave Power Armor Station",
-            "itemDesc":"Upgrade your Power Armor with this Enclave Power Armor Station.\nRequires the Power Armor Station Plan to be learned. \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage":{
-               "imageName":"atx_camp_machinery_workbench_powerarmor_enclave_l.webp",
-               "directory":"textures/atx/storefront/camp/machinery/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_camp_machinery_workbench_powerarmor_enclave_c1.webp",
-                  "directory":"textures/atx/storefront/camp/machinery/"
-               },
-               {
-                  "imageName":"atx_camp_machinery_workbench_powerarmor_enclave_c2.webp",
-                  "directory":"textures/atx/storefront/camp/machinery/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-13T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":250
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-12T16:00:00.000Z",
-            "endTime":"2025-10-13T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day07",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Zorbo Power Armor Paint Set",
-            "itemNameShort":"Zorbo Power Armor Paint Set",
-            "itemDesc":"A patentend Zorbo invention for destruction!\r\n\r\n- DISCLAIMER - Power Armor Paints are craftable at Power Armor Stations. -",
-            "primaryImage":{
-               "imageName":"score_s7_skin_powerarmor_paint_t65_zorbo_l.webp",
-               "directory":"textures/atx/storefront/player/powerarmor/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"score_s7_skin_powerarmor_paint_x01_zorbo_l.webp",
-                  "directory":"textures/atx/storefront/player/powerarmor/"
-               },
-               {
-                  "imageName":"score_s7_skin_powerarmor_paint_ultracite_zorbo_l.webp",
-                  "directory":"textures/atx/storefront/player/powerarmor/"
-               },
-               {
-                  "imageName":"score_s7_skin_powerarmor_paint_excavator_zorbo_l.webp",
-                  "directory":"textures/atx/storefront/player/powerarmor/"
-               },
-               {
-                  "imageName":"score_s7_skin_powerarmor_paint_t45_zorbo_l.webp",
-                  "directory":"textures/atx/storefront/player/powerarmor/"
-               },
-               {
-                  "imageName":"score_s7_skin_powerarmor_paint_t60_zorbo_l.webp",
-                  "directory":"textures/atx/storefront/player/powerarmor/"
-               },
-               {
-                  "imageName":"score_s7_skin_powerarmor_paint_t51_zorbo_l.webp",
-                  "directory":"textures/atx/storefront/player/powerarmor/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-14T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":600
-            },
-            "highPrice":{
-               "originalAmount":1200
-            },
-            "startTime":"2025-10-13T16:00:00.000Z",
-            "endTime":"2025-10-14T16:00:00.000Z"
-         }
-      ],
-      "Week2":[
-         {
-            "replaceItemID":2316440,
-            "itemID":"day08",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Air Guitar Pose",
-            "itemNameShort":"Air Guitar Pose",
-            "itemDesc":"Just because the guitar isn't there, doesn't mean you can't rock like it is!\r\n\r\n- UNLOCKS A PHOTOMODE POSE. -",
-            "primaryImage":{
-               "imageName":"atx_photomode_pose_airguitar_l.webp",
-               "directory":"textures/atx/storefront/player/photopose/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_photomode_pose_airguitar_c1.webp",
-                  "directory":"textures/atx/storefront/player/photopose/"
-               },
-               {
-                  "imageName":"atx_photomode_pose_airguitar_c2.webp",
-                  "directory":"textures/atx/storefront/player/photopose/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-15T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":200
-            },
-            "highPrice":{
-               "originalAmount":400
-            },
-            "startTime":"2025-10-14T16:00:00.000Z",
-            "endTime":"2025-10-15T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day09",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Pegasus Weapons Workbench",
-            "itemNameShort":"Pegasus Weapons Workbench",
-            "itemDesc":"Whether it's cars or weapons, take flight with the Pegasus Weapons Workbench!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage":{
-               "imageName":"atx_camp_machinery_workbench_weapon_pegasus.webp",
-               "directory":"textures/atx/storefront/camp/machinery/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_camp_machinery_workbench_weapon_pegasus_c1.webp",
-                  "directory":"textures/atx/storefront/camp/machinery/"
-               },
-               {
-                  "imageName":"atx_camp_machinery_workbench_weapon_pegasus_c2.webp",
-                  "directory":"textures/atx/storefront/camp/machinery/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-16T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":250
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-15T16:00:00.000Z",
-            "endTime":"2025-10-16T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day10",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Camouflage Hunting Rifle Paint",
-            "itemNameShort":"Camouflage Paint",
-            "itemDesc":"For the time when you want literally everything in Camouflage patterns.\r\n\r\n- Weapon skin is craftable at Weapon Workbenches. -",
-            "primaryImage":{
-               "imageName":"atx_skin_weaponskin_huntingrifle_camo_l.webp",
-               "directory":"textures/atx/storefront/player/weaponskin/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_skin_weaponskin_huntingrifle_camo_c1.webp",
-                  "directory":"textures/atx/storefront/player/weaponskin/"
-               },
-               {
-                  "imageName":"atx_skin_weaponskin_huntingrifle_camo_c2.webp",
-                  "directory":"textures/atx/storefront/player/weaponskin/"
-               },
-               {
-                  "imageName":"atx_skin_weaponskin_huntingrifle_camo_c3.webp",
-                  "directory":"textures/atx/storefront/player/weaponskin/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-17T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":400
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-16T16:00:00.000Z",
-            "endTime":"2025-10-17T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day11",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Union Backpack",
-            "itemNameShort":"Union Backpack",
-            "itemDesc":"Pack up and get ready for another expedition with the Pitt Union Backpack!\r\n\r\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage":{
-               "imageName":"atx_skin_backpack_union.webp",
-               "directory":"textures/atx/storefront/player/backpack/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_skin_backpack_union_c1.webp",
-                  "directory":"textures/atx/storefront/player/backpack/"
-               },
-               {
-                  "imageName":"atx_skin_backpack_union_c2.webp",
-                  "directory":"textures/atx/storefront/player/backpack/"
-               },
-               {
-                  "imageName":"atx_skin_backpack_union_c3.webp",
-                  "directory":"textures/atx/storefront/player/backpack/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-18T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":400
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-17T16:00:00.000Z",
-            "endTime":"2025-10-18T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day12",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Western Duster Outfit",
-            "itemNameShort":"Western Duster",
-            "itemDesc":"Another settlement needs our help. I hope you can get to them quickly.\nWe need to show people that the Minutemen are back.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage":{
-               "imageName":"atx_apparel_outfit_western_05_duster_l.webp",
-               "directory":"textures/atx/storefront/player/outfit/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_apparel_outfit_western_05_duster_c1.webp",
-                  "directory":"textures/atx/storefront/player/outfit/"
-               },
-               {
-                  "imageName":"atx_apparel_outfit_western_05_duster_c2.webp",
-                  "directory":"textures/atx/storefront/player/outfit/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-19T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":300
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-18T16:00:00.000Z",
-            "endTime":"2025-10-19T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day13",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Animatronic Black Cat",
-            "itemNameShort":"Animatronic Black Cat",
-            "itemDesc":"Psss psss psss here nice kitty; don't blow up....\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage":{
-               "imageName":"atx_camp_floordecor_animatronicblackcat_l.webp",
-               "directory":"textures/atx/storefront/camp/floordecoration/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_camp_floordecor_animatronicblackcat_c1.webp",
-                  "directory":"textures/atx/storefront/camp/floordecoration/"
-               },
-               {
-                  "imageName":"atx_camp_floordecor_animatronicblackcat_c2.webp",
-                  "directory":"textures/atx/storefront/camp/floordecoration/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-20T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":250
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-19T16:00:00.000Z",
-            "endTime":"2025-10-20T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day14",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Free States Junkyard Power Armor Paint",
-            "itemNameShort":"Free States Junkyard Paint",
-            "itemDesc":"It is your right to gather random scraps of metal and weld them together to create military grade protection for yourself.\r\n\r\n- Power Armor Paint is craftable at Power Armor Stations. -",
-            "primaryImage":{
-               "imageName":"atx_skin_powerarmor_paint_junkyard_freestates_l.webp",
-               "directory":"textures/atx/storefront/player/powerarmor/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_skin_powerarmor_paint_junkyard_freestates_c1.webp",
-                  "directory":"textures/atx/storefront/player/powerarmor/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-21T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":600
-            },
-            "highPrice":{
-               "originalAmount":1200
-            },
-            "startTime":"2025-10-20T16:00:00.000Z",
-            "endTime":"2025-10-21T16:00:00.000Z"
-         }
-      ],
-      "Week3":[
-         {
-            "replaceItemID":2316440,
-            "itemID":"day15",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Victory Pose",
-            "itemNameShort":"Victory Pose",
-            "itemDesc":"\"V\" is for \"Victory\". Be a true winner in your photos with this Pose.\r\n\r\n- UNLOCKS A PHOTOMODE POSE. -",
-            "primaryImage":{
-               "imageName":"atx_photomode_pose_victory_l.webp",
-               "directory":"textures/atx/storefront/player/photopose/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_photomode_pose_victory_c1.webp",
-                  "directory":"textures/atx/storefront/player/photopose/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-22T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":125
-            },
-            "highPrice":{
-               "originalAmount":250
-            },
-            "startTime":"2025-10-21T16:00:00.000Z",
-            "endTime":"2025-10-22T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day16",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Vault-tec Camping Canopies",
-            "itemNameShort":"Vault-tec Canopies",
-            "itemDesc":"Set up a shady spot in your C.A.M.P. with these Vault-tec Camping Canopies!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage":{
-               "imageName":"atx_camp_structure_campingcanopy_vaulttec02_l.webp",
-               "directory":"textures/atx/storefront/camp/structures/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_camp_structure_campingcanopy_vaulttec02_c1.webp",
-                  "directory":"textures/atx/storefront/camp/structures/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-23T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":250
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-22T16:00:00.000Z",
-            "endTime":"2025-10-23T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day17",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Tropic Lightning Camo Skin (Handmade Rifle)",
-            "itemNameShort":"Tropic Lightning Camo",
-            "itemDesc":"Prepare for covert battle with the Tropic Lightning Camo Skin for the Handmade Rifle.\r\n\r\n- Weapon skin is craftable at Weapon Workbenches. -",
-            "primaryImage":{
-               "imageName":"atx_skin_weaponmodel_handmadegun_tropiclightning_camo_l.webp",
-               "directory":"textures/atx/storefront/player/weaponmodel/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_skin_weaponmodel_handmadegun_tropiclightning_camo_c1.webp",
-                  "directory":"textures/atx/storefront/player/weaponmodel/"
-               },
-               {
-                  "imageName":"atx_skin_weaponmodel_handmadegun_tropiclightning_camo_c2.webp",
-                  "directory":"textures/atx/storefront/player/weaponmodel/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-24T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":250
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-23T16:00:00.000Z",
-            "endTime":"2025-10-24T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day18",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Deathclaw Mascot Helmet",
-            "itemNameShort":"Deathclaw Helmet",
-            "itemDesc":"Become the ultimate fan of the Wasteland's most fearsome creature with the Deathclaw Mascot Helmet!\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage":{
-               "imageName":"atx_apparel_headwear_deathclawmascot_l.webp",
-               "directory":"textures/atx/storefront/player/headwear/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_apparel_headwear_deathclawmascot_c1.webp",
-                  "directory":"textures/atx/storefront/player/headwear/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-25T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":250
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-24T16:00:00.000Z",
-            "endTime":"2025-10-25T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day19",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Surplus Sack Backpack",
-            "itemNameShort":"Surplus Sack Backpack",
-            "itemDesc":"Carry all your extra gear in this rugged Surplus Sack Backpack.\r\n\r\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage":{
-               "imageName":"atx_entm_skin_backpack_surplussack_l.webp",
-               "directory":"textures/atx/storefront/player/backpack/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_entm_skin_backpack_surplussack_c1.webp",
-                  "directory":"textures/atx/storefront/player/backpack/"
-               },
-               {
-                  "imageName":"atx_entm_skin_backpack_surplussack_c2.webp",
-                  "directory":"textures/atx/storefront/player/backpack/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-26T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":250
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-25T16:00:00.000Z",
-            "endTime":"2025-10-26T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day20",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Giant Dinosaur",
-            "itemNameShort":"Giant Dinosaur",
-            "itemDesc":"Make a prehistoric statement in your C.A.M.P. with this Giant Dinosaur Floor Decoration!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage":{
-               "imageName":"atx_entm_camp_floordecor_giantdinosaur_l.webp",
-               "directory":"textures/atx/storefront/camp/floordecoration/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_entm_camp_floordecor_giantdinosaur_c1.webp",
-                  "directory":"textures/atx/storefront/camp/floordecoration/"
-               },
-               {
-                  "imageName":"atx_entm_camp_floordecor_giantdinosaur_c2.webp",
-                  "directory":"textures/atx/storefront/camp/floordecoration/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-27T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":250
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-26T16:00:00.000Z",
-            "endTime":"2025-10-27T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day21",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Park Ranger Power Armor Skin",
-            "itemNameShort":"Park Ranger Skin",
-            "itemDesc":"Admire, preserve, and do battle with the local wildlife in this Park Ranger Power Armor skin.\r\n\r\n- Power Armor Skin is craftable at Power Armor Stations. -",
-            "primaryImage":{
-               "imageName":"atx_skin_powerarmor_paint_parkranger.webp",
-               "directory":"textures/atx/storefront/player/powerarmor/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_skin_powerarmor_paint_parkranger_c1.webp",
-                  "directory":"textures/atx/storefront/player/powerarmor/"
-               },
-               {
-                  "imageName":"atx_skin_powerarmor_paint_parkranger_c2.webp",
-                  "directory":"textures/atx/storefront/player/powerarmor/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-28T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":600
-            },
-            "highPrice":{
-               "originalAmount":1200
-            },
-            "startTime":"2025-10-27T16:00:00.000Z",
-            "endTime":"2025-10-28T16:00:00.000Z"
-         }
-      ],
-      "Week4":[
-         {
-            "replaceItemID":2316440,
-            "itemID":"day22",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Free States Salute Emote",
-            "itemNameShort":"Free States Salute",
-            "itemDesc":"Acknowledge the hard work done by the rest of the members of the Free States with this faction salute.\r\n\r\n- UNLOCKS AN EMOTE. -",
-            "primaryImage":{
-               "imageName":"atx_emotes_freestates_salute_l.webp",
-               "directory":"textures/atx/storefront/player/emotes/"
-            },
-            "carouselImages":[
-               
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-29T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":250
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-28T16:00:00.000Z",
-            "endTime":"2025-10-29T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day23",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Brotherhood High Tech Stash Box",
-            "itemNameShort":"Brotherhood High Tech Stash Box",
-            "itemDesc":"Secure your tech with the Brotherhood of Steel High Tech Stash Box.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage":{
-               "imageName":"atx_camp_stashbox_boshightech_l.webp",
-               "directory":"textures/atx/storefront/camp/stash/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_camp_stashbox_boshightech_c1.webp",
-                  "directory":"textures/atx/storefront/camp/stash/"
-               },
-               {
-                  "imageName":"atx_camp_stashbox_boshightech_c2.webp",
-                  "directory":"textures/atx/storefront/camp/stash/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-30T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":250
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-10-29T16:00:00.000Z",
-            "endTime":"2025-10-30T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day24",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Light Em Up Paint (Handmade Rifle)",
-            "itemNameShort":"Light Em Up Paint",
-            "itemDesc":"Add some Neon style to your guns with the Light Em Up Weapon Bundle.\r\n\r\n- Weapon skin is craftable at Weapon Workbenches. -",
-            "primaryImage":{
-               "imageName":"atx_skin_weaponmodel_handmadegun_lightemup_l.webp",
-               "directory":"textures/atx/storefront/player/weaponmodel/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_skin_weaponmodel_handmadegun_lightemup_c1.webp",
-                  "directory":"textures/atx/storefront/player/weaponmodel/"
-               },
-               {
-                  "imageName":"atx_skin_weaponmodel_handmadegun_lightemup_c2.webp",
-                  "directory":"textures/atx/storefront/player/weaponmodel/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-10-31T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":375
-            },
-            "highPrice":{
-               "originalAmount":750
-            },
-            "startTime":"2025-10-30T16:00:00.000Z",
-            "endTime":"2025-10-31T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day25",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Flaming Skull Rider Helmet",
-            "itemNameShort":"Flaming Skull Rider Helmet",
-            "itemDesc":"TBD\r\n\r\n- TBD -",
-            "primaryImage":{
-               "imageName":"atx_apparel_headwear_skullrider.webp",
-               "directory":"textures/atx/storefront/player/headwear/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_apparel_headwear_skullrider_c1.webp",
-                  "directory":"textures/atx/storefront/player/headwear/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-11-01T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":150
-            },
-            "highPrice":{
-               "originalAmount":300
-            },
-            "startTime":"2025-10-31T16:00:00.000Z",
-            "endTime":"2025-11-01T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day26",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Overgrown Thorn Plushie",
-            "itemNameShort":"Overgrown Plushie",
-            "itemDesc":"Vines and bark help make this plushie extra cute, just make sure you don't get too close.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage":{
-               "imageName":"atx_entm_camp_floordecor_plushie_overgrownrusher_l.webp",
-               "directory":"textures/atx/storefront/camp/floordecoration/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"atx_entm_camp_floordecor_plushie_overgrownrusher_c1.webp",
-                  "directory":"textures/atx/storefront/camp/floordecoration/"
-               },
-               {
-                  "imageName":"atx_entm_camp_floordecor_plushie_overgrownrusher_c2.webp",
-                  "directory":"textures/atx/storefront/camp/floordecoration/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-11-02T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":125
-            },
-            "highPrice":{
-               "originalAmount":250
-            },
-            "startTime":"2025-11-01T16:00:00.000Z",
-            "endTime":"2025-11-02T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day27",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Beehive",
-            "itemNameShort":"Beehive",
-            "itemDesc":"How sweet it is to harvest your own Honey!\nThis item cannot be built inside of a Shelter. \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage":{
-               "imageName":"score_s4_camp_collector_beehive_l.webp",
-               "directory":"textures/atx/storefront/camp/utility/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"score_s4_camp_collector_beehive_c1.webp",
-                  "directory":"textures/atx/storefront/camp/utility/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-11-03T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":250
-            },
-            "highPrice":{
-               "originalAmount":500
-            },
-            "startTime":"2025-11-02T16:00:00.000Z",
-            "endTime":"2025-11-03T16:00:00.000Z"
-         },
-         {
-            "replaceItemID":2316440,
-            "itemID":"day28",
-            "tileSize":"small",
-            "isClown":false,
-            "disabled":false,
-            "itemName":"Freedom Forge Power Armor Paint",
-            "itemNameShort":"Freedom Forge Paint",
-            "itemDesc":"Forge your path to freedom with the Freedom Forge Power Armor Paint.\n This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on the Excavator, Raider, T-45, T-51, T-60, T-65, Ultracite and X-01 Power Armors.\r\n\r\n- Power Armor Skin is craftable at Power Armor Stations. -",
-            "primaryImage":{
-               "imageName":"Atx_skin_powerarmor_model_freedomforge_l.webp",
-               "directory":"textures/atx/storefront/player/powerarmor/"
-            },
-            "carouselImages":[
-               {
-                  "imageName":"Atx_skin_powerarmor_model_freedomforge_c1.webp",
-                  "directory":"textures/atx/storefront/player/powerarmor/"
-               },
-               {
-                  "imageName":"Atx_skin_powerarmor_model_freedomforge_c2.webp",
-                  "directory":"textures/atx/storefront/player/powerarmor/"
-               },
-               {
-                  "imageName":"Atx_skin_powerarmor_model_freedomforge_c3.webp",
-                  "directory":"textures/atx/storefront/player/powerarmor/"
-               }
-            ],
-            "lowPrice":{
-               "ltoTimer":"2025-11-04T16:00:00.000Z",
-               "isLto":true
-            },
-            "lowestPurchasablePrice":{
-               "Amount":750
-            },
-            "highPrice":{
-               "originalAmount":1500
-            },
-            "startTime":"2025-11-03T16:00:00.000Z",
-            "endTime":"2025-11-04T16:00:00.000Z"
-         }
-      ]
-   }
+    ],
+    "Week3": [
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day15",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Victory Pose",
+        "itemNameShort": "Victory Pose",
+        "itemDesc": "\"V\" is for \"Victory\". Be a true winner in your photos with this Pose.\r\n\r\n- UNLOCKS A PHOTOMODE POSE. -",
+        "primaryImage": {
+          "imageName": "atx_photomode_pose_victory_l.webp",
+          "directory": "textures/atx/storefront/player/photopose/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_photomode_pose_victory_c1.webp",
+            "directory": "textures/atx/storefront/player/photopose/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-22T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-10-21T16:00:00.000Z",
+        "endTime": "2025-10-22T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day16",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Vault-tec Camping Canopies",
+        "itemNameShort": "Vault-tec Canopies",
+        "itemDesc": "Set up a shady spot in your C.A.M.P. with these Vault-tec Camping Canopies!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_structure_campingcanopy_vaulttec02_l.webp",
+          "directory": "textures/atx/storefront/camp/structures/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_structure_campingcanopy_vaulttec02_c1.webp",
+            "directory": "textures/atx/storefront/camp/structures/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-23T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-22T16:00:00.000Z",
+        "endTime": "2025-10-23T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day17",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Tropic Lightning Camo Skin (Handmade Rifle)",
+        "itemNameShort": "Tropic Lightning Camo",
+        "itemDesc": "Prepare for covert battle with the Tropic Lightning Camo Skin for the Handmade Rifle.\r\n\r\n- Weapon skin is craftable at Weapon Workbenches. -",
+        "primaryImage": {
+          "imageName": "atx_skin_weaponmodel_handmadegun_tropiclightning_camo_l.webp",
+          "directory": "textures/atx/storefront/player/weaponmodel/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_skin_weaponmodel_handmadegun_tropiclightning_camo_c1.webp",
+            "directory": "textures/atx/storefront/player/weaponmodel/"
+          },
+          {
+            "imageName": "atx_skin_weaponmodel_handmadegun_tropiclightning_camo_c2.webp",
+            "directory": "textures/atx/storefront/player/weaponmodel/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-24T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-23T16:00:00.000Z",
+        "endTime": "2025-10-24T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day18",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Deathclaw Mascot Helmet",
+        "itemNameShort": "Deathclaw Helmet",
+        "itemDesc": "Become the ultimate fan of the Wasteland's most fearsome creature with the Deathclaw Mascot Helmet!\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+        "primaryImage": {
+          "imageName": "atx_apparel_headwear_deathclawmascot_l.webp",
+          "directory": "textures/atx/storefront/player/headwear/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_apparel_headwear_deathclawmascot_c1.webp",
+            "directory": "textures/atx/storefront/player/headwear/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-25T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-24T16:00:00.000Z",
+        "endTime": "2025-10-25T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day19",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Surplus Sack Backpack",
+        "itemNameShort": "Surplus Sack Backpack",
+        "itemDesc": "Carry all your extra gear in this rugged Surplus Sack Backpack.\r\n\r\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+        "primaryImage": {
+          "imageName": "atx_entm_skin_backpack_surplussack_l.webp",
+          "directory": "textures/atx/storefront/player/backpack/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_skin_backpack_surplussack_c1.webp",
+            "directory": "textures/atx/storefront/player/backpack/"
+          },
+          {
+            "imageName": "atx_entm_skin_backpack_surplussack_c2.webp",
+            "directory": "textures/atx/storefront/player/backpack/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-26T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-25T16:00:00.000Z",
+        "endTime": "2025-10-26T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day20",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Giant Dinosaur",
+        "itemNameShort": "Giant Dinosaur",
+        "itemDesc": "Make a prehistoric statement in your C.A.M.P. with this Giant Dinosaur Floor Decoration!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_floordecor_giantdinosaur_l.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_floordecor_giantdinosaur_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_entm_camp_floordecor_giantdinosaur_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-27T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-26T16:00:00.000Z",
+        "endTime": "2025-10-27T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day21",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Park Ranger Power Armor Skin",
+        "itemNameShort": "Park Ranger Skin",
+        "itemDesc": "Admire, preserve, and do battle with the local wildlife in this Park Ranger Power Armor skin.\r\n\r\n- Power Armor Skin is craftable at Power Armor Stations. -",
+        "primaryImage": {
+          "imageName": "atx_skin_powerarmor_paint_parkranger.webp",
+          "directory": "textures/atx/storefront/player/powerarmor/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_skin_powerarmor_paint_parkranger_c1.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          },
+          {
+            "imageName": "atx_skin_powerarmor_paint_parkranger_c2.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-28T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 600
+        },
+        "highPrice": {
+          "originalAmount": 1200
+        },
+        "startTime": "2025-10-27T16:00:00.000Z",
+        "endTime": "2025-10-28T16:00:00.000Z"
+      }
+    ],
+    "Week4": [
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day22",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Free States Salute Emote",
+        "itemNameShort": "Free States Salute",
+        "itemDesc": "Acknowledge the hard work done by the rest of the members of the Free States with this faction salute.\r\n\r\n- UNLOCKS AN EMOTE. -",
+        "primaryImage": {
+          "imageName": "atx_emotes_freestates_salute_l.webp",
+          "directory": "textures/atx/storefront/player/emotes/"
+        },
+        "carouselImages": [],
+        "lowPrice": {
+          "ltoTimer": "2025-10-29T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-28T16:00:00.000Z",
+        "endTime": "2025-10-29T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day23",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Brotherhood High Tech Stash Box",
+        "itemNameShort": "Brotherhood High Tech Stash Box",
+        "itemDesc": "Secure your tech with the Brotherhood of Steel High Tech Stash Box.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_stashbox_boshightech_l.webp",
+          "directory": "textures/atx/storefront/camp/stash/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_stashbox_boshightech_c1.webp",
+            "directory": "textures/atx/storefront/camp/stash/"
+          },
+          {
+            "imageName": "atx_camp_stashbox_boshightech_c2.webp",
+            "directory": "textures/atx/storefront/camp/stash/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-30T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-10-29T16:00:00.000Z",
+        "endTime": "2025-10-30T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day24",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Light Em Up Paint (Handmade Rifle)",
+        "itemNameShort": "Light Em Up Paint",
+        "itemDesc": "Add some Neon style to your guns with the Light Em Up Weapon Bundle.\r\n\r\n- Weapon skin is craftable at Weapon Workbenches. -",
+        "primaryImage": {
+          "imageName": "atx_skin_weaponmodel_handmadegun_lightemup_l.webp",
+          "directory": "textures/atx/storefront/player/weaponmodel/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_skin_weaponmodel_handmadegun_lightemup_c1.webp",
+            "directory": "textures/atx/storefront/player/weaponmodel/"
+          },
+          {
+            "imageName": "atx_skin_weaponmodel_handmadegun_lightemup_c2.webp",
+            "directory": "textures/atx/storefront/player/weaponmodel/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-10-31T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 375
+        },
+        "highPrice": {
+          "originalAmount": 750
+        },
+        "startTime": "2025-10-30T16:00:00.000Z",
+        "endTime": "2025-10-31T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day25",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Flaming Skull Rider Helmet",
+        "itemNameShort": "Flaming Skull Rider Helmet",
+        "itemDesc": "TBD\r\n\r\n- TBD -",
+        "primaryImage": {
+          "imageName": "atx_apparel_headwear_skullrider.webp",
+          "directory": "textures/atx/storefront/player/headwear/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_apparel_headwear_skullrider_c1.webp",
+            "directory": "textures/atx/storefront/player/headwear/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-11-01T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 150
+        },
+        "highPrice": {
+          "originalAmount": 300
+        },
+        "startTime": "2025-10-31T16:00:00.000Z",
+        "endTime": "2025-11-01T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day26",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Overgrown Thorn Plushie",
+        "itemNameShort": "Overgrown Plushie",
+        "itemDesc": "Vines and bark help make this plushie extra cute, just make sure you don't get too close.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_floordecor_plushie_overgrownrusher_l.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_floordecor_plushie_overgrownrusher_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_entm_camp_floordecor_plushie_overgrownrusher_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-11-02T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-11-01T16:00:00.000Z",
+        "endTime": "2025-11-02T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day27",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Beehive",
+        "itemNameShort": "Beehive",
+        "itemDesc": "How sweet it is to harvest your own Honey!\nThis item cannot be built inside of a Shelter. \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "score_s4_camp_collector_beehive_l.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "score_s4_camp_collector_beehive_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-11-03T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2025-11-02T16:00:00.000Z",
+        "endTime": "2025-11-03T16:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316440,
+        "itemID": "day28",
+        "tileSize": "small",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Freedom Forge Power Armor Paint",
+        "itemNameShort": "Freedom Forge Paint",
+        "itemDesc": "Forge your path to freedom with the Freedom Forge Power Armor Paint.\n This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on the Excavator, Raider, T-45, T-51, T-60, T-65, Ultracite and X-01 Power Armors.\r\n\r\n- Power Armor Skin is craftable at Power Armor Stations. -",
+        "primaryImage": {
+          "imageName": "Atx_skin_powerarmor_model_freedomforge_l.webp",
+          "directory": "textures/atx/storefront/player/powerarmor/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "Atx_skin_powerarmor_model_freedomforge_c1.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          },
+          {
+            "imageName": "Atx_skin_powerarmor_model_freedomforge_c2.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          },
+          {
+            "imageName": "Atx_skin_powerarmor_model_freedomforge_c3.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-11-04T16:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 750
+        },
+        "highPrice": {
+          "originalAmount": 1500
+        },
+        "startTime": "2025-11-03T16:00:00.000Z",
+        "endTime": "2025-11-04T16:00:00.000Z"
+      }
+    ]
+  }
 }
