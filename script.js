@@ -191,6 +191,23 @@ document.addEventListener("DOMContentLoaded", async function () {
   shopGrid = document.querySelector('.shop-grid');
   const tabNavScroll = document.querySelector('.tab-nav-scroll');
   if (!tabNavScroll || !shopGrid) return;
+// --- HORIZONTAL SCROLLING FOR TABS ---
+let tabScrollWheelCooldown = false;
+tabNavScroll.addEventListener('wheel', function(e) {
+  e.preventDefault();
+  if (tabScrollWheelCooldown) return;
+  tabScrollWheelCooldown = true;
+  setTimeout(() => { tabScrollWheelCooldown = false; }, 180); // scroll cooldown to prevent lagging
+
+  const tabs = tabNavScroll.querySelectorAll('.tab');
+  let activeIdx = Array.from(tabs).findIndex(tab => tab.classList.contains('active'));
+  const tabWidth = tabs[activeIdx] ? tabs[activeIdx].offsetWidth + 10 : 270;
+  if (e.deltaY > 0) {
+    tabNavScroll.scrollLeft += tabWidth;
+  } else if (e.deltaY < 0) {
+    tabNavScroll.scrollLeft -= tabWidth;
+  }
+}, { passive: false });
 
   // --- Load daily replacements FIRST ---
   const dailyReplacementsResponse = await fetch('dailyitems.json');
@@ -969,23 +986,7 @@ function buildImageUrl(directory, imageName) {
   return dir + name;
 }
 
-/* Images-Array sauber aufbauen
-let images = [];
-if (Array.isArray(item.images)) {
-  images = item.images.slice();
-} else if (Array.isArray(item.carouselImages)) {
-  images = item.carouselImages
-    .filter(img => img && img.directory && img.imageName)
-    .map(img => buildImageUrl(img.directory, img.imageName))
-    .filter(Boolean);
-}
-
-// If no images found, use placeholder
-if (images.length === 0) {
-  images = ['images/no-image.webp']; // Or leave empty to show broken image for debugging
-}*/
-
-
+// Function to update prices on all tiles based on currentCurrency
 function updateTilePrices() {
   document.querySelectorAll('.shop-tile').forEach(tile => {
     const atomOriginal = Number(tile.getAttribute('data-atom-original')) || 0;
