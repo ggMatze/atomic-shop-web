@@ -32,6 +32,7 @@ async function showNewsNotice() {
   }
 }
 
+// Hides the loading overlay once all shop images are loaded
 function hideLoadingOverlayWhenReady() {
   const shopGrid = document.querySelector('.shop-grid');
   const images = shopGrid ? shopGrid.querySelectorAll('img') : [];
@@ -61,8 +62,9 @@ function hideLoadingOverlayWhenReady() {
   });
 }
 
+// Initializes overlay event handlers
 function initOverlay() {
-  // Prevent multiple initializations
+
   window.__overlay = window.__overlay || {};
   if (window.__overlay._inited) return;
   window.__overlay._inited = true;
@@ -76,7 +78,7 @@ function initOverlay() {
       const sel = document.getElementById('currency-select'); if (sel) sel.disabled = false;
     }
   });
-
+//Clicking Close button
   const overlayBtn = document.querySelector('.overlay-button');
   if (overlayBtn) {
     overlayBtn.addEventListener('click', () => {
@@ -84,7 +86,7 @@ function initOverlay() {
       const sel = document.getElementById('currency-select'); if (sel) sel.disabled = false;
     });
   }
-
+//Using tab key
   document.addEventListener('keydown', function(e) {
     if (!overlay.classList.contains('hidden') && e.key === 'Tab') {
       overlay.classList.add('hidden');
@@ -93,6 +95,7 @@ function initOverlay() {
     }
   });
 
+// FAQ link
   const faqLink = document.getElementById('faq-link');
   if (faqLink) faqLink.addEventListener('click', function(e) {
     e.preventDefault();
@@ -100,7 +103,7 @@ function initOverlay() {
     document.querySelector('.overlay-content')?.classList.add('hidden');
     document.getElementById('overlay-faq')?.classList.remove('hidden');
   });
-
+// FAQ close button
   const faqClose = document.getElementById('faq-close-btn');
   if (faqClose) faqClose.addEventListener('click', function() {
     overlay.classList.add('hidden');
@@ -108,7 +111,7 @@ function initOverlay() {
     document.getElementById('overlay-faq')?.classList.add('hidden');
   });
 }
-
+// Opens overlay for item specified in URL parameter "item"
 function openOverlayFromUrlIfNeeded() {
   if (window._overlayOpenedFromUrl) return;
   const urlParams = new URLSearchParams(window.location.search);

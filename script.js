@@ -26,11 +26,13 @@ function attachTileClickHandlers() {
   console.warn('attachTileClickHandlers: window.__ui.attachTileClickHandlers not available');
 }
 
+// Delegator to render gallery via gallery module
 function renderGallery(images, current = 0) {
   if (window.__ui && window.__ui.renderGallery) return window.__ui.renderGallery(images, current);
   console.warn('renderGallery: window.__ui.renderGallery not available');
 }
 
+// Delegator for tile price updates to UI module
 function carouselKeyHandler(e) {
   if (window.__ui && window.__ui.carouselKeyHandler) return window.__ui.carouselKeyHandler(e);
 }
@@ -80,6 +82,7 @@ function renderCustomDailyTab() {
     try { window.__tabs.initTabs(); } catch (e) { console.error('initTabs fallback failed', e); }
   }
 }
+
 // Add this function to render the date range
 function renderDateRange(item) {
   const startDate = item.startTime ? new Date(item.startTime) : null;
@@ -91,18 +94,7 @@ function renderDateRange(item) {
   return dateLabel;
 }
 
-// Currency data and persistence are provided by src/data.js (window.__data)
-// Timer helpers are provided by src/utils.js (window.__utils)
-
-// Timer functions are in window.__utils: startTimerUpdates() is started on DOMContentLoaded below
-
-document.addEventListener("keydown", function(e) {
-  if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') return;
-  // ...existing code...
-});
-
-// Tab keyboard/scroll behavior moved into src/tabs.js (initTabKeyHandlers)
-
+// Shows news notice if there's a new notice not yet seen
 let current = 0;
 const mainImage = document.getElementById("main-image");
 const leftStrip = document.getElementById("left-strip");
@@ -146,21 +138,19 @@ function renderGallery(images, current = 0) {
   // fallback: no-op
 }
 
-// Image URL builder moved to src/utils.js — tabs/ui call that helper now.
-
-// Function to update prices on all tiles based on currentCurrency
 // Delegate tile price updates to UI module
 if (window.__ui && typeof window.__ui.updateTilePrices === 'function') {
   try { window.__ui.updateTilePrices(); } catch (e) { console.error('updateTilePrices failed', e); }
 }
 
-// Audio controls moved to src/audio.js (exposed as window.__audio.initAudio)
+// Delegate audio initialization to audio module
 document.addEventListener('DOMContentLoaded', function() {
   if (window.__audio && typeof window.__audio.initAudio === 'function') {
     try { window.__audio.initAudio(); } catch (e) { console.error('initAudio failed', e); }
   }
 });
 
+// Delegators for replacements and sales to tabs module
 function getActiveReplacement(itemID) {
   if (window.__tabs && typeof window.__tabs.getActiveReplacement === 'function') {
     return window.__tabs.getActiveReplacement(itemID);
@@ -171,6 +161,7 @@ function getActiveReplacement(itemID) {
   return candidates[0] || null;
 }
 
+// Delegator for paid sales to tabs module
 function getActivePaidSale(itemID) {
   if (window.__tabs && typeof window.__tabs.getActivePaidSale === 'function') {
     return window.__tabs.getActivePaidSale(itemID);
@@ -183,11 +174,12 @@ function getActivePaidSale(itemID) {
   return candidates[0] || null;
 }
 
-// Overlay-related handlers are now provided by src/overlay.js and exposed as window.__overlay
+// Delegate overlay initialization to overlay module
 if (window.__overlay && typeof window.__overlay.initOverlay === 'function') {
   try { window.__overlay.initOverlay(); } catch (e) { console.error('initOverlay error', e); }
 }
 
+// Show news notice if available
 if (window.__overlay && typeof window.__overlay.showNewsNotice === 'function') {
   document.addEventListener('DOMContentLoaded', function() { try { window.__overlay.showNewsNotice(); } catch (e) {} });
 }
@@ -205,9 +197,6 @@ function isLtoExpired(item) {
   return new Date(ltoTimer) < new Date();
 }
 
-
-// Place this helper at the bottom of your script, outside of any other function
-// At the end of renderTab and renderCustomDailyTab, after all tiles are rendered:
 attachTileClickHandlers();
 try { if (window.__ui && typeof window.__ui.updateTilePrices === 'function') window.__ui.updateTilePrices(); } catch (e) { console.error('updateTilePrices failed', e); }
 if (window.__overlay && typeof window.__overlay.hideLoadingOverlayWhenReady === 'function') window.__overlay.hideLoadingOverlayWhenReady();

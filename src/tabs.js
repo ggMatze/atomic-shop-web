@@ -406,7 +406,7 @@ if (typeof window !== 'undefined') {
       const tileDisabled = (item.disabled === true || isExpired) ? 'tile-disabled' : '';
       const dateLabel = renderDateRange(item);
 
-  // Safe JSON for embedding in attribute (include expired flag)
+  // Safe JSON for embedding in attribute
   const dataItemObj = { title: item.itemName, itemDesc: item.itemDesc, includes, storefrontImage, images, priceOriginal: atomPriceOriginal, priceFinal: atomPriceFinal, discount, isNew, isZeus, isClown: !!item.isClown, disabled: !!item.disabled, expired: isExpired, itemID: item.itemID };
       let dataItemStr = JSON.stringify(dataItemObj).replace(/'/g, "&apos;").replace(/\r\n|\n|\\n/g, "\\n");
 
@@ -494,7 +494,7 @@ function getActiveReplacement(itemID) {
 
   return active;
 }
-
+// Similar to getActiveReplacement but for paid sales from weekly collections
 function getActivePaidSale(itemID) {
   const now = window.simulatedNow ? window.simulatedNow.getTime() : Date.now();
   let candidates = [];

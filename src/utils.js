@@ -9,7 +9,7 @@ export function buildImageUrl(directory, imageName) {
   }
   return dir + name;
 }
-
+// Returns time remaining until expiresAt (ISO string), or expired flag
 export function getTimeRemaining(expiresAt) {
   const now = new Date();
   const end = new Date(expiresAt);
@@ -22,6 +22,7 @@ export function getTimeRemaining(expiresAt) {
   return { days, hours, minutes, seconds, expired: false };
 }
 
+// Renders HTML for a tile timer given an expiration time
 export function renderTimerHTML(expiresAt) {
   const t = getTimeRemaining(expiresAt);
   if (t.expired) return '';
@@ -43,6 +44,7 @@ export function renderTimerHTML(expiresAt) {
   </div>`;
 }
 
+// Renders date range HTML for item with startTime and endTime
 export function renderDateRange(item) {
   const startDate = item.startTime ? new Date(item.startTime) : null;
   const endDate = item.endTime ? new Date(item.endTime) : null;

@@ -4,6 +4,7 @@ const galleryState = {
   current: 0
 };
 
+// Renders the gallery with given images and highlights the current image
 function renderGallery(images, current = 0) {
   galleryState.images = images || [];
   galleryState.current = current || 0;
@@ -47,6 +48,7 @@ function renderGallery(images, current = 0) {
   });
 }
 
+// Handles keyboard navigation within the gallery overlay
 function carouselKeyHandler(e) {
   const overlay = document.getElementById('item-overlay');
   if (!overlay || overlay.classList.contains('hidden')) return;
