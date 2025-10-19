@@ -75,6 +75,9 @@ function initOverlay() {
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
       overlay.classList.add('hidden');
+      // Restore default overlay content state when closed by background click
+      document.querySelector('.overlay-content')?.classList.remove('hidden');
+      document.getElementById('overlay-faq')?.classList.add('hidden');
       const sel = document.getElementById('currency-select'); if (sel) sel.disabled = false;
     }
   });
@@ -83,6 +86,9 @@ function initOverlay() {
   if (overlayBtn) {
     overlayBtn.addEventListener('click', () => {
       overlay.classList.add('hidden');
+      // Restore default overlay content state when closed via close button
+      document.querySelector('.overlay-content')?.classList.remove('hidden');
+      document.getElementById('overlay-faq')?.classList.add('hidden');
       const sel = document.getElementById('currency-select'); if (sel) sel.disabled = false;
     });
   }
@@ -90,6 +96,9 @@ function initOverlay() {
   document.addEventListener('keydown', function(e) {
     if (!overlay.classList.contains('hidden') && e.key === 'Tab') {
       overlay.classList.add('hidden');
+      // Restore default overlay content state when closed via Tab key
+      document.querySelector('.overlay-content')?.classList.remove('hidden');
+      document.getElementById('overlay-faq')?.classList.add('hidden');
       const sel = document.getElementById('currency-select'); if (sel) sel.disabled = false;
       e.preventDefault();
     }
