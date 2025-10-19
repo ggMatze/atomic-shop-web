@@ -49,19 +49,10 @@ atx_camp_kit_triumphterraceporch_c1.webp
 ## 🧰 Image Requirements
 
 - Format: **.webp** (lossless or high-quality)
-- Keep dimensions close to the original (don’t upscale)
-- Center the subject and avoid UI elements
+- Keep dimensions 512*512 as the original (don’t upscale)
+- Center the subject, dont show unrelated items or clutter and avoid UI elements and watermarks
 - Use transparent or clean backgrounds when possible
 - Optimize file size (recommended: < 500 KB)
-
----
-
-## ⚠️ Source Rules
-
-- Use **official Fallout 76 game assets or screenshots** only  
-- Do **not** include fan art or copyrighted third-party material  
-- Add this line to your Pull Request description:
-  > “Image is © Bethesda Softworks, used here for non-commercial, fan-made purposes.”
 
 ---
 
