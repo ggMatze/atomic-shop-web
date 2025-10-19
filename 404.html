@@ -1,0 +1,81 @@
+<!-- /404.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATOMIC SHOP // TERMINAL ERROR</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    body {
+      background-color: #000;
+      color: #00ff66;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: left;
+      overflow: hidden;
+      padding: 2rem;
+    }
+
+    .terminal {
+      max-width: 600px;
+      width: 100%;
+      text-shadow: 0 0 8px #00ff66;
+    }
+
+    .line {
+      margin: 0.4rem 0;
+      white-space: pre;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background-color: #00ff66;
+      margin-left: 5px;
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { background-color: transparent; }
+    }
+
+    .faint {
+      color: #009944;
+    }
+
+    a {
+      color: #00ff66;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      font-size: 0.8rem;
+      color: #009944;
+    }
+  </style>
+  <meta http-equiv="refresh" content="5;url=/" />
+</head>
+<body>
+  <div class="terminal">
+    <div class="line">VAULT-TEC SYSTEM INITIALIZING...</div>
+    <div class="line faint">> ACCESSING ATOMIC SHOP NETWORK...</div>
+    <div class="line">> ERROR: FILE DIRECTORY NOT FOUND</div>
+    <div class="line faint">> Possible tampering detected.</div>
+    <div class="line">> Redirecting to main interface<span class="cursor"></span></div>
+  </div>
+  <footer>© 2076 Vault-Tec Industries // Fallout 76 Atomic Shop</footer>
+</body>
+</html>
