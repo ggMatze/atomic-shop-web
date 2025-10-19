@@ -65,7 +65,7 @@ async function initTabs() {
     tabDiv.className = 'tab';
     tabDiv.setAttribute('data-tab-index', 'preview');
     tabDiv.innerHTML = `
-      <img src="images/tabs/week.webp" alt="Daily">
+      <img src="media/tabs/week.webp" alt="Daily">
       <div class="tab-label">
         <div class="tab-title">Preview</div>
         <div class="tab-subtitle">The upcoming daily offers</div>
