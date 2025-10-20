@@ -417,7 +417,7 @@ document.getElementById('jsonfile').addEventListener('change', function(e) {
 // Load from fixed path
 document.getElementById('load-json').addEventListener('click', async function() {
   try {
-    const response = await fetch('storepagedata.json');
+    const response = await fetch('/data/storepagedata.json');
     if (!response.ok) throw new Error('Could not load storepagedata.json');
     storeData = await response.json();
     showItems();

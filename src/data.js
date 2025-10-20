@@ -33,10 +33,14 @@ export function saveCurrency(key) {
   } catch (e) {}
 }
 
+// Small HTML snippets and assets that are safe to inject into local content
+export const SHARE_ICON_HTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd454" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.59 13.51l6.83 3.98"></path><path d="M15.41 6.51L8.59 10.49"></path></svg>';
+
 // Backwards-compatible exposure
 if (typeof window !== 'undefined') {
   window.__data = window.__data || {};
   window.__data.currencyData = currencyData;
   window.__data.getSavedCurrency = getSavedCurrency;
   window.__data.saveCurrency = saveCurrency;
+  window.__data.SHARE_ICON_HTML = SHARE_ICON_HTML;
 }

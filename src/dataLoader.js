@@ -2,13 +2,13 @@
 export async function loadDailyAndStore() {
   const results = {};
   try {
-    const dailyRes = await fetch('dailyitems.json');
+    const dailyRes = await fetch('/data/dailyitems.json');
     results.dailyReplacementsData = dailyRes.ok ? await dailyRes.json() : {};
   } catch (e) {
     results.dailyReplacementsData = {};
   }
   try {
-    const storeRes = await fetch('storepagedata.json');
+    const storeRes = await fetch('/data/storepagedata.json');
     results.storeData = storeRes.ok ? await storeRes.json() : {};
   } catch (e) {
     results.storeData = {};
@@ -18,7 +18,7 @@ export async function loadDailyAndStore() {
 
 export async function loadNews() {
   try {
-    const res = await fetch('news.json');
+    const res = await fetch('/data/news.json');
     if (!res.ok) return null;
     return await res.json();
   } catch (e) {

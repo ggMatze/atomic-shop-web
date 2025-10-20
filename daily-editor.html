@@ -126,7 +126,7 @@
 <script>
 let dailyData = null;
 let itemsDB = null;
-let currentDBFile = 'dailyitems-database.json'; // <-- match your dropdown
+let currentDBFile = 'dailyitems-database.json'; // <-- match your dropdown (we'll prefix with /data/ when loading)
 let selectedDayIdx = 0;
 
 // Load JSON files
@@ -136,8 +136,10 @@ async function loadJSON(url) {
 }
 
 async function initEditor() {
-  dailyData = await loadJSON('dailyitems.json');
-  itemsDB = await loadJSON(currentDBFile);
+  dailyData = await loadJSON('/data/dailyitems.json');
+  // If currentDBFile already contains a path, use it; otherwise prefix with /data/
+  const dbPath = currentDBFile.indexOf('/') === -1 ? '/data/' + currentDBFile : currentDBFile;
+  itemsDB = await loadJSON(dbPath);
   renderDayDropdown();
   renderDaySlot();
   renderDB();

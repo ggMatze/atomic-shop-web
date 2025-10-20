@@ -43,7 +43,7 @@ function hideLoadingOverlayWhenReady() {
     if (lo) lo.style.display = 'none';
     return;
   }
-  images.forEach(img => {
+      images.forEach(img => {
     if (img.complete || img.naturalWidth !== 0) {
       loaded++;
       if (loaded === images.length) {
@@ -104,13 +104,125 @@ function initOverlay() {
     }
   });
 
-// FAQ link
+  // FAQ link
   const faqLink = document.getElementById('faq-link');
   if (faqLink) faqLink.addEventListener('click', function(e) {
     e.preventDefault();
-    overlay.classList.remove('hidden');
-    document.querySelector('.overlay-content')?.classList.add('hidden');
-    document.getElementById('overlay-faq')?.classList.remove('hidden');
+    const faqEl = document.getElementById('overlay-faq');
+    if (!faqEl) return;
+
+
+    (async () => {
+      let faqData = null;
+      try {
+        if (window.__dataLoader && typeof window.__dataLoader.loadFAQ === 'function') {
+          faqData = await window.__dataLoader.loadFAQ();
+        } else {
+          const res = await fetch('data/faq.json');
+          if (res.ok) faqData = await res.json();
+        }
+      } catch (err) {
+        faqData = null;
+      }
+
+      try {
+        // Keep a reference to the static close button so we can re-attach it
+        const closeBtn = faqEl.querySelector('#faq-close-btn');
+        if (closeBtn) closeBtn.remove();
+
+        if (faqData && Array.isArray(faqData.items)) {
+          // Clear only the FAQ content area (we removed the button above)
+          faqEl.innerHTML = '';
+
+          const h = document.createElement('h2');
+          h.textContent = faqData.title || 'Questions you might have';
+          faqEl.appendChild(h);
+
+          const ul = document.createElement('ul');
+          faqData.items.forEach(it => {
+            const li = document.createElement('li');
+            const q = document.createElement('strong'); q.textContent = (it.q || ''); li.appendChild(q);
+            li.appendChild(document.createElement('br'));
+            const ans = document.createElement('span');
+           
+            // Declare placeholder and replacement in outer scope so we can swap the HTML back
+            // after running inline formatting. Use a placeholder that does NOT contain
+            // underscores or asterisks (so our markdown regexes won't touch it).
+            const SHARE_PLACEHOLDER = '[[[SHAREICONTOKEN]]]';
+            let shareReplacement = (window.__data && window.__data.SHARE_ICON_HTML) || '<span></span>';
+            try {
+              let raw = it.a || '';
+              try {
+                raw = String(raw).replace(/\[share-icon\]/g, SHARE_PLACEHOLDER);
+              } catch (err) {}
+
+              if (/<[a-z][\s\S]*>/i.test(raw)) {
+                // If the answer already contains HTML, trust it and render as-is.
+                ans.innerHTML = raw;
+              } else {
+               // Normalize newlines
+               raw = String(raw).replace(/\r\n/g, '\n').replace(/\\n/g, '\n').replace(/\r\n/g, '\n');
+               // Helper: escape HTML and apply simple inline markdown-like tokens
+               const escapeHtml = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+               const applyInlineMarkup = s => {
+                 let safe = escapeHtml(s);
+                 // *bold* -> <strong>
+                 safe = safe.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
+                 // _underline_ -> <u>
+                 safe = safe.replace(/_(.*?)_/g, '<u>$1</u>');
+                 // `code` -> <code>
+                 safe = safe.replace(/`(.*?)`/g, '<code>$1</code>');
+                 return safe;
+               };
+
+                if (raw.indexOf('\n') !== -1) {
+                  // preserve paragraphs and line breaks, applying inline markup per-paragraph
+                  const formatted = raw.split(/\n{2,}/).map(p => {
+                    // convert remaining single newlines to <br> after applying inline markup for that paragraph
+                    return applyInlineMarkup(p).replace(/\n/g, '<br>');
+                  }).join('<p></p>');
+                  ans.innerHTML = formatted;
+                } else {
+                  // Single line: apply inline markup and render
+                  ans.innerHTML = applyInlineMarkup(raw);
+                }
+              }
+            } catch (err) {
+              ans.textContent = it.a || '';
+            }
+            // If we used the placeholder, swap it back to the real SVG/html after formatting
+            try {
+              if (typeof SHARE_PLACEHOLDER !== 'undefined' && ans.innerHTML && ans.innerHTML.indexOf(SHARE_PLACEHOLDER) !== -1) {
+                ans.innerHTML = ans.innerHTML.split(SHARE_PLACEHOLDER).join(shareReplacement);
+              }
+            } catch (err) { /* ignore replacement errors */ }
+            li.appendChild(ans);
+            if (it.url) {
+              try {
+                const a = document.createElement('a');
+                a.href = it.url;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.textContent = it.urlLabel || it.url;
+                a.style.display = 'block';
+                a.style.marginTop = '8px';
+                li.appendChild(a);
+              } catch (err) { /* ignore malformed urls */ }
+            }
+            ul.appendChild(li);
+          });
+          faqEl.appendChild(ul);
+
+        }
+
+        if (closeBtn) faqEl.appendChild(closeBtn);
+      } catch (e) {
+      }
+
+      overlay.classList.remove('hidden');
+      document.querySelector('.overlay-content')?.classList.add('hidden');
+      faqEl.classList.remove('hidden');
+    })();
   });
 // FAQ close button
   const faqClose = document.getElementById('faq-close-btn');
