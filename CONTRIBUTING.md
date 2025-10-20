@@ -1,6 +1,6 @@
 # 🖼️ Contributing Item Images
 
-Thank you for helping improve the image quality for the **Atomic Shop Web** project!  
+Thank you for helping improve the image quality for the **user-friendly Atomic Shop** project!  
 This guide explains how to submit **new** or **replacement** item images.
 
 ---

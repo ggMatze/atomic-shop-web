@@ -1,6 +1,6 @@
-# User friendly atomic shop
+# user-friendly Atomic Shop
 
-This project is an accurate recreation of the Fallout 76 Atomic Shop, but with user friendly presentation in mind, to inform about current offers and sales in the game.
+This project is an accurate recreation of the Fallout 76 Atomic Shop, but with user-friendly presentation in mind, to inform about current offers and sales in the game.
 It shows how the shop could look if images, labels, and prices were properly organized and easy to understand.
 
 ---
