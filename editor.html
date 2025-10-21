@@ -143,6 +143,19 @@ function showItemDetails(pageIdx, itemIdx) {
     const local = new Date(date.getTime() - off * 60 * 1000);
     return local.toISOString().slice(0, 16);
   }
+  function parseLocalDatetimeLocalValue(value) {
+    // value like '2025-10-21T18:00' (no timezone) -> create local Date
+    if (!value) return null;
+    const m = value.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?/);
+    if (!m) return null;
+    const year = parseInt(m[1], 10);
+    const month = parseInt(m[2], 10) - 1;
+    const day = parseInt(m[3], 10);
+    const hour = parseInt(m[4], 10);
+    const minute = parseInt(m[5], 10);
+    const second = m[6] ? parseInt(m[6], 10) : 0;
+    return new Date(year, month, day, hour, minute, second, 0);
+  }
   const localValue = toDatetimeLocalValue(ltoDateObj);
   const relValue = getRelativeTimeString(ltoDateObj.toISOString());
   // --- TIMER BLOCK END ---
@@ -174,6 +187,12 @@ function showItemDetails(pageIdx, itemIdx) {
       <input type="datetime-local" id="ltotimer-input" value="${localValue}">
       <button id="save-ltotimer-btn">Speichern</button>
       <span id="ltotimer-status" style="margin-left:8px;color:#ffe082;"></span>
+      <div style="margin-top:6px;font-size:0.9em;opacity:0.9;color:#dcb752;">
+        <span id="ltotimer-tzlabel">&nbsp;</span>
+      </div>
+      <div style="margin-top:4px;font-size:0.9em;opacity:0.9;color:#9ad1ff;">
+        Saved (UTC): <span id="ltotimer-saved-iso">&nbsp;</span>
+      </div>
       <div style="margin-top:4px;font-size:0.95em;opacity:0.8;">
         Relativ: <span id="ltotimer-rel">${relValue}</span>
       </div>
@@ -218,25 +237,85 @@ function showItemDetails(pageIdx, itemIdx) {
   const ltotimerInput = document.getElementById('ltotimer-input');
   const relSpan = document.getElementById('ltotimer-rel');
   ltotimerInput.addEventListener('input', () => {
-    const d = new Date(ltotimerInput.value);
-    relSpan.textContent = getRelativeTimeString(d.toISOString());
+    const dLocal = parseLocalDatetimeLocalValue(ltotimerInput.value);
+    if (!dLocal) return;
+    const iso = new Date(dLocal.getTime() - dLocal.getTimezoneOffset() * 60000).toISOString();
+    relSpan.textContent = getRelativeTimeString(iso);
+    const tzLabelEl = document.getElementById('ltotimer-tzlabel');
+    if (tzLabelEl) tzLabelEl.textContent = getTZLabel(new Date(iso));
+    const isoEl = document.getElementById('ltotimer-saved-iso');
+    if (isoEl) isoEl.textContent = iso;
   });
   if (window._ltotimerInterval) clearInterval(window._ltotimerInterval);
   window._ltotimerInterval = setInterval(() => {
-    const d = new Date(ltotimerInput.value);
-    relSpan.textContent = getRelativeTimeString(d.toISOString());
+    const dLocal = parseLocalDatetimeLocalValue(ltotimerInput.value);
+    if (!dLocal) return;
+    const iso = new Date(dLocal.getTime() - dLocal.getTimezoneOffset() * 60000).toISOString();
+    relSpan.textContent = getRelativeTimeString(iso);
+    const tzLabelEl = document.getElementById('ltotimer-tzlabel');
+    if (tzLabelEl) tzLabelEl.textContent = getTZLabel(new Date(iso));
+    const isoEl = document.getElementById('ltotimer-saved-iso');
+    if (isoEl) isoEl.textContent = iso;
   }, 1000);
 
   document.getElementById('save-ltotimer-btn').onclick = function() {
-    const d = new Date(document.getElementById('ltotimer-input').value);
-    if (!isNaN(d)) {
-      item.lowPrice.ltoTimer = d.toISOString();
+    const val = document.getElementById('ltotimer-input').value;
+    const dLocal = parseLocalDatetimeLocalValue(val);
+    if (dLocal && !isNaN(dLocal.getTime())) {
+      // Convert local Date to UTC ISO for storage
+      const iso = new Date(dLocal.getTime() - dLocal.getTimezoneOffset() * 60000).toISOString();
+      if (!item.lowPrice) item.lowPrice = {};
+      item.lowPrice.ltoTimer = iso;
       document.getElementById('ltotimer-status').textContent = "Gespeichert!";
       setTimeout(() => document.getElementById('ltotimer-status').textContent = '', 1500);
+      // Update relative display
+      relSpan.textContent = getRelativeTimeString(iso);
+      const tzLabelEl = document.getElementById('ltotimer-tzlabel');
+      if (tzLabelEl) tzLabelEl.textContent = getTZLabel(new Date(iso));
+        const isoEl = document.getElementById('ltotimer-saved-iso');
+        if (isoEl) isoEl.textContent = iso;
     } else {
       document.getElementById('ltotimer-status').textContent = "Ungültiges Datum!";
     }
   };
+
+  // Helper: determine if a Date falls in DST relative to its year (works for most zones)
+  function isDateInDST(date) {
+    if (!date || !(date instanceof Date)) return false;
+    const jan = new Date(date.getFullYear(), 0, 1);
+    return date.getTimezoneOffset() < jan.getTimezoneOffset();
+  }
+
+  // For a given stored UTC instant (date), compute how many hours/minutes local time differs
+  // from UTC at the UTC 16:00 instant on the same calendar date (useful to tell operator
+  // whether to add 1 or 2 hours to a 16:00 UTC time to match local wall-clock).
+  function getAddHoursSuggestion(date) {
+    if (!date || isNaN(date.getTime())) return '';
+    // Build a Date representing UTC 16:00 on the same UTC calendar date as `date`.
+    const y = date.getUTCFullYear();
+    const m = date.getUTCMonth();
+    const d = date.getUTCDate();
+    const utc16 = new Date(Date.UTC(y, m, d, 16, 0, 0));
+    // getTimezoneOffset() returns minutes to add to local time to get UTC.
+    // For this instant, local = UTC - offsetMinutes, so offsetMinutesLocal = -getTimezoneOffset().
+    const offsetMinutes = -utc16.getTimezoneOffset();
+    if (offsetMinutes === 0) return 'Local = UTC (no change)';
+    const sign = offsetMinutes > 0 ? '+' : '-';
+    const absMinutes = Math.abs(offsetMinutes);
+    const hours = Math.floor(absMinutes / 60);
+    const minutes = absMinutes % 60;
+    const hm = minutes === 0 ? `${hours}h` : `${hours}h ${minutes}m`;
+    const verb = offsetMinutes > 0 ? 'add' : 'subtract';
+    return `Local = UTC ${sign}${hm} — ${verb} ${hm} ${offsetMinutes > 0 ? 'to' : 'from'} 16:00`;
+  }
+
+  function getTZLabel(date) {
+    if (!date || isNaN(date.getTime())) return '';
+    const inDst = isDateInDST(date);
+    const dstLabel = inDst ? 'Summer time (DST)' : 'Winter time (Standard)';
+    const suggestion = getAddHoursSuggestion(date);
+    return `${dstLabel} — ${suggestion}`;
+  }
 }
 
 function renderImages() {
@@ -250,12 +329,74 @@ function renderImages() {
 
     // Always show .webp preview
     const imgUrl = (img.directory + img.imageName).toLowerCase().replace(/\.(dds|png)$/i, '.webp');
-    // Detect suffix for all images
+    
+
+    // Build dynamic suffix options based on all tempImages
+    // More robust scan: explicitly detect trailing _C<number> and trailing _L
+    const cNumbers = new Set();
+    let hasL = false;
+    let hasNone = false;
+    tempImages.forEach(ti => {
+      if (!ti || !ti.imageName) return;
+      const name = ti.imageName.toLowerCase();
+      const cMatch = name.match(/_c(\d+)\.[^.]+$/i);
+      if (cMatch) {
+        cNumbers.add(Number(cMatch[1]));
+        return;
+      }
+      const lMatch = name.match(/_l\.[^.]+$/i);
+      if (lMatch) {
+        hasL = true;
+        return;
+      }
+      // no suffix detected
+      hasNone = true;
+    });
+    // compute max consecutive C starting at 1
+    let maxC = 0;
+    for (let i = 1; i <= 20; i++) {
+      if (cNumbers.has(i)) maxC = i; else break;
+    }
+    // persist detected suffix info on the current item so a single change doesn't
+    // immediately remove options for other images while editing
+    if (currentItem) {
+      const prev = currentItem._detectedSuffixInfo || { maxC: 0, hasL: false, hasNone: false };
+      // choose the max to avoid shrinking the dropdown during an edit session
+      const mergedMaxC = Math.max(prev.maxC || 0, maxC || 0);
+      const mergedHasL = prev.hasL || hasL;
+      const mergedHasNone = prev.hasNone || hasNone;
+      currentItem._detectedSuffixInfo = { maxC: mergedMaxC, hasL: mergedHasL, hasNone: mergedHasNone };
+      // use merged values for rendering
+      maxC = mergedMaxC;
+      hasL = mergedHasL;
+      hasNone = mergedHasNone;
+    }
+
+    // detect current suffix for this image
     let currentSuffix = '';
     if (img.imageName) {
-      const m = img.imageName.match(/(_C\d+|_L)(?=\.[^.]+$)/i);
-      currentSuffix = m ? m[1].toUpperCase() : '';
+      const m = img.imageName.match(/(_C(\d+)|_L)(?=\.[^.]+$)/i);
+      currentSuffix = m ? (m[0].toUpperCase()) : '';
     }
+
+    // decide default selection when image has no explicit suffix
+    let defaultSelect = '';
+    if (!currentSuffix) {
+      if (hasL && !hasNone) defaultSelect = '_L';
+      // otherwise leave (none) as default
+    }
+
+    // build options HTML: always show (none) and _L; show consecutive _C1.._Cmax
+    let optionsHtml = '';
+    optionsHtml += `<option value=""${currentSuffix === '' && defaultSelect === '' ? ' selected' : ''}>(none)</option>`;
+    for (let i = 1; i <= maxC; i++) {
+      const val = `_C${i}`;
+      const sel = (currentSuffix === val || (!currentSuffix && defaultSelect === val)) ? ' selected' : '';
+      optionsHtml += `<option value="${val}"${sel}>${val}</option>`;
+    }
+    // ensure _L is present as option
+    const selL = (currentSuffix === '_L' || (!currentSuffix && defaultSelect === '_L')) ? ' selected' : '';
+    optionsHtml += `<option value="_L"${selL}>_L</option>`;
 
     div.innerHTML = `
       <img src="${imgUrl}" alt="${img.imageName}" 
@@ -264,15 +405,7 @@ function renderImages() {
       <button onclick="swapImageName(${idx})">Swap Name</button>
       <button onclick="swapImageDir(${idx})">Swap Dir</button>
       <select data-idx="${idx}" class="suffix-select" onchange="changeSuffix(${idx}, this.value)">
-        <option value="">(none)</option>
-        <option value="_C1"${currentSuffix === '_C1' ? ' selected' : ''}>_C1</option>
-        <option value="_C2"${currentSuffix === '_C2' ? ' selected' : ''}>_C2</option>
-        <option value="_C3"${currentSuffix === '_C3' ? ' selected' : ''}>_C3</option>
-        <option value="_C4"${currentSuffix === '_C4' ? ' selected' : ''}>_C4</option>
-        <option value="_C5"${currentSuffix === '_C5' ? ' selected' : ''}>_C5</option>
-        <option value="_C6"${currentSuffix === '_C6' ? ' selected' : ''}>_C6</option>
-        <option value="_C7"${currentSuffix === '_C7' ? ' selected' : ''}>_C7</option>
-        <option value="_L"${currentSuffix === '_L' ? ' selected' : ''}>_L</option>
+        ${optionsHtml}
       </select>
       <div style="font-size:0.9em;opacity:0.7;">
         ${img._isPrimary ? '<b>Primary Image</b>' : (idx+1)}
