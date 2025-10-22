@@ -837,12 +837,13 @@ filter: saturate(0.5);
   pointer-events: none;
 }
 
+
 .tile-expired-label {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  background: #ff4949;
+  background: #ff4949!important;
   color: #ffffff;
   padding: 25px 40px;
   font-weight: bold;
@@ -854,6 +855,7 @@ filter: saturate(0.5);
   text-shadow: #000 3px 3px 1px;
   pointer-events: none;
   clip-path: polygon(0 13%, 100% 0, 81% 100%, 8% 80%);
+  filter:none!important
 }
 
 body.atoms-currency .tile-price .old-price::before,
@@ -1507,6 +1509,34 @@ body.rub-currency .price-label-final::after {
 .shop-tile.small .tile-timer {
   bottom: 35px;
   right: -10px;
+}
+
+/* remove the parent's filter */
+.shop-tile.large.tile-expired,
+.shop-tile.small.tile-expired {
+  filter: none;
+}
+
+/* apply grayscale/brightness only to the visual parts */
+.shop-tile.large.tile-expired .tile-img img,
+.shop-tile.small.tile-expired .tile-img img,
+.shop-tile.large.tile-expired .tile-footer,
+.shop-tile.small.tile-expired .tile-footer,
+.shop-tile.large.tile-expired .tile-price,
+.shop-tile.small.tile-expired .tile-price {
+  filter: grayscale(100%) brightness(0.75);
+  opacity: 0.8;
+}
+
+/* make sure the label selector is correct (note the leading dot) */
+.shop-tile.large.tile-expired .tile-expired-label {
+  filter: none !important;
+  z-index: 3; /* ensure it sits above visuals */
+}
+/* correct selector and scale down for small tiles */
+.shop-tile.small.tile-expired .tile-expired-label {
+  transform: translate(-50%, -50%) scale(0.5); /* keep centered and scale */
+  transform-origin: center;
 }
 
 .link-btn {
