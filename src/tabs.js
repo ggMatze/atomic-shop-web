@@ -208,8 +208,7 @@ async function initTabs() {
 
       const tileSize = (idx < 3 ? 'large' : 'small');
       const tileClass = `shop-tile ${tileSize}`;
-      let clownLabel = '';
-      if (item.isClown === true) clownLabel = `<span class="clown-label" title="Bethesda made a fool of themselves again!"></span>`;
+  // clown handled via right-side badge container; don't inject separate inline span
       const tileDisabled = item.disabled === true ? 'tile-disabled' : '';
       const dateLabel = renderDateRange(item);
 
@@ -235,7 +234,6 @@ async function initTabs() {
           <div class="tile-img">
             <img src="${storefrontImageSrc}" alt="${item.itemName}" onerror="if(!this.src.endsWith('_l.webp')){this.src=this.src.replace('.webp','_l.webp');}else{this.onerror=null;}" />
           </div>
-          ${clownLabel}
           <div class="tile-price">
             <span class="old-price"></span>
             ${currentPrice}
@@ -244,8 +242,11 @@ async function initTabs() {
             <span class="discount"></span>
             ${newLabel}
           </div>
+          <div class="tile-badge-r">
+            <span class="tile-1st hidden">&nbsp;</span>
+            <span class="clown-label hidden" title="Bethesda made a fool of themselves again!">&nbsp;</span>
+          </div>
           ${expires}
-          <div class="tile-1st hidden">&nbsp;</div>
           <div class="tile-footer ${tileSize}">${tileSize === 'large' ? item.itemName : item.itemNameShort}</div>
         </div>
       `;
@@ -262,16 +263,16 @@ async function initTabs() {
       } catch (e) { /* ignore */ }
     });
 
-    // small deferred post-processing (e.g., Zeus badge)
+    // small deferred post-processing (Zeus + clown badges)
     setTimeout(() => {
       const tileEls = shopGridEl.querySelectorAll('.shop-tile');
       tileEls.forEach((tile) => {
         const data = JSON.parse(tile.getAttribute('data-item').replace(/&apos;/g, "'"));
+        // Zeus / 1st badge: toggle hidden class based on data.isZeus
         const firstDiv = tile.querySelector('.tile-1st');
-        if (firstDiv) {
-          if (data.isZeus) firstDiv.classList.remove('hidden');
-          else firstDiv.classList.add('hidden');
-        }
+        if (firstDiv) firstDiv.classList.toggle('hidden', !data.isZeus);
+        // Clown badge(s): there may be multiple .clown-label elements (inline or in the right-badge container)
+        tile.querySelectorAll('.clown-label').forEach(n => n.classList.toggle('hidden', !data.isClown));
       });
     }, 0);
 
@@ -453,8 +454,7 @@ if (typeof window !== 'undefined') {
 
   const tileSize = item.tileSize || (idx < 3 ? 'small' : 'large');
       const tileClass = `shop-tile ${tileSize}`;
-      let clownLabel = '';
-      if (item.isClown === true) clownLabel = `<span class="clown-label" title="Bethesda made a fool of themselves again!"></span>`;
+  // clown handled via right-side badge container; don't inject separate inline span
       // For the custom/preview tab, treat items as expired if endTime is in the past
       let isExpired = false;
       if (item.endTime && !isNaN(Date.parse(item.endTime))) {
@@ -477,7 +477,6 @@ if (typeof window !== 'undefined') {
           <div class="tile-img">
             <img src="${storefrontImageSrc}" alt="${item.itemName}" onerror="if(!this.src.endsWith('_l.webp')){this.src=this.src.replace('.webp','_l.webp');}else{this.onerror=null;}" />
           </div>
-          ${clownLabel}
           <div class="tile-price">
             <span class="old-price"></span>
             ${currentPrice}
@@ -487,22 +486,20 @@ if (typeof window !== 'undefined') {
             ${newLabel}
           </div>
           ${dateLabel}
-          <div class="tile-1st hidden">&nbsp;</div>
           <div class="tile-footer ${tileSize}">${tileSize === 'small' ? item.itemName : item.itemNameShort}</div>
         </div>
       `;
     });
 
-    // Deferred post-processing (Zeus badge)
+    // Deferred post-processing (Zeus + clown badges)
     setTimeout(() => {
       const tileEls = shopGridEl.querySelectorAll('.shop-tile');
       tileEls.forEach(tile => {
         try {
           const data = JSON.parse(tile.getAttribute('data-item').replace(/&apos;/g, "'"));
           const firstDiv = tile.querySelector('.tile-1st');
-          if (firstDiv) {
-            if (data.isZeus) firstDiv.classList.remove('hidden'); else firstDiv.classList.add('hidden');
-          }
+          if (firstDiv) firstDiv.classList.toggle('hidden', !data.isZeus);
+          tile.querySelectorAll('.clown-label').forEach(n => n.classList.toggle('hidden', !data.isClown));
         } catch (e) { /* ignore parse errors */ }
       });
     }, 0);

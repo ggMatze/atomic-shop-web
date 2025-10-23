@@ -651,6 +651,15 @@ filter: saturate(0.5);
   padding-left: 10px;
   text-shadow: 2px 2px black;
 }
+.tile-badge-r {
+  position: absolute;
+  top: 10px;
+  right: -18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 10px;
+}
 
 .discount::after {
   content: "% Off";
@@ -716,13 +725,13 @@ filter: saturate(0.5);
   content: '';
   position: absolute;
   top: 4px; /* adjust for shadow offset */
-  left: 4px;
+  right: 4px;
   min-width: 70px;
   max-width: 70px;
   min-height: 75px;
   max-height: 90px;
   background-size: contain;
-  background: #1d1d1d6c url('./images/clown-face.webp') no-repeat center;
+  background: #1d1d1d6c url('./media/clown-face.webp') no-repeat center;
   background-size: 90% auto;
   clip-path: inherit; /* reuse shape */
   z-index: -1;
@@ -733,10 +742,8 @@ filter: saturate(0.5);
   cursor: help;
 }
 .clown-label {
-  position: absolute;
+  position: relative;
    z-index: 1;
-  top: 10px;
-  right: -12px;
   background: #918f7980;
   color: #fff;
   font-size: 22px;
@@ -751,7 +758,7 @@ filter: saturate(0.5);
   cursor: help;
 }
 
-.tile-1st::before {
+.tile-1st:before {
   content: "1";
   line-height: 38px;
   letter-spacing: -1px;
@@ -760,8 +767,7 @@ filter: saturate(0.5);
   vertical-align: middle;
 }
 
-.tile-1st::after {
-  top: 15px;
+.tile-1st:after {
   text-transform: lowercase;
   content: "st";
   font-weight: 900;
@@ -770,20 +776,18 @@ filter: saturate(0.5);
 }
 
 .tile-1st {
+  right: 18px;
   font-family: "Cabin", sans-serif;
   font-style: italic;
-  position: absolute;
-  top: 10px;
-  right: 8px;
+  position: relative;
   background: #d8b405;
   border-radius: 6px;
   transform: scale(1.2) skew(-13deg) scaley(0.95);
   color: black;
   font-weight: bold;
   padding: 5px 5px;
+  margin-bottom: 8px;
   font-size: 0px;
-  /*clip-path: polygon(5% 4%, 98% 0%, 100% 95%, 0% 100%);*/
-  /*box-shadow: 5px 5px 0 #000;*/
 }
 
 .tile-price {
@@ -1219,7 +1223,9 @@ body.rub-currency .tile-price .current-price::before {
 .overlay-button:hover {
   box-shadow: 0 0 3px 1px #F4CA5Acc;
 }
-
+#loading-overlay, #no-js-warning{
+  visibility: hidden;
+}
 .overlay-close {
   visibility: hidden;
   position: absolute;
@@ -1476,19 +1482,24 @@ body.rub-currency .price-label-final::after {
   grid-row: span 2;
 }
 
-/* Banner/Label in kleinen Tiles kleiner machen */
+/* Banner/Label in kleinen Tiles kleiner machen 
 .shop-tile.small .tile-badge .discount,
 .shop-tile.small .tile-badge .new-label,
 .shop-tile.small .tile-badge .newish-label {
   transform: scale(0.75);
   transform-origin: left top;
+}*/
+
+.shop-tile.small .tile-badge{
+   transform: scale(0.75);
+  transform-origin: left top;
 }
 
-.shop-tile.small .tile-1st {
+/*.shop-tile.small .tile-1st {
   transform: scale(0.75) skew(-13deg) scaley(0.95);
   transform-origin: right top;
-  right: 0px;
-}
+  right: 8px;
+}*/
 
 .shop-tile.small .tile-timer {
    transform: scale(0.73) rotate(-2deg);
@@ -1510,11 +1521,19 @@ body.rub-currency .price-label-final::after {
   bottom: 35px;
   right: -10px;
 }
-
+/*
+.shop-tile.small .clown-label {
+  transform: scale(0.6);
+  transform-origin: right top;
+}*/
 /* remove the parent's filter */
 .shop-tile.large.tile-expired,
 .shop-tile.small.tile-expired {
   filter: none;
+}
+.shop-tile.small .tile-badge-r {
+  transform: scale(0.75);
+  transform-origin: right top;
 }
 
 /* apply grayscale/brightness only to the visual parts */

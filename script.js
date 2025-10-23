@@ -187,8 +187,6 @@ if (window.__overlay && typeof window.__overlay.showNewsNotice === 'function') {
 let simulatedNow = null; // Set this to a Date object to simulate, or null for real time
 //simulatedNow = new Date('2025-07-31T23:05:30.000Z');
 
-document.addEventListener("DOMContentLoaded", showNewsNotice);
-
 function isLtoExpired(item) {
   // Only treat as expired if isLto is true AND ltoTimer is a valid date string in the past
   if (!item.lowPrice || !item.lowPrice.isLto) return false;
