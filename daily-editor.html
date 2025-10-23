@@ -108,12 +108,23 @@
       <button id="load-btn">Load Data</button>
     </div>
     <div class="section-title">Select Day:</div>
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+      <label for="audience-select" style="font-size:0.9em;margin-right:6px;">Audience:</label>
+      <select id="audience-select" style="min-width:160px;">
+        <option value="all">All players</option>
+        <option value="first">Fallout First</option>
+      </select>
+    </div>
     <select id="day-select"></select>
     <div class="section-title">Current Item for Selected Day:</div>
     <div id="day-slot" class="day-slot"></div>
     <div class="actions">
       <button id="remove-btn">Remove Item</button>
-      <button id="update-dates-btn">Update Dates (Tue-Mon)</button>
+      <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
+        <button id="update-free-dates-btn" title="Update only DailyReplacements (free items)">Update Free Items Dates</button>
+        <button id="update-paid-dates-btn" title="Update only DailySalesByWeek (weekly paid items)">Update Weekly Sales Dates</button>
+        <button id="update-all-dates-btn" title="Update both groups (legacy behavior)">Update All Dates (Tue-Mon)</button>
+      </div>
       <button onclick="exportJSON()">Export JSON</button>
     </div>
   </div>
@@ -128,6 +139,19 @@ let dailyData = null;
 let itemsDB = null;
 let currentDBFile = 'dailyitems-database.json'; // <-- match your dropdown (we'll prefix with /data/ when loading)
 let selectedDayIdx = 0;
+let selectedAudience = 'all'; // 'all' => DailyReplacements, 'first' => DailyReplacements1st
+
+// Fixed replaceItemID per audience category
+const AUDIENCE_REPLACE_ID = {
+  all: 2316946,    // DailyReplacements
+  first: 2366300   // DailyReplacements1st
+};
+
+function getGroupArray(audience) {
+  if (!audience) audience = selectedAudience;
+  if (audience === 'first') return dailyData.DailyReplacements1st || [];
+  return dailyData.DailyReplacements || [];
+}
 
 // Load JSON files
 async function loadJSON(url) {
@@ -143,6 +167,17 @@ async function initEditor() {
   renderDayDropdown();
   renderDaySlot();
   renderDB();
+  // wire audience select
+  const aud = document.getElementById('audience-select');
+  if (aud) {
+    aud.value = selectedAudience;
+    aud.addEventListener('change', () => {
+      selectedAudience = aud.value;
+      selectedDayIdx = 0;
+      renderDayDropdown();
+      renderDaySlot();
+    });
+  }
 }
 
 function isFreeItem(item) {
@@ -155,7 +190,8 @@ function isFreeItem(item) {
 function renderDayDropdown() {
   const daySelect = document.getElementById('day-select');
   daySelect.innerHTML = '';
-  dailyData.DailyReplacements.forEach((day, idx) => {
+  const arr = getGroupArray();
+  arr.forEach((day, idx) => {
     if (isFreeItem(day)) {
       const d = new Date(day.startTime);
       const label = `${d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })} (${day.itemName || 'Empty'})`;
@@ -165,48 +201,57 @@ function renderDayDropdown() {
       daySelect.appendChild(opt);
     }
   });
-  if (daySelect.options.length > 0) {
-    selectedDayIdx = parseInt(daySelect.options[0].value, 10);
-    daySelect.value = selectedDayIdx;
+  // Preserve the currently selected day if it still exists in the new options.
+  const optionValues = Array.from(daySelect.options).map(o => Number(o.value));
+  if (optionValues.length > 0) {
+    if (optionValues.includes(Number(selectedDayIdx))) {
+      daySelect.value = String(selectedDayIdx);
+    } else {
+      // fallback to first available option
+      selectedDayIdx = optionValues[0];
+      daySelect.value = String(selectedDayIdx);
+    }
   }
 }
 
 function renderDaySlot() {
   const daySlot = document.getElementById('day-slot');
   daySlot.innerHTML = '';
-  const day = dailyData.DailyReplacements[selectedDayIdx];
+  const arr = getGroupArray();
+  const day = arr[selectedDayIdx];
   daySlot.classList.remove('dragover');
 
   const isFree = isFreeItem(day);
 
-  if (isFree) {
-    daySlot.addEventListener('dragover', e => {
-      e.preventDefault();
-      daySlot.classList.add('dragover');
-    });
-    daySlot.addEventListener('dragleave', () => {
-      daySlot.classList.remove('dragover');
-    });
-    daySlot.addEventListener('drop', e => {
-      e.preventDefault();
-      daySlot.classList.remove('dragover');
-      let dbItems;
-      if (currentDBFile === 'dailyitems-database.json') {
-        dbItems = itemsDB.items || [];
-      } else {
-        dbItems = getFreeItems(itemsDB);
-      }
-      const itemIdx = e.dataTransfer.getData('text/plain');
-      const item = dbItems[itemIdx];
-      assignItemToDay(item);
-    });
-  } else {
-    daySlot.ondragover = null;
-    daySlot.ondragleave = null;
-    daySlot.ondrop = null;
-  }
+    if (isFree) {
+      // Assign event handlers directly to avoid adding duplicate listeners on every render
+      daySlot.ondragover = function (e) {
+        e.preventDefault();
+        daySlot.classList.add('dragover');
+      };
+      daySlot.ondragleave = function () {
+        daySlot.classList.remove('dragover');
+      };
+      daySlot.ondrop = function (e) {
+        e.preventDefault();
+        daySlot.classList.remove('dragover');
+        let dbItems;
+        if (currentDBFile === 'dailyitems-database.json') {
+          dbItems = itemsDB.items || [];
+        } else {
+          dbItems = getFreeItems(itemsDB);
+        }
+        const itemIdx = e.dataTransfer.getData('text/plain');
+        const item = dbItems[itemIdx];
+        assignItemToDay(item);
+      };
+    } else {
+      daySlot.ondragover = null;
+      daySlot.ondragleave = null;
+      daySlot.ondrop = null;
+    }
 
-  if (day.itemName) {
+  if (day && day.itemName) {
     const infoDiv = document.createElement('div');
     infoDiv.className = 'day-item-info';
     if (day.primaryImage && day.primaryImage.imageName) {
@@ -286,7 +331,8 @@ function renderDB() {
 
 // Only copy relevant fields, ignore dates
 function assignItemToDay(item) {
-  const day = dailyData.DailyReplacements[selectedDayIdx];
+  const arr = getGroupArray();
+  const day = arr[selectedDayIdx];
   // Only update fields from the database, leave prices/dates/timers untouched
   day.itemName = item.itemName;
   day.itemNameShort = item.itemNameShort;
@@ -305,18 +351,26 @@ function assignItemToDay(item) {
     }));
   }
   // Do NOT touch: lowPrice, lowestPurchasablePrice, highPrice, startTime, endTime, etc.
-  // Only update replaceItemID if present in database
-  if (item.replaceItemID) {
-    day.replaceItemID = item.replaceItemID;
+  // DO NOT copy the database item's replaceItemID here — use the fixed per-audience replace ID.
+  const fixedId = AUDIENCE_REPLACE_ID[selectedAudience] || AUDIENCE_REPLACE_ID.all;
+  if (fixedId) {
+    day.replaceItemID = fixedId;
+    // Keep itemID aligned with the replacement mapping so render/preview logic can match this slot
+    day.itemID = fixedId;
   }
+  // Preserve/set the 'isZeus' flag for Fallout First audience slots so the UI shows 1st badge
+  day.isZeus = (selectedAudience === 'first');
   renderDayDropdown();
   renderDaySlot();
 }
 
 document.getElementById('remove-btn').addEventListener('click', () => {
-  const day = dailyData.DailyReplacements[selectedDayIdx];
-  day.itemName = '';
-  day.primaryImage = {};
+  const arr = getGroupArray();
+  const day = arr[selectedDayIdx];
+  if (day) {
+    day.itemName = '';
+    day.primaryImage = {};
+  }
   renderDayDropdown();
   renderDaySlot();
 });
@@ -370,65 +424,64 @@ function getNextTuesday() {
   return d;
 }
 
-// Update dates to specific week starting Tuesday
-function updateDatesToWeek() {
-  const now = new Date();
+// helper: compute the most recent (or upcoming) Tuesday 16:00 UTC for 'this week'
+function computeWeekTuesdayStart(now = new Date()) {
   const utcDay = now.getUTCDay();
-  // Find the most recent Tuesday (this week)
   const daysSinceTuesday = (utcDay - 2 + 7) % 7;
-  let start = new Date(Date.UTC(
+  return new Date(Date.UTC(
     now.getUTCFullYear(),
     now.getUTCMonth(),
     now.getUTCDate() - daysSinceTuesday,
     16, 0, 0, 0
   ));
+}
 
-  // Update free items (DailyReplacements)
-  const freeItems = dailyData.DailyReplacements.filter(day =>
+// Update only DailyReplacements (free items)
+function updateFreeDates() {
+  const now = new Date();
+  let start = computeWeekTuesdayStart(now);
+  const arr = getGroupArray();
+  const freeItems = arr.filter(day =>
     day.lowestPurchasablePrice &&
     day.lowestPurchasablePrice.Amount === 0 &&
     day.highPrice &&
     day.highPrice.originalAmount === 0
   );
-
   for (let i = 0; i < freeItems.length; i++) {
     freeItems[i].startTime = start.toISOString();
     freeItems[i].endTime = new Date(start.getTime() + 24*60*60*1000).toISOString();
-    if (freeItems[i].lowPrice) {
-      freeItems[i].lowPrice.ltoTimer = freeItems[i].endTime;
-    }
+    if (freeItems[i].lowPrice) freeItems[i].lowPrice.ltoTimer = freeItems[i].endTime;
     start.setDate(start.getDate() + 1);
     start.setUTCHours(16, 0, 0, 0);
   }
-
-  // Update paid items for all weeks
-  if (dailyData.DailySalesByWeek) {
-    let weekStart = new Date(start); // start is now after the last free item, so recalculate
-    // Reset weekStart to the most recent Tuesday
-    weekStart = new Date(Date.UTC(
-      now.getUTCFullYear(),
-      now.getUTCMonth(),
-      now.getUTCDate() - daysSinceTuesday,
-      16, 0, 0, 0
-    ));
-
-    Object.keys(dailyData.DailySalesByWeek).forEach((weekKey, weekIdx) => {
-      let dayStart = new Date(weekStart.getTime() + weekIdx * 7 * 24 * 60 * 60 * 1000);
-      const weekArr = dailyData.DailySalesByWeek[weekKey];
-      for (let i = 0; i < weekArr.length; i++) {
-        weekArr[i].startTime = dayStart.toISOString();
-        weekArr[i].endTime = new Date(dayStart.getTime() + 24*60*60*1000).toISOString();
-        if (weekArr[i].lowPrice) {
-          weekArr[i].lowPrice.ltoTimer = weekArr[i].endTime;
-        }
-        dayStart.setDate(dayStart.getDate() + 1);
-        dayStart.setUTCHours(16, 0, 0, 0);
-      }
-    });
-  }
-
   renderDayDropdown();
   renderDaySlot();
+}
+
+// Update only DailySalesByWeek (paid weekly sales)
+function updatePaidDates() {
+  const now = new Date();
+  const weekStart = computeWeekTuesdayStart(now);
+  if (!dailyData.DailySalesByWeek) return;
+  Object.keys(dailyData.DailySalesByWeek).forEach((weekKey, weekIdx) => {
+    let dayStart = new Date(weekStart.getTime() + weekIdx * 7 * 24 * 60 * 60 * 1000);
+    const weekArr = dailyData.DailySalesByWeek[weekKey];
+    for (let i = 0; i < weekArr.length; i++) {
+      weekArr[i].startTime = dayStart.toISOString();
+      weekArr[i].endTime = new Date(dayStart.getTime() + 24*60*60*1000).toISOString();
+      if (weekArr[i].lowPrice) weekArr[i].lowPrice.ltoTimer = weekArr[i].endTime;
+      dayStart.setDate(dayStart.getDate() + 1);
+      dayStart.setUTCHours(16, 0, 0, 0);
+    }
+  });
+  renderDayDropdown();
+  renderDaySlot();
+}
+
+// Legacy: update both free items and paid weekly sales (keeps old behavior)
+function updateDatesToWeek() {
+  updateFreeDates();
+  updatePaidDates();
 }
 
 // Export JSON
@@ -457,6 +510,15 @@ document.addEventListener('DOMContentLoaded', initEditor);
 window.updateDates = updateDates;
 window.exportJSON = exportJSON;
 document.getElementById('update-dates-btn').addEventListener('click', function() {
+  updateDatesToWeek();
+});
+document.getElementById('update-free-dates-btn').addEventListener('click', function() {
+  updateFreeDates();
+});
+document.getElementById('update-paid-dates-btn').addEventListener('click', function() {
+  updatePaidDates();
+});
+document.getElementById('update-all-dates-btn').addEventListener('click', function() {
   updateDatesToWeek();
 });
 </script>

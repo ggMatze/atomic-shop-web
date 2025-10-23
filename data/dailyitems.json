@@ -18,19 +18,14 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Free Lunchbox",
-      "itemNameShort": "Free Lunchbox",
-      "itemDesc": "Open for you and your friends! You and those who are close by get an XP Boost and a random effect for 1 hour!",
+      "itemName": "Free Carry Weight Booster",
+      "itemNameShort": "free Carry Weight",
+      "itemDesc": "Drink this and you will gain +50 Carry Weight for a half hour. \r\n\r\n- AVAILABLE FOR GOLD BULLION. UNDER THE FOOD AND DRINK TAB AND GRANTED WHEN ENTEING ADVENTURE MODE.\nSUBJECT TO PER CHARACTER MAX WEIGHT.",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_store_lunchbox001_l.webp"
+        "imageName": "score_utility_carryweight_l.webp"
       },
-      "carouselImages": [
-        {
-          "directory": "textures/atx/storefront/utility/",
-          "imageName": "atx_store_lunchbox001_l.webp"
-        }
-      ],
+      "carouselImages": [],
       "lowPrice": {
         "ltoTimer": "2025-10-22T16:00:00.000Z",
         "isLto": true
@@ -43,7 +38,8 @@
         "originalAmount": 0
       },
       "startTime": "2025-10-21T16:00:00.000Z",
-      "endTime": "2025-10-22T16:00:00.000Z"
+      "endTime": "2025-10-22T16:00:00.000Z",
+      "isZeus": false
     },
     {
       "replaceItemID": 2316946,
@@ -73,37 +69,8 @@
         "originalAmount": 0
       },
       "startTime": "2025-10-22T16:00:00.000Z",
-      "endTime": "2025-10-23T16:00:00.000Z"
-    },
-    {
-      "replaceItemID": 2316946,
-      "itemID": 2316946,
-      "itemName": "Free Lunchbox",
-      "itemNameShort": "Free Lunchbox",
-      "itemDesc": "Open for you and your friends! You and those who are close by get an XP Boost and a random effect for 1 hour!",
-      "primaryImage": {
-        "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_store_lunchbox001_l.webp"
-      },
-      "carouselImages": [
-        {
-          "directory": "textures/atx/storefront/utility/",
-          "imageName": "atx_store_lunchbox001_l.webp"
-        }
-      ],
-      "lowPrice": {
-        "ltoTimer": "2025-10-24T16:00:00.000Z",
-        "isLto": true
-      },
-      "lowestPurchasablePrice": {
-        "Amount": 0,
-        "ltoTimer": 1813682
-      },
-      "highPrice": {
-        "originalAmount": 0
-      },
-      "startTime": "2025-10-23T16:00:00.000Z",
-      "endTime": "2025-10-24T16:00:00.000Z"
+      "endTime": "2025-10-23T16:00:00.000Z",
+      "isZeus": false
     },
     {
       "replaceItemID": 2316946,
@@ -122,6 +89,32 @@
         }
       ],
       "lowPrice": {
+        "ltoTimer": "2025-10-24T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-23T16:00:00.000Z",
+      "endTime": "2025-10-24T16:00:00.000Z",
+      "isZeus": false
+    },
+    {
+      "replaceItemID": 2316946,
+      "itemID": 2316946,
+      "itemName": "Vault-Tec Supply Package (Level 2)",
+      "itemNameShort": "Vault-Tec Supply Package",
+      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "atx_utility_scrapball_level2_l.webp"
+      },
+      "carouselImages": [],
+      "lowPrice": {
         "ltoTimer": "2025-10-25T16:00:00.000Z",
         "isLto": true
       },
@@ -133,17 +126,18 @@
         "originalAmount": 0
       },
       "startTime": "2025-10-24T16:00:00.000Z",
-      "endTime": "2025-10-25T16:00:00.000Z"
+      "endTime": "2025-10-25T16:00:00.000Z",
+      "isZeus": false
     },
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Vault-Tec Supply Package (Level 2)",
-      "itemNameShort": "Vault-Tec Supply Package",
-      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
+      "itemName": "Repair Kit",
+      "itemNameShort": "Repair Kit",
+      "itemDesc": "Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_scrapball_level2_l.webp"
+        "imageName": "atx_utility_repairkit_basic_l.webp"
       },
       "carouselImages": [],
       "lowPrice": {
@@ -158,7 +152,8 @@
         "originalAmount": 0
       },
       "startTime": "2025-10-25T16:00:00.000Z",
-      "endTime": "2025-10-26T16:00:00.000Z"
+      "endTime": "2025-10-26T16:00:00.000Z",
+      "isZeus": false
     },
     {
       "replaceItemID": 2316946,
@@ -188,12 +183,207 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
+      "itemName": "Caps x250",
+      "itemNameShort": "Caps x250",
+      "itemDesc": "Some caps to use in Appalachia!",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "score_currency_caps_l.webp"
+      },
+      "carouselImages": [],
+      "lowPrice": {
+        "ltoTimer": "2025-10-28T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-27T16:00:00.000Z",
+      "endTime": "2025-10-28T16:00:00.000Z",
+      "isZeus": false
+    }
+  ],
+  "DailyReplacements1st": [
+    {
+      "replaceItemID": 2366300,
+      "itemID": 2366300,
+      "isZeus": true,
+      "itemName": "Perk Card Pack",
+      "itemNameShort": "Perk Card Pack",
+      "itemDesc": "A pack with four perk cards (and a bubblegum joke)! \r\n\r\n- SELECT THIS ITEM IN THE PERK MENU. PERK CARD PACKS WILL BE GRANTED TO THE CHOSEN CHARACTER. -",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "score_game_perkcardpack_l.webp"
+      },
+      "carouselImages": [],
+      "lowPrice": {
+        "ltoTimer": "2025-10-22T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-21T16:00:00.000Z",
+      "endTime": "2025-10-22T16:00:00.000Z"
+    },
+    {
+      "replaceItemID": 2366300,
+      "itemID": 2366300,
+      "isZeus": true,
       "itemName": "Repair Kit",
       "itemNameShort": "Repair Kit",
       "itemDesc": "Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
         "imageName": "atx_utility_repairkit_basic_l.webp"
+      },
+      "carouselImages": [],
+      "lowPrice": {
+        "ltoTimer": "2025-10-23T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-22T16:00:00.000Z",
+      "endTime": "2025-10-23T16:00:00.000Z"
+    },
+    {
+      "replaceItemID": 2366300,
+      "itemID": 2366300,
+      "isZeus": true,
+      "itemName": "Scout's Banner",
+      "itemNameShort": "Scout's Banner",
+      "itemDesc": "Open a Scout's Banner for you and your friends! You and nearby players receive various combat effects that have a chance to trigger whenever you kill enemies. Lasts for 1 hour! \r\n\r\n- SCOUT'S BANNERS ARE UNDER AID IN THE PIP-BOY. SCOUT'S BANNERS WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "score_coen_utility_banner_l.webp"
+      },
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_store_lunchbox001_l.webp"
+        }
+      ],
+      "lowPrice": {
+        "ltoTimer": "2025-10-24T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-23T16:00:00.000Z",
+      "endTime": "2025-10-24T16:00:00.000Z"
+    },
+    {
+      "replaceItemID": 2366300,
+      "itemID": 2366300,
+      "isZeus": true,
+      "itemName": "Gold Bullion x100",
+      "itemNameShort": "Gold Bullion x100",
+      "itemDesc": "There's always money in gold! Some gold bullion to buy from the various vendors of the world! \r\n\r\n- GRANTED WHEN ENTERING ADVENTURE MODE. SUBJECT TO PER CHARACTER MAX-",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "score_currency_bullion_l.webp"
+      },
+      "carouselImages": [],
+      "lowPrice": {
+        "ltoTimer": "2025-10-25T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-24T16:00:00.000Z",
+      "endTime": "2025-10-25T16:00:00.000Z"
+    },
+    {
+      "replaceItemID": 2366300,
+      "itemID": 2366300,
+      "isZeus": true,
+      "itemName": "Legendary Scrip x50",
+      "itemNameShort": "Legendary Scrip x50",
+      "itemDesc": "Legendary Scrip to exchange with Murmrgh! \r\n\r\n-GRANTED WHEN ENTERING ADVENTURE MODE. SUBJECT TO PER CHARACTER MAX-",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "score_game_legendaryscrip_l.webp"
+      },
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_store_lunchbox001_l.webp"
+        }
+      ],
+      "lowPrice": {
+        "ltoTimer": "2025-10-26T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-25T16:00:00.000Z",
+      "endTime": "2025-10-26T16:00:00.000Z"
+    },
+    {
+      "replaceItemID": 2366300,
+      "itemID": 2366300,
+      "isZeus": true,
+      "itemName": "Improved Bait X5",
+      "itemNameShort": "Improved Bait X5",
+      "itemDesc": "Improve your chances of hooking the big one with this Improved Bait! \r\n\r\n- CAN BE SELECTED BEFORE CASTING LINE DURING FISHING. GRANTED WHEN ENTERING ADVENTURE MODE. SUBJECT TO MAX WEIGHT.",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "score_utility_improvedbait_l.webp"
+      },
+      "carouselImages": [],
+      "lowPrice": {
+        "ltoTimer": "2025-10-27T16:00:00.000Z",
+        "isLto": true
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2025-10-26T16:00:00.000Z",
+      "endTime": "2025-10-27T16:00:00.000Z"
+    },
+    {
+      "replaceItemID": 2366300,
+      "itemID": 2366300,
+      "isZeus": true,
+      "itemName": "Caps x250",
+      "itemNameShort": "Caps x250",
+      "itemDesc": "Some caps to use in Appalachia!",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "score_currency_caps_l.webp"
       },
       "carouselImages": [],
       "lowPrice": {

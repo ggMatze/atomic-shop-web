@@ -138,7 +138,9 @@ function showItemDetails(pageIdx, itemIdx) {
   } else {
     ltoDateObj = new Date();
   }
+  // Convert a Date (UTC instant) to a string suitable for <input type="datetime-local"> (local wall-clock)
   function toDatetimeLocalValue(date) {
+    // Create a Date adjusted to local time by subtracting the timezone offset
     const off = date.getTimezoneOffset();
     const local = new Date(date.getTime() - off * 60 * 1000);
     return local.toISOString().slice(0, 16);
@@ -236,10 +238,18 @@ function showItemDetails(pageIdx, itemIdx) {
   // --- TIMER EVENTS ---
   const ltotimerInput = document.getElementById('ltotimer-input');
   const relSpan = document.getElementById('ltotimer-rel');
+  // Helper: convert a local Date instance (constructed from datetime-local input) to the canonical UTC ISO string
+  function convertLocalToUtcIso(localDate) {
+    // localDate is a Date constructed as if its fields are local wall-clock.
+    // new Date(year, month, day, hour, minute) already represents the correct UTC instant
+    // for that local wall-clock time, so simply return its ISO string.
+    return localDate.toISOString();
+  }
+
   ltotimerInput.addEventListener('input', () => {
     const dLocal = parseLocalDatetimeLocalValue(ltotimerInput.value);
     if (!dLocal) return;
-    const iso = new Date(dLocal.getTime() - dLocal.getTimezoneOffset() * 60000).toISOString();
+    const iso = convertLocalToUtcIso(dLocal);
     relSpan.textContent = getRelativeTimeString(iso);
     const tzLabelEl = document.getElementById('ltotimer-tzlabel');
     if (tzLabelEl) tzLabelEl.textContent = getTZLabel(new Date(iso));
@@ -250,7 +260,7 @@ function showItemDetails(pageIdx, itemIdx) {
   window._ltotimerInterval = setInterval(() => {
     const dLocal = parseLocalDatetimeLocalValue(ltotimerInput.value);
     if (!dLocal) return;
-    const iso = new Date(dLocal.getTime() - dLocal.getTimezoneOffset() * 60000).toISOString();
+    const iso = convertLocalToUtcIso(dLocal);
     relSpan.textContent = getRelativeTimeString(iso);
     const tzLabelEl = document.getElementById('ltotimer-tzlabel');
     if (tzLabelEl) tzLabelEl.textContent = getTZLabel(new Date(iso));
@@ -263,7 +273,7 @@ function showItemDetails(pageIdx, itemIdx) {
     const dLocal = parseLocalDatetimeLocalValue(val);
     if (dLocal && !isNaN(dLocal.getTime())) {
       // Convert local Date to UTC ISO for storage
-      const iso = new Date(dLocal.getTime() - dLocal.getTimezoneOffset() * 60000).toISOString();
+      const iso = convertLocalToUtcIso(dLocal);
       if (!item.lowPrice) item.lowPrice = {};
       item.lowPrice.ltoTimer = iso;
       document.getElementById('ltotimer-status').textContent = "Gespeichert!";

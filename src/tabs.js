@@ -25,6 +25,8 @@ async function initTabs() {
     ? await window.__dataLoader.loadDailyAndStore()
     : { dailyReplacementsData: {}, storeData: {} };
   window.dailyReplacements = dailyReplacementsData.DailyReplacements || [];
+  // Also expose Fallout First replacements if present
+  window.dailyReplacements1st = dailyReplacementsData.DailyReplacements1st || [];
   window.dailySalesByWeek = dailyReplacementsData.DailySalesByWeek || {};
   window.dailySalesWeekMeta = dailyReplacementsData.DailySalesWeekMeta || {};
 
@@ -91,20 +93,76 @@ async function initTabs() {
     const page = pages[tabIdx];
     if (!page) return;
 
-    // Handle SPECIAL replacements
+    // Handle SPECIAL replacements dynamically
+    // If the page is the S.P.E.C.I.A.L tab, allow replacements for any itemID that matches
     if (page.name && page.name.includes('S.P.E.C.I.A.L')) {
-      const offerIdx = page.items.findIndex(i => i.itemID === 2316440);
-      const offerReplacement = window.getActivePaidSale ? window.getActivePaidSale(2316440) : null;
-      if (offerIdx !== -1) {
-        if (offerReplacement) page.items[offerIdx] = { ...offerReplacement };
-        else page.items.splice(offerIdx, 1);
+      // Helper to find replacement candidates for an itemID from both paid sales and free replacements
+      function findReplacementCandidate(itemID) {
+        // First check paid sales (weekly collections)
+        const paid = window.getActivePaidSale ? window.getActivePaidSale(itemID) : null;
+        if (paid) return paid;
+        // Next check free replacements list
+        const free = window.getActiveReplacement ? window.getActiveReplacement(itemID) : null;
+        if (free) return free;
+        // No active replacement found
+        return null;
       }
-      const freeIdx = page.items.findIndex(i => i.itemID === 2316946);
-      const freeReplacement = window.getActiveReplacement ? window.getActiveReplacement(2316946) : null;
-      if (freeIdx !== -1) {
-        if (freeReplacement) page.items[freeIdx] = { ...freeReplacement };
-        else page.items.splice(freeIdx, 1);
-      }
+
+      // For each item slot on the page, if the itemID has replacement candidates in the datasets
+      // then either substitute the active replacement or remove the slot if candidates exist but none active.
+      // We'll consult the raw candidate pools to know whether candidates exist at all.
+      const hasPaidCandidatesFor = (id) => {
+        // search all weekly sales for candidates
+        const allPaid = Object.values(window.dailySalesByWeek || {}).flat();
+        const idNum = Number(id);
+        return allPaid.some(r => Number(r.replaceItemID) === idNum);
+      };
+      const hasFreeCandidatesFor = (id) => {
+        const idNum = Number(id);
+        const pool = (window.dailyReplacements || []).concat(window.dailyReplacements1st || []);
+        return pool.some(r => Number(r.replaceItemID) === idNum);
+      };
+
+      // Walk items and build a new array to replace page.items
+      const newItems = [];
+      (page.items || []).forEach(origItem => {
+        const idRaw = origItem && origItem.itemID;
+        if (idRaw == null) {
+          newItems.push(origItem);
+          return;
+        }
+        const id = Number(idRaw);
+        if (isNaN(id)) {
+          // non-numeric ids we don't handle here
+          newItems.push(origItem);
+          return;
+        }
+
+        const activeReplacement = findReplacementCandidate(id);
+        // Diagnostic logging to help trace replacement decisions
+        try {
+          /* eslint-disable no-console */
+          console.debug('[SPECIAL replace] slot:', { rawId: idRaw, numericId: id, active: !!activeReplacement });
+          if (activeReplacement) console.debug('[SPECIAL replace] using replacement:', { replaceItemID: activeReplacement.replaceItemID, itemName: activeReplacement.itemName });
+        } catch (e) { /* ignore logging errors */ }
+        if (activeReplacement) {
+          // use the active replacement
+          newItems.push({ ...activeReplacement });
+          return;
+        }
+
+        // no active replacement; check if there were candidates at all
+        const hadCandidates = hasPaidCandidatesFor(id) || hasFreeCandidatesFor(id);
+        if (hadCandidates) {
+          // candidates existed but none are active -> remove the slot (do not push)
+          return;
+        }
+
+        // otherwise keep original item
+        newItems.push(origItem);
+      });
+
+      page.items = newItems;
     }
 
     const shopGridEl = document.querySelector('.shop-grid');
@@ -469,7 +527,9 @@ export { initTabs, renderCustomDailyTab };
 // Provide helpers for finding active replacements/paid sales (moved from legacy script)
 function getActiveReplacement(itemID) {
   const now = window.simulatedNow ? window.simulatedNow.getTime() : Date.now();
-  const candidates = (window.dailyReplacements || []).filter(r => r.replaceItemID === itemID);
+  const idNum = Number(itemID);
+  const pool = (window.dailyReplacements || []).concat(window.dailyReplacements1st || []);
+  const candidates = pool.filter(r => Number(r.replaceItemID) === idNum);
 
   // Find the one where startTime <= now < endTime
   let active = candidates.find(r => {
@@ -500,7 +560,7 @@ function getActivePaidSale(itemID) {
   let candidates = [];
   // Collect all sales from all weeks
   Object.values(window.dailySalesByWeek || {}).forEach(weekArr => {
-    candidates = candidates.concat(weekArr.filter(r => r.replaceItemID === itemID));
+    candidates = candidates.concat(weekArr.filter(r => Number(r.replaceItemID) === Number(itemID)));
   });
 
   // Find the one where startTime <= now < endTime
