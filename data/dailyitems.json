@@ -132,12 +132,12 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Repair Kit",
-      "itemNameShort": "Repair Kit",
-      "itemDesc": "Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
+      "itemName": "Vault-Tec Supply Package (Level 2)",
+      "itemNameShort": "Vault-Tec Supply Package",
+      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_repairkit_basic_l.webp"
+        "imageName": "atx_utility_scrapball_level2_l.webp"
       },
       "carouselImages": [],
       "lowPrice": {
@@ -212,14 +212,19 @@
       "replaceItemID": 2366300,
       "itemID": 2366300,
       "isZeus": true,
-      "itemName": "Perk Card Pack",
-      "itemNameShort": "Perk Card Pack",
-      "itemDesc": "A pack with four perk cards (and a bubblegum joke)! \r\n\r\n- SELECT THIS ITEM IN THE PERK MENU. PERK CARD PACKS WILL BE GRANTED TO THE CHOSEN CHARACTER. -",
+      "itemName": "Free Lunchbox",
+      "itemNameShort": "Free Lunchbox",
+      "itemDesc": "Open for you and your friends! You and those who are close by get an XP Boost and a random effect for 1 hour!",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "score_game_perkcardpack_l.webp"
+        "imageName": "atx_store_lunchbox001_l.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_store_lunchbox001_l.webp"
+        }
+      ],
       "lowPrice": {
         "ltoTimer": "2025-10-22T16:00:00.000Z",
         "isLto": true
