@@ -1105,34 +1105,34 @@
         "replaceItemID": 2316440,
         "itemID": "day20",
         "tileSize": "small",
-        "isClown": false,
+        "isClown": true,
         "disabled": false,
-        "itemName": "Giant Dinosaur",
-        "itemNameShort": "Giant Dinosaur",
-        "itemDesc": "Make a prehistoric statement in your C.A.M.P. with this Giant Dinosaur Floor Decoration!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-        "primaryImage": {
-          "imageName": "atx_entm_camp_floordecor_giantdinosaur_l.webp",
-          "directory": "textures/atx/storefront/camp/floordecoration/"
-        },
-        "carouselImages": [
-          {
-            "imageName": "atx_entm_camp_floordecor_giantdinosaur_c1.webp",
-            "directory": "textures/atx/storefront/camp/floordecoration/"
-          },
-          {
-            "imageName": "atx_entm_camp_floordecor_giantdinosaur_c2.webp",
-            "directory": "textures/atx/storefront/camp/floordecoration/"
-          }
-        ],
+        "itemName": "The Silver Shroud Costume",
+            "itemNameShort": "Silver Shroud Costume",
+            "itemDesc": "Become death's Shroud and help wipe out evil-doers across Appalachia. By the shadows, it's dangerous!\n*Bethesda scheduled a different item for today in their news post, but the in-game store is showing this one instead.*\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_apparel_outfit_silvershroud_l.webp",
+              "directory": "textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_outfit_silvershroud_c1.webp",
+                "directory": "textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_silvershroud_c2.webp",
+                "directory": "textures/atx/storefront/player/outfit/"
+              }
+            ],
         "lowPrice": {
           "ltoTimer": "2025-10-27T16:00:00.000Z",
           "isLto": true
         },
         "lowestPurchasablePrice": {
-          "Amount": 250
+          "Amount": 400
         },
         "highPrice": {
-          "originalAmount": 500
+          "originalAmount": 800
         },
         "startTime": "2025-10-26T16:00:00.000Z",
         "endTime": "2025-10-27T16:00:00.000Z"
