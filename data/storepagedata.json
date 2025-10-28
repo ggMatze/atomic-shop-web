@@ -326,7 +326,7 @@
             "itemID": 2369710,
             "itemName": "Robot Smasher Bundle",
             "itemNameShort": "Robot Smasher Bundle",
-            "itemDesc": "Dress up like a robot and smash some pumpkins with the Robot Smasher Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "Dress up like a robot and smash some pumpkins with the Robot Smasher Bundle.\n*I don't know whats so \"Bundle\" about it, just an Outfit. If it includes more Items, we don't know.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
               "imageName": "fde7bf5125ffa3c71c80aed1bc75e211.dds",
               "directory": "textures/atomic_shop_media/"
@@ -335,6 +335,11 @@
               {
                 "imageName": "atx_apparel_headwear_cardboardrobot.webp",
                 "directory": "Textures/ATX/Storefront/Player/Headwear/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_cardboardrobot.webp",
+                "directory": "textures\\atx\\storefront\\player\\outfit\\",
+                "url": "textures/atx/storefront/player/outfit/atx_apparel_outfit_cardboardrobot.webp"
               }
             ],
             "dynamicBundleItems": [],
@@ -358,6 +363,7 @@
             },
             "isNew": false,
             "isZeus": false,
+            "isClown": true,
             "_detectedSuffixInfo": {
               "maxC": 1,
               "hasL": true,
@@ -560,7 +566,7 @@
               "amount": 1200,
               "originalAmount": 1200,
               "isLto": true,
-              "ltoTimer": "2025-10-18T15:00:00.000Z"
+              "ltoTimer": "2025-11-18T16:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 1200,
@@ -1446,8 +1452,14 @@
                 "directory": "textures/atomic_shop_media/"
               },
               {
-                "imageName": "3e00cf3a381f43cfc46f3e6da94866ed.dds",
-                "directory": "textures/atomic_shop_media/"
+                "imageName": "atx_apparel_clothes_mothmanhunter_hat_l.webp",
+                "directory": "textures\\atx\\storefront\\player\\headwear\\",
+                "url": "textures/atx/storefront/player/headwear/atx_apparel_clothes_mothmanhunter_hat_l.webp"
+              },
+              {
+                "imageName": "atx_apparel_clothes_mothmanhunter_goggles_l.webp",
+                "directory": "textures\\atx\\storefront\\player\\headwear\\",
+                "url": "textures/atx/storefront/player/headwear/atx_apparel_clothes_mothmanhunter_goggles_l.webp"
               },
               {
                 "imageName": "atx_photomode_frame_mothman02_l.webp",
@@ -1458,26 +1470,28 @@
                 "directory": "Textures/ATX/Storefront/Player/WeaponSkin/"
               },
               {
-                "imageName": "b5f2869d56ae6869132a2b173a52d22b.webp",
-                "directory": "textures/atomic_shop_media/"
-              },
-              {
                 "imageName": "atx_playericon_creepy_mothman.webp",
                 "directory": "textures\\atx\\storefront\\player\\playericons\\",
                 "url": "textures/atx/storefront/player/playericons/atx_playericon_creepy_mothman.webp"
               },
               {
-                "imageName": "atx_apparel_clothes_mothmanhunter_hat_l.webp",
-                "directory": "textures\\atx\\storefront\\player\\headwear\\",
-                "url": "textures/atx/storefront/player/headwear/atx_apparel_clothes_mothmanhunter_hat_l.webp"
+                "imageName": "b5f2869d56ae6869132a2b173a52d22b.webp",
+                "directory": "textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "3e00cf3a381f43cfc46f3e6da94866ed.dds",
+                "directory": "textures/atomic_shop_media/"
               }
             ],
             "dynamicBundleItems": [
               {
+                "szItemName": "Mothman Hunter Outfit"
+              },
+              {
                 "szItemName": "Mothman Hunter Hat"
               },
               {
-                "szItemName": "Mothman Hunter Outfit"
+                "szItemName": "Mothman Hunter Goggles"
               },
               {
                 "szItemName": "I Survived Frame"
@@ -1487,9 +1501,6 @@
               },
               {
                 "szItemName": "Creepy Mothman Player Icon"
-              },
-              {
-                "szItemName": "Mothman Hunter Goggles"
               },
               {
                 "szItemName": "Mothman Worship Emote"
