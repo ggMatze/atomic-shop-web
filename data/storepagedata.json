@@ -326,23 +326,57 @@
             "itemID": 2369710,
             "itemName": "Robot Smasher Bundle",
             "itemNameShort": "Robot Smasher Bundle",
-            "itemDesc": "Dress up like a robot and smash some pumpkins with the Robot Smasher Bundle.\n*I don't know whats so \"Bundle\" about it, just an Outfit. If it includes more Items, we don't know.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "Dress up like a robot and smash some pumpkins with the Robot Smasher Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n<br>*The Items listed should be included but i can't guarantee it due to lack of official data.",
             "primaryImage": {
               "imageName": "fde7bf5125ffa3c71c80aed1bc75e211.dds",
               "directory": "textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
+                "imageName": "atx_apparel_outfit_cardboardrobot.webp",
+                "directory": "textures/atx/storefront/player/outfit/"
+              },
+              {
                 "imageName": "atx_apparel_headwear_cardboardrobot.webp",
                 "directory": "Textures/ATX/Storefront/Player/Headwear/"
               },
               {
-                "imageName": "atx_apparel_outfit_cardboardrobot.webp",
-                "directory": "textures\\atx\\storefront\\player\\outfit\\",
-                "url": "textures/atx/storefront/player/outfit/atx_apparel_outfit_cardboardrobot.webp"
+                "imageName": "atx_skin_weaponskin_assaultrifle_pumpkinsmasher_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/WeaponSkin/"
+              },
+              {
+                "imageName": "atx_entm_camp_lights_ceiling_honeycombpaperspiderlamp_l.webp",
+                "directory": "Textures/ATX/Storefront/Camp/Lights/"
+              },
+              {
+                "imageName": "atx_entm_camp_lights_ceiling_honeycombpaperghostlamp_l.webp",
+                "directory": "Textures/ATX/Storefront/Camp/Lights/"
+              },
+              {
+                "imageName": "atx_entm_camp_lights_ceiling_honeycombpaperjackolantern_l.webp",
+                "directory": "Textures/ATX/Storefront/Camp/Lights/"
               }
             ],
-            "dynamicBundleItems": [],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Cardboard Robot Outfit"
+              },
+              {
+                "szItemName": "Cardboard Robot Helmet"
+              },
+              {
+                "szItemName": "Pumpkin Smasher Paint (Assault Rifle)"
+              },
+              {
+                "szItemName": "Honeycomb Paper Spider Lamp"
+              },
+              {
+                "szItemName": "Honeycomb Paper Ghost Lamp"
+              },
+              {
+                "szItemName": "Honeycomb Paper Jack-O'-Lantern"
+              }
+            ],
             "lowPrice": {
               "amount": 840,
               "originalAmount": 840,
@@ -895,7 +929,6 @@
               "hasNone": true
             }
           },
-          
           {
             "itemID": 2366386,
             "itemName": "Aid Box",
