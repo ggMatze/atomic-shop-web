@@ -111,9 +111,58 @@ function attachTileClickHandlers() {
 
       // Title: prefer explicit item.title, fall back to itemName
       document.querySelector('.overlay-title').textContent = item.title || item.itemName || 'No title';
-      // Render description: convert single newlines to <br>, keep paragraphs separated
-      document.querySelector('.overlay-description').innerHTML = (description || '').split('\n\n').map(p => p.replace(/\n/g, '<br>')).join('<p></p>');
-      document.getElementById('overlay-disclaimer').innerHTML = disclaimer ? `<div class="disclaimer-header">- DISCLAIMER -</div><div class="disclaimer-text">${disclaimer.split('\n\n').map(p => p.replace(/\n/g, '<br>')).join('<p></p>')}</div>` : '';
+      // Render description: allow simple HTML tags (e.g. <strong>, <b>, <a>, <span class=...>)
+      // Strategy: decode HTML entities (in case the JSON was escaped), remove script tags,
+      // then convert paragraphs to <p>..</p> and single newlines to <br>.
+      const descEl = document.querySelector('.overlay-description');
+      const disclaimerEl = document.getElementById('overlay-disclaimer');
+
+      function decodeHtmlEntities(str) {
+        if (!str) return '';
+        const txt = document.createElement('textarea');
+        txt.innerHTML = str;
+        return txt.value;
+      }
+
+      function stripScriptTags(html) {
+        if (!html) return '';
+        // remove any <script>...</script> blocks (basic but effective for our trusted sources)
+        return html.replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, '');
+      }
+
+      // Transform short custom tags into HTML:
+      // - [name]...[/name] => <span class="name">...</span>
+      // - [#rrggbb]...[/#] => <span style="color:#rrggbb">...</span>
+      // - **bold** => <strong>bold</strong>
+      function transformShortTags(html) {
+        if (!html) return '';
+        // **bold** -> <strong>
+        html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        // [#hex]...[/#] -> inline color
+        html = html.replace(/\[#([0-9a-fA-F]{3,6})\]([\s\S]*?)\[\/\#\]/g, function(_, hex, inner) {
+          return `<span style="color:#${hex}">${inner}</span>`;
+        });
+        // [name]...[/name] -> class-based span (allow letters, numbers, -, _)
+        html = html.replace(/\[([a-zA-Z][\w-]*)\]([\s\S]*?)\[\/\1\]/g, function(_, cls, inner) {
+          return `<span class="${cls}">${inner}</span>`;
+        });
+        return html;
+      }
+
+  const decodedDesc = decodeHtmlEntities(description || '');
+  const safeDesc = transformShortTags(stripScriptTags(decodedDesc));
+      if (descEl) {
+        const paras = String(safeDesc).split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
+        if (paras.length === 0) descEl.innerHTML = '';
+        else descEl.innerHTML = paras.map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+      }
+
+      if (disclaimerEl) {
+  const decodedDis = decodeHtmlEntities(disclaimer || '');
+  const safeDis = transformShortTags(stripScriptTags(decodedDis));
+        const parasD = String(safeDis).split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
+        disclaimerEl.innerHTML = parasD.length ? `<div class="disclaimer-header">- DISCLAIMER -</div><div class="disclaimer-text">${parasD.map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('')}</div>` : '';
+      }
 
       if (item.includes && Array.isArray(item.includes) && item.includes.length > 0) {
         document.querySelector('.overlay-includes').textContent = 'Includes ' + item.includes.join(', ');
