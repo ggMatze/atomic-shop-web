@@ -206,8 +206,11 @@ async function initTabs() {
       const storefrontImageSrc = storefrontImage || '';
       const images = (item.carouselImages || []).map(img => buildImageUrl(img.directory, img.imageName)).filter(Boolean);
 
-      const tileSize = (idx < 3 ? 'large' : 'small');
-      const tileClass = `shop-tile ${tileSize}`;
+  // Allow per-item override via `item.tileSize` but only accept explicit 'small' or 'large' (case-insensitive).
+  // If no explicit override is provided, fall back to default: first 3 large, rest small.
+  const forcedSize = (typeof item.tileSize === 'string') ? item.tileSize.toLowerCase() : null;
+  const tileSize = (forcedSize === 'small' || forcedSize === 'large') ? forcedSize : (idx < 3 ? 'large' : 'small');
+  const tileClass = `shop-tile ${tileSize}`;
   // clown handled via right-side badge container; don't inject separate inline span
       const tileDisabled = item.disabled === true ? 'tile-disabled' : '';
       const dateLabel = renderDateRange(item);
@@ -452,8 +455,11 @@ if (typeof window !== 'undefined') {
       const storefrontImageSrc = storefrontImage || '';
       const images = (item.carouselImages || []).map(img => buildImageUrl(img.directory, img.imageName)).filter(Boolean);
 
-  const tileSize = item.tileSize || (idx < 3 ? 'small' : 'large');
-      const tileClass = `shop-tile ${tileSize}`;
+  // Allow per-item override via `item.tileSize` but only accept explicit 'small' or 'large' (case-insensitive).
+  // If no explicit override is provided, fall back to default: first 3 large, rest small.
+  const forcedSize = (typeof item.tileSize === 'string') ? item.tileSize.toLowerCase() : null;
+  const tileSize = (forcedSize === 'small' || forcedSize === 'large') ? forcedSize : (idx < 3 ? 'large' : 'small');
+    const tileClass = `shop-tile ${tileSize}`;
   // clown handled via right-side badge container; don't inject separate inline span
       // For the custom/preview tab, treat items as expired if endTime is in the past
       let isExpired = false;
@@ -486,7 +492,7 @@ if (typeof window !== 'undefined') {
             ${newLabel}
           </div>
           ${dateLabel}
-          <div class="tile-footer ${tileSize}">${tileSize === 'small' ? item.itemName : item.itemNameShort}</div>
+          <div class="tile-footer ${tileSize}">${tileSize === 'large' ? item.itemName : item.itemNameShort}</div>
         </div>
       `;
     });

@@ -1415,6 +1415,7 @@
           },
           {
             "itemID": 2370344,
+            "tileSize": "small",
             "itemName": "Mothman Festival Hunter Bundle",
             "itemNameShort": "Mothman Bundle",
             "itemDesc": "The Mothman exists, and you're going to prove it. Track down the legendary Mothman with the Mothman Festival Hunter Bundle!\r\n\r\nIncludes the Mothman Hunter Outfit, Burning Torch Paint (Super Sledge), Mothman Worship Emote, I Survived Frame, and Creepy Mothman Player Icon\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
@@ -1498,11 +1499,7 @@
             },
             "isNew": false,
             "isZeus": false,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": true,
-              "hasNone": true
-            }
+            "isClown": false
           },
           {
             "itemID": 2369749,
@@ -1776,6 +1773,43 @@
             "isZeus": false,
             "_detectedSuffixInfo": {
               "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2370217,
+            "itemName": "Vault-Tec Supply Package (Level 2)",
+            "itemNameShort": "Vault-Tec Supply Package",
+            "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
+            "primaryImage": {
+              "imageName": "atx_utility_scrapball_level2_l.webp",
+              "directory": "textures/atx/storefront/utility/"
+      },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": false,
+              "ltoTimer": 0
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": 89515
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": false,
+              "ltoTimer": 0
+            },
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
               "hasL": true,
               "hasNone": true
             }
@@ -2308,11 +2342,11 @@
           {
             "itemID": 2370217,
             "itemName": "Vault-Tec Supply Package (Level 2)",
-      "itemNameShort": "Vault-Tec Supply Package",
-      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
-      "primaryImage": {
-        "imageName": "atx_utility_scrapball_level2_l.webp",
-        "directory": "textures/atx/storefront/utility/"
+            "itemNameShort": "Vault-Tec Supply Package",
+            "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
+            "primaryImage": {
+              "imageName": "atx_utility_scrapball_level2_l.webp",
+              "directory": "textures/atx/storefront/utility/"
       },
             "carouselImages": [],
             "dynamicBundleItems": [],
