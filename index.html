@@ -14,6 +14,12 @@
   <title>User Friendly Atomic Shop</title>
   <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/svg+xml" href="media/favicon.svg">
+  <!-- Short-term DST offset: apply a reversible +1 hour correction for store times for all users -->
+  <script>
+    window.__siteConfig = window.__siteConfig || {};
+    // Adjust store-provided times by this many hours. Set to 0 to disable.
+    window.__siteConfig.dstHourOffset = 1; // <-- change or remove when DST ends
+  </script>
   <!-- Load small ES modules first (bootstrap exposes window.__utils and window.__data) -->
   <script type="module" src="src/bootstrap.js"></script>
   <script src="script.js" defer></script>

@@ -101,14 +101,19 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Vault-Tec Supply Package (Level 2)",
-      "itemNameShort": "Vault-Tec Supply Package",
-      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
+      "itemName": "Scrap Kit",
+      "itemNameShort": "Scrap Kit",
+      "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_scrapball_level2_l.webp"
+        "imageName": "atx_utility_repairkit_scraptostash_l.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+        }
+      ],
       "lowPrice": {
         "ltoTimer": "2025-11-01T16:00:00.000Z",
         "isLto": true
@@ -1284,12 +1289,12 @@
         "itemNameShort": "Flaming Skull Rider Helmet",
         "itemDesc": "TBD\r\n\r\n- TBD -",
         "primaryImage": {
-          "imageName": "atx_apparel_headwear_skullrider.webp",
+          "imageName": "atx_apparel_headwear_flamingskullrider.webp",
           "directory": "textures/atx/storefront/player/headwear/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_apparel_headwear_skullrider_c1.webp",
+            "imageName": "atx_apparel_headwear_flamingskullrider_c1.webp",
             "directory": "textures/atx/storefront/player/headwear/"
           }
         ],

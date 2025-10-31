@@ -9,10 +9,27 @@ export function buildImageUrl(directory, imageName) {
   }
   return dir + name;
 }
+// DST/offset helper: allows applying a small, reversible hour offset to parsed store times.
+// Set window.__siteConfig = window.__siteConfig || {}; then set window.__siteConfig.dstHourOffset = 1 (or -1) to adjust.
+function getDstHourOffset() {
+  if (typeof window === 'undefined') return 0;
+  const cfg = window.__siteConfig || {};
+  const v = Number(cfg.dstHourOffset);
+  return Number.isFinite(v) ? v : 0;
+}
+
+function getDstAdjustedDate(input) {
+  // input can be a Date or a string
+  const raw = (input instanceof Date) ? new Date(input.getTime()) : new Date(input);
+  if (isNaN(raw.getTime())) return raw; // invalid date -> return as-is (NaN)
+  const hours = getDstHourOffset();
+  if (!hours) return raw;
+  return new Date(raw.getTime() + hours * 60 * 60 * 1000);
+}
 // Returns time remaining until expiresAt (ISO string), or expired flag
 export function getTimeRemaining(expiresAt) {
   const now = new Date();
-  const end = new Date(expiresAt);
+  const end = getDstAdjustedDate(expiresAt);
   const diff = end - now;
   if (diff <= 0) return { expired: true };
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -46,8 +63,8 @@ export function renderTimerHTML(expiresAt) {
 
 // Renders date range HTML for item with startTime and endTime
 export function renderDateRange(item) {
-  const startDate = item.startTime ? new Date(item.startTime) : null;
-  const endDate = item.endTime ? new Date(item.endTime) : null;
+  const startDate = item.startTime ? getDstAdjustedDate(item.startTime) : null;
+  const endDate = item.endTime ? getDstAdjustedDate(item.endTime) : null;
   const dateLabel = (startDate && endDate)
     ? `<div class="tile-dates">${startDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })} &ndash;<br> ${endDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</div>`
     : '';
@@ -59,7 +76,7 @@ export function isLtoExpired(item) {
   if (!item.lowPrice || !item.lowPrice.isLto) return false;
   const ltoTimer = item.lowPrice.ltoTimer;
   if (typeof ltoTimer !== 'string' || isNaN(Date.parse(ltoTimer))) return false;
-  return new Date(ltoTimer) < new Date();
+  return getDstAdjustedDate(ltoTimer) < new Date();
 }
 
 // Backwards-compatible exposure for the existing monolithic script
