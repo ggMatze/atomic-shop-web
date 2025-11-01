@@ -89,9 +89,206 @@ async function initTabs() {
     return (atomAmount * rate).toFixed(2);
   }
 
+  // Compute tile sizes for a page's items while respecting explicit overrides.
+  // Will demote non-forced 'large' tiles to 'small' if needed to keep rows <= 3 on a 6-column grid.
+  function computeTileSizes(items, options = {}) {
+    const COLS = 6;
+    if (!Array.isArray(items)) return [];
+    const forced = items.map(it => (it && typeof it.tileSize === 'string') ? it.tileSize.toLowerCase() : null);
+
+    // options: { defaultTile: 'large'|'small', initialLargeCount: number }
+    const defaultTile = options.defaultTile === 'small' ? 'small' : 'large';
+    const initialLargeCount = typeof options.initialLargeCount === 'number' ? options.initialLargeCount : 3;
+
+    // start with explicit or default sizes
+    const sizes = items.map((it, idx) => {
+      const f = forced[idx];
+      if (f === 'small' || f === 'large') return f;
+      if (defaultTile === 'small') return 'small';
+      return idx < initialLargeCount ? 'large' : 'small';
+    });
+
+    // Simulator that places tiles into a grid of COLS columns and arbitrary rows.
+    // Large tiles occupy a 2x2 block (span 2 columns x span 2 rows). Small occupy 1x1.
+    function simulateRows(sArr) {
+      const grid = [];
+      const ensureRows = (n) => { while (grid.length < n) grid.push(new Array(COLS).fill(false)); };
+
+      const placeSmall = () => {
+        for (let r = 0; r < grid.length; r++) {
+          for (let c = 0; c < COLS; c++) {
+            if (!grid[r][c]) { grid[r][c] = true; return { r, c }; }
+          }
+        }
+        // need a new row
+        ensureRows(grid.length + 1);
+        grid[grid.length - 1][0] = true;
+        return { r: grid.length - 1, c: 0 };
+      };
+
+      const placeLarge = () => {
+        // try existing rows first
+        for (let r = 0; r < grid.length; r++) {
+          for (let c = 0; c <= COLS - 2; c++) {
+            ensureRows(r + 2);
+            if (!grid[r][c] && !grid[r][c + 1] && !grid[r + 1][c] && !grid[r + 1][c + 1]) {
+              grid[r][c] = grid[r][c + 1] = grid[r + 1][c] = grid[r + 1][c + 1] = true;
+              return { r, c };
+            }
+          }
+        }
+        // append two rows and place at first columns
+        ensureRows(grid.length + 2);
+        const rr = grid.length - 2;
+        grid[rr][0] = grid[rr][1] = grid[rr + 1][0] = grid[rr + 1][1] = true;
+        return { r: rr, c: 0 };
+      };
+
+      for (let s of sArr) {
+        if (s === 'large') placeLarge(); else placeSmall();
+      }
+
+      // compute used rows (last row index that contains any true)
+      let last = -1;
+      for (let r = grid.length - 1; r >= 0; r--) {
+        if (grid[r].some(v => v)) { last = r; break; }
+      }
+      return last + 1; // rows count
+    }
+
+  let rows = simulateRows(sizes);
+    if (rows <= 3) return sizes;
+
+    // Demote non-forced large tiles (prefer later items first) until rows <= 3 or none left
+    while (rows > 3) {
+      let demoted = false;
+      for (let i = items.length - 1; i >= 0; i--) {
+        if (!forced[i] && sizes[i] === 'large') {
+          sizes[i] = 'small';
+          demoted = true;
+          break;
+        }
+      }
+      if (!demoted) break;
+      rows = simulateRows(sizes);
+    }
+
+    return sizes;
+  }
+
+  // Build the HTML for a single tile. Centralized so main and preview rendering match.
+  function buildTileHTML(item, tileSize, idx, options = {}) {
+    const tileDisabled = (item && (item.disabled === true)) ? 'tile-disabled' : '';
+
+    // Price resolution (improved): prefer lowPrice.amount (LTO) when present,
+    // then lowestPurchasablePrice (both "Amount" and "amount" variants),
+    // finally fall back to highPrice/originalAmount.
+    const lp = item?.lowPrice;
+    const lowest = item?.lowestPurchasablePrice;
+    const high = item?.highPrice;
+
+    // atom values (store uses various casing across datasets)
+    const lowAmount = (lp && typeof lp.amount === 'number') ? lp.amount : 0;
+    const lowIsLto = !!(lp && lp.isLto);
+    const lowestAmount = (lowest && (typeof lowest.Amount === 'number')) ? lowest.Amount : ((lowest && typeof lowest.amount === 'number') ? lowest.amount : 0);
+    const highOriginal = (high && (typeof high.originalAmount === 'number')) ? high.originalAmount : ((high && typeof high.amount === 'number') ? high.amount : 0);
+
+    let atomPriceFinal = 0;
+    let atomPriceOriginal = highOriginal || 0;
+    // priority: lowPrice.amount (if >0) -> lowestPurchasablePrice -> highOriginal
+    if (lowAmount > 0) atomPriceFinal = lowAmount;
+    else if (lowestAmount > 0) atomPriceFinal = lowestAmount;
+    else atomPriceFinal = atomPriceOriginal;
+
+    // Compute discount and display prices (original vs final)
+    let priceFinal = atomPriceFinal;
+    let priceOriginal = atomPriceOriginal;
+    let discount = 0;
+    if (priceOriginal > 0 && priceFinal > 0 && priceOriginal > priceFinal) {
+      discount = Math.round(100 - (priceFinal / priceOriginal) * 100);
+    }
+
+    // Image selection: prefer primaryImage, then carousel, then other shapes
+    let storefrontImage = '';
+    if (item?.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
+      storefrontImage = buildImageUrl(item.primaryImage.directory, item.primaryImage.imageName);
+    } else if (item?.image && item.image.imageName && item.image.directory) {
+      storefrontImage = buildImageUrl(item.image.directory, item.image.imageName);
+    } else if (item?.carouselImages && item.carouselImages.length) {
+      const first = item.carouselImages[0];
+      if (first?.imageName && first?.directory) storefrontImage = buildImageUrl(first.directory, first.imageName);
+    }
+    const storefrontImageSrc = storefrontImage || '';
+
+    const images = (item?.carouselImages || []).map(img => (img?.directory && img?.imageName) ? buildImageUrl(img.directory, img.imageName) : null).filter(Boolean);
+
+    const currentPriceHTML = atomPriceFinal === 0
+      ? `<span class="free-badge">FREE</span>`
+      : `<span class="current-price">${convert(atomPriceFinal)}</span>`;
+
+    const newLabel = (item?.isNew === 1 || item?.isNew === true) ? '<span class="new-label">NEW</span>' : '';
+
+    // For preview pages (options.useEndTime === true) show a date-range label.
+    // For normal tabs show a limited-time timer if the item has an LTO (lowPrice.ltoTimer).
+    let expiresHTML = '';
+    if (options && options.useEndTime) {
+      expiresHTML = renderDateRange(item);
+    } else if (item?.lowPrice?.isLto && item?.lowPrice?.ltoTimer) {
+      expiresHTML = renderTimerHTML(item.lowPrice.ltoTimer);
+    }
+
+    const dataItem = {
+      title: item?.itemName,
+      itemDesc: item?.itemDesc,
+      includes: (item?.dynamicBundleItems || []).map(i => i.szItemName),
+      storefrontImage,
+      images,
+      priceOriginal: priceOriginal,
+      priceFinal: priceFinal,
+      discount,
+      isNew: !!item?.isNew,
+      isZeus: !!item?.isZeus,
+      isClown: !!item?.isClown,
+      disabled: !!item?.disabled,
+      itemID: item?.itemID,
+      expired: !!(item?.endTime && !isNaN(Date.parse(item.endTime)) && new Date(item.endTime) < new Date())
+    };
+
+    const dataItemStr = JSON.stringify(dataItem).replace(/'/g, "&apos;");
+
+    return `
+      <div class="shop-tile ${tileSize} ${tileDisabled}"
+           data-item='${dataItemStr}'
+           data-atom-original="${priceOriginal}"
+           data-atom-final="${priceFinal}"
+           data-discount="${discount}">
+        <div class="tile-img">
+          <img src="${storefrontImageSrc}" alt="${(item && item.itemName) || ''}" onerror="if(!this.src.endsWith('_l.webp')){this.src=this.src.replace('.webp','_l.webp');}else{this.onerror=null;}" />
+        </div>
+        <div class="tile-badge">
+          <span class="discount"></span>
+          ${newLabel}
+        </div>
+        <div class="tile-badge-r">
+          <span class="tile-1st hidden">&nbsp;</span>
+          <span class="clown-label hidden" title="Bethesda made a fool of themselves again!">&nbsp;</span>
+        </div>
+        <div class="tile-price">
+          <span class="old-price"></span>
+          ${currentPriceHTML}
+        </div>
+  ${expiresHTML}
+        <div class="tile-footer ${tileSize}">${tileSize === 'large' ? ((item && item.itemName) || '') : ((item && item.itemNameShort) || (item && item.itemName) || '')}</div>
+      </div>
+    `;
+  }
+
   function renderTab(tabIdx) {
     const page = pages[tabIdx];
     if (!page) return;
+
+    // Dev trace: number of items for this tab
+    try { console.debug('[renderTab] rendering tab', { tabIdx, title: page.name, itemCount: (page.items || []).length }); } catch (e) {}
 
     // Handle SPECIAL replacements dynamically
     // If the page is the S.P.E.C.I.A.L tab, allow replacements for any itemID that matches
@@ -169,94 +366,15 @@ async function initTabs() {
     if (!shopGridEl) return;
     shopGridEl.innerHTML = '';
 
+    const sizes = computeTileSizes(page.items || []);
     (page.items || []).forEach((item, idx) => {
-      // Determine atom denominated prices (original & final) in a consistent way
-    // Determine atom denominated prices (original & final) in a consistent way.
-    // Some feeds use `Amount` (capital A) while others use `amount`.
-    const atomPriceOriginal = item.highPrice?.originalAmount ?? 0;
-    let atomPriceFinal = atomPriceOriginal;
-    const lpAmount = item.lowestPurchasablePrice?.Amount ?? item.lowestPurchasablePrice?.amount;
-    const lpNum = lpAmount != null ? Number(lpAmount) : NaN;
-    if (isFinite(lpNum) && lpNum > 0) atomPriceFinal = lpNum;
-    else if (lpAmount === item.highPrice?.originalAmount) atomPriceFinal = lpAmount;
-    else atomPriceFinal = item.highPrice?.originalAmount ?? 0;
-
-      // Compute discount based on atom values
-      let discount = 0;
-      if (atomPriceOriginal > atomPriceFinal && atomPriceFinal > 0) {
-        discount = Math.round(100 - (atomPriceFinal / atomPriceOriginal) * 100);
-      }
-
-      const isNew = !!item.isNew;
-      const isZeus = !!item.isZeus;
-      const isClown = !!item.isClown;
-
-      const expires = (item.lowPrice?.isLto && item.lowPrice?.ltoTimer) ? renderTimerHTML(item.lowPrice.ltoTimer) : '';
-
-  const oldPrice = discount > 0 ? `<span class="old-price">${convert(atomPriceOriginal)}</span>` : '';
-  const currentPrice = atomPriceFinal === 0 ? `<span class="free-badge">FREE</span>` : `<span class="current-price">${convert(atomPriceFinal)}</span>`;
-
-      let newLabel = '';
-      if (item.isNew === 1 || item.isNew === true) newLabel = `<span class="new-label">NEW</span>`;
-      else if (item.isNew === 2) newLabel = `<span class="newish-label">NEW*</span>`;
-
-      const includes = (item.dynamicBundleItems || []).map(i => i.szItemName);
-      let storefrontImage = '';
-      if (item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) storefrontImage = buildImageUrl(item.primaryImage.directory, item.primaryImage.imageName);
-      const storefrontImageSrc = storefrontImage || '';
-      const images = (item.carouselImages || []).map(img => buildImageUrl(img.directory, img.imageName)).filter(Boolean);
-
-  // Allow per-item override via `item.tileSize` but only accept explicit 'small' or 'large' (case-insensitive).
-  // If no explicit override is provided, fall back to default: first 3 large, rest small.
-  const forcedSize = (typeof item.tileSize === 'string') ? item.tileSize.toLowerCase() : null;
-  const tileSize = (forcedSize === 'small' || forcedSize === 'large') ? forcedSize : (idx < 3 ? 'large' : 'small');
-  const tileClass = `shop-tile ${tileSize}`;
-  // clown handled via right-side badge container; don't inject separate inline span
-      const tileDisabled = item.disabled === true ? 'tile-disabled' : '';
-      const dateLabel = renderDateRange(item);
-
-      // Determine if the item is expired (LTO timer in the past) for normal tabs
-      let isExpired = false;
-      if (item.lowPrice && item.lowPrice.isLto === true && typeof item.lowPrice.ltoTimer === 'string' && !isNaN(Date.parse(item.lowPrice.ltoTimer))) {
-        const expiresAt = new Date(item.lowPrice.ltoTimer);
-        if (expiresAt < new Date()) isExpired = true;
-      }
-
-      // Prepare safe JSON for embedding in data-item attribute: escape single quotes and normalize newlines
-      const dataItemObj = { title: item.itemName, itemDesc: item.itemDesc, includes, storefrontImage, images, priceOriginal: atomPriceOriginal, priceFinal: atomPriceFinal, discount, isNew, isZeus, isClown: !!item.isClown, disabled: !!item.disabled, expired: isExpired, itemID: item.itemID };
-      let dataItemStr = JSON.stringify(dataItemObj);
-      // Replace single quotes to avoid breaking attribute and normalize newlines to literal \n
-      dataItemStr = dataItemStr.replace(/'/g, "&apos;").replace(/\r\n|\n|\\n/g, "\\n");
-
-      shopGridEl.innerHTML += `
-        <div class="${tileClass} ${tileDisabled}"
-             data-item='${dataItemStr}'
-             data-atom-original="${atomPriceOriginal}"
-             data-atom-final="${atomPriceFinal}"
-             data-discount="${discount}">
-          <div class="tile-img">
-            <img src="${storefrontImageSrc}" alt="${item.itemName}" onerror="if(!this.src.endsWith('_l.webp')){this.src=this.src.replace('.webp','_l.webp');}else{this.onerror=null;}" />
-          </div>
-          <div class="tile-price">
-            <span class="old-price"></span>
-            ${currentPrice}
-          </div>
-          <div class="tile-badge">
-            <span class="discount"></span>
-            ${newLabel}
-          </div>
-          <div class="tile-badge-r">
-            <span class="tile-1st hidden">&nbsp;</span>
-            <span class="clown-label hidden" title="Bethesda made a fool of themselves again!">&nbsp;</span>
-          </div>
-          ${expires}
-          <div class="tile-footer ${tileSize}">${tileSize === 'large' ? item.itemName : item.itemNameShort}</div>
-        </div>
-      `;
-      // After inserting tile, if it's expired mark it visually (normal tabs use LTO timer)
+      const tileSize = sizes[idx] || (idx < 3 ? 'large' : 'small');
+      shopGridEl.innerHTML += buildTileHTML(item, tileSize, idx);
+      // After inserting tile, if it's expired mark it visually (buildTileHTML included expired flag in data-item)
       try {
         const tile = shopGridEl.lastElementChild;
-        if (isExpired && tile) {
+        const data = JSON.parse(tile.getAttribute('data-item').replace(/&apos;/g, "'"));
+        if (data && data.expired && tile) {
           tile.classList.add('tile-expired');
           const expiredLabel = document.createElement('div');
           expiredLabel.className = 'tile-expired-label';
@@ -413,11 +531,11 @@ if (typeof window !== 'undefined') {
     (paidItems || []).forEach((item, idx) => {
       const atomPriceOriginal = item.highPrice?.originalAmount ?? 0;
       let atomPriceFinal = atomPriceOriginal;
-    const lpAmount = item.lowestPurchasablePrice?.Amount ?? item.lowestPurchasablePrice?.amount;
-    const lpNum = lpAmount != null ? Number(lpAmount) : NaN;
-    if (isFinite(lpNum) && lpNum > 0) atomPriceFinal = lpNum;
-    else if (lpAmount === item.highPrice?.originalAmount) atomPriceFinal = lpAmount;
-    else atomPriceFinal = item.highPrice?.originalAmount ?? 0;
+      const lpAmount = item.lowestPurchasablePrice?.Amount ?? item.lowestPurchasablePrice?.amount;
+      const lpNum = lpAmount != null ? Number(lpAmount) : NaN;
+      if (isFinite(lpNum) && lpNum > 0) atomPriceFinal = lpNum;
+      else if (lpAmount === item.highPrice?.originalAmount) atomPriceFinal = lpAmount;
+      else atomPriceFinal = item.highPrice?.originalAmount ?? 0;
 
       let discount = 0;
       if (atomPriceOriginal > atomPriceFinal && atomPriceFinal > 0) {
@@ -427,8 +545,6 @@ if (typeof window !== 'undefined') {
       const isNew = !!item.isNew;
       const isZeus = !!item.isZeus;
       const isClown = !!item.isClown;
-
-      const expires = (item.lowPrice?.isLto && item.lowPrice?.ltoTimer) ? renderTimerHTML(item.lowPrice.ltoTimer) : '';
 
       const convert = (atomAmount) => {
         const select = document.getElementById('currency-select');
@@ -442,12 +558,11 @@ if (typeof window !== 'undefined') {
         return (atomAmount * rate).toFixed(2);
       };
 
-      const oldPrice = discount > 0 ? `<span class="old-price">${convert(atomPriceOriginal)}</span>` : '';
-      const currentPrice = atomPriceFinal === 0 ? `<span class="free-badge">FREE</span>` : `<span class="current-price">${convert(atomPriceFinal)}</span>`;
+  // Preview only shows sale items; always display a numeric current price (no FREE badge)
+  const currentPrice = `<span class="current-price">${convert(atomPriceFinal)}</span>`;
 
-      let newLabel = '';
-      if (item.isNew === 1 || item.isNew === true) newLabel = `<span class="new-label">NEW</span>`;
-      else if (item.isNew === 2) newLabel = `<span class="newish-label">NEW*</span>`;
+  // Preview only shows previously-on-sale items; never show NEW markers here
+  const newLabel = '';
 
       const includes = (item.dynamicBundleItems || []).map(i => i.szItemName);
       let storefrontImage = '';
