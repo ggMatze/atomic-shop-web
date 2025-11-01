@@ -97,7 +97,8 @@ async function initTabs() {
     const forced = items.map(it => (it && typeof it.tileSize === 'string') ? it.tileSize.toLowerCase() : null);
 
     // options: { defaultTile: 'large'|'small', initialLargeCount: number }
-    const defaultTile = options.defaultTile === 'small' ? 'small' : 'large';
+  // Default to 'small' unless explicitly requested 'large' via options
+  const defaultTile = options.defaultTile === 'large' ? 'large' : 'small';
     const initialLargeCount = typeof options.initialLargeCount === 'number' ? options.initialLargeCount : 3;
 
     // start with explicit or default sizes
@@ -368,7 +369,7 @@ async function initTabs() {
 
     const sizes = computeTileSizes(page.items || []);
     (page.items || []).forEach((item, idx) => {
-      const tileSize = sizes[idx] || (idx < 3 ? 'large' : 'small');
+      const tileSize = sizes[idx] || 'small';
       shopGridEl.innerHTML += buildTileHTML(item, tileSize, idx);
       // After inserting tile, if it's expired mark it visually (buildTileHTML included expired flag in data-item)
       try {
@@ -570,9 +571,9 @@ if (typeof window !== 'undefined') {
       const images = (item.carouselImages || []).map(img => buildImageUrl(img.directory, img.imageName)).filter(Boolean);
 
   // Allow per-item override via `item.tileSize` but only accept explicit 'small' or 'large' (case-insensitive).
-  // If no explicit override is provided, fall back to default: first 3 large, rest small.
+  // Default to 'small' unless explicitly forced via item.tileSize.
   const forcedSize = (typeof item.tileSize === 'string') ? item.tileSize.toLowerCase() : null;
-  const tileSize = (forcedSize === 'small' || forcedSize === 'large') ? forcedSize : (idx < 3 ? 'small' : 'small');
+  const tileSize = (forcedSize === 'small' || forcedSize === 'large') ? forcedSize : 'small';
     const tileClass = `shop-tile ${tileSize}`;
   // clown handled via right-side badge container; don't inject separate inline span
       // For the custom/preview tab, treat items as expired if endTime is in the past
