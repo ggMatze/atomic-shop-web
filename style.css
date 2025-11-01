@@ -1396,6 +1396,12 @@ b{
   padding-right: 15px;
 }
 
+/* Disclaimer line spacing: render short sub-lines as separate paragraphs
+  to allow consistent spacing between bullet-like entries (e.g. *¹ / *²). */
+.disclaimer-text p { margin: 0; }
+.disclaimer-text .disclaimer-line { margin: 0 0 0.6em 0; }
+.disclaimer-text .disclaimer-paragraph-sep { height: 0.6em; }
+
 .price-list {
   list-style: none;
   margin: 0;
