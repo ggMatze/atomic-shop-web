@@ -98,7 +98,7 @@ async function initTabs() {
 
     // options: { defaultTile: 'large'|'small', initialLargeCount: number }
   // Default to 'small' unless explicitly requested 'large' via options
-  const defaultTile = options.defaultTile === 'large' ? 'large' : 'small';
+  const defaultTile = options.defaultTile === 'small' ? 'small' : 'large';
     const initialLargeCount = typeof options.initialLargeCount === 'number' ? options.initialLargeCount : 3;
 
     // start with explicit or default sizes
@@ -369,7 +369,7 @@ async function initTabs() {
 
     const sizes = computeTileSizes(page.items || []);
     (page.items || []).forEach((item, idx) => {
-      const tileSize = sizes[idx] || 'small';
+      const tileSize = sizes[idx] || (idx < 3 ? 'large' : 'small');
       shopGridEl.innerHTML += buildTileHTML(item, tileSize, idx);
       // After inserting tile, if it's expired mark it visually (buildTileHTML included expired flag in data-item)
       try {
