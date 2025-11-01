@@ -544,7 +544,6 @@ if (typeof window !== 'undefined') {
 
       const isNew = !!item.isNew;
       const isZeus = !!item.isZeus;
-      const isClown = !!item.isClown;
 
       const convert = (atomAmount) => {
         const select = document.getElementById('currency-select');
@@ -573,7 +572,7 @@ if (typeof window !== 'undefined') {
   // Allow per-item override via `item.tileSize` but only accept explicit 'small' or 'large' (case-insensitive).
   // If no explicit override is provided, fall back to default: first 3 large, rest small.
   const forcedSize = (typeof item.tileSize === 'string') ? item.tileSize.toLowerCase() : null;
-  const tileSize = (forcedSize === 'small' || forcedSize === 'large') ? forcedSize : (idx < 3 ? 'large' : 'small');
+  const tileSize = (forcedSize === 'small' || forcedSize === 'large') ? forcedSize : (idx < 3 ? 'small' : 'small');
     const tileClass = `shop-tile ${tileSize}`;
   // clown handled via right-side badge container; don't inject separate inline span
       // For the custom/preview tab, treat items as expired if endTime is in the past
