@@ -158,14 +158,19 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Improved Bait X5",
-      "itemNameShort": "Improved Bait X5",
-      "itemDesc": "Improve your chances of hooking the big one with this Improved Bait! \r\n\r\n- CAN BE SELECTED BEFORE CASTING LINE DURING FISHING. GRANTED WHEN ENTERING ADVENTURE MODE. SUBJECT TO MAX WEIGHT.",
+      "itemName": "Free Lunchbox",
+      "itemNameShort": "Free Lunchbox",
+      "itemDesc": "Open for you and your friends! You and those who are close by get an XP Boost and a random effect for 1 hour!",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "score_utility_improvedbait_l.webp"
+        "imageName": "atx_store_lunchbox001_l.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_store_lunchbox001_l.webp"
+        }
+      ],
       "lowPrice": {
         "ltoTimer": "2025-11-03T16:00:00.000Z",
         "isLto": true
@@ -178,7 +183,8 @@
         "originalAmount": 0
       },
       "startTime": "2025-11-02T16:00:00.000Z",
-      "endTime": "2025-11-03T16:00:00.000Z"
+      "endTime": "2025-11-03T16:00:00.000Z",
+      "isZeus": false
     },
     {
       "replaceItemID": 2316946,
@@ -401,7 +407,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day01",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Swiss Flower Cart",
@@ -437,7 +442,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day02",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Honeyycomb Paper Lamp Halloween Set",
@@ -489,7 +493,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day03",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Tactical Paint (Pump-Action Shotgun)",
@@ -525,7 +528,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day04",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Gravestone Loot Bag",
@@ -557,7 +559,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day05",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Coffin Backpack",
@@ -593,7 +594,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day06",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Enclave Power Armor Station",
@@ -629,7 +629,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day07",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Zorbo Power Armor Paint Set",
@@ -683,7 +682,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day08",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Air Guitar Pose",
@@ -719,7 +717,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day09",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Pegasus Weapons Workbench",
@@ -755,7 +752,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day10",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Camouflage Hunting Rifle Paint",
@@ -795,7 +791,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day11",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Union Backpack",
@@ -835,7 +830,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day12",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Western Duster Outfit",
@@ -871,7 +865,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day13",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Animatronic Black Cat",
@@ -907,7 +900,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day14",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Free States Junkyard Power Armor Paint",
@@ -941,7 +933,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day15",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Victory Pose",
@@ -973,7 +964,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day16",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Vault-tec Camping Canopies",
@@ -1005,7 +995,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day17",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Tropic Lightning Camo Skin (Handmade Rifle)",
@@ -1041,7 +1030,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day18",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Deathclaw Mascot Helmet",
@@ -1073,7 +1061,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day19",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Surplus Sack Backpack",
@@ -1109,7 +1096,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day20",
-        
         "isClown": true,
         "disabled": false,
         "itemName": "The Silver Shroud Costume",
@@ -1145,7 +1131,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day21",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Park Ranger Power Armor Skin",
@@ -1183,7 +1168,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day22",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Free States Salute Emote",
@@ -1210,7 +1194,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day23",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Brotherhood High Tech Stash Box",
@@ -1246,7 +1229,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day24",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Light Em Up Paint (Handmade Rifle)",
@@ -1282,7 +1264,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day25",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Flaming Skull Rider Helmet",
@@ -1314,7 +1295,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day26",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Overgrown Thorn Plushie",
@@ -1350,7 +1330,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day27",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Beehive",
@@ -1382,7 +1361,6 @@
       {
         "replaceItemID": 2316440,
         "itemID": "day28",
-        
         "isClown": false,
         "disabled": false,
         "itemName": "Freedom Forge Power Armor Paint",
