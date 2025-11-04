@@ -2586,6 +2586,80 @@
               "hasL": true,
               "hasNone": true
             }
+          },
+          {
+            "itemID": 2379868,
+            "itemName": "Alien Marketplace Bundle",
+            "itemNameShort": "Alien Marketplace Bundle",
+            "itemDesc": "The Aliens have arrived and set up shop in Appalachia? They did with the Alien Marketplace Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "3e21b3111b042dbf2627f860d5d585bc.dds",
+              "directory": "textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_vendor_playervendingmachine_alien_l.webp",
+                "directory": "Textures/ATX/Storefront/Camp/Vendors/"
+              },
+              {
+                "imageName": "atx_camp_machinery_generator_fusion_fusionemitter_l.webp",
+                "directory": "Textures/ATX/Storefront/Camp/Machinery/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_flatwoodsmonsterwaxsculpture_l.webp",
+                "directory": "Textures/ATX/Storefront/Camp/FloorDecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_bed_alienstasischambervariant_l.webp",
+                "directory": "Textures/ATX/Storefront/Camp/Beds/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_newzetancrate_l.webp",
+                "directory": "Textures/ATX/Storefront/Camp/FloorDecoration/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Alien Vending Machine"
+              },
+              {
+                "szItemName": "Fusion Emitter Generator - Fusion"
+              },
+              {
+                "szItemName": "Flatwoods Monster Wax Figure"
+              },
+              {
+                "szItemName": "Verdant Alien Stasis Chamber"
+              },
+              {
+                "szItemName": "Dark Alien Crate"
+              }
+            ],
+            "lowPrice": {
+              "amount": 750,
+              "originalAmount": 750,
+              "isLto": true,
+              "ltoTimer": "2025-11-11T16:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 750,
+              "originalAmount": 750,
+              "isLto": true,
+              "ltoTimer": 589896
+            },
+            "highPrice": {
+              "amount": 1500,
+              "originalAmount": 1500,
+              "isLto": false,
+              "ltoTimer": 0
+            },
+            "isNew": false,
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
           }
         ]
       },
