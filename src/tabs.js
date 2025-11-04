@@ -227,7 +227,10 @@ async function initTabs() {
       ? `<span class="free-badge">FREE</span>`
       : `<span class="current-price">${convert(atomPriceFinal)}</span>`;
 
-    const newLabel = (item?.isNew === 1 || item?.isNew === true) ? '<span class="new-label">NEW</span>' : '';
+  // support three-state isNew: true/1 = NEW, 2 = newish (different styling)
+  let newLabel = '';
+  if (item?.isNew === 1 || item?.isNew === true) newLabel = '<span class="new-label">NEW</span>';
+  else if (item?.isNew === 2) newLabel = '<span class="newish-label">NEW*</span>';
 
     // For preview pages (options.useEndTime === true) show a date-range label.
     // For normal tabs show a limited-time timer if the item has an LTO (lowPrice.ltoTimer).
@@ -247,7 +250,8 @@ async function initTabs() {
       priceOriginal: priceOriginal,
       priceFinal: priceFinal,
       discount,
-      isNew: !!item?.isNew,
+      // preserve original isNew value (could be boolean, 1, 2 etc.) for downstream logic
+      isNew: item?.isNew,
       isZeus: !!item?.isZeus,
       isClown: !!item?.isClown,
       disabled: !!item?.disabled,
