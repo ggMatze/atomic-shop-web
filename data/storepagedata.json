@@ -1181,65 +1181,70 @@
             },
             "carouselImages": [
               {
-                "imageName": "08dedad336fe6f39e9e3f922d851fea3.dds",
-                "directory": "textures/atomic_shop_media/"
-              },
-              {
-                "imageName": "Shelters_ShelterEntrance_TheRadiantRemedy_C1.dds",
+                "imageName": "shelters_shelterentrance_theradiantremedy_c1.webp",
                 "directory": "Textures/ATX/Storefront/Camp/Shelters/"
               },
               {
-                "imageName": "ATX_ENTM_CAMP_Workbench_Chemistry_ToxicTinctures_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Machinery/"
-              },
-              {
-                "imageName": "ATX_CAMP_Stashbox_ToxicTincturesCabinet_C1.dds",
+                "imageName": "atx_camp_stashbox_toxictincturescabinet.webp",
                 "directory": "Textures/ATX/Storefront/Camp/Stash/"
               },
               {
-                "imageName": "ATX_CAMP_FloorDecor_MutatedVines_C1.dds",
+                "imageName": "08dedad336fe6f39e9e3f922d851fea3.webp",
+                "directory": "textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "atx_entm_camp_workbench_chemistry_toxictinctures_l.webp",
+                "directory": "Textures/ATX/Storefront/Camp/Machinery/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_mutatedvines_l.webp",
                 "directory": "Textures/ATX/Storefront/Camp/FloorDecoration/"
               },
               {
-                "imageName": "ATX__CAMP_Lights_TableLamps_NuclearWasteLargeCandle_C1.dds",
+                "imageName": "atx__camp_lights_tablelamps_nuclearwastelargecandle.webp",
                 "directory": "Textures/ATX/Storefront/Camp/Lights/"
               },
               {
-                "imageName": "ATX__CAMP_Lights_TableLamps_NuclearWasteSmallCandle_C1.dds",
+                "imageName": "atx__camp_lights_tablelamps_nuclearwastesmallcandle.webp",
                 "directory": "Textures/ATX/Storefront/Camp/Lights/"
               },
               {
-                "imageName": "ATX__CAMP_Lights_TableLamps_NuclearWasteCloudCandle_C1.dds",
+                "imageName": "atx__camp_lights_tablelamps_nuclearwastecloudcandle.webp",
                 "directory": "Textures/ATX/Storefront/Camp/Lights/"
+              },
+              {
+                "imageName": "atx_playertitles_prefix_radiant_l.webp",
+                "directory": "textures\\atx\\storefront\\player\\playertitles\\",
+                "url": "textures/atx/storefront/player/playertitles/atx_playertitles_prefix_radiant_l.webp"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "\"Radiant\" Player Title Prefix"
-              },
-              {
-                "szItemName": "Toxic Tinctures Cabinet  Stash Box"
-              },
-              {
                 "szItemName": "The Radiant Remedy Shelter"
               },
               {
-                "szItemName": "Nuclear Waste Small Candle Lamp"
-              },
-              {
-                "szItemName": "Mutated Vines"
-              },
-              {
-                "szItemName": "Nuclear Waste Cloud Candle Lamp"
-              },
-              {
-                "szItemName": "Nuclear Waste Large Candle Lamp"
+                "szItemName": "Toxic Tinctures Cabinet  Stash Box"
               },
               {
                 "szItemName": "Apothecary Sign"
               },
               {
                 "szItemName": "Toxic Tinctures Chemistry Workstation"
+              },
+              {
+                "szItemName": "Mutated Vines"
+              },
+              {
+                "szItemName": "Nuclear Waste Large Candle Lamp"
+              },
+              {
+                "szItemName": "Nuclear Waste Small Candle Lamp"
+              },
+              {
+                "szItemName": "Nuclear Waste Cloud Candle Lamp"
+              },
+              {
+                "szItemName": "\"Radiant\" Player Title Prefix"
               }
             ],
             "lowPrice": {
@@ -1264,7 +1269,7 @@
             "isZeus": false,
             "_detectedSuffixInfo": {
               "maxC": 1,
-              "hasL": false,
+              "hasL": true,
               "hasNone": true
             }
           },
@@ -1279,31 +1284,31 @@
             },
             "carouselImages": [
               {
-                "imageName": "51726a6edefa78b9c86657aa3e7f91f4.dds",
-                "directory": "textures/atomic_shop_media/"
-              },
-              {
-                "imageName": "SCORE_S6_Skin_PowerArmor_Model_SamurEye_C1.dds",
+                "imageName": "score_s6_skin_powerarmor_model_samureye_l.webp",
                 "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
               },
               {
-                "imageName": "SCORE_S6_Photomode_Pose_FightingStance_C1.dds",
+                "imageName": "score_s6_skin_weaponskin_fixer_judgement_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/WeaponSkin/"
+              },
+              {
+                "imageName": "score_s6_photomode_pose_fightingstance_l.webp",
                 "directory": "Textures/ATX/Storefront/Player/PhotoPose/"
               },
               {
-                "imageName": "SCORE_S6_Skin_WeaponSkin_Fixer_Judgement_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/WeaponSkin/"
+                "imageName": "51726a6edefa78b9c86657aa3e7f91f4.webp",
+                "directory": "textures/atomic_shop_media/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Fighting Stance Pose"
+                "szItemName": "SamurEye Power Armor Paint"
               },
               {
                 "szItemName": "Judgement of Set Paint (The Fixer)"
               },
               {
-                "szItemName": "SamurEye Power Armor Paint"
+                "szItemName": "Fighting Stance Pose"
               },
               {
                 "szItemName": "Pyramind Player Icon"
@@ -1331,7 +1336,7 @@
             "isZeus": false,
             "_detectedSuffixInfo": {
               "maxC": 1,
-              "hasL": false,
+              "hasL": true,
               "hasNone": true
             }
           },
@@ -1346,27 +1351,32 @@
             },
             "carouselImages": [
               {
-                "imageName": "65e9a825ebc68d557f00848281bfb4c1.dds",
-                "directory": "textures/atomic_shop_media/"
+                "imageName": "atx_skin_pipboyskin_ghoulish_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/PipBoy/"
+              },
+              {
+                "imageName": "score_s10_camp_utility_radiation_glove_box_l.webp",
+                "directory": "Textures/ATX/Storefront/Camp/Utility/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_feralghoul_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_feralghoulmask_l.webp",
+                "directory": "textures\\atx\\storefront\\player\\headwear\\",
+                "url": "textures/atx/storefront/player/headwear/atx_apparel_headwear_feralghoulmask_l.webp"
               },
               {
                 "imageName": "e452c3415e661a4f55b82e304f64c87a.dds",
                 "directory": "textures/atomic_shop_media/"
               },
               {
-                "imageName": "ATX_Apparel_Outfit_FeralGhoul_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+                "imageName": "65e9a825ebc68d557f00848281bfb4c1.webp",
+                "directory": "textures/atomic_shop_media/"
               },
               {
-                "imageName": "SCORE_S10_CAMP_Utility_Radiation_Glove_Box_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Utility/"
-              },
-              {
-                "imageName": "ATX_Skin_PipBoySkin_Ghoulish_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/PipBoy/"
-              },
-              {
-                "imageName": "ATX_ENTM_Skin_WeaponModel_DeathclawGauntlet_MetalClaws_C1.dds",
+                "imageName": "atx_entm_skin_weaponmodel_deathclawgauntlet_metalclaws_l.webp",
                 "directory": "Textures/ATX/Storefront/Player/WeaponModel/"
               }
             ],
@@ -1375,22 +1385,22 @@
                 "szItemName": "Ghoulish Paint"
               },
               {
-                "szItemName": "\"Rascal\" Player Title Suffix"
+                "szItemName": "Radiation Glove Box"
               },
               {
                 "szItemName": "Feral Ghoul Costume"
+              },
+              {
+                "szItemName": "Feral Ghoul Mask"
+              },
+              {
+                "szItemName": "\"Rascal\" Player Title Suffix"
               },
               {
                 "szItemName": "Fire Alarm"
               },
               {
                 "szItemName": "Metal Claws Paint (Deathclaw Gauntlet)"
-              },
-              {
-                "szItemName": "Radiation Glove Box"
-              },
-              {
-                "szItemName": "Feral Ghoul Mask"
               }
             ],
             "lowPrice": {
@@ -1415,7 +1425,7 @@
             "isZeus": false,
             "_detectedSuffixInfo": {
               "maxC": 1,
-              "hasL": false,
+              "hasL": true,
               "hasNone": true
             }
           },
@@ -2431,62 +2441,68 @@
             },
             "carouselImages": [
               {
-                "imageName": "ATX_Skin_PowerArmor_Paint_Army_C1.dds",
+                "imageName": "atx_skin_powerarmor_paint_army_l.webp",
                 "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
               },
               {
-                "imageName": "ATX_Apparel_Headwear_MilitaryOfficerHat01Clean_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/Headwear/"
+                "imageName": "atx_skin_weaponskin_plasmacasterrifle_armyissue_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/WeaponSkin/"
               },
               {
-                "imageName": "ATX_Apparel_Outfit_MilitaryOfficer_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+                "imageName": "atx_skin_weaponskin_shotgun_armyissue_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/WeaponSkin/"
               },
               {
-                "imageName": "ATX_Apparel_Headwear_Beret_BlackSkull_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/Headwear/"
-              },
-              {
-                "imageName": "ATX_Apparel_Headwear_Beret_BlackEagle_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/Headwear/"
-              },
-              {
-                "imageName": "SCORE_S1_CAMP_StashBox_MilitaryFootLocker_C1.dds",
+                "imageName": "score_s1_camp_stashbox_militaryfootlocker_l.webp",
                 "directory": "Textures/ATX/Storefront/Camp/Stash/"
               },
               {
-                "imageName": "ATX_Skin_WeaponSkin_PlasmaCasterRifle_ArmyIssue_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/WeaponSkin/"
+                "imageName": "atx_apparel_outfit_militaryofficer_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/Outfit/"
               },
               {
-                "imageName": "ATX_Skin_WeaponSkin_Shotgun_ArmyIssue_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/WeaponSkin/"
+                "imageName": "atx_apparel_headwear_militaryofficerhat01clean_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/Headwear/"
               },
               {
-                "imageName": "ATX_Photomode_Pose_MilitaryHuddle_Cheer_C1.dds",
+                "imageName": "atx_apparel_headwear_beret_blackskull_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/Headwear/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_beret_blackeagle_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/Headwear/"
+              },
+              {
+                "imageName": "atx_photomode_pose_militaryhuddle_cheer.webp",
                 "directory": "Textures/ATX/Storefront/Player/PhotoPose/"
               },
               {
-                "imageName": "ATX_Photomode_Pose_MilitaryHuddle_C1.dds",
+                "imageName": "atx_photomode_pose_militaryhuddle.webp",
                 "directory": "Textures/ATX/Storefront/Player/PhotoPose/"
               },
               {
-                "imageName": "ATX_Photomode_Pose_MilitaryHuddle_Love_C1.dds",
+                "imageName": "atx_photomode_pose_militaryhuddle_love.webp",
                 "directory": "Textures/ATX/Storefront/Player/PhotoPose/"
               }
             ],
             "dynamicBundleItems": [
               {
+                "szItemName": "US Army Power Armor Paint Set"
+              },
+              {
+                "szItemName": "Army Issue Plasma Caster Paint"
+              },
+              {
                 "szItemName": "Army Issue Paint (Shotgun)"
               },
               {
-                "szItemName": "Military Huddle Love Pose"
-              },
-              {
-                "szItemName": "Military Huddle Cheer Pose"
+                "szItemName": "Military Foot Locker Stash Box"
               },
               {
                 "szItemName": "Military Officer Uniform"
+              },
+              {
+                "szItemName": "Military Officer Dress Hat"
               },
               {
                 "szItemName": "Black Skull Military Beret"
@@ -2495,19 +2511,13 @@
                 "szItemName": "Black Eagle Military Beret"
               },
               {
-                "szItemName": "Army Issue Plasma Caster Paint"
-              },
-              {
-                "szItemName": "Military Foot Locker Stash Box"
+                "szItemName": "Military Huddle Cheer Pose"
               },
               {
                 "szItemName": "Military Huddle Kneel Pose"
               },
               {
-                "szItemName": "Military Officer Dress Hat"
-              },
-              {
-                "szItemName": "US Army Power Armor Paint Set"
+                "szItemName": "Military Huddle Love Pose"
               }
             ],
             "lowPrice": {
@@ -2532,7 +2542,7 @@
             "isZeus": false,
             "_detectedSuffixInfo": {
               "maxC": 1,
-              "hasL": false,
+              "hasL": true,
               "hasNone": true
             }
           },
@@ -2547,11 +2557,11 @@
             },
             "carouselImages": [
               {
-                "imageName": "atx_camp_camppets_dog_mongrel_c1.webp",
+                "imageName": "atx_camp_camppets_mongrel_c1.webp",
                 "directory": "Textures/ATX/Storefront/Camp/FloorDecoration/"
               },
               {
-                "imageName": "ATX_CAMP_CAMPPets_Dog_Mongrel_C2.dds",
+                "imageName": "atx_camp_camppets_mongrel_c2.webp",
                 "directory": "Textures/ATX/Storefront/Camp/FloorDecoration/"
               }
             ],
