@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:100,400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(https://db.onlinewebfonts.com/c/fe2027c27b6a24505f548c6fd2e1076d?family=Berlin+Sans+FB);
 
 body,
 html,
@@ -642,6 +643,7 @@ filter: saturate(0.5);
     /* ## Tile Tags and Badges ## */
 
 .tile-badge {
+  font-family: "Berlin Sans FB";
   position: absolute;
   top: 10px;
   left: -20px;
@@ -662,58 +664,59 @@ filter: saturate(0.5);
 }
 
 .discount::after {
-  content: "% Off";
+  content: " Off!";
+  font-size: 18px!important;
+ 
 }
 
 .tile-badge .discount {
   background: #23697d;
   color: #fff;
-  padding: 5px 11px;
-  font-size: 22px;
-  letter-spacing: 0.00em;
+  padding: 11px 15px;
+  font-size: 24px;
+  letter-spacing: 0.07em;
+  line-height: 0.7em;
   font-kerning: normal;
   min-width: 40px;
-  max-width: 70px;
+  max-width: 75px;
   text-align: center;
   font-weight: bold;
-  word-break: break-all;
+  word-break: normal;
   clip-path: polygon(0 10%, 100% 0, 95% 100%, 10% 95%);
-  box-shadow: 2px 2px 0 #000;
 }
 
 .tile-badge .new-label {
   background: #a92b65;
   color: white;
-  padding: 7px 18px;
+  padding: 9px 21px 9px 18px;
   letter-spacing: 0.00em;
   font-kerning: normal;
-  font-size: 24px;
+  font-size: 25px;
   text-align: center;
   font-weight: bold;
-  clip-path: polygon(0 13%, 100% 0, 81% 100%, 8% 80%);
-  rotate: -5deg;
-  box-shadow: 2px 2px 0 #000;
+  clip-path: polygon(0 16%, 100% 0, 81% 100%, 8% 80%);
+  /*rotate: -5deg;*/
 }
 .newish-label {
   background: #15d89e;
   color: #fff;
-  padding: 8px 18px;
+  padding: 9px 21px 9px 18px;
   letter-spacing: 0.00em;
   font-kerning: normal;
-  font-size: 24px;
+  font-size: 25px;
   text-align: center;
   font-weight: bold;
   clip-path: polygon(0 13%, 100% 0, 81% 100%, 8% 80%);
-  rotate: -5deg;
-  box-shadow: 2px 2px 0 #000;
+  /*rotate: -5deg;*/
 }
 .free-badge {
+  font-family: "Berlin Sans FB";
   position: relative;
   left: -10px;
   background: #269547;
   color: white;
   padding: 9px 20px;
-  letter-spacing: 0em;
+  letter-spacing: 0.05em;
   font-kerning: normal;
   font-size: 24px;
   text-align: center;
@@ -1010,6 +1013,7 @@ body.rub-currency .tile-price .current-price::before {
 }
 
 .tile-timer,.tile-dates {
+  font-family: "Berlin Sans FB";
   transform: rotate(-4deg);
   text-shadow: 1.5px 1.5px black;
   position: absolute;
@@ -1019,7 +1023,7 @@ body.rub-currency .tile-price .current-price::before {
   color: white;
   font-weight: bold;
   font-size: 18px;
-  letter-spacing: 0.00em;
+  letter-spacing: 0.06em;
   font-kerning: normal;
   line-height: 1.6;
   display: flex;

@@ -268,7 +268,7 @@ function updateTilePrices() {
     // Show discount badge only if there is a discount (prefix with '-')
     if (discountEl) {
       if (discount > 0) {
-        discountEl.textContent = `${discount}`;
+        discountEl.textContent = `${discount}%`;
         discountEl.style.display = '';
       } else {
         discountEl.textContent = '';
