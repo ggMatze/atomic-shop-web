@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:100,400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@import url(https://db.onlinewebfonts.com/c/fe2027c27b6a24505f548c6fd2e1076d?family=Berlin+Sans+FB);
+@import url('https://db.onlinewebfonts.com/c/fe2027c27b6a24505f548c6fd2e1076d?family=Berlin+Sans+FB&display=swap');
 
 body,
 html,
@@ -643,7 +643,7 @@ filter: saturate(0.5);
     /* ## Tile Tags and Badges ## */
 
 .tile-badge {
-  font-family: "Berlin Sans FB";
+  font-family: "Berlin Sans FB", roboto condensed, sans-serif;
   position: absolute;
   top: 10px;
   left: -20px;
@@ -710,7 +710,8 @@ filter: saturate(0.5);
   /*rotate: -5deg;*/
 }
 .free-badge {
-  font-family: "Berlin Sans FB";
+  font-family: "Berlin Sans FB", roboto condensed, sans-serif;
+  text-shadow: 2px 2px black;
   position: relative;
   left: -10px;
   background: #269547;
@@ -1013,7 +1014,7 @@ body.rub-currency .tile-price .current-price::before {
 }
 
 .tile-timer,.tile-dates {
-  font-family: "Berlin Sans FB";
+  font-family: "Berlin Sans FB", roboto condensed, sans-serif;
   transform: rotate(-4deg);
   text-shadow: 1.5px 1.5px black;
   position: absolute;
@@ -1022,7 +1023,7 @@ body.rub-currency .tile-price .current-price::before {
   background: #CB4431;
   color: white;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.1em;
   letter-spacing: 0.06em;
   font-kerning: normal;
   line-height: 1.6;
@@ -1033,8 +1034,6 @@ body.rub-currency .tile-price .current-price::before {
   gap: 6px;
   white-space: nowrap;
   clip-path: polygon(0% 10%, 95% 0%, 100% 80%, 5% 100%);
-  /* filter: drop-shadow(4px 4px 0 black); 
-     box-shadow: 4px 4px 0 black;*/
 }
 .tile-dates {
   bottom: 30px;
