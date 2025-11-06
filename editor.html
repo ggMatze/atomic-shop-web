@@ -39,17 +39,73 @@ let currentItem = null;
 let tempImages = [];
 let lastItem = null;
 
+// Helper: Try to extract a '/textures/...' directory and filename from a dropped text/URL/path.
+function parseDroppedPath(text) {
+  if (!text) return null;
+  try {
+    // If it's a URL like http(s):// or file://, prefer URL parsing to get pathname
+    if (/^[a-zA-Z]+:\/\//.test(text.trim())) {
+      const u = new URL(text.trim());
+      text = u.pathname || u.href || text;
+    }
+  } catch (e) {
+    // not a valid URL, fall back to raw text
+  }
+  // Normalize separators
+  let s = text.replace(/\\/g, '/');
+  // Find first occurrence of 'textures' (case-insensitive)
+  const lower = s.toLowerCase();
+  let idx = lower.indexOf('/textures/');
+  if (idx === -1) idx = lower.indexOf('textures/');
+  if (idx === -1) return null;
+  // Ensure leading slash
+  if (s[idx] !== '/') s = '/' + s.slice(idx);
+  else s = s.slice(idx);
+  // Now split dir and name
+  const lastSlash = s.lastIndexOf('/');
+  const dir = s.slice(0, lastSlash + 1);
+  const name = s.slice(lastSlash + 1).split('\n')[0].trim();
+  return {
+    directory: dir.replace(/\\/g, '/').toLowerCase(),
+    name: name ? name.toLowerCase() : null
+  };
+}
+
+// Normalize directory strings: convert backslashes, lowercase, ensure leading and trailing slash when non-empty
+function normalizeDir(dir) {
+  if (!dir) return '';
+  let d = String(dir).trim().replace(/\\/g, '/').toLowerCase();
+  if (!d) return '';
+  if (d.charAt(0) !== '/') d = '/' + d;
+  if (d.charAt(d.length - 1) !== '/') d = d + '/';
+  return d;
+}
+
+// Ensure only one primary image is set in tempImages
+function setPrimaryImage(idx) {
+  for (let i = 0; i < tempImages.length; i++) {
+    tempImages[i]._isPrimary = (i === idx);
+  }
+}
+
 function saveTempImagesToItem() {
   if (!lastItem) return;
   // First image with _isPrimary is the primaryImage
   const primary = tempImages.find(img => img._isPrimary);
   if (primary) {
-    lastItem.primaryImage = { ...primary };
-    delete lastItem.primaryImage._isPrimary;
+    const copy = { ...primary };
+    copy.imageName = String(copy.imageName || '').toLowerCase();
+    copy.directory = normalizeDir(copy.directory);
+    delete copy._isPrimary;
+    lastItem.primaryImage = copy;
+  } else {
+    delete lastItem.primaryImage;
   }
   // The rest are carouselImages
   lastItem.carouselImages = tempImages.filter(img => !img._isPrimary).map(img => {
     const copy = { ...img };
+    copy.imageName = String(copy.imageName || '').toLowerCase();
+    copy.directory = normalizeDir(copy.directory);
     delete copy._isPrimary;
     return copy;
   });
@@ -93,11 +149,11 @@ function showItemDetails(pageIdx, itemIdx) {
 
   // Compose tempImages: primaryImage first (if present), then carouselImages
   tempImages = [];
-  if (item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
-    tempImages.push({ ...item.primaryImage, _isPrimary: true });
+  if (item.primaryImage && item.primaryImage.imageName) {
+    tempImages.push({ imageName: String(item.primaryImage.imageName).toLowerCase(), directory: normalizeDir(item.primaryImage.directory), _isPrimary: true });
   }
   if (Array.isArray(item.carouselImages)) {
-    tempImages.push(...item.carouselImages.map(img => ({ ...img, _isPrimary: false })));
+    tempImages.push(...item.carouselImages.map(img => ({ imageName: String(img.imageName || '').toLowerCase(), directory: normalizeDir(img.directory), _isPrimary: false })));
   }
 
   // Get includes (dynamicBundleItems or similar)
@@ -170,7 +226,10 @@ function showItemDetails(pageIdx, itemIdx) {
     <div class="includes-list"><b>Includes:</b>
       <div id="includes-list">
         ${includes.map((i, idx) => `
-          <div class="include-item" draggable="true" data-idx="${idx}">${i}</div>
+          <div class="include-item" draggable="true" data-idx="${idx}">
+            <span class="include-name">${i}</span>
+            <button class="include-remove" data-idx="${idx}" title="Remove include" style="margin-left:8px;">✕</button>
+          </div>
         `).join('')}
       </div>
     </div>
@@ -189,11 +248,12 @@ function showItemDetails(pageIdx, itemIdx) {
       <input type="datetime-local" id="ltotimer-input" value="${localValue}">
       <button id="save-ltotimer-btn">Speichern</button>
       <span id="ltotimer-status" style="margin-left:8px;color:#ffe082;"></span>
-      <div style="margin-top:6px;font-size:0.9em;opacity:0.9;color:#dcb752;">
-        <span id="ltotimer-tzlabel">&nbsp;</span>
+      <div style="margin-top:6px;font-size:0.95em;opacity:0.95;color:#dcb752;">
+        <em id="ltotimer-instruction">Enter the desired local time in the box above — the tool will save the corresponding UTC instant shown below.</em>
       </div>
       <div style="margin-top:4px;font-size:0.9em;opacity:0.9;color:#9ad1ff;">
         Saved (UTC): <span id="ltotimer-saved-iso">&nbsp;</span>
+        &nbsp;— Local: <span id="ltotimer-saved-local">&nbsp;</span>
       </div>
       <div style="margin-top:4px;font-size:0.95em;opacity:0.8;">
         Relativ: <span id="ltotimer-rel">${relValue}</span>
@@ -232,7 +292,72 @@ function showItemDetails(pageIdx, itemIdx) {
         arr.splice(dropIdx, 0, moved);
         showItemDetails(pageIdx, itemIdx); // neu rendern
       });
+      // remove button handler
+      const remBtn = item.querySelector('.include-remove');
+      if (remBtn) {
+        remBtn.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          const idx = Number(remBtn.getAttribute('data-idx'));
+          if (Array.isArray(currentItem.dynamicBundleItems)) {
+            currentItem.dynamicBundleItems.splice(idx, 1);
+            showItemDetails(pageIdx, itemIdx);
+          }
+        });
+      }
     });
+  }
+
+  // Enable drag & drop of image files or image URLs onto the image list
+  const imgListEl = document.getElementById('img-list');
+  if (imgListEl) {
+    imgListEl.ondragover = (e) => { e.preventDefault(); imgListEl.style.border = '2px dashed #9ad1ff'; };
+    imgListEl.ondragleave = (e) => { imgListEl.style.border = ''; };
+    imgListEl.ondrop = (e) => {
+        e.preventDefault(); imgListEl.style.border = '';
+        const dt = e.dataTransfer;
+        const textData = (dt && dt.getData) ? (dt.getData('text/uri-list') || dt.getData('text/plain') || '') : '';
+
+        // If files were dropped (from file system)
+        if (dt && dt.files && dt.files.length) {
+          // Try to extract a directory from any text payload (some file managers include a path)
+          const parsedText = parseDroppedPath(textData);
+          const detectedDir = parsedText && parsedText.directory ? parsedText.directory : '';
+          for (let i = 0; i < dt.files.length; i++) {
+            const f = dt.files[i];
+            // Use file name; if a directory was detected from the drop text, apply it
+            tempImages.push({ imageName: f.name.toLowerCase(), directory: detectedDir || '' });
+          }
+          renderImages();
+          return;
+        }
+
+        // If a URL/text was dropped (e.g., drag from another page)
+        if (textData) {
+          const parsed = parseDroppedPath(textData);
+          if (parsed) {
+            if (parsed.name) {
+              tempImages.push({ imageName: parsed.name.toLowerCase(), directory: parsed.directory });
+              renderImages();
+              return;
+            }
+          }
+          // fallback: try URL parsing if parseDroppedPath didn't match
+          try {
+            const parsedUrl = new URL(textData);
+            const path = parsedUrl.pathname || '';
+            const idx = path.lastIndexOf('/');
+            const dir = idx >= 0 ? path.slice(0, idx+1) : '';
+            const name = idx >= 0 ? path.slice(idx+1) : path;
+            if (name) {
+              tempImages.push({ imageName: name.toLowerCase(), directory: normalizeDir(dir) });
+              renderImages();
+              return;
+            }
+          } catch (e) {
+            // not a URL, ignore
+          }
+        }
+      };
   }
 
   // --- TIMER EVENTS ---
@@ -254,7 +379,9 @@ function showItemDetails(pageIdx, itemIdx) {
     const tzLabelEl = document.getElementById('ltotimer-tzlabel');
     if (tzLabelEl) tzLabelEl.textContent = getTZLabel(new Date(iso));
     const isoEl = document.getElementById('ltotimer-saved-iso');
+    const localEl = document.getElementById('ltotimer-saved-local');
     if (isoEl) isoEl.textContent = iso;
+    if (localEl) localEl.textContent = new Date(iso).toLocaleString();
   });
   if (window._ltotimerInterval) clearInterval(window._ltotimerInterval);
   window._ltotimerInterval = setInterval(() => {
@@ -265,7 +392,9 @@ function showItemDetails(pageIdx, itemIdx) {
     const tzLabelEl = document.getElementById('ltotimer-tzlabel');
     if (tzLabelEl) tzLabelEl.textContent = getTZLabel(new Date(iso));
     const isoEl = document.getElementById('ltotimer-saved-iso');
+    const localEl = document.getElementById('ltotimer-saved-local');
     if (isoEl) isoEl.textContent = iso;
+    if (localEl) localEl.textContent = new Date(iso).toLocaleString();
   }, 1000);
 
   document.getElementById('save-ltotimer-btn').onclick = function() {
@@ -283,32 +412,30 @@ function showItemDetails(pageIdx, itemIdx) {
       const tzLabelEl = document.getElementById('ltotimer-tzlabel');
       if (tzLabelEl) tzLabelEl.textContent = getTZLabel(new Date(iso));
         const isoEl = document.getElementById('ltotimer-saved-iso');
+        const localEl = document.getElementById('ltotimer-saved-local');
         if (isoEl) isoEl.textContent = iso;
+        if (localEl) localEl.textContent = new Date(iso).toLocaleString();
     } else {
       document.getElementById('ltotimer-status').textContent = "Ungültiges Datum!";
     }
   };
 
-  // Helper: determine if a Date falls in DST relative to its year (works for most zones)
   function isDateInDST(date) {
     if (!date || !(date instanceof Date)) return false;
     const jan = new Date(date.getFullYear(), 0, 1);
     return date.getTimezoneOffset() < jan.getTimezoneOffset();
   }
 
-  // For a given stored UTC instant (date), compute how many hours/minutes local time differs
-  // from UTC at the UTC 16:00 instant on the same calendar date (useful to tell operator
-  // whether to add 1 or 2 hours to a 16:00 UTC time to match local wall-clock).
+
   function getAddHoursSuggestion(date) {
     if (!date || isNaN(date.getTime())) return '';
-    // Build a Date representing UTC 16:00 on the same UTC calendar date as `date`.
+
     const y = date.getUTCFullYear();
     const m = date.getUTCMonth();
     const d = date.getUTCDate();
-    const utc16 = new Date(Date.UTC(y, m, d, 16, 0, 0));
-    // getTimezoneOffset() returns minutes to add to local time to get UTC.
-    // For this instant, local = UTC - offsetMinutes, so offsetMinutesLocal = -getTimezoneOffset().
-    const offsetMinutes = -utc16.getTimezoneOffset();
+    const utc12 = new Date(Date.UTC(y, m, d, 12, 0, 0));
+
+    const offsetMinutes = -utc12.getTimezoneOffset();
     if (offsetMinutes === 0) return 'Local = UTC (no change)';
     const sign = offsetMinutes > 0 ? '+' : '-';
     const absMinutes = Math.abs(offsetMinutes);
@@ -316,7 +443,7 @@ function showItemDetails(pageIdx, itemIdx) {
     const minutes = absMinutes % 60;
     const hm = minutes === 0 ? `${hours}h` : `${hours}h ${minutes}m`;
     const verb = offsetMinutes > 0 ? 'add' : 'subtract';
-    return `Local = UTC ${sign}${hm} — ${verb} ${hm} ${offsetMinutes > 0 ? 'to' : 'from'} 16:00`;
+    return `Local = UTC ${sign}${hm} — ${verb} ${hm} ${offsetMinutes > 0 ? 'to' : 'from'} 12:00`;
   }
 
   function getTZLabel(date) {
@@ -331,6 +458,48 @@ function showItemDetails(pageIdx, itemIdx) {
 function renderImages() {
   const list = document.getElementById('img-list');
   list.innerHTML = '';
+  // allow dropping files directly onto the image area (additional safety in case handlers not set elsewhere)
+  list.ondragover = (e) => { e.preventDefault(); list.style.border = '2px dashed #9ad1ff'; };
+  list.ondragleave = (e) => { list.style.border = ''; };
+  list.ondrop = (e) => {
+    e.preventDefault(); list.style.border = '';
+    const dt = e.dataTransfer;
+    const textData = (dt && dt.getData) ? (dt.getData('text/uri-list') || dt.getData('text/plain') || '') : '';
+
+    if (dt && dt.files && dt.files.length) {
+      const parsedText = parseDroppedPath(textData);
+      const detectedDir = parsedText && parsedText.directory ? parsedText.directory : '';
+      for (let i = 0; i < dt.files.length; i++) {
+        const f = dt.files[i];
+        tempImages.push({ imageName: f.name.toLowerCase(), directory: detectedDir || '' });
+      }
+      renderImages();
+      return;
+    }
+
+    if (textData) {
+      const parsed = parseDroppedPath(textData);
+      if (parsed && parsed.name) {
+        tempImages.push({ imageName: parsed.name.toLowerCase(), directory: parsed.directory });
+        renderImages();
+        return;
+      }
+      try {
+        const parsedUrl = new URL(textData);
+        const path = parsedUrl.pathname || '';
+        const idx = path.lastIndexOf('/');
+        const dir = idx >= 0 ? path.slice(0, idx+1) : '';
+          const name = idx >= 0 ? path.slice(idx+1) : path;
+          if (name) {
+            tempImages.push({ imageName: name.toLowerCase(), directory: normalizeDir(dir) });
+          renderImages();
+          return;
+        }
+      } catch (e) {
+        // ignore
+      }
+    }
+  };
   tempImages.forEach((img, idx) => {
     const div = document.createElement('div');
     div.className = 'img-item';
@@ -339,10 +508,7 @@ function renderImages() {
 
     // Always show .webp preview
     const imgUrl = (img.directory + img.imageName).toLowerCase().replace(/\.(dds|png)$/i, '.webp');
-    
 
-    // Build dynamic suffix options based on all tempImages
-    // More robust scan: explicitly detect trailing _C<number> and trailing _L
     const cNumbers = new Set();
     let hasL = false;
     let hasNone = false;
@@ -412,8 +578,13 @@ function renderImages() {
       <img src="${imgUrl}" alt="${img.imageName}" 
         onerror="this.style.opacity=0.3;this.title='Not found: '+this.src;">
       <input value="${img.imageName}" readonly>
-      <button onclick="swapImageName(${idx})">Swap Name</button>
-      <button onclick="swapImageDir(${idx})">Swap Dir</button>
+      <input value="${(img.directory||'')}" onchange="updateImageDir(${idx}, this.value)" placeholder="directory (optional)">
+      <label style="margin-top:6px;"><input type="checkbox" ${img._isPrimary ? 'checked' : ''} onchange="togglePrimary(${idx}, this.checked)"> Primary</label>
+      <div style="margin-top:6px;">
+        <button onclick="swapImageName(${idx})">Swap Name</button>
+        <button onclick="swapImageDir(${idx})">Swap Dir</button>
+        <button onclick="removeImage(${idx})" style="margin-left:6px;color:#ff7878;">Remove</button>
+      </div>
       <select data-idx="${idx}" class="suffix-select" onchange="changeSuffix(${idx}, this.value)">
         ${optionsHtml}
       </select>
@@ -453,6 +624,14 @@ function renderImages() {
   });
 }
 
+// remove image from tempImages and re-render
+window.removeImage = function(idx) {
+  if (typeof idx !== 'number') idx = Number(idx);
+  if (!isFinite(idx)) return;
+  tempImages.splice(idx, 1);
+  renderImages();
+};
+
 // Allow swapping imageName
 window.swapImageName = function(idx) {
   const current = tempImages[idx].imageName;
@@ -480,9 +659,35 @@ window.changeSuffix = function(idx, suffix) {
   renderImages();
 };
 
+// Update directory for an image (normalize separators and ensure trailing slash)
+window.updateImageDir = function(idx, dir) {
+  if (typeof idx !== 'number') idx = Number(idx);
+  if (!isFinite(idx)) return;
+  if (!dir) dir = '';
+  dir = dir.trim().toLowerCase();
+  dir = dir.replace(/\\/g, '/');
+  if (dir && dir.charAt(0) !== '/') dir = '/' + dir;
+  if (dir && dir.charAt(dir.length - 1) !== '/') dir = dir + '/';
+  tempImages[idx].directory = dir;
+  renderImages();
+};
+
+// Toggle primary image; ensure only one primary exists
+window.togglePrimary = function(idx, checked) {
+  if (typeof idx !== 'number') idx = Number(idx);
+  if (!isFinite(idx)) return;
+  if (checked) {
+    setPrimaryImage(idx);
+  } else {
+    // uncheck: clear primary flag
+    if (tempImages[idx]) tempImages[idx]._isPrimary = false;
+  }
+  renderImages();
+};
+
 window.outputOrder = function() {
   document.querySelector('.output').innerHTML =
-    `<textarea>${JSON.stringify(tempImages.map(i => i.imageName), null, 2)}</textarea>`;
+    `<textarea>${JSON.stringify(tempImages.map(i => String(i.imageName).toLowerCase()), null, 2)}</textarea>`;
 };
 
 window.outputImageList = function() {
@@ -502,7 +707,7 @@ window.outputImageList = function() {
       // Also include primaryImage if present
       if (item.primaryImage && item.primaryImage.directory && item.primaryImage.imageName) {
         allImages.push(
-          (item.primaryImage.directory.replace(/\\/g, "/").replace(/\/?$/, "/") + item.primaryImage.imageName.replace(/\.(dds|png)$/i, '.webp')).replace(/\/+/g, "/")
+          (item.primaryImage.directory.replace(/\\/g, "/").replace(/\/?$/, "/") + item.primaryImage.imageName.replace(/\.(dds|png)$/i, '.webp')).toLowerCase().replace(/\/+/g, "/")
         );
       }
     });

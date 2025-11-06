@@ -1,5 +1,19 @@
 import { buildImageUrl, renderTimerHTML, renderDateRange } from './utils.js';
 
+// Central parser for store timestamps. Returns epoch ms or NaN.
+function parseStoreTime(input) {
+  if (!input) return NaN;
+  if (window.__utils && typeof window.__utils.getDstAdjustedDate === 'function') {
+    try {
+      const d = window.__utils.getDstAdjustedDate(input);
+      return d instanceof Date ? d.getTime() : NaN;
+    } catch (e) {
+      return NaN;
+    }
+  }
+  return Date.parse(input);
+}
+
 async function initTabs() {
   const shopGrid = document.querySelector('.shop-grid');
   const tabNavScroll = document.querySelector('.tab-nav-scroll');
@@ -256,7 +270,8 @@ async function initTabs() {
       isClown: !!item?.isClown,
       disabled: !!item?.disabled,
       itemID: item?.itemID,
-      expired: !!(item?.endTime && !isNaN(Date.parse(item.endTime)) && new Date(item.endTime) < new Date())
+  // compute expiration using centralized parser so DST/offset logic is applied consistently
+  expired: !!(item?.endTime && !isNaN(parseStoreTime(item.endTime)) && parseStoreTime(item.endTime) < Date.now())
     };
 
     const dataItemStr = JSON.stringify(dataItem).replace(/'/g, "&apos;");
@@ -582,9 +597,9 @@ if (typeof window !== 'undefined') {
   // clown handled via right-side badge container; don't inject separate inline span
       // For the custom/preview tab, treat items as expired if endTime is in the past
       let isExpired = false;
-      if (item.endTime && !isNaN(Date.parse(item.endTime))) {
-        const end = new Date(item.endTime);
-        if (end < new Date()) isExpired = true;
+      if (item.endTime) {
+        const endTs = parseStoreTime(item.endTime);
+        if (!isNaN(endTs) && endTs < Date.now()) isExpired = true;
       }
       const tileDisabled = (item.disabled === true || isExpired) ? 'tile-disabled' : '';
       const dateLabel = renderDateRange(item);
@@ -655,23 +670,37 @@ function getActiveReplacement(itemID) {
 
   // Find the one where startTime <= now < endTime
   let active = candidates.find(r => {
-    const start = Date.parse(r.startTime);
-    const end = Date.parse(r.endTime);
-    return start <= now && now < end;
+    const start = parseStoreTime(r.startTime);
+    const end = parseStoreTime(r.endTime);
+    return (!isNaN(start) && !isNaN(end)) && start <= now && now < end;
   });
 
   // If none active, show the last item whose startTime is before now
   if (!active) {
     active = candidates
-      .filter(r => Date.parse(r.startTime) <= now)
-      .sort((a, b) => Date.parse(b.startTime) - Date.parse(a.startTime))[0] || null;
+      .filter(r => {
+        const s = parseStoreTime(r.startTime);
+        return !isNaN(s) && s <= now;
+      })
+      .sort((a, b) => {
+        const aS = parseStoreTime(a.startTime);
+        const bS = parseStoreTime(b.startTime);
+        return bS - aS;
+      })[0] || null;
   }
 
   // If still none, show the next future item
   if (!active) {
     active = candidates
-      .filter(r => Date.parse(r.startTime) > now)
-      .sort((a, b) => Date.parse(a.startTime) - Date.parse(b.startTime))[0] || null;
+      .filter(r => {
+        const s = parseStoreTime(r.startTime);
+        return !isNaN(s) && s > now;
+      })
+      .sort((a, b) => {
+        const aS = parseStoreTime(a.startTime);
+        const bS = parseStoreTime(b.startTime);
+        return aS - bS;
+      })[0] || null;
   }
 
   return active;
@@ -687,23 +716,29 @@ function getActivePaidSale(itemID) {
 
   // Find the one where startTime <= now < endTime
   let active = candidates.find(r => {
-    const start = Date.parse(r.startTime);
-    const end = Date.parse(r.endTime);
-    return start <= now && now < end;
+    const start = parseStoreTime(r.startTime);
+    const end = parseStoreTime(r.endTime);
+    return (!isNaN(start) && !isNaN(end)) && start <= now && now < end;
   });
 
   // If none active, show the last item whose startTime is before now
   if (!active) {
     active = candidates
-      .filter(r => Date.parse(r.startTime) <= now)
-      .sort((a, b) => Date.parse(b.startTime) - Date.parse(a.startTime))[0] || null;
+      .filter(r => {
+        const s = parseStoreTime(r.startTime);
+        return !isNaN(s) && s <= now;
+      })
+      .sort((a, b) => parseStoreTime(b.startTime) - parseStoreTime(a.startTime))[0] || null;
   }
 
   // If still none, show the next future item
   if (!active) {
     active = candidates
-      .filter(r => Date.parse(r.startTime) > now)
-      .sort((a, b) => Date.parse(a.startTime) - Date.parse(b.startTime))[0] || null;
+      .filter(r => {
+        const s = parseStoreTime(r.startTime);
+        return !isNaN(s) && s > now;
+      })
+      .sort((a, b) => parseStoreTime(a.startTime) - parseStoreTime(b.startTime))[0] || null;
   }
 
   return active;

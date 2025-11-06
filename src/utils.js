@@ -9,20 +9,38 @@ export function buildImageUrl(directory, imageName) {
   }
   return dir + name;
 }
-// DST/offset helper: allows applying a small, reversible hour offset to parsed store times.
-// Set window.__siteConfig = window.__siteConfig || {}; then set window.__siteConfig.dstHourOffset = 1 (or -1) to adjust.
+// DST/offset helper: automatically detect Eastern Daylight/Standard Time per-date.
+// Manual overrides via window.__siteConfig.dstHourOffset are intentionally ignored
+// to avoid stale page-level overrides causing incorrect remaining-time math.
 function getDstHourOffset() {
-  if (typeof window === 'undefined') return 0;
-  const cfg = window.__siteConfig || {};
-  const v = Number(cfg.dstHourOffset);
-  return Number.isFinite(v) ? v : 0;
+  // Deprecated single-value getter kept for compatibility; not used for parsing.
+  return 4;
+}
+
+// Determine DST offset hours for America/New_York for a specific date.
+// Returns 4 when the date falls in Eastern Daylight Time (UTC-4),
+// 5 when in Eastern Standard Time (UTC-5).
+function getDstHourOffsetForDate(dateLike) {
+  // Try to detect via Intl: format the given instant in America/New_York and inspect the timeZoneName (EDT/EST)
+  try {
+    const d = (dateLike instanceof Date) ? dateLike : new Date(dateLike);
+    if (isNaN(d.getTime())) return 4; // fallback
+    const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' }).formatToParts(d);
+    const tzn = (parts.find(p => p.type === 'timeZoneName') || {}).value || '';
+    if (typeof tzn === 'string' && tzn.toUpperCase().includes('DT')) return 4; // EDT
+    return 5; // EST
+  } catch (e) {
+    // Intl/timeZone not supported -> fallback to +4
+    return 4;
+  }
 }
 
 function getDstAdjustedDate(input) {
   // input can be a Date or a string
   const raw = (input instanceof Date) ? new Date(input.getTime()) : new Date(input);
   if (isNaN(raw.getTime())) return raw; // invalid date -> return as-is (NaN)
-  const hours = getDstHourOffset();
+  // compute offset hours for this specific date (allows switching between EDT/EST based on date)
+  const hours = getDstHourOffsetForDate(raw);
   if (!hours) return raw;
   return new Date(raw.getTime() + hours * 60 * 60 * 1000);
 }
@@ -75,8 +93,10 @@ export function renderDateRange(item) {
 export function isLtoExpired(item) {
   if (!item.lowPrice || !item.lowPrice.isLto) return false;
   const ltoTimer = item.lowPrice.ltoTimer;
-  if (typeof ltoTimer !== 'string' || isNaN(Date.parse(ltoTimer))) return false;
-  return getDstAdjustedDate(ltoTimer) < new Date();
+  if (typeof ltoTimer !== 'string') return false;
+  const timerDate = getDstAdjustedDate(ltoTimer);
+  if (!(timerDate instanceof Date) || isNaN(timerDate.getTime())) return false;
+  return timerDate.getTime() < Date.now();
 }
 
 // Backwards-compatible exposure for the existing monolithic script
@@ -90,6 +110,21 @@ if (typeof window !== 'undefined') {
 
 if (typeof window !== 'undefined') {
   window.__utils.isLtoExpired = isLtoExpired;
+}
+
+// Expose DST/date helpers so other modules can use the same adjusted logic
+if (typeof window !== 'undefined') {
+  window.__utils.getDstAdjustedDate = getDstAdjustedDate;
+  window.__utils.getDstHourOffsetForDate = getDstHourOffsetForDate;
+  window.__utils.debugParse = function(input) {
+    try {
+      const d = (input instanceof Date) ? input : new Date(input);
+      const off = getDstHourOffsetForDate(d);
+      const adjusted = getDstAdjustedDate(d);
+      console.log('raw:', d.toISOString(), 'offsetHours:', off, 'adjusted:', adjusted.toISOString());
+      return { raw: d, offsetHours: off, adjusted };
+    } catch (e) { console.error('debugParse error', e); return null; }
+  };
 }
 
 // Update all tile timers in the DOM

@@ -408,8 +408,8 @@ function getNextTuesday() {
   const utcHour = now.getUTCHours();
   let daysUntilTuesday = (2 - utcDay + 7) % 7;
   // If today is Tuesday
-  if (utcDay === 2) {
-    if (utcHour < 16) {
+    if (utcDay === 2) {
+    if (utcHour < 12) {
       daysUntilTuesday = 0;
     } else {
       daysUntilTuesday = 7;
@@ -419,7 +419,7 @@ function getNextTuesday() {
     now.getUTCFullYear(),
     now.getUTCMonth(),
     now.getUTCDate() + daysUntilTuesday,
-    16, 0, 0, 0
+    12, 0, 0, 0
   ));
   return d;
 }
@@ -432,7 +432,7 @@ function computeWeekTuesdayStart(now = new Date()) {
     now.getUTCFullYear(),
     now.getUTCMonth(),
     now.getUTCDate() - daysSinceTuesday,
-    16, 0, 0, 0
+    12, 0, 0, 0
   ));
 }
 
@@ -452,7 +452,7 @@ function updateFreeDates() {
     freeItems[i].endTime = new Date(start.getTime() + 24*60*60*1000).toISOString();
     if (freeItems[i].lowPrice) freeItems[i].lowPrice.ltoTimer = freeItems[i].endTime;
     start.setDate(start.getDate() + 1);
-    start.setUTCHours(16, 0, 0, 0);
+    start.setUTCHours(12, 0, 0, 0);
   }
   renderDayDropdown();
   renderDaySlot();
@@ -471,7 +471,7 @@ function updatePaidDates() {
       weekArr[i].endTime = new Date(dayStart.getTime() + 24*60*60*1000).toISOString();
       if (weekArr[i].lowPrice) weekArr[i].lowPrice.ltoTimer = weekArr[i].endTime;
       dayStart.setDate(dayStart.getDate() + 1);
-      dayStart.setUTCHours(16, 0, 0, 0);
+      dayStart.setUTCHours(12, 0, 0, 0);
     }
   });
   renderDayDropdown();
@@ -509,18 +509,14 @@ function getFreeItems(db) {
 document.addEventListener('DOMContentLoaded', initEditor);
 window.updateDates = updateDates;
 window.exportJSON = exportJSON;
-document.getElementById('update-dates-btn').addEventListener('click', function() {
-  updateDatesToWeek();
-});
-document.getElementById('update-free-dates-btn').addEventListener('click', function() {
-  updateFreeDates();
-});
-document.getElementById('update-paid-dates-btn').addEventListener('click', function() {
-  updatePaidDates();
-});
-document.getElementById('update-all-dates-btn').addEventListener('click', function() {
-  updateDatesToWeek();
-});
+const _updateDatesBtn = document.getElementById('update-dates-btn');
+if (_updateDatesBtn) _updateDatesBtn.addEventListener('click', () => updateDatesToWeek());
+const _updateFreeBtn = document.getElementById('update-free-dates-btn');
+if (_updateFreeBtn) _updateFreeBtn.addEventListener('click', () => updateFreeDates());
+const _updatePaidBtn = document.getElementById('update-paid-dates-btn');
+if (_updatePaidBtn) _updatePaidBtn.addEventListener('click', () => updatePaidDates());
+const _updateAllBtn = document.getElementById('update-all-dates-btn');
+if (_updateAllBtn) _updateAllBtn.addEventListener('click', () => updateDatesToWeek());
 </script>
 </body>
 </html>
