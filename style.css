@@ -29,7 +29,7 @@ ONLY TODAY            #fdf474 (yellow)
 POPULAR               #c97d33 (dark orange)
 LEAVING IN            #2f6cd4 (blue)
 REMAINING (oval)      #c84731 (dark red)
-
+DATES                 #b4437b (pinkish purple)
 
 NEWISH                #15d89e (teal)
 
@@ -1119,9 +1119,9 @@ body.rub-currency .tile-price .current-price::before {
 .tile-dates {
   bottom: 30px;
   line-height: 1.0em;
-  padding-bottom: 12px;
+  padding-top: 11px;
   background: #b4437b;
-   transform: rotate(0deg);
+  clip-path: polygon(0% 10%, 95% 0%, 100% 80%, 5% 100%);
 }
 .timer-text {
   position: relative;
