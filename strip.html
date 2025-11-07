@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Atomic Shop JSON Stripper</title>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: 'Segoe UI', 'Fira Mono', 'Consolas', 'monospace', sans-serif;
+      margin: 2em;
+    }
+    h2, h3 {
+      color: #569cd6;
+      font-weight: 500;
+    }
+    textarea {
+      background: #252526;
+      color: #d4d4d4;
+      border: 1px solid #333;
+      border-radius: 4px;
+      width: 100%;
+      height: 200px;
+      font-family: 'Fira Mono', 'Consolas', 'monospace', 'Segoe UI', sans-serif;
+      font-size: 1em;
+      padding: 0.7em;
+      margin-bottom: 1em;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    textarea:focus {
+      border-color: #007acc;
+      outline: none;
+    }
+    button {
+      background: #0e639c;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      margin-right: 1em;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px #0004;
+    }
+    button:hover {
+      background: #007acc;
+    }
+    pre {
+      background: #252526;
+      color: #d4d4d4;
+      border: 1px solid #333;
+      border-radius: 4px;
+      padding: 0.7em;
+      font-size: 1em;
+      font-family: 'Fira Mono', 'Consolas', 'monospace', 'Segoe UI', sans-serif;
+      margin-top: 1em;
+      overflow-x: auto;
+      min-height: 200px;
+      box-sizing: border-box;
+    }
+    ::selection {
+      background: #264f78;
+      color: #fff;
+    }
+    @media (max-width: 700px) {
+      body { margin: 1em; }
+      textarea { height: 120px; }
+      pre { min-height: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <h2>JSON Stripper für Atomic Shop</h2>
+  <p>Füge hier deinen <b>storepagedata.json</b> Inhalt ein:</p>
+  <textarea id="input" placeholder="JSON hier einfügen..."></textarea>
+  <br>
+  <button onclick="stripJSON()">Strip &amp; Anzeigen</button>
+  <button onclick="downloadJSON()">Speichern als Datei</button>
+  <br>
+  <button onclick="copyAll()" style="margin-top:1em;">Alles kopieren</button>
+  <h3>Ergebnis:</h3>
+  <pre id="output" class="language-json"></pre>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script>
+    // Haupt-Keys, die du wirklich brauchst
+    const allowedKeys = [
+      "itemID", "itemName", "itemNameShort", "itemDesc",
+      "primaryImage", "carouselImages", "dynamicBundleItems",
+      "lowPrice", "lowestPurchasablePrice", "highPrice",
+      "isNew", "isZeus", "isClown", "tileSize"
+    ];
+
+  // Nur diese Felder in Preis-Objekten übernehmen
+  // Added "purchaseLimit" so purchase limit information is preserved when stripping
+  const allowedPriceKeys = ["amount", "originalAmount", "isLto", "ltoTimer", "purchaseLimit"];
+
+    // Nur diese Felder in primaryImage und carouselImages übernehmen
+    const allowedImageKeys = ["imageName", "directory"];
+
+    // Nur diese Felder in dynamicBundleItems übernehmen
+    const allowedBundleItemKeys = ["szItemName"];
+
+  // Welche Felder auf Page-Ebene erhalten bleiben sollen
+  const allowedPageKeys = ["name", "isZeus", "image", "items"];
+
+    function stripPrice(obj) {
+      if (!obj || typeof obj !== "object") return undefined;
+      const result = {};
+      allowedPriceKeys.forEach(key => {
+        if (obj.hasOwnProperty(key)) result[key] = obj[key];
+      });
+      return result;
+    }
+
+    function stripImage(obj) {
+      if (!obj || typeof obj !== "object") return undefined;
+      const result = {};
+      allowedImageKeys.forEach(key => {
+        if (obj.hasOwnProperty(key)) result[key] = obj[key];
+      });
+      return result;
+    }
+
+    function stripBundleItem(obj) {
+      if (!obj || typeof obj !== "object") return undefined;
+      const result = {};
+      allowedBundleItemKeys.forEach(key => {
+        if (obj.hasOwnProperty(key)) result[key] = obj[key];
+      });
+      return result;
+    }
+
+    function stripItem(item) {
+      const result = {};
+      allowedKeys.forEach(key => {
+        if (item.hasOwnProperty(key)) {
+          if (["lowPrice", "lowestPurchasablePrice", "highPrice"].includes(key)) {
+            result[key] = stripPrice(item[key]);
+          } else if (key === "primaryImage") {
+            result[key] = stripImage(item[key]);
+          } else if (key === "carouselImages" && Array.isArray(item[key])) {
+            result[key] = item[key].map(stripImage);
+          } else if (key === "dynamicBundleItems" && Array.isArray(item[key])) {
+            result[key] = item[key].map(stripBundleItem);
+          } else {
+            result[key] = item[key];
+          }
+        }
+      });
+      // Remove any private/metadata keys that start with '_' if present
+      // (some source data contains _detectedSuffixInfo and similar fields)
+      Object.keys(result).forEach(k => {
+        if (k && k.charAt(0) === '_') delete result[k];
+      });
+      // Also defensively remove a commonly seen metadata field if it slipped through
+      if (result._detectedSuffixInfo) delete result._detectedSuffixInfo;
+      return result;
+    }
+
+    function stripPage(page) {
+      const p = {};
+      if (page.hasOwnProperty('name')) p.name = page.name;
+      if (page.hasOwnProperty('isZeus')) p.isZeus = page.isZeus;
+      if (page.hasOwnProperty('image')) p.image = stripImage(page.image);
+      if (Array.isArray(page.items)) p.items = page.items.map(stripItem);
+      return p;
+    }
+
+    function stripJSON() {
+      let input = document.getElementById('input').value;
+      try {
+        let data = JSON.parse(input);
+        let out = {};
+        if (data.StorePageData && Array.isArray(data.StorePageData.pages)) {
+          out.StorePageData = { pages: data.StorePageData.pages.map(stripPage) };
+        } else {
+          // If input doesn't match expected shape, fall back to original parse
+          out = data;
+        }
+        const pretty = JSON.stringify(out, null, 2);
+        document.getElementById('output').textContent = pretty;
+        Prism.highlightElement(document.getElementById('output'));
+      } catch (e) {
+        document.getElementById('output').textContent = 'Fehler: ' + e.message;
+      }
+    }
+
+    function downloadJSON() {
+      const text = document.getElementById('output').textContent;
+      const blob = new Blob([text], {type: "application/json"});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = "storepagedata-stripped.json";
+      a.click();
+    }
+
+    function copyAll() {
+      const output = document.getElementById('output');
+      const text = output.textContent;
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          output.style.boxShadow = "0 0 0 2px #007acc";
+          setTimeout(() => output.style.boxShadow = "", 700);
+        });
+    }
+  </script>
+</body>
+</html>

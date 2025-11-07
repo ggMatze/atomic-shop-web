@@ -293,6 +293,31 @@ async function initTabs() {
           <span class="tile-1st hidden">&nbsp;</span>
           <span class="clown-label hidden" title="Bethesda made a fool of themselves again!">&nbsp;</span>
         </div>
+        ${(() => {
+          // Only consider purchaseLimit inside lowPrice (per user request)
+          const pl = (() => {
+            try {
+              if (lp) {
+                const p = lp.purchaseLimit;
+                if (typeof p === 'number') return p || 0;
+                const n = Number(p);
+                if (!isNaN(n)) return n || 0;
+              }
+            } catch (e) { /* defensive */ }
+            return 0;
+          })();
+          if (pl > 0) {
+            return `
+        <div class="remaining-badge" title="TIP:\nCan be claimed ${pl} time(s) per platform! Maximum of twice that in total.\nThis limit applies separately to Steam and Microsoft Store version of the game.">
+          <div class="remaining-number">
+            <span class="remaining-number-label">x${pl}</span>
+          </div>
+          <span class="remaining-label">Remaining</span>
+        </div>
+            `;
+          }
+          return '';
+        })()}
         <div class="tile-price">
           <span class="old-price"></span>
           ${currentPriceHTML}

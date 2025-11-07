@@ -85,8 +85,8 @@ function renderCustomDailyTab() {
 
 // Add this function to render the date range
 function renderDateRange(item) {
-  const startDate = item.startTime ? new Date(item.startTime) : null;
-  const endDate = item.endTime ? new Date(item.endTime) : null;
+  const startDate = item.startTime ? ((window.__utils && typeof window.__utils.getDstAdjustedDate === 'function') ? window.__utils.getDstAdjustedDate(item.startTime) : new Date(item.startTime)) : null;
+  const endDate = item.endTime ? ((window.__utils && typeof window.__utils.getDstAdjustedDate === 'function') ? window.__utils.getDstAdjustedDate(item.endTime) : new Date(item.endTime)) : null;
   const dateLabel = (startDate && endDate)
     ? `<div class="tile-dates">${startDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })} &ndash;<br> ${endDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</div>`
     : '';
@@ -191,8 +191,10 @@ function isLtoExpired(item) {
   // Only treat as expired if isLto is true AND ltoTimer is a valid date string in the past
   if (!item.lowPrice || !item.lowPrice.isLto) return false;
   const ltoTimer = item.lowPrice.ltoTimer;
-  if (typeof ltoTimer !== 'string' || isNaN(Date.parse(ltoTimer))) return false;
-  return new Date(ltoTimer) < new Date();
+  if (typeof ltoTimer !== 'string') return false;
+  const timerDate = (window.__utils && typeof window.__utils.getDstAdjustedDate === 'function') ? window.__utils.getDstAdjustedDate(ltoTimer) : new Date(ltoTimer);
+  if (!(timerDate instanceof Date) || isNaN(timerDate.getTime())) return false;
+  return timerDate.getTime() < Date.now();
 }
 
 attachTileClickHandlers();
