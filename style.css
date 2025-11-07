@@ -1064,6 +1064,12 @@ body.rub-currency .tile-price .current-price::before {
 
 }
 
+.shop-tile.small .remaining-badge {
+  bottom: 36%;
+  transform: scale(0.75);
+  transform-origin: right bottom;
+}
+
 .remaining-badge {
   cursor: help;
   white-space: nowrap;
@@ -1652,7 +1658,7 @@ body.rub-currency .price-label-final::after {
 }*/
 
 .shop-tile.small .tile-timer {
-   transform: scale(0.73) rotate(-2deg);
+   transform: scale(0.73);
   transform-origin: right bottom;
 }
 .shop-tile.small .free-badge {
