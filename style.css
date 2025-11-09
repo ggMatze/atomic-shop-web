@@ -1,7 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:100,400,700&display=swap');
+@import url('https://db.onlinewebfonts.com/c/da950f2527dc01bebcbedd536e38c145?family=Futura+Condensed+Medium');
+@import url('https://db.onlinewebfonts.com/c/d632db3304a2ab2099e1967e15c0b7dd?family=Futura+Condensed+Bold');
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://db.onlinewebfonts.com/c/fe2027c27b6a24505f548c6fd2e1076d?family=Berlin+Sans+FB&display=swap');
+
+
 
 body,
 html,
@@ -13,7 +17,7 @@ html,
 .tab-label,
 .tab-title,
 .tab-subtitle {
-  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Condensed', Arial, Helvetica, Trebuchet MS;
 }
 
 /* COLOR TABLE
@@ -388,7 +392,7 @@ filter: saturate(0.5);
 }
 
 /* Blur-Overlay */
-.atomic-shop::before {   /* wofür war das nochmal? */
+.atomic-shop::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -397,7 +401,6 @@ filter: saturate(0.5);
   filter: blur(8px);
   pointer-events: none;
 }
-
 .atomic-shop>* {  /* alle direkten Kinder der .atomic-shop */
   position: relative;
   z-index: 1;
@@ -532,7 +535,8 @@ filter: saturate(0.5);
 
 .shop-tile.large:hover,
 .shop-tile.small:hover {
-  background: #514D44D9;
+  background: #4e4a3fd9;
+
   cursor: pointer;
 }
 
@@ -632,28 +636,30 @@ filter: saturate(0.5);
 }
 
 .tile-footer.large {
+  font-family: Futura Condensed Bold, roboto condensed, Trebuchet MS;
+  font-weight: 1;
+  letter-spacing: 0.05em;
+  font-size: 22px;
   height: 36px;
   width: 100%;
   background: #1E1F21;
   text-align: left;
   padding: 0 10px;
-  line-height: 40px;
-  font-weight: bold;
-  font-size: 22px;
+  line-height: 35px;
   box-sizing: border-box;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
 .tile-footer.small {
+  font-family: Futura Condensed Bold, roboto condensed, Trebuchet MS;
   height: 20px;
   width: 100%;
   box-sizing: border-box;
   background: #1E1F21;
   text-align: left;
-  font-weight: bold;
   padding: 0 5px;
-  line-height: 22px;
+  line-height: 20px;
   font-size: 16px;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1154,6 +1160,7 @@ body.rub-currency .tile-price .current-price::before {
   object-fit: cover;
   display: block;
 }
+
 
 /* ######## Item Overlay CSS ####### */
 
@@ -1771,6 +1778,17 @@ body.rub-currency .price-label-final::after {
 }
 
 /* ######## Legal Footer CSS ####### */
+.credits{
+  position: absolute;
+  bottom: 6.5em;
+  font-family: "roboto condensed", sans-serif;
+  font-size: 0.9em;
+  color: #b4b4b48c;
+  margin-top: 10px;
+  text-align: left;
+  user-select: none;
+  cursor: default;
+}
 
 .legal-footer {
   width: 100%;

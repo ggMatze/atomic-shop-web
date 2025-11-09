@@ -132,7 +132,7 @@ function initOverlay() {
 
         if (faqData && Array.isArray(faqData.items)) {
           // Clear only the FAQ content area (we removed the button above)
-          faqEl.innerHTML = '';
+          faqEl.innerHTML = '<div class="credits">Credits: Font made from <a target="_blank" href="http://www.onlinewebfonts.com/fonts">Web Fonts</a> is licensed by CC BY 4.0, <a target="_blank" href="https://trello.com/b/efC7d87N/sugarbombsrads-infographics">SugarBombsRADS</a>, <a target="_blank" href="https://www.youtube.com/c/MisterChurch">MisterChurch</a>, <a target="_blank" href="https://www.theduchessflame.com/">TheDuchessFlame</a> and others for inspiration and contributions.</div>';
 
           const h = document.createElement('h2');
           h.textContent = faqData.title || 'Questions you might have';
