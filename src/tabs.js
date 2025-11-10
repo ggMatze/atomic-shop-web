@@ -244,7 +244,7 @@ async function initTabs() {
   // support three-state isNew: true/1 = NEW, 2 = newish (different styling)
   let newLabel = '';
   if (item?.isNew === 1 || item?.isNew === true) newLabel = '<span class="new-label">NEW</span>';
-  else if (item?.isNew === 2) newLabel = '<span class="newish-label">NEW*</span>';
+  else if (item?.isNew === 2) newLabel = '<span class="newish-label">NEW<a class="asterisk">*</a></span>';
 
     // For preview pages (options.useEndTime === true) show a date-range label.
     // For normal tabs show a limited-time timer if the item has an LTO (lowPrice.ltoTimer).

@@ -717,7 +717,7 @@ filter: saturate(0.5);
 .tile-badge .new-label {
   background: #a92b65;
   color: white;
-  padding: 9px 21px 9px 18px;
+  padding: 9px 22px 9px 18px;
   letter-spacing: 0.00em;
   font-kerning: normal;
   font-size: 24px;
@@ -728,13 +728,20 @@ filter: saturate(0.5);
    clip-path: polygon(  0% 24.9%,  100% 0%,  87.4% 100%,  8.9% 85.8% );
   /*rotate: -5deg;*/
 }
+.asterisk {
+  color: #99eaf5;
+  padding-left: 3px;
+  font-size: 24px;
+}
+
+
 .newish-label {
   background: #2f6cd4;
-  color: #fff;
-  padding: 9px 21px 9px 18px;
+  color: #ffffff;
+  padding: 9px 11px 9px 18px;
   letter-spacing: 0.00em;
   font-kerning: normal;
-  font-size: 25px;
+  font-size: 24px;
   text-align: center;
   font-weight: bold;
  /*lip-path: polygon(0 13%, 100% 0, 81% 100%, 8% 80%);*/
@@ -1042,9 +1049,7 @@ body.rub-currency .tile-price .current-price::before {
   content: "\1F553\FE0E ";
   font-weight: bold;
   font-size: 30px;
-  line-height: 37px;
   vertical-align: middle;
-
 }
 .tile-dates::before {
   content: "🗓 ";
@@ -1054,7 +1059,6 @@ body.rub-currency .tile-price .current-price::before {
 }
 
 .tile-timer,.tile-dates {
-   
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: transform;
@@ -1073,7 +1077,7 @@ body.rub-currency .tile-price .current-price::before {
   line-height: 0em;
   display: flex;
   align-items: center;
-  padding: 10px 15px;
+  padding: 14px 15px;
   padding-left: 12px;
   gap: 6px;
   white-space: nowrap;
@@ -1663,24 +1667,11 @@ body.rub-currency .price-label-final::after {
   grid-row: span 2;
 }
 
-/* Banner/Label in kleinen Tiles kleiner machen 
-.shop-tile.small .tile-badge .discount,
-.shop-tile.small .tile-badge .new-label,
-.shop-tile.small .tile-badge .newish-label {
-  transform: scale(0.75);
-  transform-origin: left top;
-}*/
 
 .shop-tile.small .tile-badge{
    transform: scale(0.75);
   transform-origin: left top;
 }
-
-/*.shop-tile.small .tile-1st {
-  transform: scale(0.75) skew(-13deg) scaley(0.95);
-  transform-origin: right top;
-  right: 8px;
-}*/
 
 .shop-tile.small .tile-timer {
    transform: scale(0.73);
