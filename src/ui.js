@@ -99,7 +99,11 @@ function attachTileClickHandlers() {
           const dashStartRe = new RegExp('^[' + dashChars + ']\\s*');
           const dashEndRe = new RegExp('\\s*[' + dashChars + ']\\s*$');
           const rawParas = rest.split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
-          const cleanParas = rawParas.map(p => p.split(/\n+/).map(l => l.replace(/^<br>/i, '').trim()).map(l => l.replace(dashStartRe, '').replace(dashEndRe, '').trim()).filter(Boolean).join('\n')).filter(Boolean);
+          // Exclude auto-generated 'Includes ...' paragraphs that sometimes end up in the
+          // original data but should not be shown in the disclaimer. Also ignore common
+          // variants like 'Bundle includes:' (case-insensitive).
+          const filteredParas = rawParas.filter(p => !/^(?:Bundle includes:|Bundle includes|Includes)\b/i.test(p));
+          const cleanParas = filteredParas.map(p => p.split(/\n+/).map(l => l.replace(/^<br>/i, '').trim()).map(l => l.replace(dashStartRe, '').replace(dashEndRe, '').trim()).filter(Boolean).join('\n')).filter(Boolean);
           disclaimer = cleanParas.join('\n\n').trim();
         }
       }
