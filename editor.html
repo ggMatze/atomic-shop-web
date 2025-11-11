@@ -196,10 +196,15 @@ function showItemDetails(pageIdx, itemIdx) {
   }
   // Convert a Date (UTC instant) to a string suitable for <input type="datetime-local"> (local wall-clock)
   function toDatetimeLocalValue(date) {
-    // Create a Date adjusted to local time by subtracting the timezone offset
-    const off = date.getTimezoneOffset();
-    const local = new Date(date.getTime() - off * 60 * 1000);
-    return local.toISOString().slice(0, 16);
+    // Treat the datetime-local input as a UTC instant: show the UTC fields directly
+    // (so entering 12:00 will save 12:00Z regardless of client timezone)
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    const y = date.getUTCFullYear();
+    const m = pad(date.getUTCMonth() + 1);
+    const d = pad(date.getUTCDate());
+    const hh = pad(date.getUTCHours());
+    const mm = pad(date.getUTCMinutes());
+    return `${y}-${m}-${d}T${hh}:${mm}`;
   }
   function parseLocalDatetimeLocalValue(value) {
     // value like '2025-10-21T18:00' (no timezone) -> create local Date
@@ -212,7 +217,8 @@ function showItemDetails(pageIdx, itemIdx) {
     const hour = parseInt(m[4], 10);
     const minute = parseInt(m[5], 10);
     const second = m[6] ? parseInt(m[6], 10) : 0;
-    return new Date(year, month, day, hour, minute, second, 0);
+    // Interpret the input as a UTC instant (so '2025-11-11T12:00' => 2025-11-11T12:00:00Z)
+    return new Date(Date.UTC(year, month, day, hour, minute, second, 0));
   }
   const localValue = toDatetimeLocalValue(ltoDateObj);
   const relValue = getRelativeTimeString(ltoDateObj.toISOString());
@@ -365,10 +371,9 @@ function showItemDetails(pageIdx, itemIdx) {
   const relSpan = document.getElementById('ltotimer-rel');
   // Helper: convert a local Date instance (constructed from datetime-local input) to the canonical UTC ISO string
   function convertLocalToUtcIso(localDate) {
-    // localDate is a Date constructed as if its fields are local wall-clock.
-    // new Date(year, month, day, hour, minute) already represents the correct UTC instant
-    // for that local wall-clock time, so simply return its ISO string.
-    return localDate.toISOString();
+    // We treat the datetime-local input as UTC instant, so localDate is already in UTC.
+    // Return canonical ISO with Z.
+    return new Date(localDate.getTime()).toISOString();
   }
 
   ltotimerInput.addEventListener('input', () => {
@@ -610,6 +615,7 @@ function renderImages() {
     };
     div.ondrop = (e) => {
       e.preventDefault();
+      e.stopPropagation();
       div.style.border = '';
       const fromIdx = Number(e.dataTransfer.getData('text/plain'));
       const toIdx = idx;
