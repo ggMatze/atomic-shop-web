@@ -614,55 +614,70 @@
         "isZeus": false,
         "image": {
           "imageName": "e05a3f0ed01e530dc497a032a0b3c5f9.dds",
-          "directory": "textures/atomic_shop_media/"
+          "directory": "textures/atomic_shop_media/",
+          "fixtureType": 3,
+          "assocMediaPayload": {
+            "bufferName": "StoreTextureBuffer",
+            "fileName": "e05a3f0ed01e530dc497a032a0b3c5f9.dds",
+            "url": "https://titlestorage.bethesda.net/public/957a9cef-bd8d-480d-8595-2305b6d19555/steam/3/FFE9B58E18A223BB05E23195BDF2AE0238272C2E89BCD467DD5E791B49285E6A/e05a3f0ed01e530dc497a032a0b3c5f9",
+            "amCategory": 0,
+            "priorityValue": 1,
+            "priorityTier": false
+          }
         },
         "items": [
           {
-            "itemID": 2382890,
+            "itemID": 2379856,
             "itemName": "First Response Bundle",
             "itemNameShort": "First Response Bundle",
-            "itemDesc": "Get out there and help those in need with this Scorched First Response Bundle!\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\r\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+            "itemDesc": "Get out there and help those in need with this Scorched First Response Bundle!\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\r\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. - \r\n [a]*Some of the items in this bundle were previously available individually in the Atomic Shop.[/a]",
             "primaryImage": {
               "imageName": "b8e114cf56b23911b3190962928de286.dds",
-              "directory": "/textures/atomic_shop_media/"
+              "directory": "textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
+                "imageName": "ATX_Skin_PowerArmor_Paint_Responder_C1.dds",
+                "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
+              },
+              {
                 "imageName": "f4b2a26b34f6ad94046df22f6faf3d58.dds",
-                "directory": "/textures/atomic_shop_media/"
+                "directory": "textures/atomic_shop_media/"
               },
               {
-                "imageName": "atx_skin_powerarmor_paint_responder_c1.dds",
-                "directory": "/textures/atx/storefront/player/powerarmor/"
+                "imageName": "atx_apparel_outfit_scorchedresponder_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/Outfit/"
               },
               {
-                "imageName": "atx_apparel_outfit_scorchedresponder_c1.dds",
-                "directory": "/textures/atx/storefront/player/outfit/"
+                "imageName": "atx_apparel_headwear_scorchedresponder.webp",
+                "directory": "Textures/ATX/Storefront/Player/Headwear/"
               },
               {
-                "imageName": "atx_apparel_headwear_scorchedresponder_c1.dds",
-                "directory": "/textures/atx/storefront/player/headwear/"
+                "imageName": "atx_entm_skin_backpack_scorchedresponder_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/Backpack/"
               },
               {
-                "imageName": "atx_entm_skin_backpack_scorchedresponder_c1.dds",
-                "directory": "/textures/atx/storefront/player/backpack/"
+                "imageName": "atx_skin_weaponskin_combatrifle_firstresponse.webp",
+                "directory": "Textures/ATX/Storefront/Player/WeaponSkin/"
               },
               {
-                "imageName": "atx_skin_weaponskin_combatrifle_firstresponse_c1.dds",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
+                "imageName": "atx_apparel_camppets_dog_neckwear_respondersbandana.webp",
+                "directory": "Textures/ATX/Storefront/Player/Outfit/"
               },
               {
-                "imageName": "atx_apparel_camppets_dog_neckwear_respondersbandana_c1.dds",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_skin_backpackflair_respondermedallion_c1.dds",
-                "directory": "/textures/atx/storefront/player/flair/"
+                "imageName": "atx_skin_backpackflair_respondermedallion_l.webp",
+                "directory": "Textures/ATX/Storefront/Player/Flair/"
               }
             ],
             "dynamicBundleItems": [
               {
+                "szItemName": "Responder Power Armor Paint"
+              },
+              {
                 "szItemName": "\"Scorched\" Player Title Prefix"
+              },
+              {
+                "szItemName": "Scorched Responder Outfit"
               },
               {
                 "szItemName": "Scorched Responder Helmet"
@@ -671,74 +686,65 @@
                 "szItemName": "Scorched Responder Backpack"
               },
               {
-                "szItemName": "Responder Medallion Flair"
-              },
-              {
                 "szItemName": "First Response Paint (Combat Rifle + Fixer)"
               },
               {
                 "szItemName": "Responders Bandana (Dog)"
               },
               {
-                "szItemName": "Responder Power Armor Paint"
-              },
-              {
-                "szItemName": "Scorched Responder Outfit"
+                "szItemName": "Responder Medallion Flair"
               }
             ],
             "lowPrice": {
               "amount": 1500,
               "originalAmount": 1500,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": "2025-11-25T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 1500,
               "originalAmount": 1500,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": 1813805
             },
             "highPrice": {
               "amount": 1500,
               "originalAmount": 1500,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": 1813805
             },
-            "isNew": true,
+            "isNew": 2,
             "isZeus": false,
             "_detectedSuffixInfo": {
               "maxC": 1,
-              "hasL": false,
+              "hasL": true,
               "hasNone": true
             }
           },
           {
-            "itemID": 2382891,
+            "itemID": 2379857,
             "itemName": "Red Rocket Resource Bundle",
             "itemNameShort": "Red Rocket Resource Bundle",
-            "itemDesc": "Restock with Red Rocket.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "Restock with Red Rocket.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. - \r\n [a]*This Bundle contains previously available items packaged together as \"NEW\".[/a]",
             "primaryImage": {
               "imageName": "baf746d87befc6632a3ecdbd9d30f01d.dds",
               "directory": "textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "ATX_CAMP_Utility_RedRocket_CoffeeMachine_C1.dds",
+                "imageName": "atx_camp_utility_redrocketdumpster_l.webp",
                 "directory": "Textures/ATX/Storefront/Camp/Utility/"
               },
               {
-                "imageName": "ATX_CAMP_Utility_RedRocketDumpster_C1.dds",
+                "imageName": "atx_camp_utility_redrocket_coffeemachine_l.webp",
                 "directory": "Textures/ATX/Storefront/Camp/Utility/"
               },
               {
-                "imageName": "ATX_CAMP_Vendor_PlayerVendingMachine_RedRocketMiniMart_C1.dds",
+                "imageName": "atx_camp_vendor_playervendingmachine_redrocketminimart_l.webp",
                 "directory": "Textures/ATX/Storefront/Camp/Vendors/"
               },
               {
-                "imageName": "ATX_Camp_Utility_Refrigerator_Freezer_RedRocket_C1.dds",
+                "imageName": "atx_camp_utility_refrigerator_freezer_redrocket_l.webp",
                 "directory": "Textures/ATX/Storefront/Camp/Utility/"
               }
             ],
@@ -760,50 +766,47 @@
               "amount": 1050,
               "originalAmount": 1050,
               "isLto": true,
-              "ltoTimer": 1207986,
-              "purchaseLimit": 0
+              "ltoTimer": "2025-11-25T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 1050,
               "originalAmount": 1050,
               "isLto": true,
-              "ltoTimer": 1207986,
-              "purchaseLimit": 0
+              "ltoTimer": 1813777
             },
             "highPrice": {
               "amount": 1500,
               "originalAmount": 1500,
-              "isLto": true,
-              "ltoTimer": 1207986,
-              "purchaseLimit": 0
+              "isLto": false,
+              "ltoTimer": 0
             },
-            "isNew": false,
+            "isNew": 2,
             "isZeus": false
           },
           {
-            "itemID": 2382892,
+            "itemID": 2379858,
             "itemName": "Back in Black Bundle",
             "itemNameShort": "Back in Black Bundle",
-            "itemDesc": "Black never goes out of style.",
+            "itemDesc": "Black never goes out of stylze.",
             "primaryImage": {
               "imageName": "502a0b755017a456fa9d5d4ba5576310.dds",
               "directory": "textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "ATX_Skin_PowerArmor_Model_Equalizer_MatteBlack_C1.dds",
+                "imageName": "atx_skin_powerarmor_model_equalizer_matteblack_l.webp",
                 "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
               },
               {
-                "imageName": "ATX_CAMP_Collector_EnclaveDataCenter_C1.dds",
+                "imageName": "atx_camp_collector_enclavedatacenter_l.webp",
                 "directory": "Textures/ATX/Storefront/Camp/Utility/"
               },
               {
-                "imageName": "ATX_CAMP_Furniture_Table_Special_Plotting_C1.dds",
+                "imageName": "atx_camp_furniture_table_special_plotting_l.webp",
                 "directory": "Textures/ATX/Storefront/Camp/Furniture/"
               },
               {
-                "imageName": "ATX_Skin_Backpack_Enclave_C1.dds",
+                "imageName": "atx_skin_backpack_enclave_l.webp",
                 "directory": "Textures/ATX/Storefront/Player/Backpack/"
               }
             ],
@@ -812,46 +815,48 @@
                 "szItemName": "Matte Black Equalizer Power Armor Paint"
               },
               {
-                "szItemName": "Enclave Backpack"
+                "szItemName": "Enclave Data Center"
               },
               {
                 "szItemName": "Enclave Plotting Table"
               },
               {
-                "szItemName": "Enclave Data Center"
+                "szItemName": "Enclave Backpack"
               }
             ],
             "lowPrice": {
               "amount": 1800,
               "originalAmount": 1800,
               "isLto": true,
-              "ltoTimer": 1207993,
-              "purchaseLimit": 0
+              "ltoTimer": "2025-11-25T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 1800,
               "originalAmount": 1800,
               "isLto": true,
-              "ltoTimer": 1207993,
-              "purchaseLimit": 0
+              "ltoTimer": 1813784
             },
             "highPrice": {
               "amount": 1800,
               "originalAmount": 1800,
               "isLto": true,
-              "ltoTimer": 1207993,
-              "purchaseLimit": 0
+              "ltoTimer": 1813784
             },
-            "isNew": true,
-            "isZeus": false
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
-            "itemID": 2382768,
+            "itemID": 2379735,
             "itemName": "Responder Power Armor Paint",
             "itemNameShort": "Responder Power Armor Paint",
             "itemDesc": "Get out there and help those in need with the Responder Power Armor Paint!\r\n\r\nThis is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
             "primaryImage": {
-              "imageName": "ATX_Skin_PowerArmor_Paint_Responder.dds",
+              "imageName": "atx_skin_powerarmor_paint_responder_l.webp",
               "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
             },
             "carouselImages": [
@@ -873,34 +878,36 @@
               "amount": 1200,
               "originalAmount": 1200,
               "isLto": true,
-              "ltoTimer": 1207998,
-              "purchaseLimit": 0
+              "ltoTimer": "2025-11-25T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 1200,
               "originalAmount": 1200,
               "isLto": true,
-              "ltoTimer": 1207998,
-              "purchaseLimit": 0
+              "ltoTimer": 1813789
             },
             "highPrice": {
               "amount": 1500,
               "originalAmount": 1500,
               "isLto": false,
-              "ltoTimer": 0,
-              "purchaseLimit": 0
+              "ltoTimer": 0
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
-            "itemID": 2382770,
+            "itemID": 2379738,
             "itemName": "Scorched Responder Outfit",
             "itemNameShort": "Scorched Responder Outfit",
             "itemDesc": "The mark of a fallen hero.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
             "primaryImage": {
-              "imageName": "77fff6ac1368873d1333c4009a850ec6.dds",
-              "directory": "textures/atomic_shop_media/"
+              "imageName": "atx_apparel_outfit_scorchedresponder_l.webp",
+              "directory": "textures/atx/storefront/player/outfit/"
             },
             "carouselImages": [
               {
@@ -917,28 +924,30 @@
               "amount": 700,
               "originalAmount": 700,
               "isLto": true,
-              "ltoTimer": 1208002,
-              "purchaseLimit": 0
+              "ltoTimer": "2025-11-25T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 700,
               "originalAmount": 700,
               "isLto": true,
-              "ltoTimer": 1208002,
-              "purchaseLimit": 0
+              "ltoTimer": 1813793
             },
             "highPrice": {
               "amount": 700,
               "originalAmount": 700,
               "isLto": true,
-              "ltoTimer": 1208002,
-              "purchaseLimit": 0
+              "ltoTimer": 1813793
             },
             "isNew": true,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
-            "itemID": 2382568,
+            "itemID": 2379555,
             "itemName": "First Response Paint (Combat Rifle + Fixer)",
             "itemNameShort": "First Response Paint",
             "itemDesc": "Be a combat first responder... with bullets!\r\n\r\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
@@ -952,7 +961,7 @@
                 "directory": "Textures/ATX/Storefront/Player/WeaponSkin/"
               },
               {
-                "imageName": "ATX_Skin_WeaponSkin_CombatRifle_FirstResponse_C2.dds",
+                "imageName": "atx_skin_weaponskin_combatrifle_firstresponse.webp",
                 "directory": "Textures/ATX/Storefront/Player/WeaponSkin/"
               }
             ],
@@ -961,33 +970,35 @@
               "amount": 500,
               "originalAmount": 500,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": "2025-11-25T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 500,
               "originalAmount": 500,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": 1813805
             },
             "highPrice": {
               "amount": 500,
               "originalAmount": 500,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": 1813805
             },
             "isNew": true,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
-            "itemID": 2382481,
+            "itemID": 2379473,
             "itemName": "Scorched Responder Backpack",
             "itemNameShort": "Scorched Responder Backpack",
             "itemDesc": "\r\n\r\nThis skin can be applied to both the Small and Standard Backpack as a mod.\r\n\r\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
             "primaryImage": {
-              "imageName": "ATX_ENTM_Skin_Backpack_ScorchedResponder.dds",
+              "imageName": "atx_entm_skin_backpack_scorchedresponder_l.webp",
               "directory": "Textures/ATX/Storefront/Player/Backpack/"
             },
             "carouselImages": [
@@ -1005,28 +1016,30 @@
               "amount": 500,
               "originalAmount": 500,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": "2025-11-25T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 500,
               "originalAmount": 500,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": 1813805
             },
             "highPrice": {
               "amount": 500,
               "originalAmount": 500,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": 1813805
             },
             "isNew": true,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
-            "itemID": 2382665,
+            "itemID": 2379644,
             "itemName": "Responders Bandana (Dog)",
             "itemNameShort": "Responders Bandana (Dog)",
             "itemDesc": "Dogs are heroes too.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
@@ -1049,33 +1062,35 @@
               "amount": 250,
               "originalAmount": 250,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": "2025-11-25T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 250,
               "originalAmount": 250,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": 1813805
             },
             "highPrice": {
               "amount": 250,
               "originalAmount": 250,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": 1813805
             },
             "isNew": true,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            }
           },
           {
-            "itemID": 2382524,
+            "itemID": 2379516,
             "itemName": "Responder Medallion Flair",
             "itemNameShort": "Responder Medallion Flair",
             "itemDesc": "Show your support for the Responders with this Responder Medallion Backpack Flair.\r\n\r\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
             "primaryImage": {
-              "imageName": "ATX_Skin_BackpackFlair_ResponderMedallion.dds",
+              "imageName": "atx_skin_backpackflair_respondermedallion_l.webp",
               "directory": "Textures/ATX/Storefront/Player/Flair/"
             },
             "carouselImages": [
@@ -1093,25 +1108,27 @@
               "amount": 250,
               "originalAmount": 250,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": "2025-11-25T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 250,
               "originalAmount": 250,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": 1813805
             },
             "highPrice": {
               "amount": 250,
               "originalAmount": 250,
               "isLto": true,
-              "ltoTimer": 1208014,
-              "purchaseLimit": 0
+              "ltoTimer": 1813805
             },
             "isNew": true,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            }
           }
         ]
       },
