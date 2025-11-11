@@ -195,9 +195,6 @@ async function initTabs() {
   function buildTileHTML(item, tileSize, idx, options = {}) {
     const tileDisabled = (item && (item.disabled === true)) ? 'tile-disabled' : '';
 
-    // Price resolution (improved): prefer lowPrice.amount (LTO) when present,
-    // then lowestPurchasablePrice (both "Amount" and "amount" variants),
-    // finally fall back to highPrice/originalAmount.
     const lp = item?.lowPrice;
     const lowest = item?.lowestPurchasablePrice;
     const high = item?.highPrice;
@@ -208,12 +205,12 @@ async function initTabs() {
     const lowestAmount = (lowest && (typeof lowest.Amount === 'number')) ? lowest.Amount : ((lowest && typeof lowest.amount === 'number') ? lowest.amount : 0);
     const highOriginal = (high && (typeof high.originalAmount === 'number')) ? high.originalAmount : ((high && typeof high.amount === 'number') ? high.amount : 0);
 
-    let atomPriceFinal = 0;
-    let atomPriceOriginal = highOriginal || 0;
-    // priority: lowPrice.amount (if >0) -> lowestPurchasablePrice -> highOriginal
-    if (lowAmount > 0) atomPriceFinal = lowAmount;
-    else if (lowestAmount > 0) atomPriceFinal = lowestAmount;
-    else atomPriceFinal = atomPriceOriginal;
+  let atomPriceFinal = 0;
+  let atomPriceOriginal = highOriginal || 0;
+  // priority: lowestPurchasablePrice -> fallback to original. Avoid using lowPrice.amount
+  // for public percent-off calculations because it can represent a per-user discount.
+  if (lowestAmount > 0) atomPriceFinal = lowestAmount;
+  else atomPriceFinal = atomPriceOriginal;
 
     // Compute discount and display prices (original vs final)
     let priceFinal = atomPriceFinal;
