@@ -174,7 +174,7 @@ function attachTileClickHandlers() {
       if (oldPriceEl) { if (discount > 0) { oldPriceEl.textContent = convert(atomOriginal); oldPriceEl.style.display = ''; } else { oldPriceEl.textContent = ''; oldPriceEl.style.display = 'none'; } }
       if (currentPriceEl) currentPriceEl.textContent = atomFinal === 0 ? 'Free' : convert(atomFinal);
       else { const freeEl = tile.querySelector('.free-badge'); if (freeEl) freeEl.textContent = atomFinal === 0 ? 'FREE' : convert(atomFinal); }
-      if (discountEl) { if (discount > 0) { discountEl.textContent = `${discount}`; discountEl.style.display = ''; } else { discountEl.textContent = ''; discountEl.style.display = 'none'; } }
+  if (discountEl) { if (discount > 0) { discountEl.textContent = `${discount}%`; discountEl.style.display = ''; } else { discountEl.textContent = ''; discountEl.style.display = 'none'; } }
 
       // share button
       const shareBtn = document.getElementById('overlay-link-btn');
