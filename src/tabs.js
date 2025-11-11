@@ -271,7 +271,15 @@ async function initTabs() {
       disabled: !!item?.disabled,
       itemID: item?.itemID,
   // compute expiration using centralized parser so DST/offset logic is applied consistently
-  expired: !!(item?.endTime && !isNaN(parseStoreTime(item.endTime)) && parseStoreTime(item.endTime) < Date.now())
+  // Prefer explicit item.endTime but fall back to lowPrice.ltoTimer (common in store data)
+  expired: (() => {
+    try {
+      const endSource = item?.endTime || (item?.lowPrice && item.lowPrice.ltoTimer);
+      if (!endSource) return false;
+      const ts = parseStoreTime(endSource);
+      return !isNaN(ts) && ts < Date.now();
+    } catch (e) { return false; }
+  })()
     };
 
     const dataItemStr = JSON.stringify(dataItem).replace(/'/g, "&apos;");
@@ -621,11 +629,15 @@ if (typeof window !== 'undefined') {
     const tileClass = `shop-tile ${tileSize}`;
   // clown handled via right-side badge container; don't inject separate inline span
       // For the custom/preview tab, treat items as expired if endTime is in the past
+      // Determine expiration for preview items: prefer item.endTime but fall back to lowPrice.ltoTimer
       let isExpired = false;
-      if (item.endTime) {
-        const endTs = parseStoreTime(item.endTime);
-        if (!isNaN(endTs) && endTs < Date.now()) isExpired = true;
-      }
+      try {
+        const endSource = item.endTime || (item.lowPrice && item.lowPrice.ltoTimer);
+        if (endSource) {
+          const endTs = parseStoreTime(endSource);
+          if (!isNaN(endTs) && endTs < Date.now()) isExpired = true;
+        }
+      } catch (e) { /* defensive */ }
       const tileDisabled = (item.disabled === true || isExpired) ? 'tile-disabled' : '';
       const dateLabel = renderDateRange(item);
 
