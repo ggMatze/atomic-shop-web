@@ -13,7 +13,7 @@
             "itemID": 2382887,
             "itemName": "Bountiful Food Bundle",
             "itemNameShort": "Bountiful Food Bundle",
-            "itemDesc": "Turn your C.A.M.P. into a comfort food command center. Warning: may cause guests to never leave.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "Turn your C.A.M.P. into a comfort food command center. Warning: may cause guests to never leave.\n [s]Wall-mounted Oven collects Meat over time. Pumpkin Pie collects Pie Slices over time.[/s]\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n [a]Wall-mounted Oven and Pumpkin Pie cannot be built inside of a Shelter.[/a]",
             "primaryImage": {
               "imageName": "126b7d7c89b3bc930a2e0acc1e1a25e4.dds",
               "directory": "/textures/atomic_shop_media/"
@@ -161,6 +161,10 @@
               {
                 "imageName": "atx_camp_floor_blackdiner_l.webp",
                 "directory": "/textures/atx/storefront/camp/floors/"
+              },
+              {
+                "imageName": "lets_cook.webp",
+                "directory": "/textures/emotes/"
               }
             ],
             "dynamicBundleItems": [
@@ -180,21 +184,6 @@
                 "szItemName": "Nixie Tube Wall Lamp"
               },
               {
-                "szItemName": "Limestone Wallpaper"
-              },
-              {
-                "szItemName": "Bluestone Wallpaper"
-              },
-              {
-                "szItemName": "Appalachian Slate Wallpaper"
-              },
-              {
-                "szItemName": "Red Diner Floor and Foundations"
-              },
-              {
-                "szItemName": "Black Diner Floor and Foundations"
-              },
-              {
                 "szItemName": "Stainless Steel Refrigerator"
               },
               {
@@ -202,6 +191,21 @@
               },
               {
                 "szItemName": "Hollywood Floor Lamp"
+              },
+              {
+                "szItemName": "Appalachian Slate Wallpaper"
+              },
+              {
+                "szItemName": "Bluestone Wallpaper"
+              },
+              {
+                "szItemName": "Limestone Wallpaper"
+              },
+              {
+                "szItemName": "Red Diner Floor and Foundations"
+              },
+              {
+                "szItemName": "Black Diner Floor and Foundations"
               },
               {
                 "szItemName": "Let's Cook! Emote"
@@ -230,6 +234,7 @@
             },
             "isNew": false,
             "isZeus": false,
+            "isClown":true,
             "_detectedSuffixInfo": {
               "maxC": 1,
               "hasL": true,
@@ -366,7 +371,7 @@
             "itemID": 2382569,
             "itemName": "Pumpkin Pie",
             "itemNameShort": "Pumpkin Pie",
-            "itemDesc": "Gather round for a slice of the pie! \r\n\r\nThis item cannot be built inside of a Shelter.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "Gather round for a slice of the pie!\r\n\r\n\n Collects Pie Slices over time.\n\r\nThis item cannot be built inside of a Shelter.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
               "imageName": "atx_camp_collector_pumpkinpie.dds",
               "directory": "/textures/atx/storefront/camp/utility/"
@@ -2372,13 +2377,13 @@
             "itemNameShort": "Looking To The Future",
             "itemDesc": "Contemplate the future of this strange new world in your photos with this pose.\r\n\r\n- UNLOCKS A PHOTOMODE POSE. -\r\n\r\n",
             "primaryImage": {
-                "imageName": "atx_photomode_pose_lookingtothefuture_l.webp",
-                "directory": "/textures/atx/storefront/player/photopose/"
+              "imageName": "atx_photomode_pose_lookingtothefuture_l.webp",
+              "directory": "/textures/atx/storefront/player/photopose/"
             },
             "carouselImages": [
               {
-				"imageName": "f49ef9841674adf21fad3ed07c3b3fa6.dds",
-				"directory": "/textures/atomic_shop_media/"
+                "imageName": "f49ef9841674adf21fad3ed07c3b3fa6.dds",
+                "directory": "/textures/atomic_shop_media/"
               }
             ],
             "dynamicBundleItems": [],
