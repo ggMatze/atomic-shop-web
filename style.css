@@ -246,7 +246,24 @@ label[for="currency-select"] {
   color: #ffe082;
   
 }
-
+.information-box2 {
+  display: flex;
+  align-items: center;
+  background: #181c1dcc;
+  padding: 8px 8px;
+  box-shadow: 0 2px 8px #000a;
+  width: auto;
+  height: auto;
+  cursor: help;
+}
+.information-box2::before{
+  content:"🗓\FE0E";
+  font-weight: bold;
+  padding-right: 8px;
+  font-size: 2.3em;
+  color: #ffe082;
+  
+}
 .info-item {
   display: flex;
   align-items: center;
