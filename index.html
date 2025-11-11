@@ -80,15 +80,37 @@
     <span class="info-label">last updated:<br>
     <span id="last-updated"></span><br>
   </span>
-</div>  
+  </div>
+</div>
+<div class="information-box2" title="Next scheduled update for the Atomic Shop (Tuesday).">
+  <div class="info-item">
+    <span class="info-label">Next update:<br>
+    <span id="last-updated"></span><br>
+  </span>
+  </div>
 </div>
 <script>
-  
-  const lastUpdated = '2025-11-11T18:05:00Z'; // wird angezeigt +2h
-  const date = new Date(lastUpdated);
+  const lastUpdated = '2025-11-11T18:05:00Z'; // displayed (UTC)
+  const nextScheduled = '2025-11-18T17:00:00Z'; // next scheduled update (UTC) — adjust as needed
 
-  document.getElementById('last-updated').textContent = 
-  date.toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' });
+  const format = iso => new Date(iso).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' });
+
+  const nodes = document.querySelectorAll('#last-updated');
+  if (nodes.length === 0) {
+    console.warn('No #last-updated element found');
+  } else {
+    // first occurrence = "last updated"
+    nodes[0].textContent = format(lastUpdated);
+
+    // second occurrence (if present) = "next update"
+    if (nodes[1]) {
+      nodes[1].textContent = format(nextScheduled);
+    } else {
+      // if HTML only has one element with that id, append a next-update line after it
+      nodes[0].insertAdjacentHTML('afterend',
+        '<br><span id="next-updated">'+ format(nextScheduled) +'</span>');
+    }
+  }
 </script>
 </div>
 
