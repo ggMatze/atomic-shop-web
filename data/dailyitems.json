@@ -2,7 +2,7 @@
   "showDailyTab": true,
   "DailySalesWeekMeta": {
     "Week1": {
-      "hidden": false
+      "hidden": true
     },
     "Week2": {
       "hidden": false
@@ -18,16 +18,21 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Improved Bait X5",
-      "itemNameShort": "Improved Bait X5",
-      "itemDesc": "Improve your chances of hooking the big one with this Improved Bait! \r\n\r\n- CAN BE SELECTED BEFORE CASTING LINE DURING FISHING. GRANTED WHEN ENTERING ADVENTURE MODE. SUBJECT TO MAX WEIGHT.",
+      "itemName": "Scrap Kit",
+      "itemNameShort": "Scrap Kit",
+      "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "score_utility_improvedbait_l.webp"
+        "imageName": "atx_utility_repairkit_scraptostash_l.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+        }
+      ],
       "lowPrice": {
-        "ltoTimer": "2025-11-05T12:00:00.000Z",
+        "ltoTimer": "2025-11-12T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -38,8 +43,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2025-11-04T12:00:00.000Z",
-      "endTime": "2025-11-05T12:00:00.000Z",
+      "startTime": "2025-11-11T12:00:00.000Z",
+      "endTime": "2025-11-12T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -54,7 +59,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2025-11-06T12:00:00.000Z",
+        "ltoTimer": "2025-11-13T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -65,8 +70,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2025-11-05T12:00:00.000Z",
-      "endTime": "2025-11-06T12:00:00.000Z",
+      "startTime": "2025-11-12T12:00:00.000Z",
+      "endTime": "2025-11-13T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -86,7 +91,7 @@
         }
       ],
       "lowPrice": {
-        "ltoTimer": "2025-11-07T12:00:00.000Z",
+        "ltoTimer": "2025-11-14T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -97,8 +102,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2025-11-06T12:00:00.000Z",
-      "endTime": "2025-11-07T12:00:00.000Z",
+      "startTime": "2025-11-13T12:00:00.000Z",
+      "endTime": "2025-11-14T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -118,7 +123,7 @@
         }
       ],
       "lowPrice": {
-        "ltoTimer": "2025-11-08T12:00:00.000Z",
+        "ltoTimer": "2025-11-15T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -129,8 +134,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2025-11-07T12:00:00.000Z",
-      "endTime": "2025-11-08T12:00:00.000Z",
+      "startTime": "2025-11-14T12:00:00.000Z",
+      "endTime": "2025-11-15T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -145,7 +150,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2025-11-09T12:00:00.000Z",
+        "ltoTimer": "2025-11-16T12:00:00.000Z",
         "isLto": true
       },
       "lowestPurchasablePrice": {
@@ -155,8 +160,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2025-11-08T12:00:00.000Z",
-      "endTime": "2025-11-09T12:00:00.000Z",
+      "startTime": "2025-11-15T12:00:00.000Z",
+      "endTime": "2025-11-16T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -176,7 +181,7 @@
         }
       ],
       "lowPrice": {
-        "ltoTimer": "2025-11-10T12:00:00.000Z",
+        "ltoTimer": "2025-11-17T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -187,8 +192,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2025-11-09T12:00:00.000Z",
-      "endTime": "2025-11-10T12:00:00.000Z",
+      "startTime": "2025-11-16T12:00:00.000Z",
+      "endTime": "2025-11-17T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -203,7 +208,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2025-11-11T12:00:00.000Z",
+        "ltoTimer": "2025-11-18T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -214,8 +219,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2025-11-10T12:00:00.000Z",
-      "endTime": "2025-11-11T12:00:00.000Z",
+      "startTime": "2025-11-17T12:00:00.000Z",
+      "endTime": "2025-11-18T12:00:00.000Z",
       "isZeus": false
     }
   ],
