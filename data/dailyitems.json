@@ -189,14 +189,19 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Repair Kit",
-      "itemNameShort": "Repair Kit",
-      "itemDesc": "Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
+      "itemName": "Free Lunchbox",
+      "itemNameShort": "Free Lunchbox",
+      "itemDesc": "Open a Lunchbox for you and your friends! You and players nearby receive an XP Boost and a random Buff Effect for a hour!\r\n For Odds and Effects Information, visit the Help ingame > Lunchboxes! \r\n\r\n- LUNCHBOXES ARE UNDER AID IN THE PIP-BOY. LUNCHBOXES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_repairkit_basic_l.webp"
+        "imageName": "atx_store_lunchbox001_l.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_store_lunchbox001_l.webp"
+        }
+      ],
       "lowPrice": {
         "ltoTimer": "2025-11-18T12:00:00.000Z",
         "isLto": true,
