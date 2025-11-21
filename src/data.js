@@ -7,13 +7,13 @@ export const currencyData = {
   jpy: { symbol: '¥', rate: 550 / 500 },         // Japanese Yen — 500 atoms = ¥550
   cny: { symbol: '¥', rate: 20 / 500 },          // Chinese Yuan (CNY) — 500 atoms = ¥20
   hkd: { symbol: 'HK$', rate: 39 / 500 },        // Hong Kong Dollar — 500 atoms = HK$39
-  twd: { symbol: 'NT$', rate: 150 / 500 },      // Taiwan Dollar (TWD) — 500 atoms = NT$150
+  twd: { symbol: 'NT$', rate: 150 / 500 },       // Taiwan Dollar (TWD) — 500 atoms = NT$150
   aud: { symbol: 'A$', rate: 7.95 / 500 },       // Australian Dollar — 500 atoms = A$7.95
   krw: { symbol: '₩', rate: 5770 / 500 },        // South Korean Won — 500 atoms = ₩5770
   inr: { symbol: '₹', rate: 399 / 500 },         // Indian Rupee — 500 atoms = ₹399
   mxn: { symbol: 'MX$', rate: 89 / 500 },        // Mexican Peso — 500 atoms = Mex$89
   brl: { symbol: 'R$', rate: 19.99 / 500 },      // Brazilian Real — 500 atoms = R$19.99
-  rub: { symbol: '₽', rate: 0 / 500 /*no listing*/ } // Russian Ruble — N/A / no listing on SteamDB
+  rub: { symbol: '₴', rate: 130 / 500 }          // Ukrainian Hryvnia — 500 atoms = ₴130
 };
 
 const STORAGE_KEY = 'selectedCurrency';

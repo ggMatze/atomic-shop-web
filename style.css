@@ -1052,9 +1052,9 @@ body.brl-currency .tile-price .current-price::before {
 }
 
 /* RUB - Russian Ruble */
-body.rub-currency .tile-price .old-price::before,
-body.rub-currency .tile-price .current-price::before {
-  content: "₽ ";
+body.uah-currency .tile-price .old-price::before,
+body.uah-currency .tile-price .current-price::before {
+  content: "₴ ";
   font-size: 1.3em;
   line-height: 0;
   vertical-align: middle;
@@ -1309,6 +1309,31 @@ body.rub-currency .tile-price .current-price::before {
   font-weight: normal;
   font-size: 1.2rem;
   padding: 0px 20px;
+}
+
+/* include highlight styles (minimal) */
+.overlay-includes .include-item {
+   display: inline; padding: 0 2px;
+   white-space: nowrap;
+}
+
+.overlay-includes .include-item.include-highlight { 
+position:relative;
+}
+.overlay-includes .include-item.include-highlight:before { 
+ content:"";
+  z-index:-1;
+  left:-0.5em;
+  top:-0.1em;
+  border-width:3px;
+  border-style:solid;
+  border-color:#00000000;
+  position:absolute;
+  border-bottom-color: #ffd726;
+  width:100%;
+  height:1em;
+  border-radius:10%;
+  padding:0.1em 0.25em;
 }
 
 .overlay-items { /*includes list */
@@ -1656,10 +1681,10 @@ body.brl-currency .price-label-final::after {
   content: " R$";
 }
 
-body.rub-currency .price-label-original::after,
-body.rub-currency .price-label-discount::after,
-body.rub-currency .price-label-final::after {
-  content: " ₽";
+body.uah-currency .price-label-original::after,
+body.uah-currency .price-label-discount::after,
+body.uah-currency .price-label-final::after {
+  content: " ₴";
 }
 
 

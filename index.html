@@ -18,7 +18,6 @@
   <!-- Load small ES modules first (bootstrap exposes window.__utils and window.__data) -->
   <script type="module" src="src/bootstrap.js"></script>
   <script src="script.js" defer></script>
-
 </head>
 <body>
   <div id="news-notice" class="hidden" hidden>
@@ -63,6 +62,7 @@
   <option value="gbp">GBR Pound £</option>
   <option value="cad">CA Dollar C$</option>
   <option value="jpy">JP Yen ¥</option>
+  <option value="uah" >UA Hryvnia ₴</option>
   <option value="twd">TW Dollar NT$</option>
   <option value="cny">CHN Yuan 元</option>
   <option value="hkd">HK Dollar HK$</option>
@@ -71,7 +71,7 @@
   <option value="inr">IN Rupee ₹</option>
   <option value="mxn">MX Peso MX$</option>
   <option value="brl">BR Real R$</option>
-  <option value="rub" disabled>RU Ruble ₽</option>
+  <optgroup label="-----------" disabled></optgroup>
   <option value="atoms">Atoms ⚛</option>
 </select>
 </div>
@@ -82,7 +82,7 @@
   </span>
   </div>
 </div>
-<div class="information-box2" title="Next scheduled update for the Atomic Shop (Tuesday).">
+<div class="information-box2" title="Next scheduled update for the website (Tuesday).">
   <div class="info-item">
     <span class="info-label">Next update:<br>
     <span id="last-updated"></span><br>

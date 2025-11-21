@@ -141,12 +141,72 @@ function attachTileClickHandlers() {
       }
 
       // includes
+      // includes: render as one-line with inline spans annotated with data-include-index
       const includesEl = document.querySelector('.overlay-includes');
-      if (includesEl) includesEl.textContent = item.includes && Array.isArray(item.includes) && item.includes.length ? 'Includes ' + item.includes.join(', ') : '';
       const includesList = document.querySelector('.overlay-items');
       if (includesList) {
         includesList.innerHTML = '';
         if (item.includes && Array.isArray(item.includes)) item.includes.forEach(inc => { includesList.innerHTML += `<li>${inc}</li>`; });
+      }
+      if (includesEl) {
+        const items = (item.includes && Array.isArray(item.includes)) ? item.includes : (Array.isArray(item.dynamicBundleItems) ? item.dynamicBundleItems.map(x => x.szItemName || '') : []);
+        if (items && items.length) {
+          const parts = items.map((inc, idx) => `<span class="include-item" data-include-index="${idx}">${inc}</span>`);
+          includesEl.innerHTML = 'Includes ' + parts.join(', ');
+          overlay._includeListEls = Array.from(includesEl.querySelectorAll('.include-item'));
+        } else {
+          includesEl.innerHTML = '';
+          overlay._includeListEls = [];
+        }
+      }
+
+      // build mapping from gallery images array -> dynamicBundleItems index
+      // so we can highlight by index. We map by exact URL match first, fallback to basename.
+      try {
+        const carouselImgs = Array.isArray(item.carouselImages) ? item.carouselImages.map(img => buildImageUrl(img.directory, img.imageName)).filter(Boolean) : [];
+        const basename = (u) => { if (!u) return ''; const parts = u.split('/'); return parts[parts.length - 1].toLowerCase(); };
+        overlay._imageToIncludeIndex = (images || []).map(imgUrl => {
+          if (!imgUrl) return null;
+          const exact = carouselImgs.indexOf(imgUrl);
+          if (exact >= 0) return exact;
+          const b = basename(imgUrl);
+          for (let j = 0; j < carouselImgs.length; j++) if (basename(carouselImgs[j]) === b) return j;
+          return null;
+        });
+      } catch (e) { overlay._imageToIncludeIndex = []; }
+
+      // highlight updater: toggle .include-highlight on matching include index
+      const updateHighlight = () => {
+        try {
+          const includeEls = overlay._includeListEls || [];
+          const mainImg = document.getElementById('main-image');
+          let idx = null;
+          if (mainImg && mainImg.dataset && typeof mainImg.dataset.galleryIndex !== 'undefined') {
+            const v = Number(mainImg.dataset.galleryIndex);
+            if (!Number.isNaN(v)) idx = v;
+          }
+          // if we got a gallery-aligned index, highlight directly
+          if (idx != null) {
+            includeEls.forEach(el => el.classList.toggle('include-highlight', Number(el.getAttribute('data-include-index')) === idx));
+            return;
+          }
+          // otherwise try mapping via overlay._imageToIncludeIndex using galleryState.current
+          if (window.__gallery && window.__gallery._state) {
+            const cur = window.__gallery._state.current;
+            const map = overlay._imageToIncludeIndex || [];
+            const bundleIdx = (typeof map[cur] !== 'undefined') ? map[cur] : null;
+            includeEls.forEach(el => el.classList.toggle('include-highlight', Number(el.getAttribute('data-include-index')) === bundleIdx));
+          }
+        } catch (e) { /* ignore */ }
+      };
+
+      // observe main-image src / data changes to update highlight
+      const mainImageEl = document.getElementById('main-image');
+      if (mainImageEl) {
+        if (overlay._mainImageObserver) overlay._mainImageObserver.disconnect();
+        overlay._mainImageObserver = new MutationObserver(() => updateHighlight());
+        overlay._mainImageObserver.observe(mainImageEl, { attributes: true, attributeFilter: ['src', 'data-gallery-index'] });
+        updateHighlight();
       }
 
       // prices (tile + overlay)
