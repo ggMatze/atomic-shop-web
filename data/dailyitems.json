@@ -189,19 +189,14 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Free Lunchbox",
-      "itemNameShort": "Free Lunchbox",
-      "itemDesc": "Open a Lunchbox for you and your friends! You and players nearby receive an XP Boost and a random Buff Effect for a hour!\r\n For Odds and Effects Information, visit the Help ingame > Lunchboxes! \r\n\r\n- LUNCHBOXES ARE UNDER AID IN THE PIP-BOY. LUNCHBOXES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
+      "itemName": "Repair Kit",
+      "itemNameShort": "Repair Kit",
+      "itemDesc": "Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_store_lunchbox001_l.webp"
+        "imageName": "atx_utility_repairkit_basic_l.webp"
       },
-      "carouselImages": [
-        {
-          "directory": "textures/atx/storefront/utility/",
-          "imageName": "atx_store_lunchbox001_l.webp"
-        }
-      ],
+      "carouselImages": [],
       "lowPrice": {
         "ltoTimer": "2025-11-25T12:00:00.000Z",
         "isLto": true,
@@ -1142,20 +1137,24 @@
         "itemID": "day21",
         "isClown": false,
         "disabled": false,
-        "itemName": "Equalizer Power Armor Paint",
-        "itemNameShort": "Equalizer Paint",
-        "itemDesc": "The perfect Power Armor to defend Appalachia from those pesky Communists!\nThis is a unique skin that completely alters the appearance of your Power Armor. It  can be equipped on the [h]Excavator, Raider, Hellcat, T-45, T-51, T-60, T-65, Ultracite, Union, Vulcan[/h] and [h]X-01[/h] Power Armors.\r\n\r\n- POWER ARMOR SKINS CAN BE APPLIED AT POWER ARMOR STATIONS. -",
+        "itemName": "matte black Equalizer Power Armor Paint",
+        "itemNameShort": "matte black Equalizer Paint",
+        "itemDesc": "Dark times ahead for the enemies of the Equalizer in Matte Black!\nThis is a unique skin that completely alters the appearance of your Power Armor. It  can be equipped on the [h]Excavator, Raider, Hellcat, T-45, T-51, T-60, T-65, Ultracite, Union, Vulcan[/h] and [h]X-01[/h] Power Armors.\r\n\r\n- POWER ARMOR SKINS CAN BE APPLIED AT POWER ARMOR STATIONS. -",
         "primaryImage": {
-          "imageName": "atx_skin_powerarmor_model_equalizer_l.webp",
+          "imageName": "atx_skin_powerarmor_model_equalizer_matteblack_l.webp",
           "directory": "textures/atx/storefront/player/powerarmor/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_skin_powerarmor_model_equalizer_c1.webp",
+            "imageName": "atx_skin_powerarmor_model_equalizer_matteblack_c1.webp",
             "directory": "textures/atx/storefront/player/powerarmor/"
           },
           {
-            "imageName": "atx_skin_powerarmor_model_equalizer_c2.webp",
+            "imageName": "atx_skin_powerarmor_model_equalizer_matteblack_c2.webp",
+            "directory": "textures/atx/storefront/player/powerarmor/"
+          },
+          {
+            "imageName": "atx_skin_powerarmor_model_equalizer_matteblack_c3.webp",
             "directory": "textures/atx/storefront/player/powerarmor/"
           }
         ],
