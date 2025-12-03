@@ -14,7 +14,7 @@
             "itemID": "TBD",
             "itemName": "Razor Sharp Bundle",
             "itemNameShort": "Razor Sharp Bundle",
-            "itemDesc": "Live on the razor's edge!\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES -\r\n- SKIN IS CREAFTABLE AT WEAPON WORKBENCHES -",
+            "itemDesc": "Live on the razor's edge!\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES -\r\n- SKIN IS CREAFTABLE AT WEAPON WORKBENCHES -\n[h]You will rank up by one rank when purchasing this Bundle[/h]",
             "primaryImage": {
               "imageName": "0726e0614eba08d588549e7cee91d5cb.webp",
               "directory": "/textures/atomic_shop_media/"
@@ -56,7 +56,7 @@
                 "szItemName": "What a Drag Emote"
               },
               {
-                "szItemName": "Rank Up"
+                "szItemName": "Rank Up (+1 on Scoreboard/Season)"
               },
               {
                 "szItemName": "Razorback Pack"
@@ -157,10 +157,49 @@
               "imageName": "b1f4d1a8a77d05a5ff1a1abcd6237cf0.webp",
               "directory": "/textures/atomic_shop_media/"
             },
-            "carouselImages": [],
-            "dynamicBundleItems": [
+            "carouselImages": [
               {
-                "szItemName": "Arrowhead Flair"
+                "imageName": "score_s17_camp_utility_collectron_scoutmaster_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s17_skin_backpack_leatherquiver_l.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              },
+            {
+                       "imageName": "score_s17_camp_floordecor_boat_rowboat_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              
+
+              {
+                "imageName": "score_s17_camp_machinery_generator_small_tato_l.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "score_s17_camp_walldecor_crossedpaddles_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s17_camp_collector_pemmican_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s17_skin_backpackflair_arrowheadflair_l.webp",
+                "directory": "/textures/atx/storefront/player/flair/"
+              },
+              {
+                "imageName": "score_s17_camp_floordecor_plushie_scoutmarshmallow_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_playericon_s17_pioneerscoutsprotectron.webp",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              }
+            ],
+            "dynamicBundleItems": [
+               {
+                "szItemName": "Scoutmaster Collectron Station"
               },
               {
                 "szItemName": "Leather Quiver Backpack"
@@ -172,13 +211,13 @@
                 "szItemName": "Tato Generator - Small"
               },
               {
-                "szItemName": "Scoutmaster Collectron Station"
-              },
-              {
                 "szItemName": "Crossed Paddles"
               },
               {
                 "szItemName": "Pemmican Collector"
+              },
+              {
+                "szItemName": "Arrowhead Flair"
               },
               {
                 "szItemName": "Marshal Mallow Plushie"
@@ -191,7 +230,7 @@
               "amount": 1500,
               "originalAmount": 1500,
               "isLto": true,
-              "ltoTimer": "2025-12-01T12:00:00.000Z",
+              "ltoTimer": "2025-12-23T12:00:00.000Z",
               "purchaseLimit": 0
             },
             "lowestPurchasablePrice": {
@@ -1112,43 +1151,43 @@
             },
             "carouselImages": [
               {
-                "imageName": "atx_camp_structure_frostyvillagehouse_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_camp_structure_evergreenholidayvillagehouse_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_holidayvillagelightpost_l.webp",
+                "imageName": "atx_camp_floordecor_holidayvillage_houseblue_l.webp",
                 "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
-                "imageName": "atx_camp_statue_holidayvillagealbinodeathclaw_l.webp",
-                "directory": "/textures/atx/storefront/camp/statues/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_evergreenchristmastree_l.webp",
+                "imageName": "atx_camp_floordecor_holidayvillage_housegreen_l.webp",
                 "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
-                "imageName": "atx_camp_vendor_holidayvillagegrocer_l.webp",
-                "directory": "/textures/atx/storefront/camp/vendors/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_holidayvillagesnowman_l.webp",
+                "imageName": "atx_entm_camp_floordecor_holidayvillagelightpost_l.webp",
                 "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
-                "imageName": "atx_camp_structure_holidayvillagegazebo_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_holidayvillagetrees_l.webp",
+                "imageName": "atx_entm_camp_floordecor_holidayvillagealbinodeathclaw_l.webp",
                 "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
-                "imageName": "atx_camp_floordecor_holidayvillagepeopleset_l.webp",
+                "imageName": "atx_camp_floordecor_evergleanchristmastree_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_holidayvillagegrocer_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_holidayvillagesnowman_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_holidayvillagegazebo_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_holidayvillagetree_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_holidayvillagepeopleset_l.webp",
                 "directory": "/textures/atx/storefront/camp/floordecoration/"
               }
             ],
@@ -1188,7 +1227,7 @@
               "amount": 0,
               "originalAmount": 0,
               "isLto": false,
-              "ltoTimer": "2025-12-01T12:00:00.000Z",
+              "ltoTimer": "2025-12-23T12:00:00.000Z",
               "purchaseLimit": 0
             },
             "lowestPurchasablePrice": {
@@ -1207,7 +1246,7 @@
             },
             "isNew": false,
             "isZeus": false,
-            "disabled": true
+            "disabled": false
           },
           {
             "itemID": "TBD1",
