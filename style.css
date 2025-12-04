@@ -1,10 +1,9 @@
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:100,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://db.onlinewebfonts.com/c/da950f2527dc01bebcbedd536e38c145?family=Futura+Condensed+Medium');
 @import url('https://db.onlinewebfonts.com/c/d632db3304a2ab2099e1967e15c0b7dd?family=Futura+Condensed+Bold');
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://db.onlinewebfonts.com/c/fe2027c27b6a24505f548c6fd2e1076d?family=Berlin+Sans+FB&display=swap');
-
 
 
 body,
@@ -342,7 +341,7 @@ filter: saturate(0.5);
     font-weight: bold;
     background: #151817;
     border: 1px solid #ffe082;
-    padding: 24px 32px 18px 32px;
+    padding: 2px 16px 18px 16px;
 }
 #news-notice #news-header {
     text-transform: uppercase;
@@ -356,9 +355,15 @@ filter: saturate(0.5);
     margin-bottom: 10px;
 }
 #news-notice #news-text {
-    color: #F6F8C6;
+    /*color: #F6F8C6;
     font-weight: normal;
-    margin-bottom: 18px;
+    margin-bottom: 18px;*/
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 500!important;
+    color:#ffd454;
+    font-weight: normal;
+    font-size: 1.2em;
+    margin-bottom: 5px;
 }
 #news-notice #news-close {
     text-transform: uppercase;
