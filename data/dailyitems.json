@@ -8,10 +8,10 @@
       "hidden": false
     },
     "Week3": {
-      "hidden": true
+      "hidden": false
     },
     "Week4": {
-      "hidden": true
+      "hidden": false
     }
   },
   "DailyReplacements": [
@@ -936,15 +936,15 @@
       }
     ],
     "Week3": [
-      
+       
       {
-        "replaceItemID": 2316441,
-        "itemID": "day15_1",
+        "replaceItemID": 2316400,
+        "itemID": "day16_1",
         "isClown": false,
         "disabled": false,
         "itemName": "Nuka-Cola Cryo Freezer",
         "itemNameShort": "Nuka-Cola Cryo Freezer",
-        "itemDesc": "Keep your refreshments ice cold with the Nuka-Cola Cryo Freezer!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemDesc": "Keep your items frozen with Nuka-Cola style!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "atx_entm_camp_utility_nukacolacryofreezer_l.webp",
           "directory": "textures/atx/storefront/camp/floordecoration/"
@@ -969,17 +969,17 @@
         "highPrice": {
           "originalAmount": 250
         },
-        "startTime": "2025-12-15T12:00:00.000Z",
-        "endTime": "2025-12-16T12:00:00.000Z"
+        "startTime": "2025-12-16T12:00:00.000Z",
+        "endTime": "2025-12-17T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316442,
-        "itemID": "day15_2",
+        "replaceItemID": 2316401,
+        "itemID": "day16_2",
         "isClown": false,
         "disabled": false,
         "itemName": "The Whirl Wizard Paint Can Generator",
-        "itemNameShort": "Whirl Wizard Paint Generator",
-        "itemDesc": "Endlessly generate paint cans with the Whirl Wizard Paint Can Generator!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemNameShort": "The Whirl Wizard Paint Can Generator",
+        "itemDesc": "A colorful paint can generator for your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "atx_camp_collector_paintcangenerator_whrilwhizard.webp",
           "directory": "textures/atx/storefront/camp/utility/"
@@ -1004,44 +1004,52 @@
         "highPrice": {
           "originalAmount": 350
         },
-        "startTime": "2025-12-15T12:00:00.000Z",
-        "endTime": "2025-12-16T12:00:00.000Z"
+        "startTime": "2025-12-16T12:00:00.000Z",
+        "endTime": "2025-12-17T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316441,
-        "itemID": "day16_1",
+        "replaceItemID": 2316402,
+        "itemID": "day16_3",
         "isClown": false,
         "disabled": false,
         "itemName": "Summoning Circle",
         "itemNameShort": "Summoning Circle",
-        "itemDesc": "",
+        "itemDesc": "A mystical circle for your dark C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
-          "imageName": "",
-          "directory": ""
+          "imageName": "atx_entm_camp_floordecor_summoningcircle_l.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
         },
         "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_floordecor_summoningcircle_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_entm_camp_floordecor_summoningcircle_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
         ],
         "lowPrice": {
-          "ltoTimer": "2025-12-17T12:00:00.000Z",
+          "ltoTimer": "2025-12-16T12:00:00.000Z",
           "isLto": true
         },
         "lowestPurchasablePrice": {
-          "Amount": 75
+          "Amount": 175
         },
         "highPrice": {
-          "originalAmount": 150
+          "originalAmount": 350
         },
         "startTime": "2025-12-16T12:00:00.000Z",
         "endTime": "2025-12-17T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316441,
-        "itemID": "day16_2",
+        "replaceItemID": 2316403,
+        "itemID": "day17_1",
         "isClown": false,
         "disabled": false,
         "itemName": "Fishing Cooler Cryo Freezer",
         "itemNameShort": "Fishing Cooler Cryo Freezer",
-        "itemDesc": "Keep your catch fresh with the Fishing Cooler Cryo Freezer!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemDesc": "Keep your fishing catch cool and fresh!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "atx_camp_utility_fishingcoolercryofrezer_l.webp",
           "directory": "textures/atx/storefront/camp/floordecoration/"
@@ -1066,17 +1074,17 @@
         "highPrice": {
           "originalAmount": 250
         },
-        "startTime": "2025-12-16T12:00:00.000Z",
-        "endTime": "2025-12-17T12:00:00.000Z"
+        "startTime": "2025-12-17T12:00:00.000Z",
+        "endTime": "2025-12-18T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316442,
-        "itemID": "day16_2",
+        "replaceItemID": 2316404,
+        "itemID": "day17_2",
         "isClown": false,
         "disabled": false,
         "itemName": "Raider Mirelurk Boil",
         "itemNameShort": "Raider Mirelurk Boil",
-        "itemDesc": "A grotesque but functional Raider structure!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemDesc": "A grotesque raider-themed mirelurk display!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "atx_camp_collector_mirelurksteamer_raidermirelurkboil.webp",
           "directory": "textures/atx/storefront/camp/utility/"
@@ -1101,17 +1109,52 @@
         "highPrice": {
           "originalAmount": 350
         },
-        "startTime": "2025-12-16T12:00:00.000Z",
-        "endTime": "2025-12-17T12:00:00.000Z"
+        "startTime": "2025-12-17T12:00:00.000Z",
+        "endTime": "2025-12-18T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316441,
-        "itemID": "day17_1",
+        "replaceItemID": 2316405,
+        "itemID": "day17_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Laser Light Duck Shooting Gallery",
+        "itemNameShort": "Laser Light Duck Shooting Gallery",
+        "itemDesc": "A fun laser shooting gallery with ducks!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "score_s2_camp_furniture_shootinggallery_armorace_l.webp",
+          "directory": "textures/atx/storefront/camp/furniture/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "score_s2_camp_furniture_shootinggallery_armorace_c1.webp",
+            "directory": "textures/atx/storefront/camp/furniture/"
+          },
+          {
+            "imageName": "score_s2_camp_furniture_shootinggallery_armorace_c2.webp",
+            "directory": "textures/atx/storefront/camp/furniture/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-17T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-17T12:00:00.000Z",
+        "endTime": "2025-12-18T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316406,
+        "itemID": "day18_1",
         "isClown": false,
         "disabled": false,
         "itemName": "Red Rocket Cooler",
         "itemNameShort": "Red Rocket Cooler",
-        "itemDesc": "A cooler decorated in the Red Rocket style!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemDesc": "A cooler themed after the Red Rocket!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "atx_camp_utility_refrigerator_freezer_redrocket_l.webp",
           "directory": "textures/atx/storefront/camp/utility/"
@@ -1136,17 +1179,17 @@
         "highPrice": {
           "originalAmount": 250
         },
-        "startTime": "2025-12-17T12:00:00.000Z",
-        "endTime": "2025-12-18T12:00:00.000Z"
+        "startTime": "2025-12-18T12:00:00.000Z",
+        "endTime": "2025-12-19T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316442,
-        "itemID": "day17_2",
+        "replaceItemID": 2316407,
+        "itemID": "day18_2",
         "isClown": false,
         "disabled": false,
         "itemName": "Jumpy Juice Company Tea Machine",
-        "itemNameShort": "Jumpy Juice Tea Machine",
-        "itemDesc": "Serve up some refreshing (and possibly radioactive) tea with the Jumpy Juice Company Tea Machine!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemNameShort": "Jumpy Juice Company Tea Machine",
+        "itemDesc": "A tea machine from Jumpy Juice Company!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "atx_camp_collector_jumpyjuicecompanyteamachine_l.webp",
           "directory": "textures/atx/storefront/camp/utility/"
@@ -1171,17 +1214,17 @@
         "highPrice": {
           "originalAmount": 350
         },
-        "startTime": "2025-12-17T12:00:00.000Z",
-        "endTime": "2025-12-18T12:00:00.000Z"
+        "startTime": "2025-12-18T12:00:00.000Z",
+        "endTime": "2025-12-19T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316441,
-        "itemID": "day18_1",
+        "replaceItemID": 2316408,
+        "itemID": "day18_3",
         "isClown": false,
         "disabled": false,
         "itemName": "Vault-Tec Pinball Machine",
         "itemNameShort": "Vault-Tec Pinball Machine",
-        "itemDesc": "Get lucky with the Vault-Tec Pinball Machine!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemDesc": "A classic pinball machine with Vault-Tec theme!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "atx_camp_furniture_vaulttecpinballmachine_l.webp",
           "directory": "textures/atx/storefront/camp/furniture/"
@@ -1197,7 +1240,7 @@
           }
         ],
         "lowPrice": {
-          "ltoTimer": "2025-12-19T12:00:00.000Z",
+          "ltoTimer": "2025-12-18T12:00:00.000Z",
           "isLto": true
         },
         "lowestPurchasablePrice": {
@@ -1210,13 +1253,13 @@
         "endTime": "2025-12-19T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316442,
-        "itemID": "day18_2",
+        "replaceItemID": 2316409,
+        "itemID": "day19_1",
         "isClown": false,
         "disabled": false,
         "itemName": "Rustic Ice Box",
         "itemNameShort": "Rustic Ice Box",
-        "itemDesc": "An old-fashioned cooler for your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemDesc": "A rustic ice box for storing your items!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "atx_utility_refrigerator_freezer_icebox_l.webp",
           "directory": "textures/atx/storefront/camp/utility/"
@@ -1236,22 +1279,22 @@
           "isLto": true
         },
         "lowestPurchasablePrice": {
-          "Amount": 175
+          "Amount": 125
         },
         "highPrice": {
-          "originalAmount": 350
+          "originalAmount": 250
         },
-        "startTime": "2025-12-18T12:00:00.000Z",
-        "endTime": "2025-12-19T12:00:00.000Z"
+        "startTime": "2025-12-19T12:00:00.000Z",
+        "endTime": "2025-12-20T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316441,
-        "itemID": "day19_1",
+        "replaceItemID": 2316410,
+        "itemID": "day19_2",
         "isClown": false,
         "disabled": false,
         "itemName": "Nuka-Cola Mystery Machine",
         "itemNameShort": "Nuka-Cola Mystery Machine",
-        "itemDesc": "A mysterious machine that dispenses Nuka-Cola surprises!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemDesc": "A mysterious Nuka-Cola vending machine!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "atx_utility_nukacolamysterymachine_pristine.webp",
           "directory": "textures/atx/storefront/camp/utility/"
@@ -1267,26 +1310,26 @@
           }
         ],
         "lowPrice": {
-          "ltoTimer": "2025-12-20T12:00:00.000Z",
+          "ltoTimer": "2025-12-19T12:00:00.000Z",
           "isLto": true
         },
         "lowestPurchasablePrice": {
-          "Amount": 125
+          "Amount": 175
         },
         "highPrice": {
-          "originalAmount": 250
+          "originalAmount": 350
         },
         "startTime": "2025-12-19T12:00:00.000Z",
         "endTime": "2025-12-20T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316442,
-        "itemID": "day19_2",
+        "replaceItemID": 2316411,
+        "itemID": "day19_3",
         "isClown": false,
         "disabled": false,
         "itemName": "Violin Chair",
         "itemNameShort": "Violin Chair",
-        "itemDesc": "A quirky musical chair for your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemDesc": "\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "score_s12_camp_furniture_instrument_violinchair_l.webp",
           "directory": "textures/atx/storefront/camp/furniture/"
@@ -1302,26 +1345,26 @@
           }
         ],
         "lowPrice": {
-          "ltoTimer": "2025-12-20T12:00:00.000Z",
+          "ltoTimer": "2025-12-19T12:00:00.000Z",
           "isLto": true
         },
         "lowestPurchasablePrice": {
-          "Amount": 175
+          "Amount": 125
         },
         "highPrice": {
-          "originalAmount": 350
+          "originalAmount": 250
         },
         "startTime": "2025-12-19T12:00:00.000Z",
         "endTime": "2025-12-20T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316441,
+        "replaceItemID": 2316412,
         "itemID": "day20_1",
         "isClown": false,
         "disabled": false,
         "itemName": "Refrigerator - Nuka Cola",
-        "itemNameShort": "Nuka-Cola Refrigerator",
-        "itemDesc": "Keep your Nuka-Cola cold with this themed refrigerator!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemNameShort": "Refrigerator - Nuka Cola",
+        "itemDesc": "A Nuka-Cola themed refrigerator!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "atx_camp_utility_refrigerator_nukacola_l.webp",
           "directory": "textures/atx/storefront/camp/utility/"
@@ -1337,7 +1380,7 @@
           }
         ],
         "lowPrice": {
-          "ltoTimer": "2025-12-21T12:00:00.000Z",
+          "ltoTimer": "2025-12-20T12:00:00.000Z",
           "isLto": true
         },
         "lowestPurchasablePrice": {
@@ -1350,25 +1393,29 @@
         "endTime": "2025-12-21T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316442,
+        "replaceItemID": 2316413,
         "itemID": "day20_2",
         "isClown": false,
         "disabled": false,
         "itemName": "Beer Mystery Machine",
         "itemNameShort": "Beer Mystery Machine",
-        "itemDesc": "A mysterious machine that dispenses beer-related surprises!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemDesc": "A mysterious beer vending machine!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
-          "imageName": "atx_entm_camp_utility_beermysterymachine_c1.webp",
-          "directory": "textures/atx/storefront/camp/utility/"
+          "imageName": "atx_entm_camp_utility_beermysterymachine_l.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
         },
         "carouselImages": [
           {
+            "imageName": "atx_entm_camp_utility_beermysterymachine_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
             "imageName": "atx_entm_camp_utility_beermysterymachine_c2.webp",
-            "directory": "textures/atx/storefront/camp/utility/"
+            "directory": "textures/atx/storefront/camp/floordecoration/"
           }
         ],
         "lowPrice": {
-          "ltoTimer": "2025-12-21T12:00:00.000Z",
+          "ltoTimer": "2025-12-20T12:00:00.000Z",
           "isLto": true
         },
         "lowestPurchasablePrice": {
@@ -1381,13 +1428,13 @@
         "endTime": "2025-12-21T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316441,
-        "itemID": "day21_1",
+        "replaceItemID": 2316414,
+        "itemID": "day20_3",
         "isClown": false,
         "disabled": false,
         "itemName": "Armor Ace Laser Shooting Gallery",
-        "itemNameShort": "Armor Ace Laser Gallery",
-        "itemDesc": "Test your marksmanship with the Armor Ace Laser Shooting Gallery!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemNameShort": "Armor Ace Laser Shooting Gallery",
+        "itemDesc": "A laser shooting gallery with Armor Ace theme!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "score_s2_camp_furniture_shootinggallery_armorace_l.webp",
           "directory": "textures/atx/storefront/camp/furniture/"
@@ -1403,7 +1450,42 @@
           }
         ],
         "lowPrice": {
-          "ltoTimer": "2025-12-22T12:00:00.000Z",
+          "ltoTimer": "2025-12-20T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-20T12:00:00.000Z",
+        "endTime": "2025-12-21T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316415,
+        "itemID": "day21_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Vault-Tec Refrigerator",
+        "itemNameShort": "Vault-Tec Refrigerator",
+        "itemDesc": "A Vault-Tec themed refrigerator!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_utility_refrigerator_vaulttec_l.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_utility_refrigerator_vaulttec_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx_camp_utility_refrigerator_vaulttec_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-21T12:00:00.000Z",
           "isLto": true
         },
         "lowestPurchasablePrice": {
@@ -1416,43 +1498,8 @@
         "endTime": "2025-12-22T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316442,
+        "replaceItemID": 2316416,
         "itemID": "day21_2",
-        "isClown": false,
-        "disabled": false,
-        "itemName": "Stainless Steel Refrigerator",
-        "itemNameShort": "Stainless Steel Refrigerator",
-        "itemDesc": "A sleek stainless steel refrigerator for your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-        "primaryImage": {
-          "imageName": "atx_camp_utility_refrigerator_stainlesssteel_l.webp",
-          "directory": "textures/atx/storefront/camp/utility/"
-        },
-        "carouselImages": [
-          {
-            "imageName": "atx_camp_utility_refrigerator_stainlesssteel_c1.webp",
-            "directory": "textures/atx/storefront/camp/utility/"
-          },
-          {
-            "imageName": "atx_camp_utility_refrigerator_stainlesssteel_c2.webp",
-            "directory": "textures/atx/storefront/camp/utility/"
-          }
-        ],
-        "lowPrice": {
-          "ltoTimer": "2025-12-22T12:00:00.000Z",
-          "isLto": true
-        },
-        "lowestPurchasablePrice": {
-          "Amount": 175
-        },
-        "highPrice": {
-          "originalAmount": 350
-        },
-        "startTime": "2025-12-21T12:00:00.000Z",
-        "endTime": "2025-12-22T12:00:00.000Z"
-      },
-      {
-        "replaceItemID": 2316441,
-        "itemID": "day22_1",
         "isClown": false,
         "disabled": false,
         "itemName": "Games Cupboard",
@@ -1473,26 +1520,26 @@
           }
         ],
         "lowPrice": {
-          "ltoTimer": "2025-12-23T12:00:00.000Z",
+          "ltoTimer": "2025-12-21T12:00:00.000Z",
           "isLto": true
         },
         "lowestPurchasablePrice": {
-          "Amount": 125
+          "Amount": 175
         },
         "highPrice": {
-          "originalAmount": 250
+          "originalAmount": 350
         },
-        "startTime": "2025-12-22T12:00:00.000Z",
-        "endTime": "2025-12-23T12:00:00.000Z"
+        "startTime": "2025-12-21T12:00:00.000Z",
+        "endTime": "2025-12-22T12:00:00.000Z"
       },
       {
-        "replaceItemID": 2316442,
-        "itemID": "day22_2",
+        "replaceItemID": 2316417,
+        "itemID": "day21_3",
         "isClown": false,
         "disabled": false,
         "itemName": "Antique Speed Bag",
         "itemNameShort": "Antique Speed Bag",
-        "itemDesc": "Train like a champion with the Antique Speed Bag!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemDesc": "A classic antique speed bag for your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "primaryImage": {
           "imageName": "atx_camp_floordecor_exerciseequipment_antiquespeedbag_l.webp",
           "directory": "textures/atx/storefront/camp/floordecoration/"
@@ -1508,7 +1555,77 @@
           }
         ],
         "lowPrice": {
-          "ltoTimer": "2025-12-23T12:00:00.000Z",
+          "ltoTimer": "2025-12-21T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-21T12:00:00.000Z",
+        "endTime": "2025-12-22T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316418,
+        "itemID": "day22_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Stainless Steel Refrigerator",
+        "itemNameShort": "Stainless Steel Refrigerator",
+        "itemDesc": "A sleek stainless steel refrigerator!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_utility_refrigerator_stainlesssteel_l.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_utility_refrigerator_stainlesssteel_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx_camp_utility_refrigerator_stainlesssteel_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-22T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-22T12:00:00.000Z",
+        "endTime": "2025-12-23T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316419,
+        "itemID": "day22_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Rad-Pheasant Coop",
+        "itemNameShort": "Rad-Pheasant Coop",
+        "itemDesc": "A coop for your radiated pheasants!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_floordecor_radpheasanttaxidermy_l.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_floordecor_radpheasanttaxidermy_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_camp_floordecor_radpheasanttaxidermy_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-22T12:00:00.000Z",
           "isLto": true
         },
         "lowestPurchasablePrice": {
@@ -1519,11 +1636,818 @@
         },
         "startTime": "2025-12-22T12:00:00.000Z",
         "endTime": "2025-12-23T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316420,
+        "itemID": "day22_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Hambone Stool",
+        "itemNameShort": "Hambone Stool",
+        "itemDesc": "A fun hambone-themed stool!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_furniture_instrument_hambonechair.webp",
+          "directory": "textures/atx/storefront/camp/furniture/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_furniture_instrument_hambonechair_c1.webp",
+            "directory": "textures/atx/storefront/camp/furniture/"
+          },
+          {
+            "imageName": "atx_camp_furniture_instrument_hambonechair_c2.webp",
+            "directory": "textures/atx/storefront/camp/furniture/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-22T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-22T12:00:00.000Z",
+        "endTime": "2025-12-23T12:00:00.000Z"
       }
-      
-    ],
+     ],
     "Week4": [
-      
+      {
+        "replaceItemID": 2316443,
+        "itemID": "day23_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Planetarium Lamp",
+        "itemNameShort": "Planetarium Lamp",
+        "itemDesc": "A beautiful lamp that displays the stars and planets!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "score_s1_camp_lights_planetariumlamp_l.webp",
+          "directory": "textures/atx/storefront/camp/lights/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "score_s1_camp_lights_planetariumlamp_c1.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "score_s1_camp_lights_planetariumlamp_c2.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-23T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 63
+        },
+        "highPrice": {
+          "originalAmount": 125
+        },
+        "startTime": "2025-12-23T12:00:00.000Z",
+        "endTime": "2025-12-24T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316444,
+        "itemID": "day23_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Vault-Tec Fusion Core Recharger",
+        "itemNameShort": "Vault-Tec Fusion Core Recharger",
+        "itemDesc": "Keep your Fusion Cores charged and ready!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_utility_fusioncorerecharger_vaulttec_l.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_utility_fusioncorerecharger_vaulttec_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx_camp_utility_fusioncorerecharger_vaulttec_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-23T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-23T12:00:00.000Z",
+        "endTime": "2025-12-24T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316445,
+        "itemID": "day23_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Rotary Rifle Rack Display Case",
+        "itemNameShort": "Rotary Rifle Rack Display Case",
+        "itemDesc": "Display your favorite rifles in style!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_displaycase_rotaryriflerack.webp",
+          "directory": "textures/atx/storefront/camp/displays/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_displaycase_rotaryriflerack_c1.webp",
+            "directory": "textures/atx/storefront/camp/displays/"
+          },
+          {
+            "imageName": "atx_camp_displaycase_rotaryriflerack_c2.webp",
+            "directory": "textures/atx/storefront/camp/displays/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-23T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-23T12:00:00.000Z",
+        "endTime": "2025-12-24T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316446,
+        "itemID": "day24_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Jack-o-Light Candles",
+        "itemNameShort": "Jack-o-Light Candles",
+        "itemDesc": "Spooky glowing candles to light up your camp!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_lights_jackolights_l.webp",
+          "directory": "textures/atx/storefront/camp/lights/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_lights_jackolights_c1.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx_camp_lights_jackolights_c2.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-24T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 75
+        },
+        "highPrice": {
+          "originalAmount": 150
+        },
+        "startTime": "2025-12-24T12:00:00.000Z",
+        "endTime": "2025-12-25T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316447,
+        "itemID": "day24_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Astro Harvest Generator - Fusion",
+        "itemNameShort": "Astro Harvest Generator - Fusion",
+        "itemDesc": "A fusion-powered generator for your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_machinery_generator_fusion_astroharvest.webp",
+          "directory": "textures/atx/storefront/camp/machinery/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_machinery_generator_fusion_astroharvest_c1.webp",
+            "directory": "textures/atx/storefront/camp/machinery/"
+          },
+          {
+            "imageName": "atx_camp_machinery_generator_fusion_astroharvest_c2.webp",
+            "directory": "textures/atx/storefront/camp/machinery/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-24T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-24T12:00:00.000Z",
+        "endTime": "2025-12-25T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316448,
+        "itemID": "day24_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Heavy Metal Heavy Weapon Stand",
+        "itemNameShort": "Heavy Metal Heavy Weapon Stand",
+        "itemDesc": "Display your heavy weapons in style!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_display_weaponstand_heavymetal_heavy_c1.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_display_weaponstand_heavymetal_heavy_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-24T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-24T12:00:00.000Z",
+        "endTime": "2025-12-25T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316449,
+        "itemID": "day25_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "The Starlight",
+        "itemNameShort": "The Starlight",
+        "itemDesc": "A beautiful star-shaped floor lamp for your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx__camp_lights_floorlamps_thestarlight_l.webp",
+          "directory": "textures/atx/storefront/camp/lights/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx__camp_lights_floorlamps_thestarlight_c1.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx__camp_lights_floorlamps_thestarlight_c2.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-25T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-25T12:00:00.000Z",
+        "endTime": "2025-12-26T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316450,
+        "itemID": "day25_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Fusion Emitter Generator - Fusion",
+        "itemNameShort": "Fusion Emitter Generator - Fusion",
+        "itemDesc": "A fusion-powered emitter generator!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_machinery_generator_fusion_fusionemitter_l.webp",
+          "directory": "textures/atx/storefront/camp/machinery/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_machinery_generator_fusion_fusionemitter_c1.webp",
+            "directory": "textures/atx/storefront/camp/machinery/"
+          },
+          {
+            "imageName": "atx_camp_machinery_generator_fusion_fusionemitter_c2.webp",
+            "directory": "textures/atx/storefront/camp/machinery/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-25T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-25T12:00:00.000Z",
+        "endTime": "2025-12-26T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316451,
+        "itemID": "day25_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Victory Mannequin Set",
+        "itemNameShort": "Victory Mannequin Set",
+        "itemDesc": "Display mannequins in triumphant poses!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_display_mannequin_female_victory_l.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_display_mannequin_female_victory_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx_camp_display_mannequin_female_victory_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-25T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-25T12:00:00.000Z",
+        "endTime": "2025-12-26T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316452,
+        "itemID": "day26_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Ornate Horn Candle",
+        "itemNameShort": "Ornate Horn Candle",
+        "itemDesc": "An ornate candle with a beautiful horn design!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_lights_candle_ornatehorn_l.webp",
+          "directory": "textures/atx/storefront/camp/lights/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_lights_candle_ornatehorn_c1.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx_camp_lights_candle_ornatehorn_c2.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-26T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 63
+        },
+        "highPrice": {
+          "originalAmount": 125
+        },
+        "startTime": "2025-12-26T12:00:00.000Z",
+        "endTime": "2025-12-27T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316453,
+        "itemID": "day26_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Vault-Tec Prototype Generator",
+        "itemNameShort": "Vault-Tec Prototype Generator",
+        "itemDesc": "A prototype generator from Vault-Tec!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_machinery_generator_small_vaulttec_prototype_l.webp",
+          "directory": "textures/atx/storefront/camp/machinery/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_machinery_generator_small_vaulttec_prototype_c1.webp",
+            "directory": "textures/atx/storefront/camp/machinery/"
+          },
+          {
+            "imageName": "atx_camp_machinery_generator_small_vaulttec_prototype_c2.webp",
+            "directory": "textures/atx/storefront/camp/machinery/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-26T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-26T12:00:00.000Z",
+        "endTime": "2025-12-27T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316454,
+        "itemID": "day26_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Nuka-Cola Friendship Display",
+        "itemNameShort": "Nuka-Cola Friendship Display",
+        "itemDesc": "Display the love of Nuka-Cola and friendship!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_displaycase_nukacola_friendshipdisplay_l.webp",
+          "directory": "textures/atx/storefront/camp/displays/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_displaycase_nukacola_friendshipdisplay_l.webp",
+            "directory": "textures/atx/storefront/camp/displays/"
+          },
+          {
+            "imageName": "atx_camp_displaycase_nukacolaquantumfriendshipdisplay_c1.webp",
+            "directory": "textures/atx/storefront/camp/displays/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-26T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-26T12:00:00.000Z",
+        "endTime": "2025-12-27T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316455,
+        "itemID": "day27_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Blue Ridge Caravan Neon Sign",
+        "itemNameShort": "Blue Ridge Caravan Neon Sign",
+        "itemDesc": "A neon sign celebrating the Blue Ridge Caravan!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_lights_neonsign_blueridgecaravan_l.webp",
+          "directory": "textures/atx/storefront/camp/lights/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_lights_neonsign_blueridgecaravan_c1.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx_camp_lights_neonsign_blueridgecaravan_c2.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-27T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 75
+        },
+        "highPrice": {
+          "originalAmount": 150
+        },
+        "startTime": "2025-12-27T12:00:00.000Z",
+        "endTime": "2025-12-28T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316456,
+        "itemID": "day27_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Polished Steel Enclave Turret Set",
+        "itemNameShort": "Polished Steel Enclave Turret Set",
+        "itemDesc": "A polished steel turret set for camp defense!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_defense_turret_enclave_polishedsteel_l.webp",
+          "directory": "textures/atx/storefront/camp/defenses/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_defense_turret_enclave_polishedsteel_c1.webp",
+            "directory": "textures/atx/storefront/camp/defenses/"
+          },
+          {
+            "imageName": "atx_camp_defense_turret_enclave_polishedsteel_c2.webp",
+            "directory": "textures/atx/storefront/camp/defenses/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-27T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-27T12:00:00.000Z",
+        "endTime": "2025-12-28T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316457,
+        "itemID": "day27_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Swooning Mannequin Set",
+        "itemNameShort": "Swooning Mannequin Set",
+        "itemDesc": "Romantic mannequins in swooning poses!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_display_mannequin_female_swooning_l.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_display_mannequin_female_swooning_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx_camp_display_mannequin_female_swooning_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-27T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-27T12:00:00.000Z",
+        "endTime": "2025-12-28T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316458,
+        "itemID": "day28_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "The Moth Tracker Searchlight",
+        "itemNameShort": "The Moth Tracker Searchlight",
+        "itemDesc": "Track creatures with this searchlight!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx__camp_lights_floorlamps_themothtracker_l.webp",
+          "directory": "textures/atx/storefront/camp/lights/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx__camp_lights_floorlamps_themothtracker_c1.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx__camp_lights_floorlamps_themothtracker_c2.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-28T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 63
+        },
+        "highPrice": {
+          "originalAmount": 125
+        },
+        "startTime": "2025-12-28T12:00:00.000Z",
+        "endTime": "2025-12-29T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316459,
+        "itemID": "day28_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Turret Skin - Camo",
+        "itemNameShort": "Turret Skin - Camo",
+        "itemDesc": "Catch your intruders off-guard with the Camo Turret Set.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_defense_turret_camo01_l.webp",
+          "directory": "textures/atx/storefront/camp/defenses/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_defense_turret_camo01_c3.webp",
+            "directory": "textures/atx/storefront/camp/defenses/"
+          },
+          {
+            "imageName": "atx_camp_defense_turret_camo01_c2.webp",
+            "directory": "textures/atx/storefront/camp/defenses/"
+          },
+          {
+            "imageName": "atx_camp_defense_turret_camo01_c1.webp",
+            "directory": "textures/atx/storefront/camp/defenses/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-28T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2025-12-28T12:00:00.000Z",
+        "endTime": "2025-12-29T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316460,
+        "itemID": "day28_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Armor Ace Chassis Display Frame",
+        "itemNameShort": "Armor Ace Chassis Display Frame",
+        "itemDesc": "Display your power armor frames in style!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_display_armordisplayframe_armorace_c1.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_display_armordisplayframe_armorace_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-28T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 175
+        },
+        "highPrice": {
+          "originalAmount": 350
+        },
+        "startTime": "2025-12-28T12:00:00.000Z",
+        "endTime": "2025-12-29T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316461,
+        "itemID": "day29_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Big Fill & Bigger Fill Ceiling Light",
+        "itemNameShort": "Big Fill & Bigger Fill Ceiling Light",
+        "itemDesc": "A ceiling light to brighten your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_lights_ceiling_bigfillceilinglight_l.webp",
+          "directory": "textures/atx/storefront/camp/lights/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_lights_ceiling_bigfillceilinglight_c1.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx_entm_camp_lights_ceiling_bigfillceilinglight_c2.webp",
+            "directory": "textures/atx/storefront/camp/lights/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-29T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 88
+        },
+        "highPrice": {
+          "originalAmount": 175
+        },
+        "startTime": "2025-12-29T12:00:00.000Z",
+        "endTime": "2025-12-30T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316462,
+        "itemID": "day29_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Clean Water Purifier - Industrial",
+        "itemNameShort": "Clean Water Purifier - Industrial",
+        "itemDesc": "Industrial purification for clean water!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "atx_camp_machinery_clean_water_purifier_l.webp",
+          "directory": "textures/atx/storefront/camp/machinery/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_machinery_clean_water_purifier_c1.webp",
+            "directory": "textures/atx/storefront/camp/machinery/"
+          },
+          {
+            "imageName": "atx_camp_machinery_clean_water_purifier_c2.webp",
+            "directory": "textures/atx/storefront/camp/machinery/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-29T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 100
+        },
+        "highPrice": {
+          "originalAmount": 200
+        },
+        "startTime": "2025-12-29T12:00:00.000Z",
+        "endTime": "2025-12-30T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 2316463,
+        "itemID": "day29_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Lucky Shot Bundle",
+        "itemNameShort": "Lucky Shot Bundle",
+        "itemDesc": "A bundle of luck for the lucky shooter!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "lucky_shot_bundle.webp",
+          "directory": "media/bundles/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_apparel_outfit_wastelandsheriff_l.webp",
+            "directory": "textures/atx/storefront/player/outfit/"
+          },
+          {
+            "imageName": "atx_apparel_headwear_wastelandsheriff_l.webp",
+            "directory": "textures/atx/storefront/player/headwear/"
+          },
+          {
+            "imageName": "atx_entm_skin_backpack_saddlebag.webp",
+            "directory": "textures/atx/storefront/player/backpack/"
+          },
+          {
+            "imageName": "atx_camp_floordecor_hourglass.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_skin_fixer_huntingrifle_thepersuader.webp",
+            "directory": "textures/atx/storefront/player/weaponskin/"
+          },
+          {
+            "imageName": "atx_camp_displaycase_rotaryriflerack.webp",
+            "directory": "textures/atx/storefront/camp/displays/"
+          },
+          {
+            "imageName": "fan_the_hammer.webp",
+            "directory": "textures/emotes/"
+          }
+        ],
+        "dynamicBundleItems": [
+          {
+            "szItemName": "Lucky Shot Outfit"
+          },
+          {
+            "szItemName": "Lucky Shot Bowler Hat"
+          },
+          {
+            "szItemName": "Saddlebag Backpack"
+          },
+          {
+            "szItemName": "Hourglass"
+          },
+          {
+            "szItemName": "The Persuader Paint (Combat Rifle & Fixer)"
+          },
+          {
+            "szItemName": "Rotary Rifle Rack Display Case"
+          },
+          {
+            "szItemName": "Fan The Hammer Emote"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2025-12-29T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 375
+        },
+        "highPrice": {
+          "originalAmount": 750
+        },
+        "startTime": "2025-12-29T12:00:00.000Z",
+        "endTime": "2025-12-30T12:00:00.000Z"
+      }
     ]
   }
 }
