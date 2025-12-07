@@ -356,14 +356,19 @@
       "replaceItemID": 2366300,
       "itemID": 2366300,
       "isZeus": true,
-      "itemName": "Perk Card Pack",
-      "itemNameShort": "Perk Card Pack",
-      "itemDesc": "A pack with four perk cards (and a bubblegum joke)! \r\n\r\n- SELECT THIS ITEM IN THE PERK MENU. PERK CARD PACKS WILL BE GRANTED TO THE CHOSEN CHARACTER. -\r\n\r\n[h]Note: Item description generated with AI assistance due to the large number of items that would have required extensive manual research[/h]",
+      "itemName": "Scrap Kit",
+      "itemNameShort": "Scrap Kit",
+      "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "score_game_perkcardpack_l.webp"
+        "imageName": "atx_utility_repairkit_scraptostash_l.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+        }
+      ],
       "lowPrice": {
         "ltoTimer": "2025-12-08T12:00:00.000Z",
         "isLto": true
