@@ -2986,7 +2986,7 @@
             "itemName": "TBD"
           },
           {
-            "itemID": 2316440,
+            "itemID": 101,
             "itemName": "Wall Mounted US Flag",
             "itemNameShort": "Wall Mounted US Flag",
             "itemDesc": "This wall mounted flag even comes with it's own pole for ease of use!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
@@ -3032,6 +3032,205 @@
               "maxC": 2,
               "hasL": true,
               "hasNone": true
+            }
+          },
+          {
+            "itemID": 1002,
+            "itemName": "Halloween Vending Machine",
+            "itemNameShort": "Halloween Vending Machine",
+            "itemDesc": "Trick or treat yourself to some spooky snacks with this Halloween Vending Machine!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_vendor_playervendingmachine_halloween_l.webp",
+              "directory": "/textures/atx/storefront/camp/vendors/"
+          },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_vendor_playervendingmachine_halloween_c1.dds",
+                "directory": "/textures/atx/storefront/camp/vendors/"
+              },
+              {
+                "imageName": "atx_camp_vendor_playervendingmachine_halloween_c2.dds",
+                "directory": "/textures/atx/storefront/camp/vendors/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 250,
+              "originalAmount": 250,
+              "isLto": true,
+              "ltoTimer": "2025-12-08T12:00:00.000Z",
+              "purchaseLimit": 0
+            },
+            "lowestPurchasablePrice": {
+              "amount": 250,
+              "originalAmount": 250,
+              "isLto": true,
+              "ltoTimer": 86191,
+              "purchaseLimit": 0
+            },
+            "highPrice": {
+              "amount": 500,
+              "originalAmount": 500,
+              "isLto": true,
+              "ltoTimer": 86191,
+              "purchaseLimit": 0
+            },
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 1003,
+            "itemName": "Vault Catwalk",
+            "itemNameShort": "Vault Catwalk",
+            "itemDesc": "Give your C.A.M.P. that industrial vault feel with this Vault Catwalk!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_structure_vaultcatwalk_l.webp",
+              "directory": "/textures/atx/storefront/camp/structures/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_structure_vaultcatwalk_c1.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_structure_vaultcatwalk_c2.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 250,
+              "originalAmount": 250,
+              "isLto": true,
+              "ltoTimer": "2025-12-08T12:00:00.000Z",
+              "purchaseLimit": 0
+            },
+            "lowestPurchasablePrice": {
+              "amount": 250,
+              "originalAmount": 250,
+              "isLto": true,
+              "ltoTimer": 86191,
+              "purchaseLimit": 0
+            },
+            "highPrice": {
+              "amount": 500,
+              "originalAmount": 500,
+              "isLto": true,
+              "ltoTimer": 86191,
+              "purchaseLimit": 0
+            },
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2316423,
+            "itemName": "Raider Outpost Bundle",
+            "itemNameShort": "Raider Outpost Bundle",
+            "itemDesc": "Set up a raider outpost with everything needed to prepare for a raid on those pesky settlers with the Raider Outpost Bundle!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "cb1a93375f80a7ab6770b78022c715fc.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 750,
+              "originalAmount": 750,
+              "isLto": true,
+              "ltoTimer": "2025-11-26T12:00:00.000Z",
+              "purchaseLimit": 0
+            },
+            "lowestPurchasablePrice": {
+              "amount": 750,
+              "originalAmount": 750,
+              "isLto": true,
+              "ltoTimer": 86191,
+              "purchaseLimit": 0
+            },
+            "highPrice": {
+              "amount": 1500,
+              "originalAmount": 1500,
+              "isLto": true,
+              "ltoTimer": 86191,
+              "purchaseLimit": 0
+            },
+            "isNew": false,
+            "isZeus": false
+          },
+          {
+            "itemID": "TBD8",
+            "itemName": "The Madison Emote",
+            "itemNameShort": "The Madison",
+            "itemDesc": "Own the step, rule the slide - Madison style!\r\n\r\n- UNLOCKS AN EMOTE OPTION FOR YOUR CHARACTER -",
+            "primaryImage": {
+              "imageName": "the_madison.webp",
+              "directory": "/textures/emotes/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": false,
+              "ltoTimer": null,
+              "purchaseLimit": 0
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": false,
+              "ltoTimer": 0,
+              "purchaseLimit": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": false,
+              "ltoTimer": 0,
+              "purchaseLimit": 0
+            },
+            "isNew": true,
+            "isZeus": true
+          },
+          {
+           "itemID": "TBD9",
+            "itemName": "Roadside Roasters",
+            "itemNameShort": "Roadside Roasters",
+            "itemDesc": "Super Mutants make the best Roadside Roasters.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "cc45d804c0b5af32849514c97c47d9ab.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "lowPrice": {
+              "amount": 600,
+              "originalAmount": 600,
+              "isLto": true,
+              "ltoTimer": "2025-11-26T12:00:00.000Z",
+              "purchaseLimit": 0
+            },
+            "lowestPurchasablePrice": {
+              "amount": 600,
+              "originalAmount": 600,
+              "isLto": false,
+              "ltoTimer": 0,
+              "purchaseLimit": 0
+            },
+            "highPrice": {
+              "amount": 1200,
+              "originalAmount": 1200,
+              "isLto": false,
+              "ltoTimer": 0,
+              "purchaseLimit": 0
             }
           }
           

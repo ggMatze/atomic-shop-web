@@ -7,6 +7,7 @@ import * as tabs from './tabs.js';
 import * as overlay from './overlay.js';
 import * as gallery from './gallery.js';
 import * as audio from './audio.js';
+import * as weekFilter from './weekFilter.js';
 
 // Re-export to window for non-module legacy code
 if (typeof window !== 'undefined') {
@@ -18,6 +19,7 @@ if (typeof window !== 'undefined') {
   window.__overlay = { ...window.__overlay, ...overlay };
   window.__gallery = { ...window.__gallery, ...gallery };
   window.__audio = { ...window.__audio, ...audio };
+  window.__weekFilter = { ...window.__weekFilter, ...weekFilter };
 }
 
 export default { utils, data, dataLoader };

@@ -118,15 +118,9 @@ img {
 
 .music-controls {
   vertical-align: middle;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
   display: flex;
   align-items: center;
   gap: 12px;
-  display: flex;
-  align-items: center;
   background: #181c1dcc;
   padding: 8px 8px;
   box-shadow: 0 2px 8px #000a;
@@ -174,6 +168,67 @@ img {
   background: #ffe082;
   border-radius: 50%;
   cursor: pointer;
+}
+
+/* Week filter controls styling */
+.week-filter-controls {
+  display: none;
+}
+
+.week-filter-box {
+  background: #181c1dcc;
+  padding: 8px 8px;
+  box-shadow: 0 2px 8px #000a;
+  border: 1px solid #ffe082;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.week-filter-title {
+  color: #ffe082;
+  font-size: 0.9em;
+  font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.week-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.week-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.week-checkbox-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #ffd454;
+}
+
+.week-checkbox-item label {
+  color: #ffe082;
+  font-size: 0.9em;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+}
+
+/* ## Left menu styling (similar to menu-right) ## */
+.menu-left {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
     /* ## Currency selector styling ## */

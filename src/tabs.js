@@ -190,8 +190,7 @@ async function initTabs() {
 
     return sizes;
   }
-
-  // Build the HTML for a single tile. Centralized so main and preview rendering match.
+  // Build HTML for a single tile
   function buildTileHTML(item, tileSize, idx, options = {}) {
     const tileDisabled = (item && (item.disabled === true)) ? 'tile-disabled' : '';
 
@@ -442,7 +441,7 @@ async function initTabs() {
         // Zeus / 1st badge: toggle hidden class based on data.isZeus
         const firstDiv = tile.querySelector('.tile-1st');
         if (firstDiv) firstDiv.classList.toggle('hidden', !data.isZeus);
-        // Clown badge(s): there may be multiple .clown-label elements (inline or in the right-badge container)
+        // Clown badge
         tile.querySelectorAll('.clown-label').forEach(n => n.classList.toggle('hidden', !data.isClown));
       });
     }, 0);
@@ -469,7 +468,19 @@ async function initTabs() {
       url.searchParams.set('tab', tabParam);
       url.searchParams.delete('item');
       window.history.replaceState({}, '', url);
-      if (tabIndex === 'preview') renderCustomDailyTab(); else renderTab(idx);
+      if (tabIndex === 'preview') {
+        renderCustomDailyTab();
+        // Show week filter and render checkboxes
+        if (window.__weekFilter && typeof window.__weekFilter.renderWeekCheckboxes === 'function') {
+          window.__weekFilter.renderWeekCheckboxes();
+        }
+      } else {
+        renderTab(idx);
+        // Hide week filter
+        if (window.__weekFilter && typeof window.__weekFilter.updateFilterVisibility === 'function') {
+          window.__weekFilter.updateFilterVisibility(null);
+        }
+      }
     });
   });
 
@@ -488,7 +499,15 @@ async function initTabs() {
   targetTab.classList.add('active');
   setTimeout(() => { targetTab.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'center'}); }, 0);
   const ti = targetTab.getAttribute('data-tab-index');
-  if (ti === 'preview') renderCustomDailyTab(); else renderTab(Number(ti));
+  if (ti === 'preview') {
+    renderCustomDailyTab();
+    // Show week filter and render checkboxes
+    if (window.__weekFilter && typeof window.__weekFilter.renderWeekCheckboxes === 'function') {
+      window.__weekFilter.renderWeekCheckboxes();
+    }
+  } else {
+    renderTab(Number(ti));
+  }
 
   // If item param present open overlay after small delay
   if (itemParam) {
@@ -570,10 +589,33 @@ if (typeof window !== 'undefined') {
     if (!shopGridEl) return;
     shopGridEl.innerHTML = '';
 
-    // Collect all paid sales from all weeks, respecting hidden meta
+    // Get saved week visibility from localStorage
+    let savedVisibility = {};
+    try {
+      const saved = localStorage.getItem('weekVisibility');
+      if (saved) savedVisibility = JSON.parse(saved);
+    } catch (e) { /* ignore */ }
+
+    // Collect all paid sales from all weeks, respecting hidden meta AND localStorage visibility
     let paidItems = [];
     Object.entries(window.dailySalesByWeek || {}).forEach(([weekKey, weekArr]) => {
-      if (!window.dailySalesWeekMeta || !window.dailySalesWeekMeta[weekKey] || window.dailySalesWeekMeta[weekKey].hidden !== true) {
+      // Check if week is hidden by default in meta
+      const isHiddenInMeta = window.dailySalesWeekMeta && window.dailySalesWeekMeta[weekKey] && window.dailySalesWeekMeta[weekKey].hidden === true;
+      
+      // Check if user has saved visibility (true = show, false = hide)
+      const userVisibility = savedVisibility[weekKey];
+      
+      // Determine if week should be shown:
+      // - If user has set visibility, use that
+      // - Otherwise use the inverse of the meta hidden flag
+      let shouldShow = true;
+      if (userVisibility !== undefined) {
+        shouldShow = userVisibility === true;
+      } else {
+        shouldShow = !isHiddenInMeta;
+      }
+
+      if (shouldShow) {
         paidItems = paidItems.concat(weekArr);
       }
     });

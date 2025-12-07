@@ -47,12 +47,21 @@
 ">
   <div class="spinner"></div>
 </div>
-<!-- Add this near the top of your body -->
-
+<!-- Left menu: music controls and week filter -->
+<div class="menu-left">
   <div class="music-controls">
-  <button id="mute-btn">🔇&#xFE0E</button>
-  <input type="range" id="volume-slider" min="0" max="1" step="0.005" value="0.2">
+    <button id="mute-btn">🔇&#xFE0E</button>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.005" value="0.2">
+  </div>
+
+  <div class="week-filter-controls" id="week-filter-controls" style="display: none;">
+    <div class="week-filter-box">
+      <label class="week-filter-title">Show Weeks:</label>
+      <div class="week-checkboxes" id="week-checkboxes-container"></div>
+    </div>
+  </div>
 </div>
+
 <div class="menu-right">
       <div class="currency-selector">
 <label for="currency-select">💵&#xFE0E;</label>
