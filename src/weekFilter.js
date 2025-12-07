@@ -81,9 +81,17 @@ function initWeekFilter() {
 
   // Expose functions
   window.__weekFilter = window.__weekFilter || {};
+  window.__weekFilter.initWeekFilter = initWeekFilter;
   window.__weekFilter.renderWeekCheckboxes = renderWeekCheckboxes;
   window.__weekFilter.updateFilterVisibility = updateFilterVisibility;
   window.__weekFilter.getSavedWeekVisibility = getSavedWeekVisibility;
+}
+
+// Initialize immediately on script load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initWeekFilter);
+} else {
+  initWeekFilter();
 }
 
 export { initWeekFilter };

@@ -43,6 +43,12 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
     console.warn('Tabs module not available: window.__tabs.initTabs');
   }
+
+  // Initialize week filter
+  if (window.__weekFilter && typeof window.__weekFilter.initWeekFilter === 'function') {
+    try { window.__weekFilter.initWeekFilter(); } catch (e) { console.error('Error initializing week filter:', e); }
+  }
+
   // Initialize currency selector from data module
   try {
     const select = document.getElementById('currency-select');
