@@ -1,11 +1,62 @@
 // Overlay module: handles overlay open/close, FAQ, news notice, and loading overlay
-async function showNewsNotice() {
+const NEWS_DISMISS_KEY = 'newsDismissMap';
+const NEWS_DISMISS_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 days default
+
+function _isNewsDismissed(newsId) {
+  try {
+    const raw = localStorage.getItem(NEWS_DISMISS_KEY);
+    if (!raw) return false;
+    const map = JSON.parse(raw || '{}');
+    const e = map && map[newsId];
+    if (!e) return false;
+    if (e.permanent) return true;
+    if (e.expiresAt == null) return false;
+    if (Date.now() > e.expiresAt) {
+      // expired dismissal -> remove entry
+      delete map[newsId];
+      localStorage.setItem(NEWS_DISMISS_KEY, JSON.stringify(map));
+      return false;
+    }
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
+
+function _dismissNews(newsId, ttl = NEWS_DISMISS_TTL_MS, permanent = false) {
+  try {
+    const raw = localStorage.getItem(NEWS_DISMISS_KEY);
+    const map = raw ? JSON.parse(raw) : {};
+    map[newsId] = { dismissedAt: Date.now(), expiresAt: permanent ? null : (ttl ? Date.now() + ttl : null), permanent: !!permanent };
+    localStorage.setItem(NEWS_DISMISS_KEY, JSON.stringify(map));
+  } catch (err) { /* ignore */ }
+}
+
+function _updateNewsButtonVisibility(news, noticeEl) {
+  const btn = document.getElementById('news-btn');
+  if (!btn) return;
+  // hide when no news, or when notice is visible
+  if (!news || (noticeEl && !noticeEl.classList.contains('hidden'))) {
+    btn.style.display = 'none';
+    return;
+  }
+  // show the button so the user can re-open dismissed/visible news
+  btn.style.display = '';
+}
+
+async function showNewsNotice(options = { force: false }) {
   try {
     const news = (window.__dataLoader && (await window.__dataLoader.loadNews())) || null;
-    if (!news) return;
-    const lastSeen = localStorage.getItem('newsNoticeSeen');
-    if (lastSeen === news.id) return; // Already seen
+    const notice = document.getElementById('news-notice');
+    if (!notice) return;
 
+    if (!news) {
+      // No news: ensure button is hidden and return
+      _updateNewsButtonVisibility(null, notice);
+      return;
+    }
+
+    // Populate content
     const header = document.getElementById('news-header');
     const title = document.getElementById('news-title');
     const text = document.getElementById('news-text');
@@ -13,20 +64,54 @@ async function showNewsNotice() {
 
     header.textContent = news.header || '';
     title.textContent = news.title || '';
-    // Normalize escaped newlines and preserve paragraphs
     const rawText = String(news.text || '')
       .replace(/\\r\\n/g, '\n')
       .replace(/\\n/g, '\n')
       .replace(/\r\n/g, '\n');
     text.innerHTML = rawText.split(/\n{2,}/).map(p => p.replace(/\n/g, '<br>')).join('<p></p>');
-    const notice = document.getElementById('news-notice');
-    if (!notice) return;
-    notice.classList.remove('hidden');
 
-    document.getElementById('news-close').onclick = function() {
+    // store current news id on the notice and determine whether to show automatically based on dismissal TTL
+    notice.dataset.newsId = String(news.id || '');
+    const alreadyDismissed = _isNewsDismissed(news.id);
+    if (!options.force && alreadyDismissed) {
       notice.classList.add('hidden');
-      localStorage.setItem('newsNoticeSeen', news.id);
-    };
+    } else {
+      notice.classList.remove('hidden');
+    }
+
+    // wire close button to hide permanently until manually reopened via the news button
+    const closeBtn = document.getElementById('news-close');
+    if (closeBtn) {
+      closeBtn.onclick = function() {
+        notice.classList.add('hidden');
+        _dismissNews(news.id, 0, true); // permanent until changed manually
+        _updateNewsButtonVisibility(news, notice);
+      };
+    }
+
+    // Setup hide-for-X-days button (text and action comes from news.json)
+    const hideBtn = document.getElementById('news-hide-ttl');
+    if (hideBtn) {
+      let days = null;
+      if (typeof news.dismissTtlDays === 'number' && isFinite(news.dismissTtlDays) && news.dismissTtlDays >= 0) days = Math.round(news.dismissTtlDays);
+      else if (typeof news.dismissTtlMs === 'number' && isFinite(news.dismissTtlMs) && news.dismissTtlMs >= 0) days = Math.round(news.dismissTtlMs / (24*60*60*1000));
+      if (days !== null) {
+        hideBtn.style.display = '';
+        hideBtn.textContent = `… for ${days} day${days !== 1 ? 's' : ''}`;
+        hideBtn.onclick = function() {
+          const ttl = days * 24 * 60 * 60 * 1000;
+          _dismissNews(news.id, ttl, false);
+          notice.classList.add('hidden');
+          _updateNewsButtonVisibility(news, notice);
+        };
+      } else {
+        hideBtn.style.display = 'none';
+      }
+    }
+
+    // Update button visibility now (if notice visible, button will be hidden inside helper)
+    _updateNewsButtonVisibility(news, notice);
+
   } catch (e) {
     // ignore
   }
@@ -103,6 +188,18 @@ function initOverlay() {
       e.preventDefault();
     }
   });
+
+  // News button (header): open current news when clicked or activated via keyboard
+  const newsBtn = document.getElementById('news-btn');
+  if (newsBtn) {
+    newsBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      try { showNewsNotice({ force: true }); } catch (err) { console.error('showNewsNotice failed', err); }
+    });
+    newsBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); newsBtn.click(); }
+    });
+  }
 
   // FAQ link
   const faqLink = document.getElementById('faq-link');

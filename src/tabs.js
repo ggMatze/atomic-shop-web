@@ -706,20 +706,19 @@ if (typeof window !== 'undefined') {
         </div>
       `;
 
-      // After inserting this preview tile, if it's expired mark it visually and append a label
       try {
         const tile = shopGridEl.lastElementChild;
         if (isExpired && tile) {
           tile.classList.add('tile-expired');
           const expiredLabel = document.createElement('div');
-          expiredLabel.className = 'tile-expired-label';
-          expiredLabel.textContent = 'deal expired';
+          expiredLabel.className = 'tile-expired-label-deal';
+          expiredLabel.textContent = 'expired deal';
           tile.appendChild(expiredLabel);
         }
       } catch (e) { /* ignore */ }
     });
 
-    // Deferred post-processing (Zeus + clown badges)
+    
     setTimeout(() => {
       const tileEls = shopGridEl.querySelectorAll('.shop-tile');
       tileEls.forEach(tile => {

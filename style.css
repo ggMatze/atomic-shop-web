@@ -252,6 +252,8 @@ img {
   height: 30px;
 }
 
+
+
 #currency-select:disabled {
   opacity: 0.5;
   pointer-events: none;
@@ -403,6 +405,7 @@ filter: saturate(0.5);
     font-size: 1.3em;
     color: #ffd454;
     margin-bottom: 6px;
+    margin-top: 10px;
 }
 #news-notice #news-title {
     font-size: 1.1em;
@@ -420,7 +423,7 @@ filter: saturate(0.5);
     font-size: 1.2em;
     margin-bottom: 5px;
 }
-#news-notice #news-close {
+#news-notice #news-close, #news-notice #news-hide-ttl {
     text-transform: uppercase;
     color: #151817;
     font-weight: 900;
@@ -431,12 +434,74 @@ filter: saturate(0.5);
     border: none;
     cursor: pointer;
     font-size: 1.1em;
-    margin-top: 8px;
+    margin-top: 0;
     transition: filter 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    vertical-align: middle;
+    box-sizing: border-box;
 }
 #news-notice #news-close:hover {
      box-shadow: 0 0 5px 2px #ffd454cc;
 }
+
+/* Button row (place CLOSE and the hide-for-X button on the same line) */
+.news-btn-row {
+
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#news-btn {
+  top: 186px;
+  left: -13px;
+  position: absolute; /* allow ::before to be positioned relative to this */
+  width: 29px;
+  height: 33px;
+  background-color: #000000;
+  color: #151817;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+#news-btn::before {
+  content: '';
+  position: absolute;
+  width: 26px;  
+  height: 30px;
+  background: radial-gradient(circle, #FFFCCF 20%, #ebd882 60%, #ebd882 100%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: -1;
+}
+#news-btn:hover::before {
+  background: radial-gradient(circle, #f5f4ad 20%, #ebc458 60%, #ebc458 100%);
+}
+#news-btn::after {
+  content: '!';
+ 
+  font-size: 1.6em;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+
+/* Match styling for the "Don't show for X days" button (condensed) */
+#news-notice #news-hide-ttl {
+    padding: 6px 12px;
+}
+#news-notice #news-hide-ttl:hover { box-shadow: 0 0 5px 2px #ffd454aa; }
 
 /* ######## loading JS CSS ####### */
 
@@ -966,19 +1031,19 @@ filter: saturate(0.5);
   transform: translateY(-50%) rotate(0deg); 
   pointer-events: none;
 }
-.tile-expired {
+.tile-expired , .tile-expired-deal{
   position: relative;
   pointer-events: none;
 }
 
 
-.tile-expired-label {
+.tile-expired-label, .tile-expired-label-deal{
   text-align: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  background: #ff4949!important;
+  background: #ff4949 !important;
   color: #ffffff;
   padding: 25px 40px;
   font-weight: bold;
@@ -991,9 +1056,15 @@ filter: saturate(0.5);
   pointer-events: none;
   clip-path: polygon(0 13%, 100% 0, 81% 100%, 8% 80%);
   filter: none !important;
-  transition: transform .15s ease-out, opacity .2s ease-out, filter .2s ease-out, background .2s ease-out, box-shadow .2s ease-out;
-  will-change: transform, opacity, filter;
-}  
+  transition: opacity .2s ease-out, filter .2s ease-out, background .2s ease-out, box-shadow .2s ease-out;
+  will-change: opacity, filter;
+}
+
+.tile-expired-label-deal{
+  top: 42%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
 
 body.atoms-currency .tile-price .old-price::before,
 body.atoms-currency .tile-price .current-price::before {
@@ -1829,22 +1900,22 @@ body.uah-currency .price-label-final::after {
 }
 
 /* make sure the label selector is correct (note the leading dot) */
-.shop-tile.large.tile-expired .tile-expired-label {
+.shop-tile.large.tile-expired .tile-expired-label, .shop-tile.large.tile-expired .tile-expired-label-deal {
   filter: none !important;
   z-index: 3; /* ensure it sits above visuals */
 }
 /* correct selector and scale down for small tiles */
-.shop-tile.small.tile-expired .tile-expired-label {
+.shop-tile.small.tile-expired .tile-expired-label, .shop-tile.small.tile-expired .tile-expired-label-deal {
   transform: translate(-50%, -50%) scale(0.5); /* keep centered and scale */
   transform-origin: center;
 }
 
 /* Hover effect: subtle scale + lighter background + soft shadow */
-.shop-tile.large.tile-expired:hover .tile-expired-label {
+.shop-tile.large.tile-expired:hover .tile-expired-label, .shop-tile.large.tile-expired:hover .tile-expired-label-deal {
   opacity: 0.0;
   filter: grayscale(100%)!important;
 }
-.shop-tile.small.tile-expired:hover .tile-expired-label {
+.shop-tile.small.tile-expired:hover .tile-expired-label, .shop-tile.small.tile-expired:hover .tile-expired-label-deal {
   opacity: 0.0;
   filter: grayscale(100%)!important;
 }

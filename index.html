@@ -25,8 +25,12 @@
   <strong id="news-header"></strong>
   <div id="news-title" style="font-size:1.2em; margin:8px 0;"></div>
   <div id="news-text"></div>
-  <button id="news-close" style="margin-top:12px;">CLOSE</button>
-</div>
+  <div class="news-btn-row">
+    <button id="news-close" title="Close this news permanent">CLOSE</button>
+    <button id="news-hide-ttl" style="display:none; white-space:nowrap;">Hide for X</button>
+    
+  </div>
+</div> 
 <noscript>
   <div id="no-js-warning">
     DISCONNECTED
@@ -99,6 +103,10 @@
   </span>
   </div>
 </div>
+
+<!-- News button: shows if there is current news (hidden when no news or when the notice is open) -->
+<button id="news-btn" title="News">&nbsp;</button>
+
 <script>
   const lastUpdated = '2025-12-27T20:35:00Z'; // displayed (UTC)
   const nextScheduled = '2025-12-30T19:00:00Z'; // next scheduled update (UTC) — adjust as needed
