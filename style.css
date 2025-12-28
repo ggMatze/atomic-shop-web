@@ -458,9 +458,9 @@ filter: saturate(0.5);
   flex-wrap: wrap;
 }
 #news-btn {
-  top: 186px;
-  left: -13px;
-  position: absolute; /* allow ::before to be positioned relative to this */
+  top: 10px;
+  left: 12px;
+  position: relative; /* allow ::before to be positioned relative to this */
   width: 29px;
   height: 33px;
   background-color: #000000;
