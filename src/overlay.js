@@ -32,16 +32,67 @@ function _dismissNews(newsId, ttl = NEWS_DISMISS_TTL_MS, permanent = false) {
   } catch (err) { /* ignore */ }
 }
 
+function _getNewsDismissEntry(newsId) {
+  try {
+    const raw = localStorage.getItem(NEWS_DISMISS_KEY);
+    if (!raw) return null;
+    const map = JSON.parse(raw || '{}');
+    const e = map && map[newsId];
+    if (!e) return null;
+    if (e.permanent) return e;
+    if (e.expiresAt == null) return e;
+    if (Date.now() > e.expiresAt) {
+      // expired dismissal -> remove entry
+      delete map[newsId];
+      localStorage.setItem(NEWS_DISMISS_KEY, JSON.stringify(map));
+      return null;
+    }
+    return e;
+  } catch (err) {
+    return null;
+  }
+}
+
 function _updateNewsButtonVisibility(news, noticeEl) {
   const btn = document.getElementById('news-btn');
   if (!btn) return;
   // hide when no news, or when notice is visible
   if (!news || (noticeEl && !noticeEl.classList.contains('hidden'))) {
     btn.style.display = 'none';
+    // clear styling state
+    btn.classList.remove('news-dismissed-permanent', 'news-dismissed-ttl');
+    btn.removeAttribute('data-news-dismiss');
+    btn.title = 'News';
     return;
   }
+
   // show the button so the user can re-open dismissed/visible news
   btn.style.display = '';
+
+  // Update appearance based on dismissal state (permanent or temporary)
+  try {
+    const entry = _getNewsDismissEntry(String(news.id || ''));
+    if (entry && entry.permanent) {
+      btn.classList.add('news-dismissed-permanent');
+      btn.classList.remove('news-dismissed-ttl');
+      btn.setAttribute('data-news-dismiss', 'permanent');
+      btn.title = 'News (dismissed)';
+    } else if (entry && entry.expiresAt != null) {
+      btn.classList.add('news-dismissed-ttl');
+      btn.classList.remove('news-dismissed-permanent');
+      btn.setAttribute('data-news-dismiss', 'ttl');
+      btn.title = 'News (hidden temporarily)';
+    } else {
+      btn.classList.remove('news-dismissed-permanent', 'news-dismissed-ttl');
+      btn.removeAttribute('data-news-dismiss');
+      btn.title = 'News';
+    }
+  } catch (err) {
+    // ignore errors here and ensure sane defaults
+    btn.classList.remove('news-dismissed-permanent', 'news-dismissed-ttl');
+    btn.removeAttribute('data-news-dismiss');
+    btn.title = 'News';
+  }
 }
 
 async function showNewsNotice(options = { force: false }) {
