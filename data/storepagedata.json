@@ -2136,70 +2136,70 @@
             "itemDesc": "Time for the Specialist to appear!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
             "primaryImage": {
               "imageName": "8e6c9d76593cf327d3075d39de3d8007.dds",
-              "directory": "textures/atomic_shop_media/"
+              "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "e36ad8d7e107c0cc6ed3cfd25660aa4d.dds",
-                "directory": "textures/atomic_shop_media/"
+                "imageName": "atx_skin_powerarmor_model_specialist.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
               },
               {
-                "imageName": "ATX_Skin_PowerArmor_Model_Specialist_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
+                "imageName": "atx_entm_skin_powerarmor_jetpack_specialist.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
               },
               {
-                "imageName": "ATX_ENTM_Skin_PowerArmor_Jetpack_Specialist_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
+                "imageName": "atx_apparel_outfit_enclavemechanic_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
-                "imageName": "ATX_Apparel_Outfit_EnclaveMechanic_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+                "imageName": "atx_apparel_headwear_enclavemechanic_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
               },
               {
-                "imageName": "ATX_Apparel_Headwear_EnclaveMechanic_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/Headwear/"
+                "imageName": "atx_camp_collector_enclavedatacenter_whitespring.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
               },
               {
-                "imageName": "ATX_CAMP_Collector_EnclaveDataCenter_Whitespring_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Utility/"
+                "imageName": "atx_camp_furniture_table_special_plotting_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
               },
               {
-                "imageName": "ATX_CAMP_Furniture_Table_Special_Plotting_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Furniture/"
+                "imageName": "atx_camp_floordecor_atomstatue.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
-                "imageName": "ATX_CAMP_FloorDecor_AtomStatue_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/FloorDecoration/"
+                "imageName": "atx_camp_floordecor_plushie_stalker_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
-                "imageName": "ATX_CAMP_FloorDecor_Plushie_Stalker_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/FloorDecoration/"
+                "imageName": "e36ad8d7e107c0cc6ed3cfd25660aa4d.webp",
+                "directory": "/textures/atomic_shop_media/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Enclave Mechanic Outfit"
+                "szItemName": "The Specialist Power Armor Paint"
               },
               {
                 "szItemName": "The Specialist Jetpack"
               },
               {
-                "szItemName": "Stalker Plushie"
-              },
-              {
-                "szItemName": "Whitespring Enclave Data Center (Collector)"
+                "szItemName": "Enclave Mechanic Outfit"
               },
               {
                 "szItemName": "Enclave Mechanic Cap"
               },
               {
-                "szItemName": "Atom Statue"
-              },
-              {
-                "szItemName": "The Specialist Power Armor Paint"
+                "szItemName": "Whitespring Enclave Data Center (Collector)"
               },
               {
                 "szItemName": "Enclave Plotting Table"
+              },
+              {
+                "szItemName": "Atom Statue"
+              },
+              {
+                "szItemName": "Stalker Plushie"
               },
               {
                 "szItemName": "\"Specialist\" Player Title Suffix"
@@ -2209,7 +2209,7 @@
               "amount": 1080,
               "originalAmount": 1080,
               "isLto": true,
-              "ltoTimer": 604536
+              "ltoTimer": "2026-01-06T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 1080,
@@ -2220,7 +2220,12 @@
               "originalAmount": 1800
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2414486,
@@ -2229,36 +2234,36 @@
             "itemDesc": "Quench your thirst with this Quantum themed bundle!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
             "primaryImage": {
               "imageName": "404e983c4dd60878859c32ef8b0cf376.dds",
-              "directory": "textures/atomic_shop_media/"
+              "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "ATX_Apparel_Outfit_Jumpsuit_NukaColaQuantum_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+                "imageName": "atx_apparel_outfit_jumpsuit_nukacolaquantum_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
-                "imageName": "ATX_CAMP_Vendor_PlayerVendingMachine_Tipsy_NukaQuantum_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Vendors/"
+                "imageName": "atx_camp_vendor_playervendingmachine_tipsy_nukaquantum.webp",
+                "directory": "/textures/atx/storefront/camp/vendors/"
               },
               {
-                "imageName": "ATX_CAMP_Lights_SignNukaQuantum01_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Lights/"
+                "imageName": "score_s11_camp_utility_collectron_nukaquantum_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
               },
               {
-                "imageName": "ATX_CAMP_Lights_NukaQuantumLamp_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Lights/"
+                "imageName": "atx_camp_lights_nukaquantumlamp_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
               },
               {
-                "imageName": "ATX_CAMP_Furniture_NukaColaCask_Stool_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Furniture/"
+                "imageName": "atx_camp_lights_signnukaquantum01_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
               },
               {
-                "imageName": "SCORE_S11_CAMP_Utility_Collectron_NukaQuantum_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Utility/"
+                "imageName": "atx_camp_furniture_nukacolacask_stool.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
               },
               {
-                "imageName": "SCORE_S11_CAMP_Structure_NukaQuantumDeliveryTruck_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Structures/"
+                "imageName": "score_s11_camp_structure_nukaquantumdeliverytruck_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
               }
             ],
             "dynamicBundleItems": [
@@ -2266,29 +2271,29 @@
                 "szItemName": "Nuka-Cola Quantum Jumpsuit"
               },
               {
-                "szItemName": "Nuka-Cola Cask Stool"
+                "szItemName": "Nuka-Cola Quantum Sweetie Pete Vending Machine"
               },
               {
-                "szItemName": "Nuka-Cola Quantum Sweetie Pete Vending Machine"
+                "szItemName": "Nuka-Cola Quantum Collectron Station"
               },
               {
                 "szItemName": "Nuka-Cola Quantum Bottle Lamp"
               },
               {
-                "szItemName": "Nuka-Cola Quantum Delivery Truck"
-              },
-              {
                 "szItemName": "Nuka-Cola Quantum Sign"
               },
               {
-                "szItemName": "Nuka-Cola Quantum Collectron Station"
+                "szItemName": "Nuka-Cola Cask Stool"
+              },
+              {
+                "szItemName": "Nuka-Cola Quantum Delivery Truck"
               }
             ],
             "lowPrice": {
               "amount": 425,
               "originalAmount": 900,
               "isLto": true,
-              "ltoTimer": 604537
+              "ltoTimer": "2026-01-06T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 900,
@@ -2299,7 +2304,12 @@
               "originalAmount": 1500
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2414487,
@@ -2308,35 +2318,39 @@
             "itemDesc": "Build the perfect suburban paradise with the House of Tomorrow C.A.M.P. Kit Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. –\r\n\r\n",
             "primaryImage": {
               "imageName": "fcfa5482d5bb0cdc91f9efb1911bc8d0.dds",
-              "directory": "textures/atomic_shop_media/"
+              "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "ATX_CAMP_Kit_PreFabHome_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Kits/"
+                "imageName": "atx_camp_kit_prefabhome_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
               },
               {
-                "imageName": "ENTM_CAMP_Floor_RadiantPanel_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Floors/"
+                "imageName": "atx_camp_kit_triumphterraceporch_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
               },
               {
-                "imageName": "ENTM_CAMP_WallPaper_Harmony_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Wallpaper/"
+                "imageName": "entm_camp_floor_radiantpanel_l.webp",
+                "directory": "/textures/atx/storefront/camp/floors/"
               },
               {
-                "imageName": "ATX_ENTM_CAMP_Door_Metal_TriumphTerraceScreen_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Doors/"
+                "imageName": "entm_camp_wallpaper_harmony_l.webp",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
+              },
+              {
+                "imageName": "atx_entm_camp_door_metal_triumphterracescreen_l.webp",
+                "directory": "/textures/atx/storefront/camp/doors/"
               }
             ],
             "dynamicBundleItems": [
+              {
+                "szItemName": "House of Tomorrow Camp Kit"
+              },
               {
                 "szItemName": "House of Tomorrow C.A.M.P. Porch Kit"
               },
               {
                 "szItemName": "Radiant Panel Floor and Foundations"
-              },
-              {
-                "szItemName": "House of Tomorrow Camp Kit"
               },
               {
                 "szItemName": "Harmony Wallpaper"
@@ -2349,7 +2363,7 @@
               "amount": 900,
               "originalAmount": 900,
               "isLto": true,
-              "ltoTimer": 604538
+              "ltoTimer": "2026-01-06T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 900,
@@ -2360,7 +2374,12 @@
               "originalAmount": 1500
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2414143,
@@ -2369,20 +2388,16 @@
             "itemDesc": "Sometimes, all you need is a specialist.\r\n\r\nThis is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on ALL Power Armor models.\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
             "primaryImage": {
               "imageName": "db158c1d3fb2b1a17410ad596c1b704d.dds",
-              "directory": "textures/atomic_shop_media/"
+              "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "47c6d098c5e51f7be5fca01112eb034e.dds",
-                "directory": "textures/atomic_shop_media/"
+                "imageName": "atx_skin_powerarmor_model_specialist_c1.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
               },
               {
-                "imageName": "ATX_Skin_PowerArmor_Model_Specialist_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
-              },
-              {
-                "imageName": "ATX_ENTM_Skin_PowerArmor_Jetpack_Specialist_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
+                "imageName": "atx_entm_skin_powerarmor_jetpack_specialist_c1.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
               }
             ],
             "dynamicBundleItems": [],
@@ -2390,7 +2405,7 @@
               "amount": 980,
               "originalAmount": 980,
               "isLto": true,
-              "ltoTimer": 604539
+              "ltoTimer": "2026-01-06T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 980,
@@ -2401,7 +2416,12 @@
               "originalAmount": 1400
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": false,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2413938,
@@ -2409,17 +2429,17 @@
             "itemNameShort": "Nuka-Cola Quantum Sweetie Pete",
             "itemDesc": "Sweetie Pete wants to help fortify the residents of Appalachia against the daily dangers; making some Caps at the same time is just a bonus! \r\n\r\nNow available in Nuka-Cola Quantum.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "ATX_CAMP_Vendor_PlayerVendingMachine_Tipsy_NukaQuantum.dds",
-              "directory": "Textures/ATX/Storefront/Camp/Vendors/"
+              "imageName": "atx_camp_vendor_playervendingmachine_tipsy_nukaquantum.dds",
+              "directory": "/textures/atx/storefront/camp/vendors/"
             },
             "carouselImages": [
               {
-                "imageName": "ATX_CAMP_Vendor_PlayerVendingMachine_Tipsy_NukaQuantum_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Vendors/"
+                "imageName": "atx_camp_vendor_playervendingmachine_tipsy_nukaquantum_c1.dds",
+                "directory": "/textures/atx/storefront/camp/vendors/"
               },
               {
-                "imageName": "ATX_CAMP_Vendor_PlayerVendingMachine_Tipsy_NukaQuantum_C2.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Vendors/"
+                "imageName": "atx_camp_vendor_playervendingmachine_tipsy_nukaquantum_c2.dds",
+                "directory": "/textures/atx/storefront/camp/vendors/"
               }
             ],
             "dynamicBundleItems": [],
@@ -2427,7 +2447,7 @@
               "amount": 490,
               "originalAmount": 490,
               "isLto": true,
-              "ltoTimer": 604541
+              "ltoTimer": "2026-01-06T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 490,
@@ -2438,7 +2458,12 @@
               "originalAmount": 700
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2414124,
@@ -2446,21 +2471,21 @@
             "itemNameShort": "House of Tomorrow Camp Kit",
             "itemDesc": "Custom build your own House of Tomorrow with this C.A.M.P. Kit!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "ATX_CAMP_Kit_PreFabHome.dds",
-              "directory": "Textures/ATX/Storefront/Camp/Kits/"
+              "imageName": "atx_camp_kit_prefabhome_l.webp",
+              "directory": "/textures/atx/storefront/camp/kits/"
             },
             "carouselImages": [
               {
-                "imageName": "ATX_CAMP_Kit_PreFabHome_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Kits/"
+                "imageName": "atx_camp_kit_prefabhome_c1.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
               },
               {
-                "imageName": "ATX_CAMP_Kit_PreFabHome_C2.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Kits/"
+                "imageName": "atx_camp_kit_prefabhome_c2.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
               },
               {
-                "imageName": "ATX_CAMP_Kit_PreFabHome_C3.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Kits/"
+                "imageName": "atx_camp_kit_prefabhome_c3.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
               }
             ],
             "dynamicBundleItems": [],
@@ -2468,7 +2493,7 @@
               "amount": 490,
               "originalAmount": 490,
               "isLto": true,
-              "ltoTimer": 604542
+              "ltoTimer": "2026-01-06T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 490,
@@ -2479,7 +2504,12 @@
               "originalAmount": 700
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2413753,
@@ -2487,17 +2517,17 @@
             "itemNameShort": "Whitespring Data Center (Collector)",
             "itemDesc": "It only looks more expensive on the outside.\r\n\r\nThis item cannot be built inside of a Shelter.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "ATX_CAMP_Collector_EnclaveDataCenter_Whitespring.dds",
-              "directory": "Textures/ATX/Storefront/Camp/Utility/"
+              "imageName": "atx_camp_collector_enclavedatacenter_whitespring.dds",
+              "directory": "/textures/atx/storefront/camp/utility/"
             },
             "carouselImages": [
               {
-                "imageName": "ATX_CAMP_Collector_EnclaveDataCenter_Whitespring_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Utility/"
+                "imageName": "atx_camp_collector_enclavedatacenter_whitespring_c1.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
               },
               {
-                "imageName": "ATX_CAMP_Collector_EnclaveDataCenter_Whitespring_C2.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Utility/"
+                "imageName": "atx_camp_collector_enclavedatacenter_whitespring_c2.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
               }
             ],
             "dynamicBundleItems": [],
@@ -2505,7 +2535,7 @@
               "amount": 490,
               "originalAmount": 490,
               "isLto": true,
-              "ltoTimer": 604543
+              "ltoTimer": "2026-01-06T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 490,
@@ -2516,7 +2546,12 @@
               "originalAmount": 700
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2414092,
@@ -2524,21 +2559,21 @@
             "itemNameShort": "Nuka-Cola Quantum Delivery Truck",
             "itemDesc": "Why take a leap when you can instead take a break in the shade of this Nuka-Cola Quantum Delivery Truck?\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "SCORE_S11_CAMP_Structure_NukaQuantumDeliveryTruck.dds",
-              "directory": "Textures/ATX/Storefront/Camp/Structures/"
+              "imageName": "score_s11_camp_structure_nukaquantumdeliverytruck_l.webp",
+              "directory": "/textures/atx/storefront/camp/structures/"
             },
             "carouselImages": [
               {
-                "imageName": "SCORE_S11_CAMP_Structure_NukaQuantumDeliveryTruck_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Structures/"
+                "imageName": "score_s11_camp_structure_nukaquantumdeliverytruck_c1.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
               },
               {
-                "imageName": "SCORE_S11_CAMP_Structure_NukaQuantumDeliveryTruck_C2.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Structures/"
+                "imageName": "score_s11_camp_structure_nukaquantumdeliverytruck_c2.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
               },
               {
-                "imageName": "SCORE_S11_CAMP_Structure_NukaQuantumDeliveryTruck_C3.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Structures/"
+                "imageName": "score_s11_camp_structure_nukaquantumdeliverytruck_c3.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
               }
             ],
             "dynamicBundleItems": [],
@@ -2546,7 +2581,7 @@
               "amount": 350,
               "originalAmount": 350,
               "isLto": true,
-              "ltoTimer": 604545
+              "ltoTimer": "2026-01-06T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 350,
@@ -2557,7 +2592,12 @@
               "originalAmount": 500
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2414128,
@@ -2565,17 +2605,17 @@
             "itemNameShort": "Plotting Table",
             "itemDesc": "Draw up the perfect battle plans with this Enclave Plotting Table\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "ATX_CAMP_Furniture_Table_Special_Plotting.dds",
-              "directory": "Textures/ATX/Storefront/Camp/Furniture/"
+              "imageName": "atx_camp_furniture_table_special_plotting_l.webp",
+              "directory": "/textures/atx/storefront/camp/furniture/"
             },
             "carouselImages": [
               {
-                "imageName": "ATX_CAMP_Furniture_Table_Special_Plotting_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Furniture/"
+                "imageName": "atx_camp_furniture_table_special_plotting_c1.dds",
+                "directory": "/textures/atx/storefront/camp/furniture/"
               },
               {
-                "imageName": "ATX_CAMP_Furniture_Table_Special_Plotting_C2.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Furniture/"
+                "imageName": "atx_camp_furniture_table_special_plotting_c2.dds",
+                "directory": "/textures/atx/storefront/camp/furniture/"
               }
             ],
             "dynamicBundleItems": [],
@@ -2583,7 +2623,7 @@
               "amount": 350,
               "originalAmount": 350,
               "isLto": true,
-              "ltoTimer": 604510
+              "ltoTimer": "2026-01-06T12:15:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 350,
@@ -2594,7 +2634,12 @@
               "originalAmount": 500
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            }
           }
         ]
       },
