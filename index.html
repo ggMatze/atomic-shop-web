@@ -92,8 +92,7 @@
 <div class="information-box" title="Updates to the site can take several hours,depending on the amount of changes to the shop.">
   <div class="info-item">
     <span class="info-label">last updated:<br>
-    <span id="last-updated"></span><br>
-  </span>
+    <span id="last-updated"></span><br>    <small id="last-updated-iso" style="display:none; opacity:.7; font-size:0.85em;"></small>  </span>
   </div>
 </div>
 <div class="information-box2" title="Next scheduled update for the website (Tuesday).">
@@ -108,7 +107,7 @@
 <button id="news-btn" title="News">&nbsp;</button>
 
 <script>
-  const lastUpdated = '2025-12-30T18:14:00Z'; // displayed (UTC)
+  const lastUpdated = '2025-12-30T20:44:00Z'; // displayed (UTC)
   const nextScheduled = '2026-01-06T19:00:00Z'; // next scheduled update (UTC) — adjust as needed
 
   const format = iso => new Date(iso).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' });
