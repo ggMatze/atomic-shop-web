@@ -243,12 +243,15 @@ async function initTabs() {
   else if (item?.isNew === 2) newLabel = '<span class="newish-label">NEW<a class="asterisk">*</a></span>';
 
     // For preview pages (options.useEndTime === true) show a date-range label.
-    // For normal tabs show a limited-time timer if the item has an LTO (lowPrice.ltoTimer).
+    // For normal tabs show a limited-time timer if the item has an LTO. Prefer the explicit
+    // item.endTime when present (it represents the actual expiration) and fall back to
+    // lowPrice.ltoTimer for legacy datasets that encode seconds/epoch.
     let expiresHTML = '';
     if (options && options.useEndTime) {
       expiresHTML = renderDateRange(item);
-    } else if (item?.lowPrice?.isLto && item?.lowPrice?.ltoTimer) {
-      expiresHTML = renderTimerHTML(item.lowPrice.ltoTimer);
+    } else if (item?.lowPrice?.isLto) {
+      const endSource = item.endTime || (item.lowPrice && item.lowPrice.ltoTimer);
+      if (endSource) expiresHTML = renderTimerHTML(endSource);
     }
 
     const dataItem = {
@@ -400,7 +403,8 @@ async function initTabs() {
         // no active replacement; check if there were candidates at all
         const hadCandidates = hasPaidCandidatesFor(id) || hasFreeCandidatesFor(id);
         if (hadCandidates) {
-          // candidates existed but none are active -> remove the slot (do not push)
+          // candidates existed but none are active -> keep original slot so UI remains stable
+          newItems.push(origItem);
           return;
         }
 
