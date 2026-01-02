@@ -249,7 +249,11 @@ function attachTileClickHandlers() {
           e.stopPropagation();
           let tab = document.querySelector('.tab-nav-scroll .tab.active');
           let tabIndex = tab ? tab.getAttribute('data-tab-index') : '0';
-          let tabParam = tabIndex === 'preview' ? 'preview' : (isNaN(Number(tabIndex)) ? tabIndex : Number(tabIndex) + 1);
+          let tabId = tab ? tab.getAttribute('data-tab-id') : null;
+          let tabParam;
+          if (tabIndex === 'preview') tabParam = 'preview';
+          else if (tabId) tabParam = tabId;
+          else tabParam = isNaN(Number(tabIndex)) ? tabIndex : Number(tabIndex) + 1;
           let url = `${window.location.origin}${window.location.pathname}?tab=${tabParam}&item=${item.itemID}`;
           shareBox.value = url; shareBox.style.display = ''; shareBox.focus(); shareBox.select(); try { document.execCommand('copy'); } catch (e) {}
         };

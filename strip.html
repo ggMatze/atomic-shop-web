@@ -37,9 +37,9 @@
       background: #0e639c;
       color: #fff;
       border: none;
-      border-radius: 4px;
+      border-radius: 2px;
       padding: 0.6em 1.2em;
-      font-size: 1em;
+      font-size: 0.9em;
       margin-right: 1em;
       cursor: pointer;
       transition: background 0.2s;
@@ -52,7 +52,7 @@
       background: #252526;
       color: #d4d4d4;
       border: 1px solid #333;
-      border-radius: 4px;
+      border-radius: 2px;
       padding: 0.7em;
       font-size: 1em;
       font-family: 'Fira Mono', 'Consolas', 'monospace', 'Segoe UI', sans-serif;
@@ -177,10 +177,42 @@
         let data = JSON.parse(input);
         let out = {};
         if (data.StorePageData && Array.isArray(data.StorePageData.pages)) {
-          out.StorePageData = { pages: data.StorePageData.pages.map(stripPage) };
-        } else {
-          // If input doesn't match expected shape, fall back to original parse
-          out = data;
+          // Auto-generate tabid per page (respect explicit page.tabid if present).
+          const usedTabIds = new Set();
+          out.StorePageData = { pages: data.StorePageData.pages.map((page, idx) => {
+            const stripped = stripPage(page);
+            // helper: return a new object with tabid directly after name
+            const buildPageObject = (base, id) => {
+              const obj = {};
+              if (base.hasOwnProperty('name')) obj.name = base.name;
+              obj.tabid = id;
+              if (base.hasOwnProperty('isZeus')) obj.isZeus = base.isZeus;
+              if (base.hasOwnProperty('image')) obj.image = base.image;
+              if (base.hasOwnProperty('items')) obj.items = base.items;
+              return obj;
+            };
+
+            // If source includes explicit tabid, preserve it and mark as used
+            if (page.hasOwnProperty('tabid') && page.tabid) {
+              const explicit = String(page.tabid);
+              usedTabIds.add(explicit);
+              return buildPageObject(stripped, explicit);
+            }
+
+            // Derive from first line of name, trim after common separators and cap length
+            const rawName = (page.name || '').replace(/\r\n/g, '\n').replace(/\\n/g, '\n');
+            let titlePart = (rawName.split('\n')[0] || '').split(/\s[-—:\|]\s|\s[-—]\s|\s:\s|\|/)[0].trim();
+            if (!titlePart) titlePart = `tab-${idx}`;
+            if (titlePart.length > 40) titlePart = titlePart.slice(0, 40).trim();
+
+            let baseSlug = String(titlePart).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            if (!baseSlug) baseSlug = `tab-${idx}`;
+            let slug = baseSlug;
+            let counter = 1;
+            while (usedTabIds.has(slug)) { slug = `${baseSlug}-${counter++}`; }
+            usedTabIds.add(slug);
+            return buildPageObject(stripped, slug);
+          }) };
         }
         const pretty = JSON.stringify(out, null, 2);
         document.getElementById('output').textContent = pretty;

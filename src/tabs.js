@@ -46,9 +46,30 @@ async function initTabs() {
 
   const pages = (storeData.StorePageData && storeData.StorePageData.pages) || [];
 
+  // Build a set of used tab ids to avoid collisions when deriving slugs
+  const _usedTabIds = new Set();
+
   // Render tabs
   tabNavScroll.innerHTML = '';
   pages.forEach((page, idx) => {
+    // compute tab slug (prefer explicit page.tabid, otherwise derive from the first title line)
+    // Use only the first line of `name` and trim at common separators (e.g. " - ", "—", ":", "|") to avoid long descriptions in slugs.
+    const explicitTabId = (page.tabid && String(page.tabid)) ? String(page.tabid) : null;
+    // Normalize any escaped newlines in the source name
+    const _nameForSlugSrc = (page.name || '').replace(/\\r\\n/g, '\n').replace(/\\n/g, '\n').replace(/\r\n/g, '\n');
+    let titlePart = explicitTabId || (_nameForSlugSrc.split('\n')[0] || '');
+    // Trim off common separators and anything after (keeps slug concise)
+    titlePart = titlePart.split(/\s[-—:\|]\s|\s[-—]\s|\s:\s|\|/)[0].trim();
+    // Cap length to 40 chars to avoid excessively long slugs
+    if (titlePart.length > 40) titlePart = titlePart.slice(0, 40).trim();
+
+    let baseSlug = String(titlePart || `tab-${idx}`).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    if (!baseSlug) baseSlug = `tab-${idx}`;
+    let slug = baseSlug;
+    let slugCounter = 1;
+    while (_usedTabIds.has(slug)) { slug = `${baseSlug}-${slugCounter++}`; }
+    _usedTabIds.add(slug);
+
     // Normalize both actual newlines and escaped "\\n" sequences coming from JSON
     const rawName = (page.name || '')
       .replace(/\\r\\n/g, '\n')
@@ -60,6 +81,7 @@ async function initTabs() {
     const tabDiv = document.createElement('div');
     tabDiv.className = 'tab';
     tabDiv.setAttribute('data-tab-index', idx);
+    tabDiv.setAttribute('data-tab-id', slug);
 
     const tabImg = (page.image?.imageName && page.image?.directory
       ? buildImageUrl(page.image.directory, page.image.imageName)
@@ -466,8 +488,15 @@ async function initTabs() {
       document.querySelectorAll('.tab-nav-scroll .tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.tab-nav-scroll .tab')[idx].classList.add('active');
       const tabIndex = tab.getAttribute('data-tab-index');
-      let tabParam = tabIndex;
-      if (!isNaN(Number(tabIndex))) tabParam = Number(tabIndex) + 1;
+      const tabId = tab.getAttribute('data-tab-id');
+      let tabParam;
+      if (tabIndex === 'preview') {
+        tabParam = 'preview';
+      } else if (tabId) {
+        tabParam = tabId;
+      } else {
+        tabParam = (!isNaN(Number(tabIndex))) ? Number(tabIndex) + 1 : tabIndex;
+      }
       const url = new URL(window.location);
       url.searchParams.set('tab', tabParam);
       url.searchParams.delete('item');
@@ -488,19 +517,35 @@ async function initTabs() {
     });
   });
 
-  // Handle tab from URL
-  let initialTabKey = null;
+  // Handle tab from URL (prefer slug/id, fallback to numeric index for legacy links)
   const urlParams = new URLSearchParams(window.location.search);
   let tabParam = urlParams.get('tab');
   const itemParam = urlParams.get('item');
-  if (tabParam && !isNaN(Number(tabParam))) initialTabKey = String(Number(tabParam) - 1);
-  else if (tabParam) initialTabKey = tabParam;
 
   let targetTab = tabs[0];
-  if (initialTabKey !== null) {
-    targetTab = Array.from(tabs).find(tab => tab.getAttribute('data-tab-index') === initialTabKey) || tabs[0];
+  if (tabParam) {
+    // try id/slug match
+    const byId = Array.from(tabs).find(t => t.getAttribute('data-tab-id') === tabParam);
+    if (byId) {
+      targetTab = byId;
+    } else if (!isNaN(Number(tabParam))) {
+      const idx = Number(tabParam) - 1;
+      targetTab = tabs[idx] || tabs[0];
+      // normalize numeric link to canonical slug if available
+      const canonical = targetTab && targetTab.getAttribute('data-tab-id');
+      if (canonical) {
+        const url = new URL(window.location);
+        url.searchParams.set('tab', canonical);
+        window.history.replaceState({}, '', url);
+      }
+    } else {
+      // legacy: match by data-tab-index string
+      const byIndexStr = Array.from(tabs).find(tab => tab.getAttribute('data-tab-index') === tabParam);
+      if (byIndexStr) targetTab = byIndexStr;
+    }
   }
   targetTab.classList.add('active');
+
   setTimeout(() => { targetTab.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'center'}); }, 0);
   const ti = targetTab.getAttribute('data-tab-index');
   if (ti === 'preview') {
