@@ -1,5 +1,5 @@
 {
-  "showDailyTab": true,
+  "showDailyTab": false,
   "DailySalesWeekMeta": {
     "Week1": {
       "hidden": false
@@ -166,19 +166,14 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Free Lunchbox",
-      "itemNameShort": "Free Lunchbox",
-      "itemDesc": "Open a Lunchbox for you and your friends! You and players nearby receive an XP Boost and a random Buff Effect for a hour!\r\n For Odds and Effects Information, visit the Help ingame > Lunchboxes! \r\n\r\n- LUNCHBOXES ARE UNDER AID IN THE PIP-BOY. LUNCHBOXES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
+      "itemName": "Vault-Tec Supply Package (Level 2)",
+      "itemNameShort": "Vault-Tec Supply Package",
+      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_store_lunchbox001_l.webp"
+        "imageName": "atx_utility_scrapball_level2_l.webp"
       },
-      "carouselImages": [
-        {
-          "directory": "textures/atx/storefront/utility/",
-          "imageName": "atx_store_lunchbox001_l.webp"
-        }
-      ],
+      "carouselImages": [],
       "lowPrice": {
         "ltoTimer": "2026-01-05T12:00:00.000Z",
         "isLto": true,
@@ -198,12 +193,12 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Repair Kit",
-      "itemNameShort": "Repair Kit",
-      "itemDesc": "Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
+      "itemName": "Vault-Tec Supply Package (Level 2)",
+      "itemNameShort": "Vault-Tec Supply Package",
+      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_repairkit_basic_l.webp"
+        "imageName": "atx_utility_scrapball_level2_l.webp"
       },
       "carouselImages": [],
       "lowPrice": {
@@ -316,12 +311,12 @@
       "replaceItemID": 2366300,
       "itemID": 2366300,
       "isZeus": true,
-      "itemName": "Perk Card Pack",
-      "itemNameShort": "Perk Card Pack",
-      "itemDesc": "A pack with four perk cards (and a bubblegum joke)! \r\n\r\n- SELECT THIS ITEM IN THE PERK MENU. PERK CARD PACKS WILL BE GRANTED TO THE CHOSEN CHARACTER. -",
+      "itemName": "Gold Bullion x100",
+      "itemNameShort": "Gold Bullion x100",
+      "itemDesc": "There's always money in gold! Some gold bullion to buy from the various vendors of the world! \r\n\r\n- GRANTED WHEN ENTERING ADVENTURE MODE. SUBJECT TO PER CHARACTER MAX-\r\n\r\n[h]Note: Item description generated with AI assistance due to the large number of items that would have required extensive manual research[/h]",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "score_game_perkcardpack_l.webp"
+        "imageName": "score_currency_bullion_l.webp"
       },
       "carouselImages": [],
       "lowPrice": {
@@ -343,18 +338,22 @@
       "replaceItemID": 2366300,
       "itemID": 2366300,
       "isZeus": true,
-      "itemName": "Repair Kit",
-      "itemNameShort": "Repair Kit",
-      "itemDesc": "Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
+      "itemName": "Scrap Kit",
+      "itemNameShort": "Scrap Kit",
+      "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_repairkit_basic_l.webp"
+        "imageName": "atx_utility_repairkit_scraptostash_l.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+        }
+      ],
       "lowPrice": {
         "ltoTimer": "2026-01-04T12:00:00.000Z",
-        "isLto": true,
-        "purchaseLimit": 1
+        "isLto": true
       },
       "lowestPurchasablePrice": {
         "Amount": 0,
@@ -370,19 +369,14 @@
       "replaceItemID": 2366300,
       "itemID": 2366300,
       "isZeus": true,
-      "itemName": "Scrap Kit",
-      "itemNameShort": "Scrap Kit",
-      "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
+      "itemName": "Free Carry Weight Booster",
+      "itemNameShort": "free Carry Weight",
+      "itemDesc": "Drink this and you will gain +50 Carry Weight for a half hour. \r\n\r\n- AVAILABLE FOR GOLD BULLION. UNDER THE FOOD AND DRINK TAB AND GRANTED WHEN ENTEING ADVENTURE MODE.\nSUBJECT TO PER CHARACTER MAX WEIGHT.",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+        "imageName": "score_utility_carryweight_l.webp"
       },
-      "carouselImages": [
-        {
-          "directory": "textures/atx/storefront/utility/",
-          "imageName": "atx_utility_repairkit_scraptostash_l.webp"
-        }
-      ],
+      "carouselImages": [],
       "lowPrice": {
         "ltoTimer": "2026-01-05T12:00:00.000Z",
         "isLto": true,
