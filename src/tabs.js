@@ -664,6 +664,25 @@ if (typeof window !== 'undefined') {
         shouldShow = !isHiddenInMeta;
       }
 
+      // If there's only one week with data, force it visible (user can't hide the only week)
+      try {
+        const dataWeeks = Object.keys(window.dailySalesByWeek || {}).filter(k => Array.isArray(window.dailySalesByWeek[k]) && window.dailySalesByWeek[k].length > 0);
+        if (dataWeeks.length <= 1) {
+          shouldShow = true;
+          // clear any saved hidden flag for this week so it stays visible going forward
+          try {
+            const saved = localStorage.getItem('weekVisibility');
+            const obj = saved ? JSON.parse(saved) : {};
+            if (obj && obj[weekKey] === false) {
+              delete obj[weekKey];
+              localStorage.setItem('weekVisibility', JSON.stringify(obj));
+              // also update local variable so subsequent checks in this render see the change
+              savedVisibility[weekKey] = undefined;
+            }
+          } catch (e) { /* ignore */ }
+        }
+      } catch (e) { /* ignore */ }
+
       if (shouldShow) {
         paidItems = paidItems.concat(weekArr);
       }
