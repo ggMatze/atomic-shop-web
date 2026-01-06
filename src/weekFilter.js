@@ -17,18 +17,33 @@ function initWeekFilter() {
     localStorage.setItem('weekVisibility', JSON.stringify(visibility));
   }
 
-  // Build and render the checkboxes based on DailySalesWeekMeta
+  // Build and render the checkboxes based on DailySalesWeekMeta and actual available weeks
   function renderWeekCheckboxes() {
     const weekMeta = window.dailySalesWeekMeta || {};
-    const weeks = Object.keys(weekMeta).sort();
-    
-    if (weeks.length === 0) {
+    // Only consider weeks that actually have data in DailySalesByWeek
+    const dataWeeks = Object.keys(window.dailySalesByWeek || {}).filter(k => Array.isArray(window.dailySalesByWeek[k]) && window.dailySalesByWeek[k].length > 0);
+    const metaWeeks = Object.keys(weekMeta);
+    // Merge meta and data keys but only keep weeks that have actual data
+    const weeks = [...new Set([...metaWeeks, ...dataWeeks])].filter(k => dataWeeks.includes(k)).sort();
+
+    // Clean saved visibility entries for weeks that no longer exist
+    try {
+      const saved = getSavedWeekVisibility();
+      if (saved) {
+        let changed = false;
+        Object.keys(saved).forEach(k => { if (!weeks.includes(k)) { delete saved[k]; changed = true; } });
+        if (changed) saveWeekVisibility(saved);
+      }
+    } catch (e) { /* ignore */ }
+
+    // If there's zero or only one week available, hide the week filter entirely
+    if (weeks.length <= 1) {
       filterContainer.style.display = 'none';
       return;
     }
 
     checkboxesContainer.innerHTML = '';
-    const savedVisibility = getSavedWeekVisibility();
+    const savedVisibility = getSavedWeekVisibility() || {};
 
     weeks.forEach(weekKey => {
       const isHiddenByDefault = weekMeta[weekKey]?.hidden === true;

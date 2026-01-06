@@ -750,6 +750,10 @@ if (typeof window !== 'undefined') {
             <span class="discount"></span>
             ${newLabel}
           </div>
+          <div class="tile-badge-r">
+            <span class="tile-1st hidden">&nbsp;</span>
+            <span class="clown-label hidden" title="Bethesda made a fool of themselves again!">&nbsp;</span>
+          </div>
           ${dateLabel}
           <div class="tile-footer ${tileSize}">${tileSize === 'large' ? item.itemName : item.itemNameShort}</div>
         </div>
