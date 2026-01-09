@@ -107,19 +107,14 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Scrap Kit",
-      "itemNameShort": "Scrap Kit",
-      "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
+      "itemName": "Caps x250",
+      "itemNameShort": "Caps x250",
+      "itemDesc": "Some caps to use in Appalachia!",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+        "imageName": "score_currency_caps_l.webp"
       },
-      "carouselImages": [
-        {
-          "directory": "textures/atx/storefront/utility/",
-          "imageName": "atx_utility_repairkit_scraptostash_l.webp"
-        }
-      ],
+      "carouselImages": [],
       "lowPrice": {
         "ltoTimer": "2026-01-10T12:00:00.000Z",
         "isLto": true,
@@ -311,12 +306,12 @@
       "replaceItemID": 2366300,
       "itemID": 2366300,
       "isZeus": true,
-      "itemName": "Gold Bullion x100",
-      "itemNameShort": "Gold Bullion x100",
-      "itemDesc": "There's always money in gold! Some gold bullion to buy from the various vendors of the world! \r\n\r\n- GRANTED WHEN ENTERING ADVENTURE MODE. SUBJECT TO PER CHARACTER MAX-\r\n\r\n[h]Note: Item description generated with AI assistance due to the large number of items that would have required extensive manual research[/h]",
+      "itemName": "Repair Kit",
+      "itemNameShort": "Repair Kit",
+      "itemDesc": "Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "score_currency_bullion_l.webp"
+        "imageName": "atx_utility_repairkit_basic_l.webp"
       },
       "carouselImages": [],
       "lowPrice": {
@@ -739,23 +734,23 @@
       },
       {
         "replaceItemID": 101,
-        "itemID": "jan09_1",
+        "itemID": "jan10_1",
         "isClown": false,
         "disabled": false,
-        "itemName": "Vault Tec Floor - Light Color - Blue and White Linoleum",
-        "itemNameShort": "Vault Tec Floor - Light Color - Blue and White Linoleum",
-        "itemDesc": "Linoleum Flooring inspired by Vault-Tec for your camp. \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN BUILD MODE. - ",
+        "itemName": "Light Wood Laminate Floor",
+        "itemNameShort": "Light Wood Laminate",
+        "itemDesc": "A light wood laminate floor for your camp. \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN BUILD MODE. - ",
         "primaryImage": {
-          "imageName": "atx_camp_floor_vaultlight01_l.webp",
+          "imageName": "atx_camp_floor_woodlight01_l.webp",
           "directory": "textures/atx/storefront/camp/floors/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_floor_vaultlight01_c1.webp",
+            "imageName": "atx_camp_floor_woodlight01_c1.webp",
             "directory": "textures/atx/storefront/camp/floors/"
           },
           {
-            "imageName": "atx_camp_floor_vaultlight01_c2.webp",
+            "imageName": "atx_camp_floor_woodlight01_c2.webp",
             "directory": "textures/atx/storefront/camp/floors/"
           }
         ],
@@ -764,10 +759,10 @@
           "isLto": true
         },
         "lowestPurchasablePrice": {
-          "Amount": 250
+          "Amount": 200
         },
         "highPrice": {
-          "originalAmount": 500
+          "originalAmount": 400
         },
         "startTime": "2026-01-09T12:00:00.000Z",
         "endTime": "2026-01-10T12:00:00.000Z"
@@ -1124,33 +1119,34 @@
         "isClown": false,
         "disabled": false,
         "itemName": "C.A.M.P. Life Bundle",
-            "itemNameShort": "C.A.M.P. Life Bundle",
-            "itemDesc": "Bring some life to your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "1a8e202542e9bc48e6a8039cc6eb24ee.webp",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_floordecor_wormfarm_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_entm_camp_floordecor_giantantfarm_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_collector_cagedrabbit_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "atx_camp_bed_sporeplant_l.webp",
-                "directory": "/textures/atx/storefront/camp/beds/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_carnivorousplant_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              }],
+        "itemNameShort": "C.A.M.P. Life Bundle",
+        "itemDesc": "Bring some life to your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "1a8e202542e9bc48e6a8039cc6eb24ee.webp",
+          "directory": "/textures/atomic_shop_media/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_floordecor_wormfarm_l.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_entm_camp_floordecor_giantantfarm_l.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_camp_collector_cagedrabbit_l.webp",
+            "directory": "/textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx_camp_bed_sporeplant_l.webp",
+            "directory": "/textures/atx/storefront/camp/beds/"
+          },
+          {
+            "imageName": "atx_camp_floordecor_carnivorousplant_l.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
         "lowPrice": {
           "ltoTimer": "2026-01-12T12:00:00.000Z",
           "isLto": true
