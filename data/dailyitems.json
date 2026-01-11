@@ -166,12 +166,12 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Vault-Tec Supply Package (Level 2)",
-      "itemNameShort": "Vault-Tec Supply Package",
-      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
+      "itemName": "Repair Kit",
+      "itemNameShort": "Repair Kit",
+      "itemDesc": "Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_scrapball_level2_l.webp"
+        "imageName": "atx_utility_repairkit_basic_l.webp"
       },
       "carouselImages": [],
       "lowPrice": {
@@ -369,12 +369,12 @@
       "replaceItemID": 2366300,
       "itemID": 2366300,
       "isZeus": true,
-      "itemName": "Free Carry Weight Booster",
-      "itemNameShort": "free Carry Weight",
-      "itemDesc": "Drink this and you will gain +50 Carry Weight for a half hour. \r\n\r\n- AVAILABLE FOR GOLD BULLION. UNDER THE FOOD AND DRINK TAB AND GRANTED WHEN ENTEING ADVENTURE MODE.\nSUBJECT TO PER CHARACTER MAX WEIGHT.",
+      "itemName": "Perk Card Pack",
+      "itemNameShort": "Perk Card Pack",
+      "itemDesc": "A pack with four perk cards (and a bubblegum joke)! \r\n\r\n- SELECT THIS ITEM IN THE PERK MENU. PERK CARD PACKS WILL BE GRANTED TO THE CHOSEN CHARACTER. -",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "score_utility_carryweight_l.webp"
+        "imageName": "score_game_perkcardpack_l.webp"
       },
       "carouselImages": [],
       "lowPrice": {
@@ -1124,33 +1124,34 @@
         "isClown": false,
         "disabled": false,
         "itemName": "C.A.M.P. Life Bundle",
-            "itemNameShort": "C.A.M.P. Life Bundle",
-            "itemDesc": "Bring some life to your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "1a8e202542e9bc48e6a8039cc6eb24ee.webp",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_floordecor_wormfarm_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_entm_camp_floordecor_giantantfarm_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_collector_cagedrabbit_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "atx_camp_bed_sporeplant_l.webp",
-                "directory": "/textures/atx/storefront/camp/beds/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_carnivorousplant_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              }],
+        "itemNameShort": "C.A.M.P. Life Bundle",
+        "itemDesc": "Bring some life to your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "primaryImage": {
+          "imageName": "1a8e202542e9bc48e6a8039cc6eb24ee.webp",
+          "directory": "/textures/atomic_shop_media/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_floordecor_wormfarm_l.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_entm_camp_floordecor_giantantfarm_l.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_camp_collector_cagedrabbit_l.webp",
+            "directory": "/textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx_camp_bed_sporeplant_l.webp",
+            "directory": "/textures/atx/storefront/camp/beds/"
+          },
+          {
+            "imageName": "atx_camp_floordecor_carnivorousplant_l.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
         "lowPrice": {
           "ltoTimer": "2026-01-12T12:00:00.000Z",
           "isLto": true
