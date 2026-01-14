@@ -638,11 +638,33 @@ if (typeof window !== 'undefined') {
     if (!shopGridEl) return;
     shopGridEl.innerHTML = '';
 
-    // Get saved week visibility from localStorage
+    // Get saved week visibility from localStorage and normalize values to boolean
     let savedVisibility = {};
     try {
       const saved = localStorage.getItem('weekVisibility');
-      if (saved) savedVisibility = JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved) || {};
+        Object.entries(parsed).forEach(([k, v]) => {
+          if (v === true || v === 'true' || v === 1 || v === '1') savedVisibility[k] = true;
+          else if (v === false || v === 'false' || v === 0 || v === '0') savedVisibility[k] = false;
+          // ignore other values
+        });
+        // Persist cleaned values back if they differ
+        try {
+          const normStr = JSON.stringify(savedVisibility);
+          if (normStr !== saved) localStorage.setItem('weekVisibility', normStr);
+        } catch (e) { /* ignore */ }
+
+        // If user explicitly hid all weeks, restore one so the preview isn't empty
+        try {
+          const dataWeeks = Object.keys(window.dailySalesByWeek || {}).filter(k => Array.isArray(window.dailySalesByWeek[k]) && window.dailySalesByWeek[k].length > 0);
+          const hasAnyTrue = Object.keys(savedVisibility).some(k => savedVisibility[k] === true);
+          if (dataWeeks.length > 1 && Object.keys(savedVisibility).length > 0 && !hasAnyTrue) {
+            savedVisibility[dataWeeks[0]] = true;
+            localStorage.setItem('weekVisibility', JSON.stringify(savedVisibility));
+          }
+        } catch (e) { /* ignore */ }
+      }
     } catch (e) { /* ignore */ }
 
     // Collect all paid sales from all weeks, respecting hidden meta AND localStorage visibility

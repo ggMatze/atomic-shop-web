@@ -5,7 +5,7 @@
       "hidden": false
     },
     "Week2": {
-      "hidden": true
+      "hidden": false
     },
     "Week3": {
       "hidden": true
@@ -1166,7 +1166,740 @@
         "endTime": "2026-01-13T12:00:00.000Z"
       }
     ],
-    "Week2": [],
+    "Week2": [
+      {
+        "replaceItemID": 101,
+        "itemID": "jan13_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "The Nodding Donkey",
+        "itemNameShort": "The Nodding Donkey",
+        "itemDesc": "A charming nodding donkey decoration for your camp.",
+        "primaryImage": {
+          "imageName": "atx__camp_collector_thenoddingdonkey_l.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx__camp_collector_thenoddingdonkey_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx__camp_collector_thenoddingdonkey_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-13T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2026-01-13T12:00:00.000Z",
+        "endTime": "2026-01-14T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 102,
+        "itemID": "jan13_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Beezlebub Plushie",
+        "itemNameShort": "Beezlebub Plushie",
+        "itemDesc": "A cuddly Beezlebub plushie to add character to your camp.",
+        "primaryImage": {
+          "imageName": "atx_camp_floordecor_plushie_beezlebub_l.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_floordecor_plushie_beezlebub_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_camp_floordecor_plushie_beezlebub_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-13T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2026-01-13T12:00:00.000Z",
+        "endTime": "2026-01-14T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 103,
+        "itemID": "jan13_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Taggerdy's Kit",
+        "itemNameShort": "Taggerdy's Kit",
+        "itemDesc": "A handy kit for tagging and organization around your C.A.M.P.",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_kit_taggerdys_l.webp",
+          "directory": "textures/atx/storefront/camp/kits/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_kit_taggerdys_c1.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_entm_camp_kit_taggerdys_c2.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-13T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 350
+        },
+        "highPrice": {
+          "originalAmount": 700
+        },
+        "startTime": "2026-01-13T12:00:00.000Z",
+        "endTime": "2026-01-14T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 101,
+        "itemID": "jan14_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Butterfly Sanctuary",
+        "itemNameShort": "Butterfly Sanctuary",
+        "itemDesc": "A serene butterfly sanctuary for your campgrounds.",
+        "primaryImage": {
+          "imageName": "atx_camp_collector_butterflysanctuary_l.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_collector_butterflysanctuary_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx_camp_collector_butterflysanctuary_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-14T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 350
+        },
+        "highPrice": {
+          "originalAmount": 700
+        },
+        "startTime": "2026-01-14T12:00:00.000Z",
+        "endTime": "2026-01-15T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 102,
+        "itemID": "jan14_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Mr. Bony Plushie",
+        "itemNameShort": "Mr. Bony Plushie",
+        "itemDesc": "A spooky-cute Mr. Bony plushie for collectors.",
+        "primaryImage": {
+          "imageName": "entm_camp_floordecor_plushie_mr.bony_l.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "entm_camp_floordecor_plushie_mr.bony_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "entm_camp_floordecor_plushie_mr.bony_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-14T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2026-01-14T12:00:00.000Z",
+        "endTime": "2026-01-15T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 103,
+        "itemID": "jan14_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Coalwood C.A.M.P. Kit",
+        "itemNameShort": "Coalwood C.A.M.P. Kit",
+        "itemDesc": "A themed C.A.M.P. kit inspired by Coalwood designs.",
+        "primaryImage": {
+          "imageName": "atx_camp_kit_coalwood_l.webp",
+          "directory": "textures/atx/storefront/camp/kits/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_kit_coalwood_c1.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_camp_kit_coalwood_c2.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_camp_kit_coalwood_c3.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_camp_kit_coalwood_c4.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-14T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 450
+        },
+        "highPrice": {
+          "originalAmount": 900
+        },
+        "startTime": "2026-01-14T12:00:00.000Z",
+        "endTime": "2026-01-15T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 101,
+        "itemID": "jan15_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Cement Truck",
+        "itemNameShort": "Cement Truck",
+        "itemDesc": "A construction-themed cement truck decoration.",
+        "primaryImage": {
+          "imageName": "atx_camp_collector_cementtruck.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_collector_cementtruck_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx_camp_collector_cementtruck_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-15T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 350
+        },
+        "highPrice": {
+          "originalAmount": 700
+        },
+        "startTime": "2026-01-15T12:00:00.000Z",
+        "endTime": "2026-01-16T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 102,
+        "itemID": "jan15_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Hamilton J. Pigg Plushie",
+        "itemNameShort": "Hamilton J. Pigg Plushie",
+        "itemDesc": "A lovable Hamilton J. Pigg plushie to display.",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_floordecor_plushie_hamilton_l.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_floordecor_plushie_hamilton_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_entm_camp_floordecor_plushie_hamilton_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-15T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 150
+        },
+        "highPrice": {
+          "originalAmount": 300
+        },
+        "startTime": "2026-01-15T12:00:00.000Z",
+        "endTime": "2026-01-16T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 103,
+        "itemID": "jan15_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Clean Ranch Housing Kit",
+        "itemNameShort": "Clean Ranch Housing Kit",
+        "itemDesc": "A kit that provides clean ranch-style housing pieces.",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_kit_cleanranchhousing_l.webp",
+          "directory": "textures/atx/storefront/camp/kits/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_kit_cleanranchhousing_c1.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_entm_camp_kit_cleanranchhousing_c2.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_entm_camp_kit_cleanranchhousing_c3.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_entm_camp_kit_cleanranchhousing_c4.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-15T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 350
+        },
+        "highPrice": {
+          "originalAmount": 700
+        },
+        "startTime": "2026-01-15T12:00:00.000Z",
+        "endTime": "2026-01-16T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 101,
+        "itemID": "jan16_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Americana Nuka-Cola Mystery Machine",
+        "itemNameShort": "Americana Nuka-Cola Mystery Machine",
+        "itemDesc": "A nostalgic Nuka-Cola themed mystery machine.",
+        "primaryImage": {
+          "imageName": "atx_utility_nukacolamysterymachine_americana.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_utility_nukacolamysterymachine_americana_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx_utility_nukacolamysterymachine_americana_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-16T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2026-01-16T12:00:00.000Z",
+        "endTime": "2026-01-17T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 102,
+        "itemID": "jan16_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Overgrown Rusher Plushie",
+        "itemNameShort": "Overgrown Rusher Plushie",
+        "itemDesc": "A plushie modeled after the Overgrown Rusher.",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_floordecor_plushie_overgrownrusher_l.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_floordecor_plushie_overgrownrusher_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_entm_camp_floordecor_plushie_overgrownrusher_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-16T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2026-01-16T12:00:00.000Z",
+        "endTime": "2026-01-17T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 103,
+        "itemID": "jan16_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Winding Path Kit",
+        "itemNameShort": "Winding Path Kit",
+        "itemDesc": "A kit that adds winding path pieces to your C.A.M.P.",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_kit_windingpath_l.webp",
+          "directory": "textures/atx/storefront/camp/kits/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_kit_windingpath_c1.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_entm_camp_kit_windingpath_c2.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_entm_camp_kit_windingpath_c3.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-16T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 350
+        },
+        "highPrice": {
+          "originalAmount": 700
+        },
+        "startTime": "2026-01-16T12:00:00.000Z",
+        "endTime": "2026-01-17T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 101,
+        "itemID": "jan17_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Patriot Popper Popcorn Machine",
+        "itemNameShort": "Patriot Popper Popcorn Machine",
+        "itemDesc": "A patriotic-themed popcorn machine for your C.A.M.P.",
+        "primaryImage": {
+          "imageName": "atx_camp_utility_popcornmachine_patriotpopper_l.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_utility_popcornmachine_patriotpopper_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx_camp_utility_popcornmachine_patriotpopper_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-17T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2026-01-17T12:00:00.000Z",
+        "endTime": "2026-01-18T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 102,
+        "itemID": "jan17_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Slocum's Joe Plushie",
+        "itemNameShort": "Slocum's Joe Plushie",
+        "itemDesc": "A Slocum's Joe plushie — a classic collectible.",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_floordecor_plushie_slocumsjoeplushie_l.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_floordecor_plushie_slocumsjoeplushie_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_entm_camp_floordecor_plushie_slocumsjoeplushie_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-17T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2026-01-17T12:00:00.000Z",
+        "endTime": "2026-01-18T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 103,
+        "itemID": "jan17_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Rustic Greenhouse C.A.M.P. Kit",
+        "itemNameShort": "Rustic Greenhouse C.A.M.P. Kit",
+        "itemDesc": "A rustic greenhouse kit for building an agricultural C.A.M.P.",
+        "primaryImage": {
+          "imageName": "atx_camp_kit_greenhouse_rustic_l.webp",
+          "directory": "textures/atx/storefront/camp/kits/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_kit_greenhouse_rustic_c1.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_camp_kit_greenhouse_rustic_c2.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_camp_kit_greenhouse_rustic_c3.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_camp_kit_greenhouse_rustic_c4.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-17T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 350
+        },
+        "highPrice": {
+          "originalAmount": 700
+        },
+        "startTime": "2026-01-17T12:00:00.000Z",
+        "endTime": "2026-01-18T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 101,
+        "itemID": "jan18_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Budding Apothecary Station",
+        "itemNameShort": "Budding Apothecary Station",
+        "itemDesc": "An apothecary station for crafting and brewing.",
+        "primaryImage": {
+          "imageName": "atx__camp_collector_buddingapothecary_l.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx__camp_collector_buddingapothecary_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx__camp_collector_buddingapothecary_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-18T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 350
+        },
+        "highPrice": {
+          "originalAmount": 700
+        },
+        "startTime": "2026-01-18T12:00:00.000Z",
+        "endTime": "2026-01-19T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 102,
+        "itemID": "jan18_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Comrade Fuzzy Plushie",
+        "itemNameShort": "Comrade Fuzzy Plushie",
+        "itemDesc": "A fuzzy plushie with a revolutionary flair.",
+        "primaryImage": {
+          "imageName": "atx_camp_floordecor_plushie_comradefuzzy.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_floordecor_plushie_comradefuzzy_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_camp_floordecor_plushie_comradefuzzy_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-18T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2026-01-18T12:00:00.000Z",
+        "endTime": "2026-01-19T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 103,
+        "itemID": "jan18_3",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Order of Mystery Set",
+        "itemNameShort": "Order of Mystery Set",
+        "itemDesc": "A mysterious set filled with themed decor.",
+        "primaryImage": {
+          "imageName": "score_s7_camp_kit_orderofmystery_l.webp",
+          "directory": "textures/atx/storefront/camp/kits/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "score_s7_camp_kit_orderofmystery_c1.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "score_s7_camp_kit_orderofmystery_c2.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "score_s7_camp_kit_orderofmystery_c3.webp",
+            "directory": "textures/atx/storefront/camp/kits/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-18T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 350
+        },
+        "highPrice": {
+          "originalAmount": 700
+        },
+        "startTime": "2026-01-18T12:00:00.000Z",
+        "endTime": "2026-01-19T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 101,
+        "itemID": "jan19_1",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Deathclaw Slow Roaster",
+        "itemNameShort": "Deathclaw Slow Roaster",
+        "itemDesc": "A rugged slow roaster themed after the Deathclaw.",
+        "primaryImage": {
+          "imageName": "atx_camp_collector_deathclawslowroaster_l.webp",
+          "directory": "textures/atx/storefront/camp/utility/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_collector_deathclawslowroaster_c1.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          },
+          {
+            "imageName": "atx_camp_collector_deathclawslowroaster_c2.webp",
+            "directory": "textures/atx/storefront/camp/utility/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-19T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 350
+        },
+        "highPrice": {
+          "originalAmount": 700
+        },
+        "startTime": "2026-01-19T12:00:00.000Z",
+        "endTime": "2026-01-20T12:00:00.000Z"
+      },
+      {
+        "replaceItemID": 102,
+        "itemID": "jan19_2",
+        "isClown": false,
+        "disabled": false,
+        "itemName": "Patriotic Cappy Plushie",
+        "itemNameShort": "Patriotic Cappy Plushie",
+        "itemDesc": "A patriotic Cappy plushie perfect for collectors.",
+        "primaryImage": {
+          "imageName": "atx_camp_floordecor_plushie_patrioticcappy.webp",
+          "directory": "textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_floordecor_plushie_patrioticcappy_c1.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_camp_floordecor_plushie_patrioticcappy_c2.webp",
+            "directory": "textures/atx/storefront/camp/floordecoration/"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-01-19T12:00:00.000Z",
+          "isLto": true
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2026-01-19T12:00:00.000Z",
+        "endTime": "2026-01-20T12:00:00.000Z"
+      }
+    ],
     "Week3": [],
     "Week4": [],
     "Week5": []
