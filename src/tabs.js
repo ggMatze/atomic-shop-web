@@ -655,11 +655,12 @@ if (typeof window !== 'undefined') {
           if (normStr !== saved) localStorage.setItem('weekVisibility', normStr);
         } catch (e) { /* ignore */ }
 
-        // If user explicitly hid all weeks, restore one so the preview isn't empty
+        // If user explicitly hid all weeks (i.e. they set every available week to false), restore one so the preview isn't empty
         try {
           const dataWeeks = Object.keys(window.dailySalesByWeek || {}).filter(k => Array.isArray(window.dailySalesByWeek[k]) && window.dailySalesByWeek[k].length > 0);
-          const hasAnyTrue = Object.keys(savedVisibility).some(k => savedVisibility[k] === true);
-          if (dataWeeks.length > 1 && Object.keys(savedVisibility).length > 0 && !hasAnyTrue) {
+          // Only treat this as "all hidden" when *every* available week is explicitly set to false.
+          const allExplicitlyHidden = dataWeeks.length > 0 && dataWeeks.every(k => savedVisibility[k] === false);
+          if (dataWeeks.length > 1 && allExplicitlyHidden) {
             savedVisibility[dataWeeks[0]] = true;
             localStorage.setItem('weekVisibility', JSON.stringify(savedVisibility));
           }
