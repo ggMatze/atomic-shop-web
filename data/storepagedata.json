@@ -1420,6 +1420,631 @@
         ]
       },
       {
+        "name": "Weekend Sale \\n The show begins!",
+        "tabid": "weekend-sale",
+        "isZeus": false,
+        "image": {
+          "imageName": "020b201b3595dd4c555ce48cdc45a582.dds",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2433305,
+            "itemName": "Fun and Free Bundle",
+            "itemNameShort": "Fun and Free Bundle",
+            "itemDesc": "Live life on the fun and free side!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n [h]*This bundle contains of previously released items, packaged together as a value bundle.[/h]",
+            "primaryImage": {
+              "imageName": "ee5451419fcc5e37faf83d44c57ebcdb.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_kit_destroyedcamp_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_destroyedcampporch_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_structure_stairs_destroyed_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_lights_letters_bulb_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_sign_billboard_solid_clean_l.webp",
+                "directory": "/textures/atx/storefront/camp/signs/"
+              },
+              {
+                "imageName": "atx_entm_camp_bed_guest.webp",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "atx_entm_camp_lights_wall_cocktailsign_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "score_s4_skin_weaponskin_powerfist_icebreaker_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "angry_fist.webp",
+                "directory": "/textures/emotes/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Destroyed C.A.M.P. Kit"
+              },
+              {
+                "szItemName": "Destroyed C.A.M.P. Porch Kit"
+              },
+              {
+                "szItemName": "Destroyed Stairs"
+              },
+              {
+                "szItemName": "Light Bulb Letters Set"
+              },
+              {
+                "szItemName": "Clean Solid Billboard"
+              },
+              {
+                "szItemName": "Modern Conveniences Bed"
+              },
+              {
+                "szItemName": "Cocktail Sign"
+              },
+              {
+                "szItemName": "Icebreaker (Power Fist)"
+              },
+              {
+                "szItemName": "Angry Fist Shake"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1130,
+              "originalAmount": 1500,
+              "isLto": true,
+              "ltoTimer": "2026-01-22T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isNew": 2,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2433306,
+            "itemName": "Presidential Power Bundle",
+            "itemNameShort": "Presidential Power Bundle",
+            "itemDesc": "Show off the true power of the President with the Presidential Power Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "6dca16957e46155978c006c1bb04e86f.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s14_camp_walldecor_painting_freedom02_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s14_camp_walldeco_curtain_long_ovaloffice_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s14_skin_weaponskin_50calmachinegun_presidential_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s14_entm_camp_floordecor_rug_ovalofficerug_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s14_camp_walldecor_painting_freedom04_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s14_camp_wallpaper_ovaloffice_l.webp",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
+              },
+              {
+                "imageName": "score_s14_skin_powerarmor_paint_t45_presidential_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s14_skin_powerarmor_paint_t51_presidential_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s14_skin_powerarmor_paint_t60_presidential_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s14_skin_powerarmor_paint_t65_presidential_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s14_skin_powerarmor_paint_x01_presidential_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s14_skin_powerarmor_paint_ultracite_presidential_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s14_skin_powerarmor_paint_excavator_presidential_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s14_skin_powerarmor_paint_hellcat_presidential_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s14_skin_powerarmor_paint_union_presidential_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_playericon_s14_eagleballoon.webp",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Fight For Freedom: Alaska Liberation Painting"
+              },
+              {
+                "szItemName": "Oval Office Long Curtains"
+              },
+              {
+                "szItemName": "Presidential Paint (.50 Cal Machine Gun)"
+              },
+              {
+                "szItemName": "Oval Office Rug"
+              },
+              {
+                "szItemName": "Fight For Freedom: Storming the Beach Painting"
+              },
+              {
+                "szItemName": "Oval Office Wallpaper"
+              },
+              {
+                "szItemName": "Presidential T-45 Power Armor Paint"
+              },
+              {
+                "szItemName": "Presidential T-51 Power Armor Paint"
+              },
+              {
+                "szItemName": "Presidential T-60 Power Armor Paint"
+              },
+              {
+                "szItemName": "Presidential T-65 Power Armor Paint"
+              },
+              {
+                "szItemName": "Presidential X-01 Power Armor Paint"
+              },
+              {
+                "szItemName": "Presidential Ultracite Power Armor Paint"
+              },
+              {
+                "szItemName": "Presidential Excavator Power Armor Paint"
+              },
+              {
+                "szItemName": "Presidential Hellcat Power Armor Paint"
+              },
+              {
+                "szItemName": "Presidential Union Power Armor Paint"
+              },
+              {
+                "szItemName": "Eagle Balloon Player Icon"
+              }
+            ],
+            "lowPrice": {
+              "amount": 900,
+              "originalAmount": 900,
+              "isLto": true,
+              "ltoTimer": "2026-01-22T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 900,
+              "originalAmount": 900
+            },
+            "highPrice": {
+              "amount": 1800,
+              "originalAmount": 1800
+            },
+            "isNew": false,
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2433307,
+            "itemName": "Astronaut Trainee Bundle",
+            "itemNameShort": "Astronaut Trainee Bundle",
+            "itemDesc": "Get ready for a space adventure!\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\r\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\r\n",
+            "primaryImage": {
+              "imageName": "7e406f2e0331768180b9ab886d3a9b64.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s1_skin_powerarmor_paint_captaincosmos_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s1_skin_powerarmor_jetpack_captaincosmos_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_backpack_space_01_l.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_jumpsuit_spacesuitclean1_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_spacesuitjumpsuithatclean_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_skin_weaponskin_alienblaster_steel_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Captain Cosmos Power Armor"
+              },
+              {
+                "szItemName": "Captain Cosmos Jetpack"
+              },
+              {
+                "szItemName": "Space Explorer Backpack Skin"
+              },
+              {
+                "szItemName": "Space Suit"
+              },
+              {
+                "szItemName": "Space Suit Helmet"
+              },
+              {
+                "szItemName": "Untarnished Paint (Alien Blaster)"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1080,
+              "originalAmount": 1080,
+              "isLto": true,
+              "ltoTimer": "2026-01-22T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1080,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2433119,
+            "itemName": "Responder Power Armor Paint",
+            "itemNameShort": "Responder Power Armor Paint",
+            "itemDesc": "Get out there and help those in need with the Responder Power Armor Paint!\r\n\r\nThis is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "atx_skin_powerarmor_paint_responder_l.webp",
+              "directory": "/textures/atx/storefront/player/powerarmor/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_powerarmor_paint_responder_c1.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_responder_c2.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_responder_c3.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 900,
+              "originalAmount": 900,
+              "isLto": true,
+              "ltoTimer": "2026-01-22T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 900,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2432958,
+            "itemName": "Rustic Wallpaper Set",
+            "itemNameShort": "Rustic Wallpaper Set",
+            "itemDesc": "Create an idyllic homestead with the Rustic Wallpaper Set.\r\n\r\nIncludes the Black Ceramic Wallpaper, White Porcelain Wallpaper, Weathered Wood Wallpaper, and the Vintage Wallpaper.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "38cbaa22e3708ff4a8dd05f4a606e1d2.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_wallpaper_ceramictile_02_l.webp",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
+              },
+              {
+                "imageName": "atx_camp_wallpaper_ceramictile_01_l.webp",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
+              },
+              {
+                "imageName": "atx_camp_wallpaper_woodpanel_01_l.webp",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
+              },
+              {
+                "imageName": "atx_camp_wallpaper_vintagepattern_01_l.webp",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 420,
+              "originalAmount": 420,
+              "isLto": true,
+              "ltoTimer": "2026-01-22T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 420,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2432885,
+            "itemName": "Red Rocket Diner Set",
+            "itemNameShort": "Red Rocket Diner Set",
+            "itemDesc": "Turn your C.A.M.P. into a service station Diner with the Red Rocket Diner Set!\r\n\r\nInlcudes the Red Rocket Bar set, Diner Table, Bistro Table, Bar Stools, and Diner Booth Seat.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "07b628fca3b4e264d15bb6390295d179.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_furniture_rrbistrotable_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_entm_camp_furniture_redrocket_stools_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_furniture_barset_redrocket_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_furniture_rrdinertable_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_furniture_booth_redrocket_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 420,
+              "originalAmount": 420,
+              "isLto": true,
+              "ltoTimer": "2026-01-22T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 420,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2432917,
+            "itemName": "Black Paint",
+            "itemNameShort": "Black Paint",
+            "itemDesc": "Simple and distinctive, this Black Paint will give your Pip-Boy a sleek, stealthy style.\r\n\r\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_pipboy_black_l.webp",
+              "directory": "/textures/atx/storefront/player/pipboy/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_pipboy_black_c1.dds",
+                "directory": "/textures/atx/storefront/player/pipboy/"
+              },
+              {
+                "imageName": "atx_pipboy_black_c2.dds",
+                "directory": "/textures/atx/storefront/player/pipboy/"
+              },
+              {
+                "imageName": "atx_pipboy_black_c3.dds",
+                "directory": "/textures/atx/storefront/player/pipboy/"
+              },
+              {
+                "imageName": "atx_pipboy_black_c4.dds",
+                "directory": "/textures/atx/storefront/player/pipboy/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 360,
+              "originalAmount": 360,
+              "isLto": true,
+              "ltoTimer": "2026-01-22T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 360,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 600
+            },
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 4,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2433248,
+            "itemName": "Cowboy Hat",
+            "itemNameShort": "Cowboy Hat",
+            "itemDesc": "Channel your inner gunslinger, even if Texas is a Wasteland away.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_apparel_headwear_western_hat_02_l.webp",
+              "directory": "/textures/atx/storefront/player/headwear/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_headwear_western_hat_02_c1.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_western_hat_02_c2.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_western_hat_02_c3.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_western_hat_02_c4.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 150,
+              "originalAmount": 150,
+              "isLto": true,
+              "ltoTimer": "2026-01-22T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 150,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 250
+            },
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 4,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2432401,
+            "itemName": "Butch-O-Bot Cooking Station",
+            "itemNameShort": "B.O.B. Cooking Station",
+            "itemDesc": "Whatever your butcher needs, Butch-O-Bot has you covered! B.O.B. is not responsible for harm incurred during use.\r\n\r\nThis offer is exclusive to Fallout 1st Members. Available September 2023.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx__camp_machinery_workbench_cooking_robotbutcher_l.webp",
+              "directory": "/textures/atx/storefront/camp/machinery/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx__camp_machinery_workbench_cooking_robotbutcher_c1.dds",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "atx__camp_machinery_workbench_cooking_robotbutcher_c2.dds",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-01-22T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "isNew": false,
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            }
+          }
+        ]
+      },
+      {
         "name": "Season 1 Throwback \\n Oh, the memories!",
         "tabid": "season-1-throwback",
         "isZeus": false,
