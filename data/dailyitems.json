@@ -80,14 +80,19 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Improved Bait X5",
-      "itemNameShort": "Improved Bait X5",
-      "itemDesc": "Improve your chances of hooking the big one with this Improved Bait! \r\n\r\n- CAN BE SELECTED BEFORE CASTING LINE DURING FISHING. GRANTED WHEN ENTERING ADVENTURE MODE. SUBJECT TO MAX WEIGHT.",
+      "itemName": "Free Lunchbox",
+      "itemNameShort": "Free Lunchbox",
+      "itemDesc": "Open for you and your friends! You and those who are close by get an XP Boost and a random effect for 1 hour!",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "score_utility_improvedbait_l.webp"
+        "imageName": "atx_store_lunchbox001_l.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_store_lunchbox001_l.webp"
+        }
+      ],
       "lowPrice": {
         "ltoTimer": "2026-01-16T12:00:00.000Z",
         "isLto": true,
@@ -279,19 +284,14 @@
       "replaceItemID": 2366300,
       "itemID": 2366300,
       "isZeus": true,
-      "itemName": "Free Lunchbox",
-      "itemNameShort": "Free Lunchbox",
-      "itemDesc": "Open a Lunchbox for you and your friends! You and players nearby receive an XP Boost and a random Buff Effect for a hour!\r\n For Odds and Effects Information, visit the Help ingame > Lunchboxes! \r\n\r\n- LUNCHBOXES ARE UNDER AID IN THE PIP-BOY. LUNCHBOXES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
+      "itemName": "Repair Kit",
+      "itemNameShort": "Repair Kit",
+      "itemDesc": "Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_store_lunchbox001_l.webp"
+        "imageName": "atx_utility_repairkit_basic_l.webp"
       },
-      "carouselImages": [
-        {
-          "directory": "textures/atx/storefront/utility/",
-          "imageName": "atx_store_lunchbox001_l.webp"
-        }
-      ],
+      "carouselImages": [],
       "lowPrice": {
         "ltoTimer": "2026-01-16T12:00:00.000Z",
         "isLto": true,
@@ -311,12 +311,12 @@
       "replaceItemID": 2366300,
       "itemID": 2366300,
       "isZeus": true,
-      "itemName": "Gold Bullion x100",
-      "itemNameShort": "Gold Bullion x100",
-      "itemDesc": "There's always money in gold! Some gold bullion to buy from the various vendors of the world! \r\n\r\n- GRANTED WHEN ENTERING ADVENTURE MODE. SUBJECT TO PER CHARACTER MAX-\r\n\r\n[h]Note: Item description generated with AI assistance due to the large number of items that would have required extensive manual research[/h]",
+      "itemName": "Perk Card Pack",
+      "itemNameShort": "Perk Card Pack",
+      "itemDesc": "A pack with four perk cards (and a bubblegum joke)! \r\n\r\n- SELECT THIS ITEM IN THE PERK MENU. PERK CARD PACKS WILL BE GRANTED TO THE CHOSEN CHARACTER. -",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "score_currency_bullion_l.webp"
+        "imageName": "score_game_perkcardpack_l.webp"
       },
       "carouselImages": [],
       "lowPrice": {
@@ -1538,20 +1538,20 @@
         "itemID": "jan16_2",
         "isClown": false,
         "disabled": false,
-        "itemName": "Overgrown Rusher Plushie",
-        "itemNameShort": "Overgrown Rusher Plushie",
-        "itemDesc": "A plushie modeled after the Overgrown Rusher.",
+        "itemName": "Stalker Plushie",
+        "itemNameShort": "Stalker Plushie",
+        "itemDesc": "It seems to allways be watching... \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN BUILD MODE. - ",
         "primaryImage": {
-          "imageName": "atx_entm_camp_floordecor_plushie_overgrownrusher_l.webp",
+          "imageName": "atx_camp_floordecor_plushie_stalker_l.webp",
           "directory": "textures/atx/storefront/camp/floordecoration/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_entm_camp_floordecor_plushie_overgrownrusher_c1.webp",
+            "imageName": "atx_camp_floordecor_plushie_stalker_c1.webp",
             "directory": "textures/atx/storefront/camp/floordecoration/"
           },
           {
-            "imageName": "atx_entm_camp_floordecor_plushie_overgrownrusher_c2.webp",
+            "imageName": "atx_camp_floordecor_plushie_stalker_c2.webp",
             "directory": "textures/atx/storefront/camp/floordecoration/"
           }
         ],
