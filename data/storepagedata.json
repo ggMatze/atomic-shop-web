@@ -773,76 +773,80 @@
             "itemDesc": "This bundle is out of this world.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
             "primaryImage": {
               "imageName": "04eb076fd8e40d3e723d996fe9fe0109.dds",
-              "directory": "textures/atomic_shop_media/"
+              "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
                 "imageName": "cae039cf9279923e760dbc660000bdcc.dds",
-                "directory": "textures/atomic_shop_media/"
+                "directory": "/textures/atomic_shop_media/"
               },
               {
-                "imageName": "ATX_Skin_WeaponSkin_AlienRifle_FlatwoodsMonster_C1.dds",
-                "directory": "Textures/ATX/Storefront/Player/WeaponSkin/"
+                "imageName": "atx_skin_weaponskin_alienrifle_flatwoodsmonster.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
               },
               {
-                "imageName": "ATX_CAMP_Machinery_Generator_Fusion_Alien_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Machinery/"
+                "imageName": "atx_camp_floordecor_aliencrate_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
-                "imageName": "ATX_CAMP_WallPaper_Alien_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Wallpaper/"
+                "imageName": "atx_camp_machinery_generator_fusion_alien_l.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
               },
               {
-                "imageName": "ATX_CAMP_Structure_AlienCatwalk_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Structures/"
+                "imageName": "atx_camp_structure_aliencatwalk_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
               },
               {
-                "imageName": "ATX_CAMP_Door_Metal_Alien_Sliding_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Doors/"
+                "imageName": "atx_camp_wallpaper_alien_l.webp",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
               },
               {
-                "imageName": "ATX_CAMP_FloorDecor_AlienCrate_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/FloorDecoration/"
+                "imageName": "atx_camp_door_metal_alien_sliding_c1.webp",
+                "directory": "/textures/atx/storefront/camp/doors/"
               },
               {
-                "imageName": "ATX_CAMP_Utility_UFO_Incense_C1.dds",
-                "directory": "Textures/ATX/Storefront/Camp/Utility/"
+                "imageName": "atx_camp_utility_ufo_incense_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "clown-face.png",
+                "directory": "/media/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Alien Catwalk"
-              },
-              {
                 "szItemName": "Alien Dining Table"
-              },
-              {
-                "szItemName": "Unidentified Fragrant Odor Incense Burner"
               },
               {
                 "szItemName": "Flatwoods Monster Paint"
               },
               {
+                "szItemName": "Alien Crate"
+              },
+              {
                 "szItemName": "Alien Power Generator"
               },
               {
-                "szItemName": "Alien Flag Emote"
+                "szItemName": "Alien Catwalk"
+              },
+              {
+                "szItemName": "Alien Wallpaper"
               },
               {
                 "szItemName": "Alien Sliding Door"
               },
               {
-                "szItemName": "Alien Crate"
+                "szItemName": "Unidentified Fragrant Odor Incense Burner"
               },
               {
-                "szItemName": "Alien Wallpaper"
+                "szItemName": "Alien Flag Emote"
               }
             ],
             "lowPrice": {
               "amount": 900,
               "originalAmount": 900,
               "isLto": true,
-              "ltoTimer": 1554556
+              "ltoTimer": "2026-02-03T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 900,
@@ -853,7 +857,12 @@
               "originalAmount": 1500
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2433297,
