@@ -171,12 +171,12 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Vault-Tec Supply Package (Level 2)",
-      "itemNameShort": "Vault-Tec Supply Package",
-      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
+      "itemName": "Improved Bait X5",
+      "itemNameShort": "Improved Bait X5",
+      "itemDesc": "Improve your chances of hooking the big one with this Improved Bait! \r\n\r\n- CAN BE SELECTED BEFORE CASTING LINE DURING FISHING. GRANTED WHEN ENTERING ADVENTURE MODE. SUBJECT TO MAX WEIGHT.",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_scrapball_level2_l.webp"
+        "imageName": "score_utility_improvedbait_l.webp"
       },
       "carouselImages": [],
       "lowPrice": {
@@ -369,14 +369,19 @@
       "replaceItemID": 2366300,
       "itemID": 2366300,
       "isZeus": true,
-      "itemName": "Free Carry Weight Booster",
-      "itemNameShort": "free Carry Weight",
-      "itemDesc": "Drink this and you will gain +50 Carry Weight for a half hour. \r\n\r\n- AVAILABLE FOR GOLD BULLION. UNDER THE FOOD AND DRINK TAB AND GRANTED WHEN ENTEING ADVENTURE MODE.\nSUBJECT TO PER CHARACTER MAX WEIGHT.",
+      "itemName": "Scrap Kit",
+      "itemNameShort": "Scrap Kit",
+      "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "score_utility_carryweight_l.webp"
+        "imageName": "atx_utility_repairkit_scraptostash_l.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+        }
+      ],
       "lowPrice": {
         "ltoTimer": "2026-01-19T12:00:00.000Z",
         "isLto": true,
@@ -1793,26 +1798,26 @@
       {
         "replaceItemID": 103,
         "itemID": "jan18_3",
-        "isClown": false,
+        "isClown": true,
         "disabled": false,
-        "itemName": "Order of Mystery Set",
-        "itemNameShort": "Order of Mystery Set",
-        "itemDesc": "A mysterious set filled with themed decor.",
+        "itemName": "Fire Hazard C.A.M.P. Kit",
+        "itemNameShort": "Fire Hazard Kit",
+        "itemDesc": "Stand the flames of nuclear war with the Fire Hazard C.A.M.P. kit. \n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN BUILD MODE. - \n [h]Originally the Order of Mystery Set was scheduled to return [/h]",
         "primaryImage": {
-          "imageName": "score_s7_camp_kit_orderofmystery_l.webp",
+          "imageName": "atx_camp_kit_firehazard.webp",
           "directory": "textures/atx/storefront/camp/kits/"
         },
         "carouselImages": [
           {
-            "imageName": "score_s7_camp_kit_orderofmystery_c1.webp",
+            "imageName": "atx_camp_kit_firehazard_c1.webp",
             "directory": "textures/atx/storefront/camp/kits/"
           },
           {
-            "imageName": "score_s7_camp_kit_orderofmystery_c2.webp",
+            "imageName": "atx_camp_kit_firehazard_c2.webp",
             "directory": "textures/atx/storefront/camp/kits/"
           },
           {
-            "imageName": "score_s7_camp_kit_orderofmystery_c3.webp",
+            "imageName": "atx_camp_kit_firehazard_c3.webp",
             "directory": "textures/atx/storefront/camp/kits/"
           }
         ],
