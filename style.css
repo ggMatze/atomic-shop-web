@@ -26,6 +26,7 @@ NEW                   #a92b65
 FREE                  #269547
 YOUR PRICE            #e07738
 FIRST                 #d9b206
+FIRST TEXT            #181c1d (dark)
 DISCOUNT              #23697d
 LIMITED TIME          #c94933
 ONLY TODAY            #fdf474 (yellow)
@@ -725,6 +726,12 @@ filter: saturate(0.5);
   background-color: #7b6a0a !important;
 }
 
+.tile-disabled .tile-1st-secondary {
+  filter: none !important;
+  color: black !important;
+  background-color: #7b6a0a !important;
+}
+
 .tile-disabled .free-badge {
   filter: none !important;
   color: rgb(155, 155, 155) !important;
@@ -839,8 +846,16 @@ filter: saturate(0.5);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 6px;
   padding-left: 10px;
   text-shadow: 2px 2px black;
+}
+
+.tile-badge .badge-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
 }
 .tile-badge-r {
   position: absolute;
@@ -852,11 +867,14 @@ filter: saturate(0.5);
   padding-right: 10px;
 }
 
+
+
 .discount::after {
   content: " Off!";
   font-size: 18px!important;
  
 }
+
 
 .tile-badge .discount {
   background: #23697d;
@@ -987,18 +1005,52 @@ filter: saturate(0.5);
 }
 
 .tile-1st {
-  right: 18px;
+  right: 10px;
   font-family: "Cabin", sans-serif;
   font-style: italic;
   position: relative;
   background: #d8b405;
-  border-radius: 6px;
-  transform: scale(1.2) skew(-13deg) scaley(0.95);
-  color: black;
+  border-radius: 3.8px;
+  transform: scale(1.1) skew(-13deg) scaley(0.95);
+  color: #181c1d;
   font-weight: bold;
   padding: 5px 5px;
   margin-bottom: 8px;
   font-size: 0px;
+}
+
+.tile-1st-secondary {
+  font-family: "Cabin", sans-serif;
+  font-style: italic;
+  position: relative;
+  background: #d8b405;
+  color: #181c1d;
+  font-weight: bold;
+  padding: 14px 8px;
+  font-size: 0px;
+  display: inline-block;
+  /* clip-path: polygon(0 10%, 100% 0, 95% 100%, 10% 95%); */
+  clip-path: polygon(10% 5%, 100% 1%, 95% 98%, 0 95%);
+  margin-left: -1px;
+  margin-top: -0px;
+  text-shadow: none;
+}
+
+.tile-1st-secondary::before {
+  content: "1";
+  line-height: 38px;
+  letter-spacing: -1px;
+  font-weight: bold;
+  font-size: 46px;
+  vertical-align: middle;
+}
+
+.tile-1st-secondary::after {
+  text-transform: lowercase;
+  content: "st";
+  font-weight: 900;
+  font-size: 15px;
+  vertical-align: top;
 }
 
 .tile-price {
@@ -1230,6 +1282,21 @@ body.uah-currency .tile-price .current-price::before {
   font-size: 24px;
   vertical-align: middle;
 }
+/*.shop-tile:has(.tile-timer)::before {
+  content: "";
+  height: 27px;
+  width: 155px;
+  position: absolute;
+  bottom: 56px;
+  right: -8px;
+  background: #000000;
+  padding: 14px 15px;
+  padding-left: 12px;
+  gap: 6px;
+  white-space: nowrap;
+  clip-path: polygon(0% 12.7%, 96.9% 0%, 100% 72.1%, 3.3% 100%);
+  transform: translate(4px,3px);
+}*/
 
 .tile-timer,.tile-dates {
   transform: translateZ(0);
@@ -1259,12 +1326,105 @@ body.uah-currency .tile-price .current-price::before {
 
 }
 
+.tile-timer-secondary {
+  font-family: "Berlin Sans FB", roboto condensed, sans-serif;
+  text-shadow: 1.5px 1.5px black;
+  position: absolute;
+  bottom: -30px;
+  left: 5px;
+  background: #CB4431;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  letter-spacing: 0.06em;
+  font-kerning: normal;
+  line-height: 0em;
+  display: flex;
+  align-items: center;
+  padding: 14px 15px;
+  padding-left: 12px;
+  gap: 6px;
+  white-space: nowrap;
+  width: 110px;
+  min-width: 110px;
+ 
+   /*                    up left    up right  down right   down left */
+  clip-path: polygon(  0% 20.9%,  95% 5%,  87.4% 90%,  8.9% 85.8% );
+  
+}
+.tile-timer-secondary::before {
+  content: "\1F553\FE0E ";
+  font-weight: normal;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.tile-timer-secondary .timer-text {
+  position: static;
+  top: auto;
+  transform: none;
+  line-height: 1.1em;
+  text-transform: capitalize;
+}
+
+.tile-timer-secondary .line1 {
+  display: none;
+}
+
+.tile-timer-secondary .line2 {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #fff;
+  white-space: nowrap;
+  line-height: 1em;
+  position: relative;
+  top: -2px;
+  font-family: inherit;
+  letter-spacing: 0.06em;
+  text-shadow: 1.5px 1.5px 1px #000;
+}
+
+/* when the secondary 1st badge is present, push the timer further right to avoid overlap */
+.tile-badge .tile-1st-secondary ~ .tile-timer-secondary,
+.tile-badge .tile-1st-secondary + .tile-timer-secondary {
+  right: -4px;
+  left: auto;
+  transform: translateY(4px);
+  z-index: 3;
+  padding: 17px 10px;
+  width: 118px;
+  /*                    up left    up right  down right   down left */
+  clip-path: polygon(  0% 20.9%,  100% 0%,  90% 87%,  8% 80.8% );
+}
+
+/* Highly-specific override for the case where the `.badge-top` contains a
+   `.tile-1st-secondary` and the `.tile-timer-secondary` immediately follows
+   the `.badge-top`. Using :has() limits this rule to that exact DOM shape so
+   other badge/timer layouts remain unaffected. Placed after the fallback so
+   it wins where supported. */
+.tile-badge .badge-top:has(.tile-1st-secondary) + .tile-timer-secondary,
+.tile-badge .badge-top:has(.tile-1st-secondary) ~ .tile-timer-secondary {
+right: -4px;
+left: auto;
+transform: translateY(4px);
+z-index: 3;
+padding: 17px 10px;
+width: 118px;
+/* up left up right down right down left */
+clip-path: polygon( 0% 20.9%, 100% 0%, 90% 87%, 8% 80.8% );
+}
+
+
 .shop-tile.small .remaining-badge {
   bottom: 36%;
   transform: scale(0.75);
   transform-origin: right bottom;
 }
+/*.shop-tile.small:has(.tile-timer)::before {
+  transform: scale(0.74) translate(7px,30px);
+  transform-origin: right bottom;
 
+}*/
 .remaining-badge {
   cursor: help;
   white-space: nowrap;
@@ -1333,6 +1493,8 @@ body.uah-currency .tile-price .current-price::before {
   text-transform: uppercase;
   white-space: normal;
 }
+
+
 
 @-moz-document url-prefix() {
   .timer-text {

@@ -1,4 +1,4 @@
-import { buildImageUrl, renderTimerHTML, renderDateRange } from './utils.js';
+import { buildImageUrl, renderTimerHTML, renderSecondaryTimerHTML, renderDateRange } from './utils.js';
 
 // Central parser for store timestamps. Returns epoch ms or NaN.
 function parseStoreTime(input) {
@@ -265,15 +265,28 @@ async function initTabs() {
   else if (item?.isNew === 2) newLabel = '<span class="newish-label">NEW<a class="asterisk">*</a></span>';
 
     // For preview pages (options.useEndTime === true) show a date-range label.
-    // For normal tabs show a limited-time timer if the item has an LTO. Prefer the explicit
-    // item.endTime when present (it represents the actual expiration) and fall back to
-    // lowPrice.ltoTimer for legacy datasets that encode seconds/epoch.
+    // For normal tabs show a limited-time timer if the item has an LTO.
     let expiresHTML = '';
+    let secondaryTimerHTML = '';
     if (options && options.useEndTime) {
       expiresHTML = renderDateRange(item);
     } else if (item?.lowPrice?.isLto) {
-      const endSource = item.endTime || (item.lowPrice && item.lowPrice.ltoTimer);
-      if (endSource) expiresHTML = renderTimerHTML(endSource);
+      const ltoTimer = item.lowPrice && item.lowPrice.ltoTimer;
+      const ltoTypeRaw = item.lowPrice && item.lowPrice.ltoType;
+      const ltoType = (typeof ltoTypeRaw !== 'undefined' && ltoTypeRaw !== null) ? Number(ltoTypeRaw) : null;
+
+      // ltoType: 1 => primary timer only, 2 => secondary timer only, null/other => show both
+      if (ltoTimer) {
+        if (ltoType === 1) {
+          expiresHTML = renderTimerHTML(ltoTimer);
+        } else if (ltoType === 2) {
+          if (discount > 0) secondaryTimerHTML = renderSecondaryTimerHTML(ltoTimer);
+        } else {
+          // default: show primary timer and (if discounted) the secondary badge-timer
+          expiresHTML = renderTimerHTML(ltoTimer);
+          if (discount > 0) secondaryTimerHTML = renderSecondaryTimerHTML(ltoTimer);
+        }
+      }
     }
 
     const dataItem = {
@@ -315,8 +328,12 @@ async function initTabs() {
           <img src="${storefrontImageSrc}" alt="${(item && item.itemName) || ''}" onerror="if(!this.src.endsWith('_l.webp')){this.src=this.src.replace('.webp','_l.webp');}else{this.onerror=null;}" />
         </div>
         <div class="tile-badge">
-          <span class="discount"></span>
+          <div class="badge-top">
+            <span class="discount"></span>
+            ${item?.isZeus && discount > 0 ? '<span class="tile-1st-secondary">&nbsp;</span>' : ''}
+          </div>
           ${newLabel}
+          ${discount > 0 ? secondaryTimerHTML : ''}
         </div>
         <div class="tile-badge-r">
           <span class="tile-1st hidden">&nbsp;</span>

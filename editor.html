@@ -4,15 +4,17 @@
   <meta charset="UTF-8" />
   <title>Atomic Shop Bundle Image Order Tool</title>
   <style>
-    body { background: #222; color: #eee; font-family: sans-serif; }
-    select, button { font-size: 1em; }
+    body { background: #222; color: #eee; font-family: sans-serif; font-size: 0.9em; }
+    select, button { font-size: 0.95em; padding: 4px 8px; }
     .bundle-list { margin: 1em 0; }
-    .img-list { display: flex; flex-wrap: wrap; gap: 16px; margin: 1em 0; }
-    .img-item { background: #333; border-radius: 8px; padding: 8px; display: flex; flex-direction: column; align-items: center; }
-    .img-item img { width: 120px; height: 120px; object-fit: cover; border: 2px solid #555; margin-bottom: 8px; background: #111; }
-    .img-item input { width: 220px; margin-bottom: 4px; }
-    .img-item button { margin: 2px 0; }
-    .includes-list { margin: 1em 0; background: #181818; padding: 8px; border-radius: 8px; }
+    .img-list { display: flex; flex-wrap: wrap; gap: 10px; margin: 1em 0; }
+    .img-item { background: #333; border-radius: 6px; padding: 6px; display: flex; flex-direction: column; align-items: center; width: 220px; }
+    .img-item input { width: 210px; margin-bottom: 3px; padding: 3px; font-size: 0.85em; }
+    .img-item button { margin: 1px; padding: 3px 6px; font-size: 0.85em; }
+    .img-item select { margin: 3px 0; padding: 3px; font-size: 0.85em; }
+    .editor-row { display: flex; gap: 12px; align-items: flex-start; }
+    .includes-list { margin: 1em 0; background: #181818; padding: 8px; border-radius: 8px; box-sizing: border-box; width: 38%; max-height: 420px; overflow: auto; }
+    .editor-controls { box-sizing: border-box; width: 60%; }
     .output { margin-top: 2em; }
     textarea { width: 100%; min-height: 60px; }
     .include-item {
@@ -29,7 +31,7 @@
   <h2>Bundle Image Order & Includes Checker</h2>
   <input type="file" id="jsonfile" accept=".json">
   <button id="load-json">Load storepagedata.json</button>
-  <button onclick="location.reload()">Reload JSON from disk</button>
+  <button id="reload-disk">Reload JSON from disk</button>
   <div class="bundle-list"></div>
   <div id="bundle-details"></div>
   <div class="output"></div>
@@ -111,6 +113,66 @@ function saveTempImagesToItem() {
   });
 }
 
+// Persist UI fields (timer, type, new/flags) into the previously shown item
+function persistUiToLastItem() {
+  if (!lastItem) return;
+  try {
+    // lto timer (datetime-local -> UTC ISO)
+    const ltotimerInput = document.getElementById('ltotimer-input');
+    const ltoVal = ltotimerInput ? ltotimerInput.value : '';
+    if (ltoVal) {
+      const m = ltoVal.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?/);
+      if (m) {
+        const year = parseInt(m[1], 10);
+        const month = parseInt(m[2], 10) - 1;
+        const day = parseInt(m[3], 10);
+        const hour = parseInt(m[4], 10);
+        const minute = parseInt(m[5], 10);
+        const second = m[6] ? parseInt(m[6], 10) : 0;
+        const dUtc = new Date(Date.UTC(year, month, day, hour, minute, second, 0));
+        if (!lastItem.lowPrice) lastItem.lowPrice = {};
+        lastItem.lowPrice.ltoTimer = dUtc.toISOString();
+      }
+    }
+
+    // ltoType
+    const ltotypeSelect = document.getElementById('lto-type-select');
+    if (ltotypeSelect) {
+      const v = ltotypeSelect.value;
+      if (v === 'none' || v === '') {
+        if (lastItem.lowPrice && lastItem.lowPrice.hasOwnProperty('ltoType')) delete lastItem.lowPrice.ltoType;
+      } else if (v === '1') {
+        if (!lastItem.lowPrice) lastItem.lowPrice = {};
+        lastItem.lowPrice.ltoType = 1;
+      } else if (v === '2') {
+        if (!lastItem.lowPrice) lastItem.lowPrice = {};
+        lastItem.lowPrice.ltoType = 2;
+      }
+    }
+
+    // isNew
+    const isNewSelect = document.getElementById('is-new-select');
+    if (isNewSelect) {
+      const v = isNewSelect.value;
+      if (v === 'none' || v === '') {
+        if (lastItem.hasOwnProperty('isNew')) delete lastItem.isNew;
+      } else if (v === '1') {
+        lastItem.isNew = 1;
+      } else if (v === '2') {
+        lastItem.isNew = 2;
+      }
+    }
+
+    // isZeus / isClown
+    const is1 = document.getElementById('is-1st');
+    const isClown = document.getElementById('is-clown');
+    if (is1) lastItem.isZeus = !!is1.checked;
+    if (isClown) lastItem.isClown = !!isClown.checked;
+  } catch (e) {
+    // swallow errors; this is a best-effort persist when switching
+  }
+}
+
 // Show ALL items, not just bundles
 function showItems() {
   const itemsList = [];
@@ -141,6 +203,9 @@ function showItems() {
 }
 
 function showItemDetails(pageIdx, itemIdx) {
+  // Persist any UI changes from the previously shown item (timer, flags, etc.)
+  try { persistUiToLastItem(); } catch (e) { /* ignore */ }
+  // Persist image edits to the previous item as well
   saveTempImagesToItem();
 
   const item = storeData.StorePageData.pages[pageIdx].items[itemIdx];
@@ -229,42 +294,70 @@ function showItemDetails(pageIdx, itemIdx) {
   details.innerHTML = `
     <h3>${item.itemName || ''}</h3>
     <div><b>Description:</b> ${item.itemDesc || ''}</div>
-    <div class="includes-list"><b>Includes:</b>
-      <div id="includes-list">
+    <div class="editor-row">
+      <div class="includes-list"><b>Includes:</b>
+        <div id="includes-list">
         ${includes.map((i, idx) => `
           <div class="include-item" draggable="true" data-idx="${idx}">
             <span class="include-name">${i}</span>
             <button class="include-remove" data-idx="${idx}" title="Remove include" style="margin-left:8px;">✕</button>
           </div>
         `).join('')}
+        </div>
       </div>
-    </div>
-    <div>
-      <input id="new-image-name" placeholder="imageName (e.g. abc123.webp)">
-      <input id="new-image-dir" placeholder="directory (optional)">
-      <button onclick="addImage()">Add Image</button>
+      <div class="editor-controls">
+        <div>
+          <input id="new-image-name" placeholder="imageName (e.g. abc123.webp)">
+          <input id="new-image-dir" placeholder="directory (optional)">
+          <button onclick="addImage()">Add Image</button>
+        </div>
+        <div style="margin-top:12px;">
+          <button onclick="saveJson()">Save Modified JSON</button>
+        </div>
+        <div style="margin-top:12px;">
+          <b>Ablaufzeit (ltoTimer):</b>
+          <input type="datetime-local" id="ltotimer-input" value="${localValue}">
+          <div style="margin-top:8px;">
+            <label style="margin-right:12px;">
+              <b>New Label:</b>
+              <select id="is-new-select" style="margin-left:4px;">
+                <option value="none" ${(!item.isNew) ? 'selected' : ''}>None</option>
+                <option value="1" ${(item.isNew === 1 || item.isNew === true) ? 'selected' : ''}>NEW</option>
+                <option value="2" ${(item.isNew === 2) ? 'selected' : ''}>NEW*</option>
+              </select>
+            </label>
+            <label style="margin-left:12px;"><input type="checkbox" id="is-1st" ${item.isZeus === true ? 'checked' : ''} style="margin-right:4px;"> <b>1st</b></label>
+            <label style="margin-left:12px;"><input type="checkbox" id="is-clown" ${item.isClown === true ? 'checked' : ''} style="margin-right:4px;"> <b>Clown</b></label>
+          </div>
+          <div style="margin-top:8px;">
+            <label style="margin-right:12px;">
+              <b>Timer Type:</b>
+              <select id="lto-type-select" style="margin-left:4px;" title="None: show both timers | Type 1: primary timer only | Type 2: discount badge timer only">
+                <option value="none" title="Show both primary and secondary timers" ${(!item.lowPrice || !item.lowPrice.ltoType) ? 'selected' : ''}>None (both)</option>
+                <option value="1" title="Show primary timer only" ${(item.lowPrice && (item.lowPrice.ltoType === 1)) ? 'selected' : ''}>Type 1 (primary)</option>
+                <option value="2" title="Show discount badge timer only" ${(item.lowPrice && (item.lowPrice.ltoType === 2)) ? 'selected' : ''}>Type 2 (badge)</option>
+              </select>
+            </label>
+          </div>
+          <div style="margin-top:8px;">
+            <button id="save-ltotimer-btn">Speichern</button>
+            <span id="ltotimer-status" style="margin-left:8px;color:#ffe082;"></span>
+          </div>
+          <div style="margin-top:6px;font-size:0.95em;opacity:0.95;color:#dcb752;">
+            <em id="ltotimer-instruction">Enter the desired local time in the box above — the tool will save the corresponding UTC instant shown below.</em>
+          </div>
+          <div style="margin-top:4px;font-size:0.9em;opacity:0.9;color:#9ad1ff;">
+            Saved (UTC): <span id="ltotimer-saved-iso">&nbsp;</span>
+            &nbsp;— Local: <span id="ltotimer-saved-local">&nbsp;</span>
+          </div>
+          <div style="margin-top:4px;font-size:0.95em;opacity:0.8;">
+            Relativ: <span id="ltotimer-rel">${relValue}</span>
+          </div>
+        </div>
+      </div>
     </div>
     <div><b>Images:</b></div>
     <div class="img-list" id="img-list"></div>
-    <button onclick="outputOrder()">Output New Order as JSON</button>
-    <button onclick="saveJson()">Save Modified JSON</button>
-    <button onclick="outputImageList()">Output All Used Image Paths</button>
-    <div>
-      <b>Ablaufzeit (ltoTimer):</b>
-      <input type="datetime-local" id="ltotimer-input" value="${localValue}">
-      <button id="save-ltotimer-btn">Speichern</button>
-      <span id="ltotimer-status" style="margin-left:8px;color:#ffe082;"></span>
-      <div style="margin-top:6px;font-size:0.95em;opacity:0.95;color:#dcb752;">
-        <em id="ltotimer-instruction">Enter the desired local time in the box above — the tool will save the corresponding UTC instant shown below.</em>
-      </div>
-      <div style="margin-top:4px;font-size:0.9em;opacity:0.9;color:#9ad1ff;">
-        Saved (UTC): <span id="ltotimer-saved-iso">&nbsp;</span>
-        &nbsp;— Local: <span id="ltotimer-saved-local">&nbsp;</span>
-      </div>
-      <div style="margin-top:4px;font-size:0.95em;opacity:0.8;">
-        Relativ: <span id="ltotimer-rel">${relValue}</span>
-      </div>
-    </div>
   `;
   renderImages();
 
@@ -388,6 +481,7 @@ function showItemDetails(pageIdx, itemIdx) {
     if (isoEl) isoEl.textContent = iso;
     if (localEl) localEl.textContent = new Date(iso).toLocaleString();
   });
+
   if (window._ltotimerInterval) clearInterval(window._ltotimerInterval);
   window._ltotimerInterval = setInterval(() => {
     const dLocal = parseLocalDatetimeLocalValue(ltotimerInput.value);
@@ -410,6 +504,27 @@ function showItemDetails(pageIdx, itemIdx) {
       const iso = convertLocalToUtcIso(dLocal);
       if (!item.lowPrice) item.lowPrice = {};
       item.lowPrice.ltoTimer = iso;
+      // save ltoType from the select (1/none/2)
+      const ltotypeVal = document.getElementById('lto-type-select').value;
+      if (ltotypeVal === 'none' || ltotypeVal === '') {
+        if (item.lowPrice && item.lowPrice.hasOwnProperty('ltoType')) delete item.lowPrice.ltoType;
+      } else if (ltotypeVal === '1') {
+        item.lowPrice.ltoType = 1;
+      } else if (ltotypeVal === '2') {
+        item.lowPrice.ltoType = 2;
+      }
+      // save isNew from dropdown (1/2/none)
+      const isNewVal = document.getElementById('is-new-select').value;
+      if (isNewVal === 'none' || isNewVal === '') {
+        if (item.hasOwnProperty('isNew')) delete item.isNew;
+      } else if (isNewVal === '1') {
+        item.isNew = 1;
+      } else if (isNewVal === '2') {
+        item.isNew = 2;
+      }
+      // save 1st and clown checkboxes
+      item.isZeus = document.getElementById('is-1st').checked;
+      item.isClown = document.getElementById('is-clown').checked;
       document.getElementById('ltotimer-status').textContent = "Gespeichert!";
       setTimeout(() => document.getElementById('ltotimer-status').textContent = '', 1500);
       // Update relative display
@@ -420,6 +535,14 @@ function showItemDetails(pageIdx, itemIdx) {
         const localEl = document.getElementById('ltotimer-saved-local');
         if (isoEl) isoEl.textContent = iso;
         if (localEl) localEl.textContent = new Date(iso).toLocaleString();
+        // Persist any image edits to the item and re-render details so saved
+        // values become visible in the UI without requiring a full page reload.
+        try {
+          saveTempImagesToItem();
+        } catch (e) { /* ignore */ }
+        try {
+          showItemDetails(pageIdx, itemIdx);
+        } catch (e) { /* ignore */ }
     } else {
       document.getElementById('ltotimer-status').textContent = "Ungültiges Datum!";
     }
@@ -580,22 +703,25 @@ function renderImages() {
     optionsHtml += `<option value="_L"${selL}>_L</option>`;
 
     div.innerHTML = `
-      <img src="${imgUrl}" alt="${img.imageName}" 
-        onerror="this.style.opacity=0.3;this.title='Not found: '+this.src;">
-      <input value="${img.imageName}" readonly>
-      <input value="${(img.directory||'')}" onchange="updateImageDir(${idx}, this.value)" placeholder="directory (optional)">
-      <label style="margin-top:6px;"><input type="checkbox" ${img._isPrimary ? 'checked' : ''} onchange="togglePrimary(${idx}, this.checked)"> Primary</label>
-      <div style="margin-top:6px;">
-        <button onclick="swapImageName(${idx})">Swap Name</button>
-        <button onclick="swapImageDir(${idx})">Swap Dir</button>
-        <button onclick="removeImage(${idx})" style="margin-left:6px;color:#ff7878;">Remove</button>
+      <input value="${(img.directory||'')}" oninput="updateImageDir(${idx}, this.value)" placeholder="directory" style="width: 100%; font-size: 0.75em; margin-bottom: 3px; padding: 3px;">
+      <input value="${img.imageName}" oninput="updateImageName(${idx}, this.value)" style="width: 100%; font-size: 0.75em; margin-bottom: 6px; padding: 3px; background: #222; color: #eee;">
+      <div style="position: relative; display: inline-block; width: 220px; height: 220px; margin-bottom: 4px;">
+        <img src="${imgUrl}" alt="${img.imageName}" 
+          style="width: 100%; height: 100%; object-fit: cover; border: 1px solid #555; background: #111;"
+          onerror="this.style.opacity=0.3;this.title='Not found: '+this.src;">
+        <label style="position: absolute; top: 3px; right: 3px; background: rgba(0,0,0,0.8); padding: 3px; border-radius: 3px; cursor: pointer; display: flex; align-items: center; gap: 2px;">
+          <input type="checkbox" ${img._isPrimary ? 'checked' : ''} onchange="togglePrimary(${idx}, this.checked)" style="width: 14px; height: 14px; margin: 0; cursor: pointer;">
+          <span style="color: #ffd454; font-size: 0.7em;">P</span>
+        </label>
+        <div style="position: absolute; bottom: 3px; left: 3px; right: 3px; display: flex; gap: 2px;">
+          <button onclick="swapImageName(${idx})" style="flex: 1; padding: 2px; font-size: 0.9em; font-weight: bold;">Name</button>
+          <button onclick="swapImageDir(${idx})" style="flex: 1; padding: 2px; font-size: 0.9em; font-weight: bold;">Dir</button>
+          <button onclick="removeImage(${idx})" style="flex: 1; padding: 2px; font-size: 0.9em; font-weight: bold; color: #ff7878;">Del</button>
+        </div>
       </div>
-      <select data-idx="${idx}" class="suffix-select" onchange="changeSuffix(${idx}, this.value)">
+      <select data-idx="${idx}" class="suffix-select" onchange="changeSuffix(${idx}, this.value)" style="width: 100%; font-size: 0.8em;">
         ${optionsHtml}
       </select>
-      <div style="font-size:0.9em;opacity:0.7;">
-        ${img._isPrimary ? '<b>Primary Image</b>' : (idx+1)}
-      </div>
     `;
 
     // Drag events
@@ -675,6 +801,16 @@ window.updateImageDir = function(idx, dir) {
   if (dir && dir.charAt(0) !== '/') dir = '/' + dir;
   if (dir && dir.charAt(dir.length - 1) !== '/') dir = dir + '/';
   tempImages[idx].directory = dir;
+  renderImages();
+};
+
+// Update image name for an image
+window.updateImageName = function(idx, name) {
+  if (typeof idx !== 'number') idx = Number(idx);
+  if (!isFinite(idx)) return;
+  if (!name) name = '';
+  name = name.trim().toLowerCase();
+  tempImages[idx].imageName = name;
   renderImages();
 };
 
@@ -768,8 +904,20 @@ document.getElementById('jsonfile').addEventListener('change', function(e) {
   reader.readAsText(file);
 });
 
+// Reload page from disk
+document.getElementById('reload-disk').addEventListener('click', function() {
+  if (storeData && !confirm('This will reload the page and lose all edits. Continue?')) {
+    return;
+  }
+  location.reload();
+});
+
 // Load from fixed path
 document.getElementById('load-json').addEventListener('click', async function() {
+  // Ask for confirmation if data is already loaded
+  if (storeData && !confirm('Data is already loaded. Do you want to reload and lose all edits?')) {
+    return;
+  }
   try {
     const response = await fetch('/data/storepagedata.json');
     if (!response.ok) throw new Error('Could not load storepagedata.json');

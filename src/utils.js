@@ -79,6 +79,26 @@ export function renderTimerHTML(expiresAt) {
   </div>`;
 }
 
+export function renderSecondaryTimerHTML(expiresAt) {
+  const t = getTimeRemaining(expiresAt);
+  if (t.expired) return '';
+  let timeText;
+  if (t.days > 0) {
+    timeText = `${t.days} day${t.days > 1 ? 's' : ''}`;
+  } else if (t.hours > 0) {
+    timeText = `${t.hours} Hours`;
+  } else if (t.minutes > 0) {
+    timeText = `${t.minutes} Minutes`;
+  } else {
+    timeText = `${t.seconds} Seconds`;
+  }
+  return `<div class="tile-timer-secondary" data-expires="${expiresAt}">
+    <span class="timer-text">
+      <span class="line2">${timeText}</span>
+    </span>
+  </div>`;
+}
+
 // Renders date range HTML for item with startTime and endTime
 export function renderDateRange(item) {
   const startDate = item.startTime ? getDstAdjustedDate(item.startTime) : null;
@@ -105,6 +125,7 @@ if (typeof window !== 'undefined') {
   window.__utils.buildImageUrl = buildImageUrl;
   window.__utils.getTimeRemaining = getTimeRemaining;
   window.__utils.renderTimerHTML = renderTimerHTML;
+  window.__utils.renderSecondaryTimerHTML = renderSecondaryTimerHTML;
   window.__utils.renderDateRange = renderDateRange;
 }
 
