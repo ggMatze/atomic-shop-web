@@ -6,6 +6,7 @@
       "q": "What is this site?",
       "a": "This is my project, the 'User-Friendly Atomic Shop'. It aims to provide transparent pricing, correct images\nand user-friendly information about the Atomic Shop in Fallout 76."
     },
+
     {
       "q": "How does it work?",
       "a": "The site uses in-game data which gets compiled with the help of a member of the Fallout 76 community.\n  Images and missing images are pulled from the game files and then reordered manually to match the order of the included items in the shop.\nPrices are converted to other currencies based on SteamDB Atom pricing. Daily offers are compiled manually and stored to be automatically displayed."
@@ -21,8 +22,20 @@
       "urlLabel": "SteamDB — Atom pricing"
     },
     {
+      "q": "What do the labels and badges on offers mean?",
+      "a": "Labels and badges provide additional information about the offers, such as whether they are new, on sale, or other special designations.\nHover with your cursor over the badges/labels to see more details about what they mean."
+    },
+    {
+      "q": "Why are there discrepancies between this site and the official in-game Atomic Shop?",
+      "a": "Some items do not show up ingame if you already own them, while this site shows all available items.\nAdditionally, some items only appear if you meet certain conditions or the site data might be outdated.\nIf you notice discrepancies, please feel free to report them via the feedback form or GitHub."
+    },
+    {
+      "q": "Why are some images missing or incorrect?",
+      "a": "Some images may be missing or incorrect due to bethesda not providing better ones or errors on my side.\nIf you notice any missing or incorrect images, please feel free to submit better images via the GitHub repository."
+    },
+    {
       "q": "How often is the site updated?",
-      "a": "The site's content is usually updated on Tuesdays, but may take several hours depending on the extent of changes that have to be made.\n On patch days, updates might be delayed until the patch is live and the way to obtain the data is functional again."
+      "a": "The site's content is _usually updated on Tuesdays_ or and on Thursdays, but may take several hours depending on the extent of changes that have to be made.\n On patch days, updates might be delayed until the patch is live and the way to obtain the data is functional again."
     },
     {
       "q": "Why is there an/no Weekly Offers Preview tab?",
@@ -44,7 +57,7 @@
     },
     {
       "q": "Is there an GitHub repository for this project?",
-      "a": "Yes, the project is hosted on GitHub. There you can report issues, suggest improvements, or _submit better images_ for items.\nA guide on how to contribute can be found in the repository. You can find the repository at the following link:",
+      "a": "*Yes*, the project is hosted on GitHub. There you can report issues, suggest improvements, or _submit better images_ for items.\nA guide on how to contribute can be found in the repository. You can find the repository at the following link:",
         "url": "https://github.com/ggmatze/atomic-shop-web",
         "urlLabel": "GitHub Repository"
     },

@@ -198,6 +198,42 @@ function hideLoadingOverlayWhenReady() {
   });
 }
 
+// Save current URL and set canonical /faq path for sharing
+function saveUrlAndShowFaqPath() {
+  try {
+    // Determine and remember a sensible "previous" URL (remove any existing faq flag)
+    const cur = new URL(window.location);
+    // Build previous URL by deleting a bare 'faq' flag if present
+    if (cur.searchParams.has('faq')) {
+      cur.searchParams.delete('faq');
+      // normalize: if no search params left, clear the search string
+      const searchStr = cur.searchParams.toString();
+      const prevPath = cur.pathname.replace(/\/$/, '') || '/';
+      const prevHref = window.location.origin + prevPath + (searchStr ? ('?' + searchStr) : '') + (cur.hash || '');
+      window._prevUrlBeforeFaq = prevHref;
+    } else {
+      window._prevUrlBeforeFaq = window.location.href;
+    }
+
+    // canonical FAQ query flag (no value) at current pathname
+    const p = String(window.location.pathname || '/').replace(/\/$/, '') || '/';
+    window.history.replaceState({}, '', p + '?faq');
+  } catch (e) { /* ignore */ }
+}
+
+// Restore previously saved URL (if any)
+function restoreUrlAfterFaq() {
+  try {
+    if (window._prevUrlBeforeFaq) {
+      window.history.replaceState({}, '', window._prevUrlBeforeFaq);
+      delete window._prevUrlBeforeFaq;
+    } else {
+      // fallback to root
+      window.history.replaceState({}, '', '/');
+    }
+  } catch (e) { /* ignore */ }
+}
+
 // Initializes overlay event handlers
 function initOverlay() {
 
@@ -211,6 +247,7 @@ function initOverlay() {
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
       overlay.classList.add('hidden');
+      try { restoreUrlAfterFaq(); } catch (e) { /* ignore */ }
       // Restore default overlay content state when closed by background click
       document.querySelector('.overlay-content')?.classList.remove('hidden');
       document.getElementById('overlay-faq')?.classList.add('hidden');
@@ -222,6 +259,7 @@ function initOverlay() {
   if (overlayBtn) {
     overlayBtn.addEventListener('click', () => {
       overlay.classList.add('hidden');
+      try { restoreUrlAfterFaq(); } catch (e) { /* ignore */ }
       // Restore default overlay content state when closed via close button
       document.querySelector('.overlay-content')?.classList.remove('hidden');
       document.getElementById('overlay-faq')?.classList.add('hidden');
@@ -232,6 +270,7 @@ function initOverlay() {
   document.addEventListener('keydown', function(e) {
     if (!overlay.classList.contains('hidden') && e.key === 'Tab') {
       overlay.classList.add('hidden');
+      try { restoreUrlAfterFaq(); } catch (e) { /* ignore */ }
       // Restore default overlay content state when closed via Tab key
       document.querySelector('.overlay-content')?.classList.remove('hidden');
       document.getElementById('overlay-faq')?.classList.add('hidden');
@@ -367,6 +406,7 @@ function initOverlay() {
       } catch (e) {
       }
 
+      try { saveUrlAndShowFaqPath(); } catch (e) { /* ignore */ }
       overlay.classList.remove('hidden');
       document.querySelector('.overlay-content')?.classList.add('hidden');
       faqEl.classList.remove('hidden');
@@ -376,6 +416,7 @@ function initOverlay() {
   const faqClose = document.getElementById('faq-close-btn');
   if (faqClose) faqClose.addEventListener('click', function() {
     overlay.classList.add('hidden');
+    try { restoreUrlAfterFaq(); } catch (e) { /* ignore */ }
     document.querySelector('.overlay-content')?.classList.remove('hidden');
     document.getElementById('overlay-faq')?.classList.add('hidden');
   });
@@ -383,17 +424,30 @@ function initOverlay() {
 // Opens overlay for item specified in URL parameter "item"
 function openOverlayFromUrlIfNeeded() {
   if (window._overlayOpenedFromUrl) return;
-  const urlParams = new URLSearchParams(window.location.search);
+  const url = new URL(window.location);
+  const urlParams = url.searchParams;
   const itemParam = urlParams.get('item');
-  if (!itemParam) return;
-  window._overlayOpenedFromUrl = true;
-  const tiles = document.querySelectorAll('.shop-tile');
-  for (let tile of tiles) {
-    const dataItemAttr = tile.getAttribute('data-item');
-    if (!dataItemAttr) continue;
-    const data = JSON.parse(dataItemAttr.replace(/&apos;/g, "'"));
-    if (String(data.itemID) === itemParam) { tile.click(); break; }
+
+  if (itemParam) {
+    window._overlayOpenedFromUrl = true;
+    const tiles = document.querySelectorAll('.shop-tile');
+    for (let tile of tiles) {
+      const dataItemAttr = tile.getAttribute('data-item');
+      if (!dataItemAttr) continue;
+      const data = JSON.parse(dataItemAttr.replace(/&apos;/g, "'"));
+      if (String(data.itemID) === itemParam) { tile.click(); break; }
+    }
+    return;
   }
+
+  // If URL path is /faq open FAQ overlay
+  try {
+    // open when search contains a bare 'faq' flag (e.g. /?faq or &faq)
+    if (/[?&]faq(?:$|&)/.test(String(url.search || ''))) {
+      const faqLink = document.getElementById('faq-link');
+      if (faqLink) faqLink.click();
+    }
+  } catch (e) { /* ignore */ }
 }
 
 // Expose API for legacy script
