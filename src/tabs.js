@@ -261,8 +261,8 @@ async function initTabs() {
 
   // support three-state isNew: true/1 = NEW, 2 = newish (different styling)
   let newLabel = '';
-  if (item?.isNew === 1 || item?.isNew === true) newLabel = '<span class="new-label">NEW</span>';
-  else if (item?.isNew === 2) newLabel = '<span class="newish-label">NEW<a class="asterisk">*</a></span>';
+  if (item?.isNew === 1 || item?.isNew === true) newLabel = '<span class="new-label" title="This item is new to the shop.">NEW</span>';
+  else if (item?.isNew === 2) newLabel = '<span class="newish-label"  title="First time this item is for purchase in this configuration.">NEW<a class="asterisk">*</a></span>';
 
     // For preview pages (options.useEndTime === true) show a date-range label.
     // For normal tabs show a limited-time timer if the item has an LTO.
@@ -270,13 +270,31 @@ async function initTabs() {
     let secondaryTimerHTML = '';
     if (options && options.useEndTime) {
       expiresHTML = renderDateRange(item);
-    } else if (item?.lowPrice?.isLto) {
-      const ltoTimer = item.lowPrice && item.lowPrice.ltoTimer;
-      const ltoTypeRaw = item.lowPrice && item.lowPrice.ltoType;
+    } else {
+      // Check for LTO in two places: lowPrice (store items) or top-level (replacement items)
+      const isLto = item?.lowPrice?.isLto ?? item?.isLto;
+      let ltoTimer = (item?.lowPrice?.ltoTimer) ?? (item?.ltoTimer);
+      const ltoTypeRaw = item?.lowPrice?.ltoType;
       const ltoType = (typeof ltoTypeRaw !== 'undefined' && ltoTypeRaw !== null) ? Number(ltoTypeRaw) : null;
 
+      // Fallback: if ltoTimer is expired, try using endTime instead (handles data sync issues)
+      if (ltoTimer && isLto) {
+        const timerTs = parseStoreTime(ltoTimer);
+        if (!isNaN(timerTs) && timerTs < Date.now()) {
+          // ltoTimer is expired; check if endTime is in the future
+          const endTimeVal = item?.endTime || (item?.lowPrice && item.lowPrice.endTime);
+          if (endTimeVal) {
+            const endTs = parseStoreTime(endTimeVal);
+            if (!isNaN(endTs) && endTs > Date.now()) {
+              // Use endTime as fallback
+              ltoTimer = endTimeVal;
+            }
+          }
+        }
+      }
+
       // ltoType: 1 => primary timer only, 2 => secondary timer only, null/other => show both
-      if (ltoTimer) {
+      if (isLto && ltoTimer) {
         if (ltoType === 1) {
           expiresHTML = renderTimerHTML(ltoTimer);
         } else if (ltoType === 2) {
@@ -286,6 +304,13 @@ async function initTabs() {
           expiresHTML = renderTimerHTML(ltoTimer);
           if (discount > 0) secondaryTimerHTML = renderSecondaryTimerHTML(ltoTimer);
         }
+      }
+
+      // Diagnostic logging for items 101, 102, 103
+      if (item?.itemName && (item.itemName.includes('Champ') || item.itemName.includes('Cash Cage') || item.itemName.includes('Moonshine'))) {
+        try {
+          console.debug('[buildTileHTML] Timer check for', item.itemName, ':', { isLto, ltoTimer, expiresHTML: !!expiresHTML, htmlLength: expiresHTML?.length });
+        } catch (e) { /* ignore */ }
       }
     }
 
@@ -330,13 +355,13 @@ async function initTabs() {
         <div class="tile-badge">
           <div class="badge-top">
             <span class="discount"></span>
-            ${item?.isZeus && discount > 0 ? '<span class="tile-1st-secondary">&nbsp;</span>' : ''}
+            ${item?.isZeus && discount > 0 ? '<span class="tile-1st-secondary" title="Discount for Fo1st only.">&nbsp;</span>' : ''}
           </div>
           ${newLabel}
           ${discount > 0 ? secondaryTimerHTML : ''}
         </div>
         <div class="tile-badge-r">
-          <span class="tile-1st hidden">&nbsp;</span>
+          <span class="tile-1st hidden" title="This item is for Fo1st members only.">&nbsp;</span>
           <span class="clown-label hidden" title="Bethesda made a fool of themselves again!">&nbsp;</span>
         </div>
         ${(() => {

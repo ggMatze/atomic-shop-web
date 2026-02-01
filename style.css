@@ -902,11 +902,10 @@ filter: saturate(0.5);
   font-size: 24px;
   text-align: center;
   font-weight: bold;
-  /*clip-path: polygon(0 16%, 100% 0, 81% 100%, 8% 80%);*/
   /*                    up left    up right  down right   down left */
    clip-path: polygon(  0% 24.9%,  100% 0%,  87.4% 100%,  8.9% 85.8% );
-  /*rotate: -5deg;*/
 }
+
 .asterisk {
   color: #99eaf5;
   padding-left: 3px;
@@ -927,11 +926,10 @@ filter: saturate(0.5);
   font-size: 24px;
   text-align: center;
   font-weight: bold;
- /*lip-path: polygon(0 13%, 100% 0, 81% 100%, 8% 80%);*/
-    /*                    up left    up right  down right   down left */
+   /*                    up left    up right  down right   down left */
    clip-path: polygon(  0% 24.9%,  100% 0%,  87.4% 100%,  8.9% 85.8% );
-  /*rotate: -5deg;*/
 }
+
 .free-badge {
   font-family: "Berlin Sans FB", roboto condensed, sans-serif;
   text-shadow: 2px 2px black;
@@ -1330,9 +1328,9 @@ body.uah-currency .tile-price .current-price::before {
 .tile-timer-secondary {
   font-family: "Berlin Sans FB", roboto condensed, sans-serif;
   text-shadow: 1.5px 1.5px black;
-  position: absolute;
-  bottom: -30px;
-  left: 5px;
+  position: relative;
+  top: -20px;
+  left: -5px;
   background: #CB4431;
   color: white;
   font-weight: bold;
@@ -1344,9 +1342,11 @@ body.uah-currency .tile-price .current-price::before {
   align-items: center;
   padding: 14px 15px;
   padding-left: 12px;
+  margin-bottom: -25px;
   gap: 6px;
   white-space: nowrap;
-  width: 110px;
+  width: 112px;
+  max-width: 120px;
   min-width: 110px;
  
    /*                    up left    up right  down right   down left */
@@ -1405,8 +1405,9 @@ body.uah-currency .tile-price .current-price::before {
    it wins where supported. */
 .tile-badge .badge-top:has(.tile-1st-secondary) + .tile-timer-secondary,
 .tile-badge .badge-top:has(.tile-1st-secondary) ~ .tile-timer-secondary {
-right: -4px;
-left: auto;
+
+top: -26px;
+left: 4px;
 transform: translateY(4px);
 z-index: 3;
 padding: 17px 10px;
@@ -1434,9 +1435,9 @@ clip-path: polygon( 0% 20.9%, 100% 0%, 90% 87%, 8% 80.8% );
   bottom: 120px;
   right: 0px;
   display: flex;
-  flex-direction: column; /* stack ellipse and label */
+  flex-direction: column;
   align-items: center;
-  gap: 5px; /* space between ellipse and label */
+  gap: 5px; 
 }
 
 .remaining-number {
@@ -1447,7 +1448,7 @@ clip-path: polygon( 0% 20.9%, 100% 0%, 90% 87%, 8% 80.8% );
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* for ::before and label positioning */
+  position: relative;
 }
 
 .remaining-number-label {
@@ -1457,7 +1458,7 @@ clip-path: polygon( 0% 20.9%, 100% 0%, 90% 87%, 8% 80.8% );
   text-shadow: 1.5px 1.5px black;
   color: #f4ca5a;
   position: absolute;
-  left: 50%; /* adjust horizontal position */
+  left: 50%;
   top: 30%;
   transform: translate(-50%, -50%);
 }

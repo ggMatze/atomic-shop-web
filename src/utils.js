@@ -71,7 +71,7 @@ export function renderTimerHTML(expiresAt) {
   } else {
     timeText = `${t.seconds} Seconds`;
   }
-  return `<div class="tile-timer" data-expires="${expiresAt}">
+  return `<div class="tile-timer" title="Time until this item leaves the shop." data-expires="${expiresAt}">
     <span class="timer-text">
       <span class="line1">limited time!</span><br>
       <span class="line2">${timeText}</span>
@@ -92,7 +92,7 @@ export function renderSecondaryTimerHTML(expiresAt) {
   } else {
     timeText = `${t.seconds} Seconds`;
   }
-  return `<div class="tile-timer-secondary" data-expires="${expiresAt}">
+  return `<div class="tile-timer-secondary" title="Time until discount expires." data-expires="${expiresAt}">
     <span class="timer-text">
       <span class="line2">${timeText}</span>
     </span>
