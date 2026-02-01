@@ -221,15 +221,14 @@ function saveUrlAndShowFaqPath() {
   } catch (e) { /* ignore */ }
 }
 
-// Restore previously saved URL (if any)
+// Restore previously saved URL (if any) - only if FAQ was open
 function restoreUrlAfterFaq() {
   try {
-    if (window._prevUrlBeforeFaq) {
+    // only restore if FAQ overlay was actually shown (indicated by _prevUrlBeforeFaq being set)
+    const faqEl = document.getElementById('overlay-faq');
+    if (faqEl && !faqEl.classList.contains('hidden') && window._prevUrlBeforeFaq) {
       window.history.replaceState({}, '', window._prevUrlBeforeFaq);
       delete window._prevUrlBeforeFaq;
-    } else {
-      // fallback to root
-      window.history.replaceState({}, '', '/');
     }
   } catch (e) { /* ignore */ }
 }
