@@ -2,6 +2,548 @@
   "StorePageData": {
     "pages": [
       {
+        "name": "Souvenir for the Road \\n A journey well spent.",
+        "tabid": "souvenir-for-the-road",
+        "isZeus": false,
+        "image": {
+          "imageName": "b79a836c0d98517a28ed48d3c97d7292.dds",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2458783,
+            "itemName": "Beware of Deathclaw Bundle",
+            "itemNameShort": "Beware of Deathclaw Bundle",
+            "itemDesc": "Beware... they're everywhere.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "615ec6fedc714bc2fd93b6620a7108a2.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s14_camp_walldecor_bewareofdeathclawsign_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_camp_collector_deathclawslowroaster_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_deathclawradiationdummy_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_statue_minideathclaw_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_topiary_deathclaw_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_rug_deathclaw_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_deathclawmascot_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Beware of Deathclaw Sign"
+              },
+              {
+                "szItemName": "Deathclaw Slow Roaster"
+              },
+              {
+                "szItemName": "Deathclaw Radiation Dummy"
+              },
+              {
+                "szItemName": "Mini Deathclaw Statue"
+              },
+              {
+                "szItemName": "Deathclaw Topiary"
+              },
+              {
+                "szItemName": "Deathclaw Pelt Rug"
+              },
+              {
+                "szItemName": "Deathclaw Mascot Helmet"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1200,
+              "originalAmount": 1200,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1200,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1200
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458784,
+            "itemName": "Fun and Free Bundle",
+            "itemNameShort": "Fun and Free Bundle",
+            "itemDesc": "Live life on the fun and free side!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "ee5451419fcc5e37faf83d44c57ebcdb.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_kit_destroyedcamp_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_destroyedcampporch_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_structure_stairs_destroyed_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_sign_billboard_solid_clean_l.webp",
+                "directory": "/textures/atx/storefront/camp/signs/"
+              },
+              {
+                "imageName": "atx_entm_camp_bed_guest.webp",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "atx_entm_camp_lights_wall_cocktailsign_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "5a553eca5b638e6da32abc0c9a81f0d0.dds",
+                "directory": "/textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "score_s4_skin_weaponskin_powerfist_icebreaker_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "angry_fist.webp",
+                "directory": "/textures/emotes/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Destroyed C.A.M.P. Kit"
+              },
+              {
+                "szItemName": "Destroyed C.A.M.P. Porch Kit"
+              },
+              {
+                "szItemName": "Destroyed Stairs"
+              },
+              {
+                "szItemName": "Clean Solid Billboard"
+              },
+              {
+                "szItemName": "Modern Conveniences Bed"
+              },
+              {
+                "szItemName": "Cocktail Sign"
+              },
+              {
+                "szItemName": "Light Bulb Letters Set"
+              },
+              {
+                "szItemName": "Icebreaker (Power Fist)"
+              },
+              {
+                "szItemName": "Angry Fist Shake"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1130,
+              "originalAmount": 1500,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2444476,
+            "itemName": "A Better Life Bundle",
+            "itemNameShort": "A Better Life Bundle",
+            "itemDesc": "Build a better life with Vault-Tec and the A Better Life Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "f602f75a600c462821774800a4082c42.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_pipboy_vaulttec_l.webp",
+                "directory": "/textures/atx/storefront/player/pipboy/"
+              },
+              {
+                "imageName": "score_s3_camp_floor_carpeteria_vaulttec_l.webp",
+                "directory": "/textures/atx/storefront/camp/floors/"
+              },
+              {
+                "imageName": "atx_camp_utility_fusioncorerecharger_vaulttec_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_decoration_flagwaving_vaulttec_01_c1.dds",
+                "directory": "/textures/atx/storefront/camp/flags/"
+              },
+              {
+                "imageName": "atx_camp_utility_deconshower_vaulttec_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx__camp_lights_floorlamps_vault-tectripod_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_decoration_vaulttecspa_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_statue_statuevaultteclogo_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_vaulttecbomberjacket_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Vault-Tec Pip-Boy"
+              },
+              {
+                "szItemName": "Carpeteria Vault-Tec floor and foundation"
+              },
+              {
+                "szItemName": "Vault-Tec Fusion Core Recharger"
+              },
+              {
+                "szItemName": "Vault-Tec Flag"
+              },
+              {
+                "szItemName": "Vault-Tec Decontamination Shower"
+              },
+              {
+                "szItemName": "Vault-Tec Tripod Floor Lamp"
+              },
+              {
+                "szItemName": "Vault-Tec Spa"
+              },
+              {
+                "szItemName": "Vault-Tec Logo Statue"
+              },
+              {
+                "szItemName": "Vault-Tec Bomber Jacket"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1500,
+              "originalAmount": 1500,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458563,
+            "itemName": "Elder's Battlecoat",
+            "itemNameShort": "Elder's Battlecoat",
+            "itemDesc": "Wear the coat of the Brotherhood Elders.\r\n\r\nOriginally included with the E3 Bonus Atoms Bundle.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_apparel_outfit_elderbattlecoat_mp1_l.webp",
+              "directory": "/textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 1200,
+              "originalAmount": 1200,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1200,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1200
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458016,
+            "itemName": "Vault-Tec Bomber Jacket",
+            "itemNameShort": "Bomber Jacket",
+            "itemDesc": "Fly the (un)friendly skies with this officially branded Bomber Jacket from your friends at Vault-Tec.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_apparel_outfit_vaulttecbomberjacket_l.webp",
+              "directory": "/textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_outfit_vaulttecbomberjacket_c1.dds",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_vaulttecbomberjacket_c2.dds",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 800,
+              "originalAmount": 800,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 800,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1000
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458689,
+            "itemName": "Deathclaw Slow Roaster",
+            "itemNameShort": "Deathclaw Slow Roaster",
+            "itemDesc": "Time for a good old fashioned Deathclaw cookout!\r\n\r\nGenerates meat based meals.\r\n\r\nThis item cannot be built inside of a Shelter.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_collector_deathclawslowroaster_l.webp",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_collector_deathclawslowroaster_c1.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_collector_deathclawslowroaster_c2.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 560,
+              "originalAmount": 560,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 560,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2457944,
+            "itemName": "Destroyed C.A.M.P. Kit",
+            "itemNameShort": "Destroyed C.A.M.P. Kit",
+            "itemDesc": "This kit lets you create the perfect destroyed C.A.M.P. vibe, just watch that second plank.\r\n\r\nThis kit does not support wallpapers, and has a unique interior look. \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "36dbfa19a18addedc116bd97fe64f889.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_kit_destroyedcamp_c1.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_destroyedcamp_c2.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_destroyedcamp_c3.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_destroyedcamp_c4.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 560,
+              "originalAmount": 560,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 560,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 4,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458651,
+            "itemName": "Vault-Tec Engineer Power Armor T-60 Paint",
+            "itemNameShort": "Vault-Tec Engineer T-60  Paint",
+            "itemDesc": "Join the ranks of Vault-Tec's engineers with this Paint for your Power Armor. \r\nIncludes a unique paint for the T-60 Power Armor.\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "atx_skin_powerarmor_paint_vaulttec2_t60_l.webp",
+              "directory": "/textures/atx/storefront/player/powerarmor/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_powerarmor_paint_vaulttec2_c5.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_vaulttec2_c6.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458338,
+            "itemName": "Dinky Plushie",
+            "itemNameShort": "Dinky Plushie",
+            "itemDesc": "The tag reads \"Dino Dee-lite Motel\", sounds nice!\r\n\r\nAvailable as part of the Fallout First Limited Trial in December 2025.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_floordecor_plushie_dinky.dds",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_floordecor_plushie_dinky_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_plushie_dinky_c2.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
+          }
+        ]
+      },
+      {
         "name": "Valentine's Piggy \\n Radiate love!",
         "tabid": "valentine-s-piggy",
         "isZeus": false,
@@ -3120,7 +3662,7 @@
               {
                 "imageName": "atx_entm_camp_bed_guest.webp",
                 "directory": "/textures/atx/storefront/camp/beds/"
-              } 
+              }
             ],
             "dynamicBundleItems": [
               {
@@ -4200,7 +4742,6 @@
               "amount": 0,
               "originalAmount": 0,
               "isLto": false
-             
             },
             "lowestPurchasablePrice": {
               "amount": 0,
