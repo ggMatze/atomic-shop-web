@@ -2914,7 +2914,7 @@
             "isClown": false
           },
           {
-            "itemID": 2457898,
+            "itemID": 2316946,
             "itemName": "Free Scrap Kit",
             "itemNameShort": "Free Scrap Kit",
             "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!\r\n\r\n- USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
@@ -2947,7 +2947,7 @@
             "isClown": false
           },
           {
-            "itemID": 2458592,
+            "itemID": 2366300,
             "itemName": "Free Lunchbox",
             "itemNameShort": "Free Lunchbox",
             "itemDesc": "Open a Lunchbox for you and your friends! You and players nearby receive an XP Boost and a random Buff Effect for a hour!\r\n\r\nFor Odds and Effects Information, visit Help > Lunchboxes.\r\n\r\n- LUNCHBOXES ARE UNDER AID IN THE PIP-BOY. LUNCHBOXES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
@@ -2980,21 +2980,21 @@
             "isClown": false
           },
           {
-            "itemID": 2458295,
-            "itemName": "Tree Sap Collector",
-            "itemNameShort": "Sap Collector",
-            "itemDesc": "Stick to the basics and harness nature's glue with this Tree Sap Collector!\r\n\r\nTree Sap Collector dispenses Adhesive.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemID": 1010,
+            "itemName": "Caged Rabbit",
+            "itemNameShort": "Caged Rabbit",
+            "itemDesc": "Add your very own rabbit to your C.A.M.P. whith the Caged Rabbit.\n Generates fertilizer.\n[a]This item cannot be built inside of a Shelter.[/a]\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "atx_camp_utility_treesapbucket_l.webp",
+              "imageName": "atx_camp_collector_cagedrabbit_l.webp",
               "directory": "/textures/atx/storefront/camp/utility/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_camp_utility_treesapbucket_c1.dds",
+                "imageName": "atx_camp_collector_cagedrabbit_c1.webp",
                 "directory": "/textures/atx/storefront/camp/utility/"
               },
               {
-                "imageName": "atx_camp_utility_treesapbucket_c2.dds",
+                "imageName": "atx_camp_collector_cagedrabbit_c2.webp",
                 "directory": "/textures/atx/storefront/camp/utility/"
               }
             ],
@@ -3003,7 +3003,7 @@
               "amount": 250,
               "originalAmount": 250,
               "isLto": true,
-              "ltoTimer": "2026-02-04T12:00:00.000Z"
+              "ltoTimer": "2026-02-05T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 250,
@@ -3055,94 +3055,106 @@
             "isClown": false
           },
           {
-            "itemID": 2458804,
-            "itemName": "Bowling Team Bundle",
-            "itemNameShort": "Bowling Team Bundle",
-            "itemDesc": "Life has strikes and gutters, ups and downs. Find a way to relax with the Bowling Team Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemID": 1021,
+            "itemName": "A Show of Force Emote",
+            "itemNameShort": "A Show of Force",
+            "itemDesc": "Hit 'em with the 1-2 combo with the A Show of Force Emote.\r\n\r\n- UNLOCKS AN EMOTE OPTION. -",
             "primaryImage": {
-              "imageName": "bb0e3c1eda4276d32efecb20e153bf14.dds",
-              "directory": "/textures/atomic_shop_media/"
+              "imageName": "show_of_force.webp",
+              "directory": "/textures/emotes/"
             },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_displaycase_bowlingballrack.webp",
-                "directory": "/textures/atx/storefront/camp/displays/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_bowlingball_vault76blue_c1.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_bowlingball_goldhornwright_c1.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_bowlingball_blackalleycats_c1.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_bowlingball_redatombomb_c1.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_bowlingball_resinvaultboy_c1.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_apparel_outfit_alleycatsbowlingteam.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_skin_lootbag_bowlingball_l.webp",
-                "directory": "/textures/atx/storefront/player/lootbags/"
-              },
-              {
-                "imageName": "atx_entm_camp_lights_ceiling_bigfillceilinglight_l.webp",
-                "directory": "/textures/atx/storefront/camp/lights/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Bowling Ball Rack Display Case"
-              },
-              {
-                "szItemName": "Vault 76 Blue Bowling Ball"
-              },
-              {
-                "szItemName": "Gold Hornwright Bowling Ball"
-              },
-              {
-                "szItemName": "Black Alley Cats Bowling Ball"
-              },
-              {
-                "szItemName": "Red Atom Bomb Bowling Ball"
-              },
-              {
-                "szItemName": "Resin Vault Boy Bowling Ball"
-              },
-              {
-                "szItemName": "Alley Cats Bowling Team Outfit"
-              },
-              {
-                "szItemName": "Bowling Ball Loot Bag"
-              },
-              {
-                "szItemName": "Big Fill & Bigger Fill Ceiling Light"
-              }
-            ],
+            "carouselImages": [],
+            "dynamicBundleItems": [],
             "lowPrice": {
-              "amount": 600,
-              "originalAmount": 600,
+              "amount": 125,
+              "originalAmount": 125,
               "isLto": true,
-              "ltoTimer": "2026-02-04T12:00:00.000Z"
+              "ltoTimer": "2026-02-05T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 600,
+              "amount": 125,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
-              "originalAmount": 1200
+              "originalAmount": 250
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 1030,
+            "itemName": "Guest Room Bundle",
+            "itemNameShort": "Guest Room Bundle",
+            "itemDesc": "Company is coming over, better set up your guest room with the Guest Room Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "aa27cb7b7d6a5fb4ea815a9e50574dc5.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_walldecor_helvetianhangingquilt_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_camp_furniture_couch_modularsofaset_cream.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_entm_camp_lights_wall_redbedside_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_entm_camp_walldecor_wickerhangingflowerbasket_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_camp_stashbox_wickerbasket_l.webp",
+                "directory": "/textures/atx/storefront/camp/stash/"
+              },
+              {
+                "imageName": "atx_entm_camp_bed_guest.webp",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              } 
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Helvetian Quilt"
+              },
+              {
+                "szItemName": "Cream Modular Sofa Set"
+              },
+              {
+                "szItemName": "Red Bedside Light"
+              },
+              {
+                "szItemName": "Wicker Hanging Flower Basket"
+              },
+              {
+                "szItemName": "RWicker Basket Stach Box"
+              },
+              {
+                "szItemName": "Modern Conveniences Bed"
+              }
+            ],
+            "lowPrice": {
+              "amount": 750,
+              "originalAmount": 750,
+              "isLto": true,
+              "ltoTimer": "2026-02-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 750,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
             },
             "isZeus": false,
             "_detectedSuffixInfo": {
@@ -3914,8 +3926,7 @@
             "lowPrice": {
               "amount": 1800,
               "originalAmount": 1800,
-              "isLto": false,
-              "ltoTimer": "2026-02-03T18:35:00.000Z"
+              "isLto": false
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -3978,8 +3989,7 @@
             "lowPrice": {
               "amount": 1200,
               "originalAmount": 1200,
-              "isLto": false,
-              "ltoTimer": "2026-02-03T18:40:00.000Z"
+              "isLto": false
             },
             "lowestPurchasablePrice": {
               "amount": 0,
