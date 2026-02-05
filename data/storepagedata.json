@@ -14,7 +14,7 @@
             "itemID": 2458771,
             "itemName": "Fallout Celebration Bundle",
             "itemNameShort": "Fallout Celebration Bundle",
-            "itemDesc": "Celebrate The Wasteland and all of its denizens! \n Cake generates cake over time. (Cannot be build inside of a Shelter)\nGames Cuppboard generates Junk (Games) over time. (Cannot be build inside of a Shelter) \n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- WEAPON SKINS IS CRAFTABLE AT WEAPON WORKBENCH. -\n- OUTFIT AND HEADWEAR IS CRAFTABLE AT ARMOR WORKBENCH. -",
+            "itemDesc": "Celebrate The Wasteland and all of its denizens! \n Cake generates cake over time. (Cannot be build inside of a Shelter)\nGames Cuppboard generates Junk (Games) over time. (Cannot be build inside of a Shelter) \n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- WEAPON SKINS IS CRAFTABLE AT WEAPON WORKBENCH. -\n- OUTFIT AND HEADWEAR IS CRAFTABLE AT ARMOR WORKBENCH. -\n[h]This bundle includes items that were previously available in the Atomic Shop.[/h]",
             "primaryImage": {
               "imageName": "3e7abea9ba3019fecc820ef7eb17fd6f.dds",
               "directory": "/textures/atomic_shop_media/"
@@ -113,7 +113,7 @@
             "itemID": 2458772,
             "itemName": "Enclave Armory Deluxe Bundle",
             "itemNameShort": "Enclave Armory Bundle",
-            "itemDesc": "Celebrate the release of The Gleaming Depths with the Enclave Armory Deluxe Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "Celebrate the release of The Gleaming Depths with the Enclave Armory Deluxe Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]This bundle includes items that were previously available in the Atomic Shop.[/h]",
             "primaryImage": {
               "imageName": "414c365f67464d4fff577b326eebb1fd.dds",
               "directory": "/textures/atomic_shop_media/"
@@ -205,7 +205,7 @@
             "itemID": 2458773,
             "itemName": "The Pitt Recruitment Deluxe Bundle",
             "itemNameShort": "The Pitt Recruitment Bundle",
-            "itemDesc": "Celebrate the release of The Pitt with The Pitt Recruitment Deluxe Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. - \n[h]If you want to help the project, you can support me by providing missing images etc via GitHub or Discord. Thanks![/h]",
+            "itemDesc": "Celebrate the release of The Pitt with The Pitt Recruitment Deluxe Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. - \n[h]If you want to help the project, you can support me by providing missing images etc via GitHub or Discord. Thanks![/h]\n\n\n[h]This bundle includes items that were previously available in the Atomic Shop.[/h]",
             "primaryImage": {
               "imageName": "7f5d162cb19825fc38186df83f801cc2.dds",
               "directory": "/textures/atomic_shop_media/"
@@ -736,6 +736,14 @@
             },
             "carouselImages": [
               {
+                "imageName": "score_s16_camp_kit_pinebarrencabin_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "score_s16_camp_structure_stairs_pinebarrenslogcabin_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
                 "imageName": "score_s16_camp_floordecor_raidercage_l.webp",
                 "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
@@ -752,31 +760,11 @@
                 "directory": "/textures/atx/storefront/camp/machinery/"
               },
               {
-                "imageName": "score_s16_camp_kit_pinebarrencabin_l.webp",
-                "directory": "/textures/atx/storefront/camp/kits/"
-              },
-              {
-                "imageName": "score_s16_camp_structure_stairs_pinebarrenslogcabin_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
                 "imageName": "score_s16_camp_displaycase_chessboard_l.webp",
                 "directory": "/textures/atx/storefront/camp/displays/"
               }
             ],
             "dynamicBundleItems": [
-              {
-                "szItemName": "Autopsy Table Chemistry Workstation"
-              },
-              {
-                "szItemName": "Brahmin Corpse"
-              },
-              {
-                "szItemName": "Raider Cages"
-              },
-              {
-                "szItemName": "Chessboard Display"
-              },
               {
                 "szItemName": "Pine Barrens Cabin Kit"
               },
@@ -784,7 +772,19 @@
                 "szItemName": "Stairs (Pine Barrens Log Cabin)"
               },
               {
+                "szItemName": "Raider Cages"
+              },
+              {
                 "szItemName": "Hanging Tire Baskets"
+              },
+              {
+                "szItemName": "Brahmin Corpse"
+              },
+              {
+                "szItemName": "Autopsy Table Chemistry Workstation"
+              },
+              {
+                "szItemName": "Chessboard Display"
               }
             ],
             "lowPrice": {
