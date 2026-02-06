@@ -944,7 +944,7 @@
       "itemDesc": "A sanctuary structure for mothman fans.",
       "primaryImage": {
         "directory": "textures/atx/storefront/camp/utility/",
-        "imageName": "atx_camp_utility_mothmannest_l.webp"
+        "imageName": "atx_camp_collector_butterflysanctuary_mothman.webp"
       },
       "carouselImages": [],
       "dynamicBundleItems": [],
@@ -1125,15 +1125,37 @@
     {
       "replaceItemID": 103,
       "itemID": 103,
-      "itemName": "Burned Down Bundle",
-      "itemNameShort": "Burned Down Bundle",
-      "itemDesc": "A bundle for a burned down themed C.A.M.P. build.",
-        "dynamicBundleItems": [],
+      "itemName": "Burned House Bundle",
+      "itemNameShort": "Burned House Bundle",
+      "itemDesc": "Build a great, but slightly singed C.A.M.P. with the Burned House C.A.M.P. Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+      "dynamicBundleItems": [
+        {"szItemName": "Burned House Kit"},
+        {"szItemName": "Burned Floor and Foundations"},
+        {"szItemName": "Destroyed Highway Kit"},
+        {"szItemName": "Busted Radio"}
+      ],
       "primaryImage": {
-        "directory": "textures/atomic_shop_media/",
-        "imageName": "default-bundle.webp"
+        "directory": "media/bundles/",
+        "imageName": "burned_house_bundle.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/camp/kits/",
+          "imageName": "atx_entm_camp_kit_burnedhouse.webp"
+        },
+        {
+          "directory": "textures/atx/storefront/camp/floors/",
+          "imageName": "atx_entm_camp_floor_burnedfloor.webp"
+        },
+        {
+          "directory": "textures/atx/storefront/camp/floordecoration/",
+          "imageName": "atx_entm_camp_floordecor_destroyedhighwaykit.webp"
+        },
+        {
+          "directory": "textures/atx/storefront/camp/floordecoration/",
+          "imageName": "atx_entm_camp_floordecor_bustedradio.webp"
+        }
+      ],
       "lowPrice": {
         "ltoTimer": "2026-02-08T12:00:00.000Z",
         "isLto": true,
@@ -1250,7 +1272,275 @@
       "endTime": "2026-02-10T12:00:00.000Z",
       "isZeus": false
     }],
-    "Week2": [],
+    "Week2": [
+      {
+        "replaceItemID": 101,
+        "itemID": 101,
+        "itemName": "Skull Tower Prefab + Door",
+        "itemNameShort": "Skull Tower Prefab",
+        "itemDesc": "Skull Tower prefab including door.",
+        "primaryImage": {
+          "directory": "textures/atx/storefront/camp/structures/",
+          "imageName": "atx_entm_camp_structure_skulltower_l.webp"
+        },
+        "dynamicBundleItems": [
+          {"szItemName": "Skull Tower Prefab"},
+          {"szItemName": "Skull Tower Door"}
+        ],
+        "carouselImages": [
+          {
+            "directory": "textures/atx/storefront/camp/structures/",
+            "imageName": "atx_entm_camp_structure_skulltower_l.webp"
+          },
+          {
+            "directory": "textures/atx/storefront/camp/doors/",
+            "imageName": "atx_camp_door_skull_tower_l.webp"
+          }
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-02-10T12:00:00.000Z",
+          "isLto": true,
+          "purchaseLimit": 1
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 450,
+          "ltoTimer": 1813682
+        },
+        "highPrice": {
+          "originalAmount": 900
+        },
+        "startTime": "2026-02-10T12:00:00.000Z",
+        "endTime": "2026-02-11T12:00:00.000Z",
+        "isZeus": false
+      },
+      {
+        "replaceItemID": 101,
+        "itemID": 101,
+        "itemName": "Stately Armoire Display Case",
+        "itemNameShort": "Stately Armoire",
+        "itemDesc": "Stately Armoire Display Case.",
+        "primaryImage": {
+          "directory": "textures/atx/storefront/camp/displays/",
+          "imageName": "atx_camp_displaycase_statelyarmoire_l.webp"
+        },
+        "carouselImages": [],
+        "lowPrice": {
+          "ltoTimer": "2026-02-11T12:00:00.000Z",
+          "isLto": true,
+          "purchaseLimit": 1
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250,
+          "ltoTimer": 1813682
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2026-02-11T12:00:00.000Z",
+        "endTime": "2026-02-12T12:00:00.000Z",
+        "isZeus": false
+      },
+      {
+        "replaceItemID": 101,
+        "itemID": 101,
+        "itemName": "Rusted Chain-link Fence",
+        "itemNameShort": "Rusted Chain-link Fence",
+        "itemDesc": "Rusted chain-link fence section.",
+        "primaryImage": {
+          "directory": "textures/atx/storefront/camp/defenses/",
+          "imageName": "atx_camp_defense_fence_rustedchainlink_l.webp"
+        },
+        "carouselImages": [],
+        "lowPrice": {
+          "ltoTimer": "2026-02-12T12:00:00.000Z",
+          "isLto": true,
+          "purchaseLimit": 1
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 125,
+          "ltoTimer": 1813682
+        },
+        "highPrice": {
+          "originalAmount": 250
+        },
+        "startTime": "2026-02-12T12:00:00.000Z",
+        "endTime": "2026-02-13T12:00:00.000Z",
+        "isZeus": false
+      },
+      {
+        "replaceItemID": 101,
+        "itemID": 101,
+        "itemName": "Lucky Piece (Pepper Shaker)",
+        "itemNameShort": "Lucky Piece",
+        "itemDesc": "Lucky Piece (Pepper Shaker).",
+        "primaryImage": {
+          "directory": "textures/atx/storefront/player/weaponskin/",
+          "imageName": "atx_skin_weaponskin_peppershaker_luckypiece_l.webp"
+        },
+        "carouselImages": [],
+        "lowPrice": {
+          "ltoTimer": "2026-02-13T12:00:00.000Z",
+          "isLto": true,
+          "purchaseLimit": 1
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250,
+          "ltoTimer": 1813682
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2026-02-13T12:00:00.000Z",
+        "endTime": "2026-02-14T12:00:00.000Z",
+        "isZeus": false
+      },
+      {
+        "replaceItemID": 101,
+        "itemID": 101,
+        "itemName": "Red Rocket Paint (The Dragon)",
+        "itemNameShort": "Red Rocket Paint",
+        "itemDesc": "Red Rocket Paint (The Dragon).",
+        "primaryImage": {
+          "directory": "textures/atx/storefront/player/weaponmodel/",
+          "imageName": "atx_skin_blackpowder_dragon_redrocket.webp"
+        },
+        "carouselImages": [],
+        "lowPrice": {
+          "ltoTimer": "2026-02-14T12:00:00.000Z",
+          "isLto": true,
+          "purchaseLimit": 1
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250,
+          "ltoTimer": 1813682
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2026-02-14T12:00:00.000Z",
+        "endTime": "2026-02-15T12:00:00.000Z",
+        "isZeus": false
+      },
+      {
+        "replaceItemID": 201,
+        "itemID": 201,
+        "itemName": "Super Mutant Paint (Super Sledge)",
+        "itemNameShort": "Super Mutant Paint",
+        "itemDesc": "Super Mutant Paint (Super Sledge).",
+        "primaryImage": {
+          "directory": "textures/atx/storefront/player/weaponskin/",
+          "imageName": "atx_skin_weaponskin_supersledge_supermutant_l.webp"
+        },
+        "carouselImages": [],
+        "lowPrice": {
+          "ltoTimer": "2026-02-15T12:00:00.000Z",
+          "isLto": true,
+          "purchaseLimit": 1
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 250,
+          "ltoTimer": 1813682
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "startTime": "2026-02-15T12:00:00.000Z",
+        "endTime": "2026-02-16T12:00:00.000Z",
+        "isZeus": false
+      },
+      {
+        "replaceItemID": 201,
+        "itemID": "cock",
+        "itemName": "Cosmos and Jangles Bundle",
+        "itemNameShort": "Cosmos & Jangles Bundle",
+        "itemDesc": "Blast off to adventure with the Cosmos and Jangles Bundle!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCH. -",
+        "primaryImage": {
+          "directory": "media/bundles/",
+          "imageName": "captain_cosmos_bundle.webp"
+        },
+        "carouselImages": [
+          {
+            "directory": "textures/atx/storefront/player/outfit/",
+            "imageName": "atx_apparel_outfit_captaincosmos_l.webp"
+          },
+          {
+            "directory": "textures/atx/storefront/player/outfit/",
+            "imageName": "score_s1_apparel_outfit_captaincosmos_blue_l.webp"
+          },
+          {
+            "directory": "textures/atx/storefront/player/outfit/",
+            "imageName": "score_s1_apparel_outfit_captaincosmos_green_l.webp"
+          },
+          {
+            "directory": "textures/atx/storefront/player/outfit/",
+            "imageName": "score_s1_apparel_outfit_captaincosmos_pink_l.webp"
+          },
+          {
+            "directory": "textures/atx/storefront/camp/furniture/",
+            "imageName": "score_s1_camp_furniture_ufoplayscape_l.webp"
+          },
+          {
+            "directory": "textures/atx/storefront/player/backpack/",
+            "imageName": "score_s1_skin_backpack_spaceexplorerjangles_l.webp"
+          },   
+                 {
+            "directory": "textures/atx/storefront/camp/furniture/",
+            "imageName": "atx_camp_furniture_instrument_theremin_l.webp"
+          },
+          {
+            "directory": "textures/atx/storefront/camp/wallpaper/",
+            "imageName": "score_s1_camp_wallpaper_glowinthedark_starsandplanets_l.webp"
+          },
+          {
+            "directory": "textures/atx/storefront/camp/wallpaper/",
+            "imageName": "score_s1_camp_wallpaper_glowinthedark_stars_l.webp"
+          },
+
+
+          {
+            "directory": "textures/atx/storefront/camp/beds/",
+            "imageName": "atx_camp_bed_twinbed_captaincosmos_l.webp"
+          },
+          {
+            "directory": "textures/atx/storefront/player/playericons/",
+            "imageName": "atx_playericon_score_08.webp"
+          },
+          {
+            "directory": "textures/atx/storefront/player/playericons/",
+            "imageName": "atx_playericon_score_09.webp"
+          }
+        ],
+        "dynamicBundleItems": [
+          {"szItemName": "Captain Cosmos Suit"},
+          {"szItemName": "Captain Cosmos Suit, Blue Variant"},
+          {"szItemName": "Captain Cosmos Suit, Green Variant"},
+          {"szItemName": "Captain Cosmos Suit, Pink Variant"},
+          {"szItemName": "UFO Playset"},
+          {"szItemName": "Space Explorer Backpack"},
+          {"szItemName": "Theremin"},
+          {"szItemName": "Glow in the Dark Wallpaper"},
+          {"szItemName": "Look to the Stars Wallpaper"},
+          {"szItemName": "Captain Cosmos Bed"},
+          {"szItemName": "Captain Cosmos Player Icon"},
+          {"szItemName": "Jangles Player Icon"}
+        ],
+        "lowPrice": {
+          "ltoTimer": "2026-02-16T12:00:00.000Z",
+          "isLto": true,
+          "purchaseLimit": 1
+        },
+        "lowestPurchasablePrice": {
+          "Amount": 900,
+          "ltoTimer": 1813682
+        },
+        "highPrice": {
+          "originalAmount": 1800
+        },
+        "startTime": "2026-02-16T12:00:00.000Z",
+        "endTime": "2026-02-17T12:00:00.000Z",
+        "isZeus": false
+      }
+    ],
     "Week3": [],
     "Week4": [],
     "Week5": []

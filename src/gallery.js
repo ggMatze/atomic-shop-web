@@ -30,13 +30,27 @@ function renderGallery(images, current = 0, opts = {}) {
   try {
     // prefer an explicit carouselOffset if provided; otherwise try to auto-detect
     let cOff = Number.isFinite(galleryState._carouselOffset) ? galleryState._carouselOffset : 0;
-    // Auto-detect a leading primaryImage (common: md5 .dds in atomic_shop_media) so
-    // only the carouselImages (following the primary) get an index.
+    // Auto-detect a leading primaryImage so only the carouselImages (following) get an index.
+    // Detection patterns: (1) md5 hash filename, (2) atomic_shop_media, (3) first image from media/ and rest from textures/
     if (!cOff && galleryState.images && galleryState.images.length && typeof galleryState.images[0] === 'string') {
       try {
         const first = galleryState.images[0];
         const basename = (first.split('/').pop() || first).toLowerCase();
+        let isPrimary = false;
+        
+        // Pattern 1: md5 hash or atomic_shop_media
         if (/^[0-9a-f]{32}\./i.test(basename) || /atomic_shop_media/.test(first)) {
+          isPrimary = true;
+        }
+        // Pattern 2: first from media/bundles/ and rest from textures/ = primary + carousels
+        else if (/media\/bundles?\//.test(first) && galleryState.images.length > 1) {
+          const hasTexturesCarousel = galleryState.images.slice(1).some(img => 
+            typeof img === 'string' && /textures\/atx\/storefront\//.test(img)
+          );
+          if (hasTexturesCarousel) isPrimary = true;
+        }
+        
+        if (isPrimary) {
           cOff = 1;
           galleryState._carouselOffset = 1;
         }
@@ -75,7 +89,21 @@ function renderGallery(images, current = 0, opts = {}) {
       try {
         const first = galleryState.images[0];
         const basename = (first.split('/').pop() || first).toLowerCase();
+        let isPrimary = false;
+        
+        // Pattern 1: md5 hash or atomic_shop_media
         if (/^[0-9a-f]{32}\./i.test(basename) || /atomic_shop_media/.test(first)) {
+          isPrimary = true;
+        }
+        // Pattern 2: first from media/bundles/ and rest from textures/ = primary + carousels
+        else if (/media\/bundles?\//.test(first) && galleryState.images.length > 1) {
+          const hasTexturesCarousel = galleryState.images.slice(1).some(img => 
+            typeof img === 'string' && /textures\/atx\/storefront\//.test(img)
+          );
+          if (hasTexturesCarousel) isPrimary = true;
+        }
+        
+        if (isPrimary) {
           cOff = 1;
           galleryState._carouselOffset = 1;
         }
