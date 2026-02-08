@@ -1174,26 +1174,26 @@
       {
         "replaceItemID": 103,
         "itemID": 118,
-        "itemName": "Burned House Bundle",
-        "itemNameShort": "Burned House Bundle",
-        "itemDesc": "Build a great, but slightly singed C.A.M.P. with the Burned House C.A.M.P. Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+        "itemName": "Burned Down Bundle",
+        "itemNameShort": "Burned Down Bundle",
+        "itemDesc": "You get what you get. \n\r\n [h]Do not fall for this and buy this bundle.Who knows what you'll get, if anything. Make it clear to Bethesda, what you think about Atom Shop offers like that![/h]",
         "dynamicBundleItems": [
           {
-            "szItemName": "Burned House Kit"
+            "szItemName": "Something"
           },
           {
-            "szItemName": "Burned Floor and Foundations"
+            "szItemName": "Nothing"
           },
           {
-            "szItemName": "Destroyed Highway Kit"
+            "szItemName": "Who Knows"
           },
           {
-            "szItemName": "Busted Radio"
+            "szItemName": "Maybe Something, Maybe Nothing"
           }
         ],
         "primaryImage": {
-          "directory": "media/bundles/",
-          "imageName": "burned_house_bundle.webp"
+          "directory": "media/",
+          "imageName": "clown.webp"
         },
         "carouselImages": [
           {
@@ -1201,16 +1201,16 @@
             "imageName": "atx_entm_camp_kit_burnedhouse.webp"
           },
           {
-            "directory": "textures/atx/storefront/camp/floors/",
-            "imageName": "atx_entm_camp_floor_burnedfloor.webp"
+            "directory": "textures/atx/storefront/player/weaponskin/",
+            "imageName": "atx_skin_weaponskin_flamer_fireman_l.webp"
           },
           {
             "directory": "textures/atx/storefront/camp/floordecoration/",
-            "imageName": "atx_entm_camp_floordecor_destroyedhighwaykit.webp"
+            "imageName": "atx_entm_camp_floordecor_smallfire_l.webp"
           },
           {
-            "directory": "textures/atx/storefront/camp/floordecoration/",
-            "imageName": "atx_entm_camp_floordecor_bustedradio.webp"
+            "directory": "/textures/atx/storefront/player/outfit/",
+            "imageName": "atx_apparel_outfit_responders_chief_l.webp"
           }
         ],
         "lowPrice": {
@@ -1226,7 +1226,7 @@
         },
         "startTime": "2026-02-08T12:00:00.000Z",
         "endTime": "2026-02-09T12:00:00.000Z",
-        "isZeus": false
+        "isClown": true
       },
       {
         "replaceItemID": 101,
