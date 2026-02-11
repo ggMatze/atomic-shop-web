@@ -1201,6 +1201,526 @@
         ]
       },
       {
+        "name": "Valentine's Sale \\n Love is in the air.",
+        "tabid": "valentines-sale",
+        "isZeus": false,
+        "image": {
+          "imageName": "b79a836c0d98517a28ed48d3c97d7292.webp",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2458781,
+            "itemName": "Everything Pink Bundle",
+            "itemNameShort": "Everything Pink Bundle",
+            "itemDesc": "Who doesn't love pink?\n\nIncludes: Pink Wallpaper, Pink Corvega Paint, Pink Metal Armor Paint, Laundered Pink Dress, Pink Neon Heart Sign, Heartbreaker Power Armor, Pink Floater Mobile, Tickled Pink Gauss Minigun Paint, Valentine's Hardcase Backpack",
+            "primaryImage": {
+              "imageName": "5e47097eb48e41b64aebb3ca0284aa82.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_wallpaper_valentinesday_01_l.webp",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
+              },
+              {
+                "imageName": "atx_pipboy_pinkandchrome_l.webp",
+                "directory": "/textures/atx/storefront/player/pipboy/"
+              },
+              {
+                "imageName": "atx_skin_armorskin_metal_pink_l.webp",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_prewarhousedress_pink_clean_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_camp_lights_neonsign_heart_pink_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_model_heartbreaker_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_camp_walldeco_mobile_floater_pink_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_skin_weaponskin_gaussminigun_tickledpink_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "atx_skin_backpack_case_valentine_l.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Pink Wallpaper"
+              },
+              {
+                "szItemName": "Pink Corvega Paint"
+              },
+              {
+                "szItemName": "Pink Metal Armor Paint"
+              },
+              {
+                "szItemName": "Laundered Pink Dress"
+              },
+              {
+                "szItemName": "Pink Neon Heart Sign"
+              },
+              {
+                "szItemName": "Heartbreaker Power Armor"
+              },
+              {
+                "szItemName": "Pink Floater Mobile"
+              },
+              {
+                "szItemName": "Tickled Pink Gauss Minigun Paint"
+              },
+              {
+                "szItemName": "Valentine's Hardcase Backpack"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1260,
+              "originalAmount": 1800,
+              "isLto": true,
+              "ltoTimer": "2026-02-17T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1260,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isZeus": false
+          },
+          {
+            "itemID": 0,
+            "itemName": "Tickled Pink Bundle",
+            "itemNameShort": "Tickled Pink Bundle",
+            "itemDesc": "Add hugs and roses to your C.A.M.P. while you tickle the wasteland with the Tickled Pink Bundle.\n\nIncludes: Honeycomb Valentine's Heart With Bow, Honeycomb Valentine's Ornament, Honeycomb Valentine's Hugs Ornament, Honeycomb Valentine's Heart With Tassels, Pink Wallpaper, Honeycomb Valentine's Heart With Arrow, Honeycomb Valentine's Heart Mobile, Red Rose Bush, White Rose Bush, Motor-Up Molly Outfit, Honeycomb Valentine's Heart With Wings, Bloated Tick Plushie, Pink Floater Mobile, Honeycomb Valentine's Heart, Tickled Pink Gauss Minigun Paint",
+            "primaryImage": {
+              "imageName": "7373e7bfe2b16feb0db5e653e30da807.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesheartwithbow_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesornament_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_lights_ceiling_honeycombvalentineshugsornament.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesheartwithtassels_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_wallpaper_valentinesday_01_l.webp",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
+              },
+              {
+                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesheartwitharrow_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesheartmobile.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_redrosebush_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_whiterosebush_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_motorupmollyoutfit_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesheartwithwings_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_plushie_bloatedtic_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_walldeco_mobile_floater_pink_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesheartwitharrow.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_skin_weaponskin_gaussminigun_tickledpink_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Honeycomb Valentine's Heart With Bow"
+              },
+              {
+                "szItemName": "Honeycomb Valentine's Ornament"
+              },
+              {
+                "szItemName": "Honeycomb Valentine's Hugs Ornament"
+              },
+              {
+                "szItemName": "Honeycomb Valentine's Heart With Tassels"
+              },
+              {
+                "szItemName": "Pink Wallpaper"
+              },
+              {
+                "szItemName": "Honeycomb Valentine's Heart With Arrow"
+              },
+              {
+                "szItemName": "Honeycomb Valentine's Heart Mobile"
+              },
+              {
+                "szItemName": "Red Rose Bush"
+              },
+              {
+                "szItemName": "White Rose Bush"
+              },
+              {
+                "szItemName": "Motor-Up Molly Outfit"
+              },
+              {
+                "szItemName": "Honeycomb Valentine's Heart With Wings"
+              },
+              {
+                "szItemName": "Bloated Tick Plushie"
+              },
+              {
+                "szItemName": "Pink Floater Mobile"
+              },
+              {
+                "szItemName": "Honeycomb Valentine's Heart"
+              },
+              {
+                "szItemName": "Tickled Pink Gauss Minigun Paint"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1050,
+              "originalAmount": 1500,
+              "isLto": true,
+              "ltoTimer": "2026-02-17T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1050,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isZeus": false
+          },
+          {
+            "itemID": 0,
+            "itemName": "Wasteland's Sweetheart Bundle",
+            "itemNameShort": "Wasteland's Sweetheart Bundle",
+            "itemDesc": "Show your love for the true sweetheart of The Wasteland.\n\nIncludes Deathclaw Pelt Rug, Deathclaw Slow Roaster, Deathclaw Mascot Helmet, Deathclaw Topiary, Mini Deathclaw Statue",
+            "primaryImage": {
+              "imageName": "dc210a6e5ac6621b3053deffac961162.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_floordecor_rug_deathclaw_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_collector_deathclawslowroaster_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_deathclawmascot_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_topiary_deathclaw_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_statue_minideathclaw_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Deathclaw Pelt Rug"
+              },
+              {
+                "szItemName": "Deathclaw Slow Roaster"
+              },
+              {
+                "szItemName": "Deathclaw Mascot Helmet"
+              },
+              {
+                "szItemName": "Deathclaw Topiary"
+              },
+              {
+                "szItemName": "Mini Deathclaw Statue"
+              }
+            ],
+            "lowPrice": {
+              "amount": 700,
+              "originalAmount": 1000,
+              "isLto": true,
+              "ltoTimer": "2026-02-17T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 700,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1000
+            },
+            "isZeus": false
+          },
+          {
+            "itemID": 0,
+            "itemName": "Headliner Paint (Power Armor)",
+            "itemNameShort": "Headliner Paint (Power Armor)",
+            "itemDesc": "Be the star of your own show with the Headliner Paint.\n[h]This is a unique skin that completely alters the appearance of your Power Armor, and can be equipped to all Power Armors.[/h]\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "atx_skin_powerarmor_paint_hellfire_headliner.webp",
+              "directory": "/textures/atx/storefront/player/powerarmor/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_powerarmor_paint_hellfire_headliner_c2.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_hellfire_headliner_c1.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
+            "lowPrice": {
+              "amount": 960,
+              "originalAmount": 1200,
+              "isLto": true,
+              "ltoTimer": "2026-02-17T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 960,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1200
+            },
+            "isZeus": false
+          },
+          {
+            "itemID": 0,
+            "itemName": "Sawtooth Outfit",
+            "itemNameShort": "Sawtooth Outfit",
+            "itemDesc": "Be careful not to poke someone's eye out.\n\nIncludes Sawtooth Outfit, Sawtooth Mask.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_apparel_outfit_sawtoothoutfit_l.webp",
+              "directory": "/textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_headwear_sawtoothmask_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_sawtooth_c1.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_sawtooth_c2.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              }
+            ],
+            "lowPrice": {
+              "amount": 560,
+              "originalAmount": 700,
+              "isLto": true,
+              "ltoTimer": "2026-02-17T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 560,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false
+          },
+          {
+            "itemID": 0,
+            "itemName": "Haunted House Porch Set",
+            "itemNameShort": "Haunted House Porch Set",
+            "itemDesc": "Build the perfect porch to scare the neighborhood kids with the Haunted House Porch Set!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -  ",
+            "primaryImage": {
+              "imageName": "atx_camp_kit_hauntedhouseporchset_l.webp",
+              "directory": "/textures/atx/storefront/camp/kits/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_kit_hauntedhouseporchset_c2.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_hauntedhouseporchset_c1.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_hauntedhouseporchset_c3.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              }
+              
+            ],
+            "lowPrice": {
+              "amount": 560,
+              "originalAmount": 700,
+              "isLto": true,
+              "ltoTimer": "2026-02-17T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 560,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false
+          },
+          {
+            "itemID": 0,
+            "itemName": "Pioneer Scouts Flag",
+            "itemNameShort": "Pioneer Scouts Flag",
+            "itemDesc": "Fly the flag of everyone's favorite scout troop the Pioneer Scouts!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -  ",
+            "primaryImage": {
+              "imageName": "atx_camp_decoration_flagwaving_pioneerscoutsflag_l.webp",
+              "directory": "/textures/atx/storefront/camp/flags/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_decoration_flagwaving_pioneerscoutsflag_c2.webp",
+                "directory": "/textures/atx/storefront/camp/flags/"
+              },
+              {
+                "imageName": "atx_camp_decoration_flagwaving_pioneerscoutsflag_c1.webp",
+                "directory": "/textures/atx/storefront/camp/flags/"
+              }
+            ],
+            "lowPrice": {
+              "amount": 400,
+              "originalAmount": 500,
+              "isLto": true,
+              "ltoTimer": "2026-02-17T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 400,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false
+          },
+          {
+            "itemID": 0,
+            "itemName": "Shotgun Wedding Paint (Pip Boy)",
+            "itemNameShort": "Shotgun Wedding Paint (Pip Boy)",
+            "itemDesc": "It does not matter how quickly the wedding was put together, you still need flowers.\n\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_entm_skin_pipboyskin_shotgunwedding_l.webp",
+              "directory": "/textures/atx/storefront/player/pipboy/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_skin_pipboyskin_shotgunwedding_c2.webp",
+                "directory": "/textures/atx/storefront/player/pipboy/"
+              },
+              {
+                "imageName": "atx_entm_skin_pipboyskin_shotgunwedding_c1.webp",
+                "directory": "/textures/atx/storefront/player/pipboy/"
+              }
+            ],
+            "lowPrice": {
+              "amount": 240,
+              "originalAmount": 300,
+              "isLto": true,
+              "ltoTimer": "2026-02-17T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 240,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 300
+            },
+            "isZeus": false
+          },
+          {
+            "itemID": 0,
+            "itemName": "Valentine's Day Plushie",
+            "itemNameShort": "Valentine's Day Plushie",
+            "itemDesc": "Mr. Fuzzy is looking for love this Valentine's Day.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -  ",
+            "primaryImage": {
+              "imageName": "atx_camp_floordecor_plushie_cat_valentinesday_l.webp",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_floordecor_plushie_cat_valentinesday_c2.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_plushie_cat_valentinesday_c1.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "lowPrice": {
+              "amount": 240,
+              "originalAmount": 300,
+              "isLto": true,
+              "ltoTimer": "2026-02-17T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 240,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 300
+            },
+            "isZeus": false
+          }
+        ]
+      },
+      {
         "name": "Sanctum of the Moth \\n Embrace darkness.",
         "tabid": "sanctum-of-the-moth",
         "isZeus": false,
@@ -2819,7 +3339,6 @@
             "isZeus": false,
             "isClown": false
           },
-          
           {
             "itemID": 101,
             "itemName": "Brahmin Milk Machine",

@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="theme-color" content="#ffd454">
-  <meta property="og:title" content="Hometown Heros - Honoring out local heroes.">
-  <meta property="og:description" content="Transparent pricing, correct images, and user-friendly info for the Fallout 76 Atomic Shop.">
-  <meta property="og:site_name" content="Atomic Shop - 10.02.2026">
-  <meta name="author" content="Transparent Atomic Shop">
-  <meta property="og:image" content="https://uf-atomic-shop.pages.dev/media/snapshot07.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image:src" content="https://uf-atomic-shop.pages.dev/media/snapshot07.jpg">
+  <!-- Meta tags are loaded dynamically from data/config.json by configLoader.js -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User Friendly Atomic Shop</title>
@@ -17,6 +10,7 @@
   <!-- Note: dstHourOffset override removed to allow automatic per-date DST detection -->
   <!-- Load small ES modules first (bootstrap exposes window.__utils and window.__data) -->
   <script type="module" src="src/bootstrap.js"></script>
+  <script src="src/configLoader.js"></script>
   <script src="src/weekFilter.js" defer></script>
   <script src="script.js" defer></script>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e451e84f629042549e5be8aeaa49db00"}'></script><!-- End Cloudflare Web Analytics -->
@@ -107,29 +101,7 @@
 <!-- News button: shows if there is current news (hidden when no news or when the notice is open) -->
 <button id="news-btn" title="News">&nbsp;</button>
 
-<script>
-  const lastUpdated = '2026-02-10T18:50:00Z'; // displayed (UTC)
-  const nextScheduled = '2026-02-17T19:00:00Z'; // next scheduled update (UTC) — adjust as needed
-
-  const format = iso => new Date(iso).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' });
-
-  const nodes = document.querySelectorAll('#last-updated');
-  if (nodes.length === 0) {
-    console.warn('No #last-updated element found');
-  } else {
-    // first occurrence = "last updated"
-    nodes[0].textContent = format(lastUpdated);
-
-    // second occurrence (if present) = "next update"
-    if (nodes[1]) {
-      nodes[1].textContent = format(nextScheduled);
-    } else {
-      // if HTML only has one element with that id, append a next-update line after it
-      nodes[0].insertAdjacentHTML('afterend',
-        '<br><span id="next-updated">'+ format(nextScheduled) +'</span>');
-    }
-  }
-</script>
+<!-- Timestamps are now loaded from data/config.json by configLoader.js -->
 </div>
 
 <div class="atomic-shop">
