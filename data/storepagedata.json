@@ -2695,17 +2695,21 @@
         "items": [
           {
             "itemID": 2457900,
-            "itemName": "Vault Boy Weather Vane",
-            "itemNameShort": "Vault Boy Weather Vane",
-            "itemDesc": "A weather vane in the shape of a Vault Boy. \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemName": "Tan Military Beret",
+            "itemNameShort": "Tan Military Beret",
+            "itemDesc": "Establish your authority with this tan military beret.\n\n- APPRAREL IS CRAFTABLE AT ARMOR WORKBENCHES -",
             "primaryImage": {
-              "imageName": "atx_camp_floordecor_weathervane_vaultboy_l.webp",
-              "directory": "/textures/atx/storefront/camp/floordecoration/"
+              "imageName": "atx_apparel_headwear_beret_tan_l.webp",
+              "directory": "/textures/atx/storefront/player/headwear/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_camp_floordecor_weathervane_vaultboy_c1.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
+                "imageName": "atx_apparel_headwear_beret_tan_c1.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },  
+              {
+                "imageName": "atx_apparel_headwear_beret_tan_c2.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
               }
             ],
             "dynamicBundleItems": [],
@@ -2713,7 +2717,7 @@
               "amount": 0,
               "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-02-17T12:00:00.000Z"
+              "ltoTimer": "2026-02-24T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -2793,72 +2797,79 @@
             "isClown": false
           },
           {
-            "itemID": 2458810,
-            "itemName": "UFO Hunter Bundle",
-            "itemNameShort": "UFO Hunter Bundle",
-            "itemDesc": "Add UFO Hunter the singing handyman to your C.A.M.P. with the UFO Hunter Bundle.\r\n\r\n- ALLIES APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE. -\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemID": 2457966,
+            "itemName": "Country Flair Bundle",
+            "itemNameShort": "Country Flair Bundle",
+            "itemDesc": "Become a wasteland cowpoke and find some country flair with the Country Flair Bundle. Items would cost 2,975 Atoms if purchased separately.\n\r\n - APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "09918c27f0935d939410575a941d8550.webp",
+              "imageName": "87aa801141dc41fcfdc572d68b4e06ff.webp",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "score_s7_camp_ally_katherineswan_l.webp",
-                "directory": "/textures/atx/storefront/camp/ally/"
+                "imageName": "atx_apparel_headwear_countrygirlhat_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
               },
               {
-                "imageName": "score_s7_camp_floor_starscape_l.webp",
-                "directory": "/textures/atx/storefront/camp/floors/"
+                "imageName": "atx_camp_floordecor_elmtrees_summer_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
-                "imageName": "score_s7_skin_backpackflair_zetan_l.webp",
-                "directory": "/textures/atx/storefront/player/flair/"
-              },
-              {
-                "imageName": "score_s7_skin_backpackflair_zetanship_l.webp",
-                "directory": "/textures/atx/storefront/player/flair/"
-              },
-              {
-                "imageName": "score_s7_camp_furniture_patiotable_ufo_l.webp",
-                "directory": "/textures/atx/storefront/camp/furniture/"
-              },
-              {
-                "imageName": "score_s7_camp_wallpaper_starscape_l.webp",
+                "imageName": "atx_camp_wallpaper_woodpanel_01_l.webp",
                 "directory": "/textures/atx/storefront/camp/wallpaper/"
               },
               {
-                "imageName": "score_s7_camp_furniture_shootinggallery_alieninvasion_l.webp",
+                "imageName": "atx_camp_furniture_mechanicalbrahmin_l.webp",
                 "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_apparel_underarmor_countrygirl_l.webp",
+                "directory": "/textures/atx/storefront/player/underarmor/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_haybales_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_door_wood_woodwindowledge01_l.webp",
+                "directory": "/textures/atx/storefront/camp/doors/"
+              },
+              {
+                "imageName": "atx_camp_structure_barn_red_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Lite Ally: Katherine Swan"
+                "szItemName": "Country Girt Hat"
               },
               {
-                "szItemName": "Starscape Floors and Foundation"
+                "szItemName": "Summer Elm Trees"
               },
               {
-                "szItemName": "Alien Backpack Flair"
+                "szItemName": "Weathered Wood Wallpaper"
               },
               {
-                "szItemName": "Alien Ship Backpack Flair"
+                "szItemName": "Mechanical Bucking Brahmin Ride"
               },
               {
-                "szItemName": "UFO Umbrella Patio Table"
+                "szItemName": "Country Girl Underarmor"
               },
               {
-                "szItemName": "Starscape Wallpaper"
+                "szItemName": "Hay Bales"
               },
               {
-                "szItemName": "Alien Invasion Shooting Gallery"
+                "szItemName": "Country Wooden Door"
+              },
+              {
+                "szItemName": "Red Barn"
               }
             ],
             "lowPrice": {
               "amount": 900,
               "originalAmount": 900,
               "isLto": true,
-              "ltoTimer": "2026-02-28T12:00:00.000Z"
+              "ltoTimer": "2026-02-27T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 900,
@@ -2866,7 +2877,7 @@
             },
             "highPrice": {
               "amount": 0,
-              "originalAmount": 1800
+              "originalAmount": 1500
             },
             "isZeus": false,
             "isClown": false
