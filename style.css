@@ -401,6 +401,26 @@ filter: saturate(0.5);
     border: 1px solid #ffe082;
     padding: 2px 16px 18px 16px;
 }
+
+/* Inline indicator for W/S cycling of alternate images.
+   Reserve fixed space and toggle visibility via the .visible class
+   so showing/hiding the indicator doesn't shift surrounding layout. */
+.c-variant-indicator {
+  display: block;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  color: #faeabc5d;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  visibility: hidden;
+  margin: 6px 0;
+  pointer-events: none;
+}
+.c-variant-indicator.visible {
+  visibility: visible;
+}
 #news-notice #news-header {
     text-transform: uppercase;
     font-size: 1.3em;
