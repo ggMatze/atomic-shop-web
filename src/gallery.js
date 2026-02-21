@@ -33,6 +33,25 @@ function _buildCVariant(basePath, ext, n) {
   return (basePath || '') + (n > 0 ? `_c${n}` : '_l') + (ext || '');
 }
 
+function _isVariantInCarousel(url) {
+  if (!url) return false;
+  if (!galleryState.images || !galleryState.images.length) return false;
+  const base = (url + '').split('/').pop();
+  try {
+    for (const img of galleryState.images) {
+      if (!img) continue;
+      if (img === url) return true;
+      if (typeof img === 'string' && img.endsWith(base)) return true;
+      try {
+        const a = new URL(img, location.href).href;
+        const b = new URL(url, location.href).href;
+        if (a === b) return true;
+      } catch (e) { /* ignore malformed URLs */ }
+    }
+  } catch (e) {}
+  return false;
+}
+
 function _probeVariant(url, cbSuccess, cbFail) {
   const img = new Image();
   img.onload = function() { cbSuccess && cbSuccess(url); };
@@ -77,11 +96,28 @@ function _updateVariantIndicator(key) {
     if (!mainImage.hasAttribute('data-gallery-index')) { indicator.classList.remove('visible'); return; }
 
     const avail = galleryState._cAvailable[key];
+    // Show the hint only if there is at least one candidate not already in the carousel
+    let hasCandidate = false;
     if (avail && avail.size) {
+      const parsedMain = _parseVariantBase(mainImage.src);
+      if (parsedMain) {
+        for (const n of avail) {
+          const url = _buildCVariant(parsedMain.basePath, parsedMain.ext, n);
+          if (!_isVariantInCarousel(url)) { hasCandidate = true; break; }
+        }
+      }
+      const origUrl = galleryState._cOriginal[key];
+      if (!hasCandidate && origUrl && origUrl !== mainImage.src) {
+        if (!_isVariantInCarousel(origUrl)) hasCandidate = true;
+      }
+    }
+    if (hasCandidate) {
       indicator.textContent = 'W / S) alternate images';
       indicator.classList.add('visible');
+      mainImage.classList.add('has-variants');
     } else {
       indicator.classList.remove('visible');
+      mainImage.classList.remove('has-variants');
     }
   } catch (e) { /* no-op */ }
 }
@@ -118,7 +154,7 @@ function cycleCVariant(delta) {
     const nums = (found || []).slice().sort((a, b) => a - b);
     nums.forEach(n => {
       const url = _buildCVariant(basePath, ext, n);
-      if (galleryState.images && galleryState.images.indexOf(url) !== -1) return; // skip if in carousel
+      if (_isVariantInCarousel(url)) return; // skip if already in carousel
       candidates.push({ id: n, url });
     });
     // include the exact original URL shown when opening this item so we can wrap back to it
@@ -174,6 +210,11 @@ function renderGallery(images, current = 0, opts = {}) {
   } catch (e) {}
   // clear any c-variant marker when switching to a new base image
   mainImage.removeAttribute('data-c-number');
+  // add click handler to cycle variants (forward by +1 on each click)
+  mainImage.onclick = function(e) {
+    e.stopPropagation();
+    cycleCVariant(+1);
+  };
   // ensure the inline W/S indicator is present/updated and kick off a background scan
   try {
     const origKey2 = _keyForSrc(galleryState.images[galleryState.current]);

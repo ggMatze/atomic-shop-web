@@ -1710,6 +1710,12 @@ position:relative;
   background-color: #0a0a0a85;
   object-fit: cover;
   z-index: 2;
+  
+}
+
+/* Style variant images with a different cursor to indicate they're clickable */
+.center-image.has-variants {
+  cursor: url("cursor.svg") 24 24, auto;
 }
 
 .strip-container {
