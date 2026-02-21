@@ -61,14 +61,23 @@ function attachTileClickHandlers() {
       let images = [];
       if (Array.isArray(item.images)) images = item.images.slice();
       else if (Array.isArray(item.carouselImages)) images = item.carouselImages.filter(img => img && img.directory && img.imageName).map(img => buildImageUrl(img.directory, img.imageName)).filter(Boolean);
+
+      // Determine primary/storefront URLs. We want the lead image to appear
+      // at the front (primary/storefront), but we must preserve any existing
+      // occurrences in the carousel so index-based highlighting stays correct.
+      let primaryUrl = '';
       if (item.primaryImage && item.primaryImage.directory && item.primaryImage.imageName) {
-        const primary = buildImageUrl(item.primaryImage.directory, item.primaryImage.imageName);
-        if (primary && !images.includes(primary)) images.unshift(primary);
+        primaryUrl = buildImageUrl(item.primaryImage.directory, item.primaryImage.imageName) || '';
       }
+
       let storefrontImage = '';
       if (item.storefrontImage) storefrontImage = item.storefrontImage;
-      else if (item.primaryImage && item.primaryImage.directory && item.primaryImage.imageName) storefrontImage = buildImageUrl(item.primaryImage.directory, item.primaryImage.imageName);
-      if (storefrontImage && !images.includes(storefrontImage)) images.unshift(storefrontImage);
+      else if (primaryUrl) storefrontImage = primaryUrl;
+
+      const lead = storefrontImage || primaryUrl;
+      if (lead) {
+        if (!images.length || images[0] !== lead) images.unshift(lead);
+      }
 
       // gallery
       if (window.__gallery && typeof window.__gallery.renderGallery === 'function') window.__gallery.renderGallery(images, 0);
@@ -175,27 +184,44 @@ function attachTileClickHandlers() {
         });
       } catch (e) { overlay._imageToIncludeIndex = []; }
 
-      // highlight updater: toggle .include-highlight on matching include index
+      // highlight updater: toggle .include-highlight based only on carousel mapping
+      // (ignore any data-gallery-index on the lead/primary image so highlights
+      // map to carouselImages/dynamicBundleItems ordering)
       const updateHighlight = () => {
         try {
           const includeEls = overlay._includeListEls || [];
-          const mainImg = document.getElementById('main-image');
-          let idx = null;
-          if (mainImg && mainImg.dataset && typeof mainImg.dataset.galleryIndex !== 'undefined') {
-            const v = Number(mainImg.dataset.galleryIndex);
-            if (!Number.isNaN(v)) idx = v;
-          }
-          // if we got a gallery-aligned index, highlight directly
-          if (idx != null) {
-            includeEls.forEach(el => el.classList.toggle('include-highlight', Number(el.getAttribute('data-include-index')) === idx));
-            return;
-          }
-          // otherwise try mapping via overlay._imageToIncludeIndex using galleryState.current
           if (window.__gallery && window.__gallery._state) {
-            const cur = window.__gallery._state.current;
-            const map = overlay._imageToIncludeIndex || [];
-            const bundleIdx = (typeof map[cur] !== 'undefined') ? map[cur] : null;
-            includeEls.forEach(el => el.classList.toggle('include-highlight', Number(el.getAttribute('data-include-index')) === bundleIdx));
+              const gs = window.__gallery._state || {};
+              const cur = gs.current;
+              const map = overlay._imageToIncludeIndex || [];
+              // Prefer an explicit data-gallery-index on the main image when present
+              // (the gallery sets this relative to carousel offset). Fall back to
+              // mapping via overlay._imageToIncludeIndex and duplicate search.
+              let bundleIdx = null;
+              try {
+                const mainImgEl = document.getElementById('main-image');
+                if (mainImgEl && mainImgEl.dataset && typeof mainImgEl.dataset.galleryIndex !== 'undefined') {
+                  const v = Number(mainImgEl.dataset.galleryIndex);
+                  if (!Number.isNaN(v)) bundleIdx = v;
+                }
+              } catch (e) { /* ignore */ }
+              if (bundleIdx === null) bundleIdx = (typeof map[cur] !== 'undefined') ? map[cur] : null;
+            // If current is the leading primary (no carousel mapping), try to find
+            // a later duplicate of the same URL that does map to a carousel index.
+            if ((bundleIdx === null || typeof bundleIdx === 'undefined') && Array.isArray(gs.images) && gs.images[cur]) {
+              const curUrl = gs.images[cur];
+              for (let i = cur + 1; i < map.length; i++) {
+                if (map[i] != null && gs.images[i] === curUrl) { bundleIdx = map[i]; break; }
+              }
+            }
+            if (window.__debugGalleryHighlight) console.debug('updateHighlight', { cur, bundleIdx, map, imagesLen: (gs.images || []).length, includeEls: includeEls.length });
+            if (bundleIdx == null) {
+              includeEls.forEach(el => el.classList.remove('include-highlight'));
+            } else {
+              includeEls.forEach(el => el.classList.toggle('include-highlight', Number(el.getAttribute('data-include-index')) === bundleIdx));
+            }
+          } else {
+            includeEls.forEach(el => el.classList.remove('include-highlight'));
           }
         } catch (e) { /* ignore */ }
       };

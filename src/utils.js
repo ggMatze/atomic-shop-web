@@ -9,13 +9,9 @@ export function buildImageUrl(directory, imageName) {
   }
   return dir + name;
 }
-// DST/offset helper: automatically detect Eastern Daylight/Standard Time per-date.
+// DST helpers: automatically detect Eastern Daylight/Standard Time per-date.
 // Manual overrides via window.__siteConfig.dstHourOffset are intentionally ignored
 // to avoid stale page-level overrides causing incorrect remaining-time math.
-function getDstHourOffset() {
-  // Deprecated single-value getter kept for compatibility; not used for parsing.
-  return 4;
-}
 
 // Determine DST offset hours for America/New_York for a specific date.
 // Returns 4 when the date falls in Eastern Daylight Time (UTC-4),

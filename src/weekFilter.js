@@ -133,5 +133,3 @@ if (document.readyState === 'loading') {
 } else {
   initWeekFilter();
 }
-
-export { initWeekFilter };
