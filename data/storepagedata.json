@@ -14,7 +14,7 @@
             "itemID": 2371891,
             "itemName": "Fires everywhere bundle",
             "itemNameShort": "Fires everywhere bundle",
-            "itemDesc": "",
+            "itemDesc": "You and your Flamer against the fires everywhere.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- WEAPON SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- OUTFIT AND HEADWEAR ARE CRAFTABLE AT ARMOR WORKBENCHES. 0-\n[h]aka burned down bundle[/h]",
             "primaryImage": {
               "imageName": "60808bada26007ea2286c0cae3efae04.webp",
               "directory": "/textures/atomic_shop_media/"
@@ -30,7 +30,7 @@
               },
               {
                 "imageName": "atx_apparel_outfit_responders_chief_l.webp",
-                "directory": "/textures/atx/storefront/player/underarmor/"
+                "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
                 "imageName": "atx_skin_weaponskin_flamer_fireman_l.webp",
@@ -68,22 +68,22 @@
                 "szItemName": "Responders Fire Chief Underarmor"
               },
               {
+                "szItemName": "Fireman Paint (Flamer)"
+              },
+              {
+                "szItemName": "Burned House Kit"
+              },
+              {
                 "szItemName": "Burned Floor and Foundations"
               },
               {
                 "szItemName": "Small Fire"
               },
               {
-                "szItemName": "Fireman Paint (Flamer)"
-              },
-              {
-                "szItemName": "Large Fire"
-              },
-              {
                 "szItemName": "Medium Fire"
               },
               {
-                "szItemName": "Burned House Kit"
+                "szItemName": "Large Fire"
               }
             ],
             "lowPrice": {
@@ -106,7 +106,7 @@
               "hasL": true,
               "hasNone": true
             },
-            "isClown": false
+            "isClown": true
           },
           {
             "itemID": 2382792,
@@ -119,48 +119,48 @@
             },
             "carouselImages": [
               {
+                "imageName": "atx_entm_camp_structure_superdupermart_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
                 "imageName": "atx_entm_camp_vendor_playervendingmachine_superdupermartregister_l.webp",
                 "directory": "/textures/atx/storefront/camp/vendors/"
+              },
+              {
+                "imageName": "atx__camp_displaycase_iceglorefrigerateddisplay_l.webp",
+                "directory": "/textures/atx/storefront/camp/displays/"
               },
               {
                 "imageName": "atx_camp_walldeco_letters_superdupermart_l.webp",
                 "directory": "/textures/atx/storefront/camp/walldecoration/"
               },
               {
-                "imageName": "atx_camp_vendor_playervendingmachine_cashregister_l.webp",
-                "directory": "/textures/atx/storefront/camp/vendors/"
-              },
-              {
-                "imageName": "atx_entm_camp_structure_superdupermart_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
                 "imageName": "atx_entm_skin_backpack_shoppingbasket.webp",
                 "directory": "/textures/atx/storefront/player/backpack/"
               },
               {
-                "imageName": "atx__camp_displaycase_iceglorefrigerateddisplay_l.webp",
-                "directory": "/textures/atx/storefront/camp/displays/"
+                "imageName": "atx_entm_camp_floordecor_superdupermartcheckoutcounter_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Super Duper Mart Letters Set"
+                "szItemName": "Super Duper Mart"
+              },
+              {
+                "szItemName": "Super Duper Mart Register"
               },
               {
                 "szItemName": "IceGlo Display Case"
               },
               {
+                "szItemName": "Super Duper Mart Letters Set"
+              },
+              {
                 "szItemName": "Shopping Basket Backpack"
               },
               {
-                "szItemName": "Super Duper Mart"
-              },
-              {
                 "szItemName": "Super Duper Mart Checkout Counter"
-              },
-              {
-                "szItemName": "Super Duper Mart Register"
               }
             ],
             "lowPrice": {
@@ -288,15 +288,15 @@
             "carouselImages": [
               {
                 "imageName": "atx_entm_camp_kit_burnedhouse_c1.webp",
-                "directory": "textures/atx/storefront/camp/kits/"
+                "directory": "/textures/atx/storefront/camp/kits/"
               },
               {
                 "imageName": "atx_entm_camp_kit_burnedhouse_c2.webp",
-                "directory": "textures/atx/storefront/camp/kits/"
+                "directory": "/textures/atx/storefront/camp/kits/"
               },
               {
                 "imageName": "atx_entm_camp_kit_burnedhouse_c3.webp",
-                "directory": "textures/atx/storefront/camp/kits/"
+                "directory": "/textures/atx/storefront/camp/kits/"
               }
             ],
             "dynamicBundleItems": [],
@@ -315,7 +315,12 @@
               "originalAmount": 700
             },
             "isZeus": false,
-            "isNew": 0
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
           },
           {
             "itemID": 2415755,
@@ -356,7 +361,12 @@
               "originalAmount": 700
             },
             "isZeus": false,
-            "isNew": 0
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isClown": false
           },
           {
             "itemID": 2426876,
@@ -397,7 +407,12 @@
               "originalAmount": 700
             },
             "isZeus": false,
-            "isNew": 0
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isClown": false
           },
           {
             "itemID": 2437997,
@@ -448,7 +463,12 @@
               "originalAmount": 500
             },
             "isZeus": false,
-            "isNew": 0
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
           },
           {
             "itemID": 2448118,
@@ -485,7 +505,12 @@
               "originalAmount": 500
             },
             "isZeus": false,
-            "isNew": 0
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isClown": false
           },
           {
             "itemID": 2459239,
@@ -522,7 +547,12 @@
               "originalAmount": 500
             },
             "isZeus": false,
-            "isNew": false
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isClown": false
           }
         ]
       },
@@ -1298,8 +1328,8 @@
                 "directory": "/textures/atx/storefront/camp/utility/"
               },
               {
-                "imageName": "atx_camp_trainset_nukacola_l.webp",
-                "directory": "/textures/atx/storefront/camp/furniture/"
+                "imageName": "atx_camp_structure_decoration_modeltrainset_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
                 "imageName": "score_s1_camp_wallpaper_glowinthedark_starsandplanets_l.webp",
@@ -2804,78 +2834,71 @@
           },
           {
             "itemID": 2457966,
-            "itemName": "Country Flair Bundle",
-            "itemNameShort": "Country Flair Bundle",
-            "itemDesc": "Become a wasteland cowpoke and find some country flair with the Country Flair Bundle. Items would cost 2,975 Atoms if purchased separately.\n\r\n - APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemName": "Liberty or Death Bundle",
+            "itemNameShort": "Liberty or Death Bundle",
+            "itemDesc": "Give me liberty and give me a great bundle!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
             "primaryImage": {
-              "imageName": "87aa801141dc41fcfdc572d68b4e06ff.webp",
+              "imageName": "864938a57fa21518f197ba3263f39897.webp",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_apparel_headwear_countrygirlhat_l.webp",
+                "imageName": "atx_skin_backpack_freestates_tan_l.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              },
+              {
+                "imageName": "atx_skin_weaponskin_combatshotgun_freestates_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_freestates_revolutionary_helmet_l.webp",
                 "directory": "/textures/atx/storefront/player/headwear/"
               },
               {
-                "imageName": "atx_camp_floordecor_elmtrees_summer_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
+                "imageName": "atx_pipboy_freestatesadvanced_l.webp",
+                "directory": "/textures/atx/storefront/player/pipboy/"
               },
               {
-                "imageName": "atx_camp_wallpaper_woodpanel_01_l.webp",
-                "directory": "/textures/atx/storefront/camp/wallpaper/"
+                "imageName": "atx_apparel_outfit_freestates_revolutionary_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
-                "imageName": "atx_camp_furniture_mechanicalbrahmin_l.webp",
-                "directory": "/textures/atx/storefront/camp/furniture/"
+                "imageName": "free_states_salute.webp",
+                "directory": "/textures/emotes/"
               },
               {
-                "imageName": "atx_apparel_underarmor_countrygirl_l.webp",
-                "directory": "/textures/atx/storefront/player/underarmor/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_haybales_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_door_wood_woodwindowledge01_l.webp",
-                "directory": "/textures/atx/storefront/camp/doors/"
-              },
-              {
-                "imageName": "atx_camp_structure_barn_red_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
+                "imageName": "atx_playericon_freestates_02.webp",
+                "directory": "/textures/atx/storefront/player/playericons/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Country Girt Hat"
+                "szItemName": "Tan Free States Backpack"
               },
               {
-                "szItemName": "Summer Elm Trees"
+                "szItemName": "Free States Paint (Combat Shotgun)"
               },
               {
-                "szItemName": "Weathered Wood Wallpaper"
+                "szItemName": "Free States Revolutionary Helmet"
               },
               {
-                "szItemName": "Mechanical Bucking Brahmin Ride"
+                "szItemName": "Revolutionary Paint"
               },
               {
-                "szItemName": "Country Girl Underarmor"
+                "szItemName": "Free States Revolutionary Outfit"
               },
               {
-                "szItemName": "Hay Bales"
+                "szItemName": "Free States Salute"
               },
               {
-                "szItemName": "Country Wooden Door"
-              },
-              {
-                "szItemName": "Red Barn"
+                "szItemName": "Free States Revolutionary Icon"
               }
             ],
             "lowPrice": {
               "amount": 900,
               "originalAmount": 900,
               "isLto": true,
-              "ltoTimer": "2026-02-24T12:00:00.000Z"
+              "ltoTimer": "2026-03-03T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 900,
@@ -2886,7 +2909,12 @@
               "originalAmount": 1500
             },
             "isZeus": false,
-            "isClown": false
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2457966,
@@ -2927,65 +2955,58 @@
             "isClown": false
           },
           {
-            "itemID": 2458803,
-            "itemName": "Mine Reclamation Bundle",
-            "itemNameShort": "Mine Reclamation Bundle",
-            "itemDesc": "Reclaim that Abandoned Mine with the Mine Reclamation Bundle.",
+            "itemID": 5614216,
+            "itemName": "Vault Storage Facility Shelter Bundle",
+            "itemNameShort": "Vault Storage Facility Shelter Bundle",
+            "itemDesc": "Not enough room in your C.A.M.P., add some storage space with this Vault-Tec approved Shelter.",
             "primaryImage": {
-              "imageName": "90d9907cbf261edcab1a30fe07563581.webp",
+              "imageName": "89758ae2270eb1ce51a048204a0711b0.webp",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_skin_lootbag_lunchpail_l.webp",
-                "directory": "/textures/atx/storefront/player/lootbags/"
+                "imageName": "shelters_shelterentrance_vaultstoragefacility_l.webp",
+                "directory": "/textures/atx/storefront/camp/shelters/"
               },
               {
-                "imageName": "atx_camp_stashbox_moleminer_l.webp",
-                "directory": "/textures/atx/storefront/camp/stash/"
+                "imageName": "atx_camp_floordecor_grandfatherclock_vaulttec_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
-                "imageName": "atx_apparel_headwear_moedigs_clean_l.webp",
-                "directory": "/textures/atx/storefront/player/headwear/"
+                "imageName": "atx_camp_structure_pitt_scaffolding_kit.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
               },
               {
-                "imageName": "atx_apparel_outfit_moedigs_clean_l.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_camp_machinery_workbench_cooking_stove_minecart_l.webp",
+                "imageName": "atx_camp_machinery_generator_small_vaulttec_l.webp",
                 "directory": "/textures/atx/storefront/camp/machinery/"
               },
               {
-                "imageName": "shelters_shelterentrance_abandonedmine_c4.webp",
-                "directory": "/textures/atx/storefront/camp/shelters/"
+                "imageName": "atx_camp_decoration_vaulttecspa_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Miner Lunch Pail Loot Bag"
+                "szItemName": "Vault Storage Facility Shelter"
               },
               {
-                "szItemName": "Mole Miner Stash Box"
+                "szItemName": "Vault-Tec Grandfather Clock"
               },
               {
-                "szItemName": "Pristine Moe the Mole Head"
+                "szItemName": "Pitt Scaffold Kit"
               },
               {
-                "szItemName": "Pristine Moe the Mole Outfit"
+                "szItemName": "Vault-Tec Small Generator"
               },
               {
-                "szItemName": "Cooking Stove - Minecart"
-              },
-              {
-                "szItemName": "Abandoned Mine Shelter"
+                "szItemName": "Hot Tub"
               }
             ],
             "lowPrice": {
               "amount": 900,
               "originalAmount": 900,
               "isLto": true,
-              "ltoTimer": "2026-02-24T12:00:00.000Z"
+              "ltoTimer": "2026-03-03T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 900,
@@ -2996,7 +3017,12 @@
               "originalAmount": 1800
             },
             "isZeus": true,
-            "isClown": false
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
           }
         ]
       },
