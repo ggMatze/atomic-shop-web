@@ -1366,7 +1366,7 @@ body.uah-currency .tile-price .current-price::before {
   gap: 6px;
   white-space: nowrap;
   width: 112px;
-  max-width: 120px;
+  max-width: 135px;
   min-width: 110px;
  
    /*                    up left    up right  down right   down left */
@@ -1381,6 +1381,7 @@ body.uah-currency .tile-price .current-price::before {
 }
 
 .tile-timer-secondary .timer-text {
+  max-width: auto;
   position: static;
   top: auto;
   transform: none;
@@ -1393,7 +1394,7 @@ body.uah-currency .tile-price .current-price::before {
 }
 
 .tile-timer-secondary .line2 {
-  font-size: 0.9em;
+  font-size: 0.81em;
   font-weight: bold;
   color: #fff;
   white-space: nowrap;
@@ -1402,6 +1403,7 @@ body.uah-currency .tile-price .current-price::before {
   top: -2px;
   font-family: inherit;
   letter-spacing: 0.06em;
+  word-spacing: -0.1em;
   text-shadow: 1.5px 1.5px 1px #000;
 }
 

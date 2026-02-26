@@ -59,13 +59,13 @@ export function renderTimerHTML(expiresAt) {
   if (t.expired) return '';
   let timeText;
   if (t.days > 0) {
-    timeText = `${t.days} day${t.days > 1 ? 's' : ''}`;
+    timeText = `${t.days} Days`;
   } else if (t.hours > 0) {
     timeText = `${t.hours} Hours`;
   } else if (t.minutes > 0) {
-    timeText = `${t.minutes} Minutes`;
+    timeText = `${t.minutes} Mins`;
   } else {
-    timeText = `${t.seconds} Seconds`;
+    timeText = `${t.seconds} Secs`;
   }
   return `<div class="tile-timer" title="Time until this item leaves the shop." data-expires="${expiresAt}">
     <span class="timer-text">
@@ -80,13 +80,13 @@ export function renderSecondaryTimerHTML(expiresAt) {
   if (t.expired) return '';
   let timeText;
   if (t.days > 0) {
-    timeText = `${t.days} day${t.days > 1 ? 's' : ''}`;
+    timeText = `${t.days} ${t.days === 1 ? 'Day' : 'Days'}`;
   } else if (t.hours > 0) {
-    timeText = `${t.hours} Hours`;
+    timeText = `${t.hours} ${t.hours === 1 ? 'Hour' : 'Hours'}`;
   } else if (t.minutes > 0) {
-    timeText = `${t.minutes} Minutes`;
+    timeText = `${t.minutes} ${t.minutes === 1 ? 'Min' : 'Mins'}`;
   } else {
-    timeText = `${t.seconds} Seconds`;
+    timeText = `${t.seconds} ${t.seconds === 1 ? 'Sec' : 'Secs'}`;
   }
   return `<div class="tile-timer-secondary" title="Time until discount expires." data-expires="${expiresAt}">
     <span class="timer-text">
@@ -146,7 +146,8 @@ if (typeof window !== 'undefined') {
 
 // Update all tile timers in the DOM
 export function updateAllTimers() {
-  document.querySelectorAll('.tile-timer[data-expires]').forEach(el => {
+  // update both primary and secondary timer elements
+  document.querySelectorAll('.tile-timer[data-expires], .tile-timer-secondary[data-expires]').forEach(el => {
     const expiresAt = el.getAttribute('data-expires');
     const t = getTimeRemaining(expiresAt);
     const line2 = el.querySelector('.line2');
@@ -156,13 +157,13 @@ export function updateAllTimers() {
       return;
     }
     if (t.days > 0) {
-      line2.textContent = `${t.days} day${t.days > 1 ? 's' : ''}`;
+      line2.textContent = `${t.days} ${t.days === 1 ? 'Day' : 'Days'}`;
     } else if (t.hours > 0) {
-      line2.textContent = `${t.hours} hours`;
+      line2.textContent = `${t.hours} ${t.hours === 1 ? 'Hour' : 'Hours'}`;
     } else if (t.minutes > 0) {
-      line2.textContent = `${t.minutes} minutes`;
+      line2.textContent = `${t.minutes} ${t.minutes === 1 ? 'Min' : 'Mins'}`;
     } else {
-      line2.textContent = `${t.seconds} seconds`;
+      line2.textContent = `${t.seconds} ${t.seconds === 1 ? 'Sec' : 'Secs'}`;
     }
   });
 }
