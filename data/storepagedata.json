@@ -2,6 +2,600 @@
   "StorePageData": {
     "pages": [
       {
+        "name": "Weekend Sale\nTGIF!",
+        "tabid": "weekend-sale",
+        "isZeus": false,
+        "image": {
+          "imageName": "dcb36199d90701b5886a34c01ccb9156.webp",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2702557,
+            "itemName": "Sound Stage Bundle",
+            "itemNameShort": "Sound Stage Bundle",
+            "itemDesc": "Set the stage and direct your own!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "caf73f40f4f254a2b4d4418c57e0097d.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s13_shelters_shelterentrance_soundstage_l.webp",
+                "directory": "/textures/atx/storefront/camp/shelters/"
+              },
+              {
+                "imageName": "score_s13_camp_floordecor_studiocamera_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s13_camp_lights_ceiling_studiolights_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "score_s13_camp_furniture_chair_directorschair_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "score_s13_camp_decor_pyrotechnickit_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s13_camp_utility_gramophone_hollywood_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s13_camp_lights_wall_applausesign_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_utility_popcornmachine_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s13_camp_utility_hollywoodvanity_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_playericon_s13_shootforthestars.webp",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              },
+              {
+                "imageName": "score_s13_photomode_frame_movieree_l.webp",
+                "directory": "/textures/atx/storefront/player/photoframe/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Sound Stage Shelter"
+              },
+              {
+                "szItemName": "Studio Camera"
+              },
+              {
+                "szItemName": "Studio Lights"
+              },
+              {
+                "szItemName": "Director's Chair"
+              },
+              {
+                "szItemName": "Pyrotechnic Kit"
+              },
+              {
+                "szItemName": "Hollywood Gramophone"
+              },
+              {
+                "szItemName": "Applause Sign"
+              },
+              {
+                "szItemName": "Hollywood Popcorn Machine"
+              },
+              {
+                "szItemName": "Hollywood Vanity"
+              },
+              {
+                "szItemName": "Shoot for the Stars Player Icon"
+              },
+              {
+                "szItemName": "Movie Reel Photomode Frame"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1440,
+              "originalAmount": 2400,
+              "isLto": true,
+              "ltoTimer": "2026-03-03T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1440,
+              "originalAmount": 2400
+            },
+            "highPrice": {
+              "amount": 2400,
+              "originalAmount": 2400
+            },
+            "isZeus": true,
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2702458,
+            "itemName": "Crater Raider Bundle",
+            "itemNameShort": "Crater Raider Bundle",
+            "itemDesc": "Own the Wasteland once and for all with this suite of Crater Raider gear!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- WEAPON SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- POWER ARMOR SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "8daa969c6ffb6205f5a3c8315cc6119b.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_wst_skin_powerarmor_paint_raider_marauder_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_camp_stashbox_raider_l.webp",
+                "directory": "/textures/atx/storefront/camp/stash/"
+              },
+              {
+                "imageName": "atx_camp_deployable_raider_l.webp",
+                "directory": "/textures/atx/storefront/camp/deployables/"
+              },
+              {
+                "imageName": "atx_camp_decoration_flagwaving_raider_faction_l.webp",
+                "directory": "/textures/atx/storefront/camp/flags/"
+              },
+              {
+                "imageName": "atx_skin_lootbag_raider_conquest_l.webp",
+                "directory": "/textures/atx/storefront/player/lootbags/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_raider_pathfinder_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_raider_pathfinder_mask_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_raider_pathfinder_hat_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_skin_backpack_raider_pillager_l.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Raider Marauder Power Armor Skin"
+              },
+              {
+                "szItemName": "Raider Stash Box"
+              },
+              {
+                "szItemName": "Raider C.A.M.P."
+              },
+              {
+                "szItemName": "Raider Conquest Loot Bag"
+              },
+              {
+                "szItemName": "Raider Pathfinder Mask"
+              },
+              {
+                "szItemName": "Raider Faction Flag"
+              },
+              {
+                "szItemName": "Raider Pathfinder Bandana"
+              },
+              {
+                "szItemName": "Raider Pathfinder Outfit"
+              },
+              {
+                "szItemName": "Raider Pillager Backpack"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1200,
+              "originalAmount": 2000,
+              "isLto": true,
+              "ltoTimer": "2026-03-03T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1200,
+              "originalAmount": 2000
+            },
+            "highPrice": {
+              "amount": 2000,
+              "originalAmount": 2000
+            },
+            "isZeus": false,
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2702458,
+            "itemName": "Foundation Settlers Bundle",
+            "itemNameShort": "Foundation Settlers Bundle",
+            "itemDesc": "Settle the Wasteland for a better future with this Foundation Bundle!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- WEAPON SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- POWER ARMOR SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "66c4ebd70483c577fb0f1570284cd754.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_wst_skin_powerarmor_paint_settler_vigilante_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_camp_deployable_settler_l.webp",
+                "directory": "/textures/atx/storefront/camp/deployables/"
+              },
+              {
+                "imageName": "atx_camp_stashbox_settler_l.webp",
+                "directory": "/textures/atx/storefront/camp/stash/"
+              },
+              {
+                "imageName": "atx_skin_backpack_settler_relief_l.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_settler_mechanic_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_settler_mechanic_hat_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_camp_decoration_flagwaving_settler_faction_l.webp",
+                "directory": "/textures/atx/storefront/camp/flags/"
+              },
+              {
+                "imageName": "atx_skin_lootbag_settler_traveler_l.webp",
+                "directory": "/textures/atx/storefront/player/lootbags/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Settler Vigilante Power Armor Paint"
+              },
+              {
+                "szItemName": "Settler C.A.M.P."
+              },
+              {
+                "szItemName": "Settler Stash Box"
+              },
+              {
+                "szItemName": "Settler Relief Backpack"
+              },
+              {
+                "szItemName": "Settler Mechanic Outfit"
+              },
+              {
+                "szItemName": "Settler Mechanic Hat"
+              },
+              {
+                "szItemName": "Settler Faction Flag"
+              },
+              {
+                "szItemName": "Settler Traveler Loot Bag"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1200,
+              "originalAmount": 2000,
+              "isLto": true,
+              "ltoTimer": "2026-03-03T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1200,
+              "originalAmount": 2000
+            },
+            "highPrice": {
+              "amount": 2000,
+              "originalAmount": 2000
+            },
+            "isZeus": false,
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2702851,
+            "itemName": "Shadow Prime Power Armor Skin",
+            "itemNameShort": "Shadow Prime Power Armor Skin",
+            "itemDesc": "DEMOCRACY WILL NEVER BE DEFEATED. Become a covert agent of democracy and justice with the Shadow Prime Power Armor!\nThe Power Armor Skin includes two helmet variations: one with voice sound effects and one without.\nThis is a unique skin that completely alters the appearance of your Power Armor. [h]It can be equipped on all main Power Armors.[/h]\n\n- POWER ARMOR SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "atx_skin_powerarmor_paint_libertyprime_black_l.webp",
+              "directory": "/textures/atx/storefront/player/powerarmor/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_powerarmor_paint_libertyprime_black_c1.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_libertyprime_black_c2.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_libertyprime_black_c3.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 1260,
+              "originalAmount": 1800,
+              "isLto": true,
+              "ltoTimer": "2026-03-03T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1260,
+              "originalAmount": 1800
+            },
+            "highPrice": {
+              "amount": 1800,
+              "originalAmount": 1800
+            },
+            "isZeus": false,
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2702571,
+            "itemName": "Lite Ally: Joey Bello",
+            "itemNameShort": "Joey Bello",
+            "itemDesc": "Knock knock, Who's there? It's Joey Bello, whise cracking wise guy!\n\n- ALLIES APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s13_camp_ally_joeybello_l.webp",
+              "directory": "/textures/atx/storefront/camp/ally/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s13_camp_ally_joeybello_c4.webp",
+                "directory": "/textures/atx/storefront/camp/ally/"
+              },
+              {
+                "imageName": "score_s13_camp_ally_joeybello_c1.webp",
+                "directory": "/textures/atx/storefront/camp/ally/"
+              },
+              {
+                "imageName": "score_s13_camp_ally_joeybello_c2.webp",
+                "directory": "/textures/atx/storefront/camp/ally/"
+              },
+              {
+                "imageName": "score_s13_camp_ally_joeybello_c3.webp",
+                "directory": "/textures/atx/storefront/camp/ally/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 1050,
+              "originalAmount": 1500,
+              "isLto": true,
+              "ltoTimer": "2026-03-03T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1050,
+              "originalAmount": 1500
+            },
+            "highPrice": {
+              "amount": 1500,
+              "originalAmount": 1500
+            },
+            "isZeus": false,
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 4,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2702784,
+            "itemName": "Dr. Zorbo Robes",
+            "itemNameShort": "Dr. Zorbo Robes",
+            "itemDesc": "Deliver your revenge and finally conquer the galaxy with these Dr. Zorbo Robes! And do it with flair!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "score_s7_apparel_outfit_zorbo_l.webp",
+              "directory": "/textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s7_apparel_headwear_zorbo_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "score_s7_apparel_outfit_zorbo_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Dr. Zorbo Helmet"
+              },
+              {
+                "szItemName": "Dr. Zorbo Robes"
+              }
+            ],
+            "lowPrice": {
+              "amount": 560,
+              "originalAmount": 900,
+              "isLto": true,
+              "ltoTimer": "2026-03-03T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 560,
+              "originalAmount": 900
+            },
+            "highPrice": {
+              "amount": 900,
+              "originalAmount": 900
+            },
+            "isZeus": false,
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2702715,
+            "itemName": "Captain Cosmos Outfit",
+            "itemNameShort": "Captain Cosmos Outfit",
+            "itemDesc": "Gear up for a new ... Cosmic Adventure with this Captain Cosmos Outfit!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_apparel_outfit_captaincosmos_l.webp",
+              "directory": "/textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_headwear_captaincosmos_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_captaincosmos_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Captain Cosmos Helmet"
+              },
+              {
+                "szItemName": "Captain Cosmos Suit"
+              }
+            ],
+            "lowPrice": {
+              "amount": 560,
+              "originalAmount": 900,
+              "isLto": true,
+              "ltoTimer": "2026-03-03T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 560,
+              "originalAmount": 900
+            },
+            "highPrice": {
+              "amount": 900,
+              "originalAmount": 900
+            },
+            "isZeus": false,
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2702635,
+            "itemName": "Commando Chinese Stealth Armor Paint",
+            "itemNameShort": "Commando Paint",
+            "itemDesc": "No one will see this commando coming now!\n\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_skin_armorskin_chinesestealtharmor_commando.webp",
+              "directory": "/textures/atx/storefront/player/armorskin/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_armorskin_chinesestealtharmor_commando_c1.webp",
+                "directory": "/textures/atx/storefront/player/armorskin//"
+              },
+              {
+                "imageName": "atx_skin_armorskin_chinesestealtharmor_commando_c2.webp",
+                "directory": "/textures/atx/storefront/player/armorskin//"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 490,
+              "originalAmount": 700,
+              "isLto": true,
+              "ltoTimer": "2026-03-03T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 490,
+              "originalAmount": 700
+            },
+            "highPrice": {
+              "amount": 700,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2702114,
+            "itemName": "Firewatch Lookout Tower",
+            "itemNameShort": "Firewatch Tower",
+            "itemDesc": "Keep on the lookout for raiders, miscreants, saboteurs, or actual fires with the Firewatch Lookout Tower.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_structure_firewachtower_l.webp",
+              "directory": "/textures/atx/storefront/camp/structures/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_structure_firewachtower_c1.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_structure_firewachtower_c2.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_structure_firewachtower_c3.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 490,
+              "originalAmount": 700,
+              "isLto": true,
+              "ltoTimer": "2026-03-03T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 490,
+              "originalAmount": 700
+            },
+            "highPrice": {
+              "amount": 700,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            }
+          }
+        ]
+      },
+      {
         "name": "Sales\nTime for the sales!",
         "tabid": "sales",
         "isZeus": false,
