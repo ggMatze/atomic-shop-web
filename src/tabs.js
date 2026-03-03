@@ -394,7 +394,7 @@ async function initTabs() {
           ${currentPriceHTML}
         </div>
   ${expiresHTML}
-        <div class="tile-footer ${tileSize}">${tileSize === 'large' ? ((item && item.itemName) || '') : ((item && item.itemNameShort) || (item && item.itemName) || '')}</div>
+        <div class="tile-footer ${tileSize}">${(item && item.itemNameShort) || (item && item.itemName) || ''}</div>
       </div>
     `;
   }
