@@ -140,7 +140,7 @@ async function showNewsNotice(options = { force: false }) {
       };
     }
 
-    // Setup hide-for-X-days button (text and action comes from news.json)
+    // Setup hide-for-X-days button (text and action comes from config.json)
     const hideBtn = document.getElementById('news-hide-ttl');
     if (hideBtn) {
       let days = null;

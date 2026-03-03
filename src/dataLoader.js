@@ -18,9 +18,10 @@ export async function loadDailyAndStore() {
 
 export async function loadNews() {
   try {
-    const res = await fetch('/data/news.json');
+    const res = await fetch('/data/config.json');
     if (!res.ok) return null;
-    return await res.json();
+    const config = await res.json();
+    return config.news || null;
   } catch (e) {
     return null;
   }
