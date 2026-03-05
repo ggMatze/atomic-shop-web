@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atomic Shop Editors</title>
+  <style>
+    body {
+      background: #181c1d;
+      color: #f5f3c2;
+      font-family: "cabin", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .tab-container {
+      display: flex;
+      background: #23272a;
+      border-bottom: 1px solid #dcb752;
+    }
+    .tab {
+      padding: 10px 20px;
+      background: #23272a;
+      color: #ffe082;
+      border: none;
+      cursor: pointer;
+      border-right: 1px solid #dcb752;
+    }
+    .tab.active {
+      background: #181c1d;
+      color: #f5f3c2;
+    }
+    .tab:hover {
+      background: #2c2f33;
+    }
+    .iframe-container {
+      height: calc(100vh - 50px);
+      width: 100%;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none;
+    }
+    iframe.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="tab-container">
+    <button class="tab active" onclick="switchTab('bundle')">Bundle Editor</button>
+    <button class="tab" onclick="switchTab('daily-items')">Daily Items Editor</button>
+    <button class="tab" onclick="switchTab('daily')">Daily Editor</button>
+    <button class="tab" onclick="switchTab('strip')">JSON Stripper</button>
+  </div>
+  <div class="iframe-container">
+    <iframe id="bundle" src="editor.html" class="active"></iframe>
+    <iframe id="daily-items" src="daily-items-editor.html"></iframe>
+    <iframe id="daily" src="daily-editor.html"></iframe>
+    <iframe id="strip" src="strip.html"></iframe>
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      // Hide all iframes
+      const iframes = document.querySelectorAll('iframe');
+      iframes.forEach(iframe => iframe.classList.remove('active'));
+
+      // Remove active class from all tabs
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Show selected iframe and activate tab
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Daily Items Editor - Full</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { background: #222; color: #eee; font-family: sans-serif; font-size: 0.9em; margin: 0; padding: 20px; }
+    select, button, input { font-size: 0.95em; padding: 4px 8px; }
+    h2 { color: #bbb; }
+    .bundle-list { margin: 1em 0; }
+    .img-list { display: flex; flex-wrap: wrap; gap: 10px; margin: 1em 0; }
+    .img-item { background: #333; border-radius: 6px; padding: 6px; display: flex; flex-direction: column; align-items: center; width: 220px; }
+    .img-item input { width: 210px; margin-bottom: 3px; padding: 3px; font-size: 0.85em; }
+    .img-item button { margin: 1px; padding: 3px 6px; font-size: 0.85em; }
+    .img-item select { margin: 3px 0; padding: 3px; font-size: 0.85em; width: 100%; }
+    .editor-row { display: flex; gap: 12px; align-items: flex-start; }
+    .editor-controls { box-sizing: border-box; width: 100%; }
+    .output { margin-top: 2em; }
+    input[type="text"], input[type="number"], input[type="datetime-local"], textarea { background: #3c3c3c; color: #e0e0e0; border: 1px solid #555; padding: 6px 10px; width: 100%; font-family: inherit; }
+    textarea { min-height: 80px; }
+    button { background: #0e639c; color: #fff; border: 1px solid #1177bb; cursor: pointer; margin-right: 8px; margin-bottom: 8px; }
+    button:hover { background: #1177bb; }
+    button.danger { background: #c1260d; border-color: #e81123; }
+    button.danger:hover { background: #e81123; }
+    .week-selector { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+    .week-selector button { padding: 6px 12px; margin: 0 4px 4px 0; }
+    .week-selector button.active { background: #569cd6; border-color: #569cd6; }
+    .items-list { background: #252526; border: 1px solid #3e3e42; border-radius: 4px; max-height: 300px; overflow-y: auto; margin-bottom: 20px; }
+    .item-row { padding: 10px 15px; border-bottom: 1px solid #3e3e42; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .item-row:hover { background: #2d2d2d; }
+    .item-row.selected { background: #1e4d6d; border-left: 4px solid #569cd6; }
+    .item-id { color: #b4cea8; font-weight: bold; }
+    .item-name { color: #e0e0e0; margin-left: 8px; }
+    .field-row { margin-bottom: 12px; }
+    .field-row label { display: block; margin-bottom: 4px; font-weight: bold; }
+    .field-row.full { grid-column: 1 / -1; }
+    .field-row.inline { display: flex; gap: 15px; margin-bottom: 12px; }
+    .field-row.inline div { flex: 1; }
+    .status { padding: 10px 15px; border-radius: 4px; margin-top: 15px; display: none; }
+    .status.show { display: block; }
+    .status.success { background: #107c10; color: #fff; }
+    .status.error { background: #c1260d; color: #fff; }
+    .collapsible-header { background: #2a5a8f; padding: 10px 15px; cursor: pointer; border-radius: 4px; font-weight: bold; user-select: none; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .collapsible-header:hover { background: #3a6aaf; }
+    .collapsible-content { display: none; background: #252526; border: 1px solid #3e3e42; border-radius: 4px; padding: 15px; margin-bottom: 15px; }
+    .collapsible-content.open { display: block; }
+    .fields-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    input[type="text"], input[type="number"], input[type="datetime-local"] { height: 32px; }
+    textarea { min-height: 60px; }
+  </style>
+</head>
+<body>
+  <h2>Daily Items Editor</h2>
+  
+  <input type="file" id="jsonfile" accept=".json">
+  <button id="load-json">Load dailyitems.json</button>
+  
+  <div id="week-selector" class="week-selector"></div>
+  
+  <div class="items-list" id="items-list"></div>
+  
+  <div id="editor" style="display: none;">
+    <h3 id="editor-title"></h3>
+    <div class="editor-row">
+      <div class="editor-controls">
+        <div class="collapsible-header" onclick="toggleCollapsible()">
+          📋 Item Details
+          <span id="collapse-arrow">▼</span>
+        </div>
+        <div id="details-content" class="collapsible-content open">
+          <div class="fields-grid">
+            <div class="field-row">
+              <label>Item ID:</label>
+              <input type="number" id="itemID" />
+            </div>
+            <div class="field-row">
+              <label>Replace ID:</label>
+              <input type="number" id="replaceItemID" />
+            </div>
+            <div class="field-row">
+              <label style="display: flex; align-items: center; margin-bottom: 0;">
+                <input type="checkbox" id="isZeus" style="width: auto; margin-right: 8px;" />
+                Is Zeus
+              </label>
+            </div>
+          </div>
+          <div class="field-row full">
+            <label>Item Name:</label>
+            <input type="text" id="itemName" />
+          </div>
+          <div class="field-row full">
+            <label>Item Name (Short):</label>
+            <input type="text" id="itemNameShort" />
+          </div>
+          <div class="field-row full">
+            <label>Description:</label>
+            <textarea id="itemDesc"></textarea>
+          </div>
+          <div class="fields-grid">
+            <div class="field-row">
+              <label>Low Price:</label>
+              <input type="number" id="lowPriceAmount" />
+            </div>
+            <div class="field-row">
+              <label>High Price:</label>
+              <input type="number" id="highPriceAmount" />
+            </div>
+            <div class="field-row">
+              <label>Start Time:</label>
+              <input type="datetime-local" id="startTime" />
+            </div>
+            <div class="field-row">
+              <label>End Time:</label>
+              <input type="datetime-local" id="endTime" />
+            </div>
+            <div class="field-row">
+              <label>LTO Timer:</label>
+              <input type="datetime-local" id="ltoTimer" />
+            </div>
+          </div>
+        </div>
+        
+        <h2>Images</h2>
+        <div class="field-row full">
+          <input id="new-image-name" placeholder="imageName (e.g. item_l.webp)">
+          <input id="new-image-dir" placeholder="directory (e.g. /textures/atx/storefront/)">
+          <button onclick="addImage()">Add Image</button>
+        </div>
+        <div class="field-row full">
+          <input id="full-image-path" placeholder="Or paste full path (D:\...\textures\...)">
+          <button onclick="addImageFromFullPath()">Add from Full Path</button>
+        </div>
+        <div class="img-list" id="img-list"></div>
+        
+        <button id="save-item">💾 Save Item</button>
+        <button id="add-item" onclick="addNewItem()">➕ Add New Item</button>
+        <button id="delete-item" class="danger" onclick="deleteItem()">🗑 Delete Item</button>
+        <button id="export-json" onclick="exportJson()">📥 Export JSON</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="status" class="status"></div>
+
+  <script>
+let dailyData = null;
+let currentWeek = null;
+let currentItemIdx = null;
+let tempImages = [];
+let lastItem = null;
+
+function normalizeDir(dir) {
+  if (!dir) return '';
+  let d = String(dir).trim().replace(/\\\\/g, '/').toLowerCase();
+  if (!d) return '';
+  if (d.charAt(0) !== '/') d = '/' + d;
+  if (d.charAt(d.length - 1) !== '/') d = d + '/';
+  return d;
+}
+
+function parseDroppedPath(text) {
+  if (!text) return null;
+  text = text.trim().replace(/^["']|["']$/g, '');
+  try {
+    if (/^[a-zA-Z]+:\/\//.test(text.trim())) {
+      const u = new URL(text.trim());
+      text = u.pathname || u.href || text;
+    }
+  } catch (e) {}
+  let s = text.replace(/\\/g, '/');
+  const lower = s.toLowerCase();
+  let idx = lower.indexOf('/textures/');
+  if (idx === -1) idx = lower.indexOf('textures/');
+  if (idx === -1) return null;
+  if (s[idx] !== '/') s = '/' + s.slice(idx);
+  else s = s.slice(idx);
+  const lastSlash = s.lastIndexOf('/');
+  const dir = s.slice(0, lastSlash + 1);
+  const possibleName = s.slice(lastSlash + 1).split('\n')[0].trim();
+  const hasFileExtension = /\.(webp|png|dds|jpg|jpeg|gif|bmp|tiff|tif|svg)$/i.test(possibleName);
+  return {
+    directory: (hasFileExtension ? dir : (dir + possibleName + '/')).replace(/\\/g, '/').toLowerCase(),
+    name: hasFileExtension ? possibleName.toLowerCase() : null
+  };
+}
+
+function isoToLocalInput(isoStr) {
+  if (!isoStr) return '';
+  try {
+    const date = new Date(isoStr);
+    const y = date.getUTCFullYear();
+    const m = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const d = String(date.getUTCDate()).padStart(2, '0');
+    const h = String(date.getUTCHours()).padStart(2, '0');
+    const min = String(date.getUTCMinutes()).padStart(2, '0');
+    return `${y}-${m}-${d}T${h}:${min}`;
+  } catch {
+    return '';
+  }
+}
+
+function localInputToIso(localStr) {
+  if (!localStr) return '';
+  try {
+    const m = localStr.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+    if (!m) return '';
+    const date = new Date(Date.UTC(
+      parseInt(m[1]),
+      parseInt(m[2]) - 1,
+      parseInt(m[3]),
+      parseInt(m[4]),
+      parseInt(m[5]),
+      0
+    ));
+    return date.toISOString();
+  } catch {
+    return '';
+  }
+}
+
+function showStatus(msg, type = 'info') {
+  const status = document.getElementById('status');
+  status.textContent = msg;
+  status.className = `status show ${type}`;
+  setTimeout(() => status.classList.remove('show'), 3000);
+}
+
+function loadJson(file) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      dailyData = JSON.parse(e.target.result);
+      showWeekSelector();
+      showStatus('File loaded successfully', 'success');
+    } catch (err) {
+      showStatus('Error parsing JSON: ' + err.message, 'error');
+    }
+  };
+  reader.readAsText(file);
+}
+
+function showWeekSelector() {
+  if (!dailyData || !dailyData.DailySalesByWeek) return;
+  const selector = document.getElementById('week-selector');
+  selector.innerHTML = '';
+  Object.keys(dailyData.DailySalesByWeek).forEach(week => {
+    const btn = document.createElement('button');
+    btn.textContent = week;
+    btn.onclick = () => selectWeek(week);
+    selector.appendChild(btn);
+  });
+  const firstWeek = Object.keys(dailyData.DailySalesByWeek)[0];
+  selectWeek(firstWeek);
+}
+
+function selectWeek(week) {
+  currentWeek = week;
+  currentItemIdx = null;
+  document.querySelectorAll('#week-selector button').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent === week);
+  });
+  showItemsList();
+  document.getElementById('editor').style.display = 'none';
+}
+
+function showItemsList() {
+  if (!dailyData || !currentWeek) return;
+  const items = dailyData.DailySalesByWeek[currentWeek] || [];
+  const list = document.getElementById('items-list');
+  list.innerHTML = '';
+  if (!items.length) {
+    list.innerHTML = '<div style="padding: 15px; text-align: center; color: #999;">No items</div>';
+    return;
+  }
+  items.forEach((item, idx) => {
+    const row = document.createElement('div');
+    row.className = 'item-row';
+    row.innerHTML = `
+      <div class="item-info">
+        <span class="item-id">#${item.itemID}</span>
+        <span class="item-name">${item.itemName || '(no name)'}</span>
+      </div>
+    `;
+    row.onclick = () => selectItem(idx);
+    list.appendChild(row);
+  });
+}
+
+function selectItem(idx) {
+  currentItemIdx = idx;
+  const items = dailyData.DailySalesByWeek[currentWeek] || [];
+  const item = items[idx];
+  lastItem = item;
+  
+  document.querySelectorAll('.item-row').forEach((row, i) => {
+    row.classList.toggle('selected', i === idx);
+  });
+  
+  document.getElementById('editor-title').textContent = item.itemName || 'Edit Item';
+  document.getElementById('itemID').value = item.itemID || '';
+  document.getElementById('replaceItemID').value = item.replaceItemID || '';
+  document.getElementById('itemName').value = item.itemName || '';
+  document.getElementById('itemNameShort').value = item.itemNameShort || '';
+  document.getElementById('itemDesc').value = item.itemDesc || '';
+  document.getElementById('lowPriceAmount').value = item.lowestPurchasablePrice?.Amount || '';
+  document.getElementById('highPriceAmount').value = item.highPrice?.originalAmount || '';
+  document.getElementById('startTime').value = isoToLocalInput(item.startTime);
+  document.getElementById('endTime').value = isoToLocalInput(item.endTime);
+  document.getElementById('ltoTimer').value = isoToLocalInput(item.lowPrice?.ltoTimer);
+  document.getElementById('isZeus').checked = item.isZeus || false;
+  
+  tempImages = [];
+  if (item.primaryImage && item.primaryImage.imageName) {
+    tempImages.push({ imageName: String(item.primaryImage.imageName).toLowerCase(), directory: normalizeDir(item.primaryImage.directory), _isPrimary: true });
+  }
+  if (Array.isArray(item.carouselImages)) {
+    tempImages.push(...item.carouselImages.map(img => ({ imageName: String(img.imageName || '').toLowerCase(), directory: normalizeDir(img.directory), _isPrimary: false })));
+  }
+  
+  renderImages();
+  document.getElementById('editor').style.display = 'block';
+}
+
+function renderImages() {
+  const list = document.getElementById('img-list');
+  list.innerHTML = '';
+  list.ondragover = (e) => { e.preventDefault(); list.style.border = '2px dashed #9ad1ff'; };
+  list.ondragleave = (e) => { list.style.border = ''; };
+  list.ondrop = (e) => {
+    e.preventDefault(); list.style.border = '';
+    const dt = e.dataTransfer;
+    const textData = (dt && dt.getData) ? (dt.getData('text/uri-list') || dt.getData('text/plain') || '') : '';
+    if (dt && dt.files && dt.files.length) {
+      const parsedText = parseDroppedPath(textData);
+      const detectedDir = parsedText && parsedText.directory ? parsedText.directory : '';
+      for (let i = 0; i < dt.files.length; i++) {
+        const f = dt.files[i];
+        tempImages.push({ imageName: f.name.toLowerCase(), directory: detectedDir || '' });
+      }
+      renderImages();
+      return;
+    }
+    if (textData) {
+      const parsed = parseDroppedPath(textData);
+      if (parsed && parsed.name) {
+        tempImages.push({ imageName: parsed.name.toLowerCase(), directory: parsed.directory });
+        renderImages();
+        return;
+      }
+    }
+  };
+  
+  tempImages.forEach((img, idx) => {
+    const div = document.createElement('div');
+    div.className = 'img-item';
+    div.setAttribute('draggable', 'true');
+    div.setAttribute('data-idx', idx);
+    
+    const imgUrl = (img.directory + img.imageName).toLowerCase().replace(/\.(dds|png)$/i, '.webp');
+    
+    // Detect current suffix
+    let currentSuffix = '';
+    if (img.imageName) {
+      const m = img.imageName.match(/(_C(\d+)|_L)(?=\.[^.]+$)/i);
+      currentSuffix = m ? (m[0].toUpperCase()) : '';
+    }
+    
+    // Detect all existing suffixes to build dropdown options
+    const cNumbers = new Set();
+    let hasL = false;
+    let hasNone = false;
+    tempImages.forEach(ti => {
+      if (!ti || !ti.imageName) return;
+      const name = ti.imageName.toLowerCase();
+      const cMatch = name.match(/_c(\d+)\.[^.]+$/i);
+      if (cMatch) {
+        cNumbers.add(Number(cMatch[1]));
+        return;
+      }
+      const lMatch = name.match(/_l\.[^.]+$/i);
+      if (lMatch) {
+        hasL = true;
+        return;
+      }
+      hasNone = true;
+    });
+    
+    let maxC = 0;
+    for (let i = 1; i <= 20; i++) {
+      if (cNumbers.has(i)) maxC = i; else break;
+    }
+    
+    let optionsHtml = '';
+    optionsHtml += `<option value=""${currentSuffix === '' ? ' selected' : ''}>(none)</option>`;
+    for (let i = 1; i <= maxC; i++) {
+      const val = `_C${i}`;
+      const sel = (currentSuffix === val) ? ' selected' : '';
+      optionsHtml += `<option value="${val}"${sel}>${val}</option>`;
+    }
+    const selL = (currentSuffix === '_L') ? ' selected' : '';
+    optionsHtml += `<option value="_L"${selL}>_L</option>`;
+    
+    div.innerHTML = `
+      <input value="${(img.directory||'')}" onchange="updateImageDir(${idx}, this.value)" placeholder="directory" style="width: 100%; font-size: 0.75em; margin-bottom: 3px; padding: 3px;">
+      <input value="${img.imageName}" onchange="updateImageName(${idx}, this.value)" style="width: 100%; font-size: 0.75em; margin-bottom: 6px; padding: 3px; background: #222; color: #eee;">
+      <div style="position: relative; display: inline-block; width: 220px; height: 220px; margin-bottom: 4px;">
+        <img src="${imgUrl}" alt="${img.imageName}" 
+          style="width: 100%; height: 100%; object-fit: cover; border: 1px solid #555; background: #111;"
+          onerror="this.style.opacity=0.3;this.title='Not found: '+this.src;">
+        <label style="position: absolute; top: 3px; right: 3px; background: rgba(0,0,0,0.8); padding: 3px; border-radius: 3px; cursor: pointer; display: flex; align-items: center; gap: 2px;">
+          <input type="checkbox" ${img._isPrimary ? 'checked' : ''} onchange="togglePrimary(${idx}, this.checked)" style="width: 14px; height: 14px; margin: 0; cursor: pointer;">
+          <span style="color: #ffd454; font-size: 0.7em;">P</span>
+        </label>
+        <div style="position: absolute; bottom: 3px; left: 3px; right: 3px; display: flex; gap: 2px;">
+          <button onclick="syncPath(${idx})" style="flex: 1; padding: 2px; font-size: 0.85em;" title="Copy this path to all images">Sync</button>
+          <button onclick="removeImage(${idx})" style="flex: 1; padding: 2px; font-size: 0.85em;">Del</button>
+        </div>
+      </div>
+      <select onchange="changeSuffix(${idx}, this.value)" style="width: 100%; font-size: 0.8em;">
+        ${optionsHtml}
+      </select>
+    `;
+    
+    div.ondragstart = (e) => {
+      e.dataTransfer.setData('text/plain', idx);
+      div.style.opacity = '0.5';
+    };
+    div.ondragend = (e) => { div.style.opacity = ''; };
+    div.ondragover = (e) => { e.preventDefault(); div.style.border = '2px dashed #ffe082'; };
+    div.ondragleave = (e) => { div.style.border = ''; };
+    div.ondrop = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      div.style.border = '';
+      const fromIdx = Number(e.dataTransfer.getData('text/plain'));
+      const toIdx = idx;
+      if (fromIdx === toIdx) return;
+      const moved = tempImages.splice(fromIdx, 1)[0];
+      tempImages.splice(toIdx, 0, moved);
+      renderImages();
+    };
+    
+    list.appendChild(div);
+  });
+}
+
+window.removeImage = function(idx) {
+  tempImages.splice(idx, 1);
+  renderImages();
+};
+
+window.syncPath = function(idx) {
+  if (idx < 0 || idx >= tempImages.length) return;
+  const sourceDir = tempImages[idx].directory;
+  for (let i = 0; i < tempImages.length; i++) {
+    if (i !== idx) {
+      tempImages[i].directory = sourceDir;
+    }
+  }
+  renderImages();
+  showStatus('Path copied to all images', 'success');
+};
+
+window.updateImageDir = function(idx, dir) {
+  if (!dir) dir = '';
+  dir = dir.trim();
+  const parsed = parseDroppedPath(dir);
+  if (parsed && parsed.directory) {
+    tempImages[idx].directory = parsed.directory;
+    if (parsed.name) tempImages[idx].imageName = parsed.name;
+  } else {
+    dir = dir.toLowerCase().replace(/\\/g, '/');
+    if (dir && dir.charAt(0) !== '/') dir = '/' + dir;
+    if (dir && dir.charAt(dir.length - 1) !== '/') dir = dir + '/';
+    tempImages[idx].directory = dir;
+  }
+  renderImages();
+};
+
+window.updateImageName = function(idx, name) {
+  if (!name) name = '';
+  name = name.trim();
+  const parsed = parseDroppedPath(name);
+  if (parsed && parsed.directory) {
+    tempImages[idx].directory = parsed.directory;
+    if (parsed.name) tempImages[idx].imageName = parsed.name;
+  } else {
+    name = name.toLowerCase();
+    tempImages[idx].imageName = name;
+  }
+  renderImages();
+};
+
+window.togglePrimary = function(idx, checked) {
+  for (let i = 0; i < tempImages.length; i++) {
+    tempImages[i]._isPrimary = (i === idx && checked);
+  }
+  renderImages();
+};
+
+window.changeSuffix = function(idx, suffix) {
+  let img = tempImages[idx];
+  if (!img) return;
+  img.imageName = img.imageName.replace(/(_C\d+|_L)?(\.[^.]+)$/i, '') + (suffix || '') + '.webp';
+  img.imageName = img.imageName.toLowerCase();
+  renderImages();
+};
+
+window.addImage = function() {
+  const name = document.getElementById('new-image-name').value.trim();
+  const dir = document.getElementById('new-image-dir').value.trim();
+  if (!name) { showStatus('Enter image name', 'error'); return; }
+  tempImages.push({ imageName: name.toLowerCase(), directory: normalizeDir(dir), _isPrimary: false });
+  document.getElementById('new-image-name').value = '';
+  document.getElementById('new-image-dir').value = '';
+  renderImages();
+  showStatus('Image added', 'success');
+};
+
+window.addImageFromFullPath = function() {
+  const path = document.getElementById('full-image-path').value.trim();
+  if (!path) { showStatus('Paste a full path', 'error'); return; }
+  const parsed = parseDroppedPath(path);
+  if (parsed && parsed.name) {
+    tempImages.push({ imageName: parsed.name.toLowerCase(), directory: parsed.directory, _isPrimary: false });
+    document.getElementById('full-image-path').value = '';
+    renderImages();
+    showStatus('Image added from path', 'success');
+  } else {
+    showStatus('Could not parse path', 'error');
+  }
+};
+
+function saveTempImagesToItem() {
+  if (!lastItem) return;
+  const primary = tempImages.find(img => img._isPrimary);
+  if (primary) {
+    const copy = { ...primary };
+    copy.imageName = String(copy.imageName || '').toLowerCase();
+    copy.directory = normalizeDir(copy.directory);
+    delete copy._isPrimary;
+    lastItem.primaryImage = copy;
+  }
+  lastItem.carouselImages = tempImages.filter(img => !img._isPrimary).map(img => {
+    const copy = { ...img };
+    copy.imageName = String(copy.imageName || '').toLowerCase();
+    copy.directory = normalizeDir(copy.directory);
+    delete copy._isPrimary;
+    return copy;
+  });
+}
+
+function saveItem() {
+  if (currentItemIdx === null || !currentWeek) {showStatus('No item selected', 'error'); return;}
+  saveTempImagesToItem();
+  const items = dailyData.DailySalesByWeek[currentWeek];
+  const item = items[currentItemIdx];
+  
+  item.itemID = parseInt(document.getElementById('itemID').value) || item.itemID;
+  item.replaceItemID = parseInt(document.getElementById('replaceItemID').value) || item.replaceItemID;
+  item.itemName = document.getElementById('itemName').value;
+  item.itemNameShort = document.getElementById('itemNameShort').value;
+  item.itemDesc = document.getElementById('itemDesc').value;
+  
+  if (!item.lowestPurchasablePrice) item.lowestPurchasablePrice = {};
+  item.lowestPurchasablePrice.Amount = parseInt(document.getElementById('lowPriceAmount').value) || 0;
+  
+  if (!item.highPrice) item.highPrice = {};
+  item.highPrice.originalAmount = parseInt(document.getElementById('highPriceAmount').value) || 0;
+  
+  item.startTime = localInputToIso(document.getElementById('startTime').value);
+  item.endTime = localInputToIso(document.getElementById('endTime').value);
+  
+  if (!item.lowPrice) item.lowPrice = {};
+  const ltoTimer = localInputToIso(document.getElementById('ltoTimer').value);
+  if (ltoTimer) item.lowPrice.ltoTimer = ltoTimer;
+  
+  item.isZeus = document.getElementById('isZeus').checked;
+  
+  showItemsList();
+  showStatus('Item saved', 'success');
+}
+
+window.addNewItem = function() {
+  if (!currentWeek) return;
+  const items = dailyData.DailySalesByWeek[currentWeek];
+  const maxID = Math.max(0, ...items.map(i => i.itemID || 0));
+  const newItem = {
+    replaceItemID: maxID + 1,
+    itemID: maxID + 1,
+    itemName: 'New Item',
+    itemNameShort: 'New Item',
+    itemDesc: '',
+    primaryImage: { directory: '/textures/atx/storefront/', imageName: 'item_l.webp' },
+    carouselImages: [],
+    lowestPurchasablePrice: { Amount: 0, ltoTimer: 1813682 },
+    lowPrice: { ltoTimer: new Date().toISOString(), isLto: true },
+    highPrice: { originalAmount: 0 },
+    startTime: new Date().toISOString(),
+    endTime: new Date(Date.now() + 86400000).toISOString(),
+    isZeus: false
+  };
+  items.push(newItem);
+  selectItem(items.length - 1);
+  showItemsList();
+  showStatus('New item added', 'success');
+};
+
+window.deleteItem = function() {
+  if (currentItemIdx === null || !currentWeek) return;
+  if (!confirm('Delete this item?')) return;
+  const items = dailyData.DailySalesByWeek[currentWeek];
+  items.splice(currentItemIdx, 1);
+  document.getElementById('editor').style.display = 'none';
+  showItemsList();
+  showStatus('Item deleted', 'success');
+};
+
+window.exportJson = function() {
+  saveTempImagesToItem();
+  const json = JSON.stringify(dailyData, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'dailyitems.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showStatus('JSON exported', 'success');
+};
+
+document.getElementById('jsonfile').addEventListener('change', (e) => {
+  if (e.target.files.length) loadJson(e.target.files[0]);
+});
+
+document.getElementById('load-json').addEventListener('click', () => {
+  document.getElementById('jsonfile').click();
+});
+
+document.getElementById('save-item').addEventListener('click', saveItem);
+
+function toggleCollapsible() {
+  const content = document.getElementById('details-content');
+  const arrow = document.getElementById('collapse-arrow');
+  content.classList.toggle('open');
+  arrow.textContent = content.classList.contains('open') ? '▼' : '▶';
+}
+  </script>
+</body>
+</html>

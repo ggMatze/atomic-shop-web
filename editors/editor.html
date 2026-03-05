@@ -44,6 +44,10 @@ let lastItem = null;
 // Helper: Try to extract a '/textures/...' directory and filename from a dropped text/URL/path.
 function parseDroppedPath(text) {
   if (!text) return null;
+  
+  // Remove surrounding quotes (both " and ')
+  text = text.trim().replace(/^["']|["']$/g, '');
+  
   try {
     // If it's a URL like http(s):// or file://, prefer URL parsing to get pathname
     if (/^[a-zA-Z]+:\/\//.test(text.trim())) {
@@ -63,13 +67,18 @@ function parseDroppedPath(text) {
   // Ensure leading slash
   if (s[idx] !== '/') s = '/' + s.slice(idx);
   else s = s.slice(idx);
-  // Now split dir and name
+  // Now split dir and name - always split at last slash
   const lastSlash = s.lastIndexOf('/');
   const dir = s.slice(0, lastSlash + 1);
-  const name = s.slice(lastSlash + 1).split('\n')[0].trim();
+  const possibleName = s.slice(lastSlash + 1).split('\n')[0].trim();
+  
+  // Check if possibleName has a common image file extension
+  // Extensions: .webp, .png, .dds, .jpg, .jpeg, .gif, .bmp, .tiff, etc.
+  const hasFileExtension = /\.(webp|png|dds|jpg|jpeg|gif|bmp|tiff|tif|svg)$/i.test(possibleName);
+  
   return {
-    directory: dir.replace(/\\/g, '/').toLowerCase(),
-    name: name ? name.toLowerCase() : null
+    directory: (hasFileExtension ? dir : (dir + possibleName + '/')).replace(/\\/g, '/').toLowerCase(),
+    name: hasFileExtension ? possibleName.toLowerCase() : null
   };
 }
 
@@ -310,6 +319,10 @@ function showItemDetails(pageIdx, itemIdx) {
           <input id="new-image-name" placeholder="imageName (e.g. abc123.webp)">
           <input id="new-image-dir" placeholder="directory (optional)">
           <button onclick="addImage()">Add Image</button>
+        </div>
+        <div style="margin-top: 12px; border-top: 1px solid #444; padding-top: 12px;">
+          <input id="full-image-path" placeholder="Or paste full path (e.g. D:\...\textures\atx\storefront\...\.webp)" style="width: 100%; margin-bottom: 3px; padding: 3px;">
+          <button onclick="addImageFromFullPath()" style="width: 100%; padding: 4px 8px;">Add from Full Path</button>
         </div>
         <div style="margin-top:12px;">
           <button onclick="saveJson()">Save Modified JSON</button>
@@ -703,8 +716,8 @@ function renderImages() {
     optionsHtml += `<option value="_L"${selL}>_L</option>`;
 
     div.innerHTML = `
-      <input value="${(img.directory||'')}" oninput="updateImageDir(${idx}, this.value)" placeholder="directory" style="width: 100%; font-size: 0.75em; margin-bottom: 3px; padding: 3px;">
-      <input value="${img.imageName}" oninput="updateImageName(${idx}, this.value)" style="width: 100%; font-size: 0.75em; margin-bottom: 6px; padding: 3px; background: #222; color: #eee;">
+      <input value="${(img.directory||'')}" onchange="updateImageDir(${idx}, this.value)" onblur="updateImageDir(${idx}, this.value)" placeholder="directory" style="width: 100%; font-size: 0.75em; margin-bottom: 3px; padding: 3px;">
+      <input value="${img.imageName}" onchange="updateImageName(${idx}, this.value)" onblur="updateImageName(${idx}, this.value)" style="width: 100%; font-size: 0.75em; margin-bottom: 6px; padding: 3px; background: #222; color: #eee;">
       <div style="position: relative; display: inline-block; width: 220px; height: 220px; margin-bottom: 4px;">
         <img src="${imgUrl}" alt="${img.imageName}" 
           style="width: 100%; height: 100%; object-fit: cover; border: 1px solid #555; background: #111;"
@@ -716,6 +729,7 @@ function renderImages() {
         <div style="position: absolute; bottom: 3px; left: 3px; right: 3px; display: flex; gap: 2px;">
           <button onclick="swapImageName(${idx})" style="flex: 1; padding: 2px; font-size: 0.9em; font-weight: bold;">Name</button>
           <button onclick="swapImageDir(${idx})" style="flex: 1; padding: 2px; font-size: 0.9em; font-weight: bold;">Dir</button>
+          <button onclick="syncPath(${idx})" style="flex: 1; padding: 2px; font-size: 0.9em; font-weight: bold;" title="Copy this path to all images">Sync</button>
           <button onclick="removeImage(${idx})" style="flex: 1; padding: 2px; font-size: 0.9em; font-weight: bold; color: #ff7878;">Del</button>
         </div>
       </div>
@@ -792,25 +806,53 @@ window.changeSuffix = function(idx, suffix) {
 };
 
 // Update directory for an image (normalize separators and ensure trailing slash)
+// Also handle full paths: if /textures/ is detected, split directory and imageName
 window.updateImageDir = function(idx, dir) {
   if (typeof idx !== 'number') idx = Number(idx);
   if (!isFinite(idx)) return;
   if (!dir) dir = '';
-  dir = dir.trim().toLowerCase();
-  dir = dir.replace(/\\/g, '/');
-  if (dir && dir.charAt(0) !== '/') dir = '/' + dir;
-  if (dir && dir.charAt(dir.length - 1) !== '/') dir = dir + '/';
-  tempImages[idx].directory = dir;
+  dir  = dir.trim();
+  
+  // Check if this is a full path containing /textures/
+  const parsed = parseDroppedPath(dir);
+  if (parsed && parsed.directory) {
+    // It's a full path - use parsed values
+    tempImages[idx].directory = parsed.directory;
+    if (parsed.name) {
+      tempImages[idx].imageName = parsed.name;
+    }
+  } else {
+    // Just a directory path
+    dir = dir.toLowerCase();
+    dir = dir.replace(/\\/g, '/');
+    if (dir && dir.charAt(0) !== '/') dir = '/' + dir;
+    if (dir && dir.charAt(dir.length - 1) !== '/') dir = dir + '/';
+    tempImages[idx].directory = dir;
+  }
   renderImages();
 };
 
 // Update image name for an image
+// Also handle full paths: if /textures/ is detected, split directory and imageName
 window.updateImageName = function(idx, name) {
   if (typeof idx !== 'number') idx = Number(idx);
   if (!isFinite(idx)) return;
   if (!name) name = '';
-  name = name.trim().toLowerCase();
-  tempImages[idx].imageName = name;
+  name = name.trim();
+  
+  // Check if this is a full path containing /textures/
+  const parsed = parseDroppedPath(name);
+  if (parsed && parsed.directory) {
+    // It's a full path - use parsed values
+    tempImages[idx].directory = parsed.directory;
+    if (parsed.name) {
+      tempImages[idx].imageName = parsed.name;
+    }
+  } else {
+    // Just an image name
+    name = name.toLowerCase();
+    tempImages[idx].imageName = name;
+  }
   renderImages();
 };
 
@@ -825,6 +867,18 @@ window.togglePrimary = function(idx, checked) {
     if (tempImages[idx]) tempImages[idx]._isPrimary = false;
   }
   renderImages();
+};
+
+window.syncPath = function(idx) {
+  if (idx < 0 || idx >= tempImages.length) return;
+  const sourceDir = tempImages[idx].directory;
+  for (let i = 0; i < tempImages.length; i++) {
+    if (i !== idx) {
+      tempImages[i].directory = sourceDir;
+    }
+  }
+  renderImages();
+  // Optional: show some feedback, but since editor.html doesn't have showStatus, maybe just render
 };
 
 window.outputOrder = function() {
@@ -876,8 +930,25 @@ window.saveJson = function() {
 };
 
 window.addImage = function() {
-  const name = document.getElementById('new-image-name').value.trim().toLowerCase();
-  const dir = document.getElementById('new-image-dir').value.trim().toLowerCase();
+  let name = document.getElementById('new-image-name').value.trim();
+  let dir = document.getElementById('new-image-dir').value.trim();
+  
+  // Try to parse as full path first (if it contains /textures/)
+  const parsed = parseDroppedPath(name) || parseDroppedPath(dir);
+  if (parsed) {
+    // It's a full path - use parsed values
+    name = parsed.name;
+    dir = parsed.directory;
+    if (!name) {
+      alert('Pfad ist ein Verzeichnis. Bitte einen Bilddateinamen angeben!');
+      return;
+    }
+  } else {
+    // Not a full path, just normalize as-is
+    name = name.toLowerCase();
+    dir = dir.toLowerCase();
+  }
+  
   if (!name) {
     alert('Please enter an imageName!');
     return;
@@ -886,6 +957,30 @@ window.addImage = function() {
   renderImages();
   document.getElementById('new-image-name').value = '';
   document.getElementById('new-image-dir').value = '';
+};
+
+// Add image from full path (splits path and imageName, removes everything before /textures/)
+window.addImageFromFullPath = function() {
+  const fullPath = document.getElementById('full-image-path').value.trim();
+  if (!fullPath) {
+    alert('Bitte einen vollständigen Pfad eingeben!');
+    return;
+  }
+  const parsed = parseDroppedPath(fullPath);
+  if (!parsed) {
+    alert('Ungültiger Pfad. Muss /textures/ enthalten!');
+    return;
+  }
+  
+  // If no name (directory only), ask for filename
+  if (!parsed.name) {
+    alert('Pfad ist ein Verzeichnis. Bitte einen Bilddateinamen angeben!');
+    return;
+  }
+  
+  tempImages.push({ imageName: parsed.name, directory: parsed.directory });
+  renderImages();
+  document.getElementById('full-image-path').value = '';
 };
 
 // Load from file input
