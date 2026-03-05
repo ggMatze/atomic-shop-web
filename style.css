@@ -1911,6 +1911,25 @@ b{
 .disclaimer-text .disclaimer-line { margin: 0 0 0.2em 0; }
 .disclaimer-text .disclaimer-paragraph-sep { height: 0.6em; }
 
+.overlay-link {
+  color: #ccff54!important;
+  text-decoration: underline;
+}
+
+.overlay-link:hover {
+  color: #c3ff39!important;
+}
+
+.overlay-link:visited {
+  color: #bdff2280 !important;
+}
+
+.overlay-link:visited:hover {
+color: #bdff22d8 !important;
+
+}
+
+
 .price-list {
   list-style: none;
   margin: 0;
