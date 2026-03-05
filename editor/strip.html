@@ -4,72 +4,15 @@
   <meta charset="UTF-8">
   <title>Atomic Shop JSON Stripper</title>
   <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
   <style>
-    body {
-      background: #1e1e1e;
-      color: #d4d4d4;
-      font-family: 'Segoe UI', 'Fira Mono', 'Consolas', 'monospace', sans-serif;
-      margin: 2em;
-    }
-    h2, h3 {
-      color: #569cd6;
-      font-weight: 500;
-    }
-    textarea {
-      background: #252526;
-      color: #d4d4d4;
-      border: 1px solid #333;
-      border-radius: 4px;
-      width: 100%;
-      height: 200px;
-      font-family: 'Fira Mono', 'Consolas', 'monospace', 'Segoe UI', sans-serif;
-      font-size: 1em;
-      padding: 0.7em;
-      margin-bottom: 1em;
-      box-sizing: border-box;
-      transition: border-color 0.2s;
-    }
-    textarea:focus {
-      border-color: #007acc;
-      outline: none;
-    }
-    button {
-      background: #0e639c;
-      color: #fff;
-      border: none;
-      border-radius: 2px;
-      padding: 0.6em 1.2em;
-      font-size: 0.9em;
-      margin-right: 1em;
-      cursor: pointer;
-      transition: background 0.2s;
-      box-shadow: 0 2px 8px #0004;
-    }
-    button:hover {
-      background: #007acc;
-    }
-    pre {
-      background: #252526;
-      color: #d4d4d4;
-      border: 1px solid #333;
-      border-radius: 2px;
-      padding: 0.7em;
-      font-size: 1em;
-      font-family: 'Fira Mono', 'Consolas', 'monospace', 'Segoe UI', sans-serif;
-      margin-top: 1em;
-      overflow-x: auto;
-      min-height: 200px;
-      box-sizing: border-box;
-    }
-    ::selection {
-      background: #264f78;
-      color: #fff;
-    }
-    @media (max-width: 700px) {
-      body { margin: 1em; }
-      textarea { height: 120px; }
-      pre { min-height: 120px; }
-    }
+    body { background: #1e1e1e; color: #d4d4d4; font-family: 'Segoe UI', 'Fira Mono', 'Consolas', 'monospace', sans-serif; margin: 2em; }
+    h2, h3 { color: #569cd6; font-weight: 500; }
+    textarea { background: #252526; color: #d4d4d4; border: 1px solid #333; height: 200px; }
+    textarea:focus { border-color: #007acc; }
+    button { background: #0e639c; box-shadow: 0 2px 8px #0004; }
+    button:hover { background: #007acc; }
+    pre { background: #252526; color: #d4d4d4; border: 1px solid #333; min-height: 200px; }
   </style>
 </head>
 <body>

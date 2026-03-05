@@ -3,32 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <title>Atomic Shop Bundle Image Order Tool</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
-    body { background: #222; color: #eee; font-family: sans-serif; font-size: 0.9em; }
-    select, button { font-size: 0.95em; padding: 4px 8px; }
-    .bundle-list { margin: 1em 0; }
-    .img-list { display: flex; flex-wrap: wrap; gap: 10px; margin: 1em 0; }
-    .img-item { background: #333; border-radius: 6px; padding: 6px; display: flex; flex-direction: column; align-items: center; width: 220px; }
-    .img-item input { width: 210px; margin-bottom: 3px; padding: 3px; font-size: 0.85em; }
-    .img-item button { margin: 1px; padding: 3px 6px; font-size: 0.85em; }
-    .img-item select { margin: 3px 0; padding: 3px; font-size: 0.85em; }
-    .editor-row { display: flex; gap: 12px; align-items: flex-start; }
-    .includes-list { margin: 1em 0; background: #181818; padding: 8px; border-radius: 8px; box-sizing: border-box; width: 38%; max-height: 420px; overflow: auto; }
-    .editor-controls { box-sizing: border-box; width: 60%; }
-    .output { margin-top: 2em; }
-    textarea { width: 100%; min-height: 60px; }
-    .include-item {
-      background: #222;
-      margin: 2px 0;
-      padding: 4px 8px;
-      border-radius: 4px;
-      cursor: grab;
-      user-select: none;
-    }
+    body { background: #222; color: #eee; }
   </style>
 </head>
 <body>
-  <h2>Bundle Image Order & Includes Checker</h2>
   <input type="file" id="jsonfile" accept=".json">
   <button id="load-json">Load storepagedata.json</button>
   <button id="reload-disk">Reload JSON from disk</button>
@@ -316,13 +296,13 @@ function showItemDetails(pageIdx, itemIdx) {
       </div>
       <div class="editor-controls">
         <div>
-          <input id="new-image-name" placeholder="imageName (e.g. abc123.webp)">
-          <input id="new-image-dir" placeholder="directory (optional)">
+          <input type="text" id="new-image-name" class="image-input-field" placeholder="imageName (e.g. abc123.webp)">
+          <input type="text" id="new-image-dir" class="image-input-field" placeholder="directory (optional)">
           <button onclick="addImage()">Add Image</button>
         </div>
         <div style="margin-top: 12px; border-top: 1px solid #444; padding-top: 12px;">
-          <input id="full-image-path" placeholder="Or paste full path (e.g. D:\...\textures\atx\storefront\...\.webp)" style="width: 100%; margin-bottom: 3px; padding: 3px;">
-          <button onclick="addImageFromFullPath()" style="width: 100%; padding: 4px 8px;">Add from Full Path</button>
+          <input id="full-image-path" class="full-path-input" placeholder="Or paste full path (e.g. D:\...\textures\atx\storefront\...\.webp)">
+          <button class="full-path-button" onclick="addImageFromFullPath()">Add from Full Path</button>
         </div>
         <div style="margin-top:12px;">
           <button onclick="saveJson()">Save Modified JSON</button>
@@ -339,8 +319,8 @@ function showItemDetails(pageIdx, itemIdx) {
                 <option value="2" ${(item.isNew === 2) ? 'selected' : ''}>NEW*</option>
               </select>
             </label>
-            <label style="margin-left:12px;"><input type="checkbox" id="is-1st" ${item.isZeus === true ? 'checked' : ''} style="margin-right:4px;"> <b>1st</b></label>
-            <label style="margin-left:12px;"><input type="checkbox" id="is-clown" ${item.isClown === true ? 'checked' : ''} style="margin-right:4px;"> <b>Clown</b></label>
+            <label style="margin-left:12px;"><input type="checkbox" class="checkbox-margin-small" id="is-1st" ${item.isZeus === true ? 'checked' : ''}> <b>1st</b></label>
+            <label style="margin-left:12px;"><input type="checkbox" class="checkbox-margin-small" id="is-clown" ${item.isClown === true ? 'checked' : ''}> <b>Clown</b></label>
           </div>
           <div style="margin-top:8px;">
             <label style="margin-right:12px;">
@@ -354,9 +334,9 @@ function showItemDetails(pageIdx, itemIdx) {
           </div>
           <div style="margin-top:8px;">
             <button id="save-ltotimer-btn">Speichern</button>
-            <span id="ltotimer-status" style="margin-left:8px;color:#ffe082;"></span>
+            <span id="ltotimer-status" style="margin-left:8px;color:#1177bb;"></span>
           </div>
-          <div style="margin-top:6px;font-size:0.95em;opacity:0.95;color:#dcb752;">
+          <div style="margin-top:6px;font-size:0.95em;opacity:0.95;color:#1177bb;">
             <em id="ltotimer-instruction">Enter the desired local time in the box above — the tool will save the corresponding UTC instant shown below.</em>
           </div>
           <div style="margin-top:4px;font-size:0.9em;opacity:0.9;color:#9ad1ff;">
@@ -388,7 +368,7 @@ function showItemDetails(pageIdx, itemIdx) {
       });
       item.addEventListener('dragover', e => {
         e.preventDefault();
-        item.style.border = '2px dashed #ffe082';
+        item.style.border = '2px dashed #0e639c';
       });
       item.addEventListener('dragleave', e => {
         item.style.border = '';
@@ -648,7 +628,7 @@ function renderImages() {
     div.setAttribute('data-idx', idx);
 
     // Always show .webp preview
-    const imgUrl = (img.directory + img.imageName).toLowerCase().replace(/\.(dds|png)$/i, '.webp');
+    const imgUrl = ('../' + img.directory + img.imageName).toLowerCase().replace(/\.(dds|png)$/i, '.webp');
 
     const cNumbers = new Set();
     let hasL = false;
@@ -716,14 +696,14 @@ function renderImages() {
     optionsHtml += `<option value="_L"${selL}>_L</option>`;
 
     div.innerHTML = `
-      <input value="${(img.directory||'')}" onchange="updateImageDir(${idx}, this.value)" onblur="updateImageDir(${idx}, this.value)" placeholder="directory" style="width: 100%; font-size: 0.75em; margin-bottom: 3px; padding: 3px;">
-      <input value="${img.imageName}" onchange="updateImageName(${idx}, this.value)" onblur="updateImageName(${idx}, this.value)" style="width: 100%; font-size: 0.75em; margin-bottom: 6px; padding: 3px; background: #222; color: #eee;">
+      <input class="image-input-field" value="${(img.directory||'')}" onchange="updateImageDir(${idx}, this.value)" onblur="updateImageDir(${idx}, this.value)" placeholder="directory">
+      <input class="image-input-field image-name-field" value="${img.imageName}" onchange="updateImageName(${idx}, this.value)" onblur="updateImageName(${idx}, this.value)">
       <div style="position: relative; display: inline-block; width: 220px; height: 220px; margin-bottom: 4px;">
         <img src="${imgUrl}" alt="${img.imageName}" 
           style="width: 100%; height: 100%; object-fit: cover; border: 1px solid #555; background: #111;"
           onerror="this.style.opacity=0.3;this.title='Not found: '+this.src;">
         <label style="position: absolute; top: 3px; right: 3px; background: rgba(0,0,0,0.8); padding: 3px; border-radius: 3px; cursor: pointer; display: flex; align-items: center; gap: 2px;">
-          <input type="checkbox" ${img._isPrimary ? 'checked' : ''} onchange="togglePrimary(${idx}, this.checked)" style="width: 14px; height: 14px; margin: 0; cursor: pointer;">
+          <input type="checkbox" class="checkbox-small" ${img._isPrimary ? 'checked' : ''} onchange="togglePrimary(${idx}, this.checked)">
           <span style="color: #ffd454; font-size: 0.7em;">P</span>
         </label>
         <div style="position: absolute; bottom: 3px; left: 3px; right: 3px; display: flex; gap: 2px;">
@@ -748,7 +728,7 @@ function renderImages() {
     };
     div.ondragover = (e) => {
       e.preventDefault();
-      div.style.border = '2px dashed #ffe082';
+      div.style.border = '2px dashed #0e639c';
     };
     div.ondragleave = (e) => {
       div.style.border = '';

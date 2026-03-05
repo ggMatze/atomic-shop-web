@@ -3,97 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>Daily Items Editor</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
-    body {
-      background: #181c1d;
-      color: #f5f3c2;
-      font-family: "cabin", sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-    .container { max-width: 1100px; margin: auto; display: flex; gap: 40px; }
-    .left-panel, .right-panel { flex: 1; }
-    select, button {
-      background: #23272a;
-      color: #ffe082;
-      border: 1px solid #dcb752;
-      padding: 6px 12px;
-      margin: 4px 0;
-      font-size: 1em;
-    }
-    .day-slot {
-      background: #23272a;
-      color: #ffe082;
-      border: 2px dashed #dcb752;
-      padding: 24px;
-      min-height: 120px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2em;
-      position: relative;
-    }
-    .day-slot.dragover {
-      background: #2c3136;
-      border-style: solid;
-    }
-    .day-item-img {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      margin-right: 16px;
-      border: 1px solid #dcb752;
-      background: #181c1d;
-    }
-    .day-item-info {
-      display: flex;
-      align-items: center;
-    }
-    .db-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 8px;
-    }
-    .db-item {
-      background: #23272a;
-      color: #ffe082;
-      border: 1px solid #dcb752;
-      padding: 8px;
-      cursor: grab;
-      width: 120px;
-      text-align: center;
-      border-radius: 6px;
-      transition: background 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .db-item:hover { background: #2c3136; }
-    .db-item img {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      margin-bottom: 6px;
-      background: #181c1d;
-      border: 1px solid #dcb752;
-      border-radius: 4px;
-    }
-    .section-title { margin-top: 24px; font-weight: bold; }
-    .actions { margin-top: 24px; }
-    .remove-btn {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: #dcb752;
-      color: #23272a;
-      border: none;
-      padding: 4px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.9em;
-    }
+    body { background: #181c1d; color: #e0e0e0; font-family: "cabin", sans-serif; margin: 0; padding: 20px; }
+    select, button { background: #0e639c; color: #fff; border: 1px solid #1177bb; padding: 6px 12px; margin: 4px 0; font-size: 1em; }
+    select:hover, button:hover { background: #1177bb; }
   </style>
 </head>
 <body>
@@ -257,7 +171,7 @@ function renderDaySlot() {
     if (day.primaryImage && day.primaryImage.imageName) {
       const img = document.createElement('img');
       img.className = 'day-item-img';
-      img.src = day.primaryImage.directory + day.primaryImage.imageName;
+      img.src = '../' + day.primaryImage.directory + day.primaryImage.imageName;
       img.alt = day.itemName;
       infoDiv.appendChild(img);
     }
@@ -270,10 +184,10 @@ function renderDaySlot() {
     const debugDiv = document.createElement('div');
     debugDiv.style.marginTop = '18px';
     debugDiv.style.fontSize = '0.95em';
-    debugDiv.style.background = '#23272a';
+    debugDiv.style.background = '#2a2a2a';
     debugDiv.style.padding = '12px';
     debugDiv.style.borderRadius = '6px';
-    debugDiv.style.border = '1px solid #dcb752';
+    debugDiv.style.border = '1px solid #0e639c';
     debugDiv.innerHTML = `
       <strong>Debug Info:</strong><br>
       <b>Start:</b> ${day.startTime ? new Date(day.startTime).toLocaleString() : '-'}<br>
@@ -285,7 +199,7 @@ function renderDaySlot() {
 
     if (!isFree) {
       const msg = document.createElement('div');
-      msg.style.color = '#dcb752';
+      msg.style.color = '#1177bb';
       msg.style.marginTop = '12px';
       msg.textContent = 'This is an offer. Drag & drop is disabled.';
       daySlot.appendChild(msg);
@@ -314,7 +228,7 @@ function renderDB() {
     div.className = 'db-item';
     if (item.primaryImage && item.primaryImage.imageName) {
       const img = document.createElement('img');
-      img.src = item.primaryImage.directory + item.primaryImage.imageName;
+      img.src = '../' + item.primaryImage.directory + item.primaryImage.imageName;
       img.alt = item.itemName;
       div.appendChild(img);
     }

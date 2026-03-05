@@ -4,54 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atomic Shop Editors</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
-    body {
-      background: #181c1d;
-      color: #f5f3c2;
-      font-family: "cabin", sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .tab-container {
-      display: flex;
-      background: #23272a;
-      border-bottom: 1px solid #dcb752;
-    }
-    .tab {
-      padding: 10px 20px;
-      background: #23272a;
-      color: #ffe082;
-      border: none;
-      cursor: pointer;
-      border-right: 1px solid #dcb752;
-    }
-    .tab.active {
-      background: #181c1d;
-      color: #f5f3c2;
-    }
-    .tab:hover {
-      background: #2c2f33;
-    }
-    .iframe-container {
-      height: calc(100vh - 50px);
-      width: 100%;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: none;
-    }
-    iframe.active {
-      display: block;
-    }
+    body { background: #181c1d; color: #e0e0e0; font-family: "cabin", sans-serif; }
   </style>
 </head>
 <body>
   <div class="tab-container">
-    <button class="tab active" onclick="switchTab('bundle')">Bundle Editor</button>
-    <button class="tab" onclick="switchTab('daily-items')">Daily Items Editor</button>
-    <button class="tab" onclick="switchTab('daily')">Daily Editor</button>
+    <button class="tab active" onclick="switchTab('bundle')">Featured Editor</button>
+    <button class="tab" onclick="switchTab('daily-items')">Daily Offers Editor</button>
+    <button class="tab" onclick="switchTab('daily')">Daily Free items Editor</button>
     <button class="tab" onclick="switchTab('strip')">JSON Stripper</button>
   </div>
   <div class="iframe-container">

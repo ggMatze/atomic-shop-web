@@ -1,0 +1,644 @@
+/* ========================================
+   UNIFIED EDITOR STYLESHEET
+   For all atomic shop editors
+   ======================================== */
+
+/* Reset and base styles */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 0.9em;
+}
+
+/* ========================================
+   COMMON FORM ELEMENTS
+   ======================================== */
+
+select, button, input {
+  font-size: 0.95em;
+  padding: 4px 8px;
+}
+
+select {
+  background: #0e639c;
+  color: #fff;
+  border: 1px solid #1177bb;
+  cursor: pointer;
+}
+
+select:hover {
+  background: #1177bb;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
+input[type="file"] {
+  background: #3c3c3c;
+  color: #e0e0e0;
+  border: 1px solid #555;
+  padding: 6px 10px;
+  font-family: inherit;
+  height: 32px;
+  box-sizing: border-box;
+}
+
+/* utility for inputs that should expand to fill container */
+.full-width {
+  width: 100%;
+}
+
+input[type="file"]::file-selector-button {
+  background: #0e639c;
+  color: #fff;
+  border: 1px solid #1177bb;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #1177bb;
+}
+
+button {
+  cursor: pointer;
+  transition: background 0.2s;
+  background: #0e639c;
+  color: #fff;
+  border: 1px solid #1177bb;
+}
+
+button:hover {
+  background: #1177bb;
+}
+
+textarea {
+  width: 100%;
+  min-height: 60px;
+  font-family: inherit;
+  background: #3c3c3c;
+  color: #e0e0e0;
+  border: 1px solid #555;
+  padding: 6px 10px;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   BUNDLE EDITOR STYLES
+   ======================================== */
+
+.bundle-list { margin: 1em 0; }
+
+.img-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 1em 0;
+}
+
+.img-item {
+  background: #333;
+  border-radius: 6px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;
+}
+
+.img-item input {
+  width: 210px;
+  margin-bottom: 3px;
+  padding: 3px;
+  font-size: 0.85em;
+}
+
+.img-item button {
+  margin: 1px;
+  padding: 3px 6px;
+  font-size: 0.85em;
+  background: #0e639c;
+  color: #fff;
+  border: 1px solid #1177bb;
+}
+
+.img-item button:hover {
+  background: #1177bb;
+}
+
+.image-input-field {
+  font-size: 0.75em;
+  margin-bottom: 3px;
+  padding: 3px;
+  background: #3c3c3c;
+  color: #e0e0e0;
+  border: 1px solid #555;
+  box-sizing: border-box;
+  width: auto;
+  max-width: 300px;
+}
+
+.image-name-field {
+  margin-bottom: 6px;
+}
+
+.full-path-input {
+  width: 100%;
+  margin-bottom: 3px;
+  background: #3c3c3c;
+  color: #e0e0e0;
+  border: 1px solid #555;
+  padding: 6px 10px;
+  box-sizing: border-box;
+}
+
+.full-path-button {
+  width: 100%;
+  padding: 4px 8px;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  margin: 0;
+}
+
+.checkbox-small {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+}
+
+.checkbox-margin {
+  margin-right: 8px;
+}
+
+.checkbox-margin-small {
+  margin-right: 4px;
+}
+
+.img-item select {
+  margin: 3px 0;
+  padding: 3px;
+  font-size: 0.85em;
+  width: 100%;
+}
+
+.include-item {
+  background: #222;
+  margin: 2px 0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: grab;
+  user-select: none;
+}
+
+.includes-list {
+  margin: 1em 0;
+  background: #181818;
+  padding: 8px;
+  border-radius: 8px;
+  width: 38%;
+  max-height: 420px;
+  overflow: auto;
+}
+
+.editor-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.editor-controls {
+  box-sizing: border-box;
+  width: 60%;
+}
+
+.editor-controls.full-width {
+  width: 100%;
+}
+
+.output {
+  margin-top: 2em;
+}
+
+/* ========================================
+   DAILY ITEMS EDITOR STYLES
+   ======================================== */
+
+h2 { color: #bbb; }
+
+.field-row {
+  margin-bottom: 12px;
+}
+
+.field-row label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.field-row.full {
+  grid-column: 1 / -1;
+}
+
+.field-row.inline {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.field-row.inline div {
+  flex: 1;
+}
+
+.status {
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-top: 15px;
+  display: none;
+}
+
+.status.show {
+  display: block;
+}
+
+.status.success {
+  background: #107c10;
+  color: #fff;
+}
+
+.status.error {
+  background: #c1260d;
+  color: #fff;
+}
+
+.week-selector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 10px 0;    /* left‑align, no centering */
+  width: 100%;
+  max-width: 600px; /* align with items list and editor width */
+}
+
+.week-selector button {
+  padding: 6px 12px;
+  margin: 0 4px 4px 0;
+  background: #0e639c;
+  color: #fff;
+  border: 1px solid #1177bb;
+}
+
+.week-selector button:hover {
+  background: #1177bb;
+}
+
+.week-selector button.active {
+  background: #569cd6;
+  border-color: #569cd6;
+}
+
+.items-list {
+  background: #252526;
+  border: 1px solid #3e3e42;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 0 0 20px 0;   /* left‑align instead of centering */
+  width: 100%;          /* allow flexible resizing */
+  max-width: 600px;     /* prevent it stretching across whole screen */
+}
+
+.item-row {
+  padding: 10px 15px;
+  border-bottom: 1px solid #3e3e42;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-row:hover {
+  background: #2d2d2d;
+}
+
+.item-row.selected {
+  background: #1e4d6d;
+  border-left: 4px solid #569cd6;
+}
+
+.item-id {
+  color: #b4cea8;
+  font-weight: bold;
+}
+
+.item-name {
+  color: #e0e0e0;
+  margin-left: 8px;
+}
+
+.collapsible-header {
+  background: #2a5a8f;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  user-select: none;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.collapsible-header:hover {
+  background: #3a6aaf;
+}
+
+.collapsible-content {
+  display: none;
+  background: #252526;
+  border: 1px solid #3e3e42;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.collapsible-content.open {
+  display: block;
+}
+
+.fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+button.danger {
+  background: #c1260d;
+  border-color: #e81123;
+}
+
+button.danger:hover {
+  background: #e81123;
+}
+
+body.atomic-shop-theme {
+  background: #181c1d;
+  color: #e0e0e0;
+  font-family: "cabin", sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  gap: 40px;
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+}
+
+body.atomic-shop-theme select,
+body.atomic-shop-theme button {
+  background: #0e639c;
+  color: #fff;
+  border: 1px solid #1177bb;
+  padding: 6px 12px;
+  margin: 4px 0;
+  font-size: 1em;
+}
+
+body.atomic-shop-theme select:hover,
+body.atomic-shop-theme button:hover {
+  background: #1177bb;
+}
+
+.day-slot {
+  background: #2a2a2a;
+  color: #e0e0e0;
+  border: 2px dashed #0e639c;
+  padding: 24px;
+  min-height: 120px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  position: relative;
+}
+
+.day-slot.dragover {
+  background: #333333;
+  border-style: solid;
+}
+
+.day-item-img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-right: 16px;
+  border: 1px solid #0e639c;
+  background: #181c1d;
+}
+
+.day-item-info {
+  display: flex;
+  align-items: center;
+}
+
+.db-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.db-item {
+  background: #2a2a2a;
+  color: #e0e0e0;
+  border: 1px solid #0e639c;
+  padding: 8px;
+  cursor: grab;
+  width: 120px;
+  text-align: center;
+  border-radius: 6px;
+  transition: background 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.db-item:hover {
+  background: #333333;
+}
+
+.db-item img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 6px;
+  background: #181c1d;
+  border: 1px solid #0e639c;
+  border-radius: 4px;
+}
+
+.section-title {
+  margin-top: 24px;
+  font-weight: bold;
+}
+
+.actions {
+  margin-top: 24px;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #1177bb;
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+/* ========================================
+   STRIPPER EDITOR STYLES (VS CODE THEME)
+   ======================================== */
+
+body.vscode-theme {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  font-family: 'Segoe UI', 'Fira Mono', 'Consolas', 'monospace', sans-serif;
+  margin: 2em;
+}
+
+body.vscode-theme h2,
+body.vscode-theme h3 {
+  color: #569cd6;
+  font-weight: 500;
+}
+
+body.vscode-theme textarea {
+  background: #252526;
+  color: #d4d4d4;
+  border: 1px solid #333;
+  border-radius: 4px;
+  height: 200px;
+  padding: 0.7em;
+  margin-bottom: 1em;
+}
+
+body.vscode-theme textarea:focus {
+  border-color: #007acc;
+  outline: none;
+}
+
+body.vscode-theme button {
+  background: #0e639c;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  padding: 0.6em 1.2em;
+  font-size: 0.9em;
+  margin-right: 1em;
+  box-shadow: 0 2px 8px #0004;
+}
+
+body.vscode-theme button:hover {
+  background: #007acc;
+}
+
+body.vscode-theme pre {
+  background: #252526;
+  color: #d4d4d4;
+  border: 1px solid #333;
+  border-radius: 2px;
+  padding: 0.7em;
+  font-size: 1em;
+  font-family: 'Fira Mono', 'Consolas', 'monospace', 'Segoe UI', sans-serif;
+  margin-top: 1em;
+  overflow-x: auto;
+  min-height: 200px;
+}
+
+::selection {
+  background: #264f78;
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  body.vscode-theme { margin: 1em; }
+  body.vscode-theme textarea { height: 120px; }
+  body.vscode-theme pre { min-height: 120px; }
+}
+
+/* ========================================
+   TAB CONTAINER STYLES (INDEX)
+   ======================================== */
+
+.tab-container {
+  display: flex;
+  background: #2a2a2a;
+  border-bottom: 1px solid #0e639c;
+}
+
+.tab {
+  padding: 10px 20px;
+  background: #2a2a2a;
+  color: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  border-right: 1px solid #0e639c;
+}
+
+.tab.active {
+  background: #181c1d;
+  color: #fff;
+}
+
+.tab:hover {
+  background: #333333;
+}
+
+.iframe-container {
+  height: calc(100vh - 50px);
+  width: 100%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+}
+
+iframe.active {
+  display: block;
+}
+
+/* ========================================
+   DARK THEME (DEFAULT FOR BUNDLE & DAILY-ITEMS)
+   ======================================== */
+
+body.dark-theme {
+  background: #222;
+  color: #eee;
+}
+
+body.dark-theme button {
+  background: #0e639c;
+  color: #fff;
+  border: 1px solid #1177bb;
+}
+
+body.dark-theme button:hover {
+  background: #1177bb;
+}
