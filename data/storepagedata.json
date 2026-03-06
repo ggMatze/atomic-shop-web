@@ -88,7 +88,12 @@
             },
             "isNew": 2,
             "isZeus": false,
-            "isClown": true
+            "isClown": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 5918274,
@@ -938,7 +943,12 @@
               "originalAmount": 500
             },
             "isZeus": false,
-            "isClown": false
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            }
           },
           {
             "itemID": 2459239,
@@ -975,6 +985,522 @@
               "originalAmount": 500
             },
             "isZeus": false,
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            }
+          }
+        ]
+      },
+      {
+        "name": "Weekend Sale \\n The Season Returns!",
+        "tabid": "weekend-sale",
+        "isZeus": false,
+        "image": {
+          "imageName": "020b201b3595dd4c555ce48cdc45a582.dds",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2470343,
+            "itemName": "Fallout First City of Steel Catch Up Bundle",
+            "itemNameShort": "Fallout First Season Catch Up",
+            "itemDesc": "New to Fallout First or missed an item from Season 10? This Bundle will let you find some of those items.\r\n\r\nThis offer is exclusive to Fallout 1st Members. ",
+            "primaryImage": {
+              "imageName": "5143bda1411b5375e8c4e9c623330147.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s10_apparel_outfit_fanatic_02_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "score_s10_apparel_headwear_fanatic_helmet_02_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "score_s10_apparel_underarmor_secretservice_union_l.webp",
+                "directory": "/textures/atx/storefront/player/underarmor/"
+              },
+              {
+                "imageName": "score_s10_skin_weaponskin_flamer_red_reaper_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s10_camp_floordecor_toxic_waste_pile_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s10_camp_floor_catacombs_l.webp",
+                "directory": "/textures/atx/storefront/camp/floors/"
+              },
+              {
+                "imageName": "score_s10_camp_wallpaper_catacombs_l.webp",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
+              },
+              {
+                "imageName": "atx_playericon_score_60.webp",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Fanatic Striker Outfit"
+              },
+              {
+                "szItemName": "Fanatic Striker Helmet"
+              },
+              {
+                "szItemName": "Union Secret Service Underarmor"
+              },
+              {
+                "szItemName": "Red Reaper Flamer Skin"
+              },
+              {
+                "szItemName": "Toxic Waste Pile"
+              },
+              {
+                "szItemName": "Catacombs Wallpaper"
+              },
+              {
+                "szItemName": "Catacombs Floor and Foundations"
+              },
+              {
+                "szItemName": "Fanatic Formean Player Icon"
+              }
+            ],
+            "lowPrice": {
+              "amount": 121,
+              "originalAmount": 900,
+              "isLto": true,
+              "ltoTimer": "2026-03-09T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 900,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1200
+            },
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2470344,
+            "itemName": "City of Steel Bundle",
+            "itemNameShort": "City of Steel Bundle",
+            "itemDesc": "Represent the City of Steel and put some iconic items into your C.A.M.P. with the City of Steel Bundle\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "d7c72ccc37171d6bc6a7a6a5e853b86e.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s10_camp_structure_the_pittsburgh_palace_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "score_s10_camp_lights_pittsburgh_traffic_light_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "score_s10_camp_pittsburgh_fire_hydrant_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s10_camp_floordecor_shop_vac_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s10_camp_walldeco_steelbust_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s10_photomode_frame_cityofsteel_l.webp",
+                "directory": "/textures/atx/storefront/player/photoframe/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "The Pittsburgh Palace"
+              },
+              {
+                "szItemName": "Pittsburgh Traffic Light"
+              },
+              {
+                "szItemName": "Yellow Pittsburgh Fire Hydrant"
+              },
+              {
+                "szItemName": "Pittsburgh Union Steel Shop Vac"
+              },
+              {
+                "szItemName": "Mounted Steel Bust"
+              },
+              {
+                "szItemName": "City of Steel Photomode Frame"
+              }
+            ],
+            "lowPrice": {
+              "amount": 900,
+              "originalAmount": 900,
+              "isLto": true,
+              "ltoTimer": "2026-03-09T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 900,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1200
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2470345,
+            "itemName": "Fanatic Scrapper Bundle",
+            "itemNameShort": "Fanatic Scrapper Bundle",
+            "itemDesc": "What's the easiest way to start a fight? Ask a Fanatic if they want to scrap!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n- SKIN IS CRAFTABLE AT WEAPON STATIONS. -\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "aa949d168c568b4779443ef47b9ba13a.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s10_apparel_outfit_fanatic_scrapper_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "score_s10_apparel_headwear_fanatic_helmet_01_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "score_s10_skin_weaponskin_autoaxe_fanatic_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s10_skin_backpackflair_decapitated_doll_head_l.webp",
+                "directory": "/textures/atx/storefront/player/flair/"
+              },
+              {
+                "imageName": "score_s9_camp_lights_industrialfloodlight_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "score_s9_camp_lights_industrialfloodlight_red_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_playericon_score_59.webp",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Fanatic Scrapper Outfit"
+              },
+              {
+                "szItemName": "Fanatic Scrapper Helmet"
+              },
+              {
+                "szItemName": "Fanatic Auto Axe Paint"
+              },
+              {
+                "szItemName": "Decapitated Doll Head Flair"
+              },
+              {
+                "szItemName": "Industrial Floodlight"
+              },
+              {
+                "szItemName": "Red Industrial Floodlight"
+              },
+              {
+                "szItemName": "Fanatic Player Icon"
+              }
+            ],
+            "lowPrice": {
+              "amount": 900,
+              "originalAmount": 900,
+              "isLto": true,
+              "ltoTimer": "2026-03-09T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 900,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1200
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2469710,
+            "itemName": "Pittsburgh Union Steel Furnace Secret Door",
+            "itemNameShort": "Steel Furnace Secret Door",
+            "itemDesc": "Create a hidden room in your C.A.M.P with this Secret Door disguised as a Pittsburgh Union Steel Furnace.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s10_camp_floor_pittsburgh_union_furnace_l.webp",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s10_camp_floor_pittsburgh_union_furnace_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s10_camp_floor_pittsburgh_union_furnace_c2.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 500,
+              "originalAmount": 500,
+              "isLto": true,
+              "ltoTimer": "2026-03-09T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2470147,
+            "itemName": "Radiation Glove Box",
+            "itemNameShort": "Radiation Glove Box",
+            "itemDesc": "\"Should I touch that glowing rock with my bare hands?\" is a question of the past when you have the Radiation Glove Box!\r\n\r\nUsing the Radiation Glove Box will grant a temporary PER Boost.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s10_camp_utility_radiation_glove_box_l.webp",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s10_camp_utility_radiation_glove_box_c1.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s10_camp_utility_radiation_glove_box_c2.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s10_camp_utility_radiation_glove_box_c3.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 500,
+              "originalAmount": 500,
+              "isLto": true,
+              "ltoTimer": "2026-03-09T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2469858,
+            "itemName": "Pittsburgh Union Steel Shop Vac",
+            "itemNameShort": "Pittsburgh Union Steel Shop Vac",
+            "itemDesc": "Keep your camp as clean as The Foundry with the Pittsburgh Union Steel Shop Vac. \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s10_camp_floordecor_shop_vac_l.webp",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s10_camp_floordecor_shop_vac_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 300,
+              "originalAmount": 300,
+              "isLto": true,
+              "ltoTimer": "2026-03-09T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 300,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 300
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2470053,
+            "itemName": "Union Double Barrel Shotgun Paint",
+            "itemNameShort": "Union Shotgun Paint",
+            "itemDesc": "Show your support for the Union with the Union Double Barrel Shotgun Paint.\r\n\r\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "score_s10_skin_weaponskin_double_barrel_union_l.webp",
+              "directory": "/textures/atx/storefront/player/weaponskin/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s10_skin_weaponskin_double_barrel_union_c1.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s10_skin_weaponskin_double_barrel_union_c2.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 500,
+              "originalAmount": 500,
+              "isLto": true,
+              "ltoTimer": "2026-03-09T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2470222,
+            "itemName": "Mounted Steel Bust",
+            "itemNameShort": "Steel Bust",
+            "itemDesc": "An iconic symbol of The Pitt, now available for your CAMP! \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s10_camp_walldeco_steelbust_l.webp",
+              "directory": "/textures/atx/storefront/camp/walldecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s10_camp_walldeco_steelbust_c1.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s10_camp_walldeco_steelbust_c2.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 250,
+              "originalAmount": 250,
+              "isLto": true,
+              "ltoTimer": "2026-03-09T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 250,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 250
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2470239,
+            "itemName": "Beacon Signal Loot Bag",
+            "itemNameShort": "Beacon Signal Loot Bag",
+            "itemDesc": "Never lose your loot again when your drop is a literal beacon.\r\n\r\nThis item replaces the appearance of your dropped Paper Bag.\r\n\r\n- UNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS. -",
+            "primaryImage": {
+              "imageName": "score_s10_skin_lootbag_beacon_signal_l.webp",
+              "directory": "/textures/atx/storefront/player/lootbags/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s10_skin_lootbag_beacon_signal_c1.dds",
+                "directory": "/textures/atx/storefront/player/lootbags/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 500,
+              "originalAmount": 500,
+              "isLto": true,
+              "ltoTimer": "2026-03-09T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           }
         ]
@@ -1751,9 +2277,7 @@
                 "directory": "/textures/atx/storefront/camp/utility//"
               }
             ],
-            "dynamicBundleItems": [
-             
-            ],
+            "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 450,
               "originalAmount": 0,
@@ -1795,8 +2319,7 @@
                 "directory": "/textures/atx/storefront/camp/furniture/"
               }
             ],
-            "dynamicBundleItems": [
-            ],
+            "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 450,
               "originalAmount": 0,
@@ -1880,7 +2403,7 @@
                 "directory": "/textures/atx/storefront/camp/utility/"
               }
             ],
-            "dynamicBundleItems": [            ],
+            "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 450,
               "originalAmount": 0,
@@ -1922,7 +2445,7 @@
                 "directory": "/textures/atx/storefront/camp/furniture/"
               }
             ],
-            "dynamicBundleItems": [            ],
+            "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 450,
               "originalAmount": 0,
@@ -2344,7 +2867,7 @@
               "amount": 1000,
               "originalAmount": 1000,
               "isLto": false,
-              "ltoTimer": "2026-03-04T14:55:00.000Z"
+              "ltoTimer": ""
             },
             "lowestPurchasablePrice": {
               "amount": 1000,
@@ -2357,6 +2880,277 @@
             "isNew": 2,
             "isZeus": true,
             "isClown": false
+          },
+          {
+            "itemID": 2470306,
+            "itemName": "Fallout First Yearly Catch Up Bundle 1",
+            "itemNameShort": "Fallout First Catch Up",
+            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\r\n\r\nThis offer is exclusive to Fallout 1st Members. ",
+            "primaryImage": {
+              "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.dds",
+              "directory": "textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "23eb4100cdd999a79f58a440a3969563.dds",
+                "directory": "textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "a71990263dbd3be2276987c49545e764.dds",
+                "directory": "textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "4aa890033c78e8f65c79f2264df26099.dds",
+                "directory": "textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "fd64031a6b58963586c0d60e56f5bcf0.dds",
+                "directory": "textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "ATX_F1_Apparel_Clothes_RangersUniform_Advanced_C1.dds",
+                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+              },
+              {
+                "imageName": "ATX_F1_SurvivaltTent_Skin_Xmas_C1.dds",
+                "directory": "Textures/ATX/Storefront/Camp/Tents/"
+              },
+              {
+                "imageName": "ATX_F1_SurvivaltTent_Skin_Responders_Medical_C1.dds",
+                "directory": "Textures/ATX/Storefront/Camp/Tents/"
+              },
+              {
+                "imageName": "ATX_F1_Skin_Headwear_RangersUniform_Desert_C1.dds",
+                "directory": "Textures/ATX/Storefront/Player/ArmorSkin/"
+              },
+              {
+                "imageName": "ATX_F1_Skin_Clothing_RangersUniform_Desert_C1.dds",
+                "directory": "Textures/ATX/Storefront/Player/ArmorSkin/"
+              },
+              {
+                "imageName": "ATX_Apparel_Headwear_HockeyMask_C1.dds",
+                "directory": "Textures/ATX/Storefront/Player/Headwear/"
+              },
+              {
+                "imageName": "SCORE_S1_CAMP_Machinery_Workbench_Armor_VaultTecPristine_C1.dds",
+                "directory": "Textures/ATX/Storefront/Camp/Machinery/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Ranger Armor Outfit Riot Paint"
+              },
+              {
+                "szItemName": "Settler Survival Tent"
+              },
+              {
+                "szItemName": "Atomic Camo Leather Armor Paint"
+              },
+              {
+                "szItemName": "Elite Ranger Armor Outfit"
+              },
+              {
+                "szItemName": "Advanced Ranger Armor Outfit"
+              },
+              {
+                "szItemName": "Sleazy Heart Bed"
+              },
+              {
+                "szItemName": "Ranger Helmet Desert Paint"
+              },
+              {
+                "szItemName": "Ranger Helmet Riot Paint"
+              },
+              {
+                "szItemName": "Atomic Camo Scout Armor Paint"
+              },
+              {
+                "szItemName": "Atomic Camo Wood Armor Paint"
+              },
+              {
+                "szItemName": "Bog Wanderer Outfit"
+              },
+              {
+                "szItemName": "Pristine Vault-Tec Armor Workbench"
+              },
+              {
+                "szItemName": "Ranger Armor Outfit Desert Paint"
+              },
+              {
+                "szItemName": "Bog Wanderer Mask"
+              },
+              {
+                "szItemName": "Holiday Survival Tent"
+              },
+              {
+                "szItemName": "Responders Medical Tent"
+              },
+              {
+                "szItemName": "Thatched Rug"
+              },
+              {
+                "szItemName": "Atomic Camo Metal Armor Paint"
+              },
+              {
+                "szItemName": "Raider Survival Tent"
+              }
+            ],
+            "lowPrice": {
+              "amount": 4000,
+              "originalAmount": 4000,
+              "isLto": false,
+              "ltoTimer": 0
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 4000
+            },
+            "isNew": false,
+            "isZeus": true
+          },
+          {
+            "itemID": 2470307,
+            "itemName": "Fallout First Yearly Catch Up Bundle 2",
+            "itemNameShort": "Fallout First Catch Up",
+            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\r\n\r\nThis offer is exclusive to Fallout 1st Members. ",
+            "primaryImage": {
+              "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.dds",
+              "directory": "textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "0ef75b6d77a5936d2952095c6b03d6cb.dds",
+                "directory": "textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "e1dc2c1792a6890aa9fae08cdb67794d.dds",
+                "directory": "textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "8c084262b9f29fb3dccf3170626dfffe.dds",
+                "directory": "textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "f9ff3465d1696184a377613a2d7cfd5c.dds",
+                "directory": "textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "3d9c190eb3573e9c89f64b14632a93b8.dds",
+                "directory": "textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "ATX_CAMP_WallPaper_Squares_C1.dds",
+                "directory": "Textures/ATX/Storefront/Camp/Wallpaper/"
+              },
+              {
+                "imageName": "ATX_F1_Apparel_Mummy_Outfit_C1.dds",
+                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+              },
+              {
+                "imageName": "ATX_F1_Skin_PowerArmor_Paint_Hellfire_BlueDemon_C1.dds",
+                "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
+              },
+              {
+                "imageName": "ATX_F1_Apparel_Clothes_EnclaveIntelOfficer_Outfit_C1.dds",
+                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+              },
+              {
+                "imageName": "ATX_F1_Skin_PowerArmor_Paint_Warhead_C1.dds",
+                "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
+              },
+              {
+                "imageName": "ATX_F1_SurvivalTent_Skin_APC_C1.dds",
+                "directory": "Textures/ATX/Storefront/Camp/Tents/"
+              },
+              {
+                "imageName": "ATX_Skin_BackpackFlair_MrFuzzy_C1.dds",
+                "directory": "Textures/ATX/Storefront/Player/Flair/"
+              },
+              {
+                "imageName": "ATX_F1_CAMP_Statue_Crocollossus_Statuette_C1.dds",
+                "directory": "Textures/ATX/Storefront/Camp/Statues/"
+              },
+              {
+                "imageName": "ATX_F1_Apparel_Outfit_JackGourdon_C1.dds",
+                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Blue Demon Power Armor Paint Set"
+              },
+              {
+                "szItemName": "Mummy Costume"
+              },
+              {
+                "szItemName": "Crocolossus Statuette"
+              },
+              {
+                "szItemName": "Enclave Intel Officer Hat"
+              },
+              {
+                "szItemName": "BOS Camouflage Infantry Uniform"
+              },
+              {
+                "szItemName": "APC Survival Tent"
+              },
+              {
+                "szItemName": "BOS Camouflage Infantry Hood"
+              },
+              {
+                "szItemName": "Jack-O-Lantern Helmet"
+              },
+              {
+                "szItemName": "Squares Wallpaper"
+              },
+              {
+                "szItemName": "Enclave Intel Officer Outfit"
+              },
+              {
+                "szItemName": "Jack Gourdon Outfit"
+              },
+              {
+                "szItemName": "Downed Plane Generator"
+              },
+              {
+                "szItemName": "Brotherhood Tactical Ops Suit"
+              },
+              {
+                "szItemName": "Skull Box Backpack"
+              },
+              {
+                "szItemName": "Mr. Fuzzy Backpack Flair"
+              },
+              {
+                "szItemName": "Warhead Power Armor Paint Set"
+              },
+              {
+                "szItemName": "Mummy Underarmor"
+              },
+              {
+                "szItemName": "Mummy Mask"
+              }
+            ],
+            "lowPrice": {
+              "amount": 4000,
+              "originalAmount": 4000,
+              "isLto": false,
+              "ltoTimer": 0
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 4000
+            },
+            "isNew": false,
+            "isZeus": true
           },
           {
             "itemID": 2470308,
@@ -2480,7 +3274,7 @@
               "amount": 1547,
               "originalAmount": 4000,
               "isLto": false,
-              "ltoTimer": "2026-03-04T14:56:00.000Z"
+              "ltoTimer": ""
             },
             "lowestPurchasablePrice": {
               "amount": 4000,
@@ -2513,7 +3307,7 @@
               "amount": 0,
               "originalAmount": 0,
               "isLto": false,
-              "ltoTimer": "2026-03-04T15:00:00.000Z"
+              "ltoTimer": ""
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -2555,7 +3349,7 @@
               "amount": 0,
               "originalAmount": 0,
               "isLto": false,
-              "ltoTimer": "2026-03-04T15:02:00.000Z"
+              "ltoTimer": ""
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -2597,7 +3391,7 @@
               "amount": 0,
               "originalAmount": 0,
               "isLto": false,
-              "ltoTimer": "2026-03-04T15:04:00.000Z"
+              "ltoTimer": ""
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -2629,8 +3423,7 @@
             "lowPrice": {
               "amount": 0,
               "originalAmount": 0,
-              "isLto": false,
-              "ltoTimer": "2026-03-04T15:04:00.000Z"
+              "isLto": false
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -2713,8 +3506,7 @@
             "lowPrice": {
               "amount": 300,
               "originalAmount": 1800,
-              "isLto": false,
-              "ltoTimer": "2026-03-04T15:04:00.000Z"
+              "isLto": false
             },
             "lowestPurchasablePrice": {
               "amount": 1800,
@@ -2812,8 +3604,7 @@
             "lowPrice": {
               "amount": 246,
               "originalAmount": 1500,
-              "isLto": false,
-              "ltoTimer": "2026-03-04T15:04:00.000Z"
+              "isLto": false
             },
             "lowestPurchasablePrice": {
               "amount": 1500,
@@ -2904,8 +3695,7 @@
             "lowPrice": {
               "amount": 37,
               "originalAmount": 1800,
-              "isLto": false,
-              "ltoTimer": "2026-03-04T15:09:00.000Z"
+              "isLto": false
             },
             "lowestPurchasablePrice": {
               "amount": 1800,
@@ -2938,8 +3728,7 @@
             "lowPrice": {
               "amount": 0,
               "originalAmount": 0,
-              "isLto": true,
-              "ltoTimer": "2026-03-04T15:10:00.000Z"
+              "isLto": false
             },
             "lowestPurchasablePrice": {
               "amount": 0,
