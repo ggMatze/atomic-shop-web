@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rich Text Editor</title>
+</head>
+<body>
+<!-- Rich Text Editor Component -->
+<!-- Include this in your editor via: <iframe src="rich-text-editor.html" width="100%" height="400"></iframe> -->
+<!-- Call initRichTextEditor(htmlContent) from parent to load data -->
+<!-- Call getRichTextCode() from parent to get combined text -->
+
+<style>
+  .rte-container {
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    background: #222;
+    color: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .rte-toolbar {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .rte-btn {
+    padding: 6px 12px;
+    background: #0e639c;
+    color: #fff;
+    border: 1px solid #1177bb;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.85em;
+  }
+
+  .rte-btn:hover {
+    background: #1177bb;
+  }
+
+  .rte-link-input {
+    padding: 6px 10px;
+    background: #3c3c3c;
+    color: #e0e0e0;
+    border: 1px solid #555;
+    border-radius: 3px;
+    font-size: 0.85em;
+  }
+
+  .rte-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .rte-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rte-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rte-description {
+    min-height: 80px; /* Smaller height */
+  }
+
+  .rte-disclaimer {
+    flex: 1; /* Takes remaining space */
+  }
+
+  .rte-right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rte-label {
+    font-size: 0.85em;
+    color: #999;
+    margin-bottom: 5px;
+  }
+
+  .rte-textarea {
+    padding: 8px;
+    background: #3c3c3c;
+    color: #e0e0e0;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .rte-editable {
+    min-height: 50px;
+    padding: 8px;
+    background: #2a2a2a;
+    color: #FAF8D2;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    overflow-y: auto;
+    cursor: text;
+  }
+
+  .rte-editable:focus {
+    outline: none;
+    border-color: #1177bb;
+  }
+
+  .rte-editable .a {
+    color: #cf4d4de0;
+  }
+
+  .rte-editable .h {
+    background-color: #c8ff00;
+    color: #0b0b0b;
+    font-weight: 700;
+    padding: 0 5px;
+  }
+
+  .rte-editable .b {
+    font-weight: 800;
+  }
+
+  .rte-editable .i {
+    font-style: italic;
+  }
+
+  .rte-editable .u {
+    text-decoration: underline;
+  }
+
+  .rte-editable .s {
+    color: #cfcfcf;
+    font-size: 0.95em;
+  }
+
+  .rte-editable a {
+    color: #FFD454;
+    text-decoration: underline;
+  }
+</style>
+
+<div class="rte-container">
+  <div class="rte-toolbar">
+    <button class="rte-btn" onclick="rteApplyFormat('H')">H</button>
+    <button class="rte-btn" onclick="rteApplyFormat('A')">A</button>
+    <button class="rte-btn" onclick="rteOpenColorPicker()">C</button>
+    <input type="color" id="rte-color-picker" style="display:none" />
+    <button class="rte-btn" onclick="rteApplyFormat('B')">B</button>
+    <button class="rte-btn" onclick="rteApplyFormat('U')">U</button>
+    <input type="text" id="rte-link-input" class="rte-link-input" placeholder="https://...">
+    <button class="rte-btn" onclick="rteApplyLink()">Link</button>
+    <button class="rte-btn" onclick="rteInsertBreak()">\n</button>
+    <button class="rte-btn" onclick="rteInsertPara()">\n\n</button>
+  </div>
+
+  <div class="rte-fields">
+    <div class="rte-left">
+      <div class="rte-field">
+        <div class="rte-label">Description:</div>
+        <div id="rte-description" class="rte-editable" contenteditable="true"></div>
+      </div>
+      <div class="rte-field">
+        <div class="rte-label">Disclaimer:</div>
+        <div id="rte-disclaimer" class="rte-editable" contenteditable="true"></div>
+      </div>
+    </div>
+    <div class="rte-right">
+      <div class="rte-label">Raw JSON Input/Output:</div>
+      <textarea id="rte-raw" class="rte-textarea" placeholder="Raw text from/to JSON..."></textarea>
+    </div>
+  </div>
+</div>
+
+<script>
+  const RTE_DEBUG = true;
+  let rawTextarea;
+
+  function logDebug(...args) {
+    if (RTE_DEBUG) console.debug('[RTE]', ...args);
+  }
+
+  function transformShortTags(html) {
+    if (!html) return '';
+    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\[#([0-9a-fA-F]{3,6})\]([\s\S]*?)\[\/\#\]/g, function(_, hex, inner) {
+      return `<span style="color:#${hex}">${inner}</span>`;
+    });
+    html = html.replace(/\[([a-zA-Z][\w-]*)\]([\s\S]*?)\[\/\1\]/g, function(_, cls, inner) {
+      return `<span class="${cls}">${inner}</span>`;
+    });
+    html = html.replace(/\[url=([^\]]+)\]([\s\S]*?)\[\/url\]/g, function(_, url, text) {
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="overlay-link">${text || url} <svg width="18" height="18" viewBox="2 3 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>`;
+    });
+    return html;
+  }
+
+  function htmlToCodes(html) {
+    if (!html) return '';
+    logDebug('htmlToCodes input:', html);
+
+    const rgbToHex = (r, g, b) => {
+      const toHex = (n) => Math.max(0, Math.min(255, Number(n))).toString(16).padStart(2, '0');
+      return `${toHex(r)}${toHex(g)}${toHex(b)}`;
+    };
+
+    let processed = html;
+    // Preserve block-level newlines (contenteditable uses <div> and <br>)
+    processed = processed.replace(/<div><br><\/div>/g, '\n');
+    processed = processed.replace(/<div><br\s*\/><\/div>/g, '\n');
+    processed = processed.replace(/<div>/g, '\n');
+    processed = processed.replace(/<\/div>/g, '');
+    processed = processed.replace(/<br\s*\/?>(\s*)/g, '\n');
+    processed = processed.replace(/<p>/g, '\n');
+    processed = processed.replace(/<\/p>/g, '');
+
+    processed = processed.replace(/<span class="h">(.*?)<\/span>/g, '[h]$1[/h]');
+    processed = processed.replace(/<span class="i">(.*?)<\/span>/g, '[i]$1[/i]');
+    processed = processed.replace(/<span class="b">(.*?)<\/span>/g, '[b]$1[/b]');
+    processed = processed.replace(/<span class="u">(.*?)<\/span>/g, '[u]$1[/u]');
+    processed = processed.replace(/<span class="s">(.*?)<\/span>/g, '[s]$1[/s]');
+
+    // Convert rgb() colors and hex colors to our [#hex] tag format.
+    processed = processed.replace(/<span[^>]*style="[^"]*color\s*:\s*rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)[^\"]*"[^>]*>(.*?)<\/span>/gi,
+      (_, r, g, b, inner) => {
+        const hex = rgbToHex(r, g, b);
+        return `[#${hex}]${inner}[\/#]`;
+      }
+    );
+
+    processed = processed.replace(/<span[^>]*style="[^"]*color\s*:\s*#([0-9a-fA-F]{3,6})[;\s]*[^"]*"[^>]*>(.*?)<\/span>/gi, '[#$1]$2[/#]');
+    processed = processed.replace(/<a href="([^"]*)"[^>]*>(.*?)<\/a>/g, '[url=$1]$2[/url]');
+
+    const temp = document.createElement('div');
+    temp.innerHTML = processed;
+    let text = temp.innerText || temp.textContent;
+    text = text.replace(/&nbsp;/g, ' ');
+    logDebug('htmlToCodes output:', text);
+    return text;
+  }
+
+  function updatePreview(textareaId, previewId) {
+    // Not needed anymore
+  }
+  function initRichTextEditor(htmlContent) {
+    const descDiv = document.getElementById('rte-description');
+    const discDiv = document.getElementById('rte-disclaimer');
+    const rawTextarea = document.getElementById('rte-raw');
+
+    logDebug('initRichTextEditor input:', htmlContent);
+
+    if (!htmlContent) {
+      descDiv.innerHTML = '';
+      discDiv.innerHTML = '';
+      rawTextarea.value = '';
+      return;
+    }
+
+    // Normalize newlines
+    const normalized = htmlContent.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+    // Split like in ui.js: at first double newline
+    const splitMatch = normalized.match(/\n{2,}/);
+    let description = '';
+    let disclaimer = '';
+    if (!splitMatch) {
+      description = normalized.trim();
+    } else {
+      const idx = splitMatch.index;
+      description = normalized.slice(0, idx).trim();
+      disclaimer = normalized.slice(idx).replace(/^\n+/, '').trim();
+    }
+
+    // Transform to HTML
+    descDiv.innerHTML = transformShortTags(description).replace(/\n/g, '<br>');
+    discDiv.innerHTML = transformShortTags(disclaimer).replace(/\n/g, '<br>');
+    rawTextarea.value = htmlContent.replace(/\r/g, '\\r').replace(/\n/g, '\\n');
+  }
+
+  function getRichTextCode() {
+    const descDiv = document.getElementById('rte-description');
+    const discDiv = document.getElementById('rte-disclaimer');
+
+    const descCodes = htmlToCodes(descDiv.innerHTML);
+    const discCodes = htmlToCodes(discDiv.innerHTML);
+
+    const combined = descCodes + (discCodes ? '\n\n' + discCodes : '');
+    return combined;
+  }
+
+  function updateRaw() {
+    // If the user is actively editing the raw textarea, do not overwrite their input.
+    if (document.activeElement === rawTextarea) {
+      return;
+    }
+
+    const combined = getRichTextCode();
+    logDebug('updateRaw combined:', combined);
+    // Show escaped newlines in the raw textarea (JSON string style)
+    rawTextarea.value = combined.replace(/\r/g, '\\r').replace(/\n/g, '\\n');
+  }
+
+  // Initialize on load
+  document.addEventListener('DOMContentLoaded', function() {
+    const descDiv = document.getElementById('rte-description');
+    const discDiv = document.getElementById('rte-disclaimer');
+    rawTextarea = document.getElementById('rte-raw');
+    const colorPicker = document.getElementById('rte-color-picker');
+    colorPicker.addEventListener('input', function() {
+      rteApplyColor(this.value);
+    });
+
+    // Update raw when contenteditable changes
+    const observer = new MutationObserver(updateRaw);
+    observer.observe(descDiv, { childList: true, subtree: true, characterData: true, attributes: true });
+    observer.observe(discDiv, { childList: true, subtree: true, characterData: true, attributes: true });
+    descDiv.addEventListener('input', updateRaw);
+    discDiv.addEventListener('input', updateRaw);
+
+    // Update desc and disc when raw changes
+    rawTextarea.addEventListener('input', function() {
+      const rawText = rawTextarea.value;
+      logDebug('raw input changed:', rawText);
+
+      // Unescape \n and \r sequences back into actual newlines
+      const unescaped = rawText.replace(/\\r/g, '\r').replace(/\\n/g, '\n');
+      logDebug('raw unescaped:', unescaped);
+
+      // Normalize newlines to \n for internal parsing
+      const normalized = unescaped.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+      logDebug('raw normalized:', normalized);
+
+      // Split like in ui.js: at first double newline
+      const splitMatch = normalized.match(/\n{2,}/);
+      let description = '';
+      let disclaimer = '';
+      if (!splitMatch) {
+        description = normalized.trim();
+      } else {
+        const idx = splitMatch.index;
+        description = normalized.slice(0, idx).trim();
+        disclaimer = normalized.slice(idx).replace(/^\n+/, '').trim();
+      }
+      logDebug('raw parsed desc/disc:', { description, disclaimer });
+      descDiv.innerHTML = transformShortTags(description).replace(/\n/g, '<br>');
+      discDiv.innerHTML = transformShortTags(disclaimer).replace(/\n/g, '<br>');
+    });
+  });
+
+  function rteApplyFormat(format) {
+    const descDiv = document.getElementById('rte-description');
+    const discDiv = document.getElementById('rte-disclaimer');
+
+    let activeDiv = document.activeElement;
+    if (activeDiv !== descDiv && activeDiv !== discDiv) {
+      activeDiv = descDiv; // Default to description
+    }
+
+    const selection = window.getSelection();
+    if (selection.rangeCount > 0) {
+      const range = selection.getRangeAt(0);
+      const selectedText = range.toString();
+
+      if (selectedText) {
+        let tag = '';
+        switch (format) {
+          case 'H': tag = 'h'; break;
+          case 'A': tag = 'i'; break;
+          case 'B': tag = 'b'; break;
+          case 'U': tag = 'u'; break;
+        }
+
+        const span = document.createElement('span');
+        span.className = tag;
+        span.textContent = selectedText;
+
+        range.deleteContents();
+        range.insertNode(span);
+
+        updateRaw();
+      }
+    }
+  }
+
+  function rteOpenColorPicker() {
+    const picker = document.getElementById('rte-color-picker');
+    picker.click();
+  }
+
+  function rteApplyColor(color) {
+    const descDiv = document.getElementById('rte-description');
+    const discDiv = document.getElementById('rte-disclaimer');
+
+    let activeDiv = document.activeElement;
+    if (activeDiv !== descDiv && activeDiv !== discDiv) {
+      activeDiv = descDiv;
+    }
+
+    const selection = window.getSelection();
+    if (selection.rangeCount > 0) {
+      const range = selection.getRangeAt(0);
+      const selectedText = range.toString();
+      if (selectedText) {
+        const span = document.createElement('span');
+        span.style.color = color;
+        span.textContent = selectedText;
+
+        range.deleteContents();
+        range.insertNode(span);
+
+        updateRaw();
+      }
+    }
+  }
+
+  function rteApplyLink() {
+    const url = document.getElementById('rte-link-input').value.trim();
+    if (!url) return;
+
+    const descDiv = document.getElementById('rte-description');
+    const discDiv = document.getElementById('rte-disclaimer');
+
+    let activeDiv = document.activeElement;
+    if (activeDiv !== descDiv && activeDiv !== discDiv) {
+      activeDiv = descDiv;
+    }
+
+    const selection = window.getSelection();
+    if (selection.rangeCount > 0) {
+      const range = selection.getRangeAt(0);
+      const selectedText = range.toString();
+
+      if (selectedText) {
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.textContent = selectedText;
+
+        range.deleteContents();
+        range.insertNode(a);
+
+        updateRaw();
+      }
+    }
+  }
+
+  function rteInsertBreak() {
+    const descDiv = document.getElementById('rte-description');
+    const discDiv = document.getElementById('rte-disclaimer');
+
+    let activeDiv = document.activeElement;
+    if (activeDiv !== descDiv && activeDiv !== discDiv) {
+      activeDiv = descDiv;
+    }
+
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+
+    const br = document.createElement('br');
+    range.deleteContents();
+    range.insertNode(br);
+    range.setStartAfter(br);
+    range.collapse(true);
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    updateRaw();
+  }
+
+  function rteInsertPara() {
+    const descDiv = document.getElementById('rte-description');
+    const discDiv = document.getElementById('rte-disclaimer');
+
+    let activeDiv = document.activeElement;
+    if (activeDiv !== descDiv && activeDiv !== discDiv) {
+      activeDiv = descDiv;
+    }
+
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+
+    const p = document.createElement('p');
+    p.appendChild(document.createElement('br'));
+    range.deleteContents();
+    range.insertNode(p);
+    range.setStartAfter(p);
+    range.collapse(true);
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    updateRaw();
+  }
+</script>
+</body>
+</html>

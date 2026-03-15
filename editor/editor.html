@@ -72,6 +72,34 @@ function normalizeDir(dir) {
   return d;
 }
 
+// Rich-text editor helpers (uses rich-text-editor.html via iframe)
+function getRichTextFrame() {
+  return document.getElementById('rte-frame');
+}
+
+function setRichTextContent(text) {
+  const frame = getRichTextFrame();
+  if (!frame) return;
+  const apply = () => {
+    if (frame.contentWindow && typeof frame.contentWindow.initRichTextEditor === 'function') {
+      frame.contentWindow.initRichTextEditor(text || '');
+    }
+  };
+  if (frame.contentWindow && typeof frame.contentWindow.initRichTextEditor === 'function') {
+    apply();
+  } else {
+    frame.addEventListener('load', apply, { once: true });
+  }
+}
+
+function getRichTextContent() {
+  const frame = getRichTextFrame();
+  if (frame && frame.contentWindow && typeof frame.contentWindow.getRichTextCode === 'function') {
+    return frame.contentWindow.getRichTextCode();
+  }
+  return null;
+}
+
 // Ensure only one primary image is set in tempImages
 function setPrimaryImage(idx) {
   for (let i = 0; i < tempImages.length; i++) {
@@ -139,6 +167,13 @@ function persistUiToLastItem() {
       }
     }
 
+    // Item name fields
+    const nameInput = document.getElementById('item-name-input');
+    if (nameInput) lastItem.itemName = nameInput.value;
+
+    const shortInput = document.getElementById('item-name-short-input');
+    if (shortInput) lastItem.itemNameShort = shortInput.value;
+
     // isNew
     const isNewSelect = document.getElementById('is-new-select');
     if (isNewSelect) {
@@ -157,6 +192,16 @@ function persistUiToLastItem() {
     const isClown = document.getElementById('is-clown');
     if (is1) lastItem.isZeus = !!is1.checked;
     if (isClown) lastItem.isClown = !!isClown.checked;
+
+    // Description (rich text)
+    try {
+      const desc = getRichTextContent();
+      if (typeof desc === 'string') {
+        lastItem.itemDesc = desc;
+      }
+    } catch (e) {
+      // ignore if iframe not ready
+    }
   } catch (e) {
     // swallow errors; this is a best-effort persist when switching
   }
@@ -281,8 +326,62 @@ function showItemDetails(pageIdx, itemIdx) {
   // Render
   const details = document.getElementById('bundle-details');
   details.innerHTML = `
-    <h3>${item.itemName || ''}</h3>
-    <div><b>Description:</b> ${item.itemDesc || ''}</div>
+    <div class="collapsible-header" onclick="toggleCollapsible()">
+      📋 Item Details
+      <span id="collapse-arrow">▶</span>
+    </div>
+    <div id="details-content" class="collapsible-content">
+      <div class="field-row full">
+        <label>Item Name:</label>
+        <input type="text" id="item-name-input" value="${item.itemName || ''}" />
+      </div>
+      <div class="field-row full">
+        <label>Item Name (Short):</label>
+        <input type="text" id="item-name-short-input" value="${item.itemNameShort || ''}" />
+      </div>
+      <div class="field-row inline">
+        <div style="flex:1;">
+          <label style="display:block; font-weight:bold; margin-bottom:4px;">New Label:</label>
+          <select id="is-new-select" style="width:100%;">
+            <option value="none" ${(!item.isNew) ? 'selected' : ''}>None</option>
+            <option value="1" ${(item.isNew === 1 || item.isNew === true) ? 'selected' : ''}>NEW</option>
+            <option value="2" ${(item.isNew === 2) ? 'selected' : ''}>NEW*</option>
+          </select>
+        </div>
+        <div style="flex:1;">
+          <label style="display:block; font-weight:bold; margin-bottom:4px;">Timer Type:</label>
+          <select id="lto-type-select" style="width:100%;" title="None: show both timers | Type 1: primary timer only | Type 2: discount badge timer only">
+            <option value="none" title="Show both primary and secondary timers" ${(!item.lowPrice || !item.lowPrice.ltoType) ? 'selected' : ''}>None (both)</option>
+            <option value="1" title="Show primary timer only" ${(item.lowPrice && (item.lowPrice.ltoType === 1)) ? 'selected' : ''}>Type 1 (primary)</option>
+            <option value="2" title="Show discount badge timer only" ${(item.lowPrice && (item.lowPrice.ltoType === 2)) ? 'selected' : ''}>Type 2 (badge)</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row inline">
+        <label style="display:flex; align-items:center; gap:6px;">
+          <input type="checkbox" class="checkbox-margin-small" id="is-1st" ${item.isZeus === true ? 'checked' : ''}>
+          <span><b>1st</b></span>
+        </label>
+        <label style="display:flex; align-items:center; gap:6px;">
+          <input type="checkbox" class="checkbox-margin-small" id="is-clown" ${item.isClown === true ? 'checked' : ''}>
+          <span><b>Clown</b></span>
+        </label>
+      </div>
+      <div class="field-row full">
+        <label>Description:</label>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <iframe id="rte-frame" class="active" src="rich-text-editor.html" style="width:100%; height:320px; border:1px solid #555; border-radius: 4px;" title="Rich Text Editor"></iframe>
+          <textarea id="itemDesc" style="display:none;"></textarea>
+        </div>
+      </div>
+      
+    </div>
+    <div class="field-row full" style="margin-top: 12px;">
+      <b>Ablaufzeit (ltoTimer):</b>
+      <input type="datetime-local" id="ltotimer-input" value="${localValue}" style="margin-left: 10px;" />
+      <button id="save-ltotimer-btn" style="margin-left: 10px;">Speichern</button>
+      <span id="ltotimer-status" style="margin-left:8px;color:#1177bb;"></span>
+    </div>
     <div class="editor-row">
       <div class="includes-list"><b>Includes:</b>
         <div id="includes-list">
@@ -307,52 +406,13 @@ function showItemDetails(pageIdx, itemIdx) {
         <div style="margin-top:12px;">
           <button onclick="saveJson()">Save Modified JSON</button>
         </div>
-        <div style="margin-top:12px;">
-          <b>Ablaufzeit (ltoTimer):</b>
-          <input type="datetime-local" id="ltotimer-input" value="${localValue}">
-          <div style="margin-top:8px;">
-            <label style="margin-right:12px;">
-              <b>New Label:</b>
-              <select id="is-new-select" style="margin-left:4px;">
-                <option value="none" ${(!item.isNew) ? 'selected' : ''}>None</option>
-                <option value="1" ${(item.isNew === 1 || item.isNew === true) ? 'selected' : ''}>NEW</option>
-                <option value="2" ${(item.isNew === 2) ? 'selected' : ''}>NEW*</option>
-              </select>
-            </label>
-            <label style="margin-left:12px;"><input type="checkbox" class="checkbox-margin-small" id="is-1st" ${item.isZeus === true ? 'checked' : ''}> <b>1st</b></label>
-            <label style="margin-left:12px;"><input type="checkbox" class="checkbox-margin-small" id="is-clown" ${item.isClown === true ? 'checked' : ''}> <b>Clown</b></label>
-          </div>
-          <div style="margin-top:8px;">
-            <label style="margin-right:12px;">
-              <b>Timer Type:</b>
-              <select id="lto-type-select" style="margin-left:4px;" title="None: show both timers | Type 1: primary timer only | Type 2: discount badge timer only">
-                <option value="none" title="Show both primary and secondary timers" ${(!item.lowPrice || !item.lowPrice.ltoType) ? 'selected' : ''}>None (both)</option>
-                <option value="1" title="Show primary timer only" ${(item.lowPrice && (item.lowPrice.ltoType === 1)) ? 'selected' : ''}>Type 1 (primary)</option>
-                <option value="2" title="Show discount badge timer only" ${(item.lowPrice && (item.lowPrice.ltoType === 2)) ? 'selected' : ''}>Type 2 (badge)</option>
-              </select>
-            </label>
-          </div>
-          <div style="margin-top:8px;">
-            <button id="save-ltotimer-btn">Speichern</button>
-            <span id="ltotimer-status" style="margin-left:8px;color:#1177bb;"></span>
-          </div>
-          <div style="margin-top:6px;font-size:0.95em;opacity:0.95;color:#1177bb;">
-            <em id="ltotimer-instruction">Enter the desired local time in the box above — the tool will save the corresponding UTC instant shown below.</em>
-          </div>
-          <div style="margin-top:4px;font-size:0.9em;opacity:0.9;color:#9ad1ff;">
-            Saved (UTC): <span id="ltotimer-saved-iso">&nbsp;</span>
-            &nbsp;— Local: <span id="ltotimer-saved-local">&nbsp;</span>
-          </div>
-          <div style="margin-top:4px;font-size:0.95em;opacity:0.8;">
-            Relativ: <span id="ltotimer-rel">${relValue}</span>
-          </div>
-        </div>
       </div>
     </div>
     <div><b>Images:</b></div>
     <div class="img-list" id="img-list"></div>
   `;
   renderImages();
+  setRichTextContent(item.itemDesc || '');
 
   // Drag & Drop für Includes
   const includesList = document.getElementById('includes-list');
@@ -490,6 +550,8 @@ function showItemDetails(pageIdx, itemIdx) {
   }, 1000);
 
   document.getElementById('save-ltotimer-btn').onclick = function() {
+    // Persist current UI state (including description) before saving timer/flags
+    persistUiToLastItem();
     const val = document.getElementById('ltotimer-input').value;
     const dLocal = parseLocalDatetimeLocalValue(val);
     if (dLocal && !isNaN(dLocal.getTime())) {
@@ -899,6 +961,7 @@ window.outputImageList = function() {
 window.saveJson = function() {
   // Save current edits before saving
   saveTempImagesToItem();
+  persistUiToLastItem();
   // Download the modified JSON as a file
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(storeData, null, 2));
   const dlAnchor = document.createElement('a');
@@ -962,6 +1025,14 @@ window.addImageFromFullPath = function() {
   renderImages();
   document.getElementById('full-image-path').value = '';
 };
+
+function toggleCollapsible() {
+  const content = document.getElementById('details-content');
+  const arrow = document.getElementById('collapse-arrow');
+  if (!content || !arrow) return;
+  content.classList.toggle('open');
+  arrow.textContent = content.classList.contains('open') ? '▼' : '▶';
+}
 
 // Load from file input
 document.getElementById('jsonfile').addEventListener('change', function(e) {
