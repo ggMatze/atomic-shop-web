@@ -21,21 +21,21 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Scrap Kit",
-      "itemNameShort": "Scrap Kit",
-      "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
+      "itemName": "Free Lunchbox",
+      "itemNameShort": "Free Lunchbox",
+      "itemDesc": "Open a Lunchbox for you and your friends! You and players nearby receive an XP Boost and a random Buff Effect for a hour!\r\n For Odds and Effects Information, visit the Help ingame > Lunchboxes! \r\n\r\n- LUNCHBOXES ARE UNDER AID IN THE PIP-BOY. LUNCHBOXES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+        "imageName": "atx_store_lunchbox001_l.webp"
       },
       "carouselImages": [
         {
           "directory": "textures/atx/storefront/utility/",
-          "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+          "imageName": "atx_store_lunchbox001_l.webp"
         }
       ],
       "lowPrice": {
-        "ltoTimer": "2026-03-11T12:00:00.000Z",
+        "ltoTimer": "2026-03-18T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -46,8 +46,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2026-03-10T12:00:00.000Z",
-      "endTime": "2026-03-11T12:00:00.000Z",
+      "startTime": "2026-03-17T12:00:00.000Z",
+      "endTime": "2026-03-18T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -62,7 +62,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2026-03-12T12:00:00.000Z",
+        "ltoTimer": "2026-03-19T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -73,8 +73,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2026-03-11T12:00:00.000Z",
-      "endTime": "2026-03-12T12:00:00.000Z",
+      "startTime": "2026-03-18T12:00:00.000Z",
+      "endTime": "2026-03-19T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -89,7 +89,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2026-03-13T12:00:00.000Z",
+        "ltoTimer": "2026-03-20T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -100,23 +100,28 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2026-03-12T12:00:00.000Z",
-      "endTime": "2026-03-13T12:00:00.000Z",
+      "startTime": "2026-03-19T12:00:00.000Z",
+      "endTime": "2026-03-20T12:00:00.000Z",
       "isZeus": false
     },
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Caps x250",
-      "itemNameShort": "Caps x250",
-      "itemDesc": "Some caps to use in Appalachia!",
+      "itemName": "Scrap Kit",
+      "itemNameShort": "Scrap Kit",
+      "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "score_currency_caps_l.webp"
+        "imageName": "atx_utility_repairkit_scraptostash_l.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+        }
+      ],
       "lowPrice": {
-        "ltoTimer": "2026-03-14T12:00:00.000Z",
+        "ltoTimer": "2026-03-21T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -127,8 +132,35 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2026-03-13T12:00:00.000Z",
-      "endTime": "2026-03-14T12:00:00.000Z",
+      "startTime": "2026-03-20T12:00:00.000Z",
+      "endTime": "2026-03-21T12:00:00.000Z",
+      "isZeus": false
+    },
+    {
+      "replaceItemID": 2316946,
+      "itemID": 2316946,
+      "itemName": "Vault-Tec Supply Package (Level 2)",
+      "itemNameShort": "Vault-Tec Supply Package",
+      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -\r\n\r\n[h]Note: Item description generated with AI assistance due to the large number of items that would have required extensive manual research[/h]",
+      "primaryImage": {
+        "directory": "textures/atx/storefront/utility/",
+        "imageName": "atx_utility_scrapball_level2_l.webp"
+      },
+      "carouselImages": [],
+      "lowPrice": {
+        "ltoTimer": "2026-03-22T12:00:00.000Z",
+        "isLto": true,
+        "purchaseLimit": 1
+      },
+      "lowestPurchasablePrice": {
+        "Amount": 0,
+        "ltoTimer": 1813682
+      },
+      "highPrice": {
+        "originalAmount": 0
+      },
+      "startTime": "2026-03-21T12:00:00.000Z",
+      "endTime": "2026-03-22T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -143,7 +175,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2026-03-15T12:00:00.000Z",
+        "ltoTimer": "2026-03-23T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -154,35 +186,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2026-03-14T12:00:00.000Z",
-      "endTime": "2026-03-15T12:00:00.000Z",
-      "isZeus": false
-    },
-    {
-      "replaceItemID": 2316946,
-      "itemID": 2316946,
-      "itemName": "Repair Kit",
-      "itemNameShort": "Repair Kit",
-      "itemDesc": "Don’t get caught out in Appalachia with a broken weapon, fix it up fast with a repair kit",
-      "primaryImage": {
-        "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_repairkit_basic_l.webp"
-      },
-      "carouselImages": [],
-      "lowPrice": {
-        "ltoTimer": "2026-03-16T12:00:00.000Z",
-        "isLto": true,
-        "purchaseLimit": 1
-      },
-      "lowestPurchasablePrice": {
-        "Amount": 0,
-        "ltoTimer": 1813682
-      },
-      "highPrice": {
-        "originalAmount": 0
-      },
-      "startTime": "2026-03-15T12:00:00.000Z",
-      "endTime": "2026-03-16T12:00:00.000Z",
+      "startTime": "2026-03-22T12:00:00.000Z",
+      "endTime": "2026-03-23T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -197,7 +202,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2026-03-17T12:00:00.000Z",
+        "ltoTimer": "2026-03-24T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -210,8 +215,8 @@
         "originalAmount": 0,
         "purchaseLimit": 1
       },
-      "startTime": "2026-03-16T12:00:00.000Z",
-      "endTime": "2026-03-17T12:00:00.000Z",
+      "startTime": "2026-03-23T12:00:00.000Z",
+      "endTime": "2026-03-24T12:00:00.000Z",
       "isZeus": false
     }
   ],
@@ -1557,7 +1562,7 @@
         "itemID": 407,
         "itemName": "Slocum's Coffee Machine",
         "itemNameShort": "Slocum's Coffee Machine",
-        "itemDesc": "Add a jolt of caffeine to your C.A.M.P. with the Slocum's Joe Coffee Machine!\nSlocum's Joe Coffee Machine dispenses Canned Coffee.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. - \n\nCOLLECTS:\n[url=https://www.theduchessflame.com/post/camp-resource-slocum-s-joe-coffee-machine-and-reskins]✦ Canned Coffee[/url]",
+        "itemDesc": "Add a jolt of caffeine to your C.A.M.P. with the Slocum's Joe Coffee Machine!\nSlocum's Joe Coffee Machine dispenses Canned Coffee.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. - \n\nCOLLECTS:\n[url=https://www.theduchessflame.com/post/camp-resource-slocum-s-joe-coffee-machine-and-reskins]✦ Canned Coffee[/url]w",
         "primaryImage": {
           "imageName": "atx_camp_utility_slocumsjoe_coffeemachine01_l.webp",
           "directory": "/textures/atx/storefront/camp/utility/"
