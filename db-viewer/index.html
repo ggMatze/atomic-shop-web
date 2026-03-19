@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomic Shop DB Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚛️ Atomic Shop DB Viewer</h1>
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search bundles, items... (e.g., grelok, Helvetian, etc.)"
+                    autocomplete="off"
+                >
+            </div>
+            <div class="stats">
+                <span id="statsText">Loading database...</span>
+            </div>
+        </header>
+
+        <div id="errorContainer"></div>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
