@@ -3184,8 +3184,8 @@
     "desc": "For the times when you want to share everything.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName":"love.webp",
-      "directory":"/textures/emotes/"
+      "imageName": "love.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Love You"
@@ -3203,8 +3203,8 @@
     "desc": "For when you totally know the way to go.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName":"follow.webp",
-      "directory":"/textures/emotes/"
+      "imageName": "follow.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "This Way!"
@@ -3263,8 +3263,8 @@
     "desc": "Literally dying.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName":"thirsty.webp",
-      "directory":"/textures/emotes/"
+      "imageName": "thirsty.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Dying of Thirst!"
@@ -4061,8 +4061,8 @@
     "EDID": "ATX_ENTM_Emotes_Help_Hungry",
     "desc": "Vault Dweller needs food badly!",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
-    "primaryImage":{
-      "imageName":"hungry.webp",
+    "primaryImage": {
+      "imageName": "hungry.webp",
       "directory": "/textures/emotes/"
     },
     "carouselImages": [],
@@ -9094,7 +9094,7 @@
     },
     "highPriceOriginal": 500,
     "dynamicBundleItems": [],
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "SCORE_S22_ENTM_Apparel_Outfit_MothmanMuseum_TshirtJeans",
@@ -13090,7 +13090,7 @@
       "directory": "/textures/atx/storefront/player/backpack"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [   ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallPaper_CinderBlocks",
@@ -13308,7 +13308,7 @@
       "directory": "/textures/atx/storefront/camp/structures"
     },
     "highPriceOriginal": 700,
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_Grelok_Hood",
@@ -13674,8 +13674,8 @@
     "desc": "Pay homage to the Mothman!",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName":"mothman.webp",
-      "directory":"/textures/emotes/"
+      "imageName": "mothman.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Mothman Worship"
@@ -14591,8 +14591,8 @@
     "desc": "Honor the history of America with a simple salute. Brought to you by your friends at Vault-Tec. Originally included with the Tricentennial Edition of Fallout 76.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName":"salute.webp",
-      "directory":"/textures/emotes/"
+      "imageName": "salute.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Tricentennial Salute"
@@ -14994,9 +14994,16 @@
     "EDID": "ATX_ENTM_CAMP_Machinery_Workbench_Cooking_WitchesCauldron",
     "desc": "Stir up some dark magic with the Witch Cauldron Cooking Station! - Grants the Witch Cauldron Cooking Station and Decoration. -",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_camp_floordeco_witchescauldron_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": [],
-    "itemName": "Witch Cauldron Cooking Station"
+    "itemName": "Witch Cauldron Cooking Station",
+    "dbIndex": 1333,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Plasma_Ball_Set",
@@ -16292,7 +16299,7 @@
     },
     "highPriceOriginal": 500,
     "dynamicBundleItems": [],
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_Emotes_Misc_RifleDrill",
@@ -17216,9 +17223,16 @@
     "EDID": "ATX_F1_ENTM_SurvivalTent_Skin_Settler",
     "desc": "Set-up shop to reclaim the wasteland with the Settler Survival Tent! The Survival Tent can be placed through the Favorites Menu. This offer is exclusive to Fallout 1st Members. Available April 2020.",
     "disclaimer": "UNLOCKS A RAIDER VARIANT OF THE SURVIVAL TENT.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_f1_survivalttent_skin_settler_l.webp",
+      "directory": "/textures/atx/storefront/camp/tents/"
+    },
     "carouselImages": [],
-    "itemName": "Settler Tent"
+    "itemName": "Settler Tent",
+    "dbIndex": 1533,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_F1_ENTM_SurvivalTent_Skin_Raider",
@@ -18088,10 +18102,10 @@
     "dynamicBundleItems": [],
     "primaryImage": {
       "imageName": "atx_camp_machinery_workbench_tinkers_mrfuzzy.webp",
-        "directory": "/textures/atx/storefront/camp/machinery/"
+      "directory": "/textures/atx/storefront/camp/machinery/"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "SCORE_S5_ENTM_Apparel_Headwear_BloodEagleMerc_Charmer2",
@@ -18251,9 +18265,16 @@
     "EDID": "SCORE_S5_ENTM_CAMP_Display_ChassisDisplayFrame_ArmorAce",
     "desc": "Display your Power Armor at your C.A.M.P. with this Armor Ace Chassis Display Frame.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "score_s2_camp_display_powerarmordisplay_armorace_l.webp",
+      "directory": "/textures/atx/storefront/camp/displays/"
+    },
     "carouselImages": [],
-    "itemName": "Armor Ace Chassis Display Frame"
+    "itemName": "Armor Ace Chassis Display Frame",
+    "dbIndex": 1624,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S5_ENTM_CAMP_Display_ChassisDisplayFrame",
@@ -18270,9 +18291,16 @@
     "EDID": "ATX_ENTM_CAMP_Display_ChassisDisplayFrame_White",
     "desc": "Display your Power Armor at your C.A.M.P. with this White Chassis Display Frame!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_entm_camp_display_armordisplayframe_white.webp",
+      "directory": "/textures/atx/storefront/camp/displays/"
+    },
     "carouselImages": [],
-    "itemName": "White Display Frame"
+    "itemName": "White Display Frame",
+    "dbIndex": 1626,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_F1_ENTM_CAMP_Display_ChassisDisplayFrame_Red",
@@ -18474,9 +18502,16 @@
     "EDID": "ATX_ENTM_CAMP_Defense_Barrier_WavyWillardDUPLICATE000",
     "desc": "Protect your C.A.M.P. with these Wavy Willard's Waterpark inspired Stone Wall Barrier. Includes a secret door!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_camp_defense_barrier_wavywillard_l.webp",
+      "directory": "/textures/atx/storefront/camp/defenses/"
+    },
     "carouselImages": [],
-    "itemName": "Wavy Willard Walls"
+    "itemName": "Wavy Willard Walls",
+    "dbIndex": 1644,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponSkin_Broadsider_StingerDUPLICATE000",
@@ -21551,7 +21586,7 @@
     },
     "highPriceOriginal": 500,
     "dynamicBundleItems": [],
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "SCORE_S12_ENTM_CAMP_Floor_TimberCarpet",
@@ -24495,9 +24530,16 @@
     "EDID": "ATX_ENTM_CAMP_Display_ChassisDisplayFrame_Yellow",
     "desc": "Display your Power Armor at your C.A.M.P. with this Yellow Chassis Display Frame!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_entm_camp_display_armordisplayframe_yellow.webp",
+      "directory": "/textures/atx/storefront/camp/displays/"
+    },
     "carouselImages": [],
-    "itemName": "Yellow Display Frame"
+    "itemName": "Yellow Display Frame",
+    "dbIndex": 2167,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_F1_ENTM_Apparel_Clothes_RangersUniform_Advanced",
@@ -24809,7 +24851,10 @@
     "EDID": "SCORE_S24_ENTM_PlayerTitles_Both_Alien",
     "desc": "Unlocks the Player Title Prefix & Suffix \"Alien\".",
     "disclaimer": "PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "score_s24_playertitles_prefix_suffix_alien_l.webp",
+      "directory": "/textures/emotes/"
+    },
     "carouselImages": [],
     "itemName": "\"Alien\""
   },
@@ -24840,7 +24885,7 @@
     "desc": "Time to play.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_playericon_hotdog_02_l.webp",
+      "imageName": "atx_playericon_s24_cryptidpatchflatwoodsmonster.webp",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
@@ -24862,7 +24907,7 @@
     "desc": "They're amongst us, in the stars and in Appalachia.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_playericon_hotdog_02_l.webp",
+      "imageName": "atx_playericon_s24_cryptidpatchalien.webp",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
@@ -24884,7 +24929,7 @@
     "desc": "Don't forget to pick one up for Grafton Day!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_playericon_hotdog_02_l.webp",
+      "imageName": "atx_playericon_s24_cryptidpatchgraftonmonster.webp",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
@@ -24895,7 +24940,7 @@
     "desc": "This patch appears Once in a Blue Moon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_playericon_hotdog_02_l.webp",
+      "imageName": "atx_playericon_s24_cryptidpatchjerseydevil.webp",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
@@ -24906,7 +24951,7 @@
     "desc": "This patch will help you find His Light.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_playericon_hotdog_02_l.webp",
+      "imageName": "atx_playericon_s24_cryptidpatchmothman.webp",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
@@ -24917,7 +24962,7 @@
     "desc": "A big smile that somehow feels Cold.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_playericon_hotdog_02_l.webp",
+      "imageName": "atx_playericon_s24_cryptidpatchsmilingman.webp",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
@@ -27246,9 +27291,16 @@
     "EDID": "Babylon_ENTM_Skin_WeaponSkin_44_CamoBlue",
     "desc": "Blend in with this Blue Camo skin for your .44.",
     "disclaimer": "SKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "babylon_skin_weaponskin_44_bluecamo_l.webp",
+      "directory": "/textures/atx/storefront/player/weaponskin/"
+    },
     "carouselImages": [],
-    "itemName": "Blue Camo Paint"
+    "itemName": "Blue Camo Paint",
+    "dbIndex": 2402,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_DeathClaw_Easter_Egg_02",
@@ -27818,9 +27870,16 @@
     "EDID": "ATX_ENTM_CAMP_FloorDecor_CementTire_02",
     "desc": "Fortify your Free State C.A.M.P. with this Medium Cement Filled Tire.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_camp_floordecor_cementtire_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": [],
-    "itemName": "Medium Tire"
+    "itemName": "Medium Tire",
+    "dbIndex": 2455,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Furniture_Table_50s_Tricircle",
@@ -29393,9 +29452,16 @@
     "EDID": "ATX_ENTM_CAMP_Statue_MothmanCultist_TreeAltar",
     "desc": "Admonish yourself unto the winged night with this Mothman Cult Altar.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_camp_statue_mothcult_treealter_l.webp",
+      "directory": "/textures/atx/storefront/camp/statues/"
+    },
     "carouselImages": [],
-    "itemName": "Mothman Cult Tree Altar"
+    "itemName": "Mothman Cult Tree Altar",
+    "dbIndex": 2579,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_NeonSign_Vault76_NewHome",
@@ -29413,8 +29479,8 @@
     "desc": "Acknowledge the successful pillaging perpetrated by your fellow raiders with this faction salute.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName":"raider_salute.webp",
-      "directory":"/textures/emotes/"
+      "imageName": "raider_salute.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Raider Salute"
@@ -30346,7 +30412,7 @@
       "directory": "/textures/emotes/"
     },
     "highPriceOriginal": 200,
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_Bed_Twinbed_CaptainCosmos",
@@ -30512,9 +30578,16 @@
     "EDID": "Babylon_ENTM_Skin_WeaponSkin_LaserGatling_CamoBlue",
     "desc": "Blend in with this Blue Camo skin for your Gatling Laser.",
     "disclaimer": "SKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "babylon_skin_weaponskin_lasergun_bluecamo_l.webp",
+      "directory": "/textures/atx/storefront/player/weaponskin/"
+    },
     "carouselImages": [],
-    "itemName": "Blue Camo Paint"
+    "itemName": "Blue Camo Paint",
+    "dbIndex": 2681,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_Skin_CameraSkin_Mint",
@@ -32238,8 +32311,8 @@
     "desc": "A salute to show you understand dialectical materialism. All those who do not salute in return should be noted and reported.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName":"commi_salute.webp",
-      "directory":"/textures/emotes/"
+      "imageName": "commi_salute.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Communist Salute"
@@ -32380,9 +32453,16 @@
     "EDID": "ATX_TP_ENTM_CAMP_Bed_SleepingBag_Set",
     "desc": "Settle down for the night with your choice of five different sleeping bags! Included with a Twitch Prime promotion.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_camp_bed_sleepingbag_nukacolaquantum_l.webp",
+      "directory": "/textures/atx/storefront/camp/beds/"
+    },
     "carouselImages": [],
-    "itemName": "Twitch Prime Sleeping Bags"
+    "itemName": "Twitch Prime Sleeping Bags",
+    "dbIndex": 2852,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_TP_ENTM_Skin_ArmorSkin_Combat_NukaCherry",
@@ -33570,9 +33650,16 @@
     "EDID": "SCORE_S4_ENTM_Skin_WeaponSkin_LeverGun_Hunting",
     "desc": "Stand out in the Wasteland with this intricately detailed Hunting Paint for the Lever Action Rifle.",
     "disclaimer": "SKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_skin_weaponskin_levergun_goldandblue_l.webp",
+      "directory": "/textures/atx/storefront/player/weaponmodel/"
+    },
     "carouselImages": [],
-    "itemName": "Hunting Paint"
+    "itemName": "Hunting Paint",
+    "dbIndex": 2957,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_SecretService_Camo",
@@ -34535,8 +34622,8 @@
     "desc": "Ad Victoriam, Brothers. Included with the Brotherhood of Steel Digital Upgrades.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName":"bos_salute.webp",
-      "directory":"/textures/emotes/"
+      "imageName": "bos_salute.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Brotherhood Salute"
@@ -35399,9 +35486,16 @@
     "EDID": "REUSE_ATX_ENTM_Skin_PowerArmor_Paint_T51_BasicRed",
     "desc": "Paint your T-51 with this Red Paint and you won't need to worry about washing your armor every time you kill something.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_skin_powerarmor_paint_basicred_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+    },
     "carouselImages": [],
-    "itemName": "Red T-51"
+    "itemName": "Red T-51",
+    "dbIndex": 3118,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_T45_VaultTec2",
@@ -40933,9 +41027,16 @@
     "EDID": "ATX_ENTM_Skin_WeaponSkin_CombatRifle_Nuka-Cola",
     "desc": "- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
     "disclaimer": "",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "score_s11_skin_weaponskin_huntingrifle_nukacolaclassic_l.webp",
+      "directory": "/textures/atx/storefront/player/weaponskin/"
+    },
     "carouselImages": [],
-    "itemName": "Nuka-Cola Paint"
+    "itemName": "Nuka-Cola Paint",
+    "dbIndex": 3610,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_Apparel_Outfit_DriveInDolly",
@@ -42785,9 +42886,16 @@
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_REUSE",
     "desc": "Includes a unique paint for each of the T-45, T-51, T-60, T-65, Ultracite, Excavator, and X-01 Power Armors.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_skin_powerarmor_paint_camobrown_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+    },
     "carouselImages": [],
-    "itemName": "Guts & Grits Paint"
+    "itemName": "Guts & Grits Paint",
+    "dbIndex": 3778,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Vendor_PlayerVendingMachine_VendorBot_Female",
@@ -43124,9 +43232,16 @@
     "EDID": "ATX_ENTM_Photomode_Pose_MeatWeek",
     "desc": "- UNLOCKS A PHOTOMODE POSE. -",
     "disclaimer": "",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_photomode_pose_roastedhotdog_l.webp",
+      "directory": "/textures/atx/storefront/player/photopose/"
+    },
     "carouselImages": [],
-    "itemName": "Meat Week"
+    "itemName": "Meat Week",
+    "dbIndex": 3809,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_FloorLamps_WhitespringAccentLamp",
@@ -44553,9 +44668,16 @@
     "EDID": "SCORE_S14_ENTM_Photomode_Frame_PresidentialAddress",
     "desc": "Win the hearts and minds of America with this Presidential Address photoframe!",
     "disclaimer": "UNLOCKS A PHOTOMODE FRAME.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "score_s14_photomode_frame_presidential_l.webp",
+      "directory": "/textures/atx/storefront/player/photoframe/"
+    },
     "carouselImages": [],
-    "itemName": "Presidential Address Photomode Frame"
+    "itemName": "Presidential Address Photomode Frame",
+    "dbIndex": 3937,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S14_ENTM_Photomode_Frame_USAPatriot",
@@ -49380,9 +49502,16 @@
     "EDID": "ATX_ENTM_CAMP_FloorDecor_DoNutTouch",
     "desc": "You can look at my donuts but Do-Nut Touch!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_entm_camp_floordecor_do-nuttouch_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": [],
-    "itemName": "Do-Nut Touch"
+    "itemName": "Do-Nut Touch",
+    "dbIndex": 4364,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_SlocumsJoePlushie",
@@ -54340,9 +54469,16 @@
     "EDID": "SCORE_S2_ENTM_Skin_PowerArmor_Model_AceFullAssault",
     "desc": "End the threat of the Subjugator and Red Vipers with the Ace Full Assault Power Armor Paint. This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "score_s2_skin_powerarmor_paint_t60_armorace_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+    },
     "carouselImages": [],
-    "itemName": "Ace Full Assault Power Armor Paint"
+    "itemName": "Ace Full Assault Power Armor Paint",
+    "dbIndex": 4790,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "F1_ATX_ENTM_Skin_PowerArmor_Paint_ParkRanger_AtomicRanger",
@@ -54812,9 +54948,16 @@
     "EDID": "ATX_Upgrade2020_WST_ENTM_Skin_PowerArmor_Paint_Model_Raider_Marauder",
     "desc": "Own the Wasteland once and for all with the Raider Marauder Power Armor Skin. Originally included with the Wastelanders Digital Upgrades. This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_wst_skin_powerarmor_paint_raider_marauder_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+    },
     "carouselImages": [],
-    "itemName": "Raider Marauder Skin"
+    "itemName": "Raider Marauder Skin",
+    "dbIndex": 4831,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_RaidRunner",
@@ -54956,9 +55099,16 @@
     "EDID": "ATX_ENTM_Skin_PowerArmor_Model_V63",
     "desc": "Become a Vault 63 champion with this shiny new Power Armor and Jetpack skin. This includes the Power Armor and Jetpack skin. This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_skin_powerarmor_model_stormvaultpa_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+    },
     "carouselImages": [],
-    "itemName": "V63 Paint"
+    "itemName": "V63 Paint",
+    "dbIndex": 4842,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_Raider_Waster",
@@ -55018,9 +55168,16 @@
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_TX_CamoWhite",
     "desc": "Become one with Appalachia with these Camouflage Paints. This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_skin_powerarmor_paint_camogray_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+    },
     "carouselImages": [],
-    "itemName": "Winter Camo Paints"
+    "itemName": "Winter Camo Paints",
+    "dbIndex": 4847,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_Responder_CharlestonSpark",
@@ -55293,9 +55450,16 @@
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_BasicGrey",
     "desc": "The Gray Power Armor Paint is perfect for when you want to achieve that minimal, understated look. Or if you want something that matches the color of your gun. This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_skin_powerarmor_paint_basicgray_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+    },
     "carouselImages": [],
-    "itemName": "Grey Power Armor Paint"
+    "itemName": "Grey Power Armor Paint",
+    "dbIndex": 4868,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_ParkRanger",
@@ -55361,9 +55525,16 @@
     "EDID": "Babylon_ENTM_Skin_PowerArmor_Paint_CamoBlue",
     "desc": "Blend in with these Blue Camo Paints for your Power Armor. This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "babylon_skin_powerarmor_paint_bluecamo_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+    },
     "carouselImages": [],
-    "itemName": "Blue Camo Paints"
+    "itemName": "Blue Camo Paints",
+    "dbIndex": 4874,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_TX_Camo",
@@ -59578,9 +59749,16 @@
     "EDID": "ATX_ENTM_Skin_Backpack_RazorbackPack",
     "desc": "Worn by those who kneel to none. This skin can be applied to both the Small and Standard Backpack as a mod.",
     "disclaimer": "SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_entm_skin_backpack_razorbackpack.webp",
+      "directory": "/textures/atx/storefront/player/backpack/"
+    },
     "carouselImages": [],
-    "itemName": "Razorback Pack Backpack"
+    "itemName": "Razorback Pack Backpack",
+    "dbIndex": 5241,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Statue_RaiderGnome",
@@ -59863,9 +60041,16 @@
     "EDID": "SCORE_S2_ENTM_Apparel_Headwear_RedViper",
     "desc": "Show why they should fear the Red Viper!",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "score_s2_apparel_outfit_redviper_l.webp",
+      "directory": "/textures/atx/storefront/player/outfit/"
+    },
     "carouselImages": [],
-    "itemName": "Red Viper Hat"
+    "itemName": "Red Viper Hat",
+    "dbIndex": 5266,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S2_ENTM_Furniture_FoosballTable",
@@ -60318,9 +60503,16 @@
     "EDID": "F1_SCORE_S8_ENTM_CAMP_FloorDecor_DrBones",
     "desc": "Display your favorite hats and clothing with the Dr. Bones Skeleton!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "score_s1_camp_floordeco_lifesizeskeleton_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": [],
-    "itemName": "Dr. Bones Skeleton"
+    "itemName": "Dr. Bones Skeleton",
+    "dbIndex": 5306,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S4_ENTM_CAMP_Display_Mannequin_Male",
@@ -60695,9 +60887,16 @@
     "EDID": "ATX_ENTM_Skin_PipBoySkin_Communist_02",
     "desc": "Help spread the word of a more equitable government with the Red Menace Paint for your Pip-Boy.",
     "disclaimer": "SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_pipboy_communist_02.webp",
+      "directory": "/textures/atx/storefront/player/pipboy/"
+    },
     "carouselImages": [],
-    "itemName": "Red Menace Paint"
+    "itemName": "Red Menace Paint",
+    "dbIndex": 5339,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Defense_Turret_Camo",
@@ -61052,9 +61251,16 @@
     "EDID": "ATX_ENTM_CAMP_Structure_Defense_MedievalFence_Kit",
     "desc": "Protect your C.A.M.P. like it's the middle-ages with this Medieval Fence Kit!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_camp_structure_defense_medievalfencekit.webp",
+      "directory": "/textures/atx/storefront/camp/structures/"
+    },
     "carouselImages": [],
-    "itemName": "Medieval Fence Kit"
+    "itemName": "Medieval Fence Kit",
+    "dbIndex": 5371,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "Shelters_ENTM_ShelterEntrance_NeighborhoodSquare",
@@ -62181,9 +62387,16 @@
     "EDID": "ATX_ENTM_CAMP_FloorDecor_BloodEagleStandard",
     "desc": "Claim this C.A.M.P. for the Blood Eagles.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_camp_decoration_flagwaving_bloodeagle_standard.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": [],
-    "itemName": "Blood Eagle Standard"
+    "itemName": "Blood Eagle Standard",
+    "dbIndex": 5475,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Floor_LoadingBay",
@@ -62774,9 +62987,16 @@
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_MrBony",
     "desc": "Mr. Bony might be a little too rough to snuggle with but that's ok.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "entm_camp_floordecor_plushie_mr.bony_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": [],
-    "itemName": "Mr. Bony Plushie"
+    "itemName": "Mr. Bony Plushie",
+    "dbIndex": 5527,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_JackoLights",
@@ -64284,9 +64504,16 @@
     "EDID": "ATX_ENTM_Skin_WeaponModel_WarGlaive_CultistGlaive",
     "desc": "Stand tall against your enemies with the Cultist Glaive. No more horsing around. This Skin will give your weapon a unique look and maintain all mod effects.",
     "disclaimer": "SKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_skin_weaponmodel_warglaive_halberd_l.webp",
+      "directory": "/textures/atx/storefront/player/weaponmodel/"
+    },
     "carouselImages": [],
-    "itemName": "Cultist Glaive"
+    "itemName": "Cultist Glaive",
+    "dbIndex": 5666,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S13_ENTM_CAMP_Utility_HollywoodPopcornMachine",
