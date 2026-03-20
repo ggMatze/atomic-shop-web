@@ -1157,7 +1157,7 @@
       "directory": "/textures/atx/storefront/player/photopose/e"
     },
     "highPriceOriginal": 250,
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_Photomode_Pose_Lotus",
@@ -1660,7 +1660,7 @@
     },
     "highPriceOriginal": 0,
     "dynamicBundleItems": [],
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_Photomode_Frame_VaultTecBasic",
@@ -3976,7 +3976,7 @@
       "directory": "/textures/atx/storefront/camp/lights"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "SCORE_S7_ENTM_Emotes_Taunt_Wanted",
@@ -6207,17 +6207,31 @@
     "EDID": "Vaults_ENTM_PlayerIcon_Vault96_Gold",
     "desc": "Only for the elite of Vault 96!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "vaults_playericon_vault94_gold.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Vault 96 Gold Icon"
+    "itemName": "Vault 96 Gold Icon",
+    "dbIndex": 560,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "Vaults_ENTM_PlayerIcon_Vault96_Standard",
     "desc": "Welcome to Vault 94!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "vaults_playericon_vault94_standard.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Vault 94 Icon"
+    "itemName": "Vault 94 Icon",
+    "dbIndex": 561,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Machinery_Generator_Small_VaultTec_Prototype",
@@ -6390,7 +6404,7 @@
     },
     "highPriceOriginal": 400,
     "dynamicBundleItems": [],
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_Skin_PipBoySkin_Ghoulish",
@@ -6427,7 +6441,7 @@
     },
     "highPriceOriginal": 250,
     "dynamicBundleItems": [],
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_Vendor_PlayerVendingMachine_FlowerCart",
@@ -6504,7 +6518,7 @@
       "directory": "/textures/atx/storefront/camp/utility"
     },
     "highPriceOriginal": 700,
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_Apparel_Outfit_NukaGirlOutfit_Quantum",
@@ -6659,7 +6673,7 @@
       "directory": "/textures/atx/storefront/camp/kits"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_Emotes_Shaken",
@@ -7290,9 +7304,16 @@
     "EDID": "SCORE_S10_ENTM_Apparel_Headwear_Fanatic_Helmet_02_Striker",
     "desc": "Reduce, reuse, and recycle old metal into a statement piece for your head.",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "score_s10_apparel_headwear_fanatic_helmet_02_l.webp",
+      "directory": "/textures/atx/storefront/player/headwear/"
+    },
     "carouselImages": [],
-    "itemName": "Fanatic Striker Helmet"
+    "itemName": "Fanatic Striker Helmet",
+    "dbIndex": 655,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S10_ENTM_CAMP_WallPaper_Catacombs",
@@ -7322,9 +7343,16 @@
     "EDID": "SCORE_S10_ENTM_PlayerIcon_Fanatic_Portrait_02",
     "desc": "\"It's been another beautiful day in Hell, and as usual, we haven't met our quotas.\"",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_60.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Fanatic Foreman Icon"
+    "itemName": "Fanatic Foreman Icon",
+    "dbIndex": 658,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S10_ENTM_CAMP_Fire_Hydrant_Pittsburgh",
@@ -8312,7 +8340,7 @@
       "directory": "/textures/atx/storefront/camp/floordecoration"
     },
     "highPriceOriginal": 700,
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_Apparel_Outfit_WastelandSheriff",
@@ -10346,9 +10374,16 @@
     "EDID": "ATX_Community2019_PCA_ENTM_PlayerIcon_Scorchbeast",
     "desc": "The true terror of the skies in Appalachia.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_scorchbeast1.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Scorchbeast Icon"
+    "itemName": "Scorchbeast Icon",
+    "dbIndex": 930,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_Community2019_PCA_ENTM_PlayerIcon_Wendigo",
@@ -10633,7 +10668,7 @@
       "directory": "/textures/atx/storefront/camp/wallpaper/"
     },
     "highPriceOriginal": 0,
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallPaper_Orange",
@@ -11259,7 +11294,7 @@
       "directory": "/textures/atx/storefront/camp/utility"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_Door_Secret_NukaCola",
@@ -14686,25 +14721,46 @@
     "EDID": "ATX_ENTM_PlayerIcon_Halloween_Ghoul01",
     "desc": "Celebrate Halloween as a ghoul.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_holiday_19.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Halloween Ghoul Mask Icon"
+    "itemName": "Halloween Ghoul Mask Icon",
+    "dbIndex": 1310,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_Halloween_Ghoul03",
     "desc": "Even ghouls need to celebrate Halloween.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_holiday_21.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Halloween Ghoul Icon"
+    "itemName": "Halloween Ghoul Icon",
+    "dbIndex": 1311,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_Halloween_Ghoul02",
     "desc": "Celebrate Halloween as a ghoul.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_holiday_20.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Halloween Ghoul Costume Icon"
+    "itemName": "Halloween Ghoul Costume Icon",
+    "dbIndex": 1312,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Door_Wood_Saloon",
@@ -16406,9 +16462,16 @@
     "EDID": "ATX_ENTM_PlayerIcon_Holiday_HappyNewYear",
     "desc": "Celebrate the start of a new year!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_holiday_15.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Happy New Year Icon"
+    "itemName": "Happy New Year Icon",
+    "dbIndex": 1464,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Utility_Refrigerator_VaultTec",
@@ -17748,7 +17811,7 @@
       "directory": "/textures/atx/storefront/camp/floors"
     },
     "highPriceOriginal": 250,
-    "carouselImages": [ ]
+    "carouselImages": []
   },
   {
     "EDID": "SCORE_S5_ENTM_CAMP_Floor_Guild_Antiquities_02",
@@ -17959,9 +18022,16 @@
     "EDID": "SCORE_S5_ENTM_PlayerIcon_Overlord_Orange",
     "desc": "Submit to the M.I.N.D.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_26.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Orange M.I.N.D. Icon"
+    "itemName": "Orange M.I.N.D. Icon",
+    "dbIndex": 1601,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S5_ENTM_PlayerIcon_Overlord",
@@ -19915,9 +19985,16 @@
     "EDID": "ATX_ENTM_PlayerIcon_FactionHellcat_Black",
     "desc": "Death returns. Included with a Twitch Prime promotion.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_factionhellcat02.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Black Hellcat Icon"
+    "itemName": "Black Hellcat Icon",
+    "dbIndex": 1774,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_FactionHellcat",
@@ -24069,9 +24146,16 @@
     "EDID": "SCORE_S22_ENTM_PlayerIcon_Nuka-Cola_Logo",
     "desc": "Zap That Thirst!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "score_item_6pack_nuka-cola_l.webp",
+      "directory": "/textures/atx/storefront/utility/"
+    },
     "carouselImages": [],
-    "itemName": "Nuka-Cola Logo Player Icon"
+    "itemName": "Nuka-Cola Logo Player Icon",
+    "dbIndex": 2132,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S22_ENTM_PlayerIcon_QueenCorn",
@@ -24088,9 +24172,16 @@
     "EDID": "SCORE_S22_ENTM_PlayerIcon_CosmicKnife_Man",
     "desc": "\"Stays sharp and will last a lifetime!\"",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s22_cosmicknife_mascot.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Cosmic Knife Chef Player Icon"
+    "itemName": "Cosmic Knife Chef Player Icon",
+    "dbIndex": 2134,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S22_ENTM_PlayerIcon_SunsetSarsaparilla",
@@ -26589,9 +26680,16 @@
     "EDID": "ATX_Community2019_PCA_ENTM_PlayerIcon_HoneyBeast",
     "desc": "Have you considered using fire?",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_honeybeast1.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Honey Beast Icon"
+    "itemName": "Honey Beast Icon",
+    "dbIndex": 2346,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Utility_Refrigerator_BloodSpattered",
@@ -27003,9 +27101,16 @@
     "EDID": "ATX_ENTM_PlayerIcon_REUSE_Raiders_01",
     "desc": "TEXT",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_raider_01.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Raider Icon"
+    "itemName": "Raider Icon",
+    "dbIndex": 2383,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_Skin_ArmorSkin_Leather_NW",
@@ -31256,9 +31361,16 @@
     "EDID": "ATX_ENTM_PlayerIcon_REUSE_Raiders_02",
     "desc": "TEXT",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_raider_02.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Raider Icon"
+    "itemName": "Raider Icon",
+    "dbIndex": 2753,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_Apparel_Underarmor_FlagCoveralls_July4th",
@@ -37359,9 +37471,16 @@
     "EDID": "SCORE_S9_ENTM_PlayerIcon_H-4RT_Protects",
     "desc": "NO DANGER AROUND HERE!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_51.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "H-4RT Protects Icon"
+    "itemName": "H-4RT Protects Icon",
+    "dbIndex": 3297,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S9_ENTM_PlayerIcon_H-4RT",
@@ -38261,9 +38380,16 @@
     "EDID": "F1_SCORE_S8_ENTM_PlayerIcon_BunnySlippers",
     "desc": "Time to kick back in your comfy chair with your Bunny Slippers!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_46.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Bunny Slippers"
+    "itemName": "Bunny Slippers",
+    "dbIndex": 3375,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S8_ENTM_CAMP_FloorDecor_Stein_Vault76",
@@ -38879,9 +39005,16 @@
     "EDID": "SCORE_S10_ENTM_PlayerIcon_Fanatic_Portrait_01",
     "desc": "\"If you can't take the rads, get outta the Pitt!\"",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_59.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Fanatic Icon"
+    "itemName": "Fanatic Icon",
+    "dbIndex": 3432,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S10_ENTM_PlayerIcon_Visionary",
@@ -44791,9 +44924,16 @@
     "EDID": "ATX_ENTM_PlayerIcon_BlueMoon_ScaredCaravan",
     "desc": "What horrors will you see on a Blue Moon?!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_bluemoon_01.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Scared Caravan Icon"
+    "itemName": "Scared Caravan Icon",
+    "dbIndex": 3964,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_Callof76",
@@ -44903,9 +45043,16 @@
     "EDID": "ATX_ENTM_PlayerIcon_Callof76_Mirelurk",
     "desc": "Terrifying even in black and white!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_callof76_02.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Call of the Mirelurk  Icon"
+    "itemName": "Call of the Mirelurk  Icon",
+    "dbIndex": 3975,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_Mutation_GhoulRight",
@@ -44949,9 +45096,16 @@
     "EDID": "ATX_ENTM_PlayerIcon_BlueMoon_Devil",
     "desc": "What calls to you under the Blue Moon?!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s13_bluedevil.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Blue Devil Icon"
+    "itemName": "Blue Devil Icon",
+    "dbIndex": 3980,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_BlueMoon_Campfire",
@@ -47552,17 +47706,31 @@
     "EDID": "ATX_ENTM_PlayerIcon_HotDog_MsVienna",
     "desc": "Ms. Vienna checking in. Hold the mustard.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_hotdog_02_l.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Ms. Vienna Icon"
+    "itemName": "Ms. Vienna Icon",
+    "dbIndex": 4213,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_HotDog_Frank",
     "desc": "A good hot dog comes topped with mustard. Just ask Mr. Frank!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_hotdog_01_l.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Mr. Frank Icon"
+    "itemName": "Mr. Frank Icon",
+    "dbIndex": 4214,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "SCORE_S16_ENTM_CAMP_Stashbox_SpringCleaningTrashBin",
@@ -59947,9 +60115,16 @@
     "EDID": "ATX_ENTM_PlayerIcon_SuperMutant_01_GreenMenace",
     "desc": "Get a dose of FEV with the Green Menace Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_supermutant_01.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Green Menace Icon"
+    "itemName": "Green Menace Icon",
+    "dbIndex": 5284,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_Decoration_Swiss_Flower_Cart",
@@ -59990,9 +60165,16 @@
     "EDID": "ATX_ENTM_Photomode_Frame_SuperMutant01_GreenMenace",
     "desc": "Say GREEN!",
     "disclaimer": "UNLOCKS A PHOTOMODE FRAME.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_photomode_frame_supermutant01.webp",
+      "directory": "/textures/atx/storefront/player/photoframe/"
+    },
     "carouselImages": [],
-    "itemName": "Green Menace"
+    "itemName": "Green Menace",
+    "dbIndex": 5288,
+    "newImagesAdded": 1,
+    "matchedImages": 1,
+    "dbIndexMode": true
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_HeartShapedGeode",
