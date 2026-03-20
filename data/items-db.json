@@ -3183,7 +3183,10 @@
     "EDID": "ATX_ENTM_Emotes_Love_Milkshake",
     "desc": "For the times when you want to share everything.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName":"love.webp",
+      "directory":"/textures/emotes/"
+    },
     "carouselImages": [],
     "itemName": "Love You"
   },
@@ -3199,7 +3202,10 @@
     "EDID": "ATX_ENTM_Emotes_Follow_Point",
     "desc": "For when you totally know the way to go.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName":"follow.webp",
+      "directory":"/textures/emotes/"
+    },
     "carouselImages": [],
     "itemName": "This Way!"
   },
@@ -3256,7 +3262,10 @@
     "EDID": "ATX_ENTM_Emotes_Help_Thirsty",
     "desc": "Literally dying.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName":"thirsty.webp",
+      "directory":"/textures/emotes/"
+    },
     "carouselImages": [],
     "itemName": "Dying of Thirst!"
   },
@@ -3983,8 +3992,8 @@
     "desc": "Tell all of Appalachia - you've never felt more Wanted.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName": "score_s7_emotes_taunt_wanted_l.webp",
-      "directory": "/textures/atx/storefront/player/emotes/"
+      "imageName": "wanted.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Come Get Me!"
@@ -4052,7 +4061,10 @@
     "EDID": "ATX_ENTM_Emotes_Help_Hungry",
     "desc": "Vault Dweller needs food badly!",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
-    "primaryImage": null,
+    "primaryImage":{
+      "imageName":"hungry.webp",
+      "directory": "/textures/emotes/"
+    },
     "carouselImages": [],
     "itemName": "So Hungry"
   },
@@ -6682,8 +6694,8 @@
     "itemName": "Shaken Emote",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "Shaken.webp",
-      "directory": "/images"
+      "imageName": "shaken.webp",
+      "directory": "/textures/emotes/"
     },
     "highPriceOriginal": 250,
     "carouselImages": []
@@ -7609,8 +7621,8 @@
     "desc": "Let your friends know you're ready to go for another round.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName": "score_s12_emotes_interaction_onceagain_l.webp",
-      "directory": "/textures/atx/storefront/player/emotes/"
+      "imageName": "one_again.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "One More Time Emote"
@@ -8409,8 +8421,8 @@
     "desc": "Show off your quick draw skills.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName": "atx_entm_emotes_reveillewakeup_l.webp",
-      "directory": "/textures/atx/storefront/player/emotes/"
+      "imageName": "fan_the_hammer.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Fan The Hammer"
@@ -8514,8 +8526,8 @@
     "desc": "Ghoul up the dance floor with the Ghoul Dance Emote.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName": "atx_entm_emotes_reveillewakeup_l.webp",
-      "directory": "/textures/atx/storefront/player/emotes/"
+      "imageName": "ghoul_dance.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Ghoul Dance"
@@ -8644,8 +8656,8 @@
     "desc": "- UNLOCKS AN EMOTE OPTION. -",
     "disclaimer": "",
     "primaryImage": {
-      "imageName": "atx_entm_emotes_reveillewakeup_l.webp",
-      "directory": "/textures/atx/storefront/player/emotes/"
+      "imageName": "stay_sharp.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Stay Sharp"
@@ -9082,12 +9094,7 @@
     },
     "highPriceOriginal": 500,
     "dynamicBundleItems": [],
-    "carouselImages": [
-      {
-        "imageName": "atx_skin_backpack_settlerspack_l.webp",
-        "directory": "/textures/atx/storefront/player/backpack/"
-      }
-    ]
+    "carouselImages": [ ]
   },
   {
     "EDID": "SCORE_S22_ENTM_Apparel_Outfit_MothmanMuseum_TshirtJeans",
@@ -9723,12 +9730,7 @@
     },
     "highPriceOriginal": 700,
     "dynamicBundleItems": [],
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_utility_collectron_evidencecollectionassistantcollectron_etc_l.webp",
-        "directory": "/textures/atx/storefront/camp/utility/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponSkin_CombatRifle_ColdSteel",
@@ -10599,19 +10601,14 @@
     "EDID": "ATX_ENTM_CAMP_WallPaper_Ochre",
     "desc": "Every C.A.M.P. should have these Solid Color wallpapers.",
     "disclaimer": "WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE.",
-    "itemName": "Sienna Wallpaper",
+    "itemName": "Ochre Wallpaper",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "ATX_CAMP_WallPaper_Sienna.webp",
-      "directory": "/textures/atx/storefront/camp/wallpaper"
+      "imageName": "atx_camp_wallpaper_ochre_l.webp",
+      "directory": "/textures/atx/storefront/camp/wallpaper/"
     },
     "highPriceOriginal": 0,
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_wallpaper_ochre_l.webp",
-        "directory": "/textures/atx/storefront/camp/wallpaper/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallPaper_Teal",
@@ -12227,8 +12224,8 @@
     "itemName": "Construction Safety Paint",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "73042081b84cd312647ef206e3719368.webp",
-      "directory": "/textures/atomic_shop_media"
+      "imageName": "atx_pipboy_constructionsafety_l.webp",
+      "directory": "/textures/atx/storefront/player/pipboy/"
     },
     "highPriceOriginal": 400,
     "carouselImages": []
@@ -12669,8 +12666,8 @@
     "itemName": "Mothman Plushie Backpack",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "ATX_Skin_Backpack_Plushie_Mothman.webp",
-      "directory": "/textures/atx/storefront/player/backpack"
+      "imageName": "atx_skin_backpack_plushie_mothman_l.webp",
+      "directory": "/textures/atx/storefront/player/backpack/"
     },
     "highPriceOriginal": 500,
     "carouselImages": []
@@ -12719,12 +12716,7 @@
       "directory": "/textures/atx/storefront/player/backpack"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [
-      {
-        "imageName": "atx_skin_backpack_shellshocked_l.webp",
-        "directory": "/textures/atx/storefront/player/backpack/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_Sign_Responders_Plywood",
@@ -13098,12 +13090,7 @@
       "directory": "/textures/atx/storefront/player/backpack"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [
-      {
-        "imageName": "atx_skin_backpack_parachute_l.webp",
-        "directory": "/textures/atx/storefront/player/backpack/"
-      }
-    ]
+    "carouselImages": [   ]
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallPaper_CinderBlocks",
@@ -13321,12 +13308,7 @@
       "directory": "/textures/atx/storefront/camp/structures"
     },
     "highPriceOriginal": 700,
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_structure_communistbunker_l.webp",
-        "directory": "/textures/atx/storefront/camp/structures/"
-      }
-    ]
+    "carouselImages": [ ]
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_Grelok_Hood",
@@ -13487,12 +13469,7 @@
       "directory": "/textures/atx/storefront/camp/structures"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_structure_bloodeaglenest_l.webp",
-        "directory": "/textures/atx/storefront/camp/structures/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_Apparel_Clothes_MothmanHunter",
@@ -13696,7 +13673,10 @@
     "EDID": "ATX_ENTM_Emotes_Misc_MothmanWorship",
     "desc": "Pay homage to the Mothman!",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName":"mothman.webp",
+      "directory":"/textures/emotes/"
+    },
     "carouselImages": [],
     "itemName": "Mothman Worship"
   },
@@ -14610,7 +14590,10 @@
     "EDID": "ATX_Upgrade2018_Tricen_ENTM_Emotes_Hello_Salute_Tricen",
     "desc": "Honor the history of America with a simple salute. Brought to you by your friends at Vault-Tec. Originally included with the Tricentennial Edition of Fallout 76.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName":"salute.webp",
+      "directory":"/textures/emotes/"
+    },
     "carouselImages": [],
     "itemName": "Tricentennial Salute"
   },
@@ -14884,8 +14867,8 @@
     "desc": "Politely refuse with the No Thank You Emote!",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName": "atx_entm_emotes_reveillewakeup_l.webp",
-      "directory": "/textures/atx/storefront/player/emotes/"
+      "imageName": "no_thank_you.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "No Thank You"
@@ -16309,12 +16292,7 @@
     },
     "highPriceOriginal": 500,
     "dynamicBundleItems": [],
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_furniture_chair_majesticsanta_throne_l.webp",
-        "directory": "/textures/atx/storefront/camp/furniture/"
-      }
-    ]
+    "carouselImages": [ ]
   },
   {
     "EDID": "ATX_ENTM_Emotes_Misc_RifleDrill",
@@ -17552,12 +17530,7 @@
       "directory": "/textures/atx/storefront/player/backpack"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [
-      {
-        "imageName": "atx_skin_backpack_settler_relief_l.webp",
-        "directory": "/textures/atx/storefront/player/backpack/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_Defense_Fence_RedCedarHedges",
@@ -17835,12 +17808,7 @@
       "directory": "/textures/atx/storefront/camp/structures"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_decoration_vaulttecspa_l.webp",
-        "directory": "/textures/atx/storefront/camp/structures/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "SCORE_S5_ENTM_Apparel_Outfit_Raider_Goon",
@@ -18119,16 +18087,11 @@
     "itemName": "Mr. Fuzzy Tinker's Workbench",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "ac40c205d80be50ac1c25dadb02e04a0.webp",
-      "directory": "/textures/atomic_shop_media"
+      "imageName": "atx_camp_machinery_workbench_tinkers_mrfuzzy.webp",
+        "directory": "/textures/atx/storefront/camp/machinery/"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_machinery_workbench_tinkers_mrfuzzy_red_l.webp",
-        "directory": "/textures/atx/storefront/camp/machinery/"
-      }
-    ]
+    "carouselImages": [ ]
   },
   {
     "EDID": "SCORE_S5_ENTM_Apparel_Headwear_BloodEagleMerc_Charmer2",
@@ -18410,12 +18373,7 @@
       "directory": "/textures/atx/storefront/camp/machinery"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_machinery_workbench_cooking_stove_camdenpark_l.webp",
-        "directory": "/textures/atx/storefront/camp/machinery/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDeco_Display_GravitronicWeaponRacks_MIND",
@@ -18510,12 +18468,7 @@
       "directory": "/textures/atx/storefront/player/backpack"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [
-      {
-        "imageName": "atx_skin_backpack_floorwalker_l.webp",
-        "directory": "/textures/atx/storefront/player/backpack/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_Defense_Barrier_WavyWillardDUPLICATE000",
@@ -19501,12 +19454,7 @@
       "directory": "/textures/atx/storefront/camp/utility"
     },
     "highPriceOriginal": 700,
-    "carouselImages": [
-      {
-        "imageName": "score_s6_camp_utility_collectron_fetch_l.webp",
-        "directory": "/textures/atx/storefront/camp/utility/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "SCORE_S6_ENTM_CAMP_Machinery_Workbench_Brewing_AntiqueGasPump",
@@ -19953,7 +19901,7 @@
     "desc": "The Baron looms large in this galaxy!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_playericon_hotdog_02_l.webp",
+      "imageName": "",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
@@ -19986,7 +19934,7 @@
     "desc": "Death returns. Included with a Twitch Prime promotion.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_playericon_factionhellcat02.webp",
+      "imageName": "atx_playericon_factionhellcat01.webp",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
@@ -20800,7 +20748,7 @@
     "desc": "Can you survive Dread Island?",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_playericon_hotdog_02_l.webp",
+      "imageName": "",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
@@ -21457,16 +21405,11 @@
     "itemName": "Hills are Alive Emote",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "score_s11_emotes_misc_hillsarealive_l.webp",
-      "directory": "/textures/atx/storefront/player/emotes"
+      "imageName": "hills_are_alive.webp",
+      "directory": "/textures/emotes/"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [
-      {
-        "imageName": "score_s11_emotes_misc_hillsarealive_l.webp",
-        "directory": "/textures/atx/storefront/player/emotes/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_Ceiling_CountdownChandelier",
@@ -21608,12 +21551,7 @@
     },
     "highPriceOriginal": 500,
     "dynamicBundleItems": [],
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_utility_brahminmilkmachine_l.webp",
-        "directory": "/textures/atx/storefront/camp/utility/"
-      }
-    ]
+    "carouselImages": [ ]
   },
   {
     "EDID": "SCORE_S12_ENTM_CAMP_Floor_TimberCarpet",
@@ -29474,7 +29412,10 @@
     "EDID": "ATX_ENTM_Emotes_Hello_Salute_Raider",
     "desc": "Acknowledge the successful pillaging perpetrated by your fellow raiders with this faction salute.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName":"raider_salute.webp",
+      "directory":"/textures/emotes/"
+    },
     "carouselImages": [],
     "itemName": "Raider Salute"
   },
@@ -29665,7 +29606,7 @@
     "EDID": "Babylon_ENTM_Skin_ArmorSkin_Leather_BOS",
     "desc": "Salute the Brotherhood of Steel with this Paint for your Leather Armor.",
     "disclaimer": "SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": "",
     "carouselImages": [],
     "itemName": "BOS Paint"
   },
@@ -30401,16 +30342,11 @@
     "itemName": "Free States Salute",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "FreeStatesSalute1",
-      "directory": ""
+      "imageName": "free_states_salute.webp",
+      "directory": "/textures/emotes/"
     },
     "highPriceOriginal": 200,
-    "carouselImages": [
-      {
-        "imageName": "atx_emotes_freestates_salute_l.webp",
-        "directory": "/textures/atx/storefront/player/emotes"
-      }
-    ]
+    "carouselImages": [ ]
   },
   {
     "EDID": "ATX_ENTM_CAMP_Bed_Twinbed_CaptainCosmos",
@@ -32301,7 +32237,10 @@
     "EDID": "ATX_ENTM_Emotes_Hello_Salute_Communist",
     "desc": "A salute to show you understand dialectical materialism. All those who do not salute in return should be noted and reported.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName":"commi_salute.webp",
+      "directory":"/textures/emotes/"
+    },
     "carouselImages": [],
     "itemName": "Communist Salute"
   },
@@ -34595,7 +34534,10 @@
     "EDID": "ATX_Upgrade2020_BoS_ENTM_Emotes_BoSSalute",
     "desc": "Ad Victoriam, Brothers. Included with the Brotherhood of Steel Digital Upgrades.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName":"bos_salute.webp",
+      "directory":"/textures/emotes/"
+    },
     "carouselImages": [],
     "itemName": "Brotherhood Salute"
   },
@@ -42789,8 +42731,8 @@
     "desc": "Grab a snack and enjoy the show.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName": "score_s13_emotes_interaction_eatingpopcorn_l.webp",
-      "directory": "/textures/atx/storefront/player/emotes/"
+      "imageName": "popcorn.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Popcorn Emote"
@@ -45645,6 +45587,7 @@
       "directory": "/textures/atx/storefront/camp/machinery/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 500,
     "itemName": "Mr. Fuzzy Tinker's Workbench"
   },
   {
@@ -50896,8 +50839,8 @@
     "desc": "Suggest a relaxing fishing trip with the Gone Fishing Emote.",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName": "atx_entm_emotes_reveillewakeup_l.webp",
-      "directory": "/textures/atx/storefront/player/emotes/"
+      "imageName": "reveille_wake_up.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Gone Fishing"
@@ -52089,8 +52032,8 @@
     "desc": "Hold on, something is up there!",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
     "primaryImage": {
-      "imageName": "atx_entm_emotes_reveillewakeup_l.webp",
-      "directory": "/textures/atx/storefront/player/emotes/"
+      "imageName": "the_hold.webp",
+      "directory": "/textures/emotes/"
     },
     "carouselImages": [],
     "itemName": "Hold!"
