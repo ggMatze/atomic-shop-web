@@ -129,8 +129,8 @@ function createItemCard(item) {
         </div>
     ` : '';
 
-    const priceDisplay = item.highPriceOriginal ? `<span class="meta-tag">💰 ${item.highPriceOriginal}</span>` : 
-                         item.price ? `<span class="meta-tag">💰 ${item.price}</span>` : '';
+    const priceDisplay = item.highPriceOriginal ? `<span class="meta-tag">⚛ ${item.highPriceOriginal}</span>` : 
+                         item.price ? `<span class="meta-tag">⚛ ${item.price}</span>` : '';
 
     return `
         <div class="item-card">

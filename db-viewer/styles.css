@@ -8,7 +8,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #1a1a1a;
     color: #e0e0e0;
-    padding: 20px;
+    padding-left: 20px ;
+    padding-right: 20px ;    
 }
 
 .container {
@@ -17,18 +18,18 @@ body {
 }
 
 header {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
     position: sticky;
     top: 0;
     background: #1a1a1a;
     z-index: 100;
-    padding: 20px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #333;
 }
 
 h1 {
-    color: #4a9eff;
+    color: #ffd350;
     margin-bottom: 10px;
     font-size: 28px;
 }
@@ -45,8 +46,8 @@ h1 {
     flex: 1;
     padding: 12px 15px;
     background: #2a2a2a;
-    border: 2px solid #4a9eff;
-    border-radius: 6px;
+    border: 1px solid #ffd350;
+    border-radius: 0px;
     color: #e0e0e0;
     font-size: 16px;
     outline: none;
@@ -54,7 +55,7 @@ h1 {
 }
 
 #searchInput:focus {
-    border-color: #7bb3ff;
+    border-color: #6af141;
 }
 
 .stats {
@@ -72,8 +73,8 @@ h1 {
 
 .item-card {
     background: #252525;
-    border: 1px solid #404040;
-    border-radius: 8px;
+    border: 2px solid #141414;
+    border-radius: 2px;
     padding: 15px;
     cursor: pointer;
     transition: all 0.3s;
@@ -81,9 +82,9 @@ h1 {
 }
 
 .item-card:hover {
-    border-color: #4a9eff;
-    background: #2a2a2a;
-    box-shadow: 0 0 15px rgba(74, 158, 255, 0.2);
+    border-color: #161616;
+    background: #3d3c38d9;
+   
 }
 
 .item-image {
@@ -115,7 +116,7 @@ h1 {
 
 .item-title {
     font-weight: bold;
-    color: #4a9eff;
+    color: #ffe082;
     margin-bottom: 6px;
     font-size: 14px;
     line-height: 1.3;
@@ -155,7 +156,7 @@ h1 {
     padding: 4px 8px;
     border-radius: 3px;
     color: #aaa;
-    border-left: 2px solid #4a9eff;
+    border-left: 2px solid #ff4a4a;
 }
 
 .carousel-preview {
