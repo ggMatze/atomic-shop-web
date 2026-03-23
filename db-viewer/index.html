@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atomic Shop DB Viewer</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <div class="container">
@@ -25,6 +26,42 @@
 
         <div id="errorContainer"></div>
         <div class="results" id="results"></div>
+    </div>
+
+    <!-- Overlay for item details (matching main page structure) -->
+    <div id="item-overlay" class="item-overlay hidden">
+        <div class="overlay-content">
+            <button class="overlay-close">&times;</button>
+
+            <div class="overlay-disclaimer" id="overlay-disclaimer"></div>
+
+            <h2 class="overlay-title">Item Title</h2>
+            
+            <!-- DB Info Panel (ABSOLUTE OVERLAY) -->
+            <div id="overlay-db-info" class="overlay-db-info">
+                <div class="db-info-header">- DATABASE INFO -</div>
+                <div id="db-info-content"></div>
+            </div>
+            
+            <div style="display: flex; gap: 20px; width: 100%; max-width: 1000px; margin: 20px auto;">
+                <!-- Gallery (CENTER/RIGHT) -->
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                    <div class="gallery-wrapper">
+                        <img id="main-image" class="center-image" src="" alt="Main Image">
+                        <div class="strip-container left-strip-container">
+                            <div class="strip" id="left-strip"></div>
+                        </div>
+                        <div class="strip-container right-strip-container">
+                            <div class="strip" id="right-strip"></div>
+                        </div>
+                    </div>
+
+                    <p class="overlay-description">.</p>
+                </div>
+            </div>
+
+            <button class="overlay-button">ESC) CLOSE</button>
+        </div>
     </div>
 
     <script src="script.js"></script>

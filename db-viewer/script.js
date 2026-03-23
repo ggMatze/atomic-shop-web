@@ -1,11 +1,14 @@
 let dbData = [];
 let displayedItems = [];
-let itemsPerPage = 50;
+let itemsPerPage = 15;
 let nextItemIndex = 0;
 const searchInput = document.getElementById('searchInput');
 const resultsContainer = document.getElementById('results');
 const statsText = document.getElementById('statsText');
 const errorContainer = document.getElementById('errorContainer');
+
+// Store item data by EDID for overlay access
+const itemDataStore = new Map();
 
 // Load database
 async function loadDatabase() {
@@ -66,6 +69,9 @@ function loadMoreItems() {
     resultsContainer.innerHTML += html;
     
     nextItemIndex = endIndex;
+    
+    // Attach click handlers to newly added tiles
+    attachTileClickHandlers();
 
     // Setup observer to load more when scrolling
     if (nextItemIndex < displayedItems.length) {
@@ -81,11 +87,11 @@ function setupIntersectionObserver() {
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && nextItemIndex < displayedItems.length) {
             observer.disconnect();
-            // Load next batch - reduce to 25 for subsequent loads
-            itemsPerPage = 25;
+            // Load next batch - reduce to 10 for subsequent loads
+            itemsPerPage = 10;
             loadMoreItems();
         }
-    }, { rootMargin: '500px' });
+    }, { rootMargin: '50px' });
 
     observer.observe(lastCard);
 }
@@ -103,7 +109,313 @@ function getImagePath(directory, imageName) {
     return `../${dir}${imageName}`;
 }
 
-// Create item card
+// Event listeners
+searchInput.addEventListener('input', (e) => {
+    search(e.target.value);
+});
+
+// ===== OVERLAY FUNCTIONALITY =====
+
+let currentOverlayItem = null;
+let currentGalleryImages = [];
+let currentGalleryIndex = 0;
+
+const overlay = document.getElementById('item-overlay');
+const overlayTitle = document.querySelector('.overlay-title');
+const overlayDescription = document.querySelector('.overlay-description');
+const overlayDisclaimer = document.querySelector('.overlay-disclaimer');
+const overlayDbInfo = document.getElementById('overlay-db-info');
+const mainImage = document.getElementById('main-image');
+const leftStrip = document.getElementById('left-strip');
+const rightStrip = document.getElementById('right-strip');
+const overlayCloseBtn = document.querySelector('.overlay-close');
+const overlayButton = document.querySelector('.overlay-button');
+
+// Parse variant filename to get base name and extension
+function parseVariantBase(filename) {
+    if (!filename) return null;
+    const match = filename.match(/^(.*?)(?:_(?:l|c\d+))?(\.\w+)$/i);
+    if (!match) return null;
+    return { base: match[1], ext: match[2] };
+}
+
+// Build variant filename (n=0 means _l, n>0 means _cN)
+function buildVariantName(base, ext, variantNum) {
+    return base + (variantNum === 0 ? '_l' : `_c${variantNum}`) + ext;
+}
+
+// Auto-detect carousel variants (c1, c2, c3, etc.)
+async function detectCarouselVariants(item) {
+    const images = [];
+    
+    // Add primary image first
+    if (item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
+        const primaryUrl = getImagePath(item.primaryImage.directory, item.primaryImage.imageName);
+        if (primaryUrl) {
+            images.push(primaryUrl);
+        }
+        
+        // Add any existing carousel images from DB
+        if (item.carouselImages && Array.isArray(item.carouselImages)) {
+            for (const carousel of item.carouselImages) {
+                if (carousel.imageName && carousel.directory) {
+                    const carouselUrl = getImagePath(carousel.directory, carousel.imageName);
+                    if (carouselUrl && !images.includes(carouselUrl)) {
+                        images.push(carouselUrl);
+                    }
+                }
+            }
+        }
+        
+        // Try to find c1, c2, c3 variants based on primary image name
+        const baseFileName = item.primaryImage.imageName;
+        const directory = item.primaryImage.directory;
+        const parsed = parseVariantBase(baseFileName);
+        
+        if (parsed) {
+            // Try up to 16 variants
+            for (let i = 1; i <= 16; i++) {
+                const variantName = buildVariantName(parsed.base, parsed.ext, i);
+                const variantUrl = getImagePath(directory, variantName);
+                
+                // Check if image exists
+                const imageExists = await checkImageExists(variantUrl);
+                if (imageExists && !images.includes(variantUrl)) {
+                    images.push(variantUrl);
+                } else if (!imageExists) {
+                    // Stop searching after first missing variant to save time
+                    if (i > 3) break;
+                }
+            }
+        }
+    }
+    
+    return images;
+}
+
+// Check if image exists by attempting to load it
+function checkImageExists(url) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = url;
+    });
+}
+
+// Parse description and disclaimer from desc field (similar to original overlay logic)
+function parseDescriptionAndDisclaimer(itemDesc) {
+    let description = '';
+    let disclaimer = '';
+    
+    if (itemDesc) {
+        const normalized = String(itemDesc)
+            .replace(/\r\n/g, '\n')
+            .replace(/\n/g, '\n')
+            .replace(/\r\n/g, '\n');
+        
+        const splitMatch = normalized.match(/\n{2,}/);
+        if (!splitMatch) {
+            description = normalized.trim();
+        } else {
+            const idx = splitMatch.index;
+            description = normalized.slice(0, idx).trim();
+            const rest = normalized.slice(idx).replace(/^\n+/, '');
+            const rawParas = rest.split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
+            disclaimer = rawParas.join('\n\n').trim();
+        }
+    }
+    
+    return { description, disclaimer };
+}
+
+// Open overlay with item data
+async function openOverlay(item) {
+    currentOverlayItem = item;
+    
+    // Detect carousel variants
+    currentGalleryImages = await detectCarouselVariants(item);
+    currentGalleryIndex = 0;
+    
+    // Populate overlay content
+    overlayTitle.textContent = item.itemName || 'Item';
+    
+    // Parse and display description
+    const { description, disclaimer: parsedDisclaimer } = parseDescriptionAndDisclaimer(item.desc || '');
+    overlayDescription.textContent = description || 'No description available';
+    
+    // Use item.disclaimer first, then fall back to parsed disclaimer from desc
+    const disclaimerText = item.disclaimer || parsedDisclaimer || '';
+    
+    // Render disclaimer with header
+    if (disclaimerText) {
+        overlayDisclaimer.innerHTML = `<div class="disclaimer-header">- DISCLAIMER -</div><div class="disclaimer-text">${disclaimerText.replace(/\n/g, '<br>')}</div>`;
+        overlayDisclaimer.style.display = 'block';
+    } else {
+        overlayDisclaimer.innerHTML = '';
+        overlayDisclaimer.style.display = 'none';
+    }
+    
+    // Display dynamic bundle items if they exist
+    const bundleItems = (item.dynamicBundleItems && Array.isArray(item.dynamicBundleItems)) 
+        ? item.dynamicBundleItems.map(b => b.EDID || b.szItemName || '') 
+        : [];
+    if (bundleItems.length > 0) {
+        const bundleHTML = '<div class="overlay-includes"><strong>Includes:</strong> ' + 
+            bundleItems.map(itemId => `<span class="bundle-item">${itemId}</span>`).join(', ') + 
+            '</div>';
+        overlayDescription.insertAdjacentHTML('afterend', bundleHTML);
+    }
+    
+    // Populate DB Info Panel
+    if (overlayDbInfo) {
+        const dbInfoContent = document.getElementById('db-info-content');
+        let primaryImageName = (item.primaryImage ? item.primaryImage.imageName : 'N/A').toLowerCase();
+        // Replace .webp with .dds for display
+        primaryImageName = primaryImageName.replace(/\.webp$/i, '.dds');
+        const primaryImageDir = (item.primaryImage ? item.primaryImage.directory : 'N/A').toLowerCase();
+        // Use actual detected carousel count (total images - 1 for primary)
+        const actualCarouselCount = Math.max(0, currentGalleryImages.length - 1);
+        const edid = (item.EDID || 'N/A').toLowerCase();
+        const price = item.highPriceOriginal || item.price || null;
+        const priceDisplay = price ? `⚛ ${price}` : 'No price recorded';
+        
+        let bundleHTML = '';
+        if (bundleItems.length > 0) {
+            const bundleItemsList = bundleItems.map(itemId => `<code class="db-info-code">${itemId}</code>`).join('<br>');
+            bundleHTML = `<div class="db-info-row">Bundle Items:<br>${bundleItemsList}</div>`;
+        }
+        
+        dbInfoContent.innerHTML = `
+            <div>Item Name:<br><code class="db-info-code">${item.itemName || 'N/A'}</code></div>
+            <div class="db-info-row">EDID/ENTM:<br><code class="db-info-code">${edid}</code></div>
+            <div class="db-info-row">Price:<br><code class="db-info-code">${priceDisplay}</code></div>
+            <div class="db-info-row">Primary Image:<br><code class="db-info-code">${primaryImageName}</code></div>
+            <div class="db-info-row">Directory:<br><code class="db-info-code">${primaryImageDir}</code></div>
+            <div class="db-info-row">Carousel Images:<br><code class="db-info-code">${actualCarouselCount}</code></div>
+            ${bundleHTML}
+        `;
+    }
+    
+    // Render gallery
+    renderGallery();
+    
+    // Show overlay
+    overlay.classList.remove('hidden');
+}
+
+// Render gallery with current images (based on original gallery.js logic)
+function renderGallery() {
+    if (currentGalleryImages.length === 0) {
+        mainImage.src = '../../media/items/default-item.webp';
+        mainImage.onerror = () => {
+            mainImage.src = '../../media/items/default-item.webp';
+        };
+        leftStrip.innerHTML = '';
+        rightStrip.innerHTML = '';
+        return;
+    }
+    
+    // Set main image
+    const currentImg = currentGalleryImages[currentGalleryIndex];
+    mainImage.src = currentImg;
+    mainImage.onerror = () => {
+        mainImage.onerror = null;
+        mainImage.src = '../../media/items/default-item.webp';
+    };
+    
+    // Populate left strip with up to 3 previous images
+    leftStrip.innerHTML = '';
+    const leftImages = currentGalleryImages.slice(
+        Math.max(0, currentGalleryIndex - 3),
+        currentGalleryIndex
+    );
+    leftImages.forEach((src, index) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `Previous ${index + 1}`;
+        img.onerror = () => { img.style.display = 'none'; };
+        img.addEventListener('click', () => {
+            currentGalleryIndex = Math.max(0, currentGalleryIndex - (leftImages.length - index));
+            renderGallery();
+        });
+        leftStrip.appendChild(img);
+    });
+    
+    // Populate right strip with up to 3 next images
+    rightStrip.innerHTML = '';
+    const rightImages = currentGalleryImages.slice(
+        currentGalleryIndex + 1,
+        currentGalleryIndex + 4
+    );
+    rightImages.forEach((src, index) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `Next ${index + 1}`;
+        img.onerror = () => { img.style.display = 'none'; };
+        img.addEventListener('click', () => {
+            currentGalleryIndex = Math.min(currentGalleryImages.length - 1, currentGalleryIndex + 1 + index);
+            renderGallery();
+        });
+        rightStrip.appendChild(img);
+    });
+}
+
+// Close overlay
+function closeOverlay() {
+    overlay.classList.add('hidden');
+    currentOverlayItem = null;
+    currentGalleryImages = [];
+    currentGalleryIndex = 0;
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (overlay.classList.contains('hidden')) return;
+    
+    if (e.key === 'Escape') {
+        closeOverlay();
+        e.preventDefault();
+    } else if (e.key.toLowerCase() === 'a' && currentGalleryIndex > 0) {
+        currentGalleryIndex--;
+        renderGallery();
+        e.preventDefault();
+    } else if (e.key.toLowerCase() === 'd' && currentGalleryIndex < currentGalleryImages.length - 1) {
+        currentGalleryIndex++;
+        renderGallery();
+        e.preventDefault();
+    }
+});
+
+// Event listeners for overlay controls
+overlayCloseBtn.addEventListener('click', closeOverlay);
+overlayButton.addEventListener('click', closeOverlay);
+overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+        closeOverlay();
+    }
+});
+
+// Add click handlers to tiles
+function attachTileClickHandlers() {
+    const tiles = document.querySelectorAll('.shop-tile');
+    tiles.forEach(tile => {
+        // Skip if already has listener
+        if (tile.__overlayHandlerAttached) return;
+        
+        tile.style.cursor = 'pointer';
+        tile.addEventListener('click', function() {
+            const edid = this.getAttribute('data-item-edid');
+            if (edid && itemDataStore.has(edid)) {
+                const item = itemDataStore.get(edid);
+                openOverlay(item);
+            }
+        });
+        tile.__overlayHandlerAttached = true;
+    });
+}
+
+// Update createItemCard to store data and enable clicks
 function createItemCard(item) {
     const hasCarousel = item.carouselImages && item.carouselImages.length > 0;
     const hasPrimaryImage = item.primaryImage && item.primaryImage.imageName;
@@ -112,45 +424,45 @@ function createItemCard(item) {
     
     if (hasPrimaryImage) {
         const imgPath = getImagePath(item.primaryImage.directory, item.primaryImage.imageName);
-        if (imgPath) {
-            primaryImageHtml = `<div class="item-image"><img src="${imgPath}" alt="Primary" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`;
-        }
+        primaryImageHtml = `
+            <img 
+                src="${imgPath}" 
+                alt="Primary" 
+                loading="lazy"
+                onerror="this.onerror=null; this.src='../../media/items/default-item.webp';"
+            >
+        `;
+    } else {
+        primaryImageHtml = `
+            <img 
+                src="../../media/items/default-item.webp" 
+                alt="Placeholder" 
+                loading="lazy"
+            >
+        `;
     }
 
-    const carouselHtml = hasCarousel ? `
-        <div class="carousel-preview">
-            <div style="font-size: 11px; color: #666; margin-bottom: 6px;">Images (${item.carouselImages.length}):</div>
-            <div class="carousel-thumbs">
-                ${item.carouselImages.map((img, idx) => {
-                    const imgPath = getImagePath(img.directory, img.imageName);
-                    return imgPath ? `<img class="carousel-thumb" src="${imgPath}" alt="Image ${idx + 1}" loading="lazy" onerror="this.style.display='none'" title="${img.imageName}">` : '';
-                }).join('')}
-            </div>
-        </div>
-    ` : '';
-
-    const priceDisplay = item.highPriceOriginal ? `<span class="meta-tag">⚛ ${item.highPriceOriginal}</span>` : 
-                         item.price ? `<span class="meta-tag">⚛ ${item.price}</span>` : '';
-
+    const priceDisplay = item.highPriceOriginal ? `<span class="current-price">⚛ ${item.highPriceOriginal}</span>` : 
+                         item.price ? `<span class="current-price">⚛ ${item.price}</span>` : '';
+    
+    // Store item data for later access
+    if (item.EDID) {
+        itemDataStore.set(item.EDID, item);
+    }
+    
     return `
-        <div class="item-card">
-            ${primaryImageHtml}
-            <div class="item-title">${item.itemName || 'N/A'}</div>
-            <div class="item-edid">${item.EDID}</div>
-            <div class="item-desc">${item.desc || ''}</div>
-            <div class="item-meta">
-                ${hasCarousel ? `<span class="meta-tag">📸 ${item.carouselImages.length}</span>` : ''}
-                ${priceDisplay}
-            </div>
-            ${carouselHtml}
+        <div class="shop-tile small" style="cursor: pointer;" data-item-edid="${item.EDID || ''}">
+            <div class="tile-img" style="width: 100%; height: 100%;"> ${primaryImageHtml || '<img src="../../textures/atomic_shop_media/face8fe153089c98d6b27ddf4bf729fb.webp" alt="Primary" loading="lazy"'}</div>
+            <div class="tile-price">
+                ${hasCarousel ? `<span class="old-price">📸 ${item.carouselImages.length}</span>` : ''}
+                <div class="current-price">${priceDisplay || '⚛ -'}</div></div>
+            <div class="tile-footer small">${item.itemName || 'N/A'}</div>
         </div>
     `;
 }
 
-// Event listeners
-searchInput.addEventListener('input', (e) => {
-    search(e.target.value);
-});
+// ===== INITIALIZATION =====
 
 // Initialize
 loadDatabase();
+
