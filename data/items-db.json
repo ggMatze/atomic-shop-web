@@ -4237,8 +4237,8 @@
     "itemName": "Black Paint",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "ATX_PipBoy_Black.webp",
-      "directory": "/textures/atx/storefront/player/pipboy"
+      "imageName": "atx_pipboy_black_l.webp",
+      "directory": "/textures/atx/storefront/player/pipboy/"
     },
     "highPriceOriginal": 600,
     "carouselImages": []
@@ -4252,7 +4252,7 @@
     "itemName": "Nuka-Cola Stash Box",
     "primaryImage": {
       "imageName": "atx_camp_stashbox_nukacola_l.webp",
-      "directory": "/textures/atx/storefront/camp/stash"
+      "directory": "/textures/atx/storefront/camp/stash/"
     },
     "highPriceOriginal": 500,
     "dynamicBundleItems": [],
@@ -30159,7 +30159,10 @@
     "EDID": "ATX_ENTM_Skin_PipBoySkin_Mothman",
     "desc": "Show your loyalty to the Mothman with this Pip-Boy paint!",
     "disclaimer": "SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName":"atx_pipboy_mothman_l.webp",
+      "directory":"/textures/atx/storefront/player/pipboy/"
+    },
     "carouselImages": [],
     "itemName": "Mothman Paint"
   },
