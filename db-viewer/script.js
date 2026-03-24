@@ -256,16 +256,21 @@ async function openOverlay(item) {
         overlayDisclaimer.style.display = 'none';
     }
     
-    // Display dynamic bundle items if they exist
-    const bundleItems = (item.dynamicBundleItems && Array.isArray(item.dynamicBundleItems)) 
-        ? item.dynamicBundleItems.map(b => b.EDID || b.szItemName || '') 
-        : [];
-    if (bundleItems.length > 0) {
-        const bundleHTML = '<div class="overlay-includes"><strong>Includes:</strong> ' + 
-            bundleItems.map(itemId => `<span class="bundle-item">${itemId}</span>`).join(', ') + 
-            '</div>';
-        overlayDescription.insertAdjacentHTML('afterend', bundleHTML);
-    }
+// remove old includes (this is the only thing you were missing)
+document.querySelectorAll('.overlay-includes').forEach(el => el.remove());
+
+// Display dynamic bundle items if they exist
+const bundleItems = (item.dynamicBundleItems && Array.isArray(item.dynamicBundleItems)) 
+    ? item.dynamicBundleItems.map(b => b.EDID || b.szItemName || '') 
+    : [];
+
+if (bundleItems.length > 0) {
+    const bundleHTML = '<div class="overlay-includes"><strong>Includes:</strong> ' + 
+        bundleItems.map(itemId => `<span class="bundle-item">${itemId}</span>`).join(', ') + 
+        '</div>';
+
+    overlayDescription.insertAdjacentHTML('afterend', bundleHTML);
+}
     
     // Populate DB Info Panel
     if (overlayDbInfo) {
@@ -420,27 +425,27 @@ function createItemCard(item) {
     const hasCarousel = item.carouselImages && item.carouselImages.length > 0;
     const hasPrimaryImage = item.primaryImage && item.primaryImage.imageName;
     
-    let primaryImageHtml = '<div class="item-image placeholder">No image</div>';
-    
-    if (hasPrimaryImage) {
-        const imgPath = getImagePath(item.primaryImage.directory, item.primaryImage.imageName);
-        primaryImageHtml = `
+   let primaryImageHtml;
+
+if (hasPrimaryImage) {
+    const imgPath = getImagePath(item.primaryImage.directory, item.primaryImage.imageName);
+    primaryImageHtml = `
+        <div class="item-image">
             <img 
                 src="${imgPath}" 
                 alt="Primary" 
                 loading="lazy"
-                onerror="this.onerror=null; this.src='../../media/items/default-item.webp';"
+                onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>No image</span>';"
             >
-        `;
-    } else {
-        primaryImageHtml = `
-            <img 
-                src="../../media/items/default-item.webp" 
-                alt="Placeholder" 
-                loading="lazy"
-            >
-        `;
-    }
+        </div>
+    `;
+} else {
+    primaryImageHtml = `
+        <div class="placeholder">
+            No image
+        </div>
+    `;
+}
 
     const priceDisplay = item.highPriceOriginal ? `<span class="current-price">⚛ ${item.highPriceOriginal}</span>` : 
                          item.price ? `<span class="current-price">⚛ ${item.price}</span>` : '';
