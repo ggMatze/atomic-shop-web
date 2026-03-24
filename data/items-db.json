@@ -17206,7 +17206,8 @@
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": [],
-    "itemName": "Fortune Teller Machine"
+    "itemName": "Fortune Teller Machine",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S4_ENTM_Apparel_Headwear_Beekeeper",
@@ -17836,7 +17837,8 @@
     "newImagesAdded": 1,
     "matchedImages": 2,
     "dbIndexMode": true,
-    "itemName": "Raider Goon Outfit"
+    "itemName": "Raider Goon Outfit Set",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "SCORE_S5_ENTM_Apparel_Headwear_Raider_Goon",
@@ -17872,7 +17874,8 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
-    "itemName": "Stairs with Posts"
+    "itemName": "Stairs with Posts",
+    "highPriceOriginal": 350
   },
   {
     "EDID": "zzz_ATX_ENTM_Skin_WeaponSkin_CombatRifle_TheFixer_BloodEagle",
@@ -17946,7 +17949,8 @@
       "directory": "/textures/atx/storefront/camp/signs/"
     },
     "carouselImages": [],
-    "itemName": "Open and Closed Sign"
+    "itemName": "Open and Closed Sign",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_Structure_BoSArmory",
@@ -18333,7 +18337,8 @@
       "directory": "/textures/atx/storefront/camp/utility/"
     },
     "carouselImages": [],
-    "itemName": "Washer and Dryer Set"
+    "itemName": "Washer and Dryer Set",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Defense_Fence_Junkyard",
@@ -29672,7 +29677,7 @@
     "EDID": "Babylon_ENTM_Skin_ArmorSkin_Leather_BOS",
     "desc": "Salute the Brotherhood of Steel with this Paint for your Leather Armor.",
     "disclaimer": "SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": "",
+    "primaryImage": null,
     "carouselImages": [],
     "itemName": "BOS Paint"
   },
@@ -30160,8 +30165,8 @@
     "desc": "Show your loyalty to the Mothman with this Pip-Boy paint!",
     "disclaimer": "SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
     "primaryImage": {
-      "imageName":"atx_pipboy_mothman_l.webp",
-      "directory":"/textures/atx/storefront/player/pipboy/"
+      "imageName": "atx_pipboy_mothman_l.webp",
+      "directory": "/textures/atx/storefront/player/pipboy/"
     },
     "carouselImages": [],
     "itemName": "Mothman Paint"
@@ -60818,7 +60823,8 @@
       "directory": "/textures/atx/storefront/camp/utility/"
     },
     "carouselImages": [],
-    "itemName": "Red Rocket Collectron Station"
+    "itemName": "Red Rocket Collectron Station",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "Shelters_ENTM_ShelterEntrance_VaultAtrium",
@@ -80289,13 +80295,13 @@
         "szItemName": "Crossed Paddles"
       },
       {
-        "szItemName": " œ¦ Pemmican Collector"
-      },
-      {
         "szItemName": "Marshal Mallow Plushie"
       },
       {
         "szItemName": "Pemmican Collector"
+      },
+      {
+        "szItemName": "✦ Pemmican Collector"
       }
     ],
     "carouselImages": [
@@ -80343,12 +80349,6 @@
     "highPriceOriginal": 1500,
     "dynamicBundleItems": [
       {
-        "szItemName": " œ¦ Evidence Collection Assistant Collectron"
-      },
-      {
-        "szItemName": " ™» Responder Power Armor Paint"
-      },
-      {
         "szItemName": "Evidence Locker Stash Box"
       },
       {
@@ -80358,7 +80358,10 @@
         "szItemName": "\"Constable\" Player Title Suffix"
       },
       {
-        "szItemName": "Evidence Collection Assistant Collectron"
+        "szItemName": "✦ Evidence Collection Assistant Collectron"
+      },
+      {
+        "szItemName": "♻ Responder Power Armor Paint"
       }
     ],
     "carouselImages": [
@@ -80407,12 +80410,6 @@
         "szItemName": "Cold Steel Paint (Combat Shotgun)"
       },
       {
-        "szItemName": " ™» Firing Range Posters"
-      },
-      {
-        "szItemName": " œ¦ Shredder"
-      },
-      {
         "szItemName": "Police Siren Wall Light"
       },
       {
@@ -80420,6 +80417,12 @@
       },
       {
         "szItemName": "Shredder"
+      },
+      {
+        "szItemName": "♻ Firing Range Posters"
+      },
+      {
+        "szItemName": "✦ Shredder"
       }
     ],
     "carouselImages": [
@@ -80612,31 +80615,31 @@
         "szItemName": "Camouflage Power Armor Paint Set"
       },
       {
-        "szItemName": " œ¦ Budding Apothecary"
-      },
-      {
         "szItemName": "Ghillie Hunting Rifle Paint"
       },
       {
         "szItemName": "Spore Plant Bed"
+      },
+      {
+        "szItemName": "✦ Budding Apothecary"
       }
     ],
     "carouselImages": [
       {
         "imageName": "atx_skin_powerarmor_paint_camo_l.webp",
-        "directory": "/textures/atx/storefront/player/powerarmor"
+        "directory": "/textures/atx/storefront/player/powerarmor/"
       },
       {
         "imageName": "atx__camp_collector_buddingapothecary_l.webp",
-        "directory": "/textures/atx/storefront/camp/utility"
+        "directory": "/textures/atx/storefront/camp/utility/"
       },
       {
         "imageName": "score_s1_skin_weaponskin_huntingrifle_ghillie_l.webp",
-        "directory": "/textures/atx/storefront/player/weaponskin"
+        "directory": "/textures/atx/storefront/player/weaponskin/"
       },
       {
         "imageName": "atx_camp_bed_sporeplant_l.webp",
-        "directory": "/textures/atx/storefront/camp/beds"
+        "directory": "/textures/atx/storefront/camp/beds/"
       }
     ]
   },
@@ -85216,6 +85219,635 @@
       {
         "imageName": "SCORE_S5_Skin_BackpackFlair_T51_Helmet_L.webp",
         "directory": "/textures/atx/storefront/player/flair"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_WASTELAND_DINER_BUNDLE",
+    "desc": "Make sure your C.A.M.P. visitors have a good place to eat with the Wasteland Diner Bundle.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- C.A.M.P. TITLES ARE SELECTABLE IN THE C.A.M.P. MENU ON THE MAP -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Wasteland Diner Bundle",
+    "primaryImage": {
+      "imageName": "a2e9d4a1a2f83869dc7e8b6cf4bd558a.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_vendor_playervendingmachine_greenguard_l.webp",
+        "directory": "/textures/atx/storefront/camp/vendors/"
+      },
+      {
+        "imageName": "atx_camp_structure_wastelanddiner_l.webp",
+        "directory": "/textures/atx/storefront/camp/structures/"
+      },
+      {
+        "imageName": "atx_camp_lights_neonsign_dinersign_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_camp_walldeco_letters_diner_l.webp",
+        "directory": "/textures/atx/storefront/camp/walldecoration/"
+      },
+      {
+        "imageName": "atx_entm_camp_lights_afterhoursstreetlight_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camptitles_suffix_diner_l.webp",
+        "directory": "/textures/atx/storefront/camp/camptitles/"
+      }
+    ],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Green Guard 2000 Vending Machine"
+      },
+      {
+        "szItemName": "Wasteland Diner"
+      },
+      {
+        "szItemName": "Diner Sign"
+      },
+      {
+        "szItemName": "Diner Letters Set"
+      },
+      {
+        "szItemName": "After Hours Streetlight"
+      },
+      {
+        "szItemName": "\"Diner\" C.A.M.P. Title Suffix"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_DINER_ENTREPRENEUR_BUNDLE",
+    "desc": "You have an empty diner, what could you put in it? How about the Diner Entrepreneur Bundle.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]This bundle contains previously released items, bundled together as NEW.[/h]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Diner Entrepreneur Bundle",
+    "primaryImage": {
+      "imageName": "f602f1ba1e70d225126ff303bc71f81b.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "score_s5_camp_sign_openclose_l.webp",
+        "directory": "/textures/atx/storefront/camp/signs/"
+      },
+      {
+        "imageName": "atx__camp_displaycase_iceglorefrigerateddisplay_l.webp",
+        "directory": "/textures/atx/storefront/camp/displays/"
+      },
+      {
+        "imageName": "atx_camp_displaycase_nukabottlerack.webp",
+        "directory": "/textures/atx/storefront/camp/displays/"
+      },
+      {
+        "imageName": "atx_camp_displaycase_nukacola_friendshipdisplay_l.webp",
+        "directory": "/textures/atx/storefront/camp/displays/"
+      },
+      {
+        "imageName": "atx_camp_sign_warning_01_l.webp",
+        "directory": "/textures/atx/storefront/camp/signs/"
+      },
+      {
+        "imageName": "atx_camp_lights_neonsign_nukacolafactory_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_camp_machinery_generator_fusion_utilitybox_l.webp",
+        "directory": "/textures/atx/storefront/camp/machinery/"
+      }
+    ],
+    "highPriceOriginal": 1400,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Open and Closed Sign"
+      },
+      {
+        "szItemName": "IceGlo Display Case"
+      },
+      {
+        "szItemName": "Nuka-Cola Display Rack"
+      },
+      {
+        "szItemName": "Nuka-Cola Friendship Display"
+      },
+      {
+        "szItemName": "Do-Nut Touch"
+      },
+      {
+        "szItemName": "Nuka-Cola Factory Neon Sign"
+      },
+      {
+        "szItemName": "Utility Box Fusion Generator"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_DINEIN_ONLY_BUNDLE",
+    "desc": "Make sure visitors have a place to eat with the Dine-In Only Bundle!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]This bundle contains previously released items, bundled together as NEW.[/h]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Dine-In Only Bundle",
+    "primaryImage": {
+      "imageName": "4dee9d385cb3ea752118b16276198083.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_furniture_barset_redrocket_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_furniture_barset_slocum_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_entm_camp_furniture_redrocket_stools_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_entm_camp_door_metal_concessionstand_l.webp",
+        "directory": "/textures/atx/storefront/camp/doors/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_slocums_welcomemat_warm_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_furniture_booth_redrocket_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_wallpaper_slocumsdiner_l.webp",
+        "directory": "/textures/atx/storefront/camp/wallpaper/"
+      },
+      {
+        "imageName": "atx_camp_floor_reddiner_l.webp",
+        "directory": "/textures/atx/storefront/camp/floors/"
+      },
+      {
+        "imageName": "atx_camp_floor_blackdiner_l.webp",
+        "directory": "/textures/atx/storefront/camp/floors/"
+      }
+    ],
+    "highPriceOriginal": 1000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Red Rocket Bar Set"
+      },
+      {
+        "szItemName": "Slocum's Diner Bar Set"
+      },
+      {
+        "szItemName": "Red Rocket Bar Stools"
+      },
+      {
+        "szItemName": "Concession Stand Door"
+      },
+      {
+        "szItemName": "Slocum's Warm Welcome Mat"
+      },
+      {
+        "szItemName": "Red Rocket Booth"
+      },
+      {
+        "szItemName": "Slocum's Diner Wallpaper"
+      },
+      {
+        "szItemName": "Red Diner Floor and Foundations"
+      },
+      {
+        "szItemName": "Black Diner Floor and Foundations"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_MIND_BUNDLE",
+    "desc": "Rule the 42nd Century and Appalachia with the M.I.N.D. Bundle!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON STATIONS. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "M.I.N.D. Bundle",
+    "primaryImage": {
+      "imageName": "d34b08c3d0fa88b4e72abc4f25fe9006.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "score_s5_skin_powerarmor_model_mindvelox_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s5_skin_weaponskin_lasergatling_mind_l.webp",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      },
+      {
+        "imageName": "score_s5_skin_backpackflair_mind_l.webp",
+        "directory": "/textures/atx/storefront/player/flair/"
+      },
+      {
+        "imageName": "score_s5_camp_walldeco_poster_s5gameboardposters01_l.webp",
+        "directory": "/textures/atx/storefront/camp/walldecoration/"
+      },
+      {
+        "imageName": "score_s5_camp_walldeco_poster_s5gameboardposters02_l.webp",
+        "directory": "/textures/atx/storefront/camp/walldecoration/"
+      },
+      {
+        "imageName": "score_s5_camp_walldeco_poster_s5gameboardposters03_l.webp",
+        "directory": "/textures/atx/storefront/camp/walldecoration/"
+      }
+    ],
+    "highPriceOriginal": 1800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "M.I.N.D. Velox"
+      },
+      {
+        "szItemName": "M.I.N.D. Paint (Laser Gatling)"
+      },
+      {
+        "szItemName": "M.I.N.D. Overlord Backpack Flair"
+      },
+      {
+        "szItemName": "M.I.N.D. Nuka-Cola Poster"
+      },
+      {
+        "szItemName": "M.I.N.D. Recruitment Poster"
+      },
+      {
+        "szItemName": "M.I.N.D. Propaganda Poster"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_VALOROUS_ALISTAIR_BUNDLE",
+    "desc": "Become the legendary Knight of Avalon from the fifth century with the Valorous Alistair Bundle",
+    "disclaimer": "- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- SKIN IS CRAFTABLE AT WEAPON STATIONS. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Valorous Alistair Bundle",
+    "primaryImage": {
+      "imageName": "b073008537e36d59333737b1ee86a55a.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "score_s5_apparel_outfit_valorousalistair_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "score_s5_apparel_headwear_valorousalistair_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      },
+      {
+        "imageName": "score_s5_skin_backpack_alistair_l.webp",
+        "directory": "/textures/atx/storefront/player/backpack/"
+      },
+      {
+        "imageName": "score_s5_skin_weaponskin_sword_alistair_l.webp",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      },
+      {
+        "imageName": "score_s5_skin_weaponskin_plasmagatling_valorousalistair_l.webp",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      },
+      {
+        "imageName": "score_s5_skin_backpackflair_alistair_l.webp",
+        "directory": "/textures/atx/storefront/player/flair/"
+      },
+      {
+        "imageName": "alistair.webp",
+        "directory": "/textures/emotes/"
+      },
+      {
+        "imageName": "atx_playericon_score_29.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      }
+    ],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Valorous Alistair Outfit"
+      },
+      {
+        "szItemName": "Valorous Alistair Headwear"
+      },
+      {
+        "szItemName": "Alistair's Chronotron Backpack"
+      },
+      {
+        "szItemName": "Valorous Alistair Paint (Sword)"
+      },
+      {
+        "szItemName": "Valorous Alistair Paint (Gatling Plasma)"
+      },
+      {
+        "szItemName": "Alistair Backpack Flair"
+      },
+      {
+        "szItemName": "Triumphant Alistair Emote"
+      },
+      {
+        "szItemName": "Alistair Player Icon"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_GROGNAK_HERO_BUNDLE",
+    "desc": "It's good to be King, and a King you shall be with the Grognak Hero Bundle.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Grognak Hero Bundle",
+    "primaryImage": {
+      "imageName": "42720cbe8b22197bdeb5fd1ad9bce391.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_apparel_outfit_grognak_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "atx_apparel_headwear_headband_grognak_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      },
+      {
+        "imageName": "atx_skin_weaponmodel_supersledge_grognak_battlemace_l.webp",
+        "directory": "/textures/atx/storefront/player/weaponmodel/"
+      },
+      {
+        "imageName": "atx_camp_furniture_chair_grognak_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "grognak.webp",
+        "directory": "/textures/emotes/"
+      },
+      {
+        "imageName": "atx_playericon_grognak_hero.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      }
+    ],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "King Grognak the Barbarian Costume"
+      },
+      {
+        "szItemName": "King Grognak Headband"
+      },
+      {
+        "szItemName": "Grognak Battle Mace (Super Sledge)"
+      },
+      {
+        "szItemName": "King Grognak Throne"
+      },
+      {
+        "szItemName": "Grognak Battlecry"
+      },
+      {
+        "szItemName": "Grognak Hero Icon"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_MISTRESS_OF_MYSTERY_BUNDLE",
+    "desc": "Master more moments with everyone's favorite quick-thinking Hubris Comics character with the Mistress of Mystery Bundle.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON STATIONS. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Mistress of Mystery Bundle",
+    "primaryImage": {
+      "imageName": "862046a1f0e1b355dc6ed344d7df9c2f.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_stashbox_unstoppables_l.webp",
+        "directory": "/textures/atx/storefront/camp/stash/"
+      },
+      {
+        "imageName": "atx_camp_bed_twinbed_unstoppables_l.webp",
+        "directory": "/textures/atx/storefront/camp/beds/"
+      },
+      {
+        "imageName": "score_s6_apparel_outfit_sidekick_mistressmystery_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "score_s6_apparel_headwear_sidekick_mistressmystery_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      },
+      {
+        "imageName": "score_s6_skin_powerarmor_paint_t45_mistress_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s6_skin_powerarmor_paint_t51_mistress_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s6_skin_powerarmor_paint_t60_mistress_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s6_skin_powerarmor_paint_t65_mistress_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s6_skin_powerarmor_paint_x01_mistress_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s6_skin_powerarmor_paint_ultracite_mistress_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s6_skin_powerarmor_paint_excavator_mistress_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "atx_playericon_score_32.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      }
+    ],
+    "highPriceOriginal": 1800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "The Unstoppables! Bed"
+      },
+      {
+        "szItemName": "Unstoppables! Stash Box"
+      },
+      {
+        "szItemName": "Mistress of Mystery Sidekick Mask"
+      },
+      {
+        "szItemName": "Mistress Sidekick Costume and Underarmor"
+      },
+      {
+        "szItemName": "Mistress Power Armor T-45 Paint"
+      },
+      {
+        "szItemName": "Mistress Power Armor T-51 Paint"
+      },
+      {
+        "szItemName": "Mistress Power Armor T-60 Paint"
+      },
+      {
+        "szItemName": "Mistress Power Armor T-65 Paint"
+      },
+      {
+        "szItemName": "Mistress Power Armor X-01 Paint"
+      },
+      {
+        "szItemName": "Mistress Power Armor Ultracite Paint"
+      },
+      {
+        "szItemName": "Mistress Power Armor Excavator Paint"
+      },
+      {
+        "szItemName": "Mistress of Mystery Player Icon"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_CAMDEN_PARK_MEGABUNDLE",
+    "desc": "Mr. Fuzzy rules and this Bundle proves it.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.- \n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- UNLOCKS A PHOTOMODE POSE.-",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Camden Park Mega-Bundle",
+    "primaryImage": {
+      "imageName": "f83f4a0687b7e2642192e097f41a69bc.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_machinery_workbench_tinkers_mrfuzzy.webp",
+        "directory": "/textures/atx/storefront/camp/machinery/"
+      },
+      {
+        "imageName": "atx_apparel_outfit_jumpsuit_camdenpark_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "atx_skin_powerarmor_helmet_mrfuzzy_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "atx_camp_furniture_coinop_mrfuzzyride_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_furniture_coinop_gold_mrfuzzyride_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_plushie_cat_cowboy_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_machinery_workbench_cooking_stove_camdenpark_l.webp",
+        "directory": "/textures/atx/storefront/camp/machinery/"
+      },
+      {
+        "imageName": "atx_photomode_pose_sparklers_l.webp",
+        "directory": "/textures/atx/storefront/player/photopose/"
+      }
+    ],
+    "highPriceOriginal": 1800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Mr. Fuzzy Tinker's Workbench"
+      },
+      {
+        "szItemName": "Camden Park Jumpsuit"
+      },
+      {
+        "szItemName": "Mr. Fuzzy Power Armor Helmet"
+      },
+      {
+        "szItemName": "Mr. Fuzzy Kiddie Ride"
+      },
+      {
+        "szItemName": "Gold Mr. Fuzzy Kiddie Ride"
+      },
+      {
+        "szItemName": "Mr. Fuzzy Cowboy Plushie"
+      },
+      {
+        "szItemName": "Camden Park Cooking Stove"
+      },
+      {
+        "szItemName": "Sparklers Pose"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_CAPPYS_NUKACOLA_TRAIN_BUNDLE",
+    "desc": "All aboard the Nuka-Cola express!  Pop open a cold one and watch Cappy's favorite refreshment go for a ride in this Nuka-Cola Train Bundle.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Cappy's Nuka-Cola Train Bundle",
+    "primaryImage": {
+      "imageName": "68c55804eba972ce99539fe82e15e384.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_furniture_set_nukacolapatio.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_machinery_nukacola_powerconnector.webp",
+        "directory": "/textures/atx/storefront/camp/machinery/"
+      },
+      {
+        "imageName": "atx_camp_displaycase_nukabottlerack.webp",
+        "directory": "/textures/atx/storefront/camp/displays/"
+      },
+      {
+        "imageName": "atx_camp_door_curtain_nukacola.webp",
+        "directory": "/textures/atx/storefront/camp/doors/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_arearug_cappy.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_trainset_nukacola_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      }
+    ],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Nuka-Cola Patio Set"
+      },
+      {
+        "szItemName": "Nuka-Cola Power Connectors"
+      },
+      {
+        "szItemName": "Nuka-Cola Display Rack"
+      },
+      {
+        "szItemName": "Nuka-Cola Curtain Door"
+      },
+      {
+        "szItemName": "Cappy Area Rug"
+      },
+      {
+        "szItemName": "Nuka-Cola Train Set"
       }
     ]
   }
