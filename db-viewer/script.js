@@ -379,7 +379,7 @@ function closeOverlay() {
 document.addEventListener('keydown', (e) => {
     if (overlay.classList.contains('hidden')) return;
 
-    if (e.key === 'Escape') {
+    if (e.key === 'Tab') {
         closeOverlay();
         e.preventDefault();
     } 
