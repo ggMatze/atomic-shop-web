@@ -55,6 +55,11 @@ body {
 
   min-height: 100vh;
 }
+
+body:has(.item-overlay:not(.hidden)) {
+  overflow: hidden;
+}
+
 /* Add to your style.css */
 
 /* ####### Global Atributes ####### */
