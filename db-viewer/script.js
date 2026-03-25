@@ -109,6 +109,22 @@ function getImagePath(directory, imageName) {
     return `../${dir}${imageName}`;
 }
 
+// Badge for cut stuff
+const badgeKeywordMapping = [
+    { keyword: 'zzz', className: 'cut-label', label: 'CUT', title: 'Cut content' },
+    { keyword: 'reuse', className: 'cut-label', label: 'CUT', title: 'cut i guess' },
+    
+];
+
+function getItemBadges(item) {
+    if (!item || !item.EDID) return '';
+    const edid = (item.EDID || '').toLowerCase();
+    return badgeKeywordMapping
+        .filter(rule => edid.includes(rule.keyword))
+        .map(rule => `<span class="${rule.className}" title="${rule.title}">${rule.label}</span>`)
+        .join('');
+}
+
 // Event listeners
 searchInput.addEventListener('input', (e) => {
     search(e.target.value);
@@ -454,6 +470,8 @@ if (hasPrimaryImage) {
 
     const priceDisplay = item.highPriceOriginal ? `<span class="current-price">⚛ ${item.highPriceOriginal}</span>` : 
                          item.price ? `<span class="current-price">⚛ ${item.price}</span>` : '';
+
+    const badgeHTML = getItemBadges(item);
     
     // Store item data for later access
     if (item.EDID) {
@@ -461,7 +479,8 @@ if (hasPrimaryImage) {
     }
     
     return `
-        <div class="shop-tile small" style="cursor: pointer;" data-item-edid="${item.EDID || ''}">
+        <div class="shop-tile small" style="cursor: pointer; position: relative;" data-item-edid="${item.EDID || ''}">
+            ${badgeHTML ? `<div class="tile-badge-container">${badgeHTML}</div>` : ''}
             <div class="tile-img" style="width: 100%; height: 100%;"> ${primaryImageHtml || '<img src="../../textures/atomic_shop_media/face8fe153089c98d6b27ddf4bf729fb.webp" alt="Primary" loading="lazy"'}</div>
             <div class="tile-price">
                 ${hasCarousel ? `<span class="old-price">📸 ${item.carouselImages.length}</span>` : ''}

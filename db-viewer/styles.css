@@ -155,7 +155,7 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    
     -webkit-box-orient: vertical;
 }
 
@@ -229,6 +229,76 @@ visibility: hidden!important;
     color: #888;
     font-size: 25px;
 }
+
+.tile-badge-container {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    display: flex;
+    gap: 4px;
+    z-index: 200;
+    pointer-events: none;
+}
+
+.tile-badge-container span {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    padding: 1px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    pointer-events: auto;
+    letter-spacing: 0.10em;
+}
+.cut-label {
+font-family: "Berlin Sans FB", roboto condensed, sans-serif;
+text-shadow: rgb(27, 10, 10) 1px 1px;
+text-align: center;
+
+}
+
+
+.cut-label::before {
+  content: '';
+  position: absolute;
+  top: 0px; /* adjust for shadow offset */
+  right: 0px;
+  height: 80px;
+  width: 80px;
+  background-size: contain;
+  background: #e63e3e;
+  background-size: 90% auto;
+  clip-path: inherit; /* reuse shape */
+  z-index: -1;
+  
+}
+.cut-label:hover{
+  background: #ffd51b6c;
+  cursor: help;
+}
+.cut-label {
+  position: relative;
+  z-index: 1;
+  background: #918f7980;
+  color: #fff;
+  font-size: 22px;
+  letter-spacing: 0.00em;
+  font-kerning: normal;
+  height: 60px;
+  width: 60px;
+  aspect-ratio: 1;
+  --g:/12.97% 12.97% radial-gradient(#000 calc(71% - 1px),#0000 71%) no-repeat;
+  mask: radial-gradient(100% 100%,#000 calc(43.028% - 1px),#0000 43.028%) subtract,100% 50% var(--g),97.779% 64.738% var(--g),91.312% 78.166% var(--g),81.174% 89.092% var(--g),68.267% 96.544% var(--g),53.737% 99.86% var(--g),38.874% 98.746% var(--g),25% 93.301% var(--g),13.347% 84.009% var(--g),4.952% 71.694% var(--g),0.558% 57.452% var(--g),0.558% 42.548% var(--g),4.952% 28.306% var(--g),13.347% 15.991% var(--g),25% 6.699% var(--g),38.874% 1.254% var(--g),53.737% 0.14% var(--g),68.267% 3.456% var(--g),81.174% 10.908% var(--g),91.312% 21.834% var(--g),97.779% 35.262% var(--g);
+  z-index: 1000;
+  cursor: help;
+}
+
 @media (max-width: 768px) {
     .results {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
