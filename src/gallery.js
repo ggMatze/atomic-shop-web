@@ -112,7 +112,7 @@ function _updateVariantIndicator(key) {
       }
     }
     if (hasCandidate) {
-      indicator.textContent = 'W / S) alternate images';
+      indicator.textContent = 'W/S or ▲/▼ to alternate images';
       indicator.classList.add('visible');
       mainImage.classList.add('has-variants');
     } else {
@@ -327,22 +327,31 @@ function carouselKeyHandler(e) {
   const overlay = document.getElementById('item-overlay');
   if (!overlay || overlay.classList.contains('hidden')) return;
   if (!galleryState.images || !galleryState.images.length) return;
-  if (e.key && e.key.toLowerCase() === 'a' && galleryState.current > 0) {
+
+  const key = e.key.toLowerCase();
+
+  // left (A or ArrowLeft)
+  if ((key === 'a' || e.key === 'ArrowLeft') && galleryState.current > 0) {
     galleryState.current--;
     renderGallery(galleryState.images, galleryState.current);
     e.preventDefault();
   }
-  if (e.key && e.key.toLowerCase() === 'd' && galleryState.current < galleryState.images.length - 1) {
+
+  // right (D or ArrowRight)
+  if ((key === 'd' || e.key === 'ArrowRight') && galleryState.current < galleryState.images.length - 1) {
     galleryState.current++;
     renderGallery(galleryState.images, galleryState.current);
     e.preventDefault();
   }
-  // cycle c-variants: W = next, S = previous
-  if (e.key && e.key.toLowerCase() === 'w') {
+
+  // up (W or ArrowUp)
+  if (key === 'w' || e.key === 'ArrowUp') {
     cycleCVariant(+1);
     e.preventDefault();
   }
-  if (e.key && e.key.toLowerCase() === 's') {
+
+  // down (S or ArrowDown)
+  if (key === 's' || e.key === 'ArrowDown') {
     cycleCVariant(-1);
     e.preventDefault();
   }

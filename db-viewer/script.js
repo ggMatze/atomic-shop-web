@@ -375,17 +375,22 @@ function closeOverlay() {
 }
 
 // Keyboard navigation
+
 document.addEventListener('keydown', (e) => {
     if (overlay.classList.contains('hidden')) return;
-    
+
     if (e.key === 'Escape') {
         closeOverlay();
         e.preventDefault();
-    } else if (e.key.toLowerCase() === 'a' && currentGalleryIndex > 0) {
+    } 
+    // left (A or ArrowLeft)
+    else if ((e.key.toLowerCase() === 'a' || e.key === 'ArrowLeft') && currentGalleryIndex > 0) {
         currentGalleryIndex--;
         renderGallery();
         e.preventDefault();
-    } else if (e.key.toLowerCase() === 'd' && currentGalleryIndex < currentGalleryImages.length - 1) {
+    } 
+    // right (D or ArrowRight)
+    else if ((e.key.toLowerCase() === 'd' || e.key === 'ArrowRight') && currentGalleryIndex < currentGalleryImages.length - 1) {
         currentGalleryIndex++;
         renderGallery();
         e.preventDefault();
