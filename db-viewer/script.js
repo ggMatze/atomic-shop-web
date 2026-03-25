@@ -35,9 +35,9 @@ function search(query) {
     const results = dbData.filter(item => {
         const edid = (item.EDID || '').toLowerCase();
         const name = (item.itemName || '').toLowerCase();
-        const desc = (item.desc || '').toLowerCase();
+        //const desc = (item.desc || '').toLowerCase();
         
-        return edid.includes(lowerQuery) || name.includes(lowerQuery) || desc.includes(lowerQuery);
+        return edid.includes(lowerQuery) || name.includes(lowerQuery); //|| desc.includes(lowerQuery);
     });
 
     statsText.textContent = `Found ${results.length} of ${dbData.length} items`;
