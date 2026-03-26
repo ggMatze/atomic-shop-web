@@ -209,6 +209,52 @@ async function detectCarouselVariants(item) {
     return images;
 }
 
+const input = document.getElementById('searchInput');
+
+// create datalist dynamically (no HTML change needed)
+const datalist = document.createElement('datalist');
+datalist.id = 'searchHistory';
+document.body.appendChild(datalist);
+input.setAttribute('list', 'searchHistory');
+
+let typingTimer;
+const delay = 600;
+
+function loadHistory() {
+    const history = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+    datalist.innerHTML = history.map(v => `<option value="${v}">`).join('');
+}
+
+function saveSearch(value) {
+    value = value.trim();
+    if (value.length < 3) return; // avoid junk
+
+    let history = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+
+    if (!history.includes(value)) {
+        history.unshift(value);
+        history = history.slice(0, 10);
+        localStorage.setItem('searchHistory', JSON.stringify(history));
+    }
+}
+
+// debounce typing
+input.addEventListener('input', () => {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(() => {
+        saveSearch(input.value);
+        loadHistory();
+    }, delay);
+});
+
+// fallback when leaving input
+input.addEventListener('blur', () => {
+    saveSearch(input.value);
+    loadHistory();
+});
+
+loadHistory();
+
 // Check if image exists by attempting to load it
 function checkImageExists(url) {
     return new Promise((resolve) => {
