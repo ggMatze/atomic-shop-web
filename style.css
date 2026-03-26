@@ -486,12 +486,12 @@ filter: saturate(0.5);
 
 /* ## News Header Button Styling ## */
 /* Black Outline */
-#news-btn {
+#news-btn, #go-database {
   top: 10px;
-  left: 12px;
+  left: 8px;
   position: relative; /* allow ::before to be positioned relative to this */
-  width: 29px;
-  height: 33px;
+  width: 36px;
+  height: 39px;
   background-color: #000000;
   color: #151817;
   border: none;
@@ -503,23 +503,33 @@ filter: saturate(0.5);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 /* Yellow Exclamation Mark Background */
-#news-btn::before {
+#news-btn::before, #go-database::before {
   content: '';
   position: absolute;
-  width: 26px;  
-  height: 30px;
+  width: 32px;  
+  height: 35px;
   background: radial-gradient(circle, #FFFCCF 20%, #ebd882 60%, #ebd882 100%);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   z-index: -1;
 }
 /* Hover Effect */
-#news-btn:hover::before {
+#news-btn:hover::before, #go-database:hover::before {
   background: radial-gradient(circle, #f5f4ad 20%, #ebc458 60%, #ebc458 100%);
 }
 #news-btn::after {
   content: '\1F514\FE0E';
  
-  font-size: 1.3em;
+  font-size: 1.4em;
+  top: 47%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+#go-database::after {
+  content: '\1F50D\FE0E';
+ 
+  font-size: 1.4em;
   top: 47%;
   left: 50%;
   position: absolute;
@@ -541,45 +551,6 @@ filter: saturate(0.5);
   background-color: #ffe082;
 }
 
-#go-database{
-  top: 10px;
-  left: 12px;
-  position: relative; /* allow ::before to be positioned relative to this */
-  width: 29px;
-  height: 33px;
-  background-color: #000000;
-  color: #151817;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
-#go-database::before {
-  content: '';
-  position: absolute;
-  width: 26px;  
-  height: 30px;
-  background: radial-gradient(circle, #FFFCCF 20%, #ebd882 60%, #ebd882 100%);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  z-index: -1;
-}
-
-#go-database:hover::before {
-  background: radial-gradient(circle, #f5f4ad 20%, #ebc458 60%, #ebc458 100%);
-}
-
-#go-database::after {
-  content: '\1F50D\FE0E';
- 
-  font-size: 1.3em;
-  top: 47%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
 
 /* Match styling for the "Don't show for X days" button (condensed) */
 #news-notice #news-hide-ttl {
