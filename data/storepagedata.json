@@ -2347,7 +2347,408 @@
             },
             "isZeus": false,
             "isClown": false,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            }
+          }
+        ]
+      },
+      {
+        "name": "Weekend Sale \\n The Season Returns!",
+        "tabid": "weekend-sale",
+        "isZeus": false,
+        "image": {
+          "imageName": "020b201b3595dd4c555ce48cdc45a582.dds",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2486388,
+            "itemName": "Hunter's Rest Bundle",
+            "itemNameShort": "Hunter's Rest",
+            "itemDesc": "All hunters need a nice place to rest and recharge for the next hunt.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "04780b86104229c3447d3ee30964970e.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s12_camp_bed_rusticfurbed_l.webp",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "score_s12_camp_machinery_workbench_tinker_taxidermy_l.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "score_s12_camp_furniture_chair_huntersthrone_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "score_s12_camp_floor_timbercarpet_l.webp",
+                "directory": "/textures/atx/storefront/camp/floors/"
+              },
+              {
+                "imageName": "atx_pipboy_hunterorange_l.webp",
+                "directory": "/textures/atx/storefront/player/pipboy/"
+              },
+              {
+                "imageName": "score_s12_photomode_frame_onthehunt_l.webp",
+                "directory": "/textures/atx/storefront/player/photoframe/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Rustic Fur Bed"
+              },
+              {
+                "szItemName": "Taxidermy Tinker's Workbench"
+              },
+              {
+                "szItemName": "Hunter's Throne Chair"
+              },
+              {
+                "szItemName": "Timber Carpet Floor and Foundations"
+              },
+              {
+                "szItemName": "Hunter Safety Paint"
+              },
+              {
+                "szItemName": "On The Hunt Photomode Frame"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1125,
+              "originalAmount": 1125,
+              "isLto": true,
+              "ltoTimer": "2026-03-31T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1125,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2486389,
+            "itemName": "After the Hunt Bundle",
+            "itemNameShort": "After the Hunt Bundle",
+            "itemDesc": "The hunt is over and now it's time to relax with the After the Hunt Bundle.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "4242dfde6a369b2aeb173d0784a55dd3.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s12_camp_walldecor_curiossign_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s12_camp_utility_radstagfielddressingstation_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s12_camp_furniture_instrument_violinchair_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "score_s11_camp_floor_herringboneredbrick_l.webp",
+                "directory": "/textures/atx/storefront/camp/floors/"
+              },
+              {
+                "imageName": "score_s11_camp_wallpaper_walnutpanel_l.webp",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
+              },
+              {
+                "imageName": "one_again.webp",
+                "directory": "/textures/emotes/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Curios Sign"
+              },
+              {
+                "szItemName": "Radstag Field Dressing Station"
+              },
+              {
+                "szItemName": "Violin Chair"
+              },
+              {
+                "szItemName": "Herringbone Red Brick Floor and Foundations"
+              },
+              {
+                "szItemName": "Walnut Panel Wallpaper"
+              },
+              {
+                "szItemName": "One More Time Emote"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1050,
+              "originalAmount": 1050,
+              "isLto": true,
+              "ltoTimer": "2026-03-31T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1050,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1400
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2485646,
+            "itemName": "Firewood Pile",
+            "itemNameShort": "Firewood Pile",
+            "itemDesc": "When you need to throw another log on the fire just reach for this handy Firewood Pile!\n[h]This item cannot be built inside of a Shelter.[/h]\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\nPRODUCES:\n[url=https://www.theduchessflame.com/post/camp-resource-firewood-pile-and-reskins]✦ Wood Scraps    [/url]",
+            "primaryImage": {
+              "imageName": "score_s12_camp_collector_woodpile_l.webp",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s12_camp_collector_woodpile_c1.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s12_camp_collector_woodpile_c2.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 700,
+              "originalAmount": 700,
+              "isLto": true,
+              "ltoTimer": "2026-03-31T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 700,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2486039,
+            "itemName": "Taxidermied Bear Stein Display",
+            "itemNameShort": "Bear Stein Display",
+            "itemDesc": "Go ahead and reach for that beer stein, he won't bite. Anymore.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s12_displaycase_beersteins_taxidermiedbear.dds",
+              "directory": "/textures/atx/storefront/camp/displays/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s12_displaycase_beersteins_taxidermiedbear_c1.dds",
+                "directory": "/textures/atx/storefront/camp/displays/"
+              },
+              {
+                "imageName": "score_s12_displaycase_beersteins_taxidermiedbear_c2.dds",
+                "directory": "/textures/atx/storefront/camp/displays/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 500,
+              "originalAmount": 500,
+              "isLto": true,
+              "ltoTimer": "2026-03-31T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2485591,
+            "itemName": "Smoked Bear Arm Paint",
+            "itemNameShort": "Smoked Bear Arm Paint",
+            "itemDesc": "Take the second amendment literally with this Smoked Bear Arm Paint.\n\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "score_s12_skin_weaponskin_beararm_smoked_l.webp",
+              "directory": "/textures/atx/storefront/player/weaponskin/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s12_skin_weaponskin_beararm_smoked_c1.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s12_skin_weaponskin_beararm_smoked_c2.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 500,
+              "originalAmount": 500,
+              "isLto": true,
+              "ltoTimer": "2026-03-31T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2485997,
+            "itemName": "Daring Adventure Secret Service Underarmor",
+            "itemNameShort": "Daring Adventure Secret Service Underarmor",
+            "itemDesc": "Dress for the hunt with the Daring Adventure Secret Service Underarmor.\n\n(Requires the Secret Service Underarmor Plan to be learned.)\n\nThis item is worn under your armor and is in the Secret Service mod group.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "score_s12_apparel_underarmor_daringadventure_l.webp",
+              "directory": "/textures/atx/storefront/player/underarmor/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s12_apparel_underarmor_daringadventure_c1.dds",
+                "directory": "/textures/atx/storefront/player/underarmor/"
+              },
+              {
+                "imageName": "score_s12_apparel_underarmor_daringadventure_c2.dds",
+                "directory": "/textures/atx/storefront/player/underarmor/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 500,
+              "originalAmount": 500,
+              "isLto": true,
+              "ltoTimer": "2026-03-31T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2485747,
+            "itemName": "Mothman Plushie",
+            "itemNameShort": "Mothman Plushie",
+            "itemDesc": "No cryptid plushie collection is complete without this adorable Mothman Plushie!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s12_camp_floordecor_plushie_mothman.dds",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s12_camp_floordecor_plushie_mothman_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s12_camp_floordecor_plushie_mothman_c2.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 250,
+              "originalAmount": 250,
+              "isLto": true,
+              "ltoTimer": "2026-03-31T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 250,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 250
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
           }
         ]
       },
