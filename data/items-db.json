@@ -7713,6 +7713,7 @@
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 250,
     "itemName": "Mothman Plushie"
   },
   {
@@ -8578,8 +8579,8 @@
     "customdisclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
     "itemName": "Wise Charles Painting Stash Box",
     "primaryImage": {
-      "imageName": "atx_camp_stashbox_wallpainting.webp",
-      "directory": "/textures/atx/storefront/camp/stash/"
+        "imageName": "atx_camp_stashbox_wallpainting_l.webp",
+        "directory": "/textures/atx/storefront/camp/stash/"
     },
     "highPriceOriginal": 500,
     "dynamicBundleItems": [],
@@ -10055,10 +10056,7 @@
     "EDID": "zzzSCORE_S24_ENTM_Skin_Headwear_RangersUniform_Paint_BlackRanger",
     "desc": "Command the shadows with the Obsidian Paint for the Ranger Helmet.",
     "disclaimer": "SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": {
-      "imageName": "score_s24_skin_clothing_rangersuniform_paint_blackranger_l.webp",
-      "directory": "/textures/atx/storefront/player/armorskin/"
-    },
+    "primaryImage": null,
     "carouselImages": [],
     "itemName": "Obsidian Helmet Paint"
   },
@@ -11810,10 +11808,7 @@
     "EDID": "REUSE_ATX_ENTM_CAMP_FloorDecor_Rug_MegaSloth",
     "desc": "You will be the envy of every trophy hunter in the Wasteland with the Megasloth Pelt Rug.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": {
-      "imageName": "atx_camp_floordecor_rug_megasloth_valentinesday_l.webp",
-      "directory": "/textures/atx/storefront/camp/floordecoration/"
-    },
+    "primaryImage": null,
     "carouselImages": [],
     "itemName": "\"Megasloth\" Pelt Rug"
   },
@@ -12924,8 +12919,8 @@
     "itemName": "Slocum's Have a Great Day Mural",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "2cf35c5e989cc97793eda79d9bff04cf.webp",
-      "directory": "/textures/atomic_shop_media"
+      "imageName": "atx_camp_sign_slocums_greatday_l.webp",
+      "directory": "/textures/atx/storefront/camp/signs/"
     },
     "highPriceOriginal": 0,
     "carouselImages": []
@@ -14017,7 +14012,10 @@
     "EDID": "ATX_Community2020_ATLAS_ENTM_CAMP_FloorDecor_BoS_StandingBanner",
     "desc": "Give the Brotherhood the good ol' Appalachia welcome with this banner. From the 2020 Fortifying ATLAS event.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName":"atx_camp_floordecor_bos_standingbanner.webp",
+      "directory":"/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": [],
     "itemName": "Brotherhood Banner"
   },
@@ -15495,7 +15493,7 @@
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "itemName": "Santatron Collectron Station",
     "primaryImage": {
-      "imageName": "atx_camp_utility_scavengestation_santa.webp",
+      "imageName": "atx_camp_utility_scavengestation_santa_l.webp",
       "directory": "/textures/atx/storefront/camp/utility/"
     },
     "highPriceOriginal": 0,
@@ -18542,7 +18540,6 @@
       "imageName": "atx_camp_structure_wavywillardswipeout_l.webp",
       "directory": "/textures/atx/storefront/camp/structures"
     },
-    "highPriceOriginal": 900,
     "carouselImages": []
   },
   {
@@ -19792,16 +19789,11 @@
     "itemName": "Pipe Organ",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "932c0986f0913cc1ef7ca7418a71c67a.webp",
-      "directory": "/textures/atomic_shop_media"
-    },
-    "highPriceOriginal": 500,
-    "carouselImages": [
-      {
         "imageName": "atx_camp_furniture_instrument_pipe_organ_l.webp",
         "directory": "/textures/atx/storefront/camp/furniture/"
-      }
-    ]
+    },
+    "highPriceOriginal": 500,
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_CreepyWell",
@@ -20261,7 +20253,7 @@
     "desc": "Show people you know how to move merchandise with this Blue Ridge Caravan Co. Flag.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "atx_camp_decoration_flagwaving_blueridgecaravan_02_l.webp",
+      "imageName": "atx_camp_decoration_flagwaving_blueridgecaravan_01_l.webp",
       "directory": "/textures/atx/storefront/camp/flags/"
     },
     "carouselImages": [],
@@ -20623,17 +20615,12 @@
     "customdisclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
     "itemName": "Enclave Polished Steel Turret Set",
     "primaryImage": {
-      "imageName": "atx_camp_defense_turret_enclave_polishedsteel.webp",
-      "directory": "/textures/atx/storefront/camp/defenses/"
+        "imageName": "atx_camp_defense_turret_enclave_polishedsteel_l.webp",
+        "directory": "/textures/atx/storefront/camp/defenses/"
     },
     "highPriceOriginal": 500,
     "dynamicBundleItems": [],
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_defense_turret_enclave_polishedsteel_l.webp",
-        "directory": "/textures/atx/storefront/camp/defenses/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_Bed_WavyWilards_Waterbed",
@@ -21692,6 +21679,7 @@
       "directory": "/textures/atx/storefront/player/weaponskin/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 500,
     "itemName": "Smoked Bear Arm Paint"
   },
   {
@@ -23249,17 +23237,12 @@
     "customdisclaimer": "Collects Company Tea over time. \n\nThis item cannot be built inside of a Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
     "itemName": "Jumpy Juice Company Tea Machine",
     "primaryImage": {
-      "imageName": "atx_camp_collector_jumpyjuicecompanyteamachine.webp",
-      "directory": "/textures/atx/storefront/camp/utility/"
+        "imageName": "atx_camp_collector_jumpyjuicecompanyteamachine_l.webp",
+        "directory": "/textures/atx/storefront/camp/utility/"
     },
     "highPriceOriginal": 700,
     "dynamicBundleItems": [],
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_collector_jumpyjuicecompanyteamachine_l.webp",
-        "directory": "/textures/atx/storefront/camp/utility/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "SCORE_S19_ENTM_PlayerIcon_PlayerIcon3",
@@ -24782,16 +24765,11 @@
     "itemName": "Sammy Suds",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "atx_camp_vendor_playervendingmachine_tipsy_sammysuds.webp",
-      "directory": "/textures/atx/storefront/camp/vendors/"
-    },
-    "highPriceOriginal": 500,
-    "carouselImages": [
-      {
         "imageName": "atx_camp_vendor_playervendingmachine_tipsy_sammysuds_l.webp",
         "directory": "/textures/atx/storefront/camp/vendors/"
-      }
-    ]
+    },
+    "highPriceOriginal": 500,
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDeco_Letters_Diner",
@@ -24831,12 +24809,7 @@
     },
     "highPriceOriginal": 250,
     "dynamicBundleItems": [],
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_floordecor_overgrownarbor_l.webp",
-        "directory": "/textures/atx/storefront/camp/floordecoration/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Model_NCMcFarland",
@@ -26332,12 +26305,7 @@
     },
     "highPriceOriginal": 250,
     "dynamicBundleItems": [],
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_walldeco_logwallshelf_l.webp",
-        "directory": "/textures/atx/storefront/camp/walldecoration/"
-      }
-    ]
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_Utility_Collectron_ToxicBob",
@@ -26360,7 +26328,7 @@
     "customdisclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
     "itemName": "Modern Television",
     "primaryImage": {
-      "imageName": "atx_camp_floordecor_moderntelevision_hightechtv.webp",
+      "imageName": "atx_camp_floordecor_moderntelevision_hightechtv_l.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "highPriceOriginal": 500,
@@ -41671,6 +41639,7 @@
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": null,
     "carouselImages": [],
+    "highPriceOriginal": 700,
     "itemName": "Firewood Pile"
   },
   {
@@ -42575,6 +42544,7 @@
       "directory": "/textures/atx/storefront/camp/displays/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 500,
     "itemName": "Taxidermied Bear Stein Display"
   },
   {
@@ -44884,8 +44854,8 @@
     "itemName": "Cardboard Robot Costume",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "96d3ca807c5ae3cc16eb2d388191fbd4.webp",
-      "directory": "/textures/atomic_shop_media"
+      "imageName": "atx_apparel_headwear_cardboardrobot.webp",
+      "directory": "/textures/atx/storefront/player/headwear/"
     },
     "highPriceOriginal": 700,
     "carouselImages": []
