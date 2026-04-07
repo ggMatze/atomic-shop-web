@@ -229,6 +229,7 @@
       "directory": "/textures/atx/storefront/player/headwear/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 300,
     "itemName": "Black Sun Glasses"
   },
   {
@@ -755,6 +756,7 @@
       "directory": "/textures/atx/storefront/player/tattoo/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 250,
     "itemName": "Anchor"
   },
   {
@@ -4206,6 +4208,7 @@
       "directory": "/textures/atx/storefront/player/headwear/"
     },
     "carouselImages": [],
+    "highPriceOriginal":400,
     "itemName": "RobCo Cap"
   },
   {
@@ -10284,6 +10287,7 @@
       "directory": "/textures/atx/storefront/camp/utility/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 500,
     "itemName": "Bloody Arktos Refrigerator"
   },
   {
@@ -21141,44 +21145,14 @@
     "EDID": "ATX_ENTM_CAMP_Structure_ConcreteMausoleum",
     "desc": "Live your best afterlife above the ground with the Concrete Mausoleum.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "itemName": "Mausoleum Bundle",
-    "dynamicBundleItems": [
-      {
-        "szItemName": "Concrete Mausoleum"
-      },
-      {
-        "szItemName": "Tomb Bed"
-      },
-      {
-        "szItemName": "Bat Shadow Lamp"
-      },
-      {
-        "szItemName": "Ferocious Mr. Fuzzy Plushie"
-      }
-    ],
+    "itemName": "Concrete Mausoleum",
+    "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "c9d218d6d091d29dccdf595c14409a51.webp",
-      "directory": "/textures/atomic_shop_media"
+      "imageName": "atx_camp_structure_concretemausoleum_l.webp",
+      "directory": "textures/atx/storefront/camp/structures/"
     },
-    "highPriceOriginal": 1000,
-    "carouselImages": [
-      {
-        "imageName": "atx_camp_bed_tomb_l.webp",
-        "directory": "/textures/atx/storefront/camp/beds"
-      },
-      {
-        "imageName": "atx_entm_camp_lights_batshadowlamp_l.webp",
-        "directory": "/textures/atx/storefront/camp/lights"
-      },
-      {
-        "imageName": "atx_camp_floordecor_plushie_ferociousmrfuzzy_l.webp",
-        "directory": "/textures/atx/storefront/camp/floordecoration/"
-      },
-      {
-        "imageName": "atx_camp_structure_concretemausoleum_l.webp",
-        "directory": "/textures/atx/storefront/camp/structures/"
-      }
-    ]
+    "highPriceOriginal": 700,
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_Apparel_Outfit_EscapedPatient",
@@ -21696,6 +21670,7 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 500,
     "itemName": "Cow Spots Creamery Stand"
   },
   {
@@ -23971,6 +23946,7 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 700,
     "itemName": "The Stronghold"
   },
   {
@@ -25604,6 +25580,7 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 700,
     "itemName": "Iron Mountain Anvil"
   },
   {
@@ -28583,6 +28560,7 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 700,
     "itemName": "Boxing Ring"
   },
   {
@@ -30361,6 +30339,7 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 500,
     "itemName": "Red Truckbed Trailer"
   },
   {
@@ -38774,6 +38753,7 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 300,
     "itemName": "Message Board Kiosk"
   },
   {
@@ -44283,6 +44263,7 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 700,
     "itemName": "Big Fred's Trailer"
   },
   {
@@ -48649,6 +48630,7 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 700,
     "itemName": "Candle Haus"
   },
   {
@@ -48798,6 +48780,7 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 700,
     "itemName": "Wild Mountain Waystation"
   },
   {
@@ -55226,11 +55209,8 @@
       "directory": "/textures/atx/storefront/player/powerarmor/"
     },
     "carouselImages": [],
-    "itemName": "West Virginia Paint",
-    "dbIndex": 4840,
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "highPriceOriginal": 1000,
+    "itemName": "West Virginia Paint"
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_TX_BasicAqua",
@@ -55241,6 +55221,7 @@
       "directory": "/textures/atx/storefront/player/powerarmor/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 700,
     "itemName": "Aqua Power Armor Paint"
   },
   {
@@ -58236,6 +58217,7 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 700,
     "itemName": "Wasteland Wealth Exchange"
   },
   {
@@ -61481,6 +61463,7 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 300,
     "itemName": "Message Board Trail Kiosk"
   },
   {
@@ -63280,6 +63263,7 @@
       "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 700,
     "itemName": "Sippin' Station"
   },
   {
