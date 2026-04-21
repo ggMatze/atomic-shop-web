@@ -2,6 +2,536 @@
   "StorePageData": {
     "pages": [
       {
+        "name": "Rust on the River",
+        "tabid": "rust-on-the-river",
+        "isZeus": false,
+        "image": {
+          "imageName": "85feb9525a4705fd7d99810bf4af3894.webp",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2503984,
+            "itemName": "Rust on the River Bundle",
+            "itemNameShort": "Rust on the River Bundle",
+            "itemDesc": "Make life on the river more riveting with the Rust on the River bundle.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]This bundle contains some previously released Items.[/h]",
+            "primaryImage": {
+              "imageName": "ee879d09d32540051a0bc1d4af5ceef7.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s2_camp_floordeco_shipinabottle_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_walldecor_dolphish_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s16_camp_floordecor_shipwheel_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_wading.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "score_s15_camp_walldecor_mounteddolphinhead_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_camp_collector_steamboiler_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Ship in a Bottle"
+              },
+              {
+                "szItemName": "Dolphish Decor"
+              },
+              {
+                "szItemName": "Ship Wheel"
+              },
+              {
+                "szItemName": "Wading Jacket"
+              },
+              {
+                "szItemName": "Mounted Dolphish Head"
+              },
+              {
+                "szItemName": "Steam Boiler"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1400,
+              "originalAmount": 1400,
+              "isLto": true,
+              "ltoTimer": "2026-05-12T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1400,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1400
+            },
+            "isZeus": false,
+            "isNew": 2,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2503983,
+            "itemName": "Riverboat Gambler Bundle",
+            "itemNameShort": "Riverboat Gambler Bundle",
+            "itemDesc": "Throw a party on your riverboat casino with the Riverboat Gambler bundle!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]This bundle contains some previously released items.[/h]",
+            "primaryImage": {
+              "imageName": "0dabcba37ee6fe8e68b2f47007d8cce4.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_structure_appalachian_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "score_s15_entm_camp_walldecor_wildcardsposter4_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_whiteblacktux_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "score_s15_camp_furniture_chair_pokerchipsstool_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "score_s15_skin_backpackflair_redblackpokerchip_l.webp",
+                "directory": "/textures/atx/storefront/player/flair/"
+              },
+              {
+                "imageName": "atx_camp_machinery_generator_appalachian_l.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "score_s15_camp_lights_ceiling_fancychandelier_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_displaycase_axolotlaquarium.webp",
+                "directory": "/textures/atx/storefront/camp/displays/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "The Appalachian Ace"
+              },
+              {
+                "szItemName": "Queen of Hearts Poster"
+              },
+              {
+                "szItemName": "Black and White Tuxedo with Tails"
+              },
+              {
+                "szItemName": "Poker Chips Stool"
+              },
+              {
+                "szItemName": "Red and Black Poker Chip Backpack Flair"
+              },
+              {
+                "szItemName": "Appalachian Generator"
+              },
+              {
+                "szItemName": "Elegant Chandelier"
+              },
+              {
+                "szItemName": "Axolotl Aquarium Display Case"
+              }
+            ],
+            "lowPrice": {
+              "amount": 2500,
+              "originalAmount": 2500,
+              "isLto": true,
+              "ltoTimer": "2026-05-12T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 2500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 2500
+            },
+            "isZeus": false,
+            "isNew": 2,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2503982,
+            "itemName": "Fish monger's Bundle",
+            "itemNameShort": "Fish monger's Bundle",
+            "itemDesc": "The gods do not deduct from one's allotted span the time spent in fishing.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n[h]This bundle contains mostly previously released items.[/h]",
+            "primaryImage": {
+              "imageName": "fa2af7fc31438bb7c694d1963a9e54dc.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_floor_floatingdock_l.webp",
+                "directory": "/textures/atx/storefront/camp/floors/"
+              },
+              {
+                "imageName": "atx_skin_weaponskin_fishingrod_wellkept.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "atx_camp_collector_fishtrap_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s3_camp_floordecor_blackmat_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_collector_fishpile.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Floating Dock Floor"
+              },
+              {
+                "szItemName": "Well-kept Rod Paint"
+              },
+              {
+                "szItemName": "Fish Trap"
+              },
+              {
+                "szItemName": "Black Rubber Mat"
+              },
+              {
+                "szItemName": "Pile of Fish"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1000,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-12T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1000,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1000
+            },
+            "isZeus": false,
+            "isNew": 2,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false,
+            "preferDB": false,
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
+          },
+          {
+            "itemID": 2503981,
+            "itemName": "The Appalachian Ace",
+            "itemNameShort": "Appalachian Ace",
+            "itemDesc": "Ride the current and risk your caps aboard Appalachia's most luxurious steamboat.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_structure_appalachian_l.webp",
+              "directory": "/textures/atx/storefront/camp/structures/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_structure_appalachian_c1.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_structure_appalachian_c2.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_structure_appalachian_c3.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 700,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-12T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 700,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "isNew": 1,
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2503980,
+            "itemName": "Axolotl Aquarium Display Case",
+            "itemNameShort": "Axolotl Aquarium",
+            "itemDesc": "Give your axolotls the home they deserve!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_displaycase_axolotlaquarium.webp",
+              "directory": "/textures/atx/storefront/camp/displays/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_displaycase_axolotlaquarium_c1.webp",
+                "directory": "/textures/atx/storefront/camp/displays/"
+              },
+              {
+                "imageName": "atx_camp_displaycase_axolotlaquarium_c2.webp",
+                "directory": "/textures/atx/storefront/camp/displays/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 500,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-12T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "isNew": 1,
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2503979,
+            "itemName": "Wading Jacket",
+            "itemNameShort": "Wading Jacket",
+            "itemDesc": "Perfect for those rainy river nights, this outfit's combined headwear is sure to keep you dry.",
+            "primaryImage": {
+              "imageName": "atx_apparel_outfit_wading.webp",
+              "directory": "/textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_outfit_wading_c1.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_wading_c2.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 700,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-12T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 700,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "isNew": 1,
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2503978,
+            "itemName": "Steam Boiler",
+            "itemNameShort": "Steam Boiler",
+            "itemDesc": "A repurposed steam boiler from an old ship, perfect for boiling water!\nGenerates Boiled Water.\nThis item cannot be built inside of a Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_collector_steamboiler_l.webp",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_collector_steamboiler_c1.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_collector_steamboiler_c2.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 500,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-12T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "isNew": 1,
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false
+          },
+          {
+            "itemID": 2503977,
+            "itemName": "Pile of Fish",
+            "itemNameShort": "Pile of Fish",
+            "itemDesc": "This squirming pile of fish dispenses commin baits\nThis item cannot be built inside of a Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_collector_fishpile.webp",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_collector_fishpile_c1.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_collector_fishpile_c2.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 500,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-12T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "isNew": 1,
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2503976,
+            "itemName": "Dolphish Decor",
+            "itemNameShort": "Dolphish Decor",
+            "itemDesc": "This ceiling-hung dolphish is featuring far too many teeth for anyone's comfort.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_walldecor_dolphish_l.webp",
+              "directory": "/textures/atx/storefront/camp/walldecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_walldecor_dolphish_c1.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_camp_walldecor_dolphish_c2.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 250,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-12T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 250,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 250
+            },
+            "isZeus": false,
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          }
+        ]
+      },
+      {
         "name": "Atomic Sales\\n Only the best deals!",
         "tabid": "atomic-sales",
         "isZeus": false,
@@ -1978,560 +2508,6 @@
         ]
       },
       {
-        "name": "Weekend Sale \\n The Season Returns!",
-        "tabid": "weekend-sale",
-        "isZeus": false,
-        "image": {
-          "imageName": "020b201b3595dd4c555ce48cdc45a582.dds",
-          "directory": "textures/atomic_shop_media/"
-        },
-        "items": [
-          {
-            "itemID": 2504007,
-            "itemName": "Fallout First Nuka-World Catch Up Bundle",
-            "itemNameShort": "Fallout First Season Catch Up",
-            "itemDesc": "New to Fallout First or missed an item from Season 11? This Bundle will let you find some of those items.\n\nThis offer is exclusive to Fallout 1st Members.\nPRODUCES:\n[url=https://www.theduchessflame.com/post/camp-resource-nuka-cola-candy-machine]✦ Nuka-Cola Candy  [/url]",
-            "primaryImage": {
-              "imageName": "1c1de0d1074b23db86224faea6838923.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s11_entm_camp_floordecor_nwot_ticketbooth_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "score_s11_f1_utility_nuka_world_garbage_bin_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "score_s11_camp_defense_redpicketfences_l.webp",
-                "directory": "/textures/atx/storefront/camp/defenses/"
-              },
-              {
-                "imageName": "score_s11_camp_bed_nukacola_l.webp",
-                "directory": "/textures/atx/storefront/camp/beds/"
-              },
-              {
-                "imageName": "score_s11_camp_structure_prisoncar_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "score_s11_camp_floordecor_factorycablespool_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "score_s11_utility_ammostoragebox_patriot_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "score_s11_camp_lights_greennukacolabillboard_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "score_s11_camp_utility_nukacolacandymachine_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "score_s11_apparel_outfit_pipeislifetshirtjeans_l.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "score_s11_camp_floordecor_plushie_nukaquantummrfuzzy_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_playericon_s11_wildwestcappy.webp",
-                "directory": "/textures/atx/storefront/player/playericons/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Nuka-World on Tour Ticket Booth"
-              },
-              {
-                "szItemName": "Nuka-World on Tour Garbage Bin"
-              },
-              {
-                "szItemName": "Red Picket Fences"
-              },
-              {
-                "szItemName": "Nuka-Cola Bed"
-              },
-              {
-                "szItemName": "Prison Car"
-              },
-              {
-                "szItemName": "Factory Cable Spool"
-              },
-              {
-                "szItemName": "Patriot Ammo Storage Box"
-              },
-              {
-                "szItemName": "Green Nuka-Cola Billboard"
-              },
-              {
-                "szItemName": "✦ Nuka-Cola Candy Machine"
-              },
-              {
-                "szItemName": "Pipe Is Life T-shirt & Jeans Outfit"
-              },
-              {
-                "szItemName": "Nuka-Cola Quantum Mr. Fuzzy Plushie"
-              },
-              {
-                "szItemName": "Wild West Cappy Player Icon"
-              }
-            ],
-            "lowPrice": {
-              "amount": 1125,
-              "originalAmount": 1125,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1125,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 1500,
-              "originalAmount": 1500
-            },
-            "isZeus": true,
-            "_detectedSuffixInfo": {
-              "maxC": 1,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false,
-            "preferDB": false
-          },
-          {
-            "itemID": 2504008,
-            "itemName": "Leo Petrov Bundle",
-            "itemNameShort": "Leo Petrov Bundle",
-            "itemDesc": "Welcome the most dedicated Nuka-Cola employee Leo Petrov to your C.A.M.P. with the Leo Petrov Bundle.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. –",
-            "primaryImage": {
-              "imageName": "cf2f3cca81bbcde0ec263038b027262c.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s11_camp_ally_nukaagent_leo_l.webp",
-                "directory": "/textures/atx/storefront/camp/ally/"
-              },
-              {
-                "imageName": "score_s11_entm_camp_furniture_nukacolaarcadedartmachine_l.webp",
-                "directory": "/textures/atx/storefront/camp/furniture/"
-              },
-              {
-                "imageName": "score_s11_camp_walldecor_nukacolaplaque_l.webp",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
-              },
-              {
-                "imageName": "score_s11_apparel_underarmor_secretservice_nukatwist_l.webp",
-                "directory": "/textures/atx/storefront/player/underarmor/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Lite Ally: Leo Petrov"
-              },
-              {
-                "szItemName": "Nuka-Blitz Arcade Dart Machine"
-              },
-              {
-                "szItemName": "Nuka-Cola Plaque"
-              },
-              {
-                "szItemName": "Nuka-Twist Secret Service Underarmor"
-              }
-            ],
-            "lowPrice": {
-              "amount": 1350,
-              "originalAmount": 1350,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1350,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 1800
-            },
-            "isZeus": false,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 1,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2504009,
-            "itemName": "Nuka-Cola Superfan Bundle",
-            "itemNameShort": "Nuka-Cola Superfan Bundle",
-            "itemDesc": "Show off your greatest Nuka-Cola spirit with this Superfan bundle!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\nPRODUCES:\n[url=https://www.theduchessflame.com/post/camp-resource-nuka-cola-candy-machine]✦ Nuka-Cola Candy  [/url]",
-            "primaryImage": {
-              "imageName": "0b58d6ca85e5aece425142ba9a89da24.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s11_entm_camp_floordecor_nukacolawagon_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "score_s11_entm_camp_floordecor_sodafountainglobe_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "score_s11_camp_floordecor_plushie_nukacolamrfuzzy_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "score_s11_camp_bed_sleepingbag_nukacola_l.webp",
-                "directory": "/textures/atx/storefront/camp/beds/"
-              },
-              {
-                "imageName": "score_s11_camp_bed_nukacola_l.webp",
-                "directory": "/textures/atx/storefront/camp/beds/"
-              },
-              {
-                "imageName": "score_s11_utility_nukacolamystermachine_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "score_s11_camp_utility_nukacolacandymachine_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Nuka-Cola Wagon"
-              },
-              {
-                "szItemName": "Soda Fountain Globe"
-              },
-              {
-                "szItemName": "Nuka-Cola Mr. Fuzzy Plushie"
-              },
-              {
-                "szItemName": "Nuka-Cola Sleeping Bag"
-              },
-              {
-                "szItemName": "Nuka-Cola Bed"
-              },
-              {
-                "szItemName": "Nuka-Cola Mystery Machine"
-              },
-              {
-                "szItemName": "✦ Nuka-Cola Candy Machine"
-              }
-            ],
-            "lowPrice": {
-              "amount": 1125,
-              "originalAmount": 1125,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1125,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 1500
-            },
-            "isZeus": false,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 1,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2503703,
-            "itemName": "Nuka-Cola Quantum Collectron Station",
-            "itemNameShort": "Nuka-Cola Quantum Collectron Station",
-            "itemDesc": "Take the leap... Enjoy a Quantum! Don't have any Nuka-Cola Quantum? Let this Collectron find some for you!\n\nThis item cannot be built inside of a Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\nCOLLECTS:\n[h]✦ Nuka-Cola Related items[/h]",
-            "primaryImage": {
-              "imageName": "score_s11_camp_utility_collectron_nukaquantum_l.webp",
-              "directory": "/textures/atx/storefront/camp/utility/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s11_camp_utility_collectron_nukaquantum_c1.dds",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "score_s11_camp_utility_collectron_nukaquantum_c2.dds",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 500,
-              "originalAmount": 500,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 500,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 500
-            },
-            "isZeus": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2503350,
-            "itemName": "Nuka-Twist Secret Service Underarmor",
-            "itemNameShort": "Nuka-Twist Secret Service Underarmor",
-            "itemDesc": "Put a Twist on your wardrobe with the Nuka-Twist Secret Service Underarmor.\r\n\r\n(Requires the Secret Service Underarmor Plan to be learned.)\r\n\r\nThis item is worn under your armor and is in the Secret Service mod group.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage": {
-              "imageName": "score_s11_apparel_underarmor_secretservice_nukatwist.dds",
-              "directory": "/textures/atx/storefront/player/underarmor/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s11_apparel_underarmor_secretservice_nukatwist_c1.dds",
-                "directory": "/textures/atx/storefront/player/underarmor/"
-              },
-              {
-                "imageName": "score_s11_apparel_underarmor_secretservice_nukatwist_c2.dds",
-                "directory": "/textures/atx/storefront/player/underarmor/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 500,
-              "originalAmount": 500,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 500,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 500
-            },
-            "isZeus": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": false,
-              "hasNone": true
-            },
-            "isClown": false
-          },
-          {
-            "itemID": 2503829,
-            "itemName": "Cappy Hot Tub",
-            "itemNameShort": "Cappy Hot Tub",
-            "itemDesc": "Jump inside this Cappy soaking tub and let your stress just melt away...\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "score_s11_camp_furniture_cappyhottub_l.webp",
-              "directory": "/textures/atx/storefront/camp/furniture/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s11_camp_furniture_cappyhottub_c1.dds",
-                "directory": "/textures/atx/storefront/camp/furniture/"
-              },
-              {
-                "imageName": "score_s11_camp_furniture_cappyhottub_c2.dds",
-                "directory": "/textures/atx/storefront/camp/furniture/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 700,
-              "originalAmount": 700,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 700,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 700
-            },
-            "isZeus": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2503683,
-            "itemName": "Bottle Backpack",
-            "itemNameShort": "Bottle Backpack",
-            "itemDesc": "Show off your love for Bottle with this stylish new backpack!\n\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage": {
-              "imageName": "score_s11_skin_backpack_bottle_l.webp",
-              "directory": "/textures/atx/storefront/player/backpack/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s11_skin_backpack_bottle_c1.dds",
-                "directory": "/textures/atx/storefront/player/backpack/"
-              },
-              {
-                "imageName": "score_s11_skin_backpack_bottle_c2.dds",
-                "directory": "/textures/atx/storefront/player/backpack/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 500,
-              "originalAmount": 500,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 500,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 500
-            },
-            "isZeus": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2503946,
-            "itemName": "Nuka-World Cowboy Chaps",
-            "itemNameShort": "Nuka-World Cowboy Chaps",
-            "itemDesc": "Wrangle up your favorite Nuka-Cola with these Nuka-World Cowboy Chaps!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage": {
-              "imageName": "score_s11_apparel_outfit_nukacowboychaps_l.webp",
-              "directory": "/textures/atx/storefront/player/outfit/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s11_apparel_outfit_nukacowboychaps_c1.dds",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "score_s11_apparel_outfit_nukacowboychaps_c2.dds",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 500,
-              "originalAmount": 500,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 500,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 500
-            },
-            "isZeus": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2503225,
-            "itemName": "Cappy Hat",
-            "itemNameShort": "Cappy Hat",
-            "itemDesc": "Cappy on a cap. Stylish and branded!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage": {
-              "imageName": "score_s11_apparel_headwear_cappyhat.dds",
-              "directory": "/textures/atx/storefront/player/headwear/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s11_apparel_headwear_cappyhat_c1.dds",
-                "directory": "/textures/atx/storefront/player/headwear/"
-              },
-              {
-                "imageName": "score_s11_apparel_headwear_cappyhat_c2.dds",
-                "directory": "/textures/atx/storefront/player/headwear/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 250,
-              "originalAmount": 250,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 250,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 250
-            },
-            "isZeus": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": false,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          }
-        ]
-      },
-      {
         "name": "NCR Trooper\\n Everyone loves the NCR!",
         "tabid": "ncr-trooper",
         "isZeus": false,
@@ -3105,543 +3081,6 @@
         ]
       },
       {
-        "name": "Greatest Hits \\n Best of the best!",
-        "tabid": "greatest-hits",
-        "isZeus": false,
-        "image": {
-          "imageName": "b79a836c0d98517a28ed48d3c97d7292.dds",
-          "directory": "textures/atomic_shop_media/"
-        },
-        "items": [
-          {
-            "itemID": 2504003,
-            "itemName": "Brotherhood Reclaimed Deluxe Bundle",
-            "itemNameShort": "BoS Reclaimed Bundle",
-            "itemDesc": "Use what you find and reclaim Appalachia!\n\nIncluded with the Brotherhood of Steel Digital Upgrades.\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
-            "primaryImage": {
-              "imageName": "ef21499abb37b5beb3f76fd46ede0ed2.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_upgrade2018_bos_camp_structure_bosscoutingtower_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_upgrade2018_bos_skin_powerarmor_paint_bosreclaimed_l.webp",
-                "directory": "/textures/atx/storefront/player/powerarmor/"
-              },
-              {
-                "imageName": "atx_upgrade2020_bos_camp_defense_bosbarricade_l.webp",
-                "directory": "/textures/atx/storefront/camp/defenses/"
-              },
-              {
-                "imageName": "atx_upgrade2018_bos_camp_stashbox_bosbarrackslocker_l.webp",
-                "directory": "/textures/atx/storefront/camp/stash/"
-              },
-              {
-                "imageName": "atx_upgrade2018_bos_skin_backpack_bostacticalfieldpack_l.webp",
-                "directory": "/textures/atx/storefront/player/backpack/"
-              },
-              {
-                "imageName": "bos_salute.webp",
-                "directory": "/textures/emotes/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Brotherhood of Steel Scouting Tower"
-              },
-              {
-                "szItemName": "Brotherhood Reclaimed Power Armor Paint"
-              },
-              {
-                "szItemName": "Brotherhood of Steel Barricade"
-              },
-              {
-                "szItemName": "Brotherhood Barracks Locker"
-              },
-              {
-                "szItemName": "Brotherhood Tactical Field Pack"
-              },
-              {
-                "szItemName": "Brotherhood of Steel Salute"
-              }
-            ],
-            "lowPrice": {
-              "amount": 1680,
-              "originalAmount": 1680,
-              "isLto": true,
-              "ltoTimer": "2026-05-05T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1680,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 2400
-            },
-            "isZeus": false,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 1,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2504004,
-            "itemName": "Brotherhood Scouting Bundle",
-            "itemNameShort": "Brotherhood Scouting Bundle",
-            "itemDesc": "Build an outpost and scout out the enemy with the Brotherhood Scouting Bundle\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "9ce74902a83c2b1fb8ae7e6ec29aab49.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_floordecor_cementtirewall_01_c1.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_cementtirewall_03_c1.dds",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_cementtirewall_02_c1.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_cementtirewall_04_c1.dds",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_utility_slocumsjoe_coffeemachine01_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "atx_upgrade2018_bos_camp_structure_bosscoutingtower_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_camp_defense_turret_camo01_l.webp",
-                "directory": "/textures/atx/storefront/camp/defenses/"
-              },
-              {
-                "imageName": "atx_upgrade2018_bos_camp_stashbox_bosbarrackslocker_l.webp",
-                "directory": "/textures/atx/storefront/camp/stash/"
-              },
-              {
-                "imageName": "atx_entm_camp_floordecor_bustedradio.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Flat Cement Tire Wall"
-              },
-              {
-                "szItemName": "Pyramid Cement Tire Wall"
-              },
-              {
-                "szItemName": "Jagged Cement Tire Wall"
-              },
-              {
-                "szItemName": "Tall Cement Tire Wall"
-              },
-              {
-                "szItemName": "Slocum's Joe Coffee Machine"
-              },
-              {
-                "szItemName": "Brotherhood of Steel Scouting Tower"
-              },
-              {
-                "szItemName": "Camo Turret Set"
-              },
-              {
-                "szItemName": "Brotherhood Barracks Locker"
-              },
-              {
-                "szItemName": "Busted Radio"
-              }
-            ],
-            "lowPrice": {
-              "amount": 1260,
-              "originalAmount": 1260,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1260,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 1800
-            },
-            "isZeus": false,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 1,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2504005,
-            "itemName": "Brotherhood Field Station Bundle",
-            "itemNameShort": "Brotherhood Field Station Bundle",
-            "itemDesc": "Create a forward operation base and keep well supplied with the Brotherhood Field Station Bundle.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "38535ca772ba5b2fa771992298449b6b.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_walldeco_letters_chalk.webp",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_chalkboard_industrial.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "score_s2_camp_structure_bosfieldstation_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_camp_walldeco_mapglowinthedark_l.webp",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
-              },
-              {
-                "imageName": "atx_camp_walldeco_windowboards_hauntedhouse_l.webp",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
-              },
-              {
-                "imageName": "atx_entm_camp_walldecor_defconsign.webp",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
-              },
-              {
-                "imageName": "score_s1_camp_utility_weightbench_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Chalkboard Letter Kit"
-              },
-              {
-                "szItemName": "Industrial Slate Chalkboard"
-              },
-              {
-                "szItemName": "Brotherhood of Steel Field Station"
-              },
-              {
-                "szItemName": "Glow-in-the-Dark Appalachia Map"
-              },
-              {
-                "szItemName": "Haunted House Window Boards"
-              },
-              {
-                "szItemName": "DEFCON Sign"
-              },
-              {
-                "szItemName": "Weight Bench"
-              }
-            ],
-            "lowPrice": {
-              "amount": 1260,
-              "originalAmount": 1260,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1260,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 1800
-            },
-            "isZeus": false,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 1,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2504006,
-            "itemName": "Brotherhood Bundle",
-            "itemNameShort": "Brotherhood Bundle",
-            "itemDesc": "Build an arsenal that would make the Brotherhood jealous with this Brotherhood of Steel Bundle!\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "31f36e13564c30e8fbfee9bf15852df5.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_skin_powerarmor_paint_steelreign_l.webp",
-                "directory": "/textures/atx/storefront/player/powerarmor/"
-              },
-              {
-                "imageName": "atx_apparel_headwear_bosheadwrap_l.webp",
-                "directory": "/textures/atx/storefront/player/headwear/"
-              },
-              {
-                "imageName": "atx_camp_structure_bosarmory_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_camp_stashbox_boshightech_l.webp",
-                "directory": "/textures/atx/storefront/camp/stash/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Steel Reign Power Armor Paint"
-              },
-              {
-                "szItemName": "Brotherhood of Steel Headwraps"
-              },
-              {
-                "szItemName": "Brotherhood of Steel Armory"
-              },
-              {
-                "szItemName": "Brotherhood High Tech Stash Box"
-              }
-            ],
-            "lowPrice": {
-              "amount": 1260,
-              "originalAmount": 1260,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1260,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 1800
-            },
-            "isZeus": true,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 1,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2503779,
-            "itemName": "Brotherhood High Tech Stash Box",
-            "itemNameShort": "High Tech Stash",
-            "itemDesc": "Secure your tech with the Brotherhood of Steel High Tech Stash Box.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "9a2ca660caf883819253b53a72e13b6d.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_stashbox_boshightech_c1.dds",
-                "directory": "/textures/atx/storefront/camp/stash/"
-              },
-              {
-                "imageName": "atx_camp_stashbox_boshightech_c2.dds",
-                "directory": "/textures/atx/storefront/camp/stash/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 450,
-              "originalAmount": 450,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 450,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 500
-            },
-            "isZeus": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": false,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2503513,
-            "itemName": "Brotherhood of Steel Armory",
-            "itemNameShort": "Brotherhood Armory",
-            "itemDesc": "Build an arsenal that would make the Brotherhood jealous in the Brotherhood of Steel Armory.\n\nBrotherhood of Steel Armory door is included and built separately.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "atx_camp_structure_bosarmory_l.webp",
-              "directory": "/textures/atx/storefront/camp/structures/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_structure_bosarmory_c1.dds",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_camp_structure_bosarmory_c2.dds",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_camp_structure_bosarmory_c3.dds",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 630,
-              "originalAmount": 630,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 630,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 700
-            },
-            "isZeus": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 3,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2503536,
-            "itemName": "Brotherhood of Steel Scouting Tower",
-            "itemNameShort": "BoS Scouting Tower",
-            "itemDesc": "Survey Appalachia for new threats and opportunities from this massive Scouting Tower! Includes a unique door.\n\nIncluded with the Brotherhood of Steel Digital Upgrades.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "atx_upgrade2018_bos_camp_structure_bosscoutingtower_l.webp",
-              "directory": "/textures/atx/storefront/camp/structures/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_upgrade2018_bos_camp_structure_bosscoutingtower_c1.dds",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_upgrade2018_bos_camp_structure_bosscoutingtower_c2.dds",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_upgrade2018_bos_camp_structure_bosscoutingtower_c3.dds",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_upgrade2018_bos_camp_structure_bosscoutingtower_c4.dds",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 720,
-              "originalAmount": 720,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 720,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 800
-            },
-            "isZeus": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 4,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2503816,
-            "itemName": "Busted Radio",
-            "itemNameShort": "Busted Radio",
-            "itemDesc": "Hey, it still works!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "atx_entm_camp_floordecor_bustedradio.dds",
-              "directory": "/textures/atx/storefront/camp/floordecoration/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_entm_camp_floordecor_bustedradio_c1.dds",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_entm_camp_floordecor_bustedradio_c2.dds",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 270,
-              "originalAmount": 270,
-              "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 270,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 300
-            },
-            "isZeus": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": false,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false
-          }
-        ]
-      },
-      {
         "name": "S.P.E.C.I.A.L \\n Free and Special Offers",
         "tabid": "s-p-e-c-i-a-l",
         "isZeus": false,
@@ -3652,29 +3091,20 @@
         "items": [
           {
             "itemID": 2503740,
-            "itemName": "Blue and Tan Shirt and Slacks",
-            "itemNameShort": "Blue Shirt and Slacks",
-            "itemDesc": "Business casual survives the apocalypse with this Blue and Tan Shirt and Slacks.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemName": "Communist Salute Emote",
+            "itemNameShort": "Communist Salute",
+            "itemDesc": "A salute to show you understand dialectical materialism. All those who do not salute in return should be noted and reported.\n\n- UNLOCKS AN EMOTE OPTION.\nEMOTES ARE SELECTABLE IN THE EMOTE WHEEL. -",
             "primaryImage": {
-              "imageName": "atx_apparel_outfit_prewarshortsleevesandslacks_blueandtan_l.webp",
-              "directory": "/textures/atx/storefront/player/outfit/"
+              "imageName": "commi_salute.webp",
+              "directory": "/textures/emotes/"
             },
-            "carouselImages": [
-              {
-                "imageName": "atx_apparel_outfit_prewarshortsleevesandslacks_blueandtan_c1.dds",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_apparel_outfit_prewarshortsleevesandslacks_blueandtan_c2.dds",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              }
-            ],
+            "carouselImages": [],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 0,
               "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-04-21T12:00:00.000Z"
+              "ltoTimer": "2026-04-28T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 0,
