@@ -2492,6 +2492,467 @@
         ]
       },
       {
+        "name": "Weekend Sale\\nGreat Deals Return!",
+        "tabid": "weekend-sale",
+        "isZeus": false,
+        "image": {
+          "imageName": "020b201b3595dd4c555ce48cdc45a582.webp",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2504000,
+            "itemName": "Attack of the fishermen billboard",
+            "itemNameShort": "Fishmen Billboard",
+            "itemDesc": "Show off your love for Attack of the Fishmen but maybe don't let the Mirelurks see ...\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s13_camp_light_floor_moviebillboard_l.webp",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s13_camp_light_floor_moviebillboard_c1.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s13_camp_light_floor_moviebillboard_c2.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 500,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-04-28T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2504001,
+            "itemName": "Mounted Fish Set",
+            "itemNameShort": "Mounted Fish Set",
+            "itemDesc": "Show off your catch with the Mounted Fish Set!\nIncludes three Wall Mounted Fish and three Standing Fish.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_floordecor_mounted_fish_l.webp",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_floordecor_mounted_fish_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_walldeco_mounted_fish_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 210,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-04-28T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 210,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 300
+            },
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2504002,
+            "itemName": "Rifle Drill Emote",
+            "itemNameShort": "Rifle Drill Emote",
+            "itemDesc": "For when you can't resist showing off your skills with a rifle!\n\n- UNLOCKS AN EMOTE OPTION.\nEMOTES ARE SELECTABLE IN THE EMOTE WHEEL. -",
+            "primaryImage": {
+              "imageName": "rifle_drill.webp",
+              "directory": "/textures/emotes/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 175,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-04-28T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 175,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 250
+            },
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2504003,
+            "itemName": "Park Ranger Bundle",
+            "itemNameShort": "Park Ranger Bundle",
+            "itemDesc": "Keep the forests of Appalachia safe with the Park Ranger Bundle!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n\n\n",
+            "primaryImage": {
+              "imageName": "5f75576ab7cc3464514615b23a762380.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_outfit_jumpsuit_ranger_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_parkranger.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_camp_structure_firewachtower_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_photomode_frame_vaultexploring01_l.webp",
+                "directory": "/textures/atx/storefront/player/photoframe/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Park Ranger Jumpsuit"
+              },
+              {
+                "szItemName": "Park Ranger Power Armor Skin"
+              },
+              {
+                "szItemName": "Firewatch Lookout Tower"
+              },
+              {
+                "szItemName": "Exploring Our New World Frame"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1260,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-04-28T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1260,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false,
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
+          },
+          {
+            "itemID": 2504004,
+            "itemName": "Riders Mega Bundle",
+            "itemNameShort": "Riders Mega Bundle",
+            "itemDesc": "Help usher in the apocalypse with the Riders Power Armor Mega Bundle",
+            "primaryImage": {
+              "imageName": "fb3400b0bceeaf19f0a4badc1ab3cf2c.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_photomode_frame_palerider_l.webp",
+                "directory": "/textures/atx/storefront/player/photoframe/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_skin_palerider_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_photomode_frame_warrider_l.webp",
+                "directory": "/textures/atx/storefront/player/photoframe/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_skin_warrider_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_photomode_frame_blackrider_l.webp",
+                "directory": "/textures/atx/storefront/player/photoframe/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_skin_blackrider_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_photomode_frame_plaguerider_l.webp",
+                "directory": "/textures/atx/storefront/player/photoframe/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_skin_plaguerider_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Pale Rider Frame"
+              },
+              {
+                "szItemName": "Pale Rider Power Armor Skin"
+              },
+              {
+                "szItemName": "War Rider Frame"
+              },
+              {
+                "szItemName": "War Rider Power Armor Skin"
+              },
+              {
+                "szItemName": "Black Rider Frame"
+              },
+              {
+                "szItemName": "Black Rider Power Armor Skin"
+              },
+              {
+                "szItemName": "Plague Rider Frame"
+              },
+              {
+                "szItemName": "Plague Rider Power Armor Skin"
+              }
+            ],
+            "lowPrice": {
+              "amount": 2100,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-04-28T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 2100,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 3000
+            },
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2504000,
+            "itemName": "Clean Industrial Fan",
+            "itemNameShort": "Clean Industrial Fan",
+            "itemDesc": "Bring the breeze to your C.A.M.P. with the Clean Industrial Fan!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_walldeco_industrialfan_clean_l.webp",
+              "directory": "/textures/atx/storefront/camp/walldecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_walldeco_industrialfan_clean_c1.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_camp_walldeco_industrialfan_clean_c2.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 210,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-04-28T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 210,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 300
+            },
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2504000,
+            "itemName": "Fish Lamp",
+            "itemNameShort": "Fish Lamp",
+            "itemDesc": "Does your C.A.M.P. need a nice, aquatic glow? This Fish Lamp is just what you need.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_lights_fishlamp_l.webp",
+              "directory": "/textures/atx/storefront/camp/lights/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_lights_fishlamp_c1.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_lights_fishlamp_c2.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 210,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-04-28T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 210,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 300
+            },
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2504000,
+            "itemName": "Atomic Rodeo Slot Machine",
+            "itemNameShort": "Atomic Rodeo Slot Machine",
+            "itemDesc": "Ride the fission and have a nuclear fun evening with the Atomic Rodeo Slot Machine!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_furniture_atomicrodeo_slotmachine.webp",
+              "directory": "/textures/atx/storefront/camp/furniture/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_furniture_atomicrodeo_slotmachine_c1.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_furniture_atomicrodeo_slotmachine_c2.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 350,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-04-28T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 350,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2504000,
+            "itemName": "West Virginia Slot Machine",
+            "itemNameShort": "WV Slot Machine",
+            "itemDesc": "Are you lucky enough to win the jackpot? Spin the reels of the West Virginia Slot Machine and find out!\nSlot machines grant rewards only to players who spend Caps to use them.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s7_utility_slotmachine_wv_l.webp",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s7_utility_slotmachine_wv_c1.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s7_utility_slotmachine_wv_c2.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 350,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-04-28T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 350,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false
+          }
+        ]
+      },
+      {
         "name": "Big Catch\\n Show them all how big it really was!",
         "tabid": "big-catch",
         "isZeus": false,
@@ -3048,7 +3509,6 @@
           }
         ]
       },
-      
       {
         "name": "S.P.E.C.I.A.L \\n Free and Special Offers",
         "tabid": "s-p-e-c-i-a-l",
