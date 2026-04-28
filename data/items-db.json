@@ -7729,9 +7729,7 @@
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": [],
-    "newImagesAdded": 1,
-    "matchedImages": 2,
-    "dbIndexMode": true,
+    "highPriceOriginal": 250,
     "itemName": "Flatwoods Monster Plushie"
   },
   {
@@ -18461,10 +18459,7 @@
     },
     "carouselImages": [],
     "itemName": "White Display Frame",
-    "dbIndex": 1626,
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_F1_ENTM_CAMP_Display_ChassisDisplayFrame_Red",
@@ -23280,6 +23275,7 @@
       "directory": "/textures/atx/storefront/player/weaponmodel/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 700,
     "itemName": "Light 'Em Up Paint"
   },
   {
@@ -44676,6 +44672,7 @@
       "directory": "/textures/atx/storefront/camp/walldecoration/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 350,
     "itemName": "DEFCON Sign"
   },
   {
@@ -58458,6 +58455,7 @@
       "directory": "/textures/atx/storefront/camp/walldecoration/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 350,
     "itemName": "Nuka-Cola Thermometer Variant"
   },
   {
@@ -67234,6 +67232,19 @@
     },
     "carouselImages": []
   },
+  {
+    "EDID": "ATX_Shelters_ENTM_ShelterEntrance_RestrictedArea",
+    "itemName": "Restricted Area Shelter",
+    "desc": "Why not build a shelter in this restricted-access military bunker?\nBuild this entrance to access your Shelter.",
+    "disclaimer": "- SHELTER ENTRANCES CAN BE PLACED IN C.A.M.P. MODE. -",
+    "primaryImage": {
+        "imageName": "shelters_shelterentrance_restrictedarea_l.webp",
+        "directory": "/textures/atx/storefront/camp/shelter/"
+      },
+      "highPriceOriginal": 1500,
+      "carouselImages": []
+  }
+  ,
   {
     "EDID": "ATX_ENTM_Skin_WeaponSkin_50CalMachineGun_RustRiddler",
     "itemName": "Rust Riddler Paint",
