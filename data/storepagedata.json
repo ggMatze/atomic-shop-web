@@ -14,7 +14,7 @@
             "itemID": 5001,
             "itemName": "Restricted Area Bundle",
             "itemNameShort": "Restricted Area Bundle",
-            "itemDesc": "Everything you need to start your very own restricted area military bunker!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- UNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS. -",
+            "itemDesc": "Everything you need to start your very own restricted area military bunker!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- UNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS. -\n[h]*This bundle contains multiple previously released items, bundled with one new item.[/h]",
             "primaryImage": {
               "imageName": "97abd92f1a9816ca6e7469ab86ed8c60.webp",
               "directory": "/textures/atomic_shop_media/"
@@ -73,7 +73,7 @@
               "originalAmount": 2000
             },
             "isZeus": false,
-            "isNew": 1,
+            "isNew": 2,
             "_detectedSuffixInfo": {
               "maxC": 0,
               "hasL": true,
@@ -81,14 +81,14 @@
             },
             "hasCustomDesc": true,
             "hasCustomDisc": true,
-            "isClown": false,
+            "isClown": true,
             "preferDB": false
           },
           {
             "itemID": 5002,
             "itemName": "Salvaged Ufo Bundle",
             "itemNameShort": "Salvaged Ufo Bundle",
-            "itemDesc": "Property of Area 51, return if found.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+            "itemDesc": "Property of Area 51, return if found.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n[h]*This bundle contains previously released items.[/h]",
             "primaryImage": {
               "imageName": "4221a4881cf837f369f36207a90db684.webp",
               "directory": "/textures/atomic_shop_media/"
@@ -147,7 +147,7 @@
               "originalAmount": 1500
             },
             "isZeus": false,
-            "isNew": 1,
+            "isNew": 2,
             "_detectedSuffixInfo": {
               "maxC": 0,
               "hasL": true,
@@ -162,7 +162,7 @@
             "itemID": 5003,
             "itemName": "Secret Laboratory Bundle",
             "itemNameShort": "Secret Laboratory Bundle",
-            "itemDesc": "What you do within the confines of your own secret laboratory is entirely up to you!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -",
+            "itemDesc": "What you do within the confines of your own secret laboratory is entirely up to you!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n[h]*This bundle contains multiple previously released items, bundled with one new item.[/h]",
             "primaryImage": {
               "imageName": "f084c4344832d6efe05396737d264e62.webp",
               "directory": "/textures/atomic_shop_media/"
@@ -235,20 +235,25 @@
               "originalAmount": 900
             },
             "isZeus": false,
-            "isNew": 1,
+            "isNew": 2,
             "hasCustomDesc": true,
             "hasCustomDisc": true,
-            "isClown": false,
-            "preferDB": false
+            "isClown": true,
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 5004,
             "itemName": "Tesla Power Generator",
             "itemNameShort": "Tesla Power Generator",
-            "itemDesc": "Is this thing safe? There's only one way to find out...\nThis item is only usable in Shelters.\nThis generator radiates power over your entire Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "Is this thing safe? There's only one way to find out...\n[h]This item is only usable in Shelters.[/h]\nThis generator radiates power over your entire Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]CAN ONLY BE BUILT INSIDE OF SHELTERS![/h]",
             "primaryImage": {
               "imageName": "atx_entm_camp_utility_tesla.webp",
-              "directory": "/textures/atx/storefront/camp/floordecoration/"
+              "directory": "/textures/atx/storefront/camp/floordecoration//"
             },
             "carouselImages": [
               {
@@ -3050,7 +3055,6 @@
         ]
       },
       {
-        
         "name": "S.P.E.C.I.A.L \\n Free and Special Offers",
         "tabid": "s-p-e-c-i-a-l",
         "isZeus": false,
