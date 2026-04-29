@@ -252,12 +252,12 @@
             },
             "carouselImages": [
               {
-                "imageName": "atx_entm_camp_utility_tesla_c2.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
+                "imageName": "fd2fcfded20ea63a5d92e5aef2587343.webp",
+                "directory": "/textures/atomic_shop_media/"
               },
               {
-                "imageName": "atx_entm_camp_utility_tesla_c1.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
+                "imageName": "1162fa6242ec3ba5cdc55c3b78435d78.webp",
+                "directory": "/textures/atomic_shop_media/"
               }
             ],
             "dynamicBundleItems": [],
@@ -3061,20 +3061,25 @@
         "items": [
           {
             "itemID": 2503740,
-            "itemName": "Communist Salute Emote",
-            "itemNameShort": "Communist Salute",
+            "itemName": "Looking To The Future Pose",
+            "itemNameShort": "Looking To The Future",
             "itemDesc": "A salute to show you understand dialectical materialism. All those who do not salute in return should be noted and reported.\n\n- UNLOCKS AN EMOTE OPTION.\nEMOTES ARE SELECTABLE IN THE EMOTE WHEEL. -",
             "primaryImage": {
-              "imageName": "commi_salute.webp",
-              "directory": "/textures/emotes/"
+              "imageName": "/atx_photomode_pose_lookingtothefuture_l.webp",
+              "directory": "/textures/atx/storefront/player/photopose/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "f49ef9841674adf21fad3ed07c3b3fa6.webp",
+                "directory": "/textures/atomic_shop_media/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 0,
               "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-04-28T12:00:00.000Z"
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -3274,44 +3279,37 @@
           },
           {
             "itemID": 2504013,
-            "itemName": "Park Swimsuits",
-            "itemNameShort": "WAVY WILLARD'S SWIMSUITS",
+            "itemName": "Enclave Paint",
+            "itemNameShort": "Enclave Paint",
             "itemDesc": "Make a big splash with the Wavy Willard's Swimsuit set.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
             "primaryImage": {
-              "imageName": "b35e3b9e811dc0a3f7fffe2953a9c0b2.webp",
-              "directory": "/textures/atomic_shop_media/"
+              "imageName": "atx_skin_weaponskin_cauterizer_enclave.webp",
+              "directory": "/textures/atx/storefront/player/weaponskin/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_apparel_outfit_swimsuit_wavywillard_l.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
+                "imageName": "atx_skin_weaponskin_cauterizer_enclave_c1.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
               },
               {
-                "imageName": "atx_apparel_outfit_swimtrunks_wavywillard_l.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
+                "imageName": "atx_skin_weaponskin_cauterizer_enclave_c2.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
               }
             ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Wavy Willard's Swimsuit"
-              },
-              {
-                "szItemName": "Wavy Willard's Swim Trunks"
-              }
-            ],
+            "dynamicBundleItems": [],
             "lowPrice": {
-              "amount": 400,
+              "amount": 250,
               "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-04-28T12:00:00.000Z"
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 400,
+              "amount": 250,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
-              "originalAmount": 800
+              "originalAmount": 500
             },
             "isZeus": false,
             "_detectedSuffixInfo": {
@@ -3326,79 +3324,51 @@
           },
           {
             "itemID": 2504014,
-            "itemName": "Life above Ground Bundle",
+            "itemName": "Jumping Photomode Bundle",
             "itemNameShort": "",
             "itemDesc": "You never know what you will find in a junkyard.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
             "primaryImage": {
-              "imageName": "168b02e4b75223591d523c52a0be4573.webp",
+              "imageName": "c033dae6f77a304a68b80196bdc7eb18.webp",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "score_s8_apparel_outfit_vaultsurvivor_l.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
+                "imageName": "score_s3_photomode_pose_jumping_l.webp",
+                "directory": "/textures/atx/storefront/player/photopose/"
               },
               {
-                "imageName": "score_s8_apparel_headwear_vaultsurvivorhood_l.webp",
-                "directory": "/textures/atx/storefront/player/headwear/"
+                "imageName": "score_s4_photomode_pose_1_l.webp",
+                "directory": "/textures/atx/storefront/player/photopose/"
               },
               {
-                "imageName": "score_s8_skin_backpack_vaultsurvivor_l.webp",
-                "directory": "/textures/atx/storefront/player/backpack/"
-              },
-              {
-                "imageName": "score_s8_skin_backpackflair_vaultsurvivor_l.webp",
-                "directory": "/textures/atx/storefront/player/flair/"
-              },
-              {
-                "imageName": "score_s8_skin_weaponskin_machinegun_vaulttec_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
-              },
-              {
-                "imageName": "score_s8_skin_powerarmor_paint_hellcat_vaulttec_l.webp",
-                "directory": "/textures/atx/storefront/player/powerarmor/"
-              },
-              {
-                "imageName": "atx_playericon_score_45.webp",
-                "directory": "/textures/atx/storefront/player/playericons/"
+                "imageName": "score_s5_photomode_gapjump_l.webp",
+                "directory": "/textures/atx/storefront/player/photopose/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Vault Survivor Outfit"
+                "szItemName": "Jumping Pose"
               },
               {
-                "szItemName": "Vault Survivor Hood"
+                "szItemName": "Cannonball Pose"
               },
               {
-                "szItemName": "Vault Survivor Backpack"
-              },
-              {
-                "szItemName": "Vault Survivor Flair"
-              },
-              {
-                "szItemName": "Vault-Tec Machine Gun Paint"
-              },
-              {
-                "szItemName": "Vault-Tec Hellcat Power Armor Paint"
-              },
-              {
-                "szItemName": "Underground Logo Player Icon"
+                "szItemName": "Jumping the gap Pose"
               }
             ],
             "lowPrice": {
-              "amount": 600,
+              "amount": 300,
               "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-04-28T12:00:00.000Z"
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 600,
+              "amount": 300,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
-              "originalAmount": 1200
+              "originalAmount": 600
             },
             "isZeus": true,
             "_detectedSuffixInfo": {
@@ -3460,7 +3430,7 @@
               "amount": 1000,
               "originalAmount": 1000,
               "isLto": false,
-              "ltoTimer": "2026-04-21T23:59:00.000Z"
+              "ltoTimer": null
             },
             "lowestPurchasablePrice": {
               "amount": 1000,
@@ -3600,7 +3570,7 @@
               "amount": 4000,
               "originalAmount": 4000,
               "isLto": false,
-              "ltoTimer": 0
+              "ltoTimer": null
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -4286,20 +4256,30 @@
             "preferDB": false
           },
           {
-            "itemID": 2469718,
-            "itemName": "Big Bow Emote",
-            "itemNameShort": "Big Bow",
-            "itemDesc": "Show that you can dig it, with the Dig It! Emote\r\n\r\n- UNLOCKS AN EMOTE OPTION. -",
+            "itemID": 2503487,
+            "itemName": "Dinghy",
+            "itemNameShort": "Dinghy",
+            "itemDesc": "Somehow this old Dinghy is still seaworthy.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "big_bow.webp",
-              "directory": "/textures/emotes/"
+              "imageName": "atx_camp_floordecor_dinghy.dds",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_floordecor_dinghy_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_dinghy_c2.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 0,
               "originalAmount": 0,
-              "isLto": false
+              "isLto": true,
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -4311,8 +4291,15 @@
             },
             "isNew": 1,
             "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
             "isClown": false,
-            "preferDB": true
+            "preferDB": false
           },
           {
             "itemID": 2469688,
