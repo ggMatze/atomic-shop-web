@@ -3055,6 +3055,485 @@
         ]
       },
       {
+        "name": "Weekend Sale",
+        "tabid": "weekend-sale",
+        "isZeus": false,
+        "image": {
+          "imageName": "020b201b3595dd4c555ce48cdc45a582.webp",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2505107,
+            "itemName": "Back In Black Bundle",
+            "itemNameShort": "Back In Black Bundle",
+            "itemDesc": "Black never goes out of style.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- BACKPACKS ARE CRAFTABLE AT ARMOR WORKBENCHES. -\nPRODUCES:\n[url=https://www.theduchessflame.com/post/camp-resource-enclave-data-center]✦Tech-Junk  [/url]",
+            "primaryImage": {
+              "imageName": "502a0b755017a456fa9d5d4ba5576310.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_powerarmor_model_equalizer_matteblack_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_backpack_enclave_l.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              },
+              {
+                "imageName": "atx_camp_furniture_table_special_plotting_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_collector_enclavedatacenter_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Matte Black Equalizer Power Armor Paint"
+              },
+              {
+                "szItemName": "Enclave Backpack"
+              },
+              {
+                "szItemName": "Enclave Plotting Table"
+              },
+              {
+                "szItemName": "Enclave Data Center"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1260,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1260,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2505133,
+            "itemName": "Industrial Power Bundle",
+            "itemNameShort": "Industrial Power Bundle",
+            "itemDesc": "Rebuild Appalachia through the power of industry!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "4c02ac58201119ba9e66b22bf062d479.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_machinery_generator_powershelter_digsitedynamo.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_industrialpipes.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_structure_coaltower_coaltower.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_utility_repairbot_company.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Dig Site Dynamo Shelter Generator"
+              },
+              {
+                "szItemName": "Industrial Pipes"
+              },
+              {
+                "szItemName": "Coal Tower"
+              },
+              {
+                "szItemName": "Company Repair Bot"
+              }
+            ],
+            "lowPrice": {
+              "amount": 900,
+              "originalAmount": 900,
+              "isLto": true,
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 900,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1300
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": false,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2505171,
+            "itemName": "Military Surplus Bundle",
+            "itemNameShort": "Military Surplus Bundle",
+            "itemDesc": "Don't let all these surplus items go to waste!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "53ffdf3564b4bb00d77dc90ce4003bae.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s14_camp_kit_armybase_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "score_s2_camp_floor_armorace_l.webp",
+                "directory": "/textures/atx/storefront/camp/floors/"
+              },
+              {
+                "imageName": "score_s14_camp_floordecor_undetonatedbomb_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s14_camp_floordecor_militaryvehicles_jta_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s14_camp_floordecor_militaryvehicles_pv_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Army Base Floor and Foundations"
+              },
+              {
+                "szItemName": "Undetonated Bomb"
+              },
+              {
+                "szItemName": "Army Base Kit"
+              },
+              {
+                "szItemName": "Ground Military Vehicle Set"
+              },
+              {
+                "szItemName": "Air Military Vehicle Set"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1260,
+              "originalAmount": 1260,
+              "isLto": true,
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1260,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2505188,
+            "itemName": "Fire Alarm",
+            "itemNameShort": "Fire Alarm",
+            "itemDesc": "Never let a fire catch you off-guard.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_walldecor_firealarm_l.webp",
+              "directory": "/textures/atx/storefront/camp/walldecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_walldecor_firealarm_c1.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_camp_walldecor_firealarm_c2.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 245,
+              "originalAmount": 245,
+              "isLto": true,
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 245,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 300
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2505112,
+            "itemName": "Radioactive Warning Sign Set",
+            "itemNameShort": "Radioactive Warning Sign Set",
+            "itemDesc": "Make sure people know this area might have high radiation, if they read the sign.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "94933a12680288508031a4bcbd0b5e08.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_floordecor_radioactivewarningsigncircle.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_radioactivewarningsignsquare.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_radioactivewarningsigndiamond.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 210,
+              "originalAmount": 210,
+              "isLto": true,
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 210,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 300
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": false,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2505159,
+            "itemName": "Toxic Bob",
+            "itemNameShort": "Toxic Bob",
+            "itemDesc": "Let this collectron gather some of that toxic stuff you'd rather not touch.\nThis item cannot be built inside of a Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\nPRODUCES:\n[url=https://www.theduchessflame.com/post/collectron-toxic-bob-collectron-station]✦ Radioaktive Aid Items [/url]",
+            "primaryImage": {
+              "imageName": "camp_utility_collectron_toxicbob.webp",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "camp_utility_collectron_toxicbob_c1.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "camp_utility_collectron_toxicbob_c2.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 490,
+              "originalAmount": 490,
+              "isLto": true,
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 490,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2505174,
+            "itemName": "Flyboy Icon",
+            "itemNameShort": "Flyboy Icon",
+            "itemDesc": "Take to the skys with this Flyboy player icon!",
+            "primaryImage": {
+              "imageName": "atx_playericon_flyboy_01.webp",
+              "directory": "/textures/atx/storefront/player/playericons/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 105,
+              "originalAmount": 105,
+              "isLto": true,
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 105,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 150
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2505236,
+            "itemName": "Vertiguard Power Armor Set",
+            "itemNameShort": "Vertiguard Power Armor Set",
+            "itemDesc": "The Vertiguard Power Armor Paint is built for both offensive and defensive objectives.\nIncludes a unique paint for all Power Armor and the Vertiguard Jetpack.\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "aa382ffcaa27cdeb7420dc0d45612648.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_powerarmor_paint_vertibird_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_jetpack_vertibird_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 1260,
+              "originalAmount": 1260,
+              "isLto": true,
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1260,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          },
+          {
+            "itemID": 2505281,
+            "itemName": "Medicine Cabinet Stash",
+            "itemNameShort": "Medicine Cabinet Stash",
+            "itemDesc": "Store your chems, meds, and everything else!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_stashbox_medicinecabinet_l.webp",
+              "directory": "/textures/atx/storefront/camp/stash/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_stashbox_medicinecabinet_c1.webp",
+                "directory": "/textures/atx/storefront/camp/stash/"
+              },
+              {
+                "imageName": "atx_camp_stashbox_medicinecabinet_c2.webp",
+                "directory": "/textures/atx/storefront/camp/stash/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 350,
+              "originalAmount": 350,
+              "isLto": true,
+              "ltoTimer": "2026-05-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 350,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false,
+            "preferDB": false
+          }
+        ]
+      },
+      {
         "name": "S.P.E.C.I.A.L \\n Free and Special Offers",
         "tabid": "s-p-e-c-i-a-l",
         "isZeus": false,
