@@ -2112,17 +2112,17 @@
             "itemNameShort": "Purple Alotolotl",
             "itemDesc": "Collect this Dotted Alotolotl as part of the Axolotl of the month club.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "directory": "/textures/atx/storefront/camp/floordecoration/",
-              "imageName": "atx_camp_floordecor_plushie_purpleaxolotl.webp"
+              "imageName": "atx_camp_floordecor_plushie_purpleaxolotl.webp",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
             },
             "carouselImages": [
               {
-                "directory": "/textures/atx/storefront/camp/floordecoration/",
-                "imageName": "atx_camp_floordecor_plushie_purpleaxolotl_c1.dds"
+                "imageName": "atx_camp_floordecor_plushie_purpleaxolotl_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
-                "directory": "/textures/atx/storefront/camp/floordecoration/",
-                "imageName": "atx_camp_floordecor_plushie_purpleaxolotl_c2.dds"
+                "imageName": "atx_camp_floordecor_plushie_purpleaxolotl_c2.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               }
             ],
             "dynamicBundleItems": [],
@@ -2130,7 +2130,7 @@
               "amount": 0,
               "originalAmount": 0,
               "isLto": false,
-              "ltoTimer": null
+              "ltoTimer": "2026-05-05T23:45:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -2154,18 +2154,28 @@
           },
           {
             "itemID": 556277684,
-            "itemName": "Raider Skinner Hood",
-            "itemNameShort": "Raider Skinner Hood",
-            "itemDesc": "Sometimes you need to keep the best furs and pelts for yourself.\n\nAPPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+            "itemName": "Black Suit",
+            "itemNameShort": "Black Suit",
+            "itemDesc": "\"Dashing\" doesn't even begin to describe you while wearing this slick Clean Black Suit.\n\nAPPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
             "primaryImage": {
-              "directory": "/textures/atx/storefront/player/headwear/",
-              "imageName": "atx_apparel_headwear_raider_skinner_l.webp"
+              "imageName": "atx_apparel_outfit_suitclean_black_l.webp",
+              "directory": "/textures/atx/storefront/player/outfit/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_outfit_suitclean_black_c1.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_suitclean_black_c2.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 0,
-              "originalAmount": 0
+              "originalAmount": 0,
+              "ltoTimer": "2026-05-05T23:45:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -2175,7 +2185,14 @@
               "amount": 0,
               "originalAmount": 0
             },
-            "preferDB": true
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false
           },
           {
             "itemID": 2316946,
