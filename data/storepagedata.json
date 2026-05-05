@@ -16,8 +16,8 @@
             "itemNameShort": "Rust Warrior Bundle",
             "itemDesc": "Blood and Rust to paint the Wasteland.",
             "primaryImage": {
-              "directory": "/textures/atomic_shop_media/",
-              "imageName": "6396aae29743bc1b84d378bdd3196b40.webp"
+              "imageName": "6396aae29743bc1b84d378bdd3196b40.webp",
+              "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [],
             "dynamicBundleItems": [
@@ -2051,7 +2051,8 @@
             "lowestPurchasablePrice": {
               "amount": 0,
               "originalAmount": 0
-            }
+            },
+            "preferDB": true
           },
           {
             "itemID": 2316946,
@@ -2112,7 +2113,8 @@
               "amount": 0,
               "originalAmount": 0
             },
-            "isZeus": true
+            "isZeus": true,
+            "preferDB": true
           },
           {
             "itemID": 254873441,
@@ -2138,7 +2140,8 @@
             "lowestPurchasablePrice": {
               "amount": 125,
               "originalAmount": 0
-            }
+            },
+            "preferDB": true
           },
           {
             "itemID": 864450357,
@@ -2164,7 +2167,102 @@
             "lowestPurchasablePrice": {
               "amount": 250,
               "originalAmount": 0
-            }
+            },
+            "preferDB": true
+          },
+          {
+            "itemID": 254873440,
+            "itemName": "Survival Camouflage Bundle",
+            "itemNameShort": "Camoflage Bundle",
+            "itemDesc": "Those who blend into their environment best, survive the wasteland longest!\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "97d1db6d691733026d984f34d03686be.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_outfit_pantsuit_camouflage_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_shortsuit_camouflage_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_skin_armorskin_leather_camo_l.webp",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              },
+              {
+                "imageName": "atx_skin_armorskin_metal_camo_l.webp",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              },
+              {
+                "imageName": "atx_skin_armorskin_combat_camo_l.webp",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_camobrown_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_weaponskin_huntingrifle_camo_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "atx_skin_weaponskin_pumpactionshotgun_tactical_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Camouflage Suit"
+              },
+              {
+                "szItemName": "Camouflage Short Suit"
+              },
+              {
+                "szItemName": "Camouflage Leather Armor Paint"
+              },
+              {
+                "szItemName": "Camouflage Metal Armor Paint"
+              },
+              {
+                "szItemName": "Camouflage Combat Armor Paint"
+              },
+              {
+                "szItemName": "Wasteland Walker Power Armor Paint Set"
+              },
+              {
+                "szItemName": "Camouflage Hunting Rifle Paint"
+              },
+              {
+                "szItemName": "Tactical Paint (Pump Action Shotgun)"
+              }
+            ],
+            "lowPrice": {
+              "amount": 600,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-12T12:00:00.000Z"
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1200
+            },
+            "lowestPurchasablePrice": {
+              "amount": 600,
+              "originalAmount": 0
+            },
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false,
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
           }
         ]
       },
