@@ -14,15 +14,40 @@
             "itemID": 155162459,
             "itemName": "Rust Warrior Bundle",
             "itemNameShort": "Rust Warrior Bundle",
-            "itemDesc": "Blood and Rust to paint the Wasteland.",
+            "itemDesc": "Blood and Rust to paint the Wasteland.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
               "imageName": "6396aae29743bc1b84d378bdd3196b40.webp",
               "directory": "/textures/atomic_shop_media/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_outfit_raiderwarlord_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_gasmaskraiderskull_white_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_shootingtarget_raider.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s14_camp_bed_raiderfourposter_l.webp",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "atx_camp_decoration_flagwaving_raider_t2_a_l.webp",
+                "directory": "/textures/atx/storefront/camp/flags/"
+              },
+              {
+                "imageName": "atx_camp_decoration_flagwaving_raider_t2_b_l.webp",
+                "directory": "/textures/atx/storefront/camp/flags/"
+              }
+            ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Raider Waster Flag A"
+                "szItemName": "Raider Warlord Outfit"
               },
               {
                 "szItemName": "White Raider Skull Gas Mask"
@@ -34,10 +59,10 @@
                 "szItemName": "Raider Four-Poster Bed"
               },
               {
-                "szItemName": "Raider Scabber Flag B"
+                "szItemName": "Raider Waster Flag A"
               },
               {
-                "szItemName": "Raider Warlord Outfit"
+                "szItemName": "Raider Scabber Flag B"
               }
             ],
             "lowPrice": {
@@ -53,23 +78,58 @@
             "isNew": 2,
             "_detectedSuffixInfo": {
               "maxC": 0,
-              "hasL": false,
+              "hasL": true,
               "hasNone": true
             },
             "isZeus": false,
             "isClown": false,
-            "preferDB": false
+            "preferDB": false,
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
           },
           {
             "itemID": 611219064,
             "itemName": "Raider's Paradise Bundle",
             "itemNameShort": "Raider's Paradise Bundle",
-            "itemDesc": "Isn't it nice living in a Raider's Paradise?",
+            "itemDesc": "Isn't it nice living in a Raider's Paradise?\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -",
             "primaryImage": {
-              "directory": "/textures/atomic_shop_media/",
-              "imageName": "45e3f1905126f38b234a212f80414903.webp"
+              "imageName": "45e3f1905126f38b234a212f80414903.webp",
+              "directory": "/textures/atomic_shop_media/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_defense_rustedbarricade_l.webp",
+                "directory": "/textures/atx/storefront/camp/defenses/"
+              },
+              {
+                "imageName": "atx_camp_structure_pitt_scaffolding_kit.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_playertitles_prefix_rusty_l.webp",
+                "directory": "/textures/atx/storefront/player/playertitles/"
+              },
+              {
+                "imageName": "atx_camp_defense_fences_junkyard_l.webp",
+                "directory": "/textures/atx/storefront/camp/defenses/"
+              },
+              {
+                "imageName": "atx_skin_weaponskin_50calmachinegun_rustriddler_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s18_camp_structure_raiderlodge_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_lights_floorlamps_carlight_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_lights_floorlamps_rustedbrazier_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              }
+            ],
             "dynamicBundleItems": [
               {
                 "szItemName": "Rusted Barricade"
@@ -107,18 +167,44 @@
               "originalAmount": 1800
             },
             "isNew": 2,
-            "preferDB": false
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isZeus": false,
+            "isClown": false,
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
           },
           {
             "itemID": 782356148,
             "itemName": "Flaming Skulls Bundle",
             "itemNameShort": "Flaming Skulls Bundle",
-            "itemDesc": "Display your love for Skulls and Fire with the Flaming Skulls Bundle!",
+            "itemDesc": "Display your love for Skulls and Fire with the Flaming Skulls Bundle!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- BACKPACKS ARE CRAFTABLE AT ARMOR WORKBENCHES. -",
             "primaryImage": {
-              "directory": "/textures/atomic_shop_media/",
-              "imageName": "5dda2ccfb142d8b34985c16d6a57ae7a.webp"
+              "imageName": "5dda2ccfb142d8b34985c16d6a57ae7a.webp",
+              "directory": "/textures/atomic_shop_media/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_backpack_firehazard_l.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              },
+              {
+                "imageName": "atx_skin_weaponskin_flamer_firehazard_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "atx_camp_furniture_instrument_drumset_skull_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_excavator_raider_skull_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
             "dynamicBundleItems": [
               {
                 "szItemName": "Fire Hazard Backpack"
@@ -127,10 +213,10 @@
                 "szItemName": "Fire Hazard Paint (Flamer)"
               },
               {
-                "szItemName": "Skull Raider Excavator Power Armor Skin"
+                "szItemName": "Skull Drum Set"
               },
               {
-                "szItemName": "Skull Drum Set"
+                "szItemName": "Skull Raider Excavator Power Armor Skin"
               }
             ],
             "lowPrice": {
@@ -143,7 +229,16 @@
               "amount": 0,
               "originalAmount": 1800
             },
-            "preferDB": false
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isZeus": false,
+            "isClown": false,
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
           },
           {
             "itemID": 419916335,
@@ -151,8 +246,8 @@
             "itemNameShort": "Rust Riddler Paint",
             "itemDesc": "Rust may win, but it still bites. The perfect paint for your Machine Gun.\n\nSKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
             "primaryImage": {
-              "directory": "/textures/atx/storefront/player/weaponskin/",
-              "imageName": "atx_skin_weaponskin_50calmachinegun_rustriddler_l.webp"
+              "imageName": "atx_skin_weaponskin_50calmachinegun_rustriddler_l.webp",
+              "directory": "/textures/atx/storefront/player/weaponskin/"
             },
             "carouselImages": [],
             "dynamicBundleItems": [],
@@ -170,8 +265,15 @@
               "amount": 0,
               "originalAmount": 0
             },
-            "isNew": true,
-            "preferDB": true
+            "isNew": 1,
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isZeus": false,
+            "isClown": false
           },
           {
             "itemID": 401793216,
@@ -179,8 +281,8 @@
             "itemNameShort": "The Carlight",
             "itemDesc": "Who needs sunshine when you have The Carlight in your C.A.M.P.?\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
             "primaryImage": {
-              "directory": "/textures/atx/storefront/camp/lights/",
-              "imageName": "atx_camp_lights_floorlamps_carlight_l.webp"
+              "imageName": "atx_camp_lights_floorlamps_carlight_l.webp",
+              "directory": "/textures/atx/storefront/camp/lights/"
             },
             "carouselImages": [],
             "dynamicBundleItems": [],
@@ -199,7 +301,14 @@
               "originalAmount": 0
             },
             "isNew": 1,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isZeus": false,
+            "isClown": false
           },
           {
             "itemID": 864372627,
@@ -207,8 +316,8 @@
             "itemNameShort": "Rusted Barricade",
             "itemDesc": "This heavy barricade is built to hold the line against bad odds.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
             "primaryImage": {
-              "directory": "/textures/atx/storefront/camp/defenses/",
-              "imageName": "atx_camp_defense_rustedbarricade_l.webp"
+              "imageName": "atx_camp_defense_rustedbarricade_l.webp",
+              "directory": "/textures/atx/storefront/camp/defenses/"
             },
             "carouselImages": [],
             "dynamicBundleItems": [],
@@ -227,7 +336,14 @@
               "originalAmount": 0
             },
             "isNew": 1,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isZeus": false,
+            "isClown": false
           },
           {
             "itemID": 883648234,
@@ -235,8 +351,8 @@
             "itemNameShort": "Rusted Brazier",
             "itemDesc": "Perfect for roasting weenies and summoning eldritch horrors!\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
             "primaryImage": {
-              "directory": "/textures/atx/storefront/camp/lights/",
-              "imageName": "atx_camp_lights_floorlamps_rustedbrazier_l.webp"
+              "imageName": "atx_camp_lights_floorlamps_rustedbrazier_l.webp",
+              "directory": "/textures/atx/storefront/camp/lights/"
             },
             "carouselImages": [],
             "dynamicBundleItems": [],
@@ -255,7 +371,14 @@
               "originalAmount": 0
             },
             "isNew": 1,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isZeus": false,
+            "isClown": false
           },
           {
             "itemID": 479852234,
