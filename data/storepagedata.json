@@ -16,8 +16,8 @@
             "itemNameShort": "Rust Warrior Bundle",
             "itemDesc": "Blood and Rust to paint the Wasteland.",
             "primaryImage": {
-              "imageName": "6396aae29743bc1b84d378bdd3196b40.webp",
-              "directory": "/textures/atomic_shop_media/"
+              "directory": "/textures/atomic_shop_media/",
+              "imageName": "6396aae29743bc1b84d378bdd3196b40.webp"
             },
             "carouselImages": [],
             "dynamicBundleItems": [
@@ -43,7 +43,8 @@
             "lowPrice": {
               "amount": 1000,
               "originalAmount": 0,
-              "ltoTimer": "2026-05-05T17:02:00.000Z"
+              "isLto": true,
+              "ltoTimer": "2026-05-26T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -97,7 +98,9 @@
             ],
             "lowPrice": {
               "amount": 1800,
-              "originalAmount": 0
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-26T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -132,7 +135,9 @@
             ],
             "lowPrice": {
               "amount": 1800,
-              "originalAmount": 0
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-26T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -153,7 +158,9 @@
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 500,
-              "originalAmount": 0
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-26T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -179,7 +186,9 @@
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 500,
-              "originalAmount": 0
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-26T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -205,7 +214,9 @@
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 250,
-              "originalAmount": 0
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-26T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -231,7 +242,9 @@
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 250,
-              "originalAmount": 0
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-26T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -257,7 +270,9 @@
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 500,
-              "originalAmount": 500
+              "originalAmount": 500,
+              "isLto": true,
+              "ltoTimer": "2026-05-26T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -283,7 +298,9 @@
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 500,
-              "originalAmount": 0
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-26T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -1374,7 +1391,6 @@
           }
         ]
       },
-      
       {
         "name": "Greatest Hits \\n Best of the best!",
         "tabid": "greatest-hits",
@@ -1589,7 +1605,7 @@
               "ltoTimer": "2026-05-12T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 1050,
+              "amount": 1260,
               "originalAmount": 0
             },
             "highPrice": {
@@ -1662,7 +1678,7 @@
               "ltoTimer": "2026-05-12T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 700,
+              "amount": 840,
               "originalAmount": 0
             },
             "highPrice": {
@@ -1968,63 +1984,22 @@
         },
         "items": [
           {
-            "itemID": 2503740,
-            "itemName": "Looking To The Future Pose",
-            "itemNameShort": "Looking To The Future",
-            "itemDesc": "A salute to show you understand dialectical materialism. All those who do not salute in return should be noted and reported.\n\n- UNLOCKS AN EMOTE OPTION.\nEMOTES ARE SELECTABLE IN THE EMOTE WHEEL. -",
-            "primaryImage": {
-              "imageName": "/atx_photomode_pose_lookingtothefuture_l.webp",
-              "directory": "/textures/atx/storefront/player/photopose/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "f49ef9841674adf21fad3ed07c3b3fa6.webp",
-                "directory": "/textures/atomic_shop_media/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 0,
-              "originalAmount": 0,
-              "isLto": true,
-              "ltoTimer": "2026-05-05T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 0,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 0
-            },
-            "isZeus": false,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false,
-            "preferDB": false
-          },
-          {
             "itemID": 2503464,
-            "itemName": "Dotted Alotolotl Plushie",
-            "itemNameShort": "Dotted Alotolotl",
+            "itemName": "Purple Alotolotl Plushie",
+            "itemNameShort": "Purple Alotolotl",
             "itemDesc": "Collect this Dotted Alotolotl as part of the Axolotl of the month club.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "atx_camp_floordecor_plushie_dottedaxolotl.dds",
-              "directory": "/textures/atx/storefront/camp/floordecoration/"
+              "directory": "/textures/atx/storefront/camp/floordecoration/",
+              "imageName": "atx_camp_floordecor_plushie_purpleaxolotl.webp"
             },
             "carouselImages": [
               {
-                "imageName": "atx_camp_floordecor_plushie_dottedaxolotl_c1.dds",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
+                "directory": "/textures/atx/storefront/camp/floordecoration/",
+                "imageName": "atx_camp_floordecor_plushie_purpleaxolotl_c1.dds"
               },
               {
-                "imageName": "atx_camp_floordecor_plushie_dottedaxolotl_c2.dds",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
+                "directory": "/textures/atx/storefront/camp/floordecoration/",
+                "imageName": "atx_camp_floordecor_plushie_purpleaxolotl_c2.dds"
               }
             ],
             "dynamicBundleItems": [],
@@ -2055,32 +2030,17 @@
             "preferDB": false
           },
           {
-            "itemID": 2503487,
-            "itemName": "Dinghy",
-            "itemNameShort": "Dinghy",
-            "itemDesc": "Somehow this old Dinghy is still seaworthy.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemID": 556277684,
+            "itemName": "Raider Skinner Hood",
+            "itemNameShort": "Raider Skinner Hood",
+            "itemDesc": "Sometimes you need to keep the best furs and pelts for yourself.\n\nAPPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
             "primaryImage": {
-              "imageName": "atx_camp_floordecor_dinghy.dds",
-              "directory": "/textures/atx/storefront/camp/floordecoration/"
+              "directory": "/textures/atx/storefront/player/headwear/",
+              "imageName": "atx_apparel_headwear_raider_skinner_l.webp"
             },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_floordecor_dinghy_c1.dds",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_dinghy_c2.dds",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              }
-            ],
+            "carouselImages": [],
             "dynamicBundleItems": [],
             "lowPrice": {
-              "amount": 0,
-              "originalAmount": 0,
-              "isLto": true,
-              "ltoTimer": "2026-05-05T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
               "amount": 0,
               "originalAmount": 0
             },
@@ -2088,17 +2048,10 @@
               "amount": 0,
               "originalAmount": 0
             },
-            "isNew": 1,
-            "isZeus": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": false,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false,
-            "preferDB": false
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            }
           },
           {
             "itemID": 2316946,
@@ -2137,157 +2090,81 @@
             "preferDB": false
           },
           {
-            "itemID": 101,
-            "itemName": "Candle Haus",
-            "itemNameShort": "Candle Haus",
-            "itemDesc": "Practice your candle making skills inside the Candle Haus.\n\nCandle Haus door is included and built separately.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemID": 284752151,
+            "itemName": "Rebar Reel Paint",
+            "itemNameShort": "Rebar Reel Paint",
+            "itemDesc": "Built from junk and determination. Fish beware.\n\nSKIN IS CRAFTABLE AT TINKER'S WORKBENCHES.",
             "primaryImage": {
-              "imageName": "atx_entm_camp_structure_candlehaus_l.webp",
-              "directory": "/textures/atx/storefront/camp/structures/"
+              "directory": "/textures/atx/storefront/player/weaponskin/",
+              "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_l.webp"
             },
-            "carouselImages": [
-              {
-                "imageName": "atx_entm_camp_structure_candlehaus_c1.dds",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_entm_camp_structure_candlehaus_c2.dds",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_entm_camp_structure_candlehaus_c3.dds",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              }
-            ],
+            "carouselImages": [],
             "dynamicBundleItems": [],
             "lowPrice": {
-              "amount": 350,
-              "originalAmount": 350,
-              "isLto": true,
-              "ltoTimer": "2026-04-14T17:50:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 350,
+              "amount": 0,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
-              "originalAmount": 700
+              "originalAmount": 0
             },
-            "isZeus": false,
-            "_detectedSuffixInfo": {
-              "maxC": 3,
-              "hasL": true,
-              "hasNone": true
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
             },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false,
-            "preferDB": false
+            "isZeus": true
           },
           {
-            "itemID": 2504013,
-            "itemName": "Enclave Paint",
-            "itemNameShort": "Enclave Paint",
-            "itemDesc": "Make a big splash with the Wavy Willard's Swimsuit set.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemID": 254873441,
+            "itemName": "Warhawk",
+            "itemNameShort": "Warhawk",
+            "itemDesc": "The Warhawk Hairstyle. Because the Warhawk Hairstyle never changes.\n\nUNLOCKS A HAIRSTYLE OPTION FOR MALES.",
             "primaryImage": {
-              "imageName": "atx_skin_weaponskin_cauterizer_enclave.webp",
-              "directory": "/textures/atx/storefront/player/weaponskin/"
+              "directory": "/textures/atx/storefront/player/hairstyle/",
+              "imageName": "atx_playerstyle_hairstyle_m_warhawk_l.webp"
             },
-            "carouselImages": [
-              {
-                "imageName": "atx_skin_weaponskin_cauterizer_enclave_c1.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
-              },
-              {
-                "imageName": "atx_skin_weaponskin_cauterizer_enclave_c2.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
-              }
-            ],
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 125,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-05-12T12:00:00.000Z"
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 250
+            },
+            "lowestPurchasablePrice": {
+              "amount": 125,
+              "originalAmount": 0
+            }
+          },
+          {
+            "itemID": 864450357,
+            "itemName": "The Starlight",
+            "itemNameShort": "The Starlight",
+            "itemDesc": "A light as big and bright as the stars.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+            "primaryImage": {
+              "directory": "/textures/atx/storefront/camp/lights/",
+              "imageName": "atx__camp_lights_floorlamps_thestarlight_l.webp"
+            },
+            "carouselImages": [],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 250,
               "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-05-05T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 250,
-              "originalAmount": 0
+              "ltoTimer": "2026-05-06T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
               "originalAmount": 500
             },
-            "isZeus": false,
-            "_detectedSuffixInfo": {
-              "maxC": 1,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false,
-            "preferDB": false
-          },
-          {
-            "itemID": 2504014,
-            "itemName": "Jumping Photomode Bundle",
-            "itemNameShort": "",
-            "itemDesc": "You never know what you will find in a junkyard.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
-            "primaryImage": {
-              "imageName": "c033dae6f77a304a68b80196bdc7eb18.webp",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s3_photomode_pose_jumping_l.webp",
-                "directory": "/textures/atx/storefront/player/photopose/"
-              },
-              {
-                "imageName": "score_s4_photomode_pose_1_l.webp",
-                "directory": "/textures/atx/storefront/player/photopose/"
-              },
-              {
-                "imageName": "score_s5_photomode_gapjump_l.webp",
-                "directory": "/textures/atx/storefront/player/photopose/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Jumping Pose"
-              },
-              {
-                "szItemName": "Cannonball Pose"
-              },
-              {
-                "szItemName": "Jumping the gap Pose"
-              }
-            ],
-            "lowPrice": {
-              "amount": 300,
-              "originalAmount": 0,
-              "isLto": true,
-              "ltoTimer": "2026-05-05T12:00:00.000Z"
-            },
             "lowestPurchasablePrice": {
-              "amount": 300,
+              "amount": 250,
               "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 600
-            },
-            "isZeus": true,
-            "_detectedSuffixInfo": {
-              "maxC": 1,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false,
-            "preferDB": false
+            }
           }
         ]
       },
