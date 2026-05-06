@@ -6,6 +6,29 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     body { background: #222; color: #eee; margin: 0; padding: 20px; }
+    .panels-container { display: flex; gap: 40px; margin-bottom: 20px; min-height: calc(100vh - 140px); }
+    .items-column { display: flex; flex-direction: column; gap: 10px; flex: 0 0 auto; }
+    .items-list { flex: 0 0 auto; width: 400px !important; max-width: 400px !important; margin-top: 50px; }
+    .items-actions { display: flex; gap: 10px; }
+    .items-actions button { flex: 1; }
+    .db-search-panel { flex: 0 0 550px !important; width: 550px !important; }
+    .db-search-panel h3 { margin: 0 0 8px 0; }
+    .db-search-panel input { width: 100%; padding: 8px; border: 1px solid #444; border-radius: 4px; background: #121212; color: #eee; }
+    .db-search-panel button { padding: 10px 12px; border: none; border-radius: 4px; background: #0e639c; color: white; cursor: pointer; }
+    .db-search-panel button:hover { background: #1177bb; }
+    .list-box { background: #111; border: 1px solid #333; border-radius: 6px; height: 300px; overflow: auto; padding: 8px; }
+    .db-search-panel .list-item { padding: 10px; cursor: pointer; border: 1px solid #333; border-radius: 6px; margin-bottom: 8px; transition: background 0.2s, border-color 0.2s; }
+    .db-search-panel .list-item:hover { background: #1f1f1f; }
+    .db-search-panel .list-item.selected { background: #1e4d6d; border-color: #569cd6; }
+    #editor { flex: 0 0 700px !important; width: 700px !important; overflow-y: auto; max-height: calc(100vh - 140px); }
+    .editor-row { display: block !important; width: 100% !important; }
+    .editor-controls { width: 100% !important; box-sizing: border-box !important; }
+    .field-row label[style*="display: flex"] { display: inline-flex !important; align-items: center !important; width: auto !important; max-width: fit-content !important; }
+    .fields-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 10px !important; width: 100% !important; box-sizing: border-box !important; }
+    .field-row { margin-bottom: 12px !important; width: 100% !important; box-sizing: border-box !important; }
+    .field-row.full { grid-column: 1 / -1 !important; }
+    .img-list { display: flex !important; flex-wrap: wrap !important; gap: 10px !important; margin: 1em 0 !important; width: 100% !important; }
+    .img-item { width: 220px !important; flex-shrink: 0 !important; }
   </style>
 </head>
 <body>
@@ -15,12 +38,28 @@
   
   <div id="week-selector" class="week-selector"></div>
   
-  <div class="items-list" id="items-list"></div>
-  
-  <div id="editor" style="display: none;">
-    <h3 id="editor-title"></h3>
-    <div class="editor-row">
-      <div class="editor-controls">
+  <div class="panels-container">
+    <div class="items-column">
+      <div class="items-list" id="items-list"></div>
+      <div class="items-actions">
+        <button id="add-db-item-btn">Add selected DB item</button>
+        <button id="replace-db-item-btn">Replace current item</button>
+      </div>
+    </div>
+
+    <div class="db-search-panel">
+      <div style="flex: 1;">
+        <h3>DB Search</h3>
+        <label>Search query</label>
+        <input id="db-search-input" placeholder="Search item name, EDID or description" style="width: 100%; margin-bottom: 8px;" />
+        <div class="list-box" id="db-search-results" style="height: 300px;"></div>
+      </div>
+    </div>
+
+    <div id="editor" style="display: none;">
+      <h3 id="editor-title"></h3>
+      <div class="editor-row">
+        <div class="editor-controls">
         <div class="collapsible-header" onclick="toggleCollapsible()">
           📋 Item Details
           <span id="collapse-arrow">▼</span>
@@ -53,7 +92,7 @@
           <div class="field-row full">
             <label>Description:</label>
             <div style="display: flex; flex-direction: column; gap: 6px;">
-              <iframe id="rte-frame" class="active" src="rich-text-editor.html" style="width:100%; height:320px; border:1px solid #555; border-radius: 4px;" title="Rich Text Editor"></iframe>
+              <iframe id="rte-frame" class="active" src="rich-text-editor.html" style="width:100%; height:400px; border:1px solid #555; border-radius: 4px;" title="Rich Text Editor"></iframe>
               <textarea id="itemDesc" style="display:none;"></textarea>
             </div>
           </div>
@@ -99,6 +138,7 @@
         <button id="export-json" onclick="exportJson()">📥 Export JSON</button>
       </div>
     </div>
+    </div>
   </div>
   
   <div id="status" class="status"></div>
@@ -109,10 +149,30 @@ let currentWeek = null;
 let currentItemIdx = null;
 let tempImages = [];
 let lastItem = null;
+let dbItems = [];
+let selectedDbIndex = null;
+const DB_DATA_PATH = '../data/items-db.json';
+
+function escapeHtml(value) {
+  return String(value || '').replace(/[&<>"]+/g, (match) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;'
+  })[match]);
+}
+
+function generateRandomItemID() {
+  return Math.floor(Math.random() * 900000000) + 100000000;
+}
+
+function titleCase(value) {
+  return String(value || '').toLowerCase().replace(/\b([a-z])/g, (m) => m.toUpperCase());
+}
 
 function normalizeDir(dir) {
   if (!dir) return '';
-  let d = String(dir).trim().replace(/\\\\/g, '/').toLowerCase();
+  let d = String(dir).trim().replace(/\\/g, '/').replace(/\/+/g, '/').toLowerCase();
   if (!d) return '';
   if (d.charAt(0) !== '/') d = '/' + d;
   if (d.charAt(d.length - 1) !== '/') d = d + '/';
@@ -212,6 +272,184 @@ function showStatus(msg, type = 'info') {
   status.textContent = msg;
   status.className = `status show ${type}`;
   setTimeout(() => status.classList.remove('show'), 3000);
+}
+
+function loadDbData() {
+  fetch(DB_DATA_PATH)
+    .then(res => {
+      if (!res.ok) throw new Error('Could not load ' + DB_DATA_PATH);
+      return res.json();
+    })
+    .then(data => {
+      dbItems = Array.isArray(data) ? data : [];
+      showStatus('Loaded items-db.json (' + dbItems.length + ' items)', 'success');
+      searchDbItems();
+    })
+    .catch(err => showStatus(err.message, 'error'));
+}
+
+function searchDbItems() {
+  const query = document.getElementById('db-search-input').value.trim().toLowerCase();
+  if (!query) {
+    selectedDbIndex = null;
+    renderDbSearchResults(null);
+    return;
+  }
+  const results = dbItems.filter(item => {
+    return [item.itemName, item.EDID, item.desc, item.disclaimer]
+      .filter(Boolean)
+      .some(field => String(field).toLowerCase().includes(query));
+  }).slice(0, 50);
+  renderDbSearchResults(results);
+}
+
+function renderDbSearchResults(results) {
+  const dbSearchResults = document.getElementById('db-search-results');
+  dbSearchResults.innerHTML = '';
+  if (results === null) {
+    dbSearchResults.textContent = 'Type to search DB items...';
+    return;
+  }
+  if (!results.length) {
+    dbSearchResults.textContent = 'No DB items found.';
+    return;
+  }
+  results.forEach((item) => {
+    const dbIndex = dbItems.indexOf(item);
+    const row = document.createElement('div');
+    row.className = 'list-item' + (selectedDbIndex === dbIndex ? ' selected' : '');
+    row.dataset.dbIndex = dbIndex;
+    const imageSrc = item.primaryImage && item.primaryImage.imageName
+      ? ((item.primaryImage.directory || '').startsWith('/') ? '..' + item.primaryImage.directory : '../' + (item.primaryImage.directory || '')) + item.primaryImage.imageName
+      : null;
+    row.innerHTML = `
+      <div style="display:flex; gap:10px; align-items:center;">
+        <div style="width:40px; height:40px; flex-shrink:0;">
+          ${imageSrc ? `<img src="${imageSrc}" alt="${item.itemName || ''}" style="width:100%; height:100%; object-fit:cover; border:1px solid #333; border-radius:6px;">` : '<div style="width:100%; height:100%; background:#222; border:1px solid #333; border-radius:6px; display:flex; align-items:center; justify-content:center; color:#666; font-size:0.75rem;">No Img</div>'}
+        </div>
+        <div style="min-width:0;">
+          <div style="font-weight:700; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(item.itemName || item.EDID || 'Unnamed')}</div>
+          <div style="font-size:0.85rem; color:#999; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(item.EDID || 'no EDID')}</div>
+        </div>
+      </div>
+    `;
+    row.addEventListener('click', () => {
+      if (dbIndex === -1) return;
+      selectedDbIndex = dbIndex;
+      Array.from(dbSearchResults.children).forEach(child => child.classList.remove('selected'));
+      row.classList.add('selected');
+      showStatus('Selected DB item "' + (item.itemName || item.EDID) + '".');
+    });
+    dbSearchResults.appendChild(row);
+  });
+}
+
+function addDbItemToCurrentWeek() {
+  if (!currentWeek || !dailyData.DailySalesByWeek[currentWeek]) {
+    showStatus('Select a week first.', 'error');
+    return;
+  }
+  if (selectedDbIndex === null || selectedDbIndex < 0 || selectedDbIndex >= dbItems.length) {
+    showStatus('Select a DB item first.', 'error');
+    return;
+  }
+  const dbItem = dbItems[selectedDbIndex];
+  if (!dbItem) {
+    showStatus('Selected DB item is invalid.', 'error');
+    return;
+  }
+  const items = dailyData.DailySalesByWeek[currentWeek];
+  const itemName = titleCase(dbItem.itemName || dbItem.EDID || 'Unnamed Item');
+  const item = {
+    itemID: generateRandomItemID(),
+    replaceItemID: 0,
+    isZeus: false,
+    itemName: itemName,
+    itemNameShort: itemName,
+    itemDesc: combineDbDescription(dbItem),
+    lowestPurchasablePrice: { Amount: typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : 0 },
+    highPrice: { originalAmount: typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : 0 },
+    lowPrice: { ltoTimer: '' },
+    startTime: '',
+    endTime: '',
+    ltoTimer: '',
+    primaryImage: dbItem.primaryImage ? {
+      directory: normalizeDir(dbItem.primaryImage.directory || ''),
+      imageName: String(dbItem.primaryImage.imageName || '').toLowerCase()
+    } : { directory: '', imageName: '' },
+    carouselImages: Array.isArray(dbItem.carouselImages) ? dbItem.carouselImages.map(img => ({
+      directory: normalizeDir(img.directory || ''),
+      imageName: String(img.imageName || '').toLowerCase()
+    })) : []
+  };
+  items.push(item);
+  currentItemIdx = items.length - 1;
+  showItemsList();
+  selectItem(currentItemIdx);
+  showStatus('Added "' + itemName + '" from DB to current week.');
+}
+
+function replaceCurrentItemWithSelectedDbItem() {
+  if (!currentWeek || !dailyData.DailySalesByWeek[currentWeek]) {
+    showStatus('Select a week first.', 'error');
+    return;
+  }
+  const items = dailyData.DailySalesByWeek[currentWeek];
+  if (!Array.isArray(items) || currentItemIdx === null || currentItemIdx < 0 || currentItemIdx >= items.length) {
+    if (Array.isArray(items) && items.length === 1) {
+      currentItemIdx = 0;
+      selectItem(0);
+    } else {
+      showStatus('Select an item in the current week first.', 'error');
+      return;
+    }
+  }
+  if (selectedDbIndex === null || selectedDbIndex < 0 || selectedDbIndex >= dbItems.length) {
+    showStatus('Select a DB item first.', 'error');
+    return;
+  }
+  const dbItem = dbItems[selectedDbIndex];
+  if (!dbItem) {
+    showStatus('Selected DB item is invalid.', 'error');
+    return;
+  }
+  const itemName = titleCase(dbItem.itemName || dbItem.EDID || 'Unnamed Item');
+  const existing = items[currentItemIdx] || {};
+  const replacement = {
+    itemID: existing.itemID || generateRandomItemID(),
+    replaceItemID: existing.replaceItemID || 0,
+    isZeus: existing.isZeus || false,
+    itemName: itemName,
+    itemNameShort: itemName,
+    itemDesc: combineDbDescription(dbItem),
+    lowestPurchasablePrice: { Amount: typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : (existing.lowestPurchasablePrice?.Amount || 0) },
+    highPrice: { originalAmount: typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : (existing.highPrice?.originalAmount || 0) },
+    lowPrice: { ltoTimer: existing.lowPrice?.ltoTimer || '' },
+    startTime: existing.startTime || '',
+    endTime: existing.endTime || '',
+    ltoTimer: existing.ltoTimer || '',
+    primaryImage: dbItem.primaryImage ? {
+      directory: normalizeDir(dbItem.primaryImage.directory || ''),
+      imageName: String(dbItem.primaryImage.imageName || '').toLowerCase()
+    } : { directory: '', imageName: '' },
+    carouselImages: Array.isArray(dbItem.carouselImages) ? dbItem.carouselImages.map(img => ({
+      directory: normalizeDir(img.directory || ''),
+      imageName: String(img.imageName || '').toLowerCase()
+    })) : []
+  };
+  items[currentItemIdx] = replacement;
+  showItemsList();
+  selectItem(currentItemIdx);
+  showStatus('Replaced current item with "' + itemName + '" from DB.');
+}
+
+function combineDbDescription(dbItem) {
+  const description = String(dbItem.desc || '').trim();
+  const disclaimer = String(dbItem.disclaimer || '').trim();
+  if (description && disclaimer) {
+    return description + '\n\n' + disclaimer;
+  }
+  return description || disclaimer || '';
 }
 
 function loadJson(file) {
@@ -321,7 +559,7 @@ function renderImages() {
     const textData = (dt && dt.getData) ? (dt.getData('text/uri-list') || dt.getData('text/plain') || '') : '';
     if (dt && dt.files && dt.files.length) {
       const parsedText = parseDroppedPath(textData);
-      const detectedDir = parsedText && parsedText.directory ? parsedText.directory : '';
+      const detectedDir = parsedText && parsedText.directory ? normalizeDir(parsedText.directory) : '';
       for (let i = 0; i < dt.files.length; i++) {
         const f = dt.files[i];
         tempImages.push({ imageName: f.name.toLowerCase(), directory: detectedDir || '' });
@@ -332,7 +570,7 @@ function renderImages() {
     if (textData) {
       const parsed = parseDroppedPath(textData);
       if (parsed && parsed.name) {
-        tempImages.push({ imageName: parsed.name.toLowerCase(), directory: parsed.directory });
+        tempImages.push({ imageName: parsed.name.toLowerCase(), directory: normalizeDir(parsed.directory) });
         renderImages();
         return;
       }
@@ -390,8 +628,8 @@ function renderImages() {
     optionsHtml += `<option value="_L"${selL}>_L</option>`;
     
     div.innerHTML = `
-      <input class="image-input-field" value="${(img.directory||'')}" onchange="updateImageDir(${idx}, this.value)" placeholder="directory">
-      <input class="image-input-field image-name-field" value="${img.imageName}" onchange="updateImageName(${idx}, this.value)">
+      <input class="image-input-field" value="${(img.directory||'')}" onchange="updateImageDir(${idx}, this.value)" oninput="updateImageDir(${idx}, this.value)" placeholder="directory">
+      <input class="image-input-field image-name-field" value="${img.imageName}" onchange="updateImageName(${idx}, this.value)" oninput="updateImageName(${idx}, this.value)">
       <div style="position: relative; display: inline-block; width: 220px; height: 220px; margin-bottom: 4px;">
         <img src="${imgUrl}" alt="${img.imageName}" 
           style="width: 100%; height: 100%; object-fit: cover; border: 1px solid #555; background: #111;"
@@ -455,7 +693,7 @@ window.updateImageDir = function(idx, dir) {
   dir = dir.trim();
   const parsed = parseDroppedPath(dir);
   if (parsed && parsed.directory) {
-    tempImages[idx].directory = parsed.directory;
+    tempImages[idx].directory = normalizeDir(parsed.directory);
     if (parsed.name) tempImages[idx].imageName = parsed.name;
   } else {
     dir = dir.toLowerCase().replace(/\\/g, '/');
@@ -464,6 +702,7 @@ window.updateImageDir = function(idx, dir) {
     tempImages[idx].directory = dir;
   }
   renderImages();
+  if (tempImages[idx]._isPrimary) maybeAddColorVariantsForPrimary();
 };
 
 window.updateImageName = function(idx, name) {
@@ -478,6 +717,7 @@ window.updateImageName = function(idx, name) {
     tempImages[idx].imageName = name;
   }
   renderImages();
+  if (tempImages[idx] && tempImages[idx]._isPrimary) maybeAddColorVariantsForPrimary();
 };
 
 window.togglePrimary = function(idx, checked) {
@@ -485,6 +725,7 @@ window.togglePrimary = function(idx, checked) {
     tempImages[i]._isPrimary = (i === idx && checked);
   }
   renderImages();
+  if (checked) maybeAddColorVariantsForPrimary();
 };
 
 window.changeSuffix = function(idx, suffix) {
@@ -511,7 +752,7 @@ window.addImageFromFullPath = function() {
   if (!path) { showStatus('Paste a full path', 'error'); return; }
   const parsed = parseDroppedPath(path);
   if (parsed && parsed.name) {
-    tempImages.push({ imageName: parsed.name.toLowerCase(), directory: parsed.directory, _isPrimary: false });
+    tempImages.push({ imageName: parsed.name.toLowerCase(), directory: normalizeDir(parsed.directory), _isPrimary: false });
     document.getElementById('full-image-path').value = '';
     renderImages();
     showStatus('Image added from path', 'success');
@@ -519,6 +760,54 @@ window.addImageFromFullPath = function() {
     showStatus('Could not parse path', 'error');
   }
 };
+
+function extractImageVariantBase(name) {
+  const normalized = String(name || '').trim().toLowerCase();
+  const match = normalized.match(/^(.*?)(?:_l|_c\d+)?(\.[^.]+)$/i);
+  if (!match) return null;
+  return { base: match[1].replace(/_$/, ''), ext: match[2] || '.webp' };
+}
+
+function checkImageExists(url) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+}
+
+function maybeAddColorVariantsForPrimary() {
+  const primaryIdx = tempImages.findIndex(img => img._isPrimary);
+  if (primaryIdx === -1) return;
+  const primary = tempImages[primaryIdx];
+  if (!primary || !primary.imageName) return;
+  const info = extractImageVariantBase(primary.imageName);
+  if (!info) return;
+  const directory = normalizeDir(primary.directory);
+  const existingNames = new Set(tempImages.map(img => String(img.imageName || '').toLowerCase()));
+  const candidates = [];
+  for (let i = 1; i <= 6; i++) {
+    const candidate = `${info.base}_c${i}${info.ext}`.toLowerCase();
+    if (!existingNames.has(candidate)) {
+      candidates.push(candidate);
+    }
+  }
+  if (!candidates.length) return;
+  Promise.all(candidates.map(name => checkImageExists((directory.startsWith('/') ? '..' + directory : '../' + directory) + name).then(found => ({ name, found })))).then(results => {
+    let added = false;
+    results.forEach(({ name, found }) => {
+      if (found) {
+        tempImages.push({ imageName: name, directory, _isPrimary: false });
+        added = true;
+      }
+    });
+    if (added) {
+      renderImages();
+      showStatus('Auto-added C variant images for primary image', 'success');
+    }
+  });
+}
 
 function saveTempImagesToItem() {
   if (!lastItem) return;
@@ -636,12 +925,25 @@ document.getElementById('load-json').addEventListener('click', async () => {
 
 document.getElementById('save-item').addEventListener('click', saveItem);
 
+document.getElementById('db-search-input').addEventListener('input', searchDbItems);
+document.getElementById('add-db-item-btn').addEventListener('click', addDbItemToCurrentWeek);
+document.getElementById('replace-db-item-btn').addEventListener('click', (e) => {
+  e.preventDefault();
+  replaceCurrentItemWithSelectedDbItem();
+});
+
 function toggleCollapsible() {
   const content = document.getElementById('details-content');
   const arrow = document.getElementById('collapse-arrow');
   content.classList.toggle('open');
   arrow.textContent = content.classList.contains('open') ? '▼' : '▶';
 }
+
+// Load DB data on page load
+loadDbData();
+
+// Expose tempImages to iframe
+window.getTempImages = () => tempImages;
   </script>
 </body>
 </html>
