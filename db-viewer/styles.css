@@ -406,3 +406,55 @@ text-align: center;
     max-width: 100vw !important;
     width: 100vw !important;
 }
+
+/* ## News Header Button Styling ## */
+/* Black Outline */
+#news-btn, #go-ufas {
+  top: 38%;
+  left: calc(50% - 400px); /* position to the left of the search box */
+  position: fixed; /* allow ::before to be positioned relative to this */
+  width: 40px;
+  height: 44px;
+  background-color: #000000;
+  color: #151817;
+  border: none;
+  font-weight: 00;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+/* Yellow Exclamation Mark Background */
+#news-btn::before, #go-ufas::before {
+  content: '';
+  position: absolute;
+  width: 36px;  
+  height: 40px;
+  background: radial-gradient(circle, #FFFCCF 20%, #ebd882 60%, #ebd882 100%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: -1;
+}
+/* Hover Effect */
+#news-btn:hover::before, #go-ufas:hover::before {
+  background: radial-gradient(circle, #f5f4ad 20%, #ebc458 60%, #ebc458 100%);
+}
+#news-btn::after {
+  content: '\01F6D2\FE0E';
+ 
+  font-size: 1.6em;
+  top: 47%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+#go-ufas::after {
+  content: '\01F4BB\FE0E';
+ 
+  font-size: 1.8em;
+  top: 47%;
+  left: 48%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}

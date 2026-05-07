@@ -535,9 +535,12 @@ if (hasPrimaryImage) {
         </div>
     `;
 }
-
 // ===== INITIALIZATION =====
 
 // Initialize
 loadDatabase();
+
+document.getElementById("go-ufas").addEventListener("click", () => {
+    window.open("../", "_blank");
+});
 
