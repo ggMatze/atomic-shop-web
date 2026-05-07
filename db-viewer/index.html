@@ -28,6 +28,33 @@
             </div>
             <button id="go-ufas" title="Browse user-friendly atomic shop">&nbsp;</button>
             <div class="stats">
+                <span id="age"></span>
+
+<span id="age"></span><br>
+
+        <script>
+        fetch("https://api.github.com/repos/ggMatze/atomic-shop-web/commits?path=data/items-db.json&per_page=1")
+        .then(res => res.json())
+        .then(data => {
+            const lastCommitDate = new Date(data[0].commit.committer.date);
+            const now = new Date();
+
+            const diffMs = now - lastCommitDate;
+            const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+
+            let text;
+            if (diffHours < 1) text = "just now";
+            else if (diffHours < 24) text = `${diffHours} hours ago`;
+            else if (diffDays === 1) text = "yesterday";
+            else text = `${diffDays} days ago`;
+
+            document.getElementById("age").textContent = "Updated " + text;
+        })
+        .catch(() => {
+            document.getElementById("age").textContent = "Could not load update time";
+        });
+        </script>
                 <span id="statsText">Loading database...</span>
             </div>
         </header>
