@@ -2298,8 +2298,7 @@
             "lowPrice": {
               "amount": 250,
               "originalAmount": 0,
-              "isLto": true,
-              "ltoTimer": "2026-05-06T12:00:00.000Z"
+              "isLto": true
             },
             "highPrice": {
               "amount": 0,
@@ -3280,32 +3279,17 @@
             "preferDB": false
           },
           {
-            "itemID": 2503487,
-            "itemName": "Dinghy",
-            "itemNameShort": "Dinghy",
-            "itemDesc": "Somehow this old Dinghy is still seaworthy.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemID": 284752151,
+            "itemName": "Rebar Reel Paint",
+            "itemNameShort": "Rebar Reel Paint",
+            "itemDesc": "Built from junk and determination. Fish beware.\n\nSKIN IS CRAFTABLE AT TINKER'S WORKBENCHES.",
             "primaryImage": {
-              "imageName": "atx_camp_floordecor_dinghy.dds",
-              "directory": "/textures/atx/storefront/camp/floordecoration/"
+              "directory": "/textures/atx/storefront/player/weaponskin/",
+              "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_l.webp"
             },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_floordecor_dinghy_c1.dds",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_dinghy_c2.dds",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              }
-            ],
+            "carouselImages": [],
             "dynamicBundleItems": [],
             "lowPrice": {
-              "amount": 0,
-              "originalAmount": 0,
-              "isLto": true,
-              "ltoTimer": "2026-05-05T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
               "amount": 0,
               "originalAmount": 0
             },
@@ -3313,17 +3297,12 @@
               "amount": 0,
               "originalAmount": 0
             },
-            "isNew": 1,
-            "isZeus": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": false,
-              "hasNone": true
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
             },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
-            "isClown": false,
-            "preferDB": false
+            "isZeus": true,
+            "preferDB": true
           },
           {
             "itemID": 2469688,
