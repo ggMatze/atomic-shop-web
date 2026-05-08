@@ -13620,12 +13620,25 @@
     "desc": "The Mothman exists, and you're going to prove it. Track down the legendary Mothman with the Mothman Hunter Outfit!",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
     "itemName": "Mothman Hunter Outfit",
-    "dynamicBundleItems": [],
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Mothman Hunter Hat",
+        "szItemEDID": "ATX_ENTM_Apparel_Headwear_MothmanHunter_Hat"
+      },
+      {
+        "szItemName": "Mothman Hunter Goggles",
+        "szItemEDID": "ATX_ENTM_Apparel_Headwear_MothmanHunter_Goggles"
+      },
+      {
+        "szItemName": "Mothman Hunter Outfit",
+        "szItemEDID": "ATX_ENTM_Apparel_Clothes_MothmanHunter"
+      }
+    ],
     "primaryImage": {
       "imageName": "ac3444eedeab3131849bfd27052bd985.webp",
       "directory": "/textures/atomic_shop_media"
     },
-    "highPriceOriginal": "900 or 600",
+    "highPriceOriginal": "900",
     "carouselImages": [
       {
         "imageName": "atx_apparel_clothes_mothmanhunter_hat_l.webp",
