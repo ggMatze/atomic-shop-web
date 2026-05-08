@@ -32,29 +32,39 @@
 
 <span id="age"></span><br>
 
-        <script>
-        fetch("https://api.github.com/repos/ggMatze/atomic-shop-web/commits?path=data/items-db.json&per_page=1")
-        .then(res => res.json())
-        .then(data => {
-            const lastCommitDate = new Date(data[0].commit.committer.date);
-            const now = new Date();
+       <span id="age"></span>
 
-            const diffMs = now - lastCommitDate;
-            const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            <script>
+            fetch("https://api.github.com/repos/ggMatze/atomic-shop-web/commits?path=data/items-db.json&per_page=1")
+            .then(res => res.json())
+            .then(data => {
+                const lastCommitDate = new Date(data[0].commit.committer.date);
+                const now = new Date();
 
-            let text;
-            if (diffHours < 1) text = "just now";
-            else if (diffHours < 24) text = `${diffHours} hours ago`;
-            else if (diffDays === 1) text = "yesterday";
-            else text = `${diffDays} days ago`;
+                const diffMs = now - lastCommitDate;
 
-            document.getElementById("age").textContent = "Updated " + text;
-        })
-        .catch(() => {
-            document.getElementById("age").textContent = "Could not load update time";
-        });
-        </script>
+                const minutes = Math.floor(diffMs / (1000 * 60));
+                const hours = Math.floor(diffMs / (1000 * 60 * 60));
+                const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+                let text;
+
+                if (minutes < 1) {
+                text = "just now";
+                } else if (minutes < 60) {
+                text = minutes + " minute" + (minutes === 1 ? "" : "s") + " ago";
+                } else if (hours < 24) {
+                text = hours + " hour" + (hours === 1 ? "" : "s") + " ago";
+                } else {
+                text = days + " day" + (days === 1 ? "" : "s") + " ago";
+                }
+
+                document.getElementById("age").textContent = "Updated " + text;
+            })
+            .catch(() => {
+                document.getElementById("age").textContent = "Could not load update time";
+            });
+            </script>
                 <span id="statsText">Loading database...</span>
             </div>
         </header>
