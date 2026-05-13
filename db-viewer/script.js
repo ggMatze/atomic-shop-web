@@ -13,7 +13,7 @@ const itemDataStore = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
-    'CAMP', 'Clothing', 'Kits', 'Player', 'Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Playericons', 'Emotes'
+    'CAMP', 'Clothing', 'Kits', 'Player', 'Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Playericons', 'Emotes'
 ]);
 
 // Get categories for an item
@@ -41,11 +41,18 @@ function getItemCategories(item) {
                 categories.add('Decoration');
                 categories.add('CAMP');
             
+            } else if (p === 'vendors') {
+                categories.add('Vendors');
+                categories.add('CAMP');
+            
             } else if (p === 'lights') {
                 categories.add('Lights');
                 categories.add('Decoration');
                 categories.add('CAMP');
             
+            } else if (p === 'utility') {
+                categories.add('Utility');
+
             } else if (p === 'furniture') {
                 categories.add('Furniture');
                 categories.add('Decoration');

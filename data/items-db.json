@@ -6408,10 +6408,19 @@
     "desc": "Keep your food and drinks fresh for longer! The Refrigerator reduces spoilage rate on food and drink items by 50%.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "atx_camp_utility_refrigerator_stainlesssteel_l.webp",
-      "directory": "/textures/atx/storefront/camp/utility/"
-    },
-    "carouselImages": [],
+        "imageName": "atx_camp_utility_refrigerator_c1.webp",
+        "directory": "/textures/atx/storefront/camp/utility/"
+      },
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_utility_refrigerator_c1.webp",
+        "directory": "/textures/atx/storefront/camp/utility/"
+      },
+      {
+        "imageName": "atx_camp_utility_refrigerator_c2.webp",
+        "directory": "/textures/atx/storefront/camp/utility/"
+      }
+    ],
     "itemName": "Refrigerator"
   },
   {
