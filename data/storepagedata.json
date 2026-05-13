@@ -784,7 +784,16 @@
               "imageName": "atx_camp_lights_floorlamps_carlight_l.webp",
               "directory": "/textures/atx/storefront/camp/lights/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_lights_floorlamps_carlight_c1.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_lights_floorlamps_carlight_c2.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 500,
@@ -803,7 +812,7 @@
             "isNew": 1,
             "preferDB": true,
             "_detectedSuffixInfo": {
-              "maxC": 0,
+              "maxC": 2,
               "hasL": true,
               "hasNone": false
             },
@@ -819,7 +828,20 @@
               "imageName": "atx_camp_defense_rustedbarricade_l.webp",
               "directory": "/textures/atx/storefront/camp/defenses/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_defense_rustedbarricade_c1.webp",
+                "directory": "/textures/atx/storefront/camp/defenses/"
+              },
+              {
+                "imageName": "atx_camp_defense_rustedbarricade_c2.webp",
+                "directory": "/textures/atx/storefront/camp/defenses/"
+              },
+              {
+                "imageName": "atx_camp_defense_rustedbarricade_c3.webp",
+                "directory": "/textures/atx/storefront/camp/defenses/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 250,
@@ -838,7 +860,7 @@
             "isNew": 1,
             "preferDB": true,
             "_detectedSuffixInfo": {
-              "maxC": 0,
+              "maxC": 3,
               "hasL": true,
               "hasNone": false
             },
@@ -854,7 +876,16 @@
               "imageName": "atx_camp_lights_floorlamps_rustedbrazier_l.webp",
               "directory": "/textures/atx/storefront/camp/lights/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx__camp_lights_floorlamps_rustedbrazier_c2.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx__camp_lights_floorlamps_rustedbrazier_c1.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 250,
@@ -873,7 +904,7 @@
             "isNew": 1,
             "preferDB": true,
             "_detectedSuffixInfo": {
-              "maxC": 0,
+              "maxC": 2,
               "hasL": true,
               "hasNone": false
             },
@@ -886,10 +917,19 @@
             "itemNameShort": "Raider Skull Pile",
             "itemDesc": "This skull pile is a grisly place for a dog to dig..\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
             "primaryImage": {
-              "directory": "/textures/atx/storefront/camp/floordecoration/",
-              "imageName": "atx_camp_camppets_furniture_raiderskullpile.webp"
+              "imageName": "atx_camp_camppets_furniture_raiderskullpile.webp",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_camppets_furniture_raiderskullpile_c1.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_camppets_furniture_raiderskullpile_c2.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 500,
@@ -906,7 +946,14 @@
               "originalAmount": 0
             },
             "isNew": 1,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isZeus": false,
+            "isClown": false
           },
           {
             "itemID": 998467059,
@@ -914,10 +961,19 @@
             "itemNameShort": "Rusted Paint (Minigun)",
             "itemDesc": "Time has passed in Appalachia, naturally weapons rust and here they are. No longer abandoned.\n\nSKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
             "primaryImage": {
-              "directory": "/textures/atx/storefront/player/weaponskin/",
-              "imageName": "score_s18_skin_weaponskin_minigun_rusted_l.webp"
+              "imageName": "score_s18_skin_weaponskin_minigun_rusted_l.webp",
+              "directory": "/textures/atx/storefront/player/weaponskin/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "score_s18_skin_weaponskin_minigun_rusted_c1.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s18_skin_weaponskin_minigun_rusted_c2.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 500,
@@ -934,7 +990,13 @@
               "originalAmount": 0
             },
             "isZeus": true,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isClown": false
           }
         ]
       },
@@ -1190,7 +1252,7 @@
             "itemDesc": "Is this thing safe? There's only one way to find out...\n[h]This item is only usable in Shelters.[/h]\nThis generator radiates power over your entire Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]CAN ONLY BE BUILT INSIDE OF SHELTERS![/h]",
             "primaryImage": {
               "imageName": "atx_entm_camp_utility_tesla.webp",
-              "directory": "/textures/atx/storefront/camp/floordecoration//"
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
             },
             "carouselImages": [
               {
@@ -1349,7 +1411,7 @@
             "itemID": 5007,
             "itemName": "Enrichment Centrifuges",
             "itemNameShort": "Enrichment Centrifuges",
-            "itemDesc": "While no longer capable of enriching uranium-235 into uranium-238, these can still enrich your decor.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n\n",
+            "itemDesc": "While no longer capable of enriching uranium-235 into uranium-238, these can still enrich your decor.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
               "imageName": "atx_camp_floordecor_centrifuges.webp",
               "directory": "/textures/atx/storefront/camp/floordecoration/"
@@ -1441,7 +1503,7 @@
             "itemID": 5009,
             "itemName": "Enclave Water Cooler",
             "itemNameShort": "Enclave Water Cooler",
-            "itemDesc": "Fuel your thirst to purify the wasteland with this Enclave Water Cooler!\nGenerates Purified Water.\n\nThis item cannot be built inside of a Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n\n\n",
+            "itemDesc": "Fuel your thirst to purify the wasteland with this Enclave Water Cooler!\nGenerates Purified Water.\n\nThis item cannot be built inside of a Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
               "imageName": "score_s19_camp_collector_enclavewatercooler_l.webp",
               "directory": "/textures/atx/storefront/camp/utility/"
@@ -1497,7 +1559,7 @@
             "itemID": 6001,
             "itemName": "Log Cabin Bundle",
             "itemNameShort": "Log Cabin Bundle",
-            "itemDesc": "Create an idyllic homestead with this Log Cabin Bundle.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n\n\n",
+            "itemDesc": "Create an idyllic homestead with this Log Cabin Bundle.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -",
             "primaryImage": {
               "imageName": "5df51b916198d3de20e5450a3934b4e2.webp",
               "directory": "/textures/atomic_shop_media/"
@@ -2233,14 +2295,24 @@
             "itemNameShort": "Rebar Reel Paint",
             "itemDesc": "Built from junk and determination. Fish beware.\n\nSKIN IS CRAFTABLE AT TINKER'S WORKBENCHES.",
             "primaryImage": {
-              "directory": "/textures/atx/storefront/player/weaponskin/",
-              "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_l.webp"
+              "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_l.webp",
+              "directory": "/textures/atx/storefront/player/weaponskin/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_c1.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_c2.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 0,
-              "originalAmount": 0
+              "originalAmount": 0,
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -2251,7 +2323,13 @@
               "originalAmount": 0
             },
             "isZeus": true,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isClown": false
           },
           {
             "itemID": 254873441,
@@ -2259,8 +2337,8 @@
             "itemNameShort": "Warhawk",
             "itemDesc": "The Warhawk Hairstyle. Because the Warhawk Hairstyle never changes.\n\nUNLOCKS A HAIRSTYLE OPTION FOR MALES.",
             "primaryImage": {
-              "directory": "/textures/atx/storefront/player/hairstyle/",
-              "imageName": "atx_playerstyle_hairstyle_m_warhawk_l.webp"
+              "imageName": "atx_playerstyle_hairstyle_m_warhawk_l.webp",
+              "directory": "/textures/atx/storefront/player/hairstyle/"
             },
             "carouselImages": [],
             "dynamicBundleItems": [],
@@ -2278,7 +2356,14 @@
               "amount": 125,
               "originalAmount": 0
             },
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isZeus": false,
+            "isClown": false
           },
           {
             "itemID": 101,
@@ -2286,15 +2371,25 @@
             "itemNameShort": "The Starlight",
             "itemDesc": "A light as big and bright as the stars.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
             "primaryImage": {
-              "directory": "/textures/atx/storefront/camp/lights/",
-              "imageName": "atx__camp_lights_floorlamps_thestarlight_l.webp"
+              "imageName": "atx__camp_lights_floorlamps_thestarlight_l.webp",
+              "directory": "/textures/atx/storefront/camp/lights/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx__camp_lights_floorlamps_thestarlight_c1.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx__camp_lights_floorlamps_thestarlight_c2.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 250,
               "originalAmount": 0,
-              "isLto": true
+              "isLto": true,
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -2304,7 +2399,14 @@
               "amount": 250,
               "originalAmount": 0
             },
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isZeus": false,
+            "isClown": false
           },
           {
             "itemID": 254873440,
@@ -2449,7 +2551,7 @@
               "amount": 1000,
               "originalAmount": 1000,
               "isLto": false,
-              "ltoTimer": null
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 1000,
@@ -2475,55 +2577,55 @@
             "itemID": 2470306,
             "itemName": "Fallout First Yearly Catch Up Bundle 1",
             "itemNameShort": "Fallout First Catch Up",
-            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\r\n\r\nThis offer is exclusive to Fallout 1st Members. ",
+            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\n\nThis offer is exclusive to Fallout 1st Members.",
             "primaryImage": {
               "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.webp",
-              "directory": "textures/atomic_shop_media/"
+              "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
                 "imageName": "23eb4100cdd999a79f58a440a3969563.webp",
-                "directory": "textures/atomic_shop_media/"
+                "directory": "/textures/atomic_shop_media/"
               },
               {
                 "imageName": "a71990263dbd3be2276987c49545e764.webp",
-                "directory": "textures/atomic_shop_media/"
+                "directory": "/textures/atomic_shop_media/"
               },
               {
                 "imageName": "4aa890033c78e8f65c79f2264df26099.webp",
-                "directory": "textures/atomic_shop_media/"
+                "directory": "/textures/atomic_shop_media/"
               },
               {
                 "imageName": "fd64031a6b58963586c0d60e56f5bcf0.webp",
-                "directory": "textures/atomic_shop_media/"
+                "directory": "/textures/atomic_shop_media/"
               },
               {
-                "imageName": "ATX_F1_Apparel_Clothes_RangersUniform_Advanced_C1.webp",
-                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+                "imageName": "atx_f1_apparel_clothes_rangersuniform_advanced_c1.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
-                "imageName": "ATX_F1_SurvivaltTent_Skin_Xmas_C1.webp",
-                "directory": "Textures/ATX/Storefront/Camp/Tents/"
+                "imageName": "atx_f1_survivalttent_skin_xmas_c1.webp",
+                "directory": "/textures/atx/storefront/camp/tents/"
               },
               {
-                "imageName": "ATX_F1_SurvivaltTent_Skin_Responders_Medical_C1.webp",
-                "directory": "Textures/ATX/Storefront/Camp/Tents/"
+                "imageName": "atx_f1_survivalttent_skin_responders_medical_c1.webp",
+                "directory": "/textures/atx/storefront/camp/tents/"
               },
               {
-                "imageName": "ATX_F1_Skin_Headwear_RangersUniform_Desert_C1.webp",
-                "directory": "Textures/ATX/Storefront/Player/ArmorSkin/"
+                "imageName": "atx_f1_skin_headwear_rangersuniform_desert_c1.webp",
+                "directory": "/textures/atx/storefront/player/armorskin/"
               },
               {
-                "imageName": "ATX_F1_Skin_Clothing_RangersUniform_Desert_C1.webp",
-                "directory": "Textures/ATX/Storefront/Player/ArmorSkin/"
+                "imageName": "atx_f1_skin_clothing_rangersuniform_desert_c1.webp",
+                "directory": "/textures/atx/storefront/player/armorskin/"
               },
               {
-                "imageName": "ATX_Apparel_Headwear_HockeyMask_C1.webp",
-                "directory": "Textures/ATX/Storefront/Player/Headwear/"
+                "imageName": "atx_apparel_headwear_hockeymask_c1.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
               },
               {
-                "imageName": "SCORE_S1_CAMP_Machinery_Workbench_Armor_VaultTecPristine_C1.webp",
-                "directory": "Textures/ATX/Storefront/Camp/Machinery/"
+                "imageName": "score_s1_camp_machinery_workbench_armor_vaulttecpristine_c1.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
               }
             ],
             "dynamicBundleItems": [
@@ -2589,7 +2691,7 @@
               "amount": 4000,
               "originalAmount": 4000,
               "isLto": false,
-              "ltoTimer": null
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -2599,75 +2701,82 @@
               "amount": 0,
               "originalAmount": 4000
             },
-            "isNew": false,
             "isZeus": true,
-            "preferDB": false
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": false,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false
           },
           {
             "itemID": 2470307,
             "itemName": "Fallout First Yearly Catch Up Bundle 2",
             "itemNameShort": "Fallout First Catch Up",
-            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\r\n\r\nThis offer is exclusive to Fallout 1st Members. ",
+            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\n\nThis offer is exclusive to Fallout 1st Members.",
             "primaryImage": {
               "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.webp",
-              "directory": "textures/atomic_shop_media/"
+              "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
                 "imageName": "0ef75b6d77a5936d2952095c6b03d6cb.webp",
-                "directory": "textures/atomic_shop_media/"
+                "directory": "/textures/atomic_shop_media/"
               },
               {
                 "imageName": "e1dc2c1792a6890aa9fae08cdb67794d.webp",
-                "directory": "textures/atomic_shop_media/"
+                "directory": "/textures/atomic_shop_media/"
               },
               {
                 "imageName": "8c084262b9f29fb3dccf3170626dfffe.webp",
-                "directory": "textures/atomic_shop_media/"
+                "directory": "/textures/atomic_shop_media/"
               },
               {
                 "imageName": "f9ff3465d1696184a377613a2d7cfd5c.webp",
-                "directory": "textures/atomic_shop_media/"
+                "directory": "/textures/atomic_shop_media/"
               },
               {
                 "imageName": "3d9c190eb3573e9c89f64b14632a93b8.webp",
-                "directory": "textures/atomic_shop_media/"
+                "directory": "/textures/atomic_shop_media/"
               },
               {
-                "imageName": "ATX_CAMP_WallPaper_Squares_C1.webp",
-                "directory": "Textures/ATX/Storefront/Camp/Wallpaper/"
+                "imageName": "atx_camp_wallpaper_squares_c1.webp",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
               },
               {
-                "imageName": "ATX_F1_Apparel_Mummy_Outfit_C1.webp",
-                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+                "imageName": "atx_f1_apparel_mummy_outfit_c1.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
-                "imageName": "ATX_F1_Skin_PowerArmor_Paint_Hellfire_BlueDemon_C1.webp",
-                "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
+                "imageName": "atx_f1_skin_powerarmor_paint_hellfire_bluedemon_c1.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
               },
               {
-                "imageName": "ATX_F1_Apparel_Clothes_EnclaveIntelOfficer_Outfit_C1.webp",
-                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+                "imageName": "atx_f1_apparel_clothes_enclaveintelofficer_outfit_c1.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
-                "imageName": "ATX_F1_Skin_PowerArmor_Paint_Warhead_C1.webp",
-                "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
+                "imageName": "atx_f1_skin_powerarmor_paint_warhead_c1.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
               },
               {
-                "imageName": "ATX_F1_SurvivalTent_Skin_APC_C1.webp",
-                "directory": "Textures/ATX/Storefront/Camp/Tents/"
+                "imageName": "atx_f1_survivaltent_skin_apc_c1.webp",
+                "directory": "/textures/atx/storefront/camp/tents/"
               },
               {
-                "imageName": "ATX_Skin_BackpackFlair_MrFuzzy_C1.webp",
-                "directory": "Textures/ATX/Storefront/Player/Flair/"
+                "imageName": "atx_skin_backpackflair_mrfuzzy_c1.webp",
+                "directory": "/textures/atx/storefront/player/flair/"
               },
               {
-                "imageName": "ATX_F1_CAMP_Statue_Crocollossus_Statuette_C1.webp",
-                "directory": "Textures/ATX/Storefront/Camp/Statues/"
+                "imageName": "atx_f1_camp_statue_crocollossus_statuette_c1.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
               },
               {
-                "imageName": "ATX_F1_Apparel_Outfit_JackGourdon_C1.webp",
-                "directory": "Textures/ATX/Storefront/Player/Outfit/"
+                "imageName": "atx_f1_apparel_outfit_jackgourdon_c1.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
               }
             ],
             "dynamicBundleItems": [
@@ -2730,7 +2839,7 @@
               "amount": 4000,
               "originalAmount": 4000,
               "isLto": false,
-              "ltoTimer": 0
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -2740,15 +2849,20 @@
               "amount": 0,
               "originalAmount": 4000
             },
-            "isNew": false,
             "isZeus": true,
-            "preferDB": false
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
           },
           {
             "itemID": 2470308,
             "itemName": "Fallout First Yearly Catch Up Bundle 3",
             "itemNameShort": "Fallout First Catch Up",
-            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\r\n\r\nThis offer is exclusive to Fallout 1st Members. ",
+            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\n\nThis offer is exclusive to Fallout 1st Members.",
             "primaryImage": {
               "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.webp",
               "directory": "/textures/atomic_shop_media/"
@@ -2866,7 +2980,7 @@
               "amount": 1547,
               "originalAmount": 4000,
               "isLto": false,
-              "ltoTimer": ""
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 4000,
@@ -2878,13 +2992,18 @@
             },
             "isZeus": true,
             "isClown": false,
-            "preferDB": false
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2470120,
             "itemName": "Ranger Armor Outfit",
             "itemNameShort": "Ranger Armor Outfit",
-            "itemDesc": "Roam the Wasteland as a living legend.\r\n\r\nIncluded with membership in Fallout 1st.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemDesc": "Roam the Wasteland as a living legend.\n\nIncluded with membership in Fallout 1st.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
             "primaryImage": {
               "imageName": "0dc4f4304f3931e04a3d99b2cf99122a.webp",
               "directory": "/textures/atomic_shop_media/"
@@ -2895,7 +3014,7 @@
               "amount": 0,
               "originalAmount": 0,
               "isLto": false,
-              "ltoTimer": ""
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -2907,13 +3026,20 @@
             },
             "isZeus": true,
             "isClown": false,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": false,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
           },
           {
             "itemID": 2470245,
             "itemName": "Ammo Storage Box",
             "itemNameShort": "Ammo Storage Box",
-            "itemDesc": "This box hosts unlimited storage for your ammunition.\r\n\r\nIncluded with membership in Fallout 1st. You must be an active Member to deposit ammo into the Ammo Storage Box.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "This box hosts unlimited storage for your ammunition.\n\nIncluded with membership in Fallout 1st. You must be an active Member to deposit ammo into the Ammo Storage Box.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
               "imageName": "f1_camp_ammostoragebox_standard_l.webp",
               "directory": "/textures/atx/storefront/camp/stash/"
@@ -2933,7 +3059,7 @@
               "amount": 0,
               "originalAmount": 0,
               "isLto": false,
-              "ltoTimer": ""
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -2945,13 +3071,20 @@
             },
             "isZeus": true,
             "isClown": false,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
           },
           {
             "itemID": 2470233,
             "itemName": "Aid Box",
             "itemNameShort": "Aid Box",
-            "itemDesc": "This Aid Box is here for your Medicinal and Chem storage needs, to infinitum!\r\n\r\nIncluded with membership in Fallout 1st. You must be an active Member to deposit aid items into the Aid Box.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "This Aid Box is here for your Medicinal and Chem storage needs, to infinitum!\n\nIncluded with membership in Fallout 1st. You must be an active Member to deposit aid items into the Aid Box.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
               "imageName": "f1_camp_aidbox_standard_l.webp",
               "directory": "/textures/atx/storefront/camp/stash/"
@@ -2971,7 +3104,7 @@
               "amount": 0,
               "originalAmount": 0,
               "isLto": false,
-              "ltoTimer": ""
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -2983,13 +3116,20 @@
             },
             "isZeus": true,
             "isClown": false,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
           },
           {
             "itemID": 2469740,
             "itemName": "Scrapbox",
             "itemNameShort": "Scrapbox",
-            "itemDesc": "This small box hosts unlimited Storage for all of your crafting Scrap.\r\n\r\nIncluded with membership in Fallout 1st. You must be an active Member to deposit Scrap into the Scrapbox.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "This small box hosts unlimited Storage for all of your crafting Scrap.\n\nIncluded with membership in Fallout 1st. You must be an active Member to deposit Scrap into the Scrapbox.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
               "imageName": "f1_camp_scrapbox_standard_l.webp",
               "directory": "/textures/atx/storefront/camp/stash/"
@@ -2999,7 +3139,8 @@
             "lowPrice": {
               "amount": 0,
               "originalAmount": 0,
-              "isLto": false
+              "isLto": false,
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -3011,13 +3152,20 @@
             },
             "isZeus": true,
             "isClown": false,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": false
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
           },
           {
             "itemID": 2470351,
             "itemName": "Fallout First Blue Ridge Catch Up Bundle",
             "itemNameShort": "Fallout First Season Catch Up",
-            "itemDesc": "New to Fallout First or missed an item from Season 18? This Bundle will let you find some of those items.\r\n\r\nThis offer is exclusive to Fallout 1st Members. ",
+            "itemDesc": "New to Fallout First or missed an item from Season 18? This Bundle will let you find some of those items.\n\nThis offer is exclusive to Fallout 1st Members.",
             "primaryImage": {
               "imageName": "739dc38dcf0b5eeba4c9e00476db734f.webp",
               "directory": "/textures/atomic_shop_media/"
@@ -3078,7 +3226,8 @@
             "lowPrice": {
               "amount": 300,
               "originalAmount": 1800,
-              "isLto": false
+              "isLto": false,
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 1800,
@@ -3091,13 +3240,20 @@
             "isNew": 2,
             "isZeus": true,
             "isClown": false,
-            "preferDB": false
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
           },
           {
             "itemID": 2470352,
             "itemName": "Fallout First Rusted Road Catch Up Bundle",
             "itemNameShort": "Fallout First Season Catch Up",
-            "itemDesc": "New to Fallout First or missed an item from Season 18? This Bundle will let you find some of those items.\r\n\r\nThis offer is exclusive to Fallout 1st Members. ",
+            "itemDesc": "New to Fallout First or missed an item from Season 18? This Bundle will let you find some of those items.\n\nThis offer is exclusive to Fallout 1st Members.",
             "primaryImage": {
               "imageName": "f1dcffc16c9b63500f5c2e26da85b2ca.webp",
               "directory": "/textures/atomic_shop_media/"
@@ -3172,7 +3328,8 @@
             "lowPrice": {
               "amount": 246,
               "originalAmount": 1500,
-              "isLto": false
+              "isLto": false,
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 1500,
@@ -3185,13 +3342,18 @@
             "isNew": 2,
             "isZeus": true,
             "isClown": false,
-            "preferDB": false
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2470353,
             "itemName": "Fallout First Milepost Farm Catch Up Bundle",
             "itemNameShort": "Fallout First Season Catch Up",
-            "itemDesc": "New to Fallout First or missed an item from Season 18? This Bundle will let you find some of those items.\r\n\r\nThis offer is exclusive to Fallout 1st Members. ",
+            "itemDesc": "New to Fallout First or missed an item from Season 18? This Bundle will let you find some of those items.\n\nThis offer is exclusive to Fallout 1st Members.",
             "primaryImage": {
               "imageName": "a04b552f5c2c2aada02f9df2e6fec462.webp",
               "directory": "/textures/atomic_shop_media/"
@@ -3259,7 +3421,8 @@
             "lowPrice": {
               "amount": 37,
               "originalAmount": 1800,
-              "isLto": false
+              "isLto": false,
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 1800,
@@ -3272,7 +3435,12 @@
             "isNew": 2,
             "isZeus": true,
             "isClown": false,
-            "preferDB": false
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 284752151,
@@ -3280,14 +3448,24 @@
             "itemNameShort": "Rebar Reel Paint",
             "itemDesc": "Built from junk and determination. Fish beware.\n\nSKIN IS CRAFTABLE AT TINKER'S WORKBENCHES.",
             "primaryImage": {
-              "directory": "/textures/atx/storefront/player/weaponskin/",
-              "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_l.webp"
+              "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_l.webp",
+              "directory": "/textures/atx/storefront/player/weaponskin/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_c1.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_c2.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 0,
-              "originalAmount": 0
+              "originalAmount": 0,
+              "ltoTimer": "2026-05-13T17:03:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -3298,13 +3476,19 @@
               "originalAmount": 0
             },
             "isZeus": true,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isClown": false
           },
           {
             "itemID": 2469688,
             "itemName": "Fallout 1st Weekly Consumable Bundle",
             "itemNameShort": "Fallout 1st Consumable Bundle",
-            "itemDesc": "A value like no other! Get yours today! Available every 7 days from purchase.\r\n\r\nGrants 10 Lunchboxes, 10 Basic Repair Kits, and 10 Scrap Kits.\r\n\r\nFor .webp and Effects Information for Lunchboxes, visit Help > Lunchboxes.\r\n\r\n- CONSUMABLES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
+            "itemDesc": "A value like no other! Get yours today! Available every 7 days from purchase.\n\nGrants 10 Lunchboxes, 10 Basic Repair Kits, and 10 Scrap Kits.\n\nFor .webp and Effects Information for Lunchboxes, visit Help > Lunchboxes.\n\n- CONSUMABLES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
             "primaryImage": {
               "imageName": "ca3824e4d8c57814a1e4d944fbbee311.webp",
               "directory": "/textures/atomic_shop_media/"
@@ -3315,7 +3499,7 @@
               "amount": 500,
               "originalAmount": 500,
               "isLto": false,
-              "ltoTimer": 0
+              "ltoTimer": "2026-05-13T17:04:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 500,
@@ -3325,9 +3509,16 @@
               "amount": 0,
               "originalAmount": 500
             },
-            "isNew": false,
             "isZeus": true,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": false,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false
           }
         ]
       }
