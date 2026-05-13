@@ -37,17 +37,21 @@ body:has(.item-overlay:not(.hidden)) {
 
 header {
     font-family: 'Cabin', sans-serif;
-   
-    
     margin-bottom: 20px;
     text-align: center;
-    position: sticky;
-    top: 0;
+    position: relative;
     background: #111111a1!important;
     backdrop-filter: blur(10px) saturate(150%);
     z-index: 100;
-    padding: 10px 0;
+    padding: 10px;
     border-bottom: 3px solid #ddd378;
+    min-height: 80px; /* ensure space for panel */
+}
+
+#go-ufas {
+    position: sticky!important;
+    top: 10px;
+    right: 100px;
 }
 
 h1 {
@@ -80,6 +84,49 @@ h1 {
 
 #searchInput:focus {
     border-color: #6af141;
+}
+
+.filter-controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#filter-toggle {
+    background: #181c1d;
+    color: #ffe082;
+    border: 1px solid #ffe082;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.filter-panel {
+    background: #181c1d00;
+    max-width: 1000px;
+    padding: 10px;
+    margin: 5px auto;   /* <-- this centers it horizontally */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filter-panel.hidden {
+    display: none;
+}
+
+.filter-panel label {
+    color: #ffe082;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filter-panel input[type="checkbox"] {
+    accent-color: #ffd454;
 }
 
 .stats {

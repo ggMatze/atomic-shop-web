@@ -19,14 +19,19 @@
             <h1>⚛ Atomic Shop DB Viewer</h1>
             
             <div class="search-box">
+                <button id="go-ufas" title="Browse user-friendly atomic shop">&nbsp;</button>
                 <input 
                     type="text" 
                     id="searchInput" 
                     placeholder="Search, ID or Item Name..."
                     autocomplete="on"
                 >
+                <button id="filter-toggle">Filters ▼</button>
             </div>
-            <button id="go-ufas" title="Browse user-friendly atomic shop">&nbsp;</button>
+            <div id="filter-panel" class="filter-panel hidden">
+                <!-- Checkboxes will be populated here -->
+            </div>
+            
             <div class="stats">
                 <span id="age"></span>
 

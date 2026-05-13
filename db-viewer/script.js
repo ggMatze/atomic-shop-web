@@ -2,6 +2,7 @@ let dbData = [];
 let displayedItems = [];
 let itemsPerPage = 15;
 let nextItemIndex = 0;
+let allCategories = [];
 const searchInput = document.getElementById('searchInput');
 const resultsContainer = document.getElementById('results');
 const statsText = document.getElementById('statsText');
@@ -10,12 +11,125 @@ const errorContainer = document.getElementById('errorContainer');
 // Store item data by EDID for overlay access
 const itemDataStore = new Map();
 
+// Valid categories to filter by
+const validCategories = new Set([
+    'camp', 'clothing', 'kits', 'player', 'armor', 'skin', 'floor', 'decor', 'wall', 'ceiling', 'lights', 'weapons', 'weaponmodel', 'furniture', 'entertainment', 'bundle', 'powerarmor', 'settlement', 'workshop', 'hairstyle', 'structures', 'headwear', 'outfit', 'playericons', 'emotes'
+]);
+
+// Get categories for an item
+function getItemCategories(item) {
+    const categories = new Set();
+    if (item.primaryImage && item.primaryImage.directory) {
+        const dir = item.primaryImage.directory.toLowerCase();
+        // Split by / and take relevant parts
+        const parts = dir.split('/').filter(p => p);
+        parts.forEach(p => {
+            if (validCategories.has(p)) {
+                categories.add(p);
+            } else if (p === 'floordecoration') {
+                categories.add('floordecor');
+                categories.add('decor');
+            } else if (p === 'walldecoration') {
+                categories.add('walldecor');
+                categories.add('decor');
+            } else if (p === 'ceilingdecoration') {
+                categories.add('ceiling');
+                categories.add('decor');
+            } else if (p === 'outfit') {
+                categories.add('clothing');
+            } else if (p === 'headwear') {
+                categories.add('clothing');
+                categories.add('headwear');
+            } else if (p === 'weaponskin') {
+                categories.add('weapons');
+                categories.add('skin');
+            } else if (p === 'weaponmodel') {
+                categories.add('weapons');
+            } else if (p === 'structures') {
+                categories.add('structures');
+            } else if (p === 'hairstyle') {
+                categories.add('hairstyle');
+            } else if (p === 'playericons') {
+                categories.add('playericons');
+            } else if (p === 'emotes') {
+                categories.add('emotes');
+            }
+        });
+    }
+    /*if (item.EDID) {
+        const edid = item.EDID.toLowerCase();
+        // Look for patterns like _camp_, _armorskin_, etc., and map to valid
+        const matches = edid.match(/_([a-z]+)(?=_|$)/g);
+        if (matches) {
+            matches.forEach(m => {
+                const cat = m.slice(1);
+                if (validCategories.has(cat)) {
+                    categories.add(cat);
+                } else if (cat === 'armorskin') {
+                    categories.add('armor');
+                    categories.add('skin');
+                } else if (cat === 'floordecor') {
+                    categories.add('floor');
+                    categories.add('decor');
+                } else if (cat === 'walldecor') {
+                    categories.add('wall');
+                    categories.add('decor');
+                } else if (cat === 'ceilingdecor') {
+                    categories.add('ceiling');
+                    categories.add('decor');
+                } else if (cat === 'apparel') {
+                    categories.add('clothing');
+                } else if (cat === 'weaponskin') {
+                    categories.add('weapons');
+                    categories.add('skin');
+                } else if (cat === 'playerstyle') {
+                    categories.add('player');
+                } else if (cat === 'structure') {
+                    categories.add('structures');
+                } else if (cat === 'playericon') {
+                    categories.add('playericons');
+                } else if (cat === 'emotes') {
+                    categories.add('emotes');
+                }
+            });
+        }
+    }*/
+    return Array.from(categories);
+}
+
+// Populate filter checkboxes
+function populateFilters() {
+    const panel = document.getElementById('filter-panel');
+    panel.innerHTML = '';
+    allCategories.forEach(cat => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${cat}"> ${cat}`;
+        panel.appendChild(label);
+    });
+}
+
+// Get selected categories
+function getSelectedCategories() {
+    const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"]:checked');
+    return Array.from(checkboxes).map(cb => cb.value);
+}
+
 // Load database
 async function loadDatabase() {
     try {
         const response = await fetch('../data/items-db.json');
         if (!response.ok) throw new Error('Failed to load database');
         dbData = await response.json();
+        
+        // Collect all unique categories
+        const catSet = new Set();
+        dbData.forEach(item => {
+            getItemCategories(item).forEach(cat => catSet.add(cat));
+        });
+        allCategories = Array.from(catSet).sort();
+        
+        populateFilters();
+        
         statsText.textContent = `Loaded ${dbData.length} items`;
         resetAndRender(dbData);
     } catch (error) {
@@ -26,20 +140,25 @@ async function loadDatabase() {
 
 // Search function
 function search(query) {
-    if (!query.trim()) {
-        resetAndRender(dbData);
-        return;
+    let results = dbData;
+    
+    const selectedCats = getSelectedCategories();
+    if (selectedCats.length > 0) {
+        results = results.filter(item => {
+            const itemCats = getItemCategories(item);
+            return selectedCats.some(cat => itemCats.includes(cat));
+        });
     }
-
-    const lowerQuery = query.toLowerCase();
-    const results = dbData.filter(item => {
-        const edid = (item.EDID || '').toLowerCase();
-        const name = (item.itemName || '').toLowerCase();
-        //const desc = (item.desc || '').toLowerCase();
-        
-        return edid.includes(lowerQuery) || name.includes(lowerQuery); //|| desc.includes(lowerQuery);
-    });
-
+    
+    if (query.trim()) {
+        const lowerQuery = query.toLowerCase();
+        results = results.filter(item => {
+            const edid = (item.EDID || '').toLowerCase();
+            const name = (item.itemName || '').toLowerCase();
+            return edid.includes(lowerQuery) || name.includes(lowerQuery);
+        });
+    }
+    
     statsText.textContent = `Found ${results.length} of ${dbData.length} items`;
     resetAndRender(results);
 }
@@ -536,6 +655,19 @@ if (hasPrimaryImage) {
     `;
 }
 // ===== INITIALIZATION =====
+
+// Event listeners
+searchInput.addEventListener('input', (e) => {
+    search(e.target.value);
+});
+
+document.getElementById('filter-toggle').addEventListener('click', () => {
+    document.getElementById('filter-panel').classList.toggle('hidden');
+});
+
+document.getElementById('filter-panel').addEventListener('change', () => {
+    search(searchInput.value);
+});
 
 // Initialize
 loadDatabase();
