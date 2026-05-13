@@ -13,7 +13,7 @@ const itemDataStore = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
-    'CAMP', 'Clothing', 'Kits', 'Player', 'Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Playericons', 'Emotes'
+    'CAMP', 'Clothing', 'Kits', 'Beds', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Playericons', 'Emotes'
 ]);
 
 // Get categories for an item
@@ -26,9 +26,36 @@ function getItemCategories(item) {
         parts.forEach(p => {
             if (validCategories.has(p)) {
                 categories.add(p);
+
+            } else if (p === 'playertitles') {
+                categories.add('Titles');
+            
+            } else if (p === 'camptitles') {
+                categories.add('Titles');
+                categories.add('CAMP');
+
             } else if (p === 'floordecoration') {
                 categories.add('Floordecor');
                 categories.add('Decoration');
+                categories.add('CAMP');
+            
+            } else if (p === 'flags') {
+                categories.add('Floordecor');
+                categories.add('Decoration');
+                categories.add('CAMP');
+
+            } else if (p === 'signs') {
+                categories.add('Signs');
+                categories.add('Decoration');
+                categories.add('CAMP');
+            
+            } else if (p === 'statues') {
+                categories.add('Floordecor');
+                categories.add('Decoration');
+                categories.add('CAMP');
+
+            } else if (p === 'doors') {
+                categories.add('Doors');
                 categories.add('CAMP');
 
             } else if (p === 'walldecoration') {
@@ -50,17 +77,61 @@ function getItemCategories(item) {
                 categories.add('Decoration');
                 categories.add('CAMP');
             
-            } else if (p === 'utility') {
-                categories.add('Utility');
+            } else if (p === 'machinery') {
+                categories.add('Machinery');
+                categories.add('CAMP');
 
             } else if (p === 'furniture') {
                 categories.add('Furniture');
                 categories.add('Decoration');
                 categories.add('CAMP');
-            
+
+            } else if (p === 'beds') {
+                categories.add('Beds');
+                categories.add('CAMP');
+                categories.add('Furniture');
+                categories.add('Decoration');
+
             } else if (p === 'kits') {
                 categories.add('Kits');
                 categories.add('CAMP');
+
+            } else if (p === 'shelters') {
+                categories.add('Shelters');
+                categories.add('Structures');
+                categories.add('CAMP');
+
+            } else if (p === 'defenses') {
+                categories.add('Defenses');
+                categories.add('CAMP');
+
+            }else if (p === 'ally') {
+                categories.add('NPCs');
+                categories.add('CAMP');
+
+            } else if (p === 'floors') {
+                categories.add('Floors/Foundation');
+                categories.add('CAMP');
+            
+            } else if (p === 'roof') {
+                categories.add('CAMP');
+                categories.add('Kits');
+
+            } else if (p === 'wallpaper') {
+                categories.add('Wallpaper');
+                categories.add('Decoration');
+                categories.add('CAMP');
+
+            } else if (p === 'stach') {
+                categories.add('Containers');
+                categories.add('CAMP');
+                categories.add('Decoration');
+
+            } else if (p === 'displays') {
+                categories.add('Displays');
+                categories.add('CAMP');
+                categories.add('Decoration');
+                categories.add('Containers');
 
             } else if (p === 'outfit') {
                 categories.add('Clothing');
@@ -71,6 +142,11 @@ function getItemCategories(item) {
                 categories.add('Armor');
                 categories.add('Skins');
             
+            } else if (p === 'underarmor') {
+                categories.add('Underarmor');
+                categories.add('Apparel');
+                categories.add('Armor');
+
             } else if (p === 'powerarmor') {
                 categories.add('Powerarmor');
 
@@ -78,8 +154,25 @@ function getItemCategories(item) {
                categories.add('Headwear');
                categories.add('Apparel');
 
+            }else if (p === 'backpack') {
+                categories.add('Backpack');
+                categories.add('Apparel');
+
+            } else if (p === 'flair') {
+                categories.add('Flairs');
+                categories.add('Backpack');
+
+
             } else if (p === 'weaponskin') {
                 categories.add('Weapons');
+                categories.add('Skins');
+
+            } else if (p === 'cameraskin') {
+                categories.add('Skins');
+
+            } else if (p === 'pipboy') {
+                categories.add('PipBoy');
+                categories.add('Apparel');
                 categories.add('Skins');
 
             } else if (p === 'weaponmodel') {
@@ -102,6 +195,7 @@ function getItemCategories(item) {
                
             } else if (p ==='photopose') {
                 categories.add('Pose');
+                categories.add('Photomode');
 
             } else if (p === 'playericons') {
                 categories.add('Playericons');
@@ -109,7 +203,20 @@ function getItemCategories(item) {
             } else if (p === 'emotes') {
                 categories.add('Emotes');
 
+            } else if (p === 'photoframe') {
+                categories.add('Photomode');
+
+            } else if (p === 'photovanitylight') {
+                categories.add('Photomode');
+
+            } else if (p === 'tents') {
+                categories.add('P2W');
+            
+            } else if (p === 'lootbags') {
+               categories.add('Lootbags');
+               categories.add('Skins');
             }
+
 
             // custom categories based on directory patterns
             if (validCategories.has(p)) {
@@ -120,7 +227,14 @@ function getItemCategories(item) {
                 categories.add('Apparel');}   
             if (p === 'facepaint' || p === 'tattoo' || p === 'hairstyle' || p === 'photopose') { 
                 categories.add('Character');}
-
+            const dir = item.primaryImage.directory.toLowerCase();
+            if (dir.includes('/camp/utility/')) {
+                categories.add('Utility');
+                categories.add('CAMP');
+            }
+            else if (dir.includes('/storefront/utility/')) {
+                categories.add('P2W');
+            }
         });
     }
     /*if (item.EDID) {
