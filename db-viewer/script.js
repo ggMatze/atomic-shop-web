@@ -37,6 +37,8 @@ function getItemCategories(item) {
                 categories.add('decor');
             } else if (p === 'outfit') {
                 categories.add('clothing');
+            } else if (p === 'armorskin') {
+                categories.add('armor');
             } else if (p === 'headwear') {
                 categories.add('clothing');
                 categories.add('headwear');
