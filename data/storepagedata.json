@@ -2212,20 +2212,32 @@
           },
           {
             "itemID": 556277684,
-            "itemName": "Black Suit",
-            "itemNameShort": "Black Suit",
-            "itemDesc": "\"Dashing\" doesn't even begin to describe you while wearing this slick Clean Black Suit.\n\nAPPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+            "itemName": "Laundered Green Dress",
+            "itemNameShort": "Green Dress",
+            "itemDesc": "This dress is freshly washed and ready for anything the new world throws at you.\n\nAPPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
             "primaryImage": {
-              "imageName": "atx_apparel_outfit_suitclean_black_l.webp",
+              "imageName": "atx_apparel_outfit_prewardress_clean_l.webp",
               "directory": "/textures/atx/storefront/player/outfit/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_apparel_outfit_suitclean_black_c1.webp",
+                "imageName": "atx_apparel_outfit_prewardress_clean_c1.webp",
                 "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
-                "imageName": "atx_apparel_outfit_suitclean_black_c2.webp",
+                "imageName": "atx_apparel_outfit_prewardress_clean_c2.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_prewardress_clean_c3.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_prewardress_clean_c4.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_prewardress_clean_c5.webp",
                 "directory": "/textures/atx/storefront/player/outfit/"
               }
             ],
@@ -2234,7 +2246,7 @@
               "amount": 0,
               "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-05-12T12:00:00.000Z"
+              "ltoTimer": "2026-05-19T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
@@ -2245,13 +2257,15 @@
               "originalAmount": 0
             },
             "_detectedSuffixInfo": {
-              "maxC": 2,
+              "maxC": 5,
               "hasL": true,
-              "hasNone": false
+              "hasNone": true
             },
             "isZeus": false,
             "isClown": false,
-            "preferDB": false
+            "preferDB": false,
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
           },
           {
             "itemID": 2316946,
@@ -2333,37 +2347,100 @@
           },
           {
             "itemID": 254873441,
-            "itemName": "Warhawk",
-            "itemNameShort": "Warhawk",
-            "itemDesc": "The Warhawk Hairstyle. Because the Warhawk Hairstyle never changes.\n\nUNLOCKS A HAIRSTYLE OPTION FOR MALES.",
+            "itemName": "Nuka-cola Classic Power Armor Paint Set",
+            "itemNameShort": "Nuka-cola Classic Paint",
+            "itemDesc": "Is there a more classic pairing than Nuka-Cola and the ol' Red, White, and Blue? Get the full set of Nuka-Cola Classic Power Armor Paints with this bundle.\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
             "primaryImage": {
-              "imageName": "atx_playerstyle_hairstyle_m_warhawk_l.webp",
-              "directory": "/textures/atx/storefront/player/hairstyle/"
+              "imageName": "score_s11_skin_powerarmor_paint_t45_nukacolaclassic_l.webp",
+              "directory": "/textures/atx/storefront/player/powerarmor/"
             },
-            "carouselImages": [],
-            "dynamicBundleItems": [],
+            "carouselImages": [
+              {
+                "imageName": "score_s11_skin_powerarmor_paint_t51_nukacolaclassic_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s11_skin_powerarmor_paint_t60_nukacolaclassic_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s11_skin_powerarmor_paint_excavator_nukacolaclassic_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s11_skin_powerarmor_paint_x01_nukacolaclassic_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s11_skin_powerarmor_paint_ultracite_nukacolaclassic_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s11_skin_powerarmor_paint_t65_nukacolaclassic_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s11_skin_powerarmor_paint_union_nukacolaclassic_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s11_skin_powerarmor_paint_hellcat_nukacolaclassic_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Nuka-Cola Classic T-45 Power Armor Paint"
+              },
+              {
+                "szItemName": "Nuka-Cola Classic T-51 Power Armor Paint"
+              },
+              {
+                "szItemName": "Nuka-Cola Classic T-60 Power Armor Paint"
+              },
+              {
+                "szItemName": "Nuka-Cola Classic Excavator Power Armor Paint"
+              },
+              {
+                "szItemName": "Nuka-Cola Classic X-01 Power Armor Paint"
+              },
+              {
+                "szItemName": "Nuka-Cola Classic Ultracite Power Armor Paint"
+              },
+              {
+                "szItemName": "Nuka-Cola Classic T-65 Power Armor Paint"
+              },
+              {
+                "szItemName": "Nuka-Cola Classic Union Power Armor Paint"
+              },
+              {
+                "szItemName": "Nuka-Cola Classic Hellcat Power Armor Paint"
+              }
+            ],
             "lowPrice": {
-              "amount": 125,
+              "amount": 750,
               "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-05-12T12:00:00.000Z"
+              "ltoTimer": "2026-05-19T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
-              "originalAmount": 250
+              "originalAmount": 1500
             },
             "lowestPurchasablePrice": {
-              "amount": 125,
+              "amount": 750,
               "originalAmount": 0
             },
             "preferDB": true,
             "_detectedSuffixInfo": {
               "maxC": 0,
               "hasL": true,
-              "hasNone": false
+              "hasNone": true
             },
             "isZeus": false,
-            "isClown": false
+            "isClown": false,
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
           },
           {
             "itemID": 101,
@@ -2410,78 +2487,229 @@
           },
           {
             "itemID": 254873440,
-            "itemName": "Survival Camouflage Bundle",
-            "itemNameShort": "Camoflage Bundle",
+            "itemName": "Trailblazer Free States Faction Bundle",
+            "itemNameShort": "Trailblazer Bundle",
             "itemDesc": "Those who blend into their environment best, survive the wasteland longest!\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
             "primaryImage": {
-              "imageName": "97d1db6d691733026d984f34d03686be.webp",
+              "imageName": "4cc7dfe4f69fbdc45f8b5d3cb7022fbd.webp",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_apparel_outfit_pantsuit_camouflage_l.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
+                "imageName": "atx_camp_decoration_freestates_t2_a_l.webp",
+                "directory": "/textures/atx/storefront/camp/flags/"
               },
               {
-                "imageName": "atx_apparel_outfit_shortsuit_camouflage_l.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_skin_armorskin_leather_camo_l.webp",
-                "directory": "/textures/atx/storefront/player/armorskin/"
-              },
-              {
-                "imageName": "atx_skin_armorskin_metal_camo_l.webp",
-                "directory": "/textures/atx/storefront/player/armorskin/"
-              },
-              {
-                "imageName": "atx_skin_armorskin_combat_camo_l.webp",
-                "directory": "/textures/atx/storefront/player/armorskin/"
-              },
-              {
-                "imageName": "atx_skin_powerarmor_paint_camobrown_l.webp",
+                "imageName": "atx_skin_powerarmor_paint_freestates_revolutionary_l.webp",
                 "directory": "/textures/atx/storefront/player/powerarmor/"
               },
               {
-                "imageName": "atx_skin_weaponskin_huntingrifle_camo_l.webp",
+                "imageName": "atx_camp_sign_signfreestates_small01_l.webp",
+                "directory": "/textures/atx/storefront/camp/signs/"
+              },
+              {
+                "imageName": "atx_skin_backpack_freestates_tan_l.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              },
+              {
+                "imageName": "atx_camp_sign_signfreestates_large03_l.webp",
+                "directory": "/textures/atx/storefront/camp/signs/"
+              },
+              {
+                "imageName": "atx_camp_sign_signfreestates_wall02_l.webp",
+                "directory": "/textures/atx/storefront/camp/signs/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_jetpack_freestates_01_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_freestates_survivalist_bandana_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_jetpack_freestates_02_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_camp_structure_truck_freestates_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_structure_truck_freestates_gear_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_structure_car_blue_gear_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_pipboy_freestatesbasic_l.webp",
+                "directory": "/textures/atx/storefront/player/pipboy/"
+              },
+              {
+                "imageName": "atx_playericon_freestates_01.webp",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              },
+              {
+                "imageName": "atx_camp_decoration_freestates_t1_b_l.webp",
+                "directory": "/textures/atx/storefront/camp/flags/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_freestates_survivalist_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_freestates_survivalist_hat_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "free_states_salute.webp",
+                "directory": "/textures/emotes/"
+              },
+              {
+                "imageName": "atx_camp_sign_signfreestates_wall01_l.webp",
+                "directory": "/textures/atx/storefront/camp/signs/"
+              },
+              {
+                "imageName": "atx_camp_sign_signfreestates_large01_l.webp",
+                "directory": "/textures/atx/storefront/camp/signs/"
+              },
+              {
+                "imageName": "atx_camp_sign_signfreestates_large02_l.webp",
+                "directory": "/textures/atx/storefront/camp/signs/"
+              },
+              {
+                "imageName": "atx_camp_decoration_flagwaving_freestates_elite_l.webp",
+                "directory": "/textures/atx/storefront/camp/flags/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_freestates_revolutionary_helmet_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_camp_vendor_playervendingmachine_free_l.webp",
+                "directory": "/textures/atx/storefront/camp/vendors/"
+              },
+              {
+                "imageName": "atx_skin_backpack_freestates_green_l.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              },
+              {
+                "imageName": "atx_skin_weaponskin_10mmsmg_freestates_l.webp",
                 "directory": "/textures/atx/storefront/player/weaponskin/"
               },
               {
-                "imageName": "atx_skin_weaponskin_pumpactionshotgun_tactical_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
+                "imageName": "atx_apparel_outfit_freestates_revolutionary_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Camouflage Suit"
+                "szItemName": "Free States Revolutionary Flag - Blue"
               },
               {
-                "szItemName": "Camouflage Short Suit"
+                "szItemName": "Revolutionary Power Armor Paint"
               },
               {
-                "szItemName": "Camouflage Leather Armor Paint"
+                "szItemName": "- WHO KNOWS WHAT ELSE THIS COULD BE - "
               },
               {
-                "szItemName": "Camouflage Metal Armor Paint"
+                "szItemName": "Free States - Do Not Enter Sign"
               },
               {
-                "szItemName": "Camouflage Combat Armor Paint"
+                "szItemName": "Tan Free States Backpack"
               },
               {
-                "szItemName": "Wasteland Walker Power Armor Paint Set"
+                "szItemName": "Free States - No Entry Sign"
               },
               {
-                "szItemName": "Camouflage Hunting Rifle Paint"
+                "szItemName": "Free States Survivalist Jetpack"
               },
               {
-                "szItemName": "Tactical Paint (Pump Action Shotgun)"
+                "szItemName": "Free States Survivalist Bandana"
+              },
+              {
+                "szItemName": "Free States Revolutionary Jetpack"
+              },
+              {
+                "szItemName": "Free States Truckbed Trailer"
+              },
+              {
+                "szItemName": "Free States Survivalist Outfit"
+              },
+              {
+                "szItemName": "Survivalist Paint"
+              },
+              {
+                "szItemName": "Free States Survivalist Flag - Black"
+              },
+              {
+                "szItemName": "Free States Survivalist Hat"
+              },
+              {
+                "szItemName": "Free States Revolutionary Icon"
+              },
+              {
+                "szItemName": "Free States Survivalist Flag - White"
+              },
+              {
+                "szItemName": "Free States Paint (10mm Submachine Gun)"
+              },
+              {
+                "szItemName": "Free States - No Entry Wall Sign"
+              },
+              {
+                "szItemName": "Green Free States Backpack"
+              },
+              {
+                "szItemName": "Free States Paint (Combat Shotgun)"
+              },
+              {
+                "szItemName": "Free States Paint Vending Machine"
+              },
+              {
+                "szItemName": "Survivalist Power Armor Paint Set"
+              },
+              {
+                "szItemName": "Free States Revolutionary Helmet"
+              },
+              {
+                "szItemName": "Free States - Go Away Sign"
+              },
+              {
+                "szItemName": "Free States Survivalist Icon"
+              },
+              {
+                "szItemName": "Free States Trailblazer Flag - Gold"
+              },
+              {
+                "szItemName": "Free States - Camp Sign"
+              },
+              {
+                "szItemName": "Free States - Restricted Area Sign"
+              },
+              {
+                "szItemName": "Revolutionary Paint"
+              },
+              {
+                "szItemName": "Free States Revolutionary Outfit"
+              },
+              {
+                "szItemName": "Free States Salute"
+              },
+              {
+                "szItemName": "Free States Truckbed Trailer with Junk"
+              },
+              {
+                "szItemName": "Free States - Outpost Wall Sign"
               }
             ],
             "lowPrice": {
               "amount": 600,
               "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-05-12T12:00:00.000Z"
+              "ltoTimer": "2026-05-19T12:00:00.000Z"
             },
             "highPrice": {
               "amount": 0,
