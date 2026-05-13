@@ -7057,10 +7057,29 @@
     "desc": "DEMOCRACY IS NON-NEGOTIABLE. Eradicate communism with the Lady Liberty Prime Power Armor. This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on the Excavator, Raider, T-45, T-51, T-60, T-65, Ultracite and X-01 Power Armors.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
     "itemName": "Liberty Prime Power Armor Skin Set",
-    "dynamicBundleItems": [],
-    "primaryImage": null,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Lady Liberty Prime Power Armor Skin"
+      },
+      {
+        "szItemName": "Lady Liberty Prime Jetpack"
+      }
+    ],
+    "primaryImage": {
+      "imageName": "atx_skin_powerarmor_model_ladylibertyprime_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+    },
     "highPriceOriginal": 1800,
-    "carouselImages": []
+    "carouselImages": [
+    {
+      "imageName": "atx_skin_powerarmor_model_ladylibertyprime_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+     {
+        "imageName": "atx_entm_skin_powerarmor_jetpack_ladylibertyprime_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      }
+    ]
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_JetPack_LadyLibertyPrime",
@@ -7583,12 +7602,12 @@
     "EDID": "SCORE_S12_ENTM_PlayerIcon_GuinevereIcon",
     "desc": "\"As equally skilled at medicine as she is at deflecting Rip!\"",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s12_guineverebubblegum.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Bubblegum Guinevere Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Bubblegum Guinevere Player Icon"
   },
   {
     "EDID": "SCORE_S12_ENTM_Photomode_Frame_OnTheHunt",
@@ -42914,7 +42933,7 @@
     "desc": "For when you have a settlement to raid at 11 and a wedding to attend at 2.",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
     "primaryImage": {
-      "imageName": "atx_apparel_headwear_flapper_tiara_l.webp",
+      "imageName": "atx_apparel_headwear_antiquatedveil.webp",
       "directory": "/textures/atx/storefront/player/headwear/"
     },
     "carouselImages": [],
@@ -66447,7 +66466,7 @@
     "disclaimer": "SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
     "primaryImage": {
       "imageName": "atx_skin_pipboyskin_hunters.webp",
-      "directory": "/textures/atx/storefront/player/pipboyskin/"
+      "directory": "/textures/atx/storefront/player/pipboy/"
     },
     "carouselImages": []
   },
