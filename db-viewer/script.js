@@ -13,7 +13,7 @@ const itemDataStore = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
-    'camp', 'clothing', 'kits', 'player', 'armor', 'skin', 'floor', 'decor', 'wall', 'ceiling', 'lights', 'weapons', 'weaponmodel', 'furniture', 'entertainment', 'bundle', 'powerarmor', 'settlement', 'workshop', 'hairstyle', 'structures', 'headwear', 'outfit', 'playericons', 'emotes'
+    'CAMP', 'Clothing', 'Kits', 'Player', 'Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Playericons', 'Emotes'
 ]);
 
 // Get categories for an item
@@ -27,35 +27,93 @@ function getItemCategories(item) {
             if (validCategories.has(p)) {
                 categories.add(p);
             } else if (p === 'floordecoration') {
-                categories.add('floordecor');
-                categories.add('decor');
+                categories.add('Floordecor');
+                categories.add('Decoration');
+                categories.add('CAMP');
+
             } else if (p === 'walldecoration') {
-                categories.add('walldecor');
-                categories.add('decor');
+                categories.add('Walldecor');
+                categories.add('Decoration');
+                categories.add('CAMP');
+
             } else if (p === 'ceilingdecoration') {
-                categories.add('ceiling');
-                categories.add('decor');
+                categories.add('Walldecor');
+                categories.add('Decoration');
+                categories.add('CAMP');
+            
+            } else if (p === 'lights') {
+                categories.add('Lights');
+                categories.add('Decoration');
+                categories.add('CAMP');
+            
+            } else if (p === 'furniture') {
+                categories.add('Furniture');
+                categories.add('Decoration');
+                categories.add('CAMP');
+            
+            } else if (p === 'kits') {
+                categories.add('Kits');
+                categories.add('CAMP');
+
             } else if (p === 'outfit') {
-                categories.add('clothing');
+                categories.add('Clothing');
+                categories.add('Apparel');
+                categories.add('Outfit');
+
             } else if (p === 'armorskin') {
-                categories.add('armor');
+                categories.add('Armor');
+                categories.add('Skins');
+            
+            } else if (p === 'powerarmor') {
+                categories.add('Powerarmor');
+
             } else if (p === 'headwear') {
-                categories.add('clothing');
-                categories.add('headwear');
+               categories.add('Headwear');
+               categories.add('Apparel');
+
             } else if (p === 'weaponskin') {
-                categories.add('weapons');
-                categories.add('skin');
+                categories.add('Weapons');
+                categories.add('Skins');
+
             } else if (p === 'weaponmodel') {
-                categories.add('weapons');
+                categories.add('Weapons');
+                categories.add('Skins');
+                categories.add('Weaponmodel');
+
             } else if (p === 'structures') {
-                categories.add('structures');
+                categories.add('Structures');
+                categories.add('CAMP');
+
             } else if (p === 'hairstyle') {
-                categories.add('hairstyle');
+                categories.add('Hairstyle');
+            
+            } else if (p === 'tattoo') {
+                categories.add('Tattoos');
+            
+            } else if (p === 'facepaint') {
+                categories.add('Facepaint');
+               
+            } else if (p ==='photopose') {
+                categories.add('Pose');
+
             } else if (p === 'playericons') {
-                categories.add('playericons');
+                categories.add('Playericons');
+
             } else if (p === 'emotes') {
-                categories.add('emotes');
+                categories.add('Emotes');
+
             }
+
+            // custom categories based on directory patterns
+            if (validCategories.has(p)) {
+            categories.add(p);
+            }
+            
+            if (p === 'outfit' || p === 'headwear') {
+                categories.add('Apparel');}   
+            if (p === 'facepaint' || p === 'tattoo' || p === 'hairstyle' || p === 'photopose') { 
+                categories.add('Character');}
+
         });
     }
     /*if (item.EDID) {
