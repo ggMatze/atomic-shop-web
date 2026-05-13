@@ -122,7 +122,7 @@ function getItemCategories(item) {
                 categories.add('Decoration');
                 categories.add('CAMP');
 
-            } else if (p === 'stach') {
+            } else if (p === 'stash') {
                 categories.add('Containers');
                 categories.add('CAMP');
                 categories.add('Decoration');
