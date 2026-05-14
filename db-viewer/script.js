@@ -22,7 +22,7 @@ const filterGroups = {
     'Skins': ['C.A.M.P.','Clothing', 'Headwear', 'Armor', 'Backpack' , 'PipBoy', 'Lootbags', 'Camera', 'Weapons', 'Weapon Skins', 'Weapon Models', 'Powerarmor', 'Tents'],
     'Apparel': ['Outfits', 'Headwear', 'Underarmor', 'Armor', 'PipBoy', 'Flairs', 'Backpack'],
     'Player Appearance': ['Hairstyle', 'Tattoos', 'Facepaint'],
-    'Photo Mode': ['Photomode', 'Pose'],
+    'Photo Mode': [ 'Frames', 'Pose', 'Vanity Lights'],
     'Other': ['Playericons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'P2W', 'Needs fixing']
 };
 
@@ -77,7 +77,7 @@ function getItemCategories(item) {
             'Tattoos': ['tattoo'],
             'Facepaint': ['facepaint'],
             'Pose': ['photopose'],
-            'Photomode': ['photoframe', 'photovanitylight', 'photopose'],
+            /*'Photomode': ['photoframe', 'photovanitylight', 'photopose'],*/
             'Playericons': ['playericons'],
             'Emotes': ['emotes'],
             'P2W': ['storefront/utility','events'],
@@ -131,6 +131,8 @@ function getItemCategories(item) {
         'Misc': ['_account_'],
         '\u200BCut Content': ['zzz', 'reuse','armorskin_wood_nw'],
         'Bundle': ['_bndl_'],
+        'Vanity Lights': ['_vanitylight_'],
+        'Frames': ['_photomode_frame_'],
         'Bobbers': ['_rodbobber_']
     
         };
