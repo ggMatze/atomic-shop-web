@@ -115,17 +115,103 @@ input[type="checkbox"][data-state="excluded"] {
 }
 .filter-panel {
     background: #181c1d00;
-    max-width: 1000px;
+    max-width: 100%;
     padding: 10px;
-    margin: 5px auto;   /* <-- this centers it horizontally */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    margin: 5px auto;
+    display: block;
 }
 
 .filter-panel.hidden {
     display: none;
+}
+
+/* Group buttons top row */
+.filter-group-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    justify-content: center;
+}
+
+.filter-group-button {
+    background: #181c1d52;
+    color: #ffe082;
+    border: 1px solid #94949479;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    transition: all 0.2s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filter-group-button:hover {
+    background: #181c1d52;
+    border-color: #ffd454;
+}
+
+.filter-group-button.active {
+    background: #e6cc813b;
+    color: #d4d4d4;
+    border-color: #ffd454;
+}
+
+.group-checkbox-button {
+    width: 16px;
+    height: 16px;
+    
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+
+
+/* Accordion panels */
+.filter-accordion {
+    background: #181c1d00;
+}
+
+.filter-accordion-panel {
+    display: none;
+    margin-bottom: 5px;
+}
+
+.filter-accordion-panel.active {
+    display: block;
+}
+
+/* Divider header with group name */
+.filter-divider-header {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.divider-text {
+    color: #bbbbbb;
+    font-size: 14px;
+    white-space: nowrap;
+    padding: 0 10px;
+}
+
+.filter-divider-header::before,
+.filter-divider-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #bbbbbb;
+}
+
+.filter-panel-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 0px;
+    
 }
 
 .filter-panel label {
@@ -135,10 +221,18 @@ input[type="checkbox"][data-state="excluded"] {
     gap: 5px;
     font-size: 14px;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .filter-panel input[type="checkbox"] {
     accent-color: #ffd454;
+}
+
+input[type="checkbox"][data-state="excluded"] {
+    accent-color: #e05744 !important;
+}
+.group-checkbox-hidden {
+    display: none !important;
 }
 
 .stats {

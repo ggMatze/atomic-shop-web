@@ -16,6 +16,16 @@ const validCategories = new Set([
     'CAMP', 'Clothing', 'Kits', 'Beds', 'Collectors', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Playericons', 'Emotes'
 ]);
 
+// Grouped categories for filters
+const filterGroups = {
+    'CAMP': ['Kits','Floors/Foundation', 'Roofs', 'Wallpaper','Doors', 'Decoration', 'Floordecor','Walldecor','Signs','Vendors','Lights','Machinery','Furniture','Beds','Stash','Displays','Shelters','Structures','Defenses','Allies', 'Utility', 'Collectron'],
+    'Skins': ['Clothing', 'Headwear', 'Armor', 'Backpack' , 'PipBoy', 'Lootbags', 'Camera', 'Weapons', 'Weapon Skins', 'Weapon Models', 'Powerarmor', 'Tents'],
+    'Apparel': ['Outfits', 'Headwear', 'Underarmor', 'Armor', 'PipBoy', 'Flairs', 'Backpack'],
+    'Player Appearance': ['Hairstyle', 'Tattoos', 'Facepaint'],
+    'Photo Mode': ['Photomode', 'Pose'],
+    'Other': ['Playericons', 'Emotes', 'Bundle', '\u200BCut Content','Misc', 'P2W']
+};
+
 // Get categories for an item
 function getItemCategories(item) {
     const categories = new Set();
@@ -41,20 +51,20 @@ function getItemCategories(item) {
             'Beds': ['beds'],
             'Kits': ['kits', 'roof'],
             'Shelters': ['shelters'],
-            'Structures': ['shelters', 'structures'],
+            'Structures': ['structures'],
             'Defenses': ['defenses'],
-            'NPCs': ['ally'],
+            'Allies': ['ally'],
             'Floors/Foundation': ['floors'],
-            'Roof': ['roof'],
+            'Roofs': ['roof'],
             'Wallpaper': ['wallpaper'],
-            'Containers': ['stash', 'displays'],
+            'Stash': ['stash'],
             'Displays': ['displays'],
             'Clothing': ['outfit'],
             /*'Apparel': ['outfit', 'underarmor', 'headwear', 'backpack', 'pipboy'],*/
-            'Outfit': ['outfit'],
-            'Armor': ['armorskin', 'underarmor'],
+            'Outfits': ['outfit'],
+            'Armor': ['armorskin'],
             /*'Skins': ['armorskin', 'cameraskin', 'weaponskin', 'pipboy', 'weaponmodel', 'lootbags'],*/
-            /*'Underarmor': ['underarmor'],*/
+            'Underarmor': ['underarmor'],
             'Headwear': ['headwear'],
             'Backpack': ['backpack'],
             'Flairs': ['flair'],
@@ -63,14 +73,13 @@ function getItemCategories(item) {
             'PipBoy': ['pipboy'],
             'Powerarmor': ['powerarmor'],
             'Hairstyle': ['hairstyle'],
-            'Character': ['facepaint', 'tattoo', 'hairstyle', 'photopose'],
             'Tattoos': ['tattoo'],
             'Facepaint': ['facepaint'],
             'Pose': ['photopose'],
             'Photomode': ['photoframe', 'photovanitylight', 'photopose'],
             'Playericons': ['playericons'],
             'Emotes': ['emotes'],
-            'P2W': ['tents', 'storefront/utility'],
+            'P2W': ['storefront/utility'],
             'Lootbags': ['lootbags']
         };
         
@@ -104,16 +113,22 @@ function getItemCategories(item) {
     const edidCategoryKeywords = {
         'Apparel': ['_apparel_', '_outfit_'],
         'CAMP': ['_camp_'],
+        'Camera': ['_cameraskin_'],
+        'Underarmor': ['_underarmor_'],
         'Weapons': ['_weaponskin_', '_weaponmodel_'],
         'Weapon Models': ['_weaponmodel_'],
         'Weapon Skins': ['_weaponskin_'],
         'Skins': ['_skin_'],
         'Emotes': ['_emotes_'],
-        'Collectors': ['_collector_', '_collectron_'],
+        'Collectron': ['_collectron_'],
         'Foundations': ['_foundation_'],
         'Floors': ['_floor_'],
-        '\u200BCut Content': ['zzz', 'reuse']
-    };
+        'Utility': ['_camp_utility_'],
+        'Misc': ['_account_'],
+        '\u200BCut Content': ['zzz', 'reuse'],
+        'Bundle': ['_bndl_']
+    
+        };
     
     if (item.EDID) {
         const edid = item.EDID.toLowerCase();
@@ -131,10 +146,10 @@ function getItemCategories(item) {
 
 // Save checkbox states to localStorage
 function saveFilterStates() {
-    const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"]');
+    const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"][data-category]');
     const states = {};
     checkboxes.forEach(checkbox => {
-        states[checkbox.value] = checkbox.dataset.state;
+        states[checkbox.dataset.category] = checkbox.dataset.state;
     });
     localStorage.setItem('filterStates', JSON.stringify(states));
 }
@@ -145,13 +160,31 @@ function loadFilterStates() {
     return saved ? JSON.parse(saved) : {};
 }
 
+// Apply state to a checkbox (handles data-state, checked, and indeterminate)
+function applyCheckboxState(checkbox, state) {
+    const previousState = checkbox.dataset.state;
+    checkbox.dataset.state = state;
+    checkbox.checked = state === 'included';
+    checkbox.indeterminate = state === 'excluded';
+    
+    // Force DOM re-render by triggering a style recalculation
+    void checkbox.offsetHeight;
+    
+    const computedChecked = checkbox.checked;
+    const computedIndeterminate = checkbox.indeterminate;
+    const isVisible = checkbox.offsetParent !== null;
+    
+    console.log(`[Checkbox State] ${checkbox.value || checkbox.dataset.category || 'group'}: ${previousState} → ${state}`);
+    console.log(`  Properties: checked=${computedChecked}, indeterminate=${computedIndeterminate}`);
+    console.log(`  DOM visible: ${isVisible}, tagName: ${checkbox.tagName}, type: ${checkbox.type}`);
+    console.log(`  Element:`, checkbox);
+}
+
 // Reset all filters
 function resetFilters() {
     const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
-        checkbox.dataset.state = 'unchecked';
-        checkbox.checked = false;
-        checkbox.indeterminate = false;
+        applyCheckboxState(checkbox, 'unchecked');
     });
     localStorage.removeItem('filterStates');
     search(searchInput.value);
@@ -164,72 +197,211 @@ function populateFilters() {
     
     const savedStates = loadFilterStates();
     
-    allCategories.forEach(cat => {
-        const label = document.createElement('label');
+    // Create a container for the group buttons (top row)
+    const groupButtonsContainer = document.createElement('div');
+    groupButtonsContainer.className = 'filter-group-buttons';
+    
+    // Create a container for the accordion panels
+    const accordionContainer = document.createElement('div');
+    accordionContainer.className = 'filter-accordion';
+    
+    panel.appendChild(groupButtonsContainer);
+    panel.appendChild(accordionContainer);
+    
+    Object.entries(filterGroups).forEach(([groupName, categories]) => {
+        // Create group checkbox that will go on the button
+        const groupCheckbox = document.createElement('input');
+        groupCheckbox.type = 'checkbox';
+        groupCheckbox.value = groupName;
+        groupCheckbox.id = `group-checkbox-${groupName.replace(/\s+/g, '-')}`;
+        groupCheckbox.className = 'group-checkbox-button';
         
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.value = cat;
-        checkbox.dataset.category = cat;
+        // Create group button (top row)
+        const groupButton = document.createElement('button');
+        groupButton.className = 'filter-group-button';
+        groupButton.dataset.group = groupName;
         
-        const span = document.createElement('span');
-        span.textContent = cat;
+        // Add checkbox and text to button
+        const buttonSpan = document.createElement('span');
+        buttonSpan.textContent = `${groupName}`;
         
-        label.appendChild(checkbox);
-        label.appendChild(span);
+        groupButton.appendChild(groupCheckbox);
+        groupButton.appendChild(buttonSpan);
         
-        // Load saved state or default to unchecked
-        const savedState = savedStates[cat] || 'unchecked';
-        checkbox.dataset.state = savedState;
+        // Create accordion panel
+        const accordionPanel = document.createElement('div');
+        accordionPanel.className = 'filter-accordion-panel';
+        accordionPanel.dataset.group = groupName;
         
-        if (savedState === 'included') {
-            checkbox.checked = true;
-            checkbox.indeterminate = false;
-        } else if (savedState === 'excluded') {
-            checkbox.checked = false;
-            checkbox.indeterminate = true;
-        } else {
-            checkbox.checked = false;
-            checkbox.indeterminate = false;
+        // Create hidden checkbox (for state tracking)
+        const hiddenGroupCheckbox = document.createElement('input');
+        hiddenGroupCheckbox.type = 'checkbox';
+        hiddenGroupCheckbox.id = `group-checkbox-hidden-${groupName.replace(/\s+/g, '-')}`;
+        hiddenGroupCheckbox.style.display = 'none';
+        accordionPanel.appendChild(hiddenGroupCheckbox);
+        
+        // Create divider header with group name
+        const dividerHeader = document.createElement('div');
+        dividerHeader.className = 'filter-divider-header';
+        dividerHeader.innerHTML = `<span class="divider-text">${groupName}</span>`;
+        accordionPanel.appendChild(dividerHeader);
+        
+        // Create items container
+        const itemsContainer = document.createElement('div');
+        itemsContainer.className = 'filter-panel-items';
+        
+        categories.forEach(cat => {
+            const label = document.createElement('label');
+            
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.value = cat;
+            checkbox.dataset.category = cat;
+            
+            const span = document.createElement('span');
+            span.textContent = cat;
+            
+            label.appendChild(checkbox);
+            label.appendChild(span);
+            
+            // Load saved state or default to unchecked
+            const savedState = savedStates[cat] || 'unchecked';
+            console.log(`[Init Checkbox] ${cat}: saved state = ${savedState}`);
+            applyCheckboxState(checkbox, savedState);
+            
+            // Three-state cycling using data attribute as source of truth
+            checkbox.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const currentState = checkbox.dataset.state;
+                
+                setTimeout(() => {
+                    let newState = 'unchecked';
+                    if (currentState === 'unchecked') {
+                        newState = 'included';
+                    } else if (currentState === 'included') {
+                        newState = 'excluded';
+                    }
+                    // else stays 'unchecked'
+                    
+                    console.log(`[Child Click] ${checkbox.dataset.category}: ${currentState} → ${newState}`);
+                    applyCheckboxState(checkbox, newState);
+                    
+                    // Update group checkbox visual state
+                    const childCheckboxes = itemsContainer.querySelectorAll('input[type="checkbox"]');
+                    const childStates = Array.from(childCheckboxes).map(cb => cb.dataset.state);
+                    const allIncluded = childStates.every(s => s === 'included');
+                    const allExcluded = childStates.every(s => s === 'excluded');
+                    const allUnchecked = childStates.every(s => s === 'unchecked');
+                    
+                    console.log(`[Group Update] Children states: ${JSON.stringify(childStates)} | allIncluded=${allIncluded}, allExcluded=${allExcluded}, allUnchecked=${allUnchecked}`);
+                    
+                    let groupState = 'unchecked';
+                    if (allIncluded) {
+                        groupState = 'included';
+                    } else if (allExcluded) {
+                        groupState = 'excluded';
+                    } else if (!allUnchecked) {
+                        // Mixed states: show as indeterminate
+                        groupState = 'excluded';
+                    }
+                    console.log(`[Group State] ${groupName}: determined state = ${groupState}`);
+                    applyCheckboxState(hiddenGroupCheckbox, groupState);
+                    // Also update button checkbox
+                    groupCheckbox.checked = hiddenGroupCheckbox.checked;
+                    groupCheckbox.indeterminate = hiddenGroupCheckbox.indeterminate;
+                    groupCheckbox.dataset.state = hiddenGroupCheckbox.dataset.state;
+                    
+                    saveFilterStates();
+                    search(searchInput.value);
+                }, 0);
+            });
+            
+            itemsContainer.appendChild(label);
+        });
+        
+        accordionPanel.appendChild(itemsContainer);
+        
+        // Calculate group state based on children states
+        const childStates = categories.map(cat => savedStates[cat] || 'unchecked');
+        const allIncluded = childStates.every(s => s === 'included');
+        const allExcluded = childStates.every(s => s === 'excluded');
+        const allUnchecked = childStates.every(s => s === 'unchecked');
+        
+        console.log(`[Init Group] ${groupName}: children states = ${JSON.stringify(childStates)} | allIncluded=${allIncluded}, allExcluded=${allExcluded}, allUnchecked=${allUnchecked}`);
+        
+        let groupState = 'unchecked';
+        if (allIncluded) {
+            groupState = 'included';
+        } else if (allExcluded) {
+            groupState = 'excluded';
+        } else if (!allUnchecked) {
+            // Mixed states: show as indeterminate
+            groupState = 'excluded';
         }
         
-        // Three-state cycling using data attribute as source of truth
-        checkbox.addEventListener('click', (e) => {
+        console.log(`[Init Group State] ${groupName}: calculated state = ${groupState}`);
+        applyCheckboxState(hiddenGroupCheckbox, groupState);
+        // Sync button checkbox with hidden checkbox
+        groupCheckbox.checked = hiddenGroupCheckbox.checked;
+        groupCheckbox.indeterminate = hiddenGroupCheckbox.indeterminate;
+        groupCheckbox.dataset.state = hiddenGroupCheckbox.dataset.state;
+        
+        // Group checkbox listener
+        groupCheckbox.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
             
-            const currentState = checkbox.dataset.state;
+            const currentState = hiddenGroupCheckbox.dataset.state || 'unchecked';
+            console.log(`[Group Click] ${groupName}: current state = ${currentState}`);
             
             setTimeout(() => {
+                let newState = 'unchecked';
                 if (currentState === 'unchecked') {
-                    // Unchecked -> Included (checked)
-                    checkbox.dataset.state = 'included';
-                    checkbox.checked = true;
-                    checkbox.indeterminate = false;
+                    newState = 'included';
                 } else if (currentState === 'included') {
-                    // Included (checked) -> Excluded (indeterminate/dash)
-                    checkbox.dataset.state = 'excluded';
-                    checkbox.checked = false;
-                    checkbox.indeterminate = true;
-                } else if (currentState === 'excluded') {
-                    // Excluded (indeterminate) -> Unchecked
-                    checkbox.dataset.state = 'unchecked';
-                    checkbox.checked = false;
-                    checkbox.indeterminate = false;
+                    newState = 'excluded';
                 }
+                // else stays 'unchecked'
+                
+                console.log(`[Group Click] ${groupName}: ${currentState} → ${newState}`);
+                applyCheckboxState(hiddenGroupCheckbox, newState);
+                // Sync button checkbox
+                groupCheckbox.checked = hiddenGroupCheckbox.checked;
+                groupCheckbox.indeterminate = hiddenGroupCheckbox.indeterminate;
+                groupCheckbox.dataset.state = hiddenGroupCheckbox.dataset.state;
+                
+                // Set all children to newState
+                const childCheckboxes = itemsContainer.querySelectorAll('input[type="checkbox"]');
+                console.log(`[Group Click] ${groupName}: setting ${childCheckboxes.length} children to ${newState}`);
+                childCheckboxes.forEach(cb => {
+                    applyCheckboxState(cb, newState);
+                });
                 
                 saveFilterStates();
                 search(searchInput.value);
             }, 0);
         });
         
-        panel.appendChild(label);
+        // Add group button to top row
+        groupButtonsContainer.appendChild(groupButton);
+        
+        // Add accordion panel
+        accordionContainer.appendChild(accordionPanel);
+        
+        // Toggle behavior (allow multiple panels open)
+        groupButton.addEventListener('click', () => {
+            accordionPanel.classList.toggle('active');
+            groupButton.classList.toggle('active');
+        });
     });
 }
 
+
 // Get selected categories
 function getSelectedCategories() {
-    const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"]');
+    const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"][data-category]');
     const included = [];
     const excluded = [];
     
