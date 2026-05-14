@@ -91,7 +91,7 @@ h1 {
     margin-top: 10px;
 }
 
-#filter-toggle {
+#filter-toggle, #filter-reset {
     background: #181c1d;
     color: #ffe082;
     border: 1px solid #ffe082;
@@ -99,6 +99,16 @@ h1 {
     cursor: pointer;
     font-family: inherit;
     font-size: 14px;
+}
+
+#filter-reset {
+  padding: 0px 4px;
+}
+#filter-reset::after {
+    content:"✖";
+  
+    font-weight: 500;
+    font-size: 1.1em;
 }
 
 .filter-panel {

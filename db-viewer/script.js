@@ -13,286 +13,235 @@ const itemDataStore = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
-    'CAMP', 'Clothing', 'Kits', 'Beds', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Playericons', 'Emotes'
+    'CAMP', 'Clothing', 'Kits', 'Beds', 'Collectors', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Playericons', 'Emotes'
 ]);
 
 // Get categories for an item
 function getItemCategories(item) {
     const categories = new Set();
+    
+    // Try to get categories from directory path first (most reliable)
     if (item.primaryImage && item.primaryImage.directory) {
         const dir = item.primaryImage.directory.toLowerCase();
-        // Split by / and take relevant parts
         const parts = dir.split('/').filter(p => p);
+        
+        // Reverse mapping: category -> directories that apply to it
+        const directoryToCategories = {
+            'Titles': ['playertitles', 'camptitles'],
+            /*'CAMP': ['camptitles', 'floordecoration', 'flags', 'signs', 'statues', 'doors', 'walldecoration', 'ceilingdecoration', 'vendors', 'lights', 'machinery', 'furniture', 'beds', 'kits', 'shelters', 'defenses', 'ally', 'floors', 'roof', 'wallpaper', 'stash', 'displays', 'camp/utility'],*/
+            'Floordecor': ['floordecoration', 'flags', 'statues'],
+            'Decoration': ['floordecoration', 'flags', 'signs', 'statues', 'walldecoration', 'ceilingdecoration', 'lights', 'furniture', 'beds', 'wallpaper', 'stash', 'displays'],
+            'Signs': ['signs'],
+            'Doors': ['doors'],
+            'Walldecor': ['walldecoration', 'ceilingdecoration'],
+            'Vendors': ['vendors'],
+            'Lights': ['lights'],
+            'Machinery': ['machinery'],
+            'Furniture': ['furniture', 'beds'],
+            'Beds': ['beds'],
+            'Kits': ['kits', 'roof'],
+            'Shelters': ['shelters'],
+            'Structures': ['shelters', 'structures'],
+            'Defenses': ['defenses'],
+            'NPCs': ['ally'],
+            'Floors/Foundation': ['floors'],
+            'Roof': ['roof'],
+            'Wallpaper': ['wallpaper'],
+            'Containers': ['stash', 'displays'],
+            'Displays': ['displays'],
+            'Clothing': ['outfit'],
+            /*'Apparel': ['outfit', 'underarmor', 'headwear', 'backpack', 'pipboy'],*/
+            'Outfit': ['outfit'],
+            'Armor': ['armorskin', 'underarmor'],
+            /*'Skins': ['armorskin', 'cameraskin', 'weaponskin', 'pipboy', 'weaponmodel', 'lootbags'],*/
+            /*'Underarmor': ['underarmor'],*/
+            'Headwear': ['headwear'],
+            'Backpack': ['backpack'],
+            'Flairs': ['flair'],
+            /*'Weapons': ['weaponskin', 'weaponmodel'],*/
+            /*'Weaponmodel': ['weaponmodel'],*/
+            'PipBoy': ['pipboy'],
+            'Powerarmor': ['powerarmor'],
+            'Hairstyle': ['hairstyle'],
+            'Character': ['facepaint', 'tattoo', 'hairstyle', 'photopose'],
+            'Tattoos': ['tattoo'],
+            'Facepaint': ['facepaint'],
+            'Pose': ['photopose'],
+            'Photomode': ['photoframe', 'photovanitylight', 'photopose'],
+            'Playericons': ['playericons'],
+            'Emotes': ['emotes'],
+            'P2W': ['tents', 'storefront/utility'],
+            'Lootbags': ['lootbags']
+        };
+        
+        // Process directory parts
         parts.forEach(p => {
+            // Check exact matches first
             if (validCategories.has(p)) {
                 categories.add(p);
-
-            } else if (p === 'playertitles') {
-                categories.add('Titles');
-            
-            } else if (p === 'camptitles') {
-                categories.add('Titles');
-                categories.add('CAMP');
-
-            } else if (p === 'floordecoration') {
-                categories.add('Floordecor');
-                categories.add('Decoration');
-                categories.add('CAMP');
-            
-            } else if (p === 'flags') {
-                categories.add('Floordecor');
-                categories.add('Decoration');
-                categories.add('CAMP');
-
-            } else if (p === 'signs') {
-                categories.add('Signs');
-                categories.add('Decoration');
-                categories.add('CAMP');
-            
-            } else if (p === 'statues') {
-                categories.add('Floordecor');
-                categories.add('Decoration');
-                categories.add('CAMP');
-
-            } else if (p === 'doors') {
-                categories.add('Doors');
-                categories.add('CAMP');
-
-            } else if (p === 'walldecoration') {
-                categories.add('Walldecor');
-                categories.add('Decoration');
-                categories.add('CAMP');
-
-            } else if (p === 'ceilingdecoration') {
-                categories.add('Walldecor');
-                categories.add('Decoration');
-                categories.add('CAMP');
-            
-            } else if (p === 'vendors') {
-                categories.add('Vendors');
-                categories.add('CAMP');
-            
-            } else if (p === 'lights') {
-                categories.add('Lights');
-                categories.add('Decoration');
-                categories.add('CAMP');
-            
-            } else if (p === 'machinery') {
-                categories.add('Machinery');
-                categories.add('CAMP');
-
-            } else if (p === 'furniture') {
-                categories.add('Furniture');
-                categories.add('Decoration');
-                categories.add('CAMP');
-
-            } else if (p === 'beds') {
-                categories.add('Beds');
-                categories.add('CAMP');
-                categories.add('Furniture');
-                categories.add('Decoration');
-
-            } else if (p === 'kits') {
-                categories.add('Kits');
-                categories.add('CAMP');
-
-            } else if (p === 'shelters') {
-                categories.add('Shelters');
-                categories.add('Structures');
-                categories.add('CAMP');
-
-            } else if (p === 'defenses') {
-                categories.add('Defenses');
-                categories.add('CAMP');
-
-            }else if (p === 'ally') {
-                categories.add('NPCs');
-                categories.add('CAMP');
-
-            } else if (p === 'floors') {
-                categories.add('Floors/Foundation');
-                categories.add('CAMP');
-            
-            } else if (p === 'roof') {
-                categories.add('CAMP');
-                categories.add('Kits');
-
-            } else if (p === 'wallpaper') {
-                categories.add('Wallpaper');
-                categories.add('Decoration');
-                categories.add('CAMP');
-
-            } else if (p === 'stash') {
-                categories.add('Containers');
-                categories.add('CAMP');
-                categories.add('Decoration');
-
-            } else if (p === 'displays') {
-                categories.add('Displays');
-                categories.add('CAMP');
-                categories.add('Decoration');
-                categories.add('Containers');
-
-            } else if (p === 'outfit') {
-                categories.add('Clothing');
-                categories.add('Apparel');
-                categories.add('Outfit');
-
-            } else if (p === 'armorskin') {
-                categories.add('Armor');
-                categories.add('Skins');
-            
-            } else if (p === 'underarmor') {
-                categories.add('Underarmor');
-                categories.add('Apparel');
-                categories.add('Armor');
-
-            } else if (p === 'powerarmor') {
-                categories.add('Powerarmor');
-
-            } else if (p === 'headwear') {
-               categories.add('Headwear');
-               categories.add('Apparel');
-
-            }else if (p === 'backpack') {
-                categories.add('Backpack');
-                categories.add('Apparel');
-
-            } else if (p === 'flair') {
-                categories.add('Flairs');
-                categories.add('Backpack');
-
-
-            } else if (p === 'weaponskin') {
-                categories.add('Weapons');
-                categories.add('Skins');
-
-            } else if (p === 'cameraskin') {
-                categories.add('Skins');
-
-            } else if (p === 'pipboy') {
-                categories.add('PipBoy');
-                categories.add('Apparel');
-                categories.add('Skins');
-
-            } else if (p === 'weaponmodel') {
-                categories.add('Weapons');
-                categories.add('Skins');
-                categories.add('Weaponmodel');
-
-            } else if (p === 'structures') {
-                categories.add('Structures');
-                categories.add('CAMP');
-
-            } else if (p === 'hairstyle') {
-                categories.add('Hairstyle');
-            
-            } else if (p === 'tattoo') {
-                categories.add('Tattoos');
-            
-            } else if (p === 'facepaint') {
-                categories.add('Facepaint');
-               
-            } else if (p ==='photopose') {
-                categories.add('Pose');
-                categories.add('Photomode');
-
-            } else if (p === 'playericons') {
-                categories.add('Playericons');
-
-            } else if (p === 'emotes') {
-                categories.add('Emotes');
-
-            } else if (p === 'photoframe') {
-                categories.add('Photomode');
-
-            } else if (p === 'photovanitylight') {
-                categories.add('Photomode');
-
-            } else if (p === 'tents') {
-                categories.add('P2W');
-            
-            } else if (p === 'lootbags') {
-               categories.add('Lootbags');
-               categories.add('Skins');
-            }
-
-
-            // custom categories based on directory patterns
-            if (validCategories.has(p)) {
-            categories.add(p);
+                return;
             }
             
-            if (p === 'outfit' || p === 'headwear') {
-                categories.add('Apparel');}   
-            if (p === 'facepaint' || p === 'tattoo' || p === 'hairstyle' || p === 'photopose') { 
-                categories.add('Character');}
-            const dir = item.primaryImage.directory.toLowerCase();
-            if (dir.includes('/camp/utility/')) {
-                categories.add('Utility');
-                categories.add('CAMP');
-            }
-            else if (dir.includes('/storefront/utility/')) {
-                categories.add('P2W');
+            // Check which categories apply to this directory
+            for (const [category, directories] of Object.entries(directoryToCategories)) {
+                if (directories.includes(p)) {
+                    categories.add(category);
+                }
             }
         });
-    }
-    /*if (item.EDID) {
-        const edid = item.EDID.toLowerCase();
-        // Look for patterns like _camp_, _armorskin_, etc., and map to valid
-        const matches = edid.match(/_([a-z]+)(?=_|$)/g);
-        if (matches) {
-            matches.forEach(m => {
-                const cat = m.slice(1);
-                if (validCategories.has(cat)) {
-                    categories.add(cat);
-                } else if (cat === 'armorskin') {
-                    categories.add('armor');
-                    categories.add('skin');
-                } else if (cat === 'floordecor') {
-                    categories.add('floor');
-                    categories.add('decor');
-                } else if (cat === 'walldecor') {
-                    categories.add('wall');
-                    categories.add('decor');
-                } else if (cat === 'ceilingdecor') {
-                    categories.add('ceiling');
-                    categories.add('decor');
-                } else if (cat === 'apparel') {
-                    categories.add('clothing');
-                } else if (cat === 'weaponskin') {
-                    categories.add('weapons');
-                    categories.add('skin');
-                } else if (cat === 'playerstyle') {
-                    categories.add('player');
-                } else if (cat === 'structure') {
-                    categories.add('structures');
-                } else if (cat === 'playericon') {
-                    categories.add('playericons');
-                } else if (cat === 'emotes') {
-                    categories.add('emotes');
-                }
-            });
+        
+        // Detect utility items
+        if (dir.includes('/camp/utility/')) {
+            categories.add('Utility');
+            categories.add('CAMP');
+        } else if (dir.includes('/storefront/utility/')) {
+            categories.add('P2W');
         }
-    }*/
+    }
+    
+    // Also check EDID for additional category detection
+    // Map categories to keywords - easily customizable
+    const edidCategoryKeywords = {
+        'Apparel': ['_apparel_', '_outfit_'],
+        'CAMP': ['_camp_'],
+        'Weapons': ['_weaponskin_', '_weaponmodel_'],
+        'Weapon Models': ['_weaponmodel_'],
+        'Weapon Skins': ['_weaponskin_'],
+        'Skins': ['_skin_'],
+        'Emotes': ['_emotes_'],
+        'Collectors': ['_collector_', '_collectron_'],
+        'Foundations': ['_foundation_'],
+        'Floors': ['_floor_']
+    };
+    
+    if (item.EDID) {
+        const edid = item.EDID.toLowerCase();
+        
+        // Check each category's keywords
+        for (const [category, keywords] of Object.entries(edidCategoryKeywords)) {
+            if (keywords.some(keyword => edid.includes(keyword))) {
+                categories.add(category);
+            }
+        }
+    }
+    
     return Array.from(categories);
+}
+
+// Save checkbox states to localStorage
+function saveFilterStates() {
+    const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"]');
+    const states = {};
+    checkboxes.forEach(checkbox => {
+        states[checkbox.value] = checkbox.dataset.state;
+    });
+    localStorage.setItem('filterStates', JSON.stringify(states));
+}
+
+// Load checkbox states from localStorage
+function loadFilterStates() {
+    const saved = localStorage.getItem('filterStates');
+    return saved ? JSON.parse(saved) : {};
+}
+
+// Reset all filters
+function resetFilters() {
+    const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.dataset.state = 'unchecked';
+        checkbox.checked = false;
+        checkbox.indeterminate = false;
+    });
+    localStorage.removeItem('filterStates');
+    search(searchInput.value);
 }
 
 // Populate filter checkboxes
 function populateFilters() {
     const panel = document.getElementById('filter-panel');
     panel.innerHTML = '';
+    
+    const savedStates = loadFilterStates();
+    
     allCategories.forEach(cat => {
         const label = document.createElement('label');
-        label.innerHTML = `<input type="checkbox" value="${cat}"> ${cat}`;
+        
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = cat;
+        checkbox.dataset.category = cat;
+        
+        const span = document.createElement('span');
+        span.textContent = cat;
+        
+        label.appendChild(checkbox);
+        label.appendChild(span);
+        
+        // Load saved state or default to unchecked
+        const savedState = savedStates[cat] || 'unchecked';
+        checkbox.dataset.state = savedState;
+        
+        if (savedState === 'included') {
+            checkbox.checked = true;
+            checkbox.indeterminate = false;
+        } else if (savedState === 'excluded') {
+            checkbox.checked = false;
+            checkbox.indeterminate = true;
+        } else {
+            checkbox.checked = false;
+            checkbox.indeterminate = false;
+        }
+        
+        // Three-state cycling using data attribute as source of truth
+        checkbox.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const currentState = checkbox.dataset.state;
+            
+            setTimeout(() => {
+                if (currentState === 'unchecked') {
+                    // Unchecked -> Included (checked)
+                    checkbox.dataset.state = 'included';
+                    checkbox.checked = true;
+                    checkbox.indeterminate = false;
+                } else if (currentState === 'included') {
+                    // Included (checked) -> Excluded (indeterminate/dash)
+                    checkbox.dataset.state = 'excluded';
+                    checkbox.checked = false;
+                    checkbox.indeterminate = true;
+                } else if (currentState === 'excluded') {
+                    // Excluded (indeterminate) -> Unchecked
+                    checkbox.dataset.state = 'unchecked';
+                    checkbox.checked = false;
+                    checkbox.indeterminate = false;
+                }
+                
+                saveFilterStates();
+                search(searchInput.value);
+            }, 0);
+        });
+        
         panel.appendChild(label);
     });
 }
 
 // Get selected categories
 function getSelectedCategories() {
-    const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"]:checked');
-    return Array.from(checkboxes).map(cb => cb.value);
+    const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"]');
+    const included = [];
+    const excluded = [];
+    
+    checkboxes.forEach(checkbox => {
+        const state = checkbox.dataset.state;
+        if (state === 'included') {
+            included.push(checkbox.value);
+        } else if (state === 'excluded') {
+            excluded.push(checkbox.value);
+        }
+    });
+    
+    return { included, excluded };
 }
 
 // Load database
@@ -312,7 +261,7 @@ async function loadDatabase() {
         populateFilters();
         
         statsText.textContent = `Loaded ${dbData.length} items`;
-        resetAndRender(dbData);
+        search(searchInput.value);
     } catch (error) {
         errorContainer.innerHTML = `<div class="error">Error loading database: ${error.message}</div>`;
         statsText.textContent = 'Failed to load database';
@@ -323,14 +272,30 @@ async function loadDatabase() {
 function search(query) {
     let results = dbData;
     
-    const selectedCats = getSelectedCategories();
-    if (selectedCats.length > 0) {
+    const { included, excluded } = getSelectedCategories();
+    
+    // Apply category filters
+    if (included.length > 0 || excluded.length > 0) {
         results = results.filter(item => {
             const itemCats = getItemCategories(item);
-            return selectedCats.some(cat => itemCats.includes(cat));
+            
+            // If categories are included, item must have at least one
+            if (included.length > 0) {
+                const hasIncluded = included.some(cat => itemCats.includes(cat));
+                if (!hasIncluded) return false;
+            }
+            
+            // If categories are excluded, item must not have any
+            if (excluded.length > 0) {
+                const hasExcluded = excluded.some(cat => itemCats.includes(cat));
+                if (hasExcluded) return false;
+            }
+            
+            return true;
         });
     }
     
+    // Apply text search
     if (query.trim()) {
         const lowerQuery = query.toLowerCase();
         results = results.filter(item => {
@@ -845,6 +810,23 @@ searchInput.addEventListener('input', (e) => {
 document.getElementById('filter-toggle').addEventListener('click', () => {
     document.getElementById('filter-panel').classList.toggle('hidden');
 });
+
+// Add reset button if it doesn't exist
+const filterToggleBtn = document.getElementById('filter-toggle');
+const filterPanel = document.getElementById('filter-panel');
+
+if (filterToggleBtn && !document.getElementById('filter-reset')) {
+    const resetBtn = document.createElement('button');
+    resetBtn.id = 'filter-reset';
+    resetBtn.textContent = ""; // Unicode reset symbol
+    resetBtn.title = 'Reset Filters';
+    resetBtn.style.cssText = window.getComputedStyle(filterToggleBtn).cssText;
+    
+    // Insert after filter-toggle button
+    filterToggleBtn.parentNode.insertBefore(resetBtn, filterToggleBtn.nextSibling);
+    
+    resetBtn.addEventListener('click', resetFilters);
+}
 
 document.getElementById('filter-panel').addEventListener('change', () => {
     search(searchInput.value);
