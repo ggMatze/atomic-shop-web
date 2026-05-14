@@ -23,7 +23,7 @@ const filterGroups = {
     'Apparel': ['Outfits', 'Headwear', 'Underarmor', 'Armor', 'PipBoy', 'Flairs', 'Backpack'],
     'Player Appearance': ['Hairstyle', 'Tattoos', 'Facepaint'],
     'Photo Mode': ['Photomode', 'Pose'],
-    'Other': ['Playericons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Boppers', 'P2W', 'Needs fixing']
+    'Other': ['Playericons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'P2W', 'Needs fixing']
 };
 
 // Get categories for an item
@@ -131,7 +131,7 @@ function getItemCategories(item) {
         'Misc': ['_account_'],
         '\u200BCut Content': ['zzz', 'reuse','armorskin_wood_nw'],
         'Bundle': ['_bndl_'],
-        'Boppers': ['_rodbobber_']
+        'Bobbers': ['_rodbobber_']
     
         };
     
