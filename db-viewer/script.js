@@ -19,11 +19,11 @@ const validCategories = new Set([
 // Grouped categories for filters
 const filterGroups = {
     'CAMP': ['Kits','Floors/Foundation', 'Roofs', 'Wallpaper','Doors', 'Decoration', 'Floordecor','Walldecor','Signs','Vendors','Lights','Machinery','Furniture','Beds','Stash','Displays','Shelters','Structures','Defenses','Allies', 'Utility', 'Collectron'],
-    'Skins': ['Clothing', 'Headwear', 'Armor', 'Backpack' , 'PipBoy', 'Lootbags', 'Camera', 'Weapons', 'Weapon Skins', 'Weapon Models', 'Powerarmor', 'Tents'],
+    'Skins': ['C.A.M.P.','Clothing', 'Headwear', 'Armor', 'Backpack' , 'PipBoy', 'Lootbags', 'Camera', 'Weapons', 'Weapon Skins', 'Weapon Models', 'Powerarmor', 'Tents'],
     'Apparel': ['Outfits', 'Headwear', 'Underarmor', 'Armor', 'PipBoy', 'Flairs', 'Backpack'],
     'Player Appearance': ['Hairstyle', 'Tattoos', 'Facepaint'],
     'Photo Mode': ['Photomode', 'Pose'],
-    'Other': ['Playericons', 'Emotes', 'Bundle', '\u200BCut Content','Misc', 'P2W']
+    'Other': ['Playericons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Boppers', 'P2W', 'Needs fixing']
 };
 
 // Get categories for an item
@@ -54,11 +54,12 @@ function getItemCategories(item) {
             'Structures': ['structures'],
             'Defenses': ['defenses'],
             'Allies': ['ally'],
+            'Tents': ['tents'],
             'Floors/Foundation': ['floors'],
             'Roofs': ['roof'],
             'Wallpaper': ['wallpaper'],
             'Stash': ['stash'],
-            'Displays': ['displays'],
+            'Displays': ['displays', 'display'],
             'Clothing': ['outfit'],
             /*'Apparel': ['outfit', 'underarmor', 'headwear', 'backpack', 'pipboy'],*/
             'Outfits': ['outfit'],
@@ -68,7 +69,7 @@ function getItemCategories(item) {
             'Headwear': ['headwear'],
             'Backpack': ['backpack'],
             'Flairs': ['flair'],
-            /*'Weapons': ['weaponskin', 'weaponmodel'],*/
+            'Weapons': ['weaponskin', 'weaponmodel','weapon'],
             /*'Weaponmodel': ['weaponmodel'],*/
             'PipBoy': ['pipboy'],
             'Powerarmor': ['powerarmor'],
@@ -79,8 +80,9 @@ function getItemCategories(item) {
             'Photomode': ['photoframe', 'photovanitylight', 'photopose'],
             'Playericons': ['playericons'],
             'Emotes': ['emotes'],
-            'P2W': ['storefront/utility'],
-            'Lootbags': ['lootbags']
+            'P2W': ['storefront/utility','events'],
+            'Lootbags': ['lootbags'],
+            'Needs fixing': ['atomic_shop_media']
         };
         
         // Process directory parts
@@ -113,9 +115,11 @@ function getItemCategories(item) {
     const edidCategoryKeywords = {
         'Apparel': ['_apparel_', '_outfit_'],
         'CAMP': ['_camp_'],
+        'C.A.M.P.': ['_deployable_'],
         'Camera': ['_cameraskin_'],
+        'Tents': ['_survivaltent_'],
         'Underarmor': ['_underarmor_'],
-        'Weapons': ['_weaponskin_', '_weaponmodel_'],
+        'Weapons': ['_weaponskin_', '_weaponmodel_', '_weapons_'],
         'Weapon Models': ['_weaponmodel_'],
         'Weapon Skins': ['_weaponskin_'],
         'Skins': ['_skin_'],
@@ -125,8 +129,9 @@ function getItemCategories(item) {
         'Floors': ['_floor_'],
         'Utility': ['_camp_utility_'],
         'Misc': ['_account_'],
-        '\u200BCut Content': ['zzz', 'reuse'],
-        'Bundle': ['_bndl_']
+        '\u200BCut Content': ['zzz', 'reuse','armorskin_wood_nw'],
+        'Bundle': ['_bndl_'],
+        'Boppers': ['_rodbobber_']
     
         };
     
