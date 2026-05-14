@@ -1187,6 +1187,14 @@ body.eur-currency .tile-price .current-price::before {
   vertical-align: middle;
 }
 
+body.chf-currency .tile-price .old-price::before,
+body.chf-currency .tile-price .current-price::before {
+  content: "₣ ";
+  font-size: 1.3em;
+  line-height: 0;
+  vertical-align: middle;
+}
+
 body.usd-currency .tile-price .old-price::before,
 body.usd-currency .tile-price .current-price::before {
   content: "$ ";
@@ -2003,6 +2011,12 @@ body.eur-currency .price-label-original::after,
 body.eur-currency .price-label-discount::after,
 body.eur-currency .price-label-final::after {
   content: " €";
+}
+
+body.chf-currency .price-label-original::after,
+body.chf-currency .price-label-discount::after,
+body.chf-currency .price-label-final::after {
+  content: " ₣";
 }
 
 body.atoms-currency .price-label-original::after,

@@ -2,6 +2,7 @@ export const currencyData = {
   atoms: { symbol: '⚛', rate: 1 },               // Atoms (in-game currency)
   usd: { symbol: '$', rate: 4.99 / 500 },        // United States Dollar — 500 atoms = $4.99
   eur: { symbol: '€', rate: 4.99 / 500 },        // Euro — 500 atoms = €4.99
+  chf: { symbol: '₣', rate: 5.49 / 500 },        // Swiss Franc — 500 atoms = ₣5.49
   gbp: { symbol: '£', rate: 3.99 / 500 },        // British Pound Sterling — 500 atoms = £3.99
   cad: { symbol: 'C$', rate: 6.49 / 500 },       // Canadian Dollar — 500 atoms = C$6.49
   jpy: { symbol: '¥', rate: 550 / 500 },         // Japanese Yen — 500 atoms = ¥550
