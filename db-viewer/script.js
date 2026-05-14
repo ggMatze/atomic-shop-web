@@ -111,7 +111,8 @@ function getItemCategories(item) {
         'Emotes': ['_emotes_'],
         'Collectors': ['_collector_', '_collectron_'],
         'Foundations': ['_foundation_'],
-        'Floors': ['_floor_']
+        'Floors': ['_floor_'],
+        '\u200BCut Content': ['zzz', 'reuse']
     };
     
     if (item.EDID) {
