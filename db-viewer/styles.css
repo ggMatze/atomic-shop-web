@@ -110,7 +110,9 @@ h1 {
     font-weight: 500;
     font-size: 1.1em;
 }
-
+input[type="checkbox"][data-state="excluded"] {
+  accent-color: #e05744!important;
+}
 .filter-panel {
     background: #181c1d00;
     max-width: 1000px;
