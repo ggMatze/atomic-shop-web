@@ -18,7 +18,7 @@ const validCategories = new Set([
 
 // Grouped categories for filters
 const filterGroups = {
-    'CAMP': ['Kits','Floors/Foundation', 'Roofs', 'Wallpaper','Doors', 'Decoration', 'Floordecor','Walldecor','Signs','Vendors','Lights','Machinery','Furniture','Beds','Stash','Displays','Shelters','Structures','Defenses','Allies', 'Utility', 'Collectron'],
+    'CAMP': ['Kits','Floors/Foundation', 'Roofs', 'Wallpaper','Doors', 'Decoration', 'Floordecor','Walldecor','Signs','Vendors','Lights','Machinery','Power Connectors','Power Generators','Furniture','Beds','Stash','Displays','Shelters','Structures','Defenses','Allies', 'Utility', 'Collectron'],
     'Skins': ['C.A.M.P.','Clothing', 'Headwear', 'Armor', 'Backpack' , 'PipBoy', 'Lootbags', 'Camera', 'Weapons', 'Weapon Skins', 'Weapon Models', 'Powerarmor', 'Tents'],
     'Apparel': ['Outfits', 'Headwear', 'Underarmor', 'Armor', 'PipBoy', 'Flairs', 'Backpack'],
     'Player Appearance': ['Hairstyle', 'Tattoos', 'Facepaint'],
@@ -116,6 +116,8 @@ function getItemCategories(item) {
         'Apparel': ['_apparel_', '_outfit_'],
         'CAMP': ['_camp_'],
         'C.A.M.P.': ['_deployable_'],
+        'Power Generators': ['_generator_'],
+        'Power Connectors': ['_powerconnectors_'],
         'Camera': ['_cameraskin_'],
         'Tents': ['_survivaltent_'],
         'Underarmor': ['_underarmor_'],
