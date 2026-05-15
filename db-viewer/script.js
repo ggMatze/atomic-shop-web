@@ -130,6 +130,7 @@ function getItemCategories(item) {
         'Foundations': ['_foundation_'],
         'Floors': ['_floor_'],
         'Utility': ['_camp_utility_'],
+        'Beds': ['_bed_'],
         'Misc': ['_account_'],
         '\u200BCut Content': ['zzz', 'reuse','armorskin_wood_nw','_armorskin_metal_nw','_armorskin_marine_nw','_armorskin_scout_nw',
                             '_outfit_nukagirloutfit_'
@@ -462,10 +463,13 @@ async function loadDatabase() {
         if (!response.ok) throw new Error('Failed to load database');
         dbData = await response.json();
         
-        // Collect all unique categories
+        // Precompute categories and lowercase text for faster repeated searches
         const catSet = new Set();
         dbData.forEach(item => {
-            getItemCategories(item).forEach(cat => catSet.add(cat));
+            item._categories = getItemCategories(item);
+            item._lowerEDID = (item.EDID || '').toLowerCase();
+            item._lowerName = (item.itemName || '').toLowerCase();
+            item._categories.forEach(cat => catSet.add(cat));
         });
         allCategories = Array.from(catSet).sort();
         
@@ -488,7 +492,7 @@ function search(query) {
     // Apply category filters
     if (included.length > 0 || excluded.length > 0) {
         results = results.filter(item => {
-            const itemCats = getItemCategories(item);
+            const itemCats = item._categories || getItemCategories(item);
             
             // If categories are included, item must have at least one
             if (included.length > 0) {
@@ -510,8 +514,8 @@ function search(query) {
     if (query.trim()) {
         const lowerQuery = query.toLowerCase();
         results = results.filter(item => {
-            const edid = (item.EDID || '').toLowerCase();
-            const name = (item.itemName || '').toLowerCase();
+            const edid = item._lowerEDID || (item.EDID || '').toLowerCase();
+            const name = item._lowerName || (item.itemName || '').toLowerCase();
             return edid.includes(lowerQuery) || name.includes(lowerQuery);
         });
     }
@@ -601,9 +605,15 @@ function getItemBadges(item) {
         .join('');
 }
 
+let searchDebounceTimer;
+const searchDebounceDelay = 200;
+
 // Event listeners
 searchInput.addEventListener('input', (e) => {
-    search(e.target.value);
+    clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(() => {
+        search(e.target.value);
+    }, searchDebounceDelay);
 });
 
 // ===== OVERLAY FUNCTIONALITY =====
