@@ -94,7 +94,7 @@ h1 {
 #filter-toggle, #filter-reset {
     background: #181c1d;
     color: #ffe082;
-    border: 1px solid #ffe082;
+    border: 1px solid #ffd350;
     padding: 5px 10px;
     cursor: pointer;
     font-family: inherit;
@@ -155,9 +155,20 @@ input[type="checkbox"][data-state="excluded"] {
 
 .filter-group-button.active {
     background: #e6cc813b;
-    color: #d4d4d4;
+    color: #ffe082;
     border-color: #ffd454;
 }
+.filter-group-button::after {
+    content: '⛛';
+    font-size: 11px;
+    font-weight: 1000;
+    transition: transform 0.2s;
+}
+.filter-group-button.active::after {
+    transform: scaleY(0.2);
+    content: '█';
+}
+
 
 .group-checkbox-button {
     width: 16px;
@@ -191,18 +202,23 @@ input[type="checkbox"][data-state="excluded"] {
 }
 
 .divider-text {
-    color: #bbbbbb;
+    color: #fff495;
     font-size: 14px;
     white-space: nowrap;
     padding: 0 10px;
 }
 
-.filter-divider-header::before,
+.filter-divider-header::before {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background:  linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(243, 243, 243, 0) 19%, #ddd378 100%);
+}
 .filter-divider-header::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: #bbbbbb;
+    background: linear-gradient(-90deg,rgba(255, 255, 255, 0) 0%, rgba(243, 243, 243, 0) 19%, #ddd378 100%);
 }
 
 .filter-panel-items {
@@ -215,7 +231,7 @@ input[type="checkbox"][data-state="excluded"] {
 }
 
 .filter-panel label {
-    color: #ffe082;
+    color: #ffd350;
     display: flex;
     align-items: center;
     gap: 5px;
