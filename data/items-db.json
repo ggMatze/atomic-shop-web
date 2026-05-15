@@ -11947,7 +11947,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_Responders_Blue",
     "desc": "Show your support for the Responders!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_responders_blue.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Blue Responders Player Icon"
   },
@@ -14197,12 +14200,12 @@
     "EDID": "SCORE_S2_ENTM_PlayerIcon_ArmorAce02",
     "desc": "Armor Ace is here to battle!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_06.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Armor Ace Helmet Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Armor Ace Helmet Icon"
   },
   {
     "EDID": "SCORE_S2_ENTM_PlayerIcon_ArmorAce01",
@@ -14242,12 +14245,12 @@
     "EDID": "SCORE_S2_ENTM_PlayerIcon_Platinum01",
     "desc": "A true hero of the Power Patrol.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_10.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Platinum Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Platinum Icon"
   },
   {
     "EDID": "ATX_ENTM_CAMP_Furniture_Chair_Reclining_Sofa_GreenHounds",
@@ -14446,12 +14449,12 @@
     "EDID": "SCORE_S2_ENTM_PlayerIcon_Subjugator03",
     "desc": "The Subjugator sees all!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_13.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Subjugator's Glare Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Subjugator's Glare Icon"
   },
   {
     "EDID": "ATX_ENTM_CAMP_Door_Secret_Military",
@@ -15429,7 +15432,10 @@
     "EDID": "SCORE_S3_ENTM_PlayerIcon_Cynnoc",
     "desc": "The Elusive Scribe...",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_15.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Cynnoc Icon",
     "newImagesAdded": 1,
@@ -16998,7 +17004,12 @@
     "EDID": "SCORE_S4_ENTM_PlayerIcon_ColdSteel",
     "desc": "Stand with Armor Ace against the Yukon Five with the Cold Steel Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": [
+      {
+        "imageName": "atx_playericon_score_22.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      }
+    ],
     "carouselImages": [],
     "itemName": "Cold Steel Icon"
   },
@@ -17006,7 +17017,12 @@
     "EDID": "SCORE_S4_ENTM_PlayerIcon_ColdSteel_2",
     "desc": "Close in on the Yukon Five with the Icebreaker Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": [
+      {
+        "imageName": "atx_playericon_score_18.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      }
+    ],
     "carouselImages": [],
     "itemName": "Icebreaker Icon"
   },
@@ -17014,7 +17030,12 @@
     "EDID": "SCORE_S4_ENTM_PlayerIcon_EndOfSeason",
     "desc": "Celebrate the final confrontation with the Complete Chaos Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": [
+      {
+        "imageName": "atx_playericon_score_21.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      }
+    ],
     "carouselImages": [],
     "itemName": "Complete Chaos Icon"
   },
@@ -17022,7 +17043,12 @@
     "EDID": "SCORE_S4_ENTM_PlayerIcon_ColdSteel_3",
     "desc": "Take aim at the Yukon Five with the Doubletap Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": [
+      {
+        "imageName": "atx_playericon_score_19.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      }
+    ],
     "carouselImages": [],
     "itemName": "Doubletap Icon"
   },
@@ -17205,7 +17231,12 @@
     "EDID": "SCORE_S4_ENTM_PlayerIcon_YukonFive",
     "desc": "Join the fight against Armor Ace with the Mister Shivers Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": [
+      {
+        "imageName": "atx_playericon_score_23.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      }
+    ],
     "carouselImages": [],
     "itemName": "Mister Shivers Icon"
   },
@@ -18034,23 +18065,23 @@
     "EDID": "SCORE_S5_ENTM_PlayerIcon_Dashing",
     "desc": "The dashing time traveling historian!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+        "imageName": "  atx_playericon_score_30.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      },
     "carouselImages": [],
-    "itemName": "K.D. Inkwell Dashing Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "K.D. Inkwell Dashing Player Icon"
   },
   {
     "EDID": "SCORE_S5_ENTM_PlayerIcon_GreenSkull",
     "desc": "Time is a construct, pay it no M.I.N.D.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_27.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Green Skull Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Green Skull Icon"
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDeco_Curtain_Single_Blue",
@@ -18110,7 +18141,11 @@
     "EDID": "SCORE_S5_ENTM_PlayerIcon_Inkwell_42",
     "desc": "Show your love for the intrepid time traveling historian!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage":
+      {
+        "imageName": "atx_playericon_score_25.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      },
     "carouselImages": [],
     "itemName": "42nd Century Icon"
   },
@@ -18118,7 +18153,10 @@
     "EDID": "SCORE_S5_ENTM_PlayerIcon_MIND",
     "desc": "Start your escape and help our time traveling historian move forward!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_score_24.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "K.D. Inkwell Escape Icon"
   },
@@ -18152,12 +18190,12 @@
     "EDID": "SCORE_S5_ENTM_PlayerIcon_Overlord",
     "desc": "Bow down to the M.I.N.D. Overlords!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_28.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "M.I.N.D. Overlord Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "M.I.N.D. Overlord Icon"
   },
   {
     "EDID": "SCORE_S5_ENTM_PlayerIcon_Alistair",
@@ -18953,7 +18991,10 @@
     "EDID": "SCORE_S6_ENTM_PlayerIcon_SamurEye",
     "desc": "I am honor-bound to destroy you!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_score_36.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "SamurEye Icon"
   },
@@ -19038,12 +19079,12 @@
     "EDID": "SCORE_S6_ENTM_PlayerIcon_Catarax",
     "desc": "I'll darken your world!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_38.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Catarax Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Catarax Icon"
   },
   {
     "EDID": "ATX_ENTM_CAMP_Door_Secret_Elevator",
@@ -19060,18 +19101,23 @@
     "EDID": "SCORE_S6_ENTM_PlayerIcon_Pyramind",
     "desc": "By the eye of Ra. Kneel before me!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_playericon_score_37.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Pyramind Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Pyramind Icon"
   },
   {
     "EDID": "SCORE_S6_ENTM_PlayerIcon_Inspector",
     "desc": "The Inspector is here with a full bag of tricks up her sleeve!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": 
+    {
+      "imageName": "atx_playericon_score_31.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Inspector Icon"
   },
@@ -19080,8 +19126,8 @@
     "desc": "Bringing his ferocious friends to the battle, Manta Man!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_camp_walldeco_poster_hubriscomics_mantaman_l.webp",
-      "directory": "/textures/atx/storefront/camp/walldecoration/"
+      "imageName": "atx_playericon_score_35.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
     "itemName": "Manta Man Icon"
@@ -19090,7 +19136,10 @@
     "EDID": "SCORE_S6_ENTM_PlayerIcon_Mistress",
     "desc": "Judgement and Order are in store now that the Mistress has arrived on the scene!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_score_32.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Mistress of Mystery Icon"
   },
@@ -19098,7 +19147,10 @@
     "EDID": "SCORE_S6_ENTM_PlayerIcon_SilverShroud",
     "desc": "Evil-doers beware, the Silver Shroud is here!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_score_34.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Silver Shroud Icon"
   },
@@ -21631,12 +21683,13 @@
     "EDID": "SCORE_S12_ENTM_PlayerIcon_LaughingGuinevereIcon",
     "desc": "\"Time for your shots, Rip!\"",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_playericon_s12_guineverelaugh.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Laughing Guinevere Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Laughing Guinevere Player Icon"
   },
   {
     "EDID": "SCORE_S12_ENTM_CAMP_Structure_HuntersLodge",
@@ -22219,18 +22272,21 @@
     "EDID": "SCORE_S15_ENTM_PlayerIcon_Icon5b",
     "desc": "The Ace of Diamonds.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s15_dianeyung.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+      },
     "carouselImages": [],
-    "itemName": "Diane Yung Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Diane Yung Player Icon"
   },
   {
     "EDID": "SCORE_S15_ENTM_PlayerIcon_Icon4b",
     "desc": "The King of Clubs.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s15_alexfiori.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
     "itemName": "Alex Fiori Player Icon",
     "newImagesAdded": 1,
@@ -22241,12 +22297,12 @@
     "EDID": "SCORE_S15_ENTM_PlayerIcon_Icon6b",
     "desc": "Feel like royalty!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName":"atx_playericon_s15_vaultgirlqueen.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Card Queen Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Card Queen Player Icon"
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Vault-TecHolidayVillagePostOffice",
@@ -22333,7 +22389,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_Commando",
     "desc": "What's your favorite loadout?",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_npe_loadout_01.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
     "itemName": "Commando Icon",
     "newImagesAdded": 1,
@@ -22344,7 +22403,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_Slugger",
     "desc": "What's your favorite loadout?",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_npe_loadout_04.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
     "itemName": "Slugger Icon",
     "newImagesAdded": 1,
@@ -22355,7 +22417,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_Shotgunner",
     "desc": "What's your favorite loadout?",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_npe_loadout_05.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
     "itemName": "Shotgunner Icon",
     "newImagesAdded": 1,
@@ -22366,7 +22431,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_Gunslinger",
     "desc": "What's your favorite loadout?",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_npe_loadout_03.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
     "itemName": "Gunslinger Icon",
     "newImagesAdded": 1,
@@ -22377,7 +22445,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_Gladiator",
     "desc": "What's your favorite loadout?",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_npe_loadout_02.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
     "itemName": "Gladiator Icon"
   },
@@ -23231,111 +23302,111 @@
     "EDID": "SCORE_S19_ENTM_PlayerIcon_PlayerIcon3",
     "desc": "No bones about it, this is pretty sweet.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s19_sugarskull.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Sugar Skull Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Sugar Skull Player Icon"
   },
   {
     "EDID": "SCORE_S19_ENTM_PlayerIcon_PlayerIcon7",
     "desc": "No need for introductions, you know the drill.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s19_drillaugerpa.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Auger Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Auger Player Icon"
   },
   {
     "EDID": "SCORE_S19_ENTM_PlayerIcon_PlayerIcon8",
     "desc": "Going around and around to understand the helix.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s19_dnalaurel.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "DNA Scientist Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "DNA Scientist Player Icon"
   },
   {
     "EDID": "SCORE_S19_ENTM_PlayerIcon_PlayerIcon1",
     "desc": "He's just resting...",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s19_testmonkey.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Test Monkey Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Test Monkey Player Icon"
   },
   {
     "EDID": "SCORE_S19_ENTM_PlayerIcon_PlayerIcon5",
     "desc": "Specially forged for battle.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s19_enclavehellfirepa.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Enclave Hellfire Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Enclave Hellfire Player Icon"
   },
   {
     "EDID": "SCORE_S19_ENTM_PlayerIcon_PlayerIcon10",
     "desc": "For the preservation of what's right. For the preservation of America!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_factionenclave01.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Enclave Logo Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Enclave Logo Player Icon"
   },
   {
     "EDID": "SCORE_S19_ENTM_PlayerIcon_PlayerIcon2",
     "desc": "For when Zeus is taking too long.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s19_teslacannon.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Tesla Cannon Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Tesla Cannon Player Icon"
   },
   {
     "EDID": "SCORE_S19_ENTM_PlayerIcon_PlayerIcon9",
     "desc": "A different type of anvil for a different type of world.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s19_bacteriophage.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Scientific Forge Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Scientific Forge Player Icon"
   },
   {
     "EDID": "SCORE_S19_ENTM_PlayerIcon_PlayerIcon6",
     "desc": "A sssinissster sssserpent.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s19_scorchtongue.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Ultracite Terror Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Ultracite Terror Player Icon"
   },
   {
     "EDID": "SCORE_S19_ENTM_PlayerIcon_PlayerIcon4",
     "desc": "Quenching his thirst for knowledge.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s19_enclavescientist.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Enclave Scientist Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Enclave Scientist Player Icon"
   },
   {
     "EDID": "SCORE_S19_ENTM_CAMP_WallDecor_TaxidermyMoleMinerHead",
@@ -24239,7 +24310,10 @@
     "EDID": "SCORE_S22_ENTM_PlayerIcon_VB_Soup",
     "desc": "Perfect for whipping up a soup-er dish.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_s22_chef.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Soup Chef Player Icon"
   },
@@ -24258,12 +24332,12 @@
     "EDID": "SCORE_S22_ENTM_PlayerIcon_SunsetSarsaparillaDeputy",
     "desc": "Wahoo, you did it pardner!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s22_sunsetsarsaparilla_deputy.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Sunset Sarsaparilla Deputy Player Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Sunset Sarsaparilla Deputy Player Icon"
   },
   {
     "EDID": "ATX_ENTM_PlayerTitles_Prefix_Heartened",
@@ -27996,12 +28070,12 @@
     "EDID": "Babylon_ENTM_PlayerIcon_NukeGogglesWoman",
     "desc": "She's having safe nuclear fun!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "babylon_playericon_comic_29.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Nuke Goggles Woman Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Nuke Goggles Woman Icon"
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_Babylon_CeilingLight_Clean",
@@ -28367,12 +28441,12 @@
     "EDID": "Babylon_ENTM_PlayerIcon_NukeGogglesMan",
     "desc": "He's having safe nuclear fun!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "babylon_playericon_comic_30.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
-    "itemName": "Nuke Goggles Man Icon",
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Nuke Goggles Man Icon"
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_DeathClaw_Easter_Egg_06",
@@ -29832,7 +29906,10 @@
     "EDID": "Babylon_ENTM_PlayerIcon_PowerArmor",
     "desc": "Healthy green glow!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "babylon_playericon_comic_40.webp",
+      "directory": "/textures/atx/storefront/player/icon/"
+    },
     "carouselImages": [],
     "itemName": "Power Armor Icon"
   },
@@ -30562,7 +30639,10 @@
     "EDID": "Babylon_ENTM_PlayerIcon_Skeleton",
     "desc": "It's a skeleton!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "babylon_playericon_comic_24.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Skeleton Icon"
   },
@@ -31473,7 +31553,10 @@
     "EDID": "ATX_F1_ENTM_PlayerIcon_Ranger",
     "desc": "Live the legend. Included with membership in Fallout 1st.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_ncr1.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Ranger Uniform Icon"
   },
@@ -33620,7 +33703,10 @@
     "EDID": "SCORE_S1_ENTM_PlayerIcon_CaptainCosmos",
     "desc": "Only a true hero of the Cosmos should have the Captain Cosmos Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_score_01.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Captain Cosmos Icon"
   },
@@ -33628,7 +33714,10 @@
     "EDID": "SCORE_S1_ENTM_PlayerIcon_SecretServiceHelmet",
     "desc": "Show the Wasteland where your true loyalties lie with the Secret Service Helmet Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_secretservice_02.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Secret Service Icon"
   },
@@ -33866,7 +33955,10 @@
     "EDID": "SCORE_S1_ENTM_PlayerIcon_BloodEagle",
     "desc": "Represent the most ferocious faction in the Wasteland with this Blood Eagle Player Icon!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_raider_04.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Blood Eagle Icon"
   },
@@ -33989,7 +34081,10 @@
     "EDID": "SCORE_S2_ENTM_PlayerIcon_Subjugator",
     "desc": "Fear the Subjugator!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_score_03.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Subjugator Icon"
   },
@@ -36363,7 +36458,10 @@
     "EDID": "zzzSCORE_S8_ENTM_PlayerIcon_Rank74Icon",
     "desc": "The only thing you can hear on his home planet is his hanted howls!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_40.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Skellscream"
   },
@@ -46510,7 +46608,7 @@
     "desc": "The Jack of Spades.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_playericon_icon5.webp",
+      "imageName": "atx_playericon_s15_jackspade.webp",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
