@@ -13,7 +13,7 @@ const itemDataStore = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
-    'CAMP', 'Clothing', 'Kits', 'Beds', 'Collectors', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Playericons', 'Emotes'
+    'CAMP', 'Clothing', 'Kits', 'Beds', 'Collectors', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Player Icons', 'Emotes'
 ]);
 
 // Grouped categories for filters
@@ -23,7 +23,7 @@ const filterGroups = {
     'Apparel': ['Outfits', 'Headwear', 'Underarmor', 'Armor', 'PipBoy', 'Flairs', 'Backpack'],
     'Player Appearance': ['Hairstyle', 'Tattoos', 'Facepaint'],
     'Photo Mode': [ 'Frames', 'Pose', 'Vanity Lights'],
-    'Other': ['Playericons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'P2W', 'Needs fixing','No Image']
+    'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'P2W', 'Needs fixing','No Image']
 };
 
 // Get categories for an item
