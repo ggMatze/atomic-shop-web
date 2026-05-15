@@ -23,7 +23,7 @@ const filterGroups = {
     'Apparel': ['Outfits', 'Headwear', 'Underarmor', 'Armor', 'PipBoy', 'Flairs', 'Backpack'],
     'Player Appearance': ['Hairstyle', 'Tattoos', 'Facepaint'],
     'Photo Mode': [ 'Frames', 'Pose', 'Vanity Lights'],
-    'Other': ['Playericons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'P2W', 'Needs fixing']
+    'Other': ['Playericons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'P2W', 'Needs fixing','No Image']
 };
 
 // Get categories for an item
@@ -78,7 +78,7 @@ function getItemCategories(item) {
             'Facepaint': ['facepaint'],
             'Pose': ['photopose'],
             /*'Photomode': ['photoframe', 'photovanitylight', 'photopose'],*/
-            'Playericons': ['playericons'],
+            'Player Icons': ['playericons'],
             'Emotes': ['emotes'],
             'P2W': ['storefront/utility','events'],
             'Lootbags': ['lootbags'],
@@ -131,10 +131,13 @@ function getItemCategories(item) {
         'Floors': ['_floor_'],
         'Utility': ['_camp_utility_'],
         'Misc': ['_account_'],
-        '\u200BCut Content': ['zzz', 'reuse','armorskin_wood_nw'],
+        '\u200BCut Content': ['zzz', 'reuse','armorskin_wood_nw','_armorskin_metal_nw','_armorskin_marine_nw','_armorskin_scout_nw',
+                            '_outfit_nukagirloutfit_'
+        ],
         'Bundle': ['_bndl_'],
         'Vanity Lights': ['_vanitylight_'],
         'Frames': ['_photomode_frame_'],
+        'Player Icons': ['_playericon_'],
         'Bobbers': ['_rodbobber_']
     
         };
@@ -148,6 +151,32 @@ function getItemCategories(item) {
                 categories.add(category);
             }
         }
+    }
+    
+    // Check for image validation issues
+    if (!item.primaryImage || item.primaryImage === null) {
+        categories.add('No Image');
+    } else if (typeof item.primaryImage === 'object') {
+        const { imageName, directory } = item.primaryImage;
+        
+        // Check for missing parts
+        if (!imageName) {
+            categories.add('Missing Directory');
+        }
+        if (!directory) {
+            categories.add('Missing Directory');
+        }
+        
+        // Check for invalid path structure
+        if (imageName && directory) {
+            // Check if path looks suspicious
+            if (!directory.includes('textures') && !directory.includes('media') && !directory.includes('storefront')) {
+                categories.add('Invalid Image Path');
+            }
+        }
+    } else {
+        // primaryImage is not an object
+        categories.add('Invalid Image Path');
     }
     
     return Array.from(categories);

@@ -17004,12 +17004,11 @@
     "EDID": "SCORE_S4_ENTM_PlayerIcon_ColdSteel",
     "desc": "Stand with Armor Ace against the Yukon Five with the Cold Steel Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [
+    "primaryImage":
       {
         "imageName": "atx_playericon_score_22.webp",
         "directory": "/textures/atx/storefront/player/playericons/"
-      }
-    ],
+      },
     "carouselImages": [],
     "itemName": "Cold Steel Icon"
   },
@@ -17017,12 +17016,11 @@
     "EDID": "SCORE_S4_ENTM_PlayerIcon_ColdSteel_2",
     "desc": "Close in on the Yukon Five with the Icebreaker Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [
+    "primaryImage":
       {
         "imageName": "atx_playericon_score_18.webp",
         "directory": "/textures/atx/storefront/player/playericons/"
-      }
-    ],
+      },
     "carouselImages": [],
     "itemName": "Icebreaker Icon"
   },
@@ -17030,12 +17028,10 @@
     "EDID": "SCORE_S4_ENTM_PlayerIcon_EndOfSeason",
     "desc": "Celebrate the final confrontation with the Complete Chaos Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [
-      {
+    "primaryImage":{
         "imageName": "atx_playericon_score_21.webp",
         "directory": "/textures/atx/storefront/player/playericons/"
-      }
-    ],
+      },
     "carouselImages": [],
     "itemName": "Complete Chaos Icon"
   },
@@ -17043,12 +17039,10 @@
     "EDID": "SCORE_S4_ENTM_PlayerIcon_ColdSteel_3",
     "desc": "Take aim at the Yukon Five with the Doubletap Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [
-      {
+    "primaryImage":{
         "imageName": "atx_playericon_score_19.webp",
         "directory": "/textures/atx/storefront/player/playericons/"
-      }
-    ],
+      },
     "carouselImages": [],
     "itemName": "Doubletap Icon"
   },
@@ -17231,12 +17225,10 @@
     "EDID": "SCORE_S4_ENTM_PlayerIcon_YukonFive",
     "desc": "Join the fight against Armor Ace with the Mister Shivers Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [
-      {
+    "primaryImage": {
         "imageName": "atx_playericon_score_23.webp",
         "directory": "/textures/atx/storefront/player/playericons/"
-      }
-    ],
+      },
     "carouselImages": [],
     "itemName": "Mister Shivers Icon"
   },
@@ -20172,7 +20164,7 @@
     "desc": "This is ours now.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "aatx_playericon_factionhellcat01.webp",
+      "imageName": "atx_playericon_factionhellcat01.webp",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
@@ -34884,7 +34876,7 @@
     "EDID": "SCORE_S4_ENTM_PlayerIcon_ColdSteel_4",
     "desc": "The intrepid time traveling historian!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": null,
     "carouselImages": [],
     "itemName": "Cold Steel 4 Icon"
   },
@@ -36816,7 +36808,10 @@
     "EDID": "SCORE_S7_ENTM_PlayerIcon_Skellscream",
     "desc": "The only thing you can hear on his home planet is his haunted howls!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage":{
+      "imageName": "atx_playericon_score_40.webp",
+      "directory": "/textures/atx/storefront/player/icons/"
+    },
     "carouselImages": [],
     "itemName": "Skellscream Icon"
   },
@@ -37343,7 +37338,10 @@
     "EDID": "SCORE_S9_ENTM_PlayerIcon_Campfire",
     "desc": "Laser. The fastest way to make fire!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_53.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Campfire Icon"
   },
@@ -38933,7 +38931,10 @@
     "EDID": "SCORE_S10_ENTM_PlayerIcon_Pitt",
     "desc": "Welcome to The Pitt. Enjoy your stay.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_score_64.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "The Pitt Icon"
   },
@@ -40272,7 +40273,7 @@
     "desc": "\"Feel refreshed with every sip.\"",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_playericon_s11_nukacolaquantum.webp",
+      "imageName": "atx_playericon_s11_nukacola.webp",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
@@ -40315,7 +40316,10 @@
     "EDID": "SCORE_S11_ENTM_PlayerIcon_NukaQuantum",
     "desc": "\"There is something just so glowing about you.\"",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_s11_nukacolaquantum.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Nuka-Cola Quantum Icon"
   },
@@ -43778,7 +43782,10 @@
     "EDID": "SCORE_S13_ENTM_PlayerIcon_HonkHonkStabStab",
     "desc": "For when you want to \"put the laughter into slaughter!\"",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_s13_clown.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Honk Honk Stab Stab Icon"
   },
@@ -44819,7 +44826,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_WastelandWedding",
     "desc": "Your perfect wedding day just as you imagined.. now with a Handmade Rifle!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_vaultgirl_06.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Wasteland Wedding Icon"
   },
@@ -44850,7 +44860,7 @@
     "EDID": "ATX_ENTM_PlayerIcon_BattleScar",
     "desc": "Battle tested and battle scarred!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": null,
     "carouselImages": [],
     "itemName": "Battle Scar Icon"
   },
@@ -44881,7 +44891,7 @@
     "EDID": "ATX_ENTM_PlayerIcon_HollywoodStar",
     "desc": "What life is like when you Shoot for the Stars!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": null,
     "carouselImages": [],
     "itemName": "Hollywood Star Icon"
   },
@@ -44889,7 +44899,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_GladiatorVaultBoy",
     "desc": "Time to step into the arena!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_perks_01.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Gladiator Vault-Boy Icon"
   },
@@ -45316,7 +45329,10 @@
     "EDID": "ATX_TP_ENTM_PlayerIcon_5thAnniversary",
     "desc": "Celebrate 5 years in Appalachia with this Player Icon.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": [],
+    "primaryImage": {
+      "imageName": "atx_playericon_5anniv.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "5th Anniversary Icon"
   },
@@ -47595,19 +47611,21 @@
     "EDID": "ATX_ENTM_PlayerIcon_HotDog_MsVienna",
     "desc": "Ms. Vienna checking in. Hold the mustard.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_hotdog_02_l.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
-    "itemName": "Ms. Vienna Icon",
-    "dbIndex": 4213,
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Ms. Vienna Icon"
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_HotDog_Frank",
     "desc": "A good hot dog comes topped with mustard. Just ask Mr. Frank!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_hotdog_01_l.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Mr. Frank Icon",
     "dbIndex": 4214,
@@ -49933,7 +49951,10 @@
     "EDID": "SCORE_S20_ENTM_PlayerIcon_CowboyShots",
     "desc": "Why be accurate when you can be fast?",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s20_wildwesthands.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Fan The Hammer Player Icon"
   },
@@ -49952,7 +49973,10 @@
     "EDID": "SCORE_S20_ENTM_PlayerIcon_RifleGhoul_Girl",
     "desc": "If your looks don't kill, it's important to have a backup.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s20_ghoulgirl.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Armed Ghoul Girl Player Icon",
     "dbIndex": 4419,
@@ -49997,7 +50021,10 @@
     "EDID": "SCORE_S20_ENTM_PlayerIcon_WhackARat",
     "desc": "Whack-A-Rat and make it splat until it's flat.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s20_radreaver.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Whack-A-Rat Player Icon"
   },
@@ -50038,7 +50065,10 @@
     "EDID": "SCORE_S20_ENTM_PlayerIcon_RifleGhoul_Boy",
     "desc": "If your looks don't kill, it's important to have a backup.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s20_armsofsteel.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Armed Ghoul Boy Player Icon",
     "dbIndex": 4427,
@@ -56232,7 +56262,10 @@
     "EDID": "SCORE_MiniSeason_LoveHurts_ENTM_PlayerIcon_WoundedHeart",
     "desc": "Broken hearts can be mended with time and bloodshed.",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_s23miniseason2_woundedheart.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Rusted Heart Player Icon"
   },
@@ -59854,7 +59887,10 @@
     "EDID": "F1_SCORE_S3_ENTM_PlayerIcon_BoS",
     "desc": "Show your allegiance to the Brotherhood with this Player Icon!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_playericon_score_17.webp",
+      "directory": "/textures/atx/storefront/player/playericons/"
+    },
     "carouselImages": [],
     "itemName": "Brotherhood Icon"
   },
@@ -66272,8 +66308,8 @@
     "desc": "Unlocks the C.A.M.P. Title Suffix \"Daring Supporter\".",
     "disclaimer": "C.A.M.P. TITLES ARE SELECTABLE IN THE C.A.M.P. MENU ON THE MAP",
     "primaryImage": {
-      "imageName": "",
-      "directory": ""
+      "imageName": "atx_camptitles_suffix_daringsupporter_l.webp",
+      "directory": "/textures/atx/storefront/camp/camptitles/"
     },
     "carouselImages": []
   },
@@ -66282,10 +66318,7 @@
     "itemName": "\"Alien Supporter\"",
     "desc": "Unlocks the C.A.M.P. Title Suffix \"Alien Supporter\".",
     "disclaimer": "C.A.M.P. TITLES ARE SELECTABLE IN THE C.A.M.P. MENU ON THE MAP",
-    "primaryImage": {
-      "imageName": "",
-      "directory": ""
-    },
+    "primaryImage": null,
     "carouselImages": []
   },
   {
@@ -66638,17 +66671,6 @@
     "primaryImage": {
       "imageName": "atx_camp_floordecor_herdsmansbells_l.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
-    },
-    "carouselImages": []
-  },
-  {
-    "EDID": "ATX_ENTM_AnniversaryEvent_Day2",
-    "itemName": "Mystery Item Day 2",
-    "desc": "",
-    "disclaimer": "",
-    "primaryImage": {
-      "imageName": "",
-      "directory": ""
     },
     "carouselImages": []
   },
