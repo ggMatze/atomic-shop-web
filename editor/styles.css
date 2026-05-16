@@ -33,6 +33,31 @@ select:hover {
   background: #1177bb;
 }
 
+/* Unicode symbols box */
+.unicode-symbols {
+  margin: 10px 0;
+  padding: 8px 12px;
+  background: #2a2a2a;
+  border-radius: 6px;
+  display: flex;
+  gap: 8px;
+  border: 1px solid #444;
+}
+
+.unicode-symbols .symbol {
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.unicode-symbols .symbol:hover {
+  background-color: #0e639c;
+  transform: scale(1.1);
+}
+
 input[type="text"],
 input[type="number"],
 input[type="datetime-local"],
@@ -194,6 +219,22 @@ input[type="checkbox"] {
   border-radius: 4px;
   cursor: grab;
   user-select: none;
+}
+
+.include-name {
+  cursor: text;
+  padding: 2px 4px;
+  border-radius: 2px;
+  transition: background-color 0.15s;
+ 
+}
+.include-name::selection {
+  background-color: #93ff55;
+  color: #000000;
+}
+
+.include-name:hover {
+  background-color: rgba(150, 150, 150, 0.185);
 }
 
 .includes-list {

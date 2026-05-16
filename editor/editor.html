@@ -12,6 +12,14 @@
   <input type="file" id="jsonfile" accept=".json">
   <button id="load-json">Load storepagedata.json</button>
   <button id="reload-disk">Reload JSON from disk</button>
+  <div class="unicode-symbols">
+    <span class="symbol" title="Copy symbol">✦</span>
+    <span class="symbol" title="Copy symbol">✨︎</span>
+    <span class="symbol" title="Copy symbol">❆</span>
+    <span class="symbol" title="Copy symbol">⛉</span>
+    <span class="symbol" title="Copy symbol">☗</span>
+    <span class="symbol" title="Copy symbol">♨</span>
+  </div>
   <div class="bundle-list"></div>
   <div id="bundle-details"></div>
   <div class="output"></div>
@@ -20,6 +28,7 @@ let storeData = null;
 let currentItem = null;
 let tempImages = [];
 let lastItem = null;
+let savedDescription = null; // For undo functionality
 
 // Helper: Try to extract a '/textures/...' directory and filename from a dropped text/URL/path.
 function parseDroppedPath(text) {
@@ -65,7 +74,7 @@ function parseDroppedPath(text) {
 // Normalize directory strings: convert backslashes, lowercase, ensure leading and trailing slash when non-empty
 function normalizeDir(dir) {
   if (!dir) return '';
-  let d = String(dir).trim().replace(/\\/g, '/').toLowerCase();
+  let d = String(dir).trim().replace(/\\/g, '/').replace(/\/+/g, '/').toLowerCase();
   if (!d) return '';
   if (d.charAt(0) !== '/') d = '/' + d;
   if (d.charAt(d.length - 1) !== '/') d = d + '/';
@@ -193,6 +202,12 @@ function persistUiToLastItem() {
     if (is1) lastItem.isZeus = !!is1.checked;
     if (isClown) lastItem.isClown = !!isClown.checked;
 
+    // preferDB checkbox
+    const preferDbCheck = document.getElementById('prefer-db-check');
+    if (preferDbCheck) {
+      lastItem.preferDB = preferDbCheck.checked;
+    }
+
     // Description (rich text)
     try {
       const desc = getRichTextContent();
@@ -237,6 +252,12 @@ function showItems() {
 }
 
 function showItemDetails(pageIdx, itemIdx) {
+  // Clear any existing auto-save intervals before switching items
+  if (window.autoSaveIntervals) {
+    window.autoSaveIntervals.forEach(id => clearInterval(id));
+    window.autoSaveIntervals = [];
+  }
+  
   // Persist any UI changes from the previously shown item (timer, flags, etc.)
   try { persistUiToLastItem(); } catch (e) { /* ignore */ }
   // Persist image edits to the previous item as well
@@ -370,6 +391,16 @@ function showItemDetails(pageIdx, itemIdx) {
       <div class="field-row full">
         <label>Description:</label>
         <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+            <button id="load-from-db-btn" style="padding: 6px 12px; background: #28a745; color: #fff; border: none; cursor: pointer; border-radius: 3px;">Load from DB</button>
+            <button id="save-to-db-btn" style="padding: 6px 12px; background: #0066cc; color: #fff; border: none; cursor: pointer; border-radius: 3px;">Save to DB</button>
+            <button id="save-all-to-db-btn" style="padding: 6px 12px; background: #cc6600; color: #fff; border: none; cursor: pointer; border-radius: 3px;">Save All to DB</button>
+            <button id="undo-load-btn" style="padding: 6px 12px; background: #6c757d; color: #fff; border: none; cursor: pointer; border-radius: 3px; display: none;">Undo Load</button>
+            <label style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+              <input type="checkbox" class="checkbox-margin-small" id="prefer-db-check">
+              <span><b>Use DB Description</b></span>
+            </label>
+          </div>
           <iframe id="rte-frame" class="active" src="rich-text-editor.html" style="width:100%; height:320px; border:1px solid #555; border-radius: 4px;" title="Rich Text Editor"></iframe>
           <textarea id="itemDesc" style="display:none;"></textarea>
         </div>
@@ -403,16 +434,91 @@ function showItemDetails(pageIdx, itemIdx) {
           <input id="full-image-path" class="full-path-input" placeholder="Or paste full path (e.g. D:\...\textures\atx\storefront\...\.webp)">
           <button class="full-path-button" onclick="addImageFromFullPath()">Add from Full Path</button>
         </div>
-        <div style="margin-top:12px;">
+
+        <!-- DB Image Search Section -->
+        <div style="margin-top: 14px; border-top: 1px solid #444; padding-top: 14px; border-left: 3px solid #0e639c; padding-left: 12px; background: rgba(14, 99, 156, 0.08);">
+          <div style="margin-bottom: 12px;">
+            <label style="display: block; font-weight: bold; margin-bottom: 6px; color: #569cd6;">Primary Image Search</label>
+            <input id="db-image-search" type="text" placeholder="Search for primary images in database" style="max-width: 600px; width: 100%; padding: 8px; margin-bottom: 8px; background: #1a1a1a; border: 1px solid #0e639c; color: #eee; border-radius: 4px;">
+            <div id="db-image-results" style="border: 1px solid #444; border-radius: 4px; background: #111; max-height: 200px; overflow-y: auto; margin-bottom: 8px; max-width: 600px;">
+              <div style="padding: 8px; color: #999; font-size: 0.9em;">Start typing to search...</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 12px;">
           <button onclick="saveJson()">Save Modified JSON</button>
         </div>
       </div>
     </div>
     <div><b>Images:</b></div>
+   
     <div class="img-list" id="img-list"></div>
   `;
   renderImages();
   setRichTextContent(item.itemDesc || '');
+
+  // Attach search input event listener now that the HTML is rendered
+  const searchInput = document.getElementById('db-image-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      searchDbImages(e.target.value.toLowerCase());
+    });
+    console.log('Search input event listener attached');
+  } else {
+    console.error('Search input not found after rendering');
+  }
+
+  // Auto-save rich-text editor changes to current item
+  // This allows "Save All" to access the edited content
+  let lastSavedContent = item.itemDesc || '';
+  const autoSaveInterval = setInterval(() => {
+    const currentContent = getRichTextContent();
+    if (currentContent !== lastSavedContent) {
+      item.itemDesc = currentContent;
+      if (currentContent && currentContent.trim()) {
+        item.hasCustomDesc = true;
+        // Update disclaimer flag if applicable
+        if (currentContent.includes('\n\n')) {
+          item.hasCustomDisc = true;
+        }
+      }
+      lastSavedContent = currentContent;
+    }
+  }, 500);
+  
+  // Store interval ID so we can clear it when switching items
+  if (!window.autoSaveIntervals) window.autoSaveIntervals = [];
+  window.autoSaveIntervals.push(autoSaveInterval);
+  function cleanupAutoSave() {
+    window.autoSaveIntervals.forEach(id => clearInterval(id));
+    window.autoSaveIntervals = [];
+  }
+  window.addEventListener('beforeunload', cleanupAutoSave);
+
+  // Load preferDB checkbox state
+  const preferDbCheck = document.getElementById('prefer-db-check');
+  if (preferDbCheck) {
+    preferDbCheck.checked = item.preferDB === true;
+  }
+
+  // Attach Load from DB button handler
+  const loadFromDbBtn = document.getElementById('load-from-db-btn');
+  const saveToDbBtn = document.getElementById('save-to-db-btn');
+  const saveAllToDbBtn = document.getElementById('save-all-to-db-btn');
+  const undoLoadBtn = document.getElementById('undo-load-btn');
+  if (loadFromDbBtn) {
+    loadFromDbBtn.onclick = () => loadDescriptionFromDB(item);
+  }
+  if (saveToDbBtn) {
+    saveToDbBtn.onclick = () => saveDescriptionToDatabase(item);
+  }
+  if (saveAllToDbBtn) {
+    saveAllToDbBtn.onclick = () => saveAllEditedItemsToDatabase();
+  }
+  if (undoLoadBtn) {
+    undoLoadBtn.onclick = () => undoLoadFromDB();
+  }
 
   // Drag & Drop für Includes
   const includesList = document.getElementById('includes-list');
@@ -454,6 +560,60 @@ function showItemDetails(pageIdx, itemIdx) {
             currentItem.dynamicBundleItems.splice(idx, 1);
             showItemDetails(pageIdx, itemIdx);
           }
+        });
+      }
+      
+      // edit include name on double-click
+      const nameSpan = item.querySelector('.include-name');
+      if (nameSpan) {
+        nameSpan.addEventListener('dblclick', (ev) => {
+          ev.stopPropagation();
+          const idx = Number(item.getAttribute('data-idx'));
+          const originalText = nameSpan.textContent;
+          
+          nameSpan.contentEditable = true;
+          nameSpan.focus();
+          // Select all text
+          const range = document.createRange();
+          range.selectNodeContents(nameSpan);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          
+          const finishEdit = (save) => {
+            nameSpan.contentEditable = false;
+            if (save && nameSpan.textContent.trim()) {
+              const newText = nameSpan.textContent.trim();
+              if (Array.isArray(currentItem.dynamicBundleItems) && idx < currentItem.dynamicBundleItems.length) {
+                currentItem.dynamicBundleItems[idx].szItemName = newText;
+              }
+            } else {
+              nameSpan.textContent = originalText;
+            }
+          };
+          
+          const onKeyDown = (e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              nameSpan.removeEventListener('keydown', onKeyDown);
+              nameSpan.removeEventListener('blur', onBlur);
+              finishEdit(true);
+            } else if (e.key === 'Escape') {
+              e.preventDefault();
+              nameSpan.removeEventListener('keydown', onKeyDown);
+              nameSpan.removeEventListener('blur', onBlur);
+              finishEdit(false);
+            }
+          };
+          
+          const onBlur = () => {
+            nameSpan.removeEventListener('keydown', onKeyDown);
+            nameSpan.removeEventListener('blur', onBlur);
+            finishEdit(true);
+          };
+          
+          nameSpan.addEventListener('keydown', onKeyDown);
+          nameSpan.addEventListener('blur', onBlur);
         });
       }
     });
@@ -526,7 +686,7 @@ function showItemDetails(pageIdx, itemIdx) {
     const dLocal = parseLocalDatetimeLocalValue(ltotimerInput.value);
     if (!dLocal) return;
     const iso = convertLocalToUtcIso(dLocal);
-    relSpan.textContent = getRelativeTimeString(iso);
+    if (relSpan) relSpan.textContent = getRelativeTimeString(iso);
     const tzLabelEl = document.getElementById('ltotimer-tzlabel');
     if (tzLabelEl) tzLabelEl.textContent = getTZLabel(new Date(iso));
     const isoEl = document.getElementById('ltotimer-saved-iso');
@@ -540,7 +700,7 @@ function showItemDetails(pageIdx, itemIdx) {
     const dLocal = parseLocalDatetimeLocalValue(ltotimerInput.value);
     if (!dLocal) return;
     const iso = convertLocalToUtcIso(dLocal);
-    relSpan.textContent = getRelativeTimeString(iso);
+    if (relSpan) relSpan.textContent = getRelativeTimeString(iso);
     const tzLabelEl = document.getElementById('ltotimer-tzlabel');
     if (tzLabelEl) tzLabelEl.textContent = getTZLabel(new Date(iso));
     const isoEl = document.getElementById('ltotimer-saved-iso');
@@ -583,7 +743,7 @@ function showItemDetails(pageIdx, itemIdx) {
       document.getElementById('ltotimer-status').textContent = "Gespeichert!";
       setTimeout(() => document.getElementById('ltotimer-status').textContent = '', 1500);
       // Update relative display
-      relSpan.textContent = getRelativeTimeString(iso);
+      if (relSpan) relSpan.textContent = getRelativeTimeString(iso);
       const tzLabelEl = document.getElementById('ltotimer-tzlabel');
       if (tzLabelEl) tzLabelEl.textContent = getTZLabel(new Date(iso));
         const isoEl = document.getElementById('ltotimer-saved-iso');
@@ -651,7 +811,7 @@ function renderImages() {
 
     if (dt && dt.files && dt.files.length) {
       const parsedText = parseDroppedPath(textData);
-      const detectedDir = parsedText && parsedText.directory ? parsedText.directory : '';
+      const detectedDir = parsedText && parsedText.directory ? normalizeDir(parsedText.directory) : '';
       for (let i = 0; i < dt.files.length; i++) {
         const f = dt.files[i];
         tempImages.push({ imageName: f.name.toLowerCase(), directory: detectedDir || '' });
@@ -663,7 +823,7 @@ function renderImages() {
     if (textData) {
       const parsed = parseDroppedPath(textData);
       if (parsed && parsed.name) {
-        tempImages.push({ imageName: parsed.name.toLowerCase(), directory: parsed.directory });
+        tempImages.push({ imageName: parsed.name.toLowerCase(), directory: normalizeDir(parsed.directory) });
         renderImages();
         return;
       }
@@ -758,8 +918,8 @@ function renderImages() {
     optionsHtml += `<option value="_L"${selL}>_L</option>`;
 
     div.innerHTML = `
-      <input class="image-input-field" value="${(img.directory||'')}" onchange="updateImageDir(${idx}, this.value)" onblur="updateImageDir(${idx}, this.value)" placeholder="directory">
-      <input class="image-input-field image-name-field" value="${img.imageName}" onchange="updateImageName(${idx}, this.value)" onblur="updateImageName(${idx}, this.value)">
+      <input class="image-input-field" value="${(img.directory||'')}" onchange="updateImageDir(${idx}, this.value)" onblur="updateImageDir(${idx}, this.value)" oninput="updateImageDir(${idx}, this.value)" placeholder="directory">
+      <input class="image-input-field image-name-field" value="${img.imageName}" onchange="updateImageName(${idx}, this.value)" onblur="updateImageName(${idx}, this.value)" oninput="updateImageName(${idx}, this.value)">
       <div style="position: relative; display: inline-block; width: 220px; height: 220px; margin-bottom: 4px;">
         <img src="${imgUrl}" alt="${img.imageName}" 
           style="width: 100%; height: 100%; object-fit: cover; border: 1px solid #555; background: #111;"
@@ -771,13 +931,10 @@ function renderImages() {
         <div style="position: absolute; bottom: 3px; left: 3px; right: 3px; display: flex; gap: 2px;">
           <button onclick="swapImageName(${idx})" style="flex: 1; padding: 2px; font-size: 0.9em; font-weight: bold;">Name</button>
           <button onclick="swapImageDir(${idx})" style="flex: 1; padding: 2px; font-size: 0.9em; font-weight: bold;">Dir</button>
-          <button onclick="syncPath(${idx})" style="flex: 1; padding: 2px; font-size: 0.9em; font-weight: bold;" title="Copy this path to all images">Sync</button>
+          <button onclick="addImageVariantsForItem(${idx})" style="flex: 1; padding: 2px; font-size: 0.9em; font-weight: bold;" title="Add c1, c2 variants">Var</button>
           <button onclick="removeImage(${idx})" style="flex: 1; padding: 2px; font-size: 0.9em; font-weight: bold; color: #ff7878;">Del</button>
         </div>
       </div>
-      <select data-idx="${idx}" class="suffix-select" onchange="changeSuffix(${idx}, this.value)" style="width: 100%; font-size: 0.8em;">
-        ${optionsHtml}
-      </select>
     `;
 
     // Drag events
@@ -839,14 +996,6 @@ window.swapImageDir = function(idx) {
   }
 };
 
-window.changeSuffix = function(idx, suffix) {
-  let img = tempImages[idx];
-  if (!img) return;
-  img.imageName = img.imageName.replace(/(_C\d+|_L)?(\.[^.]+)$/i, '') + (suffix || '') + '.webp';
-  img.imageName = img.imageName.toLowerCase();
-  renderImages();
-};
-
 // Update directory for an image (normalize separators and ensure trailing slash)
 // Also handle full paths: if /textures/ is detected, split directory and imageName
 window.updateImageDir = function(idx, dir) {
@@ -859,7 +1008,7 @@ window.updateImageDir = function(idx, dir) {
   const parsed = parseDroppedPath(dir);
   if (parsed && parsed.directory) {
     // It's a full path - use parsed values
-    tempImages[idx].directory = parsed.directory;
+    tempImages[idx].directory = normalizeDir(parsed.directory);
     if (parsed.name) {
       tempImages[idx].imageName = parsed.name;
     }
@@ -911,18 +1060,6 @@ window.togglePrimary = function(idx, checked) {
   renderImages();
 };
 
-window.syncPath = function(idx) {
-  if (idx < 0 || idx >= tempImages.length) return;
-  const sourceDir = tempImages[idx].directory;
-  for (let i = 0; i < tempImages.length; i++) {
-    if (i !== idx) {
-      tempImages[i].directory = sourceDir;
-    }
-  }
-  renderImages();
-  // Optional: show some feedback, but since editor.html doesn't have showStatus, maybe just render
-};
-
 window.outputOrder = function() {
   document.querySelector('.output').innerHTML =
     `<textarea>${JSON.stringify(tempImages.map(i => String(i.imageName).toLowerCase()), null, 2)}</textarea>`;
@@ -962,6 +1099,17 @@ window.saveJson = function() {
   // Save current edits before saving
   saveTempImagesToItem();
   persistUiToLastItem();
+  
+  // Add preferDB key to all items that don't have it
+  storeData.StorePageData.pages.forEach(page => {
+    page.items.forEach(item => {
+      if (!item.hasOwnProperty('preferDB')) {
+        const isBundle = item.dynamicBundleItems && item.dynamicBundleItems.length > 0;
+        item.preferDB = isBundle ? false : true;
+      }
+    });
+  });
+  
   // Download the modified JSON as a file
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(storeData, null, 2));
   const dlAnchor = document.createElement('a');
@@ -981,7 +1129,7 @@ window.addImage = function() {
   if (parsed) {
     // It's a full path - use parsed values
     name = parsed.name;
-    dir = parsed.directory;
+    dir = normalizeDir(parsed.directory);
     if (!name) {
       alert('Pfad ist ein Verzeichnis. Bitte einen Bilddateinamen angeben!');
       return;
@@ -989,7 +1137,7 @@ window.addImage = function() {
   } else {
     // Not a full path, just normalize as-is
     name = name.toLowerCase();
-    dir = dir.toLowerCase();
+    dir = normalizeDir(dir);
   }
   
   if (!name) {
@@ -1021,9 +1169,198 @@ window.addImageFromFullPath = function() {
     return;
   }
   
-  tempImages.push({ imageName: parsed.name, directory: parsed.directory });
+  tempImages.push({ imageName: parsed.name, directory: normalizeDir(parsed.directory) });
   renderImages();
   document.getElementById('full-image-path').value = '';
+};
+
+// DB Image Search with live preview
+let dbImageData = null;
+let selectedDbImageIndex = null;
+
+// Load database on initialization
+async function loadImageDatabase() {
+  try {
+    const response = await fetch('../data/items-db.json');
+    dbImageData = await response.json();
+    console.log('Database loaded:', dbImageData.length, 'items');
+    return dbImageData;
+  } catch (e) {
+    console.error('Failed to load image database:', e);
+    return null;
+  }
+}
+
+// Search DB for images
+document.addEventListener('DOMContentLoaded', function() {
+  // Load database
+  loadImageDatabase();
+});
+
+window.searchDbImages = function(query) {
+  console.log('Searching for:', query, 'in', dbImageData ? dbImageData.length : 0, 'items');
+  if (!dbImageData || !Array.isArray(dbImageData)) {
+    document.getElementById('db-image-results').innerHTML = '<div style="padding: 8px; color: #999;">Database not loaded</div>';
+    return;
+  }
+
+  if (!query || query.trim() === '') {
+    document.getElementById('db-image-results').innerHTML = '<div style="padding: 8px; color: #999;">Start typing to search...</div>';
+    return;
+  }
+
+  // Search like daily-items-editor: itemName, EDID, desc, disclaimer
+  const results = dbImageData.filter(item => {
+    return [item.itemName, item.EDID, item.desc, item.disclaimer]
+      .filter(Boolean)
+      .some(field => String(field).toLowerCase().includes(query.toLowerCase()));
+  }).slice(0, 50);
+
+  console.log('Found results:', results.length);
+
+  if (results.length === 0) {
+    document.getElementById('db-image-results').innerHTML = '<div style="padding: 8px; color: #999;">No results found</div>';
+    return;
+  }
+
+  const resultsHtml = results.map((item, i) => {
+    const dbIndex = dbImageData.indexOf(item);
+    // Use same image path construction as daily-items-editor
+    const imageSrc = item.primaryImage && item.primaryImage.imageName
+      ? ((item.primaryImage.directory || '').startsWith('/') ? '..' + item.primaryImage.directory : '../' + (item.primaryImage.directory || '')) + item.primaryImage.imageName
+      : null;
+    
+    return `
+    <div onclick="selectDbImage(${dbIndex})" style="padding: 8px; border-bottom: 1px solid #333; cursor: pointer; background: ${selectedDbImageIndex === dbIndex ? '#2b6cb0' : '#111'}; color: #eee; display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0;">
+        <div style="width: 48px; height: 48px; flex-shrink: 0;">
+          ${imageSrc ? `<img src="${imageSrc}" alt="${item.itemName || ''}" style="width: 100%; height: 100%; object-fit: cover; border: 1px solid #555; border-radius: 4px;" onerror="this.style.opacity=0.3;">` : '<div style="width: 100%; height: 100%; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666;">No img</div>'}
+        </div>
+        <div style="flex: 1; min-width: 0;">
+          <div style="font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.itemName || item.EDID || 'Unnamed'}</div>
+          <div style="font-size: 0.85rem; color: #999; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.EDID || 'no EDID'}</div>
+        </div>
+      </div>
+      <button onclick="event.stopPropagation(); addPrimaryImageFromDb(${dbIndex})" style="padding: 6px 12px; background: #0e639c; border: 1px solid #0a4a7d; color: white; border-radius: 3px; cursor: pointer; font-size: 0.9em; font-weight: bold; margin-left: 20px;">Add</button>
+    </div>
+  `}).join('');
+  
+  document.getElementById('db-image-results').innerHTML = resultsHtml;
+};
+
+window.selectDbImage = function(idx) {
+  selectedDbImageIndex = idx;
+  
+  // Re-render results to highlight selection
+  searchDbImages(document.getElementById('db-image-search').value);
+};
+
+window.addPrimaryImageFromDb = function(dbIndex) {
+  if (dbIndex === undefined || dbIndex === null || !dbImageData) {
+    return;
+  }
+  
+  const item = dbImageData[dbIndex];
+  if (!item.primaryImage || !item.primaryImage.imageName) {
+    return;
+  }
+  
+  const imagePath = item.primaryImage.directory + item.primaryImage.imageName;
+  const parsed = parseDroppedPath(imagePath);
+  
+  if (parsed) {
+    // Check if this image already exists
+    const exists = tempImages.some(img => 
+      img.imageName.toLowerCase() === parsed.name.toLowerCase() && 
+      normalizeDir(img.directory) === normalizeDir(parsed.directory)
+    );
+    
+    if (!exists) {
+      tempImages.push({
+        imageName: parsed.name,
+        directory: normalizeDir(parsed.directory),
+        _isPrimary: tempImages.length === 0 // Make first image primary
+      });
+      renderImages();
+    }
+  }
+};
+
+window.addImageVariants = function() {
+  // Find the primary image
+  const primaryIdx = tempImages.findIndex(img => img._isPrimary);
+  if (primaryIdx === -1) {
+    return; // No primary image found, skip silently
+  }
+  
+  // Use the same logic as addImageVariantsForItem
+  addImageVariantsForItem(primaryIdx);
+};
+
+function checkImageExists(url) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+}
+
+function extractImageVariantBase(name) {
+  const normalized = String(name || '').trim().toLowerCase();
+  const match = normalized.match(/^(.*?)(?:_l|_c\d+)?(\.[^.]+)$/i);
+  if (!match) return null;
+  return { base: match[1].replace(/_$/, ''), ext: match[2] || '.webp' };
+}
+
+window.addImageVariantsForItem = function(idx) {
+  if (idx < 0 || idx >= tempImages.length) return;
+  
+  const baseImage = tempImages[idx];
+  if (!baseImage || !baseImage.imageName) return;
+  
+  const info = extractImageVariantBase(baseImage.imageName);
+  if (!info) return;
+  
+  const directory = normalizeDir(baseImage.directory);
+  const existingNames = new Set(tempImages.map(img => String(img.imageName || '').toLowerCase()));
+  const candidates = [];
+  
+  // Generate candidate variant names
+  for (let i = 1; i <= 10; i++) {
+    const candidate = `${info.base}_c${i}${info.ext}`.toLowerCase();
+    if (!existingNames.has(candidate)) {
+      candidates.push(candidate);
+    }
+  }
+  
+  if (!candidates.length) {
+    return; // No new variants to check
+  }
+  
+  // Check if candidate images exist
+  const baseUrl = directory.startsWith('/') ? '..' + directory : '../' + directory;
+  Promise.all(candidates.map(name => 
+    checkImageExists(baseUrl + name).then(found => ({ name, found }))
+  )).then(results => {
+    let addedCount = 0;
+    results.forEach(({ name, found }) => {
+      if (found) {
+        tempImages.splice(idx + 1 + addedCount, 0, {
+          imageName: name,
+          directory: baseImage.directory
+        });
+        addedCount++;
+      }
+    });
+    
+    if (addedCount > 0) {
+      renderImages();
+      // Removed alert popup to speed up workflow
+    } else {
+      alert('No variant images found');
+    }
+  });
 };
 
 function toggleCollapsible() {
@@ -1050,6 +1387,9 @@ document.getElementById('jsonfile').addEventListener('change', function(e) {
   reader.readAsText(file);
 });
 
+// Expose tempImages to iframe
+window.getTempImages = () => tempImages;
+
 // Reload page from disk
 document.getElementById('reload-disk').addEventListener('click', function() {
   if (storeData && !confirm('This will reload the page and lose all edits. Continue?')) {
@@ -1073,6 +1413,675 @@ document.getElementById('load-json').addEventListener('click', async function() 
     alert('Failed to load storepagedata.json: ' + err.message);
   }
 });
+
+// Unicode symbols copy functionality
+document.querySelectorAll('.unicode-symbols .symbol').forEach(symbolEl => {
+  symbolEl.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const text = symbolEl.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const originalColor = symbolEl.style.backgroundColor;
+      symbolEl.style.backgroundColor = '#28a745';
+      symbolEl.style.color = '#fff';
+      setTimeout(() => {
+        symbolEl.style.backgroundColor = originalColor;
+        symbolEl.style.color = '';
+      }, 300);
+    }).catch(err => {
+      console.error('Failed to copy:', err);
+    });
+  });
+});
+
+// Normalize strings for EDID matching (from description-matcher.js)
+function normalizeForMatch(str) {
+    if (!str) return '';
+    return str
+        .toLowerCase()
+        .replace(/_entm_/g, '_')
+        .replace(/\.[^.]+$/, '')
+        .replace(/_c\d+$/, '')
+        .replace(/_l$/, '');
+}
+
+// Load description and disclaimer from items-db.json
+async function loadDescriptionFromDB(item) {
+  if (!item) {
+    return;
+  }
+
+  try {
+    // Save current description for undo
+    if (typeof getRichTextContent === 'function') {
+      savedDescription = getRichTextContent();
+    }
+
+    const response = await fetch('/data/items-db.json');
+    if (!response.ok) throw new Error('Could not load items-db.json');
+    const dbItems = await response.json();
+
+    let matchedDBItem = null;
+
+    // Check if this is a bundle
+    const isBundle = item.dynamicBundleItems && item.dynamicBundleItems.length > 0;
+
+    if (isBundle) {
+      // For bundles: search by name with atx_bndl_ prefix
+      const bundleNames = [item.itemName, item.itemNameShort].filter(n => n);
+      
+      for (let bundleName of bundleNames) {
+        // Generate expected EDID format
+        const expectedEdid = `atx_bndl_${bundleName.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '')}`;
+        
+        // Search for exact match
+        matchedDBItem = dbItems.find(dbItem => dbItem.EDID === expectedEdid);
+        if (matchedDBItem) break;
+      }
+    } else {
+      // For non-bundles: use image-based matching
+      const images = [item.primaryImage, ...item.carouselImages].filter(img => img && img.imageName);
+      
+      for (let img of images) {
+        const normalizedImage = normalizeForMatch(img.imageName);
+        
+        // Try to find exact or fuzzy match
+        for (let dbItem of dbItems) {
+          if (!dbItem.EDID) continue;
+          const normalizedEDID = normalizeForMatch(dbItem.EDID);
+          if (normalizedEDID === normalizedImage) {
+            matchedDBItem = dbItem;
+            break;
+          }
+        }
+        if (matchedDBItem) break;
+      }
+    }
+
+    if (!matchedDBItem) {
+      return;
+    }
+
+    // Store the DB EDID on the item so we can update the same entry when saving
+    item._dbEDID = matchedDBItem.EDID;
+    
+    // Store the ORIGINAL desc and disclaimer from DB so we can preserve them when saving
+    item._dbOriginalDesc = matchedDBItem.desc || '';
+    item._dbOriginalDisclaimer = matchedDBItem.disclaimer || '';
+
+    // Combine description and disclaimer
+    let fullText = matchedDBItem.desc || '';
+    if (matchedDBItem.disclaimer && matchedDBItem.disclaimer.trim()) {
+      fullText += '\n\n' + matchedDBItem.disclaimer;
+    }
+
+    // Load into rich text editor
+    if (typeof setRichTextContent === 'function') {
+      setRichTextContent(fullText);
+    }
+
+    // Auto-check the preferDB checkbox
+    const preferDbCheck = document.getElementById('prefer-db-check');
+    if (preferDbCheck) {
+      preferDbCheck.checked = true;
+    }
+
+    // Show undo button
+    const undoLoadBtn = document.getElementById('undo-load-btn');
+    if (undoLoadBtn) {
+      undoLoadBtn.style.display = 'block';
+    }
+  } catch (err) {
+    // Silent fail
+  }
+}
+
+// Undo the load from DB action
+function undoLoadFromDB() {
+  if (savedDescription !== null) {
+    if (typeof setRichTextContent === 'function') {
+      setRichTextContent(savedDescription);
+    }
+
+    // Uncheck the preferDB checkbox
+    const preferDbCheck = document.getElementById('prefer-db-check');
+    if (preferDbCheck) {
+      preferDbCheck.checked = false;
+    }
+
+    // Hide undo button
+    const undoLoadBtn = document.getElementById('undo-load-btn');
+    if (undoLoadBtn) {
+      undoLoadBtn.style.display = 'none';
+    }
+
+    savedDescription = null;
+  }
+}
+
+async function saveAllEditedItemsToDatabase() {
+  try {
+    if (!storeData || !storeData.StorePageData || !storeData.StorePageData.pages) {
+      alert('No store data loaded');
+      return;
+    }
+
+    // Find all items with custom descriptions/disclaimers
+    const editedItems = [];
+    storeData.StorePageData.pages.forEach(page => {
+      if (Array.isArray(page.items)) {
+        page.items.forEach(item => {
+          const isBundle = item.dynamicBundleItems && item.dynamicBundleItems.length > 0;
+          const hasEdited = item.hasCustomDesc || item.hasCustomDisc;
+          const isUtility = item.primaryImage && item.primaryImage.directory && 
+                           item.primaryImage.directory.toLowerCase().includes('/textures/atx/storefront/utility/');
+          const hasPrimaryImage = item.primaryImage && item.primaryImage.imageName;
+          
+          // Calculate what primaryImage will be saved as (null if from atomic_shop_media)
+          const willSavePrimaryImage = (item.primaryImage && 
+                                       item.primaryImage.directory !== '/textures/atomic_shop_media/' && 
+                                       item.primaryImage.directory !== 'textures/atomic_shop_media/');
+          
+          // Include if:
+          // 1. Bundles: ONLY if actively edited (hasCustomDesc/Disc)
+          // 2. Utility items: ONLY if actively edited (skip others)
+          // 3. Items without primaryImage: ONLY if actively edited
+          // 4. Items with primaryImage that would be null in save: ONLY if actively edited
+          // 5. Regular items with saveable primaryImage: include if edited OR loaded from DB OR has description
+          
+          if (isBundle) {
+            // Bundles: only if explicitly edited
+            if (hasEdited) {
+              editedItems.push(item);
+            }
+          } else if (isUtility) {
+            // Utility items: only if explicitly edited
+            if (hasEdited) {
+              editedItems.push(item);
+            }
+          } else if (!hasPrimaryImage) {
+            // No primaryImage: only if explicitly edited
+            if (hasEdited) {
+              editedItems.push(item);
+            }
+          } else if (!willSavePrimaryImage) {
+            // primaryImage will be null (from atomic_shop_media): only if explicitly edited
+            if (hasEdited) {
+              editedItems.push(item);
+            }
+          } else {
+            // Regular items with saveable primaryImage: include if edited, loaded from DB, or has description
+            if (hasEdited || item._dbEDID || (item.itemDesc && item.itemDesc.trim())) {
+              editedItems.push(item);
+            }
+          }
+        });
+      }
+    });
+    
+    if (editedItems.length === 0) {
+      alert('No eligible items found. Load from DB or edit items (excluding bundles/utility) first, then click "Save All to DB".');
+      return;
+    }
+
+    // Load existing DB from data folder
+    const dbResponse = await fetch('../data/items-db.json');
+    let dbArray = [];
+    
+    if (dbResponse.ok) {
+      dbArray = await dbResponse.json();
+      if (!Array.isArray(dbArray)) dbArray = [];
+    } else {
+      console.warn('Could not load existing DB, starting with empty array');
+    }
+
+    // Process each edited item
+    let savedCount = 0;
+    editedItems.forEach(item => {
+      // Get edited description from item (auto-saved from rich-text editor)
+      const editedText = item.itemDesc || '';
+      
+      // Normalize line endings first, then split description and disclaimer at double newline
+      const normalizedEditedText = editedText.replace(/\r\n/g, '\n');
+      const doubleLF = normalizedEditedText.indexOf('\n\n');
+      let customDesc, customDisclaimer = '';
+      
+      if (doubleLF !== -1) {
+        customDesc = normalizedEditedText.substring(0, doubleLF);
+        customDisclaimer = normalizedEditedText.substring(doubleLF + 2).trim();
+      } else {
+        customDesc = normalizedEditedText;
+      }
+
+      // Use stored DB EDID if available (from Load from DB), otherwise generate new one
+      let edid = item._dbEDID || null;
+      
+      if (!edid) {
+        const isBundle = item.dynamicBundleItems && item.dynamicBundleItems.length > 0;
+
+        if (isBundle) {
+          edid = `atx_bndl_${item.itemName
+            .toLowerCase()
+            .replace(/\s+/g, '_')
+            .replace(/[^a-z0-9_]/g, '')}`;
+        } else {
+          if (item.primaryImage && item.primaryImage.imageName) {
+            edid = item.primaryImage.imageName
+              .toLowerCase()
+              .replace(/\.[^.]+$/, '')
+              .replace(/_c\d+$/, '')
+              .replace(/_l$/, '');
+          }
+          if (!edid) {
+            edid = item.itemName
+              .toLowerCase()
+              .replace(/\s+/g, '_')
+              .replace(/[^a-z0-9_]/g, '');
+          }
+        }
+      }
+
+      // Find existing entry: exact match on stored EDID first, then using same normalization as loading
+      let existingDbEntry = null;
+      let existingIdx = -1;
+      
+      if (item._dbEDID) {
+        // Exact match for stored EDID
+        existingIdx = dbArray.findIndex(e => e.EDID === item._dbEDID);
+        if (existingIdx !== -1) {
+          existingDbEntry = dbArray[existingIdx];
+        }
+      }
+      
+      // If no exact match, search using same normalization logic as when loading  
+      if (existingIdx === -1) {
+        const isBundle = item.dynamicBundleItems && item.dynamicBundleItems.length > 0;
+        
+        if (isBundle) {
+          // For bundles: search by generated bundle EDID (case-insensitive)
+          const expectedBundleEdid = `atx_bndl_${item.itemName
+            .toLowerCase()
+            .replace(/\s+/g, '_')
+            .replace(/[^a-z0-9_]/g, '')}`;
+          existingIdx = dbArray.findIndex(e => e.EDID.toLowerCase() === expectedBundleEdid.toLowerCase());
+        } else {
+          // For non-bundles: use image-based matching with normalization (same as loadDescriptionFromDB)
+          const images = [item.primaryImage, ...item.carouselImages].filter(img => img && img.imageName);
+          
+          for (let img of images) {
+            const normalizedImage = normalizeForMatch(img.imageName);
+            
+            // Search for entry with matching normalized EDID
+            for (let i = 0; i < dbArray.length; i++) {
+              if (!dbArray[i].EDID) continue;
+              const normalizedEDID = normalizeForMatch(dbArray[i].EDID);
+              if (normalizedEDID === normalizedImage) {
+                existingIdx = i;
+                existingDbEntry = dbArray[i];
+                break;
+              }
+            }
+            if (existingIdx !== -1) break;
+          }
+          
+          // Fallback: if no EDID match found, search by description
+          if (existingIdx === -1) {
+            const originalItemDesc = item.itemDesc || '';
+            // Normalize line endings first, then split to get just the desc part (before double newline)
+            const normalizedItemDescForSplit = originalItemDesc.replace(/\r\n/g, '\n');
+            const doubleLF = normalizedItemDescForSplit.indexOf('\n\n');
+            const itemDescOnly = doubleLF !== -1 ? normalizedItemDescForSplit.substring(0, doubleLF) : normalizedItemDescForSplit;
+            
+            // Look for DB entry with matching original description (normalize whitespace and line endings for comparison)
+            if (itemDescOnly.trim()) {
+              const normalizeDesc = (str) => str.trim().replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ');
+              const normalizedItemDesc = normalizeDesc(itemDescOnly);
+              
+              for (let i = 0; i < dbArray.length; i++) {
+                const dbDesc = dbArray[i].desc || '';
+                if (normalizeDesc(dbDesc) === normalizedItemDesc) {
+                  existingIdx = i;
+                  existingDbEntry = dbArray[i];
+                  break;
+                }
+              }
+            }
+          }
+        }
+        
+        if (existingIdx !== -1) {
+          existingDbEntry = dbArray[existingIdx];
+        }
+      }
+
+      // Preserve original values from DB (use stored values if available from load operation, otherwise search DB, otherwise use storepagedata original)
+      let originalDesc, originalDisclaimer;
+      
+      // First priority: use values stored when loading from DB
+      if (item._dbOriginalDesc !== undefined) {
+        originalDesc = item._dbOriginalDesc;
+        originalDisclaimer = item._dbOriginalDisclaimer || '';
+      } else if (existingDbEntry) {
+        // Second priority: use values from DB entry we just found
+        originalDesc = existingDbEntry.desc || '';
+        originalDisclaimer = existingDbEntry.disclaimer || '';
+      } else {
+        // Third priority: use original itemDesc from storepagedata.json (split at double newline if present)
+        const originalItemDesc = item.itemDesc || '';
+        // Normalize line endings first
+        const normalizedOriginalDesc = originalItemDesc.replace(/\r\n/g, '\n');
+        const doubleLF = normalizedOriginalDesc.indexOf('\n\n');
+        if (doubleLF !== -1) {
+          originalDesc = normalizedOriginalDesc.substring(0, doubleLF);
+          originalDisclaimer = normalizedOriginalDesc.substring(doubleLF + 2).trim();
+        } else {
+          originalDesc = normalizedOriginalDesc;
+          originalDisclaimer = '';
+        }
+      }
+      
+      const preserveOriginalEDID = existingDbEntry ? existingDbEntry.EDID : edid;
+
+      // Only populate customdesc/customdisclaimer if they differ from originals
+      let finalCustomDesc = '';
+      let finalCustomDisclaimer = '';
+      if (customDesc !== originalDesc) {
+        finalCustomDesc = customDesc;
+      }
+      if (customDisclaimer !== originalDisclaimer) {
+        finalCustomDisclaimer = customDisclaimer;
+      }
+
+      // Create DB entry with BOTH original and custom PLUS minimal additional data
+      const dbEntry = {
+        EDID: preserveOriginalEDID,
+        desc: originalDesc,
+        disclaimer: originalDisclaimer,
+        customdesc: finalCustomDesc,
+        customdisclaimer: finalCustomDisclaimer,
+        itemName: item.itemName,
+        primaryImage: (item.primaryImage && item.primaryImage.directory !== '/textures/atomic_shop_media/' && item.primaryImage.directory !== 'textures/atomic_shop_media/') ? {
+          imageName: item.primaryImage.imageName,
+          directory: item.primaryImage.directory
+        } : null,
+        highPriceOriginal: item.highPrice ? item.highPrice.originalAmount : null
+      };
+
+      // Update existing entry OR add new entry (but never replace old format entries)
+      if (existingIdx !== -1 && dbArray[existingIdx].EDID === preserveOriginalEDID) {
+        // Only replace if the EDID matches exactly - preserves old format entries
+        dbArray[existingIdx] = dbEntry;
+      } else {
+        // Add new entry without removing old entries
+        dbArray.push(dbEntry);
+      }
+      
+      savedCount++;
+    });
+
+    // Prepare download with full DB
+    const dataStr = JSON.stringify(dbArray, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'items-db.json';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+    alert(`Saved ${savedCount} edited items to DB and downloaded items-db.json (${dbArray.length} total items). Replace the file in data/ folder.`);
+  } catch (err) {
+    console.error('Error saving all to DB:', err);
+    alert('Error saving all to DB: ' + err.message);
+  }
+}
+
+// Add bundle to database
+async function addBundleToDatabase(item) {
+  await saveDescriptionToDatabase(item);
+}
+
+// Save edited description to database
+async function saveDescriptionToDatabase(item) {
+  try {
+    // Get current description from editor
+    const fullText = typeof getRichTextContent === 'function' ? getRichTextContent() : '';
+    
+    if (!fullText || !fullText.trim()) {
+      alert('Please add a description before saving to DB');
+      return;
+    }
+
+    // Check if this is a utility item that should be excluded
+    const isUtility = item.primaryImage && item.primaryImage.directory &&
+                      item.primaryImage.directory.toLowerCase().includes('/textures/atx/storefront/utility/');
+    
+    if (isUtility && !item.hasCustomDesc && !item.hasCustomDisc) {
+      alert('Utility items can only be saved if explicitly edited. Please skip this item.');
+      return;
+    }
+
+    // Normalize line endings first, then split description and disclaimer at double newline
+    const normalizedFullText = fullText.replace(/\r\n/g, '\n');
+    const doubleLF = normalizedFullText.indexOf('\n\n');
+    let desc, disclaimer = '';
+    
+    if (doubleLF !== -1) {
+      desc = normalizedFullText.substring(0, doubleLF);
+      disclaimer = normalizedFullText.substring(doubleLF + 2).trim();
+    } else {
+      desc = normalizedFullText;
+    }
+
+    // Use stored DB EDID if available (from Load from DB), otherwise generate new one
+    let edid = item._dbEDID || null;
+    
+    if (!edid) {
+      const isBundle = item.dynamicBundleItems && item.dynamicBundleItems.length > 0;
+
+      if (isBundle) {
+        // For bundles: use bundle name with prefix
+        edid = `atx_bndl_${item.itemName
+          .toLowerCase()
+          .replace(/\s+/g, '_')
+          .replace(/[^a-z0-9_]/g, '')}`;
+      } else {
+        // For regular items: use primary image name
+        if (item.primaryImage && item.primaryImage.imageName) {
+          edid = item.primaryImage.imageName
+            .toLowerCase()
+            .replace(/\.[^.]+$/, '')  // remove extension
+            .replace(/_c\d+$/, '')    // remove _c1, _c2
+            .replace(/_l$/, '');      // remove _l
+        }
+        
+        // Fallback to item name if no image
+        if (!edid) {
+          edid = item.itemName
+            .toLowerCase()
+            .replace(/\s+/g, '_')
+            .replace(/[^a-z0-9_]/g, '');
+        }
+      }
+    }
+
+    // Mark item as having custom description
+    item.hasCustomDesc = true;
+
+    // Mark item as having custom disclaimer if it has one
+    if (disclaimer && disclaimer.trim()) {
+      item.hasCustomDisc = true;
+    }
+
+    // These are the CUSTOM (edited) desc/disclaimer
+    const customDesc = desc;
+    const customDisclaimer = disclaimer;
+
+    // Load existing DB from data folder (correct relative path from editor/)
+    const dbResponse = await fetch('../data/items-db.json');
+    let dbArray = [];
+    
+    if (dbResponse.ok) {
+      dbArray = await dbResponse.json();
+      if (!Array.isArray(dbArray)) dbArray = [];
+    } else {
+      console.warn('Could not load existing DB, starting with empty array');
+    }
+
+    // If we have a stored DB EDID, try exact match first
+    let existingDbEntry = null;
+    let existingIdx = -1;
+    
+    if (item._dbEDID) {
+      // Exact match for stored EDID
+      existingIdx = dbArray.findIndex(e => e.EDID === item._dbEDID);
+      if (existingIdx !== -1) {
+        existingDbEntry = dbArray[existingIdx];
+      }
+    }
+    
+    // If no exact match, search using same normalization logic as when loading
+    if (existingIdx === -1) {
+      const isBundle = item.dynamicBundleItems && item.dynamicBundleItems.length > 0;
+      
+      if (isBundle) {
+        // For bundles: search by generated bundle EDID (case-insensitive)
+        const expectedBundleEdid = `atx_bndl_${item.itemName
+          .toLowerCase()
+          .replace(/\s+/g, '_')
+          .replace(/[^a-z0-9_]/g, '')}`;
+        existingIdx = dbArray.findIndex(e => e.EDID.toLowerCase() === expectedBundleEdid.toLowerCase());
+      } else {
+        // For non-bundles: use image-based matching with normalization (same as loadDescriptionFromDB)
+        const images = [item.primaryImage, ...item.carouselImages].filter(img => img && img.imageName);
+        
+        for (let img of images) {
+          const normalizedImage = normalizeForMatch(img.imageName);
+          
+          // Search for entry with matching normalized EDID
+          for (let i = 0; i < dbArray.length; i++) {
+            if (!dbArray[i].EDID) continue;
+            const normalizedEDID = normalizeForMatch(dbArray[i].EDID);
+            if (normalizedEDID === normalizedImage) {
+              existingIdx = i;
+              existingDbEntry = dbArray[i];
+              break;
+            }
+          }
+          if (existingIdx !== -1) break;
+        }
+        
+        // Fallback: if no EDID match found, search by description
+        if (existingIdx === -1) {
+          const originalItemDesc = item.itemDesc || '';
+          // Normalize line endings first, then split to get just the desc part (before double newline)
+          const normalizedItemDescForSplit = originalItemDesc.replace(/\r\n/g, '\n');
+          const doubleLF = normalizedItemDescForSplit.indexOf('\n\n');
+          const itemDescOnly = doubleLF !== -1 ? normalizedItemDescForSplit.substring(0, doubleLF) : normalizedItemDescForSplit;
+          
+          // Look for DB entry with matching original description (normalize whitespace and line endings for comparison)
+          if (itemDescOnly.trim()) {
+            const normalizeDesc = (str) => str.trim().replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ');
+            const normalizedItemDesc = normalizeDesc(itemDescOnly);
+            
+            for (let i = 0; i < dbArray.length; i++) {
+              const dbDesc = dbArray[i].desc || '';
+              if (normalizeDesc(dbDesc) === normalizedItemDesc) {
+                existingIdx = i;
+                existingDbEntry = dbArray[i];
+                break;
+              }
+            }
+          }
+        }
+      }
+      
+      if (existingIdx !== -1) {
+        existingDbEntry = dbArray[existingIdx];
+      }
+    }
+
+    // Preserve original values from DB (use stored values if available from load operation, otherwise search DB, otherwise use storepagedata original)
+    let originalDesc, originalDisclaimer;
+    
+    // First priority: use values stored when loading from DB
+    if (item._dbOriginalDesc !== undefined) {
+      originalDesc = item._dbOriginalDesc;
+      originalDisclaimer = item._dbOriginalDisclaimer || '';
+    } else if (existingDbEntry) {
+      // Second priority: use values from DB entry we just found
+      originalDesc = existingDbEntry.desc || '';
+      originalDisclaimer = existingDbEntry.disclaimer || '';
+    } else {
+      // Third priority: use original itemDesc from storepagedata.json (split at double newline if present)
+      const originalItemDesc = item.itemDesc || '';
+      // Normalize line endings first
+      const normalizedOriginalDesc = originalItemDesc.replace(/\r\n/g, '\n');
+      const doubleLF = normalizedOriginalDesc.indexOf('\n\n');
+      if (doubleLF !== -1) {
+        originalDesc = normalizedOriginalDesc.substring(0, doubleLF);
+        originalDisclaimer = normalizedOriginalDesc.substring(doubleLF + 2).trim();
+      } else {
+        originalDesc = normalizedOriginalDesc;
+        originalDisclaimer = '';
+      }
+    }
+    
+    const preserveOriginalEDID = existingDbEntry ? existingDbEntry.EDID : edid;
+
+    // Only populate customdesc/customdisclaimer if they differ from originals
+    let finalCustomDesc = '';
+    let finalCustomDisclaimer = '';
+    if (customDesc !== originalDesc) {
+      finalCustomDesc = customDesc;
+    }
+    if (customDisclaimer !== originalDisclaimer) {
+      finalCustomDisclaimer = customDisclaimer;
+    }
+
+    // Create DB entry with BOTH original and custom PLUS minimal additional data
+    const dbEntry = {
+      EDID: preserveOriginalEDID,
+      desc: originalDesc,
+      disclaimer: originalDisclaimer,
+      customdesc: finalCustomDesc,
+      customdisclaimer: finalCustomDisclaimer,
+      itemName: item.itemName,
+      primaryImage: (item.primaryImage && item.primaryImage.directory !== '/textures/atomic_shop_media/' && item.primaryImage.directory !== 'textures/atomic_shop_media/') ? {
+        imageName: item.primaryImage.imageName,
+        directory: item.primaryImage.directory
+      } : null,
+      highPriceOriginal: item.highPrice ? item.highPrice.originalAmount : null
+    };
+
+    // Update existing entry OR add new entry (but never replace old format entries)
+    if (existingIdx !== -1 && dbArray[existingIdx].EDID === preserveOriginalEDID) {
+      // Only replace if the EDID matches exactly - preserves old format entries
+      dbArray[existingIdx] = dbEntry;
+    } else {
+      // Add new entry without removing old entries
+      dbArray.push(dbEntry);
+    }
+
+    // Prepare download with full DB
+    const dataStr = JSON.stringify(dbArray, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'items-db.json';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+    alert(`Description for "${edid}" saved to DB and downloaded as items-db.json (${dbArray.length} total items). Replace the file in data/ folder.`);
+  } catch (err) {
+    console.error('Error saving to DB:', err);
+    alert('Error saving to DB: ' + err.message);
+  }
+}
   </script>
 </body>
 </html>
