@@ -116,7 +116,7 @@ function getItemCategories(item) {
         'Apparel': ['_apparel_', '_outfit_'],
         'CAMP': ['_camp_'],
         'C.A.M.P.': ['_deployable_'],
-        'Kits': ['_camp_kit_'],
+        'Kits': ['_entm_camp_kit_'],
         'Roofs': ['_roofs_', '_roof_'],
         'Power Generators': ['_generator_'],
         'Power Connectors': ['_powerconnectors_'],
