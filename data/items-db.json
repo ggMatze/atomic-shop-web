@@ -27024,7 +27024,7 @@
     "itemName": "Sunflowers Flag",
     "dynamicBundleItems": [],
     "primaryImage": {
-      "imageName": "atx_camp_decoration_flaggardening_04.webp",
+      "imageName": "atx_camp_decoration_flaggardening_04_l.webp",
       "directory": "/textures/atx/storefront/camp/flags/"
     },
     "highPriceOriginal": 0,
@@ -31981,11 +31981,11 @@
     "desc": "Let the world know you've got a good wholesome C.A.M.P. for good wholesome people (probably).",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "atx_camp_sign_billboard_shop_02_l.webp",
+      "imageName": "atx_camp_sign_billboard_shop_04_l.webp",
       "directory": "/textures/atx/storefront/camp/signs/"
     },
     "carouselImages": [],
-    "itemName": "Trustworthy Billboard"
+    "itemName": "(Probably) Trustworthy Billboard"
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_Reuse032",
@@ -38095,10 +38095,7 @@
     "EDID": "ATX_ENTM_CAMP_Furniture_Table_Special_9BallTable_C_Green",
     "desc": "Stripes or solids? Get your cues ready for a relaxing game of pool with this Green 9 Ball Table.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": {
-      "imageName": "atx_camp_furniture_table_special_9balltable_rustic_handmadepooltable.webp",
-      "directory": "/textures/atx/storefront/camp/furniture/"
-    },
+    "primaryImage": null,
     "carouselImages": [],
     "itemName": "Green 9 Ball Table"
   },
@@ -38139,10 +38136,7 @@
     "EDID": "ATX_ENTM_CAMP_Furniture_General_Vault-TecPoolTable",
     "desc": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
     "disclaimer": "",
-    "primaryImage": {
-      "imageName": "atx_camp_furniture_table_special_9balltable_rustic_handmadepooltable.webp",
-      "directory": "/textures/atx/storefront/camp/furniture/"
-    },
+    "primaryImage": null,
     "carouselImages": [],
     "itemName": "Vault-Tec Pool Table General"
   },
@@ -38649,8 +38643,8 @@
     "desc": "Grab a cup of Joe and a donut on your way out for the day with the Red Slocum's Diner Bar Set.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "atx_camp_vendor_playervendingmachine_slocum_red_l.webp",
-      "directory": "/textures/atx/storefront/camp/vendors/"
+      "imageName": "atx_camp_furniture_barset_slocum_l.webp",
+      "directory": "/textures/atx/storefront/camp/furniture/"
     },
     "carouselImages": [],
     "itemName": "Red Slocum's Bar"
@@ -38660,8 +38654,8 @@
     "desc": "Grab a cup of Joe and a donut on your way out for the day with the Green Slocum's Diner Bar Set.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "atx_camp_vendor_playervendingmachine_slocum_green_l.webp",
-      "directory": "/textures/atx/storefront/camp/vendors/"
+      "imageName": "atx_camp_furniture_barset_slocum_green.webp",
+      "directory": "/textures/atx/storefront/camp/furniture/"
     },
     "carouselImages": [],
     "itemName": "Green Slocum's Bar"
@@ -38671,8 +38665,8 @@
     "desc": "Grab a cup of Joe and a donut on your way out for the day with the Blue Slocum's Diner Bar Set.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "atx_camp_vendor_playervendingmachine_slocum_blue_l.webp",
-      "directory": "/textures/atx/storefront/camp/vendors/"
+      "imageName": "atx_camp_furniture_barset_slocum_blue.webp",
+      "directory": "/textures/atx/storefront/camp/furniture/"
     },
     "carouselImages": [],
     "itemName": "Blue Slocum's Bar"
@@ -38682,8 +38676,8 @@
     "desc": "Grab a cup of Joe and a donut on your way out for the day with the Yellow Slocum's Diner Bar Set.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "atx_camp_vendor_playervendingmachine_slocum_yellow_l.webp",
-      "directory": "/textures/atx/storefront/camp/vendors/"
+      "imageName": "atx_camp_furniture_barset_slocum_yellow.webp",
+      "directory": "/textures/atx/storefront/camp/furniture/"
     },
     "carouselImages": [],
     "itemName": "Yellow Slocum's Bar"
@@ -41925,7 +41919,12 @@
       "imageName": "score_s12_camp_floordecor_deskfan_l.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": [],
+    "carouselImages": [
+      {
+      "imageName": "score_s12_camp_floordecor_prewardeskfan_c1.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+      }
+    ],
     "itemName": "Pre-War Desk Fan"
   },
   {
@@ -41958,7 +41957,12 @@
       "imageName": "score_s12_camp_floordecor_prewartypewriter.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": [],
+    "carouselImages": [
+      {
+        "imageName": "score_s12_camp_floordecor_prewartypewriter_c1.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      }
+    ],
     "itemName": "Pre-War Typewriter"
   },
   {
@@ -41969,7 +41973,12 @@
       "imageName": "score_reward_durable_s12_toasters_l.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": [],
+    "carouselImages": [
+      {
+        "imageName": "score_s12_camp_floordecor_prewartoaster_c1.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      }
+    ],
     "itemName": "Pre-War Toaster"
   },
   {
@@ -44044,7 +44053,7 @@
     "desc": "Do you have the touch to roll a strike and avoid the gutters? Build up your luck and perception with the Bowling Arcade Machine.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "atx_structure_furniture_bowlingalleylane_l.webp",
+      "imageName": "aatx_entm_camp_furniture_bowlingarcademachine.webp",
       "directory": "/textures/atx/storefront/camp/furniture/"
     },
     "carouselImages": [],
@@ -47042,7 +47051,7 @@
     "desc": "Surf's up on the wall with this trio of Surfboard wall decorations!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "score_s16_camp_walldecor_surfboardset_02_l.webp",
+      "imageName": "score_s16_camp_walldecor_surfboard_l.webp",
       "directory": "/textures/atx/storefront/camp/walldecoration/"
     },
     "carouselImages": [],
@@ -53340,7 +53349,7 @@
     "desc": "Everyone loves to have a friend in your C.A.M.P. and now you can have a German Shepherd friend. Generates 1, 2, or 3 Star Legendary Items",
     "disclaimer": "C.A.M.P. PETS APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "score_s19_camp_camppets_dog_whitegermanshepherd_l.webp",
+      "imageName": "atx_camp_camppets_dog_germanshepard_l.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": [],
@@ -64069,15 +64078,11 @@
     "desc": "Guide visitors through your C.A.M.P. with this set of Neon Light Signs!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "score_s13_camp_lights_neonlightset_l.webp",
-      "directory": "/textures/atx/storefront/camp/walldecoration/"
+      "imageName": "score_s21_camp_lights_wall_neonsign_set.webp",
+      "directory": "/textures/atx/storefront/camp/lights/"
     },
     "carouselImages": [],
-    "itemName": "Neon Light Signs",
-    "dbIndex": 5653,
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "itemName": "Neon Light Signs"
   },
   {
     "EDID": "SCORE_S21_ENTM_CAMP_WallDecor_FramedVinylCover01",
