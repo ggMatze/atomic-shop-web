@@ -472,7 +472,8 @@ async function loadDatabase() {
         dbData.forEach(item => {
             item._categories = getItemCategories(item);
             item._lowerEDID = (item.EDID || '').toLowerCase();
-            item._lowerName = (item.itemName || '').toLowerCase();
+            item._lowerName = ((item.itemName || item.name) || '').toLowerCase();
+            item._lowerShortName = (item.itemNameShort || '').toLowerCase();
             item._categories.forEach(cat => catSet.add(cat));
         });
         allCategories = Array.from(catSet).sort();
@@ -519,8 +520,9 @@ function search(query) {
         const lowerQuery = query.toLowerCase();
         results = results.filter(item => {
             const edid = item._lowerEDID || (item.EDID || '').toLowerCase();
-            const name = item._lowerName || (item.itemName || '').toLowerCase();
-            return edid.includes(lowerQuery) || name.includes(lowerQuery);
+            const name = item._lowerName || (item.itemName || item.name || '').toLowerCase();
+            const shortName = item._lowerShortName || (item.itemNameShort || '').toLowerCase();
+            return edid.includes(lowerQuery) || name.includes(lowerQuery) || shortName.includes(lowerQuery);
         });
     }
     
@@ -790,7 +792,7 @@ async function openOverlay(item) {
     currentGalleryIndex = 0;
     
     // Populate overlay content
-    overlayTitle.textContent = item.itemName || 'Item';
+    overlayTitle.textContent = item.itemName || item.itemNameShort || item.name || 'Item';
     
     // Parse and display description
     const { description, disclaimer: parsedDisclaimer } = parseDescriptionAndDisclaimer(item.desc || '');
@@ -836,6 +838,8 @@ if (bundleItems.length > 0) {
         const edid = (item.EDID || 'N/A').toLowerCase();
         const price = item.highPriceOriginal || item.price || null;
         const priceDisplay = price ? `⚛ ${price}` : 'No price recorded';
+        const displayName = item.itemName || item.name || item.itemNameShort || 'N/A';
+        const displayShortName = item.itemNameShort || 'N/A';
         
         let bundleHTML = '';
         if (bundleItems.length > 0) {
@@ -844,7 +848,8 @@ if (bundleItems.length > 0) {
         }
         
         dbInfoContent.innerHTML = `
-            <div>Item Name:<br><code class="db-info-code">${item.itemName || 'N/A'}</code></div>
+            <div>Full Name:<br><code class="db-info-code">${displayName}</code></div>
+            <div class="db-info-row">Short Name:<br><code class="db-info-code">${displayShortName}</code></div>
             <div class="db-info-row">EDID/ENTM:<br><code class="db-info-code">${edid}</code></div>
             <div class="db-info-row">Price:<br><code class="db-info-code">${priceDisplay}</code></div>
             <div class="db-info-row">Primary Image:<br><code class="db-info-code">${primaryImageName}</code></div>
@@ -1013,6 +1018,10 @@ if (hasPrimaryImage) {
     if (item.EDID) {
         itemDataStore.set(item.EDID, item);
     }
+
+    const footerName = [item.itemName, item.itemNameShort, item.name]
+        .filter(Boolean)
+        .sort((a, b) => b.length - a.length)[0] || 'N/A';
     
     return `
         <div class="shop-tile small" style="cursor: pointer; position: relative;" data-item-edid="${item.EDID || ''}">
@@ -1021,7 +1030,7 @@ if (hasPrimaryImage) {
             <div class="tile-price">
                 ${hasCarousel ? `<span class="old-price">📸 ${item.carouselImages.length}</span>` : ''}
                 <div class="current-price">${priceDisplay || '⚛ -'}</div></div>
-            <div class="tile-footer small">${item.itemName || 'N/A'}</div>
+            <div class="tile-footer small">${footerName}</div>
         </div>
     `;
 }
