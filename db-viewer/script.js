@@ -1028,7 +1028,7 @@ if (hasPrimaryImage) {
             ${badgeHTML ? `<div class="tile-badge-container">${badgeHTML}</div>` : ''}
             <div class="tile-img" style="width: 100%; height: 100%;"> ${primaryImageHtml || '<img src="../../textures/atomic_shop_media/face8fe153089c98d6b27ddf4bf729fb.webp" alt="Primary" loading="lazy"'}</div>
             <div class="tile-price">
-                ${hasCarousel ? `<span class="old-price">📸 ${item.carouselImages.length}</span>` : ''}
+                ${hasCarousel ? `<span class="old-price" title="Item count in a Bundle or Set">${item.dynamicBundleItems.length}</span>` : ''}
                 <div class="current-price">${priceDisplay || '⚛ -'}</div></div>
             <div class="tile-footer small">${footerName}</div>
         </div>

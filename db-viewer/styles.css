@@ -361,6 +361,10 @@ text-decoration: none!important;
 .old-price::after {
 visibility: hidden!important;
 }
+.old-price::before{
+content:'📦 ';
+font-size: 1.2em;
+}
 
 .no-results {
     grid-column: 1 / -1;
