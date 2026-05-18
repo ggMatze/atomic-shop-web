@@ -249,14 +249,22 @@ input[type="checkbox"][data-state="excluded"] {
 }
 
 #filter-toggle.has-active-filters::after {
-    content: "";
+    content: attr(data-count);
     position: absolute;
     top: -6px;
     right: -6px;
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     background: #e63e3e;
-    border-radius: 50%;
+    color: white;
+    font-size: 10px;
+    min-width: 15px;
+    padding: 0 1px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
 
 input[type="checkbox"][data-state="excluded"] {

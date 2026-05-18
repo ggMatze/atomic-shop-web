@@ -188,14 +188,14 @@ function getItemCategories(item) {
 }
 
 function updateFilterIndicator() {
-    const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"][data-category]');
+    const btn = document.getElementById('filter-toggle');
 
-    const hasActiveFilter = Array.from(checkboxes).some(cb => {
-        return cb.dataset.state && cb.dataset.state !== 'unchecked';
-    });
+    const count = [...document.querySelectorAll('#filter-panel input[data-category]')]
+        .filter(cb => cb.dataset.state && cb.dataset.state !== 'unchecked')
+        .length;
 
-    document.getElementById('filter-toggle')
-        .classList.toggle('has-active-filters', hasActiveFilter);
+    btn.classList.toggle('has-active-filters', count > 0);
+    btn.dataset.count = count || '';
 }
 
 // Save checkbox states to localStorage
