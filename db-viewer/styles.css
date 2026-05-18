@@ -244,6 +244,21 @@ input[type="checkbox"][data-state="excluded"] {
     accent-color: #ffd454;
 }
 
+#filter-toggle {
+    position: relative;
+}
+
+#filter-toggle.has-active-filters::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 12px;
+    height: 12px;
+    background: #e63e3e;
+    border-radius: 50%;
+}
+
 input[type="checkbox"][data-state="excluded"] {
     accent-color: #e05744 !important;
 }

@@ -187,6 +187,17 @@ function getItemCategories(item) {
     return Array.from(categories);
 }
 
+function updateFilterIndicator() {
+    const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"][data-category]');
+
+    const hasActiveFilter = Array.from(checkboxes).some(cb => {
+        return cb.dataset.state && cb.dataset.state !== 'unchecked';
+    });
+
+    document.getElementById('filter-toggle')
+        .classList.toggle('has-active-filters', hasActiveFilter);
+}
+
 // Save checkbox states to localStorage
 function saveFilterStates() {
     const checkboxes = document.querySelectorAll('#filter-panel input[type="checkbox"][data-category]');
@@ -221,6 +232,7 @@ function applyCheckboxState(checkbox, state) {
     console.log(`  Properties: checked=${computedChecked}, indeterminate=${computedIndeterminate}`);
     console.log(`  DOM visible: ${isVisible}, tagName: ${checkbox.tagName}, type: ${checkbox.type}`);
     console.log(`  Element:`, checkbox);
+    updateFilterIndicator();
 }
 
 // Reset all filters
@@ -237,7 +249,6 @@ function resetFilters() {
 function populateFilters() {
     const panel = document.getElementById('filter-panel');
     panel.innerHTML = '';
-    
     const savedStates = loadFilterStates();
     
     // Create a container for the group buttons (top row)
@@ -311,7 +322,7 @@ function populateFilters() {
             const savedState = savedStates[cat] || 'unchecked';
             console.log(`[Init Checkbox] ${cat}: saved state = ${savedState}`);
             applyCheckboxState(checkbox, savedState);
-            
+            updateFilterIndicator();
             // Three-state cycling using data attribute as source of truth
             checkbox.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -386,6 +397,7 @@ function populateFilters() {
         
         console.log(`[Init Group State] ${groupName}: calculated state = ${groupState}`);
         applyCheckboxState(hiddenGroupCheckbox, groupState);
+        updateFilterIndicator();
         // Sync button checkbox with hidden checkbox
         groupCheckbox.checked = hiddenGroupCheckbox.checked;
         groupCheckbox.indeterminate = hiddenGroupCheckbox.indeterminate;
@@ -395,7 +407,7 @@ function populateFilters() {
         groupCheckbox.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            
+            updateFilterIndicator();
             const currentState = hiddenGroupCheckbox.dataset.state || 'unchecked';
             console.log(`[Group Click] ${groupName}: current state = ${currentState}`);
             
@@ -414,12 +426,13 @@ function populateFilters() {
                 groupCheckbox.checked = hiddenGroupCheckbox.checked;
                 groupCheckbox.indeterminate = hiddenGroupCheckbox.indeterminate;
                 groupCheckbox.dataset.state = hiddenGroupCheckbox.dataset.state;
-                
+               
                 // Set all children to newState
                 const childCheckboxes = itemsContainer.querySelectorAll('input[type="checkbox"]');
                 console.log(`[Group Click] ${groupName}: setting ${childCheckboxes.length} children to ${newState}`);
                 childCheckboxes.forEach(cb => {
                     applyCheckboxState(cb, newState);
+                     
                 });
                 
                 saveFilterStates();
@@ -479,7 +492,7 @@ async function loadDatabase() {
         allCategories = Array.from(catSet).sort();
         
         populateFilters();
-        
+        updateFilterIndicator();
         statsText.textContent = `Loaded ${dbData.length} items`;
         search(searchInput.value);
     } catch (error) {
