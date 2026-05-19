@@ -863,7 +863,7 @@ if (bundleItems.length > 0) {
         dbInfoContent.innerHTML = `
             <div>Full Name:<br><code class="db-info-code">${displayName}</code></div>
             <div class="db-info-row">Short Name:<br><code class="db-info-code">${displayShortName}</code></div>
-            <div class="db-info-row">EDID/ENTM:<br><code class="db-info-code">${edid}</code></div>
+            <div class="db-info-row" id="info" title="EDID/ENTM of bundles aren't offical ( _bndl_ )">EDID/ENTM:<br><code class="db-info-code">${edid}</code></div>
             <div class="db-info-row">Price:<br><code class="db-info-code">${priceDisplay}</code></div>
             <div class="db-info-row">Primary Image:<br><code class="db-info-code">${primaryImageName}</code></div>
             <div class="db-info-row">Directory:<br><code class="db-info-code">${primaryImageDir}</code></div>
