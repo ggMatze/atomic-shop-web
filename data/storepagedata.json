@@ -2,6 +2,604 @@
   "StorePageData": {
     "pages": [
       {
+        "name": "Summer of Shadows\\nWarmth isn't always comporting...",
+        "tabid": "summer-of-shadows",
+        "isZeus": false,
+        "image": {
+          "imageName": "3bb64f9e5b7d904f524a0ddac240c45e.webp",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 1185270,
+            "itemName": "Terrible Cryptids Bundle",
+            "itemNameShort": "Terrible Cryptids Bundle",
+            "itemDesc": "Some say they don't exist ... prove them wrong!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- BACKPACKS ARE CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This bundle contains mostly previously released items, packaged together with new ones.[/h]",
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_outfit_cryptidenthusiastsuitset_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_cryptidenthusiasthat_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_entm_skin_backpack_cryptidhunter_l.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              },
+              {
+                "imageName": "score_s12_backpackflair_cryptidteeth_l.webp",
+                "directory": "/textures/atx/storefront/player/flair/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_taxidermylittledevil_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_flatwoodsmonsterwaxsculpture_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_playericon_s12_sheepsquatch.webp",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Cryptid Enthusiast Suit"
+              },
+              {
+                "szItemName": "Cryptid Enthusiast Hat"
+              },
+              {
+                "szItemName": "Cryptid Hunter Backpack"
+              },
+              {
+                "szItemName": "Cryptid Teeth Backpack Flair"
+              },
+              {
+                "szItemName": "Taxidermy Little Devil"
+              },
+              {
+                "szItemName": "Flatwoods Monster Wax Figure"
+              },
+              {
+                "szItemName": "Sheepsquatch Icon"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1300,
+              "isLto": true,
+              "ltoTimer": "2026-06-09T12:00:00.000Z"
+            },
+            "LolowestPurchasablePricewest": {
+              "amount": 1300
+            },
+            "highPrice": {
+              "originalAmount": 1300
+            },
+            "isNew": 2,
+            "isZeus": false,
+            "isClown": false,
+            "hasCustomDesc": true,
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "primaryImage": {
+              "imageName": "b2753e1d43be336f2d48fa73d1eb1b30.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "hasCustomDisc": true
+          },
+          {
+            "itemID": 1185270,
+            "itemName": "The Wicker Mothman Bundle",
+            "itemNameShort": "The Wicker Mothman Bundle",
+            "itemDesc": "Build your Mothman temple and make the Winged One proud!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]*This bundle contains some previously released items.[/h]",
+            "primaryImage": {
+              "imageName": "943aa0503a3ff6bff0daf6642925ead3.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_floordecor_gloomgoliath_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_defense_fence_gnarled_l.webp",
+                "directory": "/textures/atx/storefront/camp/defenses/"
+              },
+              {
+                "imageName": "atx_entm_camp_kit_stonecathedral_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_largefire_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_statue_mothmancultist_goattotem_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Gloom Goliath"
+              },
+              {
+                "szItemName": "Gnarled Fence"
+              },
+              {
+                "szItemName": "Stone Cathedral C.A.M.P. Kit"
+              },
+              {
+                "szItemName": "Large Fire"
+              },
+              {
+                "szItemName": "Mothman Cultist Goat Totem"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1500,
+              "isLto": true,
+              "ltoTimer": "2026-06-09T12:00:00.000Z"
+            },
+            "LolowestPurchasablePricewest": {
+              "amount": 1500
+            },
+            "highPrice": {
+              "originalAmount": 1500
+            },
+            "isNew": 2,
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
+          },
+          {
+            "itemID": 1185270,
+            "itemName": "Mothman Cultist C.A.M.P. Bundle",
+            "itemNameShort": "Mothman Cultist Bundle",
+            "itemDesc": "Show the Mothman you are one of the truest of believers with this Mothman Cultist C.A.M.P. Bundle.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "385743e6c21acacedf489989d6b5735e.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_lights_ceiling_mothmancultist_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_statue_mothman_cultstatue_05_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              },
+              {
+                "imageName": "atx_camp_walldeco_mothman_culteffigy_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_camp_lights_mothmancultist_torch_03_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_lights_mothmancultist_torch_01_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_lights_mothmancultist_torch_02_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_statue_mothman_cultstatue_01_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              },
+              {
+                "imageName": "atx_camp_statue_mothcult_treealter_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              },
+              {
+                "imageName": "atx_camp_statue_mothman_cultstatue_04_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              },
+              {
+                "imageName": "atx_camp_furniture_mothmancultist_chair_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_statue_mothman_cultstatue_03_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              },
+              {
+                "imageName": "atx_camp_furniture_mothmancultist_sidetable_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_bed_mothmancultist_l.webp",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "atx_camp_statue_mothman_cultstatue_02_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              },
+              {
+                "imageName": "atx_camp_lights_mothmancultist_desklamp_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_utility_smokemachine_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Mothman Cultist Ceiling Light"
+              },
+              {
+                "szItemName": "Towering Might"
+              },
+              {
+                "szItemName": "Mothman Cult Effigy"
+              },
+              {
+                "szItemName": "Mothman Cultist Candle Torch"
+              },
+              {
+                "szItemName": "Mothman Cultist Wicker Torch"
+              },
+              {
+                "szItemName": "Mothman Cultist Waxen Torch"
+              },
+              {
+                "szItemName": "Wicker Skull Statue"
+              },
+              {
+                "szItemName": "Mothman Cultist Tree Trunk Altar"
+              },
+              {
+                "szItemName": "Wreathed Horns"
+              },
+              {
+                "szItemName": "Mothman Cultist Chair"
+              },
+              {
+                "szItemName": "Twisted Roots Statue"
+              },
+              {
+                "szItemName": "Mothman Cultist Side Table"
+              },
+              {
+                "szItemName": "Mothman Cultist Bed"
+              },
+              {
+                "szItemName": "Masked Antlers Statue"
+              },
+              {
+                "szItemName": "Mothman Cultist Desk Lamp"
+              },
+              {
+                "szItemName": "Smoke Machine"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1275,
+              "isLto": true,
+              "ltoTimer": "2026-06-09T12:00:00.000Z"
+            },
+            "LolowestPurchasablePricewest": {
+              "amount": 1275
+            },
+            "highPrice": {
+              "originalAmount": 1500
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
+          },
+          {
+            "itemID": 1185270,
+            "itemName": "Mothman Weather Bundle",
+            "itemNameShort": "Mothman Weather Bundle",
+            "itemDesc": "Give your C.A.M.P. the Mothman feeling with the Mothman Weather Bundle.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- UNLOCKS AN EMOTE OPTION.\nEMOTES ARE SELECTABLE IN THE EMOTE WHEEL. -",
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_utility_weatherstation_mothman_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_entm_camp_door_secret_antiquearmoire_l.webp",
+                "directory": "/textures/atx/storefront/camp/doors/"
+              },
+              {
+                "imageName": "vengencefull_mothman.webp",
+                "directory": "/textures/emotes/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Weather Control Station (Mothman)"
+              },
+              {
+                "szItemName": "Mothman Wind Chime"
+              },
+              {
+                "szItemName": "Antique Armoire Door"
+              },
+              {
+                "szItemName": "The Vengeful Mothman Emote"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1500,
+              "isLto": true,
+              "ltoTimer": "2026-06-09T12:00:00.000Z"
+            },
+            "LolowestPurchasablePricewest": {
+              "amount": 1500
+            },
+            "highPrice": {
+              "originalAmount": 1500
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "primaryImage": {
+              "imageName": "atx_camp_walldeco_windchime_mothman_l.webp",
+              "directory": "/textures/atx/storefront/camp/walldecoration/"
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
+          },
+          {
+            "itemID": 1185270,
+            "itemName": "Stone Cathedral C.A.M.P. Kit",
+            "itemNameShort": "Stone Cathedral Kit",
+            "itemDesc": "Many prayers have been whispered between these walls.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_entm_camp_kit_stonecathedral_l.webp",
+              "directory": "/textures/atx/storefront/camp/kits/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_kit_stonecathedral_c1.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_entm_camp_kit_stonecathedral_c2.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_entm_camp_kit_stonecathedral_c3.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 700,
+              "isLto": true,
+              "ltoTimer": "2026-06-09T12:00:00.000Z"
+            },
+            "LolowestPurchasablePricewest": {
+              "amount": 700
+            },
+            "highPrice": {
+              "originalAmount": 700
+            },
+            "isNew": 1,
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": false
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
+          },
+          {
+            "itemID": 1185270,
+            "itemName": "Gloom Goliath",
+            "itemNameShort": "Gloom Goliath",
+            "itemDesc": "A tower fit for the gloomiest of cultists.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_entm_camp_floordecor_gloomgoliath_l.webp",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_floordecor_gloomgoliath_c1.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_gloomgoliath_c2.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 900,
+              "isLto": true,
+              "ltoTimer": "2026-06-09T12:00:00.000Z"
+            },
+            "LolowestPurchasablePricewest": {
+              "amount": 900
+            },
+            "highPrice": {
+              "originalAmount": 900
+            },
+            "isNew": 1,
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
+          },
+          {
+            "itemID": 1185270,
+            "itemName": "Gnarled Fence",
+            "itemNameShort": "Gnarled Fence",
+            "itemDesc": "Crafted from the angriest trees in Appalachia.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_defense_fence_gnarled_l.webp",
+              "directory": "/textures/atx/storefront/camp/defenses/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_defense_fence_gnarled_c1.webp",
+                "directory": "/textures/atx/storefront/camp/defenses/"
+              },
+              {
+                "imageName": "atx_camp_defense_fence_gnarled_c2.webp",
+                "directory": "/textures/atx/storefront/camp/defenses/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 300,
+              "isLto": true,
+              "ltoTimer": "2026-06-09T12:00:00.000Z"
+            },
+            "LolowestPurchasablePricewest": {
+              "amount": 300
+            },
+            "highPrice": {
+              "originalAmount": 300
+            },
+            "isNew": 1,
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
+          },
+          {
+            "itemID": 1185270,
+            "itemName": "Plague Doctor Mask",
+            "itemNameShort": "Plague Doctor Mask",
+            "itemDesc": "Travel the disease-ridden lands of Appalachia and help document the counts of contamination with this Plague Doctor Mask.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_apparel_headwear_plaguedoctormask_l.webp",
+              "directory": "/textures/atx/storefront/player/headwear/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_headwear_plaguedoctormask_c1.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_plaguedoctormask_c2.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 500,
+              "isLto": true,
+              "ltoTimer": "2026-06-09T12:00:00.000Z"
+            },
+            "LolowestPurchasablePricewest": {
+              "amount": 500
+            },
+            "highPrice": {
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
+          },
+          {
+            "itemID": 1185270,
+            "itemName": "Black Rider Power Armor Skin",
+            "itemNameShort": "Black Rider",
+            "itemDesc": "Mutated creatures, floods, radiated plants - and now comes the Black Rider. Strip the Wasteland bare with the Black Rider Skin.\nThis is a unique skin that completely alters the appearance of your Power Armor.[h] It can be equipped on all main Power Armors.[/h]\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "atx_skin_powerarmor_skin_blackrider_l.webp",
+              "directory": "/textures/atx/storefront/player/powerarmor/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_powerarmor_skin_blackrider_c1.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_skin_blackrider_c2.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_skin_blackrider_c3.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_skin_blackrider_c4.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 1400,
+              "isLto": true,
+              "ltoTimer": "2026-06-09T12:00:00.000Z"
+            },
+            "LolowestPurchasablePricewest": {
+              "amount": 1400
+            },
+            "highPrice": {
+              "originalAmount": 1400
+            },
+            "isZeus": false,
+            "isClown": false,
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 4,
+              "hasL": true,
+              "hasNone": false
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true
+          }
+        ]
+      },
+      {
         "name": "Wasteland Survivalist\\nCivilization is Overrated!",
         "tabid": "wasteland-survivalist",
         "isZeus": false,
