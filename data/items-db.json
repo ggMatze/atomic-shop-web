@@ -8167,6 +8167,18 @@
     "itemNameShort": "Mistress Sidekick Costume"
   },
   {
+    "EDID": "SCORE_S6_ENTM_Apparel_Outfit_Sidekick_SilverShroud",
+    "desc": "Evil takes some extra punishment! The Silver Shroud needs his trusty Sidekick! Grants both Outfit and Underarmor versions of the Sidekick Costume.",
+    "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+    "primaryImage": {
+      "imageName": "score_s6_apparel_outfit_sidekick_silvershroud_l.webp",
+      "directory": "/textures/atx/storefront/player/outfit/"
+    },
+    "carouselImages": [],
+    "itemName": "Silver Shroud Sidekick Costume and Underarmor",
+    "itemNameShort": "Silver Shroud Sidekick Costume"
+  },
+  {
     "EDID": "SCORE_S6_ENTM_Apparel_Outfit_Sidekick_Grognak",
     "desc": "Prepare for Side-kick-na-Rok! Grognak needs his trusty Sidekick! Grants both Outfit and Underarmor versions of the Sidekick Costume.",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
@@ -8179,16 +8191,26 @@
     "itemNameShort": "Grognak Sidekick Costume"
   },
   {
-    "EDID": "SCORE_S6_ENTM_Apparel_Headwear_Sidekick_Inspector",
-    "desc": "Show off your loyalty to the Inspector and see what is needed to take down the Diabolicals with these Sidekick Glasses!",
+    "EDID": "SCORE_S6_ENTM_Apparel_Outfit_Sidekick_Inspector",
+    "desc": "Just like every magician needs an assistant, the Inspector needs her trusty Sidekick! Grants both Outfit and Underarmor versions of the Sidekick Costume.",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
     "primaryImage": {
-      "imageName": "score_s6_apparel_headwear_sidekick_inspector_l.webp",
-      "directory": "/textures/atx/storefront/player/headwear/"
+      "imageName": "score_s6_apparel_outfit_sidekick_inspector_l.webp",
+      "directory": "/textures/atx/storefront/player/outfit/"
     },
     "carouselImages": [],
-    "itemName": "Inspector Sidekick Glasses",
-    "itemNameShort": "Inspector Sidekick Glasses"
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Inspector Sidekick Underarmor"
+      },
+      {
+        "szItemName": "Inspector Sidekick Costume"
+      },
+      {
+        "szItemName": "Inspector Sidekick Glasses"
+      }],      
+    "itemName": "Inspector Sidekick Costume and Underarmor",
+    "itemNameShort": "Inspector Sidekick Costume"
   },
   {
     "EDID": "SCORE_S10_ENTM_Skin_WeaponSkin_Double_Barrel_Union",
@@ -21367,16 +21389,16 @@
     "itemNameShort": "Silver Shroud Sidekick Mask"
   },
   {
-    "EDID": "SCORE_S6_ENTM_Apparel_Outfit_Sidekick_Inspector",
-    "desc": "Just like every magician needs an assistant, the Inspector needs her trusty Sidekick! Grants both Outfit and Underarmor versions of the Sidekick Costume.",
+    "EDID": "SCORE_S6_ENTM_Apparel_Headwear_Sidekick_Inspector",
+    "desc": "Show off your loyalty to the Inspector and see what is needed to take down the Diabolicals with these Sidekick Glasses!",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
     "primaryImage": {
       "imageName": "score_s6_apparel_headwear_sidekick_inspector_l.webp",
       "directory": "/textures/atx/storefront/player/headwear/"
     },
     "carouselImages": [],
-    "itemName": "Inspector Sidekick Costume and Underarmor",
-    "itemNameShort": "Inspector Sidekick Costume"
+    "itemName": "Inspector Sidekick Glasses",
+    "itemNameShort": "Inspector Sidekick Glasses"
   },
   {
     "EDID": "SCORE_S6_ENTM_Apparel_Headwear_Sidekick_Grognak",
@@ -21389,18 +21411,6 @@
     "carouselImages": [],
     "itemName": "Grognak Sidekick Mask",
     "itemNameShort": "Grognak Sidekick Mask"
-  },
-  {
-    "EDID": "SCORE_S6_ENTM_Apparel_Outfit_Sidekick_SilverShroud",
-    "desc": "Evil takes some extra punishment! The Silver Shroud needs his trusty Sidekick! Grants both Outfit and Underarmor versions of the Sidekick Costume.",
-    "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": {
-      "imageName": "score_s6_apparel_headwear_sidekick_silvershroud_l.webp",
-      "directory": "/textures/atx/storefront/player/headwear/"
-    },
-    "carouselImages": [],
-    "itemName": "Silver Shroud Sidekick Costume and Underarmor",
-    "itemNameShort": "Silver Shroud Sidekick Costume"
   },
   {
     "EDID": "SCORE_S6_ENTM_Apparel_Headwear_Sidekick_MantaMan",
@@ -37251,7 +37261,7 @@
     "desc": "Show your commitment to the Power Patrol with this Ace of an Icon!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
     "primaryImage": {
-      "imageName": "atx_playericon_s24_spacecow.webp",
+      "imageName": "atx_playericon_score_04.webp",
       "directory": "/textures/atx/storefront/player/playericons/"
     },
     "carouselImages": [],
@@ -59517,7 +59527,7 @@
     "desc": "Leave the world Lifeless around you with this Skellscream Power Armor Paint! This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
     "primaryImage": {
-      "imageName": "score_s7_skin_powerarmor_model_skellscream_howling_l.webp",
+      "imageName": "score_s7_skin_powerarmor_model_skellscream_l.webp",
       "directory": "/textures/atx/storefront/player/powerarmor/"
     },
     "carouselImages": [],
@@ -66275,12 +66285,7 @@
       "directory": "/textures/atx/storefront/player/weaponskin/"
     },
     "highPriceOriginal": 500,
-    "carouselImages": [
-      {
-        "imageName": "score_s6_skin_weaponskin_lightninggun_silvershroud_l.webp",
-        "directory": "/textures/atx/storefront/player/weaponskin/"
-      }
-    ],
+    "carouselImages": [],
     "itemNameShort": "Silver Shroud Paint"
   },
   {
