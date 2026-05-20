@@ -1144,3 +1144,34 @@ document.getElementById("go-ufas").addEventListener("click", () => {
     window.open("../", "_blank");
 });
 
+const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        scrollBtn.style.display = "block";
+    } else {
+        scrollBtn.style.display = "none";
+    }
+});
+
+function scrollToTop() {
+    const start = window.scrollY;
+    const duration = 250; // tweak this (200–400 feels good)
+    const startTime = performance.now();
+
+    function animateScroll(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // easing (fast start, soft stop)
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+
+        window.scrollTo(0, start * (1 - easeOut));
+
+        if (progress < 1) {
+            requestAnimationFrame(animateScroll);
+        }
+    }
+
+    requestAnimationFrame(animateScroll);
+}
