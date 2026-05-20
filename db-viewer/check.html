@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Broken Image Finder</title>
+<style>
+body { font-family: Arial; padding: 20px; background:#111; color:#eee; }
+button { padding: 10px 14px; margin-bottom: 15px; cursor: pointer; }
+.item { padding: 6px; border-bottom: 1px solid #333; }
+.bad { color: #ff4d4d; }
+small { color:#999; }
+</style>
+</head>
+<body>
+
+<h2>❌ Broken Image List</h2>
+<button onclick="runCheck()">Scan DB</button>
+
+<div id="out"></div>
+
+<script>
+let db = [];
+
+function getImagePath(directory, imageName) {
+    if (!directory || !imageName) return null;
+
+    let dir = directory.toLowerCase().replace(/\\/g, '/');
+
+    if (dir.startsWith('/')) dir = dir.slice(1);
+    if (!dir.endsWith('/')) dir += '/';
+
+    return "../" + dir + imageName;
+}
+
+function checkImageExists(url) {
+    return new Promise(resolve => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = url;
+    });
+}
+
+async function runCheck() {
+    const out = document.getElementById("out");
+    out.innerHTML = "Loading DB...";
+
+    const res = await fetch("../data/items-db.json");
+    db = await res.json();
+
+    out.innerHTML = "Scanning...<br><br>";
+
+    let brokenCount = 0;
+
+    for (const item of db) {
+        const img = item.primaryImage;
+        if (!img) continue;
+
+        const path = getImagePath(img.directory, img.imageName);
+        if (!path) continue;
+
+        const exists = await checkImageExists(path);
+
+        if (!exists) {
+            brokenCount++;
+
+            const div = document.createElement("div");
+            div.className = "item bad";
+
+            div.innerHTML = `
+                ❌ ${item.EDID || "no-edid"}<br>
+                <small>${path}</small>
+            `;
+
+            out.appendChild(div);
+        }
+    }
+
+    if (brokenCount === 0) {
+        out.innerHTML = "✔ No broken images found.";
+    } else {
+        out.insertAdjacentHTML(
+            "afterbegin",
+            `<b>Broken images: ${brokenCount}</b><br><br>`
+        );
+    }
+}
+</script>
+
+</body>
+</html>

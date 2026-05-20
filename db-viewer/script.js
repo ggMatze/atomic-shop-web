@@ -23,7 +23,9 @@ const filterGroups = {
     'Apparel': ['Outfits', 'Headwear', 'Underarmor', 'Armor', 'PipBoy', 'Flairs', 'Backpack'],
     'Player Appearance': ['Hairstyle', 'Tattoos', 'Facepaint'],
     'Photo Mode': [ 'Frames', 'Pose', 'Vanity Lights'],
-    'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'P2W', 'Needs fixing','No Image']
+    'Seasons': ['Season 1', 'Season 2', 'Season 3', 'Season 4', 'Season 5', 'Season 6', 'Season 7', 'Season 8', 'Season 9', 'Season 10', 'Season 11', 'Season 12', 'Season 13', 'Season 14', 'Season 15', 'Season 16', 'Season 17', 'Season 18', 'Season 19', 'Season 20', 'Season 21', 'Season 22', 'Season 23', 'Season 24'],
+    'Mini Seasons': ['Appalachian Outlaws', 'Marvelous Fishing Excursion', 'Night at the Morgue', 'Weapons Expert Extraordinaire', 'Sunset Stranger', 'Love Hurts'],
+    'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'P2W', 'No Image']
 };
 
 // Get categories for an item
@@ -81,8 +83,7 @@ function getItemCategories(item) {
             'Player Icons': ['playericons'],
             'Emotes': ['emotes'],
             'P2W': ['storefront/utility','events'],
-            'Lootbags': ['lootbags'],
-            'Needs fixing': ['atomic_shop_media']
+            'Lootbags': ['lootbags']
         };
         
         // Process directory parts
@@ -143,7 +144,40 @@ function getItemCategories(item) {
         'Vanity Lights': ['_vanitylight_'],
         'Frames': ['_photomode_frame_'],
         'Player Icons': ['_playericon_'],
-        'Bobbers': ['_rodbobber_']
+        'Bobbers': ['_rodbobber_'],
+
+        'Season 1': ['score_s1_'],
+        'Season 2': ['score_s2_'],
+        'Season 3': ['score_s3_'],
+        'Season 4': ['score_s4_'],
+        'Season 5': ['score_s5_'],
+        'Season 6': ['score_s6_'],
+        'Season 7': ['score_s7_'],
+        'Season 8': ['score_s8_'],
+        'Season 9': ['score_s9_'],
+        'Season 10': ['score_s10_'],
+        'Season 11': ['score_s11_'],
+        'Season 12': ['score_s12_'],
+        'Season 13': ['score_s13_'],
+        'Season 14': ['score_s14_'],
+        'Season 15': ['score_s15_'],
+        'Season 16': ['score_s16_'],
+        'Season 17': ['score_s17_'],
+        'Season 18': ['score_s18_'],
+        'Season 19': ['score_s19_'],
+        'Season 20': ['score_s20_'],
+        'Season 21': ['score_s21_'],
+        'Season 22': ['score_s22_'],
+        'Season 23': ['score_s23_'],
+        'Season 24': ['score_s24_'],
+
+        'Appalachian Outlaws': ['_appalachianoutlaws_'],
+        'Marvelous Fishing Excursion': ['_mmmfe_'],
+        'Night at the Morgue': ['_nightatthemorgue_'],
+        'Weapons Expert Extraordinaire': ['_weaponsexpert_'],
+        'Sunset Stranger': ['_sunsetstranger_'],
+        'Love Hurts': ['_miniseason_lovehurts_'],
+        
     
         };
     
