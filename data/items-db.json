@@ -6577,7 +6577,16 @@
       "imageName": "80bd51f34b61caf9d36e661f119e4280.webp",
       "directory": "/textures/atomic_shop_media/"
     },
-    "carouselImages": [ ],
+    "carouselImages": [
+      {
+         "imageName": "atx_camp_lights_neonbillboards_mothmanground_l.webp",
+         "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      { 
+        "imageName": "atx_camp_lights_neonbillboards_mothmanrooftop_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      }], 
+    "highPriceOriginal": 500,
     "itemName": "Mothman Billboards",
     "itemNameShort": "Mothman Billboards"
   },
@@ -22984,18 +22993,6 @@
     "itemNameShort": "Dread Island Skull Icon"
   },
   {
-    "EDID": "SCORE_S9_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 9! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
     "EDID": "SCORE_S9_ENTM_Skin_PowerArmor_Paint_T65_MercenaryCompany",
     "desc": "Hellcats in Power Armor, that was not part of the plan. Paint your T-65 with the Mercenary Company Power Armor Paint.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
@@ -25293,42 +25290,6 @@
     "carouselImages": [],
     "itemName": "Season 18 Fallout First Season Pass",
     "itemNameShort": "Season 18 Fallout First Season Pass"
-  },
-  {
-    "EDID": "SCORE_S18_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 18! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S18_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 18! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S18_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 18! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
   },
   {
     "EDID": "SCORE_S18_ENTM_CAMP_Structure_RaiderLodge",
@@ -40764,30 +40725,6 @@
     "itemNameShort": "Hawaiian Outfit"
   },
   {
-    "EDID": "SCORE_S9_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 9! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S9_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 9! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
     "EDID": "SCORE_S9_ENTM_PlayerIcon_SkullCave",
     "desc": "It be scary but also home away from home!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
@@ -41735,42 +41672,6 @@
       }
     ],
     "itemNameShort": "Executioner Outfit"
-  },
-  {
-    "EDID": "SCORE_S10_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 10! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S10_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 10! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S10_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 10! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
   },
   {
     "EDID": "zzz_ATX_ENTM_CAMP_Kit_DestroyedCampSet",
@@ -43674,42 +43575,6 @@
     "itemNameShort": "Tire Swing Tree"
   },
   {
-    "EDID": "SCORE_S11_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 11! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S11_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 11! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S11_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 11! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
     "EDID": "ATX_ENTM_CAMP_WallDecor_KwanzaaPoster",
     "desc": "Celebrate Kwanzaa in your C.A.M.P. with this vibrant Happy Kwanzaa Poster!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -45176,18 +45041,6 @@
     "itemNameShort": "Daring Adventure Pip-Boy Paint"
   },
   {
-    "EDID": "SCORE_S12_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 12! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
     "EDID": "SCORE_S12_ENTM_PlayerIcon_SheepsquatchIcon",
     "desc": "\"Shear terror: White, wooly, man-sheep spotted in West Virginia!\"",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
@@ -45201,30 +45054,6 @@
     "matchedImages": 1,
     "dbIndexMode": true,
     "itemNameShort": "Sheepsquatch Icon"
-  },
-  {
-    "EDID": "SCORE_S12_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 12! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S12_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 12! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
   },
   {
     "EDID": "zzz_SCORE_S12_ENTM_CAMP_Utility_FirewoodPile",
@@ -46500,42 +46329,6 @@
     "highPriceOriginal": 500,
     "itemName": "Matte Black Paint (Handmade Rifle)",
     "itemNameShort": "Matte Black Paint"
-  },
-  {
-    "EDID": "SCORE_S13_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 13! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S13_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 13! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S13_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 13! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
   },
   {
     "EDID": "SCORE_S13_ENTM_Skin_WeaponSkin_44_Gilded",
@@ -50220,42 +50013,6 @@
     "itemNameShort": "Blue Devil Mask"
   },
   {
-    "EDID": "SCORE_S15_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 15! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S15_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 15! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S15_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 15! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
     "EDID": "SCORE_S15_ENTM_Skin_WeaponSkin_CircuitBreaker_BlackPaint",
     "desc": "Dim their lights with this Blackout Paint for the Circuit Breaker!",
     "disclaimer": "SKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
@@ -52056,42 +51813,6 @@
     "itemNameShort": "R.I.P. Daring Trash Bin"
   },
   {
-    "EDID": "SCORE_S17_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 17! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S17_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 17! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S17_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 17! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
     "EDID": "SCORE_S17_ENTM_Account_PremiumBattlePass",
     "desc": "Unlock access to all premium Fallout First locked rewards in Season 17.",
     "disclaimer": "UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT.",
@@ -53392,30 +53113,6 @@
     "itemNameShort": "Season 25 Fallout First Season Pass"
   },
   {
-    "EDID": "SCORE_S24_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 24! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S19_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 19! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
     "EDID": "SCORE_S21_ENTM_Account_PremiumBattlePass",
     "desc": "Unlock access to all premium Fallout First locked rewards in Season 21.",
     "disclaimer": "UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT.",
@@ -53426,135 +53123,6 @@
     "carouselImages": [],
     "itemName": "Season 21 Fallout First Season Pass",
     "itemNameShort": "Season 21 Fallout First Season Pass"
-  },
-  {
-    "EDID": "SCORE_S24_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 24! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S25_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 25! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S23_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 23! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S19_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 19! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S19_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 19! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S25_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 25! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "ZZZ_SCORE_S18_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 18! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": null,
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S20_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 20! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S22_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 22! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S21_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 21! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S20_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 20! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
   },
   {
     "EDID": "SCORE_S23_ENTM_Account_PremiumBattlePass",
@@ -53569,39 +53137,6 @@
     "itemNameShort": "Season 23 Fallout First Season Pass"
   },
   {
-    "EDID": "SCORE_S22_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 22! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S23_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 23! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "ZZZ_SCORE_S18_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 18! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": null,
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
     "EDID": "SCORE_S19_ENTM_Account_PremiumBattlePass",
     "desc": "Unlock access to all premium Fallout First locked rewards in Season 19.",
     "disclaimer": "UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT.",
@@ -53612,42 +53147,6 @@
     "carouselImages": [],
     "itemName": "Season 19 Fallout First Season Pass",
     "itemNameShort": "Season 19 Fallout First Season Pass"
-  },
-  {
-    "EDID": "SCORE_S21_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 21! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S20_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 20! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S24_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 24! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
   },
   {
     "EDID": "SCORE_S24_ENTM_Account_PremiumBattlePass",
@@ -53662,18 +53161,6 @@
     "itemNameShort": "Season 24 Fallout First Season Pass"
   },
   {
-    "EDID": "SCORE_S21_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 21! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
     "EDID": "SCORE_S20_ENTM_Account_PremiumBattlePass",
     "desc": "Unlock access to all premium Fallout First locked rewards in Season 20.",
     "disclaimer": "UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT.",
@@ -53684,51 +53171,6 @@
     "carouselImages": [],
     "itemName": "Season 20 Fallout First Season Pass",
     "itemNameShort": "Season 20 Fallout First Season Pass"
-  },
-  {
-    "EDID": "SCORE_S22_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 22! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S25_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 25! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "ZZZ_SCORE_S18_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 18! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": null,
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S23_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 23! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
   },
   {
     "EDID": "ZZZ_SCORE_S18_ENTM_Account_PremiumBattlePass",
@@ -64102,42 +63544,6 @@
     "itemNameShort": "Stairs (Pine Barrens Log Cabin)"
   },
   {
-    "EDID": "SCORE_S16_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 16! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S16_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 16! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S16_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 16! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
     "EDID": "ATX_ENTM_Apparel_Headwear_Ringmaster",
     "desc": "You are the master of your own circus with the Ringmaster Hat.",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
@@ -70942,42 +70348,6 @@
     "carouselImages": [],
     "itemName": "Brass Nuke Backpack Flair",
     "itemNameShort": "Brass Nuke Flair"
-  },
-  {
-    "EDID": "SCORE_S14_ENTM_Account_ScoreBoost_3",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 14! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S14_ENTM_Account_ScoreBoost_2",
-    "desc": "Gain another 10% bonus S.C.O.R.E. when you complete challenges for the rest of Season 14! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E.. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "10% S.C.O.R.E. Boost",
-    "itemNameShort": "10% S.C.O.R.E. Boost"
-  },
-  {
-    "EDID": "SCORE_S14_ENTM_Account_ScoreBoost_1",
-    "desc": "Gain 5% bonus S.C.O.R.E. when you complete challenges for the rest of Season 14! - UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT. - - BONUS IS APPLIED TO BASE CHALLENGE S.C.O.R.E. -",
-    "disclaimer": "DOES NOT APPLY TO PREVIOUSLY COMPLETED CHALLENGES.",
-    "primaryImage": {
-      "imageName": "score_account_scoreboost_l.webp",
-      "directory": "/textures/atx/storefront/utility/"
-    },
-    "carouselImages": [],
-    "itemName": "5% S.C.O.R.E. Boost",
-    "itemNameShort": "5% S.C.O.R.E. Boost"
   },
   {
     "EDID": "SCORE_S14_ENTM_Skin_ArmorSkin_Recon_AlaskanWinter",

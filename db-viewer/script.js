@@ -516,13 +516,19 @@ async function loadDatabase() {
         
         // Precompute categories and lowercase text for faster repeated searches
         const catSet = new Set();
-        dbData.forEach(item => {
-            item._categories = getItemCategories(item);
-            item._lowerEDID = (item.EDID || '').toLowerCase();
-            item._lowerName = ((item.itemName || item.name) || '').toLowerCase();
-            item._lowerShortName = (item.itemNameShort || '').toLowerCase();
-            item._categories.forEach(cat => catSet.add(cat));
-        });
+       dbData.forEach((item, i) => {
+    try {
+        item._categories = getItemCategories(item) || [];
+
+        item._lowerEDID = (item.EDID || '').toLowerCase();
+        item._lowerName = ((item.itemName || item.name) || '').toLowerCase();
+        item._lowerShortName = (item.itemNameShort || '').toLowerCase();
+
+        (item._categories || []).forEach(cat => catSet.add(cat));
+    } catch (e) {
+        console.log("BROKEN ITEM AT INDEX:", i, item, e);
+    }
+});
         allCategories = Array.from(catSet).sort();
         
         populateFilters();
@@ -1031,36 +1037,44 @@ function attachTileClickHandlers() {
 
 // Update createItemCard to store data and enable clicks
 function createItemCard(item) {
-    const hasCarousel = item.carouselImages && item.carouselImages.length > 0;
+
+    // 🔒 safety normalization (prevents all undefined crashes)
+    item.dynamicBundleItems = Array.isArray(item.dynamicBundleItems) ? item.dynamicBundleItems : [];
+    item.carouselImages = Array.isArray(item.carouselImages) ? item.carouselImages : [];
+
+    const hasCarousel = item.carouselImages.length > 0;
     const hasPrimaryImage = item.primaryImage && item.primaryImage.imageName;
-    
-   let primaryImageHtml;
 
-if (hasPrimaryImage) {
-    const imgPath = getImagePath(item.primaryImage.directory, item.primaryImage.imageName);
-    primaryImageHtml = `
-        <div class="item-image">
-            <img 
-                src="${imgPath}" 
-                alt="Primary" 
-                loading="lazy"
-                onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>No image</span>';"
-            >
-        </div>
-    `;
-} else {
-    primaryImageHtml = `
-        <div class="placeholder">
-            No image
-        </div>
-    `;
-}
+    let primaryImageHtml;
 
-    const priceDisplay = item.highPriceOriginal ? `<span class="current-price">⚛ ${item.highPriceOriginal}</span>` : 
-                         item.price ? `<span class="current-price">⚛ ${item.price}</span>` : '';
+    if (hasPrimaryImage) {
+        const imgPath = getImagePath(item.primaryImage.directory, item.primaryImage.imageName);
+        primaryImageHtml = `
+            <div class="item-image">
+                <img 
+                    src="${imgPath}" 
+                    alt="Primary" 
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>No image</span>';"
+                >
+            </div>
+        `;
+    } else {
+        primaryImageHtml = `
+            <div class="placeholder">
+                No image
+            </div>
+        `;
+    }
+
+    const priceDisplay = item.highPriceOriginal
+        ? `<span class="current-price">⚛ ${item.highPriceOriginal}</span>`
+        : item.price
+            ? `<span class="current-price">⚛ ${item.price}</span>`
+            : '';
 
     const badgeHTML = getItemBadges(item);
-    
+
     // Store item data for later access
     if (item.EDID) {
         itemDataStore.set(item.EDID, item);
@@ -1069,14 +1083,24 @@ if (hasPrimaryImage) {
     const footerName = [item.itemName, item.itemNameShort, item.name]
         .filter(Boolean)
         .sort((a, b) => b.length - a.length)[0] || 'N/A';
-    
+
+    const bundleCount = item.dynamicBundleItems.length;
+
     return `
         <div class="shop-tile small" style="cursor: pointer; position: relative;" data-item-edid="${item.EDID || ''}">
             ${badgeHTML ? `<div class="tile-badge-container">${badgeHTML}</div>` : ''}
-            <div class="tile-img" style="width: 100%; height: 100%;"> ${primaryImageHtml || '<img src="../../textures/atomic_shop_media/face8fe153089c98d6b27ddf4bf729fb.webp" alt="Primary" loading="lazy"'}</div>
+
+            <div class="tile-img" style="width: 100%; height: 100%;">
+                ${primaryImageHtml}
+            </div>
+
             <div class="tile-price">
-                ${hasCarousel ? `<span class="old-price" title="Item count in a Bundle or Set">${item.dynamicBundleItems.length}</span>` : ''}
-                <div class="current-price">${priceDisplay || '⚛ -'}</div></div>
+                ${bundleCount > 0
+                    ? `<span class="old-price" title="Item count in a Bundle or Set">${bundleCount}</span>`
+                    : ''}
+                <div class="current-price">${priceDisplay || '⚛ -'}</div>
+            </div>
+
             <div class="tile-footer small">${footerName}</div>
         </div>
     `;
