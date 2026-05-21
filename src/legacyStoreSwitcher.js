@@ -78,7 +78,8 @@ function isoWeekStart(year, week) {
   const jan4 = new Date(Date.UTC(year, 0, 4));
   const dayOfWeek = jan4.getUTCDay() || 7;
   const week1Monday = new Date(jan4.getTime() - (dayOfWeek - 1) * 86400000);
-  return new Date(week1Monday.getTime() + (week - 1) * 7 * 86400000);
+  // Atomic Shop labels use Tuesday updates, so shift the ISO week start forward one day.
+  return new Date(week1Monday.getTime() + (week - 1) * 7 * 86400000 + 86400000);
 }
 
 /* -------------------- LTO CLEANUP -------------------- */
