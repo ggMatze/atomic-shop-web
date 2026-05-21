@@ -336,6 +336,19 @@ label[for="currency-select"] {
   box-shadow: 0 0 0 4px rgba(255,212,84,0.12);
   outline: none;
 }
+
+#legacy-warning-banner {
+  display: none;
+  padding: 10px 14px;
+  margin: 10px 0;
+  background: #25241cd9;
+  color: #ff8181;
+  border: 1px solid #ff7057;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+}
+
 .information-box {
   display: flex;
   align-items: center;
