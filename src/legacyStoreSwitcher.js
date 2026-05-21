@@ -124,20 +124,25 @@ function ensureLegacyWarning() {
     el = document.createElement("div");
     el.id = "legacy-warning-banner";
 
-   el.textContent =
-  "You are viewing old shop data. Some content may be missing or inaccurate.";
+    const closeBtn = document.createElement("button");
+    closeBtn.type = "button";
+    closeBtn.className = "legacy-warning-close";
+    closeBtn.textContent = "×";
+    closeBtn.title = "Close";
+    closeBtn.addEventListener("click", () => {
+      el.style.display = "none";
+    });
 
-const sub = document.createElement("div");
-sub.textContent = "To return to the current store, select 'Now / Live' from the dropdown.";
+    el.appendChild(closeBtn);
 
-el.appendChild(sub);
+    const notice = document.createElement("div");
+    notice.textContent = "You are viewing old shop data. Some content may be missing or inaccurate.";
+    el.appendChild(notice);
 
-    el.style.position = "fixed";
-    el.style.top = "12px";
-    el.style.left = "50%";
-    el.style.transform = "translateX(-50%)";
-    el.style.zIndex = "99999";
-    el.style.display = "none";
+    const sub = document.createElement("div");
+    sub.textContent = "To return to the current store, select 'Now / Live' from the dropdown.";
+    sub.className = "legacy-warning-subtext";
+    el.appendChild(sub);
 
     document.body.appendChild(el);
   }
@@ -193,13 +198,25 @@ function installLegacyStoreLoader() {
 
 /* -------------------- DROPDOWN -------------------- */
 
-async function createLegacyDropdown() {
-  const menu = document.querySelector(".menu-left");
-  if (!menu) return;
+async function populateLegacyDropdownOptions(select) {
+  if (!select || select.dataset.legacyOptionsInitialized === "true") return;
+  select.dataset.legacyOptionsInitialized = "true";
 
   const files = LEGACY_STORE_FILES.length
     ? LEGACY_STORE_FILES
     : await filterExistingFiles(generateLegacyFileList());
+
+  for (const file of files) {
+    const option = document.createElement("option");
+    option.value = file;
+    option.textContent = formatLegacyLabel(file);
+    select.appendChild(option);
+  }
+}
+
+async function createLegacyDropdown() {
+  const menu = document.querySelector(".menu-left");
+  if (!menu) return;
 
   const wrapper = document.createElement("div");
   wrapper.className = "legacy-store-selector";
@@ -208,17 +225,32 @@ async function createLegacyDropdown() {
     <label></label>
     <select id="legacy-data-select">
       <option value="">Now / Live</option>
-      ${files.map(f => `
-        <option value="${f}">
-          ${formatLegacyLabel(f)}
-        </option>
-      `).join("")}
     </select>
   `;
 
   menu.prepend(wrapper);
 
   const select = wrapper.querySelector("#legacy-data-select");
+  if (!select) return;
+
+  const loadOptions = async () => {
+    select.style.cursor = "wait";
+    try {
+      await populateLegacyDropdownOptions(select);
+    } finally {
+      select.style.cursor = "";
+    }
+  };
+
+  // Automatically populate legacy options after initial page load / idle
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadOptions, { timeout: 2000 });
+  } else {
+    setTimeout(loadOptions, 1500);
+  }
+
+  select.addEventListener("focus", loadOptions, { once: true });
+  select.addEventListener("pointerdown", loadOptions, { once: true });
 
   select.addEventListener("change", async () => {
     const file = select.value;
@@ -239,14 +271,25 @@ async function createLegacyDropdown() {
 function initLegacyStoreSwitcher() {
   const wait = () => {
     const menu = document.querySelector(".menu-left");
-
     if (!menu) return setTimeout(wait, 200);
 
     installLegacyStoreLoader();
     createLegacyDropdown();
   };
 
-  wait();
+  const scheduleInit = () => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(wait, { timeout: 2000 });
+    } else {
+      wait();
+    }
+  };
+
+  if (document.readyState === 'complete') {
+    scheduleInit();
+  } else {
+    window.addEventListener('load', scheduleInit);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", initLegacyStoreSwitcher);

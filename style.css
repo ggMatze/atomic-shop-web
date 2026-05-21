@@ -329,6 +329,7 @@ label[for="currency-select"] {
   box-shadow: 0 2px 8px #000a;
   appearance: none;
   cursor: pointer;
+  width: 100%;
 }
 #legacy-data-select:focus,
 #legacy-data-select:active {
@@ -338,6 +339,14 @@ label[for="currency-select"] {
 }
 
 #legacy-warning-banner {
+  
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+
+
   display: none;
   padding: 10px 14px;
   margin: 10px 0;
@@ -347,6 +356,24 @@ label[for="currency-select"] {
   font-size: 14px;
   line-height: 1.4;
   text-align: center;
+}
+
+#legacy-warning-banner .legacy-warning-close {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: #ff8181;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .information-box {
