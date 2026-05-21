@@ -1646,13 +1646,12 @@ clip-path: polygon( 0% 20.9%, 100% 0%, 90% 87%, 8% 80.8% );
 }
 
 .shop-tile .tile-img img {
-/*padding-top: 5px; as in the game*/
-width: 100%;
-height: 100%;
-object-fit: contain;
-object-position: center;
-display: block;
-
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 
