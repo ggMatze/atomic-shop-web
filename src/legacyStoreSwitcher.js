@@ -44,17 +44,15 @@ function formatLegacyLabel(fileName) {
 }
 
 function getLegacyStoreUrl(fileName) {
-  return `old%20data/${encodeURIComponent(fileName)}`;
+  return `old-data/${encodeURIComponent(fileName)}`;
 }
 
 // Lightweight discovery: try directory HTML listings only.
 // This does NOT attempt to fetch `legacyIndex.json`.
 async function fetchLegacyFiles() {
   const candidates = [
-    'old%20data/',
-    '/old%20data/',
-    'old data/',
-    '/old data/'
+    'old-data/',
+    '/old-data/'
   ];
 
   for (const c of candidates) {
@@ -114,20 +112,17 @@ function cleanupLegacyLto(storeData) {
 }
 
 async function loadLegacyStoreData(fileName) {
-  // Accept either a full path/URL or a bare filename. Try several common
-  // variants so this works on different static server setups.
+  // Accept either a full path/URL or a bare filename. Try the current
+  // `old-data` variants so this works on your renamed directory.
   const candidates = [];
   const raw = String(fileName || '');
   // If it already looks like a path/URL, try it as-is first
   if (raw.includes('/') || raw.includes('%')) candidates.push(raw);
   // Common directory variants
-  candidates.push(`old data/${raw}`);
-  candidates.push(`old%20data/${raw}`);
-  candidates.push(`/old data/${raw}`);
-  candidates.push(`/old%20data/${raw}`);
+  candidates.push(`old-data/${raw}`);
+  candidates.push(`/old-data/${raw}`);
   // Encoded filename variants
-  try { candidates.push(`old%20data/${encodeURIComponent(raw)}`); } catch (e) { /* ignore */ }
-  try { candidates.push(`old data/${encodeURIComponent(raw)}`); } catch (e) { /* ignore */ }
+  try { candidates.push(`old-data/${encodeURIComponent(raw)}`); } catch (e) { /* ignore */ }
 
   for (const url of candidates) {
     try {
