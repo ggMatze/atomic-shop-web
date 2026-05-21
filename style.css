@@ -289,7 +289,52 @@ label[for="currency-select"] {
   appearance: none;
   cursor: pointer;
 }
+#currency-select:focus,
+#currency-select:active {
+  border-color: #ffe082;
+  box-shadow: 0 0 0 4px rgba(255,212,84,0.12);
+  outline: none;
+}
+.legacy-store-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #181c1dcc;
+  padding: 8px 10px;
+  box-shadow: 0 2px 8px #000a;
+  font-family: 'cabin', Arial, sans-serif;
+  color: #ffe082;
+}
 
+.legacy-store-selector label {
+  font-size: 1rem;
+  color: #ffe082;
+}
+.legacy-store-selector label::before {
+  content:"🗓\FE0E";
+  font-weight: bold;
+  padding-right: 2px;
+  font-size: 2.3em;
+  color: #ffe082;
+}
+
+#legacy-data-select {
+  background: #23272b;
+  color: #ffe082;
+  border: 1px solid #ffe082;
+  font-family: 'cabin', Arial, sans-serif;
+  font-size: 0.95rem;
+  padding: 4px 8px;
+  box-shadow: 0 2px 8px #000a;
+  appearance: none;
+  cursor: pointer;
+}
+#legacy-data-select:focus,
+#legacy-data-select:active {
+  border-color: #ffe082;
+  box-shadow: 0 0 0 4px rgba(255,212,84,0.12);
+  outline: none;
+}
 .information-box {
   display: flex;
   align-items: center;
@@ -2244,6 +2289,10 @@ body.uah-currency .price-label-final::after {
   filter: blur(4px);
 }
 
+.atomic-shop {
+  overflow-x: hidden;
+}
+
 .atomic-shop>*:not(.bg-video) {
   position: relative;
   z-index: 1;
@@ -2277,7 +2326,7 @@ body.uah-currency .price-label-final::after {
   position: relative;
   z-index: 2;
 }
-/* Prevent horizontal scrolling on the entire site 
+/* Prevent horizontal scrolling on the entire site */
 html, body {
   overflow-x: hidden !important;
-}*/
+}
