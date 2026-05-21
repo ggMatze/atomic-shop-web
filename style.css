@@ -330,7 +330,8 @@ label[for="currency-select"] {
   box-shadow: 0 2px 8px #000a;
   appearance: none;
   cursor: pointer;
-  width: 100px;
+  min-width: 110px;
+  
 }
 #legacy-data-select:focus,
 #legacy-data-select:active {
