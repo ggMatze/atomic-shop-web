@@ -300,19 +300,20 @@ label[for="currency-select"] {
   align-items: center;
   gap: 8px;
   background: #181c1dcc;
-  padding: 8px 10px;
+  padding: 0px 10px;
   box-shadow: 0 2px 8px #000a;
   font-family: 'cabin', Arial, sans-serif;
   color: #ffe082;
 }
 
 .legacy-store-selector label {
-  font-size: 1rem;
+ transform: translateY(-5px);
   color: #ffe082;
 }
 .legacy-store-selector label::before {
   content:"🗓\FE0E";
   font-weight: bold;
+  
   padding-right: 2px;
   font-size: 2.3em;
   color: #ffe082;
