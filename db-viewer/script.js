@@ -28,6 +28,12 @@ const filterGroups = {
     'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'P2W', 'No Image']
 };
 
+// Custom filters based on arbitrary item key:value data.
+const customCategoryFilters = {
+    // Example: item.cBadge === 'new' will add category 'New'
+    '\u200BCut Content': ['cBadge:cut'],
+};
+
 // Get categories for an item
 function getItemCategories(item) {
     const categories = new Set();
@@ -177,18 +183,23 @@ function getItemCategories(item) {
         'Weapons Expert Extraordinaire': ['_weaponsexpert_'],
         'Sunset Stranger': ['_sunsetstranger_'],
         'Love Hurts': ['_miniseason_lovehurts_'],
-        
-    
-        };
-    
+    };
+
     if (item.EDID) {
         const edid = item.EDID.toLowerCase();
-        
+
         // Check each category's keywords
         for (const [category, keywords] of Object.entries(edidCategoryKeywords)) {
             if (keywords.some(keyword => edid.includes(keyword))) {
                 categories.add(category);
             }
+        }
+    }
+
+    // Custom category filters by DB key/value pairs.
+    for (const [category, conditions] of Object.entries(customCategoryFilters)) {
+        if (conditions.some(condition => matchesItemCondition(item, condition))) {
+            categories.add(category);
         }
     }
     
@@ -658,10 +669,74 @@ const badgeKeywordMapping = [
 function getItemBadges(item) {
     if (!item || !item.EDID) return '';
     const edid = (item.EDID || '').toLowerCase();
-    return badgeKeywordMapping
-        .filter(rule => edid.includes(rule.keyword))
-        .map(rule => `<span class="${rule.className}" title="${rule.title}">${rule.label}</span>`)
-        .join('');
+    const seen = new Set();
+    const badges = [];
+
+    for (const rule of badgeKeywordMapping) {
+        if (!edid.includes(rule.keyword)) continue;
+
+        // Use className+label as a de-duplication key so identical badges
+        // (e.g. multiple rules mapping to the same "CUT" badge) only
+        // render once.
+        const key = `${rule.className}|${rule.label}`;
+        if (seen.has(key)) continue;
+
+        seen.add(key);
+        badges.push(`<span class="${rule.className}" title="${rule.title}">${rule.label}</span>`);
+    }
+
+    // If no keyword-based badges were produced, support a custom badge
+    // via a DB field `cBadge` (e.g. "cBadge":"unreleased"). The badge
+    // is rendered as an empty span with `data-badge` so CSS can set text
+    // with `content: attr(data-badge)` or override per-class with
+    // `content: '...'`.
+    if (badges.length === 0 && item.cBadge) {
+        const text = String(item.cBadge).trim();
+        if (text) {
+            const cls = `custom-badge badge-${sanitizeBadgeClass(text)}`;
+            badges.push(`<span class="${cls}" data-badge="${escapeAttr(text)}"></span>`);
+        }
+    }
+
+    return badges.join('');
+}
+
+// Helper: produce a safe classname from arbitrary text
+function sanitizeBadgeClass(text) {
+    return String(text || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '') || 'custom';
+}
+
+// Helper: escape double quotes for use in data attributes
+function escapeAttr(s) {
+    return String(s).replace(/"/g, '&quot;');
+}
+
+function matchesItemCondition(item, condition) {
+    if (!condition) return false;
+    const [rawKey, ...rawValueParts] = condition.split(':');
+    const key = rawKey.trim();
+    const value = rawValueParts.join(':').trim().toLowerCase();
+    if (!key) return false;
+
+    const field = item[key];
+    if (field === undefined || field === null) return false;
+    if (value === '') return true;
+
+    const normalize = (v) => String(v).toLowerCase();
+
+    if (typeof field === 'string' || typeof field === 'number') {
+        return normalize(field).includes(value);
+    }
+    if (Array.isArray(field)) {
+        return field.some(v => normalize(v).includes(value));
+    }
+    if (typeof field === 'object') {
+        return JSON.stringify(field).toLowerCase().includes(value);
+    }
+    return false;
 }
 
 let searchDebounceTimer;

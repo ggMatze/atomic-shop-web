@@ -494,6 +494,64 @@ text-align: center;
   z-index: 1000;
   cursor: help;
 }
+.custom-badge {
+    font-family: "Berlin Sans FB", roboto condensed, sans-serif;
+    text-shadow: rgb(27, 10, 10) 1px 1px;
+    text-align: center;
+  position: relative;
+  z-index: 1;
+  background: #918f7980;
+  color: #fff;
+  font-size: 22px;
+  letter-spacing: 0.00em;
+  font-kerning: normal;
+  height: 60px;
+  width: 60px;
+  aspect-ratio: 1;
+  --g:/12.97% 12.97% radial-gradient(#000 calc(71% - 1px),#0000 71%) no-repeat;
+  mask: radial-gradient(100% 100%,#000 calc(43.028% - 1px),#0000 43.028%) subtract,100% 50% var(--g),97.779% 64.738% var(--g),91.312% 78.166% var(--g),81.174% 89.092% var(--g),68.267% 96.544% var(--g),53.737% 99.86% var(--g),38.874% 98.746% var(--g),25% 93.301% var(--g),13.347% 84.009% var(--g),4.952% 71.694% var(--g),0.558% 57.452% var(--g),0.558% 42.548% var(--g),4.952% 28.306% var(--g),13.347% 15.991% var(--g),25% 6.699% var(--g),38.874% 1.254% var(--g),53.737% 0.14% var(--g),68.267% 3.456% var(--g),81.174% 10.908% var(--g),91.312% 21.834% var(--g),97.779% 35.262% var(--g);
+  z-index: 1000;
+  cursor: help;
+}
+/* default: show the provided text */
+.custom-badge::before {
+    /* background/shaped layer behind the label text */
+    content: '';
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background-size: 90% auto;
+    z-index: 0;
+}
+
+.custom-badge::after {
+    /* visible text layer, pulled from the data attribute so CSS can override */
+    content: attr(data-badge);
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+.custom-badge[data-badge="cut"]::after {
+    content: 'n/a';
+    background: #db8d26;
+}
+.custom-badge[data-badge="unreleased"]::after {
+    content: 'soon?';
+    background: #48994b;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+}
+
+
 
 @media (max-width: 768px) {
     .results {
@@ -689,4 +747,5 @@ text-align: center;
 }
 #scrollTopBtn:hover {
     background: #856f33;
+   transform: scale(1.11) rotate(45deg) ;
 }
