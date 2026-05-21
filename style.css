@@ -304,6 +304,7 @@ label[for="currency-select"] {
   box-shadow: 0 2px 8px #000a;
   font-family: 'cabin', Arial, sans-serif;
   color: #ffe082;
+  
 }
 
 .legacy-store-selector label {
@@ -329,7 +330,7 @@ label[for="currency-select"] {
   box-shadow: 0 2px 8px #000a;
   appearance: none;
   cursor: pointer;
-  width: 100%;
+  width: 100px;
 }
 #legacy-data-select:focus,
 #legacy-data-select:active {
