@@ -22675,7 +22675,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Zeta's Revenge (Alien Blaster)",
-    "itemNameShort": "Zeta's Revenge"
+    "itemNameShort": "Zeta's Revenge",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_FireWall",
@@ -23647,7 +23648,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Nuka-Cola Food Trailer",
-    "itemNameShort": "Nuka-Cola Food Trailer"
+    "itemNameShort": "Nuka-Cola Food Trailer",
+    "cBadge": "cut"
   },
   {
     "EDID": "SCORE_S11_ENTM_CAMP_Lights_BlueNukaColaBillboard",
@@ -28120,7 +28122,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Stars and Strikes Bowling Arcade Machine",
-    "itemNameShort": "Stars and Strikes Machine"
+    "itemNameShort": "Stars and Strikes Machine",
+    "cBadge": "cut"
   },
   {
     "EDID": "zzzATX_ENTM_CAMP_Utility_WeatherStation_SnowWeatherStation",
@@ -28261,7 +28264,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Rolling Stars Bowling Arcade Machine",
-    "itemNameShort": "Rolling Stars Machine"
+    "itemNameShort": "Rolling Stars Machine",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_Ceiling_HoneycombValentinesHeartMobile",
@@ -28445,7 +28449,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Knick Knack Table",
-    "itemNameShort": "Knick Knack Table"
+    "itemNameShort": "Knick Knack Table",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_CAMP_CAMPPets_Emote_Cat_HighFive",
@@ -29848,7 +29853,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Vault 94 Insects Frame",
-    "itemNameShort": "Vault 94 Insects"
+    "itemNameShort": "Vault 94 Insects",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Babylon_Cutout_Shotgun",
@@ -30131,7 +30137,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Pumpkin Vault Girl Head",
-    "itemNameShort": "Pumpkin Head"
+    "itemNameShort": "Pumpkin Head",
+    "cBadge": "idk"
   },
   {
     "EDID": "ATX_ENTM_Apparel_Clothes_Underarmor_TrackSuitGrafton",
@@ -30370,7 +30377,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Vault 94 Heart Frame",
-    "itemNameShort": "Vault 94 Heart"
+    "itemNameShort": "Vault 94 Heart",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_Skin_CameraSkin_Gardening",
@@ -30656,7 +30664,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Bear Arm",
-    "itemNameShort": "Bear Arm"
+    "itemNameShort": "Bear Arm",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_Apparel_Outfit_CaptainCosmos",
@@ -30827,7 +30836,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Placeholder SP",
-    "itemNameShort": "Placeholder SP"
+    "itemNameShort": "Placeholder SP",
+    "cBadge": "dev"
   },
   {
     "EDID": "ATX_ENTM_CAMP_Machinery_Workbench_Cooking_BBQ_Grill_Black",
@@ -30982,7 +30992,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Vault 94 G.E.C.K. Frame",
-    "itemNameShort": "G.E.C.K."
+    "itemNameShort": "G.E.C.K.",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponModel_Knife_Dagger_Tactical",
@@ -31512,10 +31523,14 @@
     "EDID": "ATX_F1_ENTM_Apparel_Underarmor_MaskedWrestler",
     "desc": "Use this Wrestler Outfit for some backyard fun in your C.A.M.P. This item is worn under your armor and in the Casual mod group.",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_apparel_underarmor_maskedwrestler_c1.webp",
+      "directory": "/textures/atx/storefront/player/underarmor/"
+    },
     "carouselImages": [],
     "itemName": "Wrestler Outfit",
-    "itemNameShort": "Wrestler Outfit"
+    "itemNameShort": "Wrestler Outfit",
+    "cBadge": "unreleased"
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Helmet_Vaultboy",
@@ -32394,7 +32409,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Vault 96 Frame",
-    "itemNameShort": "Vault 96"
+    "itemNameShort": "Vault 96",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_Apparel_Underarmor_TinfoilSuit",
@@ -65046,10 +65062,14 @@
     "EDID": "ATX_ENTM_CAMP_FloorDecor_GumballPlanterDUPLICATE000",
     "desc": "This Gumball Machine Planter combines vintage nostalgia with colorful flora.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_camp_floordecor_gumballplanter.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": [],
     "itemName": "Gumball Machine Planter",
-    "itemNameShort": "Gumball Machine Planter"
+    "itemNameShort": "Gumball Machine Planter",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_StreetLamps",
@@ -65362,7 +65382,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Lifesize Skeleton Display Case",
-    "itemNameShort": "Lifesize Skeleton Display Case"
+    "itemNameShort": "Lifesize Skeleton Display Case",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_CAMP_Displaycase_BobbleHead_SecretService",
@@ -65397,7 +65418,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Gold Bobblehead Stand",
-    "itemNameShort": "Gold Bobblehead Stand"
+    "itemNameShort": "Gold Bobblehead Stand",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_CAMP_Display_Mannequin_Female_Clean",
@@ -65430,12 +65452,7 @@
     "itemName": "Triumphant Alistair Emote",
     "dynamicBundleItems": [],
     "highPriceOriginal": 250,
-    "carouselImages": [],
-   
- 
-
-   
-  
+    "carouselImages": [], 
     "primaryImage": {
       "imageName": "alistair.webp",
       "directory": "/textures/emotes/"
@@ -65638,10 +65655,6 @@
     },
     "carouselImages": [],
     "itemName": "Red Menace Paint",
-    "dbIndex": 5339,
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true,
     "itemNameShort": "Red Menace Paint"
   },
   {
@@ -66085,7 +66098,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Slocum's Display Counter Set",
-    "itemNameShort": "Slocum's Display Counters"
+    "itemNameShort": "Slocum's Display Counters",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_CAMP_Decoration_Apple_Bucket",
@@ -66251,7 +66265,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Empty Case Backpack",
-    "itemNameShort": "Empty Case Backpack"
+    "itemNameShort": "Empty Case Backpack",
+    "cBadge": "cut"
   },
   {
     "EDID": "SCORE_S11_ENTM_Apparel_Outfit_SodaJerkUniform",
@@ -67258,7 +67273,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Accordion",
-    "itemNameShort": "Accordion"
+    "itemNameShort": "Accordion",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_BloodEagleStandard",
@@ -70455,7 +70471,10 @@
     "EDID": "ATX_ENTM_CAMP_FloorDecor_VaultGirlFireworksStand",
     "desc": "Brighten up the night with Vault Girl and some Fireworks!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_entm_camp_floordecor_vaultgirlfireworksstand_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": [],
     "itemName": "Vault Girl Fireworks Stand",
     "itemNameShort": "Vault Girl Fireworks Stand"
