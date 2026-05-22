@@ -403,6 +403,20 @@ margin:0 !important;
 }
 
 @media (max-width: 480px) {
+     .center-image {
+    position: absolute !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 340px!important;
+    max-width: 340px !important;
+    height: auto !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+    z-index: 2 !important;
+    margin: 0 -16px !important;
+  }
+ 
   .shop-grid {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(100px, 1fr)) !important;
