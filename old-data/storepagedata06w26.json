@@ -2,305 +2,95 @@
   "StorePageData": {
     "pages": [
       {
-        "name": "Hometown Heroes \\n Honoring our local heroes.",
-        "tabid": "hometown-heroes",
+        "name": "War, War Never Changes \\n Thanks for watching!",
+        "tabid": "war-war-never-changes",
         "isZeus": false,
         "image": {
-          "imageName": "3c6d9a38fdeff3a63bc02d182c10c011.webp",
+          "imageName": "e5e3d62f4e5a9f1df29ed133ad642596.dds",
           "directory": "textures/atomic_shop_media/"
         },
         "items": [
           {
-            "itemID": 2458770,
-            "itemName": "Hometown Heroes Bundle",
-            "itemNameShort": "Hometown Heroes Bundle",
-            "itemDesc": "Become The Wasteland's first line of defense against severe bodily injury!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemID": 2458771,
+            "itemName": "Fallout Celebration Bundle",
+            "itemNameShort": "Fallout Celebration Bundle",
+            "itemDesc": "Celebrate The Wasteland and all of its denizens! \n Cake generates cake over time. (Cannot be build inside of a Shelter)\nGames Cuppboard generates Junk (Games) over time. (Cannot be build inside of a Shelter) \n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- WEAPON SKINS IS CRAFTABLE AT WEAPON WORKBENCH. -\n- OUTFIT AND HEADWEAR IS CRAFTABLE AT ARMOR WORKBENCH. -\n[h]This bundle includes items that were previously available in the Atomic Shop.[/h]",
             "primaryImage": {
-              "imageName": "530a7f777dc0df3aa13c18775674c6d4.webp",
+              "imageName": "3e7abea9ba3019fecc820ef7eb17fd6f.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_camp_structure_ambulance.webp",
-                "directory": "textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_apparel_outfit_medicalrescuepants.webp",
+                "imageName": "atx_apparel_outfit_birthdaysuit_l.webp",
                 "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
-                "imageName": "atx_camp_utility_repairbot_emergencytech_l.webp",
+                "imageName": "atx_camp_utility_weatherstation_fireworks_l.webp",
                 "directory": "/textures/atx/storefront/camp/utility/"
               },
               {
-                "imageName": "atx_skin_weaponskin_cryolator_freezeaid_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
+                "imageName": "atx_camp_collector_gamescupboard_vaulttec.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
               },
               {
-                "imageName": "atx_apparel_headwear_medicalrescuemask.webp",
+                "imageName": "score_s11_camp_utility_collectron_nukaquantum_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_utility_birthdaycake_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_kit_thebrotherhood_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_birthdayhat_l.webp",
                 "directory": "/textures/atx/storefront/player/headwear/"
               },
               {
-                "imageName": "atx_apparel_outfit_medicalrescuedress.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
+                "imageName": "atx_skin_weaponmodel_handmadegun_communist_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponmodel/"
               },
               {
-                "imageName": "atx_playertitles_suffix_hero_l.webp",
-                "directory": "/textures/atx/storefront/player/playertitles/"
+                "imageName": "raider_salute.webp",
+                "directory": "/textures/emotes/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Ambulance"
+                "szItemName": "Birthday Suit"
               },
               {
-                "szItemName": "Medical Rescue Outfit"
+                "szItemName": "Weather Control Station (Fireworks)"
               },
               {
-                "szItemName": "Emergency Technician Repair Bot"
+                "szItemName": "Vault-Tec Games Cupboard"
               },
               {
-                "szItemName": "Freeze-Aid Paint (Cryolator)"
+                "szItemName": "Nuka-Cola Quantum Collectron Station"
               },
               {
-                "szItemName": "Medical Rescure Mask"
+                "szItemName": "Birthday Cake"
               },
               {
-                "szItemName": "Medical Rescute Dress"
+                "szItemName": "Brotherhood Barracks C.A.M.P. Kit"
               },
               {
-                "szItemName": "\"Hero\" Player Title Suffix"
-              }
-            ],
-            "lowPrice": {
-              "amount": 1500,
-              "originalAmount": 1500,
-              "isLto": true,
-              "ltoTimer": "2026-02-27T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1500,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 1500
-            },
-            "isZeus": false
-          },
-          {
-            "itemID": 2457966,
-            "itemName": "Vault-Tec Little Helper Aid Box",
-            "itemNameShort": "Vault-Tec Little Helper Aid Box",
-            "itemDesc": "Let the Vault-Tec Little Helper Aid Box store all your Medicinal and Chem needs.\r\n\r\nIncluded with membership in Fallout 1st. You must be an active Member to deposit aid items into the Aid Box.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "f1_camp_aidbox_vaultteclittlehelper.dds",
-              "directory": "/textures/atx/storefront/camp/stash/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "f1_camp_aidbox_vaultteclittlehelper_c1.dds",
-                "directory": "/textures/atx/storefront/camp/stash/"
+                "szItemName": "Birthday Hat"
               },
               {
-                "imageName": "f1_camp_aidbox_vaultteclittlehelper_c2.dds",
-                "directory": "/textures/atx/storefront/camp/stash/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 0,
-              "originalAmount": 0,
-              "isLto": true,
-              "ltoTimer": "2026-02-24T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 0,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 0
-            },
-            "isNew": 1,
-            "isZeus": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2458491,
-            "itemName": "Doctor Head Mirror",
-            "itemNameShort": "Doctor Head Mirror",
-            "itemDesc": "Revealing the secrets of what ails patients for decades past and into the future.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage": {
-              "imageName": "de2024_scienceoflove_apparel_headwear_doctorheadmirror_l.webp",
-              "directory": "/textures/atx/storefront/player/headwear/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "de2024_scienceoflove_apparel_headwear_doctorheadmirror_c1.dds",
-                "directory": "/textures/atx/storefront/player/headwear/"
+                "szItemName": "Communist Skin (Handmade Rifle)"
               },
               {
-                "imageName": "de2024_scienceoflove_apparel_headwear_doctorheadmirror_c2.dds",
-                "directory": "/textures/atx/storefront/player/headwear/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 0,
-              "originalAmount": 0,
-              "isLto": true,
-              "ltoTimer": "2026-02-17T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 0,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 0
-            },
-            "isZeus": false,
-            "isClown": false
-          },
-          {
-            "itemID": 2458777,
-            "itemName": "Hydropower Bundle",
-            "itemNameShort": "Hydropower Bundle",
-            "itemDesc": "Harness the power of water in your C.A.M.P. with the Hydropower Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]This Bundle contains previously released Items.[/h]",
-            "primaryImage": {
-              "imageName": "9fcf3d8e0abbf97d9e2341eb0996b2f9.webp",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_machinery_clean_water_purifier_l.webp",
-                "directory": "/textures/atx/storefront/camp/machinery/"
-              },
-              {
-                "imageName": "score_s16_camp_collector_waterboiler_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "atx_camp_collector_railroadwatertower.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "atx_camp_utility_rainbarrelcollector_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "atx_camp_structure_watermill_rustic_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_camp_utility_deepwell_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Clean water Purifier"
-              },
-              {
-                "szItemName": "Water Boiler"
-              },
-              {
-                "szItemName": "Railroad Water Tower"
-              },
-              {
-                "szItemName": "Rain Water Collector"
-              },
-              {
-                "szItemName": "Rustic Watermill"
-              },
-              {
-                "szItemName": "Deeo Well"
-              }
-            ],
-            "lowPrice": {
-              "amount": 1500,
-              "originalAmount": 1500,
-              "isLto": true,
-              "ltoTimer": "2026-02-27T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1500,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 1500
-            },
-            "isZeus": false
-          },
-          {
-            "itemID": 2458778,
-            "itemName": "Bombs Away Bundle",
-            "itemNameShort": "Bombs Away Bundle",
-            "itemDesc": "Be ready to drop some Bombs with the Bombs Away Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]This Bundle contains previously released Items.[/h]",
-            "primaryImage": {
-              "imageName": "b9eda6849ada3e8b3f79fb3a88769dba.webp",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_apparel_outfit_flyboy_l.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_apparel_headwear_flyboy_l.webp",
-                "directory": "/textures/atx/storefront/player/headwear/"
-              },
-              {
-                "imageName": "atx_skin_weaponskin_fatman_bomber_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
-              },
-              {
-                "imageName": "shelters_shelterentrance_nuclearmissilesilo_c1.webp",
-                "directory": "/textures/atx/storefront/camp/shelters/"
-              },
-              {
-                "imageName": "atx_skin_backpackflair_brassnuke.webp",
-                "directory": "/textures/atx/storefront/player/flair/"
-              },
-              {
-                "imageName": "atx_camp_walldeco_nuke_mobile_l.webp",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
-              },
-              {
-                "imageName": "atx_camp_structure_flyingfortress_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Flyboy Outfit"
-              },
-              {
-                "szItemName": "Flyboy Helmet"
-              },
-              {
-                "szItemName": "Aviator Paint (Fatman)"
-              },
-              {
-                "szItemName": "Nuclear Test Bunker Shelter"
-              },
-              {
-                "szItemName": "Brass Nuke Backpack Flair"
-              },
-              {
-                "szItemName": "Bombs Away Mobile"
-              },
-              {
-                "szItemName": "The Flying Fortress"
+                "szItemName": "Raider Salute"
               }
             ],
             "lowPrice": {
               "amount": 1800,
               "originalAmount": 1800,
               "isLto": true,
-              "ltoTimer": "2026-02-27T12:00:00.000Z"
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 1800,
@@ -311,41 +101,1096 @@
               "originalAmount": 1800
             },
             "isNew": 2,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
           },
           {
-            "itemID": 2458776,
-            "itemName": "Missile Silo Shelter",
-            "itemNameShort": "Missile Silo Shelter",
-            "itemDesc": "What could go wrong building a Shelter in a Nuclear Missile Silo? \r\n\r\n- SHELTER ENTRANCE CAN BE PLACED IN C.A.M.P. MODE. -",
+            "itemID": 2458772,
+            "itemName": "Enclave Armory Deluxe Bundle",
+            "itemNameShort": "Enclave Armory Bundle",
+            "itemDesc": "Celebrate the release of The Gleaming Depths with the Enclave Armory Deluxe Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]This bundle includes items that were previously available in the Atomic Shop.[/h]",
             "primaryImage": {
-              "imageName": "shelters_shelterentrance_nuclearmissilesilo.webp",
+              "imageName": "414c365f67464d4fff577b326eebb1fd.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_powerarmor_model_vertiguard_enclave.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_jetpack_vertiguard_enclave.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_raidrunner_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_enclavetechnician_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_camp_utility_repairbot_enclave.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "shelters_shelterentrance_gleamingdepths_c4.webp",
+                "directory": "/textures/atx/storefront/camp/shelters/"
+              },
+              {
+                "imageName": "df7f9577a685f24f3da031f73ae22886.dds",
+                "directory": "/textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "833693598a56f37b53cfc8fdd7a1fae2.dds",
+                "directory": "/textures/atomic_shop_media/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Vertiguard Enclave Power Armor Paint"
+              },
+              {
+                "szItemName": "Vertiguard Enclave Jetpack"
+              },
+              {
+                "szItemName": "Enclave Technician Outfit"
+              },
+              {
+                "szItemName": "Enclave Technician Helmet"
+              },
+              {
+                "szItemName": "Enclave Repair Bot"
+              },
+              {
+                "szItemName": "Enclave Lab Shelter"
+              },
+              {
+                "szItemName": "\"Gleaming\" Player Title Prefix"
+              },
+              {
+                "szItemName": "\"Technician \" Player Title Suffix"
+              }
+            ],
+            "lowPrice": {
+              "amount": 2400,
+              "originalAmount": 2400,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 2400,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 2400
+            },
+            "isNew": 2,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458773,
+            "itemName": "The Pitt Recruitment Deluxe Bundle",
+            "itemNameShort": "The Pitt Recruitment Bundle",
+            "itemDesc": "Celebrate the release of The Pitt with The Pitt Recruitment Deluxe Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. - \n[h]If you want to help the project, you can support me by providing missing images etc via GitHub or Discord. Thanks![/h]\n\n\n[h]This bundle includes items that were previously available in the Atomic Shop.[/h]",
+            "primaryImage": {
+              "imageName": "7f5d162cb19825fc38186df83f801cc2.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_upgrade2022_camp_kit_pittsburgh_neighborhood_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_upgrade2022_pitt_camp_utility_fusioncorerecharger.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_plushie_trog.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_upgrade2022_pitt_skin_powerarmor_paint_fanatics_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_upgrade2022_pitt_skin_weaponskin_10mmsmg_fanatic.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Pittsburgh Neighborhood C.A.M.P. Kit"
+              },
+              {
+                "szItemName": "Fusion Core Recharger"
+              },
+              {
+                "szItemName": "Trog Plushie"
+              },
+              {
+                "szItemName": "Fanatic Power Armor Paint"
+              },
+              {
+                "szItemName": "Fanatic Paint (10mm SMG)"
+              }
+            ],
+            "lowPrice": {
+              "amount": 2000,
+              "originalAmount": 2000,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 2000,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 2000
+            },
+            "isNew": 2,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2457891,
+            "itemName": "Enclave Lab Shelter",
+            "itemNameShort": "Enclave Lab Shelter",
+            "itemDesc": "What secrets were they hiding in here? Decide for yourself! \r\n\r\nBuild this entrance to access your Shelter. \r\n\r\n- SHELTER ENTRANCES CAN BE PLACED IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "shelters_shelterentrance_gleamingdepths_l.webp",
               "directory": "/textures/atx/storefront/camp/shelters/"
             },
             "carouselImages": [
               {
-                "imageName": "shelters_shelterentrance_nuclearmissilesilo_c1.webp",
+                "imageName": "shelters_shelterentrance_gleamingdepths_c1.dds",
                 "directory": "/textures/atx/storefront/camp/shelters/"
               },
               {
-                "imageName": "shelters_shelterentrance_nuclearmissilesilo_c2.webp",
+                "imageName": "shelters_shelterentrance_gleamingdepths_c2.dds",
                 "directory": "/textures/atx/storefront/camp/shelters/"
               },
               {
-                "imageName": "shelters_shelterentrance_nuclearmissilesilo_c3.webp",
+                "imageName": "shelters_shelterentrance_gleamingdepths_c3.dds",
                 "directory": "/textures/atx/storefront/camp/shelters/"
               },
               {
-                "imageName": "shelters_shelterentrance_nuclearmissilesilo_c4.webp",
+                "imageName": "shelters_shelterentrance_gleamingdepths_c4.dds",
+                "directory": "/textures/atx/storefront/camp/shelters/"
+              },
+              {
+                "imageName": "shelters_shelterentrance_gleamingdepths_c5.dds",
+                "directory": "/textures/atx/storefront/camp/shelters/"
+              },
+              {
+                "imageName": "shelters_shelterentrance_gleamingdepths_c6.dds",
+                "directory": "/textures/atx/storefront/camp/shelters/"
+              },
+              {
+                "imageName": "shelters_shelterentrance_gleamingdepths_c7.dds",
                 "directory": "/textures/atx/storefront/camp/shelters/"
               }
             ],
             "dynamicBundleItems": [],
             "lowPrice": {
+              "amount": 1800,
+              "originalAmount": 1800,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1800,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 7,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458249,
+            "itemName": "Fanatic Power Armor Paint",
+            "itemNameShort": "Fanatic Paint",
+            "itemDesc": "Be right at home in the factory with this Fanatic Power Armor Paint!  \r\n\r\nThis is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\r\n",
+            "primaryImage": {
+              "imageName": "atx_upgrade2022_pitt_skin_powerarmor_paint_fanatics.dds",
+              "directory": "/textures/atx/storefront/player/powerarmor/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_upgrade2022_pitt_skin_powerarmor_paint_fanatics_c1.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_upgrade2022_pitt_skin_powerarmor_paint_fanatics_c2.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 1400,
+              "originalAmount": 1400,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1400,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1400
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2457888,
+            "itemName": "Liberty Prime Power Armor Skin Set",
+            "itemNameShort": "Liberty Prime Power Armor Skin Set",
+            "itemDesc": "DEMOCRACY IS NON-NEGOTIABLE. Eradicate communism with these two Liberty Prime Power Armor Skins.\r\nThis is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on the Excavator, Raider, T-45, T-51, T-60, Ultracite and X-01 Power Armors.\r\n\r\nThe Power Armor Skin will play new, fully voiced sound effects while equipped.\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "5aa93fca271c357fd7b4351050d960ee.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_powerarmor_paint_libertyprime_patriot_c1.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_libertyprime_patriot_c2.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_libertyprime_patriot_c3.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 1260,
+              "originalAmount": 1260,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1260,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458226,
+            "itemName": "Weather Control Station (Fireworks)",
+            "itemNameShort": "Weather Station (Fireworks)",
+            "itemDesc": "Get your C.A.M.P. ready to party with the Weather Control Station (Fireworks).\r\n\r\nWeather Control Station will change weather in the C.A.M.P. radius when connected to power.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_utility_weatherstation_fireworks_l.webp",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_utility_weatherstation_fireworks_c1.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_utility_weatherstation_fireworks_c2.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_utility_weatherstation_fireworks_c3.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 960,
+              "originalAmount": 960,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 960,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1200
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458244,
+            "itemName": "Bronze Secret Service Dog Statue",
+            "itemNameShort": "Secret Service Dog Statue",
+            "itemDesc": "Remember the fallen and remember our friends with the Bronze Secret Service Dog Statues.\r\n\r\nIncludes a small and large variant.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_statue_secretservice_dogbronze_l.webp",
+              "directory": "/textures/atx/storefront/camp/statues/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_statue_secretservice_dogbronze_c1.dds",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              },
+              {
+                "imageName": "atx_camp_statue_secretservice_dogbronze_c2.dds",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "isNew": 1,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458705,
+            "itemName": "Vendor Bot",
+            "itemNameShort": "Vendor Bot",
+            "itemDesc": "Nothing beats face-to-face sales. Upgrade your business with the Vendor Bot!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_entm_camp_vendor_playervendingmachine_vendorbot.dds",
+              "directory": "/textures/atx/storefront/camp/vendors/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_vendor_playervendingmachine_vendorbot_c1.dds",
+                "directory": "/textures/atx/storefront/camp/vendors/"
+              },
+              {
+                "imageName": "atx_entm_camp_vendor_playervendingmachine_vendorbot_c2.dds",
+                "directory": "/textures/atx/storefront/camp/vendors/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
+          }
+        ]
+      },
+      {
+        "name": "In Case You Missed It! \\n Bringing it back",
+        "tabid": "in-case-you-missed-it",
+        "isZeus": false,
+        "image": {
+          "imageName": "e8a27d79677741a6c1476d0c94d8f524.dds",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2458774,
+            "itemName": "Atomic Wrangler Bundle",
+            "itemNameShort": "Atomic Wrangler Bundle",
+            "itemDesc": "The casino is open and ready for new players!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "5493346bf309fc83122581158cad79db.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_shelters_shelterentrance_wranglercasino_c1.dds",
+                "directory": "/textures/atx/storefront/camp/shelters/"
+              },
+              {
+                "imageName": "atx_camp_furniture_atomicdicetable.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_furniture_atomic_roulettetable.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_furniture_atomic_blackjacktable.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_furniture_atomic_pokertable.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_furniture_atomicrodeo_slotmachine.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_furniture_atomicrodeo_slotmachinepodium.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "lucky_dice.webp",
+                "directory": "/textures/emotes/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "The Wrangler Casino Shelter"
+              },
+              {
+                "szItemName": "Atomic Dice Table"
+              },
+              {
+                "szItemName": "Atomic Roulette Table"
+              },
+              {
+                "szItemName": "Atomic Black Jack Table"
+              },
+              {
+                "szItemName": "Atomic Poker Table"
+              },
+              {
+                "szItemName": "Atomic Rodeo Slot Machine"
+              },
+              {
+                "szItemName": "Atomic Rodeo Podium"
+              },
+              {
+                "szItemName": "Lucky Dice Emote"
+              }
+            ],
+            "lowPrice": {
+              "amount": 2000,
+              "originalAmount": 2000,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 2000,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 2000
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458775,
+            "itemName": "Super Duper Sandstorm Bundle",
+            "itemNameShort": "Super Duper Sandstorm Bundle",
+            "itemDesc": "Duck into Super Duper Mart and ride out the storm!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "73957d3047d4664d92b6a96926339100.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_structure_superdupermart_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_defense_compoundwalls_partition_l.webp",
+                "directory": "/textures/atx/storefront/camp/defenses/"
+              },
+              {
+                "imageName": "atx_camp_utility_weatherstation_burningsandstorm.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_machinery_generator_fusion_dustdevil.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "atx_camp_statue_raidergnome_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Super Duper Mart"
+              },
+              {
+                "szItemName": "Wasteland Compound Partition Set"
+              },
+              {
+                "szItemName": "Weather Control Station (Burning Sandstorm)"
+              },
+              {
+                "szItemName": "Dust Devil Fusion Generator"
+              },
+              {
+                "szItemName": "Raider Gnomes"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1800,
+              "originalAmount": 1800,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1800,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458776,
+            "itemName": "Season 16 C.A.M.P. Bundle",
+            "itemNameShort": "Season 16 C.A.M.P. Bundle",
+            "itemDesc": "Spruce up your C.A.M.P. with the biggest hits from 2024's \"Deal with the Devil\".",
+            "primaryImage": {
+              "imageName": "1bb0f3f7d98ff84c37408f35f0ef2d69.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s16_camp_kit_pinebarrencabin_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "score_s16_camp_structure_stairs_pinebarrenslogcabin_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "score_s16_camp_floordecor_raidercage_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s16_camp_ceilingdecor_hangingtirebasket_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s16_camp_floordecor_brahmincorpse_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s16_camp_workbench_chemistry_autopsy_l.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "score_s16_camp_displaycase_chessboard_l.webp",
+                "directory": "/textures/atx/storefront/camp/displays/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Pine Barrens Cabin Kit"
+              },
+              {
+                "szItemName": "Stairs (Pine Barrens Log Cabin)"
+              },
+              {
+                "szItemName": "Raider Cages"
+              },
+              {
+                "szItemName": "Hanging Tire Baskets"
+              },
+              {
+                "szItemName": "Brahmin Corpse"
+              },
+              {
+                "szItemName": "Autopsy Table Chemistry Workstation"
+              },
+              {
+                "szItemName": "Chessboard Display"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1300,
+              "originalAmount": 1300,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1300,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1300
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458777,
+            "itemName": "Gold Rush Bundle",
+            "itemNameShort": "Gold Rush Bundle",
+            "itemDesc": "It might be time to reopen the gold mine!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "aeee1cbe5051af3823c14b24ad714e58.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "shelters_shelterentrance_abandonedmine_c5.dds",
+                "directory": "/textures/atx/storefront/camp/shelters/"
+              },
+              {
+                "imageName": "atx_camp_furniture_dynamitebox_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_structure_goldmill_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_collector_rockerbox_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_entm_camp_lights_ceiling_tunnellight_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_machinery_workbench_cooking_stove_minecart_l.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "691b9e64e91e7df5a4f73cef0ab91b36.dds",
+                "directory": "/textures/atomic_shop_media/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Abandoned Mine Shelter"
+              },
+              {
+                "szItemName": "Dynamite Box"
+              },
+              {
+                "szItemName": "Abandoned Gold Mill"
+              },
+              {
+                "szItemName": "Rocker Box"
+              },
+              {
+                "szItemName": "Tunnel Light"
+              },
+              {
+                "szItemName": "Cooking Stove - Minecart"
+              },
+              {
+                "szItemName": "\"Lucky\" Player Title Prefix"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1800,
+              "originalAmount": 1800,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1800,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458778,
+            "itemName": "Season 16 Rip Daring Bundle",
+            "itemNameShort": "Rip Daring Bundle",
+            "itemDesc": "Embrace the persona of the brave Rip Daring!",
+            "primaryImage": {
+              "imageName": "d6fbe8faf800e51620308979cd082157.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s16_camp_ally_adelaide_l.webp",
+                "directory": "/textures/atx/storefront/camp/ally/"
+              },
+              {
+                "imageName": "score_s16_apparel_outfit_ripdaringcostume_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "score_s16_weapons_cremator_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponmodel/"
+              },
+              {
+                "imageName": "score_s16_skin_weaponskin_cremator_ripdaring_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s16_camp_walldecor_poweredposter_ripdaring01_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Lite Ally: Adelaide"
+              },
+              {
+                "szItemName": "Rip Daring Adventurer Outfit"
+              },
+              {
+                "szItemName": "Cremator"
+              },
+              {
+                "szItemName": "Rip Daring Paint (Cremator)"
+              },
+              {
+                "szItemName": "Rip Daring \"Duel with the Devil\" Poster"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1424,
+              "originalAmount": 1800,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1800,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458779,
+            "itemName": "Season 17 Scouts C.A.M.P. Bundle",
+            "itemNameShort": "Season 17 Scouts Bundle",
+            "itemDesc": "Embrace your inner Pioneer Scout!",
+            "primaryImage": {
+              "imageName": "b1f4d1a8a77d05a5ff1a1abcd6237cf0.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s17_camp_utility_collectron_scoutmaster_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s17_camp_machinery_generator_small_tato_l.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "score_s17_camp_collector_pemmican_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s17_camp_floordecor_boat_rowboat_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s17_camp_walldecor_crossedpaddles_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s17_skin_backpack_leatherquiver_l.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              },
+              {
+                "imageName": "score_s17_skin_backpackflair_arrowheadflair_l.webp",
+                "directory": "/textures/atx/storefront/player/flair/"
+              },
+              {
+                "imageName": "score_s17_camp_floordecor_plushie_scoutmarshmallow_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "024d78de5c84a3f6aed83e0944f63676.webp",
+                "directory": "/textures/atomic_shop_media/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Scoutmaster Collectron Station"
+              },
+              {
+                "szItemName": "Tato Generator - Small"
+              },
+              {
+                "szItemName": "Pemmican Collector"
+              },
+              {
+                "szItemName": "Rowboat"
+              },
+              {
+                "szItemName": "Crossed Paddles"
+              },
+              {
+                "szItemName": "Leather Quiver Backpack"
+              },
+              {
+                "szItemName": "Arrowhead Flair"
+              },
+              {
+                "szItemName": "Marshal Mallow Plushie"
+              },
+              {
+                "szItemName": "Scoutmaster Player Icon"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1500,
+              "originalAmount": 1500,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458780,
+            "itemName": "Fishing Trip Bundle",
+            "itemNameShort": "Fishing Trip Bundle",
+            "itemDesc": "Nothing like a pond to help you relax.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "393debf9f4d4e11c7cd1e50e04281c7b.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_structure_bulwark_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_collector_fishtrap_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_fishpond_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_skin_lootbag_tacklebag.webp",
+                "directory": "/textures/atx/storefront/player/lootbags/"
+              },
+              {
+                "imageName": "atx_camp_displaycase_fishinglurerack_l.webp",
+                "directory": "/textures/atx/storefront/camp/displays/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "The Bulwark"
+              },
+              {
+                "szItemName": "Fish Trap"
+              },
+              {
+                "szItemName": "Fish Pond"
+              },
+              {
+                "szItemName": "Worn Tackle Bag"
+              },
+              {
+                "szItemName": "Fishing Lure Rack"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1300,
+              "originalAmount": 1300,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1300,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1300
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458781,
+            "itemName": "Razor Sharp Bundle",
+            "itemNameShort": "Razor Sharp Bundle",
+            "itemDesc": "Live on the razor's edge!\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\r\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "0726e0614eba08d588549e7cee91d5cb.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_outfit_razorback.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_razorback.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_entm_skin_backpack_razorbackpack.webp",
+                "directory": "/textures/atx/storefront/player/backpack/"
+              },
+              {
+                "imageName": "atx_entm_skin_weaponmodel_deathclawgauntlet_dragonclaw.webp",
+                "directory": "/textures/atx/storefront/player/weaponmodel/"
+              },
+              {
+                "imageName": "what_a_drag.webp",
+                "directory": "/textures/emotes/"
+              },
+              {
+                "imageName": "score_account_scoreboost_l.webp",
+                "directory": "/textures/atx/storefront/utility/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Razorback Outfit"
+              },
+              {
+                "szItemName": "Razorback Helmet"
+              },
+              {
+                "szItemName": "Razorback Pack"
+              },
+              {
+                "szItemName": "Dragonclaw Gauntlet (Deathclaw Gauntlet)"
+              },
+              {
+                "szItemName": "What a Drag Emote"
+              },
+              {
+                "szItemName": "Rank Up"
+              }
+            ],
+            "lowPrice": {
               "amount": 1200,
               "originalAmount": 1200,
               "isLto": true,
-              "ltoTimer": "2026-02-27T12:00:00.000Z"
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 1200,
@@ -355,48 +1200,419 @@
               "amount": 0,
               "originalAmount": 1200
             },
-            "isNew": 0,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
           },
           {
-            "itemID": 2458779,
-            "itemName": "Medical Rescue Set",
-            "itemNameShort": "Medical Rescue Set",
-            "itemDesc": "Be ready to provide medical assistance with the Medical Rescue Set.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCH. -",
+            "itemID": 2458782,
+            "itemName": "Radhog Bundle",
+            "itemNameShort": "Radhog Bundle",
+            "itemDesc": "You will be in hog heaven with this bundle!\r\n\r\n- C.A.M.P. PETS  APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE. -\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n",
             "primaryImage": {
-              "imageName": "42306f5598f51187922722d2ad453f4a.webp",
+              "imageName": "700df5b84ffb0c14d0990b4933552ffb.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_apparel_outfit_medicalrescuepants.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
+                "imageName": "695e893427664766797b0aa3b0c7ffa4.dds",
+                "directory": "/textures/atomic_shop_media/"
               },
               {
-                "imageName": "atx_apparel_headwear_medicalrescuemask.webp",
+                "imageName": "atx_camp_camppets_radhog_standard_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_camppets_idlefurniture_radhog_scratchingpost_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Radhog"
+              },
+              {
+                "szItemName": "Scratching Post"
+              },
+              {
+                "szItemName": "Nose Ring (Rad Hog)"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1000,
+              "originalAmount": 1000,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1000,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1000
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
+          }
+        ]
+      },
+      {
+        "name": "Souvenir for the Road \\n A journey well spent.",
+        "tabid": "souvenir-for-the-road",
+        "isZeus": false,
+        "image": {
+          "imageName": "b79a836c0d98517a28ed48d3c97d7292.dds",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2458783,
+            "itemName": "Beware of Deathclaw Bundle",
+            "itemNameShort": "Beware of Deathclaw Bundle",
+            "itemDesc": "Beware... they're everywhere.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "615ec6fedc714bc2fd93b6620a7108a2.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s14_camp_walldecor_bewareofdeathclawsign_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_camp_collector_deathclawslowroaster_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_deathclawradiationdummy_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_statue_minideathclaw_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_topiary_deathclaw_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_rug_deathclaw_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_deathclawmascot_l.webp",
                 "directory": "/textures/atx/storefront/player/headwear/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Beware of Deathclaw Sign"
               },
               {
-                "imageName": "atx_apparel_outfit_medicalrescuedress.webp",
+                "szItemName": "Deathclaw Slow Roaster"
+              },
+              {
+                "szItemName": "Deathclaw Radiation Dummy"
+              },
+              {
+                "szItemName": "Mini Deathclaw Statue"
+              },
+              {
+                "szItemName": "Deathclaw Topiary"
+              },
+              {
+                "szItemName": "Deathclaw Pelt Rug"
+              },
+              {
+                "szItemName": "Deathclaw Mascot Helmet"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1200,
+              "originalAmount": 1200,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1200,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1200
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458784,
+            "itemName": "Fun and Free Bundle",
+            "itemNameShort": "Fun and Free Bundle",
+            "itemDesc": "Live life on the fun and free side!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "ee5451419fcc5e37faf83d44c57ebcdb.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_kit_destroyedcamp_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_destroyedcampporch_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_structure_stairs_destroyed_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_sign_billboard_solid_clean_l.webp",
+                "directory": "/textures/atx/storefront/camp/signs/"
+              },
+              {
+                "imageName": "atx_entm_camp_bed_guest.webp",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "atx_entm_camp_lights_wall_cocktailsign_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "5a553eca5b638e6da32abc0c9a81f0d0.dds",
+                "directory": "/textures/atomic_shop_media/"
+              },
+              {
+                "imageName": "score_s4_skin_weaponskin_powerfist_icebreaker_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "angry_fist.webp",
+                "directory": "/textures/emotes/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Destroyed C.A.M.P. Kit"
+              },
+              {
+                "szItemName": "Destroyed C.A.M.P. Porch Kit"
+              },
+              {
+                "szItemName": "Destroyed Stairs"
+              },
+              {
+                "szItemName": "Clean Solid Billboard"
+              },
+              {
+                "szItemName": "Modern Conveniences Bed"
+              },
+              {
+                "szItemName": "Cocktail Sign"
+              },
+              {
+                "szItemName": "Light Bulb Letters Set"
+              },
+              {
+                "szItemName": "Icebreaker (Power Fist)"
+              },
+              {
+                "szItemName": "Angry Fist Shake"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1130,
+              "originalAmount": 1500,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2444476,
+            "itemName": "A Better Life Bundle",
+            "itemNameShort": "A Better Life Bundle",
+            "itemDesc": "Build a better life with Vault-Tec and the A Better Life Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "f602f75a600c462821774800a4082c42.webp",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_pipboy_vaulttec_l.webp",
+                "directory": "/textures/atx/storefront/player/pipboy/"
+              },
+              {
+                "imageName": "score_s3_camp_floor_carpeteria_vaulttec_l.webp",
+                "directory": "/textures/atx/storefront/camp/floors/"
+              },
+              {
+                "imageName": "atx_camp_utility_fusioncorerecharger_vaulttec_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_decoration_flagwaving_vaulttec_01_c1.dds",
+                "directory": "/textures/atx/storefront/camp/flags/"
+              },
+              {
+                "imageName": "atx_camp_utility_deconshower_vaulttec_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx__camp_lights_floorlamps_vault-tectripod_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_decoration_vaulttecspa_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_statue_statuevaultteclogo_l.webp",
+                "directory": "/textures/atx/storefront/camp/statues/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_vaulttecbomberjacket_l.webp",
                 "directory": "/textures/atx/storefront/player/outfit/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Medical Rescue Outfit"
+                "szItemName": "Vault-Tec Pip-Boy"
               },
               {
-                "szItemName": "Medical Rescue Mask"
+                "szItemName": "Carpeteria Vault-Tec floor and foundation"
               },
               {
-                "szItemName": "Medical Rescute Dress"
+                "szItemName": "Vault-Tec Fusion Core Recharger"
+              },
+              {
+                "szItemName": "Vault-Tec Flag"
+              },
+              {
+                "szItemName": "Vault-Tec Decontamination Shower"
+              },
+              {
+                "szItemName": "Vault-Tec Tripod Floor Lamp"
+              },
+              {
+                "szItemName": "Vault-Tec Spa"
+              },
+              {
+                "szItemName": "Vault-Tec Logo Statue"
+              },
+              {
+                "szItemName": "Vault-Tec Bomber Jacket"
               }
             ],
+            "lowPrice": {
+              "amount": 1500,
+              "originalAmount": 1500,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458563,
+            "itemName": "Elder's Battlecoat",
+            "itemNameShort": "Elder's Battlecoat",
+            "itemDesc": "Wear the coat of the Brotherhood Elders.\r\n\r\nOriginally included with the E3 Bonus Atoms Bundle.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_apparel_outfit_elderbattlecoat_mp1_l.webp",
+              "directory": "/textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 1200,
+              "originalAmount": 1200,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1200,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1200
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458016,
+            "itemName": "Vault-Tec Bomber Jacket",
+            "itemNameShort": "Bomber Jacket",
+            "itemDesc": "Fly the (un)friendly skies with this officially branded Bomber Jacket from your friends at Vault-Tec.\r\n\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_apparel_outfit_vaulttecbomberjacket_l.webp",
+              "directory": "/textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_outfit_vaulttecbomberjacket_c1.dds",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_vaulttecbomberjacket_c2.dds",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              }
+            ],
+            "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 800,
               "originalAmount": 800,
               "isLto": true,
-              "ltoTimer": "2026-02-27T12:00:00.000Z"
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 800,
@@ -404,162 +1620,191 @@
             },
             "highPrice": {
               "amount": 0,
-              "originalAmount": 800
+              "originalAmount": 1000
             },
-            "isNew": 1,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
           },
           {
-            "itemID": 2458780,
-            "itemName": "Emergency Technician Repair Bot",
-            "itemNameShort": "Emergency Technician Repair Bot",
-            "itemDesc": "Every good C.A.M.P. needs their own Emergency Technician Repair Bot to keep things booming!\n \nRestores health to damaged C.A.M.P. objects. Does not repair destroyed C.A.M.P. objects.\n \nThis item cannot be built inside of a Shelter.\r\n\r\n- C.A.M.P. ITEMS APPEARS WHILE IN C.A.M.P. MODE. -",
+            "itemID": 2458689,
+            "itemName": "Deathclaw Slow Roaster",
+            "itemNameShort": "Deathclaw Slow Roaster",
+            "itemDesc": "Time for a good old fashioned Deathclaw cookout!\r\n\r\nGenerates meat based meals.\r\n\r\nThis item cannot be built inside of a Shelter.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "atx_camp_utility_repairbot_emergencytech_l.webp",
+              "imageName": "atx_camp_collector_deathclawslowroaster_l.webp",
               "directory": "/textures/atx/storefront/camp/utility/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_camp_utility_repairbot_emergencytech_c1.dds",
+                "imageName": "atx_camp_collector_deathclawslowroaster_c1.dds",
                 "directory": "/textures/atx/storefront/camp/utility/"
               },
               {
-                "imageName": "atx_camp_utility_repairbot_emergencytech_c2.dds",
+                "imageName": "atx_camp_collector_deathclawslowroaster_c2.dds",
                 "directory": "/textures/atx/storefront/camp/utility/"
               }
             ],
             "dynamicBundleItems": [],
             "lowPrice": {
-              "amount": 700,
-              "originalAmount": 700,
+              "amount": 560,
+              "originalAmount": 560,
               "isLto": true,
-              "ltoTimer": "2026-02-27T12:00:00.000Z"
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 700,
+              "amount": 560,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
               "originalAmount": 700
             },
-            "isNew": 1,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
           },
           {
-            "itemID": 2458781,
-            "itemName": "Ambulance",
-            "itemNameShort": "Ambulance",
-            "itemDesc": "The lights still work, but I'm not so sure about anything else.\r\n\r\n- C.A.M.P. ITEMS APPEARS WHILE IN C.A.M.P. MODE. -",
+            "itemID": 2457944,
+            "itemName": "Destroyed C.A.M.P. Kit",
+            "itemNameShort": "Destroyed C.A.M.P. Kit",
+            "itemDesc": "This kit lets you create the perfect destroyed C.A.M.P. vibe, just watch that second plank.\r\n\r\nThis kit does not support wallpapers, and has a unique interior look. \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "atx_camp_structure_ambulance.webp",
-              "directory": "textures/atx/storefront/camp/structures/"
+              "imageName": "36dbfa19a18addedc116bd97fe64f889.dds",
+              "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_camp_structure_ambulance_c1.webp",
-                "directory": "textures/atx/storefront/camp/structures/"
+                "imageName": "atx_camp_kit_destroyedcamp_c1.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
               },
               {
-                "imageName": "atx_camp_structure_ambulance_c2.webp",
-                "directory": "textures/atx/storefront/camp/structures/"
+                "imageName": "atx_camp_kit_destroyedcamp_c2.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
               },
               {
-                "imageName": "atx_camp_structure_ambulance_c3.webp",
-                "directory": "textures/atx/storefront/camp/structures/"
+                "imageName": "atx_camp_kit_destroyedcamp_c3.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_destroyedcamp_c4.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
               }
             ],
             "dynamicBundleItems": [],
             "lowPrice": {
-              "amount": 500,
-              "originalAmount": 500,
+              "amount": 560,
+              "originalAmount": 560,
               "isLto": true,
-              "ltoTimer": "2026-02-27T12:00:00.000Z"
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 500,
+              "amount": 560,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
-              "originalAmount": 500
+              "originalAmount": 700
             },
-            "isNew": 1,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 4,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
           },
           {
-            "itemID": 2458782,
-            "itemName": "Freeze-Aid Paint (Cryolator)",
-            "itemNameShort": "Freeze-Aid Paint (Cryolator)",
-            "itemDesc": "Be ready to tackle any \"emergency\" as long as that emergency can with fixed with ice.\r\n\r\n- WEAPON SKIN IS CRAFTABLE AT WEAPON WORKBENCH. -",
+            "itemID": 2458651,
+            "itemName": "Vault-Tec Engineer Power Armor T-60 Paint",
+            "itemNameShort": "Vault-Tec Engineer T-60  Paint",
+            "itemDesc": "Join the ranks of Vault-Tec's engineers with this Paint for your Power Armor. \r\nIncludes a unique paint for the T-60 Power Armor.\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
             "primaryImage": {
-              "imageName": "atx_skin_weaponskin_cryolator_freezeaid_l.webp",
-              "directory": "/textures/atx/storefront/player/weaponskin/"
+              "imageName": "atx_skin_powerarmor_paint_vaulttec2_t60_l.webp",
+              "directory": "/textures/atx/storefront/player/powerarmor/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_skin_weaponskin_cryolator_freezeaid_c1.dds",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
+                "imageName": "atx_skin_powerarmor_paint_vaulttec2_c5.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
               },
               {
-                "imageName": "atx_skin_weaponskin_cryolator_freezeaid_c2.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
+                "imageName": "atx_skin_powerarmor_paint_vaulttec2_c6.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
               }
             ],
             "dynamicBundleItems": [],
             "lowPrice": {
-              "amount": 500,
-              "originalAmount": 500,
+              "amount": 0,
+              "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-02-27T12:00:00.000Z"
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 500,
+              "amount": 0,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
-              "originalAmount": 500
+              "originalAmount": 0
             },
-            "isNew": 1,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
           },
           {
-            "itemID": 2458783,
-            "itemName": "Water Boiler",
-            "itemNameShort": "Water Boiler",
-            "itemDesc": "A Water Boiler for your C.A.M.P.!\r\n\r\n- C.A.M.P. ITEM IS CRAFTABLE AT C.A.M.P. WORKBENCH. -",
+            "itemID": 2458338,
+            "itemName": "Dinky Plushie",
+            "itemNameShort": "Dinky Plushie",
+            "itemDesc": "The tag reads \"Dino Dee-lite Motel\", sounds nice!\r\n\r\nAvailable as part of the Fallout First Limited Trial in December 2025.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "score_s16_camp_collector_waterboiler_l.webp",
-              "directory": "/textures/atx/storefront/camp/utility/"
+              "imageName": "atx_camp_floordecor_plushie_dinky.dds",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
             },
             "carouselImages": [
               {
-                "imageName": "score_s16_camp_collector_waterboiler_c1.dds",
-                "directory": "/textures/atx/storefront/camp/utility/"
+                "imageName": "atx_camp_floordecor_plushie_dinky_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
-                "imageName": "score_s16_camp_collector_waterboiler_c2.dds",
-                "directory": "/textures/atx/storefront/camp/utility/"
+                "imageName": "atx_camp_floordecor_plushie_dinky_c2.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               }
             ],
             "dynamicBundleItems": [],
             "lowPrice": {
-              "amount": 500,
-              "originalAmount": 500,
+              "amount": 0,
+              "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-02-27T12:00:00.000Z"
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 400,
+              "amount": 0,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
-              "originalAmount": 500
+              "originalAmount": 0
             },
-            "isNew": 0,
-            "isZeus": false
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
           }
         ]
       },
@@ -1201,522 +2446,497 @@
         ]
       },
       {
-        "name": "Valentine's Sale \\n Love is in the air.",
-        "tabid": "valentines-sale",
+        "name": "Weekend Sale \\n The show begins!",
+        "tabid": "weekend-sale",
         "isZeus": false,
         "image": {
-          "imageName": "b79a836c0d98517a28ed48d3c97d7292.webp",
+          "imageName": "020b201b3595dd4c555ce48cdc45a582.dds",
           "directory": "textures/atomic_shop_media/"
         },
         "items": [
           {
-            "itemID": 2458781,
-            "itemName": "Everything Pink Bundle",
-            "itemNameShort": "Everything Pink Bundle",
-            "itemDesc": "Who doesn't love pink?\n\nIncludes: Pink Wallpaper, Pink Corvega Paint, Pink Metal Armor Paint, Laundered Pink Dress, Pink Neon Heart Sign, Heartbreaker Power Armor, Pink Floater Mobile, Tickled Pink Gauss Minigun Paint, Valentine's Hardcase Backpack",
+            "itemID": 2453948,
+            "itemName": "Ready for Battle Bundle",
+            "itemNameShort": "Ready for Battle Bundle",
+            "itemDesc": "Be ready to get tested for battle with the Ready for Battle Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
             "primaryImage": {
-              "imageName": "5e47097eb48e41b64aebb3ca0284aa82.webp",
+              "imageName": "7e3767fb09375110f284a64256fa6bd4.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_camp_wallpaper_valentinesday_01_l.webp",
-                "directory": "/textures/atx/storefront/camp/wallpaper/"
-              },
-              {
-                "imageName": "atx_pipboy_pinkandchrome_l.webp",
-                "directory": "/textures/atx/storefront/player/pipboy/"
-              },
-              {
-                "imageName": "atx_skin_armorskin_metal_pink_l.webp",
-                "directory": "/textures/atx/storefront/player/armorskin/"
-              },
-              {
-                "imageName": "atx_apparel_outfit_prewarhousedress_pink_clean_l.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_camp_lights_neonsign_heart_pink_l.webp",
-                "directory": "/textures/atx/storefront/camp/lights/"
-              },
-              {
-                "imageName": "atx_skin_powerarmor_model_heartbreaker_l.webp",
+                "imageName": "atx_skin_powerarmor_paint_warhead_battlescar.webp",
                 "directory": "/textures/atx/storefront/player/powerarmor/"
               },
               {
-                "imageName": "atx_camp_walldeco_mobile_floater_pink_l.webp",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
+                "imageName": "atx__skin_weaponskin_gatlingplasma_lightemup.webp",
+                "directory": "/textures/atx/storefront/player/weaponmodel/"
               },
               {
-                "imageName": "atx_skin_weaponskin_gaussminigun_tickledpink_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
+                "imageName": "atx_camp_utility_fusioncorerecharger_fasnacht_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
               },
               {
-                "imageName": "atx_skin_backpack_case_valentine_l.webp",
-                "directory": "/textures/atx/storefront/player/backpack/"
+                "imageName": "atx_camp_structure_destroyedtrailer.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_photomode_pose_militaryhuddle.webp",
+                "directory": "/textures/atx/storefront/player/photopose/"
+              },
+              {
+                "imageName": "atx_photomode_pose_militaryhuddle_love.webp",
+                "directory": "/textures/atx/storefront/player/photopose/"
+              },
+              {
+                "imageName": "atx_photomode_pose_militaryhuddle_cheer.webp",
+                "directory": "/textures/atx/storefront/player/photopose/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Pink Wallpaper"
+                "szItemName": "Battle Scar Power Armor Skin"
               },
               {
-                "szItemName": "Pink Corvega Paint"
+                "szItemName": "Light 'Em Up Paint (Gatling Plasma)"
               },
               {
-                "szItemName": "Pink Metal Armor Paint"
+                "szItemName": "Industrial Fusion Core Recharger"
               },
               {
-                "szItemName": "Laundered Pink Dress"
+                "szItemName": "Destroyed Trailer"
               },
               {
-                "szItemName": "Pink Neon Heart Sign"
+                "szItemName": "Military Huddle Kneel Pose"
               },
               {
-                "szItemName": "Heartbreaker Power Armor"
+                "szItemName": "Military Huddle Love Pose"
               },
               {
-                "szItemName": "Pink Floater Mobile"
-              },
-              {
-                "szItemName": "Tickled Pink Gauss Minigun Paint"
-              },
-              {
-                "szItemName": "Valentine's Hardcase Backpack"
+                "szItemName": "Military Huddle Cheer Pose"
               }
             ],
             "lowPrice": {
-              "amount": 1260,
+              "amount": 1800,
               "originalAmount": 1800,
               "isLto": true,
-              "ltoTimer": "2026-02-17T12:00:00.000Z"
+              "ltoTimer": "2026-02-05T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 1260,
+              "amount": 1800,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
               "originalAmount": 1800
             },
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
           },
           {
-            "itemID": 0,
-            "itemName": "Tickled Pink Bundle",
-            "itemNameShort": "Tickled Pink Bundle",
-            "itemDesc": "Add hugs and roses to your C.A.M.P. while you tickle the wasteland with the Tickled Pink Bundle.\n\nIncludes: Honeycomb Valentine's Heart With Bow, Honeycomb Valentine's Ornament, Honeycomb Valentine's Hugs Ornament, Honeycomb Valentine's Heart With Tassels, Pink Wallpaper, Honeycomb Valentine's Heart With Arrow, Honeycomb Valentine's Heart Mobile, Red Rose Bush, White Rose Bush, Motor-Up Molly Outfit, Honeycomb Valentine's Heart With Wings, Bloated Tick Plushie, Pink Floater Mobile, Honeycomb Valentine's Heart, Tickled Pink Gauss Minigun Paint",
+            "itemID": 2453949,
+            "itemName": "Enclave Bundle",
+            "itemNameShort": "Enclave Bundle",
+            "itemDesc": "Show the strength of the real American Government in the Enclave Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCH. -",
             "primaryImage": {
-              "imageName": "7373e7bfe2b16feb0db5e653e30da807.webp",
+              "imageName": "ded155f723b41007f9dee117e72fb26e.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesheartwithbow_l.webp",
-                "directory": "/textures/atx/storefront/camp/lights/"
+                "imageName": "atx_skin_powerarmor_paint_enclave_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
               },
               {
-                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesornament_l.webp",
-                "directory": "/textures/atx/storefront/camp/lights/"
+                "imageName": "atx_skin_powerarmor_jetpack_enclave_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
               },
               {
-                "imageName": "atx_camp_lights_ceiling_honeycombvalentineshugsornament.webp",
-                "directory": "/textures/atx/storefront/camp/lights/"
+                "imageName": "atx_camp_machinery_workbench_powerarmor_enclave_l.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
               },
               {
-                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesheartwithtassels_l.webp",
-                "directory": "/textures/atx/storefront/camp/lights/"
-              },
-              {
-                "imageName": "atx_camp_wallpaper_valentinesday_01_l.webp",
-                "directory": "/textures/atx/storefront/camp/wallpaper/"
-              },
-              {
-                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesheartwitharrow_l.webp",
-                "directory": "/textures/atx/storefront/camp/lights/"
-              },
-              {
-                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesheartmobile.webp",
-                "directory": "/textures/atx/storefront/camp/lights/"
-              },
-              {
-                "imageName": "atx_entm_camp_floordecor_redrosebush_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_entm_camp_floordecor_whiterosebush_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_apparel_outfit_motorupmollyoutfit_l.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesheartwithwings_l.webp",
-                "directory": "/textures/atx/storefront/camp/lights/"
-              },
-              {
-                "imageName": "atx_entm_camp_floordecor_plushie_bloatedtic_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_walldeco_mobile_floater_pink_l.webp",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
-              },
-              {
-                "imageName": "atx_camp_lights_ceiling_honeycombvalentinesheartwitharrow.webp",
-                "directory": "/textures/atx/storefront/camp/lights/"
-              },
-              {
-                "imageName": "atx_skin_weaponskin_gaussminigun_tickledpink_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Honeycomb Valentine's Heart With Bow"
-              },
-              {
-                "szItemName": "Honeycomb Valentine's Ornament"
-              },
-              {
-                "szItemName": "Honeycomb Valentine's Hugs Ornament"
-              },
-              {
-                "szItemName": "Honeycomb Valentine's Heart With Tassels"
-              },
-              {
-                "szItemName": "Pink Wallpaper"
-              },
-              {
-                "szItemName": "Honeycomb Valentine's Heart With Arrow"
-              },
-              {
-                "szItemName": "Honeycomb Valentine's Heart Mobile"
-              },
-              {
-                "szItemName": "Red Rose Bush"
-              },
-              {
-                "szItemName": "White Rose Bush"
-              },
-              {
-                "szItemName": "Motor-Up Molly Outfit"
-              },
-              {
-                "szItemName": "Honeycomb Valentine's Heart With Wings"
-              },
-              {
-                "szItemName": "Bloated Tick Plushie"
-              },
-              {
-                "szItemName": "Pink Floater Mobile"
-              },
-              {
-                "szItemName": "Honeycomb Valentine's Heart"
-              },
-              {
-                "szItemName": "Tickled Pink Gauss Minigun Paint"
-              }
-            ],
-            "lowPrice": {
-              "amount": 1050,
-              "originalAmount": 1500,
-              "isLto": true,
-              "ltoTimer": "2026-02-17T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1050,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 1500
-            },
-            "isZeus": false
-          },
-          {
-            "itemID": 0,
-            "itemName": "Wasteland's Sweetheart Bundle",
-            "itemNameShort": "Wasteland's Sweetheart Bundle",
-            "itemDesc": "Show your love for the true sweetheart of The Wasteland.\n\nIncludes Deathclaw Pelt Rug, Deathclaw Slow Roaster, Deathclaw Mascot Helmet, Deathclaw Topiary, Mini Deathclaw Statue",
-            "primaryImage": {
-              "imageName": "dc210a6e5ac6621b3053deffac961162.webp",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_floordecor_rug_deathclaw_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_collector_deathclawslowroaster_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "atx_apparel_headwear_deathclawmascot_l.webp",
+                "imageName": "atx_apparel_headwear_beret_enclave_l.webp",
                 "directory": "/textures/atx/storefront/player/headwear/"
               },
               {
-                "imageName": "atx_camp_floordecor_topiary_deathclaw_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_statue_minideathclaw_l.webp",
-                "directory": "/textures/atx/storefront/camp/statues/"
+                "imageName": "atx_pipboy_enclave_l.webp",
+                "directory": "/textures/atx/storefront/player/pipboy/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Deathclaw Pelt Rug"
+                "szItemName": "Enclave Power Armor Paint"
               },
               {
-                "szItemName": "Deathclaw Slow Roaster"
+                "szItemName": "Enclave Jetpack"
               },
               {
-                "szItemName": "Deathclaw Mascot Helmet"
+                "szItemName": "Enclave Power Armor Station"
               },
               {
-                "szItemName": "Deathclaw Topiary"
+                "szItemName": "Enclave Military Beret"
               },
               {
-                "szItemName": "Mini Deathclaw Statue"
+                "szItemName": "Enclave Paint"
               }
             ],
             "lowPrice": {
-              "amount": 700,
-              "originalAmount": 1000,
+              "amount": 900,
+              "originalAmount": 900,
               "isLto": true,
-              "ltoTimer": "2026-02-17T12:00:00.000Z"
+              "ltoTimer": "2026-02-05T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 700,
+              "amount": 900,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
-              "originalAmount": 1000
+              "originalAmount": 1800
             },
-            "isZeus": false
+            "isNew": false,
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
-            "itemID": 0,
-            "itemName": "Headliner Paint (Power Armor)",
-            "itemNameShort": "Headliner Paint",
-            "itemDesc": "Be the star of your own show with the Headliner Paint.\n[h]This is a unique skin that completely alters the appearance of your Power Armor, and can be equipped to all Power Armors.[/h]\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "itemID": 2453950,
+            "itemName": "Woodland Retreat Bundle",
+            "itemNameShort": "Woodland Retreat Bundle",
+            "itemDesc": "The Woodland Retreat makes a great bed and breakfast or C.A.M.P. mansion. Comes with furniture to decorate.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "atx_skin_powerarmor_paint_hellfire_headliner.webp",
+              "imageName": "bc94e57b1710b9055bf51eb259211708.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_structure_woodlandretreat_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_stashbox_armoire.webp",
+                "directory": "/textures/atx/storefront/camp/stash/"
+              },
+              {
+                "imageName": "atx_entm_camp_bed_guest.webp",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "atx_entm_camp_lights_wall_greenbedside_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_walldecor_decorativemirror_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Woodland Retreat"
+              },
+              {
+                "szItemName": "Armoire Stash Box"
+              },
+              {
+                "szItemName": "Modern Conveniences Bed"
+              },
+              {
+                "szItemName": "Green Bedside Light"
+              },
+              {
+                "szItemName": "Decorative Mirror"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1080,
+              "originalAmount": 1080,
+              "isLto": true,
+              "ltoTimer": "2026-02-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1080,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2453402,
+            "itemName": "Alien Invader Power Armor Paint",
+            "itemNameShort": "Alien Invader Paint",
+            "itemDesc": "Join the forces from beyond with your own Alien Invader Power Armor Paint.\r\n\r\nThis is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on the Excavator, Raider, T-45, T-51, T-60, T-65, Ultracite and X-01 Power Armors.\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "atx_skin_powerarmor_model_alieninvader_l.webp",
               "directory": "/textures/atx/storefront/player/powerarmor/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_skin_powerarmor_paint_hellfire_headliner_c2.webp",
+                "imageName": "atx_skin_powerarmor_model_alieninvader_c1.webp",
                 "directory": "/textures/atx/storefront/player/powerarmor/"
               },
               {
-                "imageName": "atx_skin_powerarmor_paint_hellfire_headliner_c1.webp",
+                "imageName": "atx_skin_powerarmor_model_alieninvader_c2.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_model_alieninvader_c3.webp",
                 "directory": "/textures/atx/storefront/player/powerarmor/"
               }
             ],
+            "dynamicBundleItems": [],
             "lowPrice": {
-              "amount": 960,
-              "originalAmount": 1200,
+              "amount": 720,
+              "originalAmount": 720,
               "isLto": true,
-              "ltoTimer": "2026-02-17T12:00:00.000Z"
+              "ltoTimer": "2026-02-05T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 960,
+              "amount": 720,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
               "originalAmount": 1200
             },
-            "isZeus": false
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
-            "itemID": 0,
-            "itemName": "Sawtooth Outfit",
-            "itemNameShort": "Sawtooth Outfit",
-            "itemDesc": "Be careful not to poke someone's eye out.\n\nIncludes Sawtooth Outfit, Sawtooth Mask.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemID": 2453493,
+            "itemName": "Street Corner Salesman",
+            "itemNameShort": "Street Corner Salesman",
+            "itemDesc": "Psst. Come here... and be discreet about it.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "atx_apparel_outfit_sawtoothoutfit_l.webp",
-              "directory": "/textures/atx/storefront/player/outfit/"
+              "imageName": "atx_entm_camp_vendor_playervendingmachine_streetcornersalesman.dds",
+              "directory": "/textures/atx/storefront/camp/vendors/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_apparel_headwear_sawtoothmask_l.webp",
-                "directory": "/textures/atx/storefront/player/headwear/"
+                "imageName": "atx_entm_camp_vendor_playervendingmachine_streetcornersalesman_c1.dds",
+                "directory": "/textures/atx/storefront/camp/vendors/"
               },
               {
-                "imageName": "atx_apparel_outfit_sawtooth_c1.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_apparel_outfit_sawtooth_c2.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
+                "imageName": "atx_entm_camp_vendor_playervendingmachine_streetcornersalesman_c2.dds",
+                "directory": "/textures/atx/storefront/camp/vendors/"
               }
             ],
+            "dynamicBundleItems": [],
             "lowPrice": {
-              "amount": 560,
-              "originalAmount": 700,
+              "amount": 420,
+              "originalAmount": 420,
               "isLto": true,
-              "ltoTimer": "2026-02-17T12:00:00.000Z"
+              "ltoTimer": "2026-02-05T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 560,
+              "amount": 420,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
               "originalAmount": 700
             },
-            "isZeus": false
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            }
           },
           {
-            "itemID": 0,
-            "itemName": "Haunted House Porch Set",
-            "itemNameShort": "Haunted House Porch Set",
-            "itemDesc": "Build the perfect porch to scare the neighborhood kids with the Haunted House Porch Set!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -  ",
+            "itemID": 2453016,
+            "itemName": "Vault-Tec Spa",
+            "itemNameShort": "Vault-Tec Spa",
+            "itemDesc": "Take a Spa Day with the Vault-Tec Spa.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "atx_camp_kit_hauntedhouseporchset_l.webp",
-              "directory": "/textures/atx/storefront/camp/kits/"
+              "imageName": "atx_camp_decoration_vaulttecspa_l.webp",
+              "directory": "/textures/atx/storefront/camp/structures/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_camp_kit_hauntedhouseporchset_c2.webp",
-                "directory": "/textures/atx/storefront/camp/kits/"
+                "imageName": "atx_camp_decoration_vaulttecspa_c1.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
               },
               {
-                "imageName": "atx_camp_kit_hauntedhouseporchset_c1.webp",
-                "directory": "/textures/atx/storefront/camp/kits/"
-              },
-              {
-                "imageName": "atx_camp_kit_hauntedhouseporchset_c3.webp",
-                "directory": "/textures/atx/storefront/camp/kits/"
-              }
-              
-            ],
-            "lowPrice": {
-              "amount": 560,
-              "originalAmount": 700,
-              "isLto": true,
-              "ltoTimer": "2026-02-17T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 560,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 700
-            },
-            "isZeus": false
-          },
-          {
-            "itemID": 0,
-            "itemName": "Pioneer Scouts Flag",
-            "itemNameShort": "Pioneer Scouts Flag",
-            "itemDesc": "Fly the flag of everyone's favorite scout troop the Pioneer Scouts!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -  ",
-            "primaryImage": {
-              "imageName": "atx_camp_decoration_flagwaving_pioneerscoutsflag_l.webp",
-              "directory": "/textures/atx/storefront/camp/flags/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_decoration_flagwaving_pioneerscoutsflag_c2.webp",
-                "directory": "/textures/atx/storefront/camp/flags/"
-              },
-              {
-                "imageName": "atx_camp_decoration_flagwaving_pioneerscoutsflag_c1.webp",
-                "directory": "/textures/atx/storefront/camp/flags/"
+                "imageName": "atx_camp_decoration_vaulttecspa_c2.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
               }
             ],
+            "dynamicBundleItems": [],
             "lowPrice": {
-              "amount": 400,
-              "originalAmount": 500,
-              "isLto": true,
-              "ltoTimer": "2026-02-17T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 400,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 500
-            },
-            "isZeus": false
-          },
-          {
-            "itemID": 0,
-            "itemName": "Shotgun Wedding Paint (Pip Boy)",
-            "itemNameShort": "Shotgun Wedding Paint",
-            "itemDesc": "It does not matter how quickly the wedding was put together, you still need flowers.\n\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage": {
-              "imageName": "atx_entm_skin_pipboyskin_shotgunwedding_l.webp",
-              "directory": "/textures/atx/storefront/player/pipboy/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_entm_skin_pipboyskin_shotgunwedding_c2.webp",
-                "directory": "/textures/atx/storefront/player/pipboy/"
-              },
-              {
-                "imageName": "atx_entm_skin_pipboyskin_shotgunwedding_c1.webp",
-                "directory": "/textures/atx/storefront/player/pipboy/"
-              }
-            ],
-            "lowPrice": {
-              "amount": 250,
-              "originalAmount": 500,
-              "isLto": true,
-              "ltoTimer": "2026-02-17T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "amount": 250,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 500
-            },
-            "isZeus": false
-          },
-          {
-            "itemID": 0,
-            "itemName": "Valentine's Day Plushie",
-            "itemNameShort": "Valentine's Day Plushie",
-            "itemDesc": "Mr. Fuzzy is looking for love this Valentine's Day.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -  ",
-            "primaryImage": {
-              "imageName": "atx_camp_floordecor_plushie_cat_valentinesday_l.webp",
-              "directory": "/textures/atx/storefront/camp/floordecoration/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_floordecor_plushie_cat_valentinesday_c2.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_floordecor_plushie_cat_valentinesday_c1.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              }
-            ],
-            "lowPrice": {
-              "amount": 240,
+              "amount": 300,
               "originalAmount": 300,
               "isLto": true,
-              "ltoTimer": "2026-02-17T12:00:00.000Z"
+              "ltoTimer": "2026-02-05T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
-              "amount": 240,
+              "amount": 300,
               "originalAmount": 0
             },
             "highPrice": {
               "amount": 0,
-              "originalAmount": 300
+              "originalAmount": 500
             },
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2453389,
+            "itemName": "Screaming Eagle Skin (Handmade Rifle)",
+            "itemNameShort": "Screaming Eagle Skin",
+            "itemDesc": "Defend this land from its communist invaders with the Screaming Eagle Skin for the Handmade Rifle.\r\n\r\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_skin_weaponmodel_handmadegun_screamingeagle_l.webp",
+              "directory": "/textures/atx/storefront/player/weaponmodel/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_weaponmodel_handmadegun_screamingeagle_c2.dds",
+                "directory": "/textures/atx/storefront/player/weaponmodel/"
+              },
+              {
+                "imageName": "atx_skin_weaponmodel_handmadegun_screamingeagle_c3.dds",
+                "directory": "/textures/atx/storefront/player/weaponmodel/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 300,
+              "originalAmount": 300,
+              "isLto": true,
+              "ltoTimer": "2026-02-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 300,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2453620,
+            "itemName": "Chalkboard Secret Door",
+            "itemNameShort": "Chalkboard Secret Door",
+            "itemDesc": "Eyes to the front of the class! \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_door_secret_chalkboard_l.webp",
+              "directory": "/textures/atx/storefront/camp/doors/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_door_secret_chalkboard_c1.dds",
+                "directory": "/textures/atx/storefront/camp/doors/"
+              },
+              {
+                "imageName": "atx_camp_door_secret_chalkboard_c2.dds",
+                "directory": "/textures/atx/storefront/camp/doors/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 300,
+              "originalAmount": 300,
+              "isLto": true,
+              "ltoTimer": "2026-02-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 300,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isNew": false,
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            }
+          },
+          {
+            "itemID": 2453399,
+            "itemName": "Lean-to Survival Tent",
+            "itemNameShort": "Lean-to Survival Tent",
+            "itemDesc": "Find shelter against the elements and curl up next to the fire in the Lean-to Survival Tent\r\n\r\nThe Survival Tent can be placed through the Favorites Menu.\r\n\r\nThis offer is exclusive to Fallout 1st Members. \r\n\r\n- UNLOCKS A VARIANT OF THE SURVIVAL TENT.-",
+            "primaryImage": {
+              "imageName": "atx_f1_survivaltent_skin_leanto_l.webp",
+              "directory": "/textures/atx/storefront/camp/tents/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_f1_survivaltent_skin_leanto_c1.dds",
+                "directory": "/textures/atx/storefront/camp/tents/"
+              },
+              {
+                "imageName": "atx_f1_survivaltent_skin_leanto_c2.dds",
+                "directory": "/textures/atx/storefront/camp/tents/"
+              },
+              {
+                "imageName": "atx_f1_survivaltent_skin_leanto_c3.dds",
+                "directory": "/textures/atx/storefront/camp/tents/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-02-05T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "isNew": false,
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            }
           }
         ]
       },
@@ -1807,6 +3027,11 @@
             },
             "isNew": 1,
             "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -1907,7 +3132,12 @@
               "originalAmount": 1800
             },
             "isNew": 2,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2453954,
@@ -2000,7 +3230,12 @@
               "originalAmount": 1200
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2453880,
@@ -2041,7 +3276,12 @@
               "originalAmount": 1200
             },
             "isNew": false,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2453764,
@@ -2082,7 +3322,12 @@
               "originalAmount": 700
             },
             "isNew": true,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2453337,
@@ -2119,7 +3364,12 @@
               "originalAmount": 500
             },
             "isNew": true,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2453072,
@@ -2160,7 +3410,12 @@
               "originalAmount": 500
             },
             "isNew": true,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2453615,
@@ -2197,7 +3452,12 @@
               "originalAmount": 300
             },
             "isNew": true,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2453472,
@@ -2234,7 +3494,12 @@
               "originalAmount": 300
             },
             "isNew": true,
-            "isZeus": false
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            }
           }
         ]
       },
@@ -2327,7 +3592,8 @@
               "amount": 1800,
               "originalAmount": 1800,
               "isLto": true,
-              "ltoTimer": "2026-02-10T12:00:00.000Z"
+              "ltoTimer": "2026-02-10T12:00:00.000Z",
+              "ltoType": 1
             },
             "lowestPurchasablePrice": {
               "amount": 1800,
@@ -2338,6 +3604,11 @@
               "originalAmount": 1800
             },
             "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -2490,7 +3761,8 @@
               "amount": 2400,
               "originalAmount": 2400,
               "isLto": true,
-              "ltoTimer": "2026-02-10T12:00:00.000Z"
+              "ltoTimer": "2026-02-10T12:00:00.000Z",
+              "ltoType": 1
             },
             "lowestPurchasablePrice": {
               "amount": 2400,
@@ -2501,6 +3773,11 @@
               "originalAmount": 2400
             },
             "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -2559,6 +3836,11 @@
               "originalAmount": 1200
             },
             "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -2612,6 +3894,11 @@
               "originalAmount": 4000
             },
             "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": false,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -2681,6 +3968,11 @@
               "originalAmount": 2000
             },
             "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 10,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -2722,6 +4014,11 @@
               "originalAmount": 1200
             },
             "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -2759,6 +4056,11 @@
               "originalAmount": 700
             },
             "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -2796,6 +4098,11 @@
               "originalAmount": 0
             },
             "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -2837,6 +4144,11 @@
               "originalAmount": 0
             },
             "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 3,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           }
         ]
@@ -2920,8 +4232,13 @@
               "originalAmount": 2000
             },
             "isNew": 1,
-            "isZeus": false,
-            "isClown": true
+            "isClown": true,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isZeus": false
           },
           {
             "itemID": 2433279,
@@ -2994,7 +4311,12 @@
             },
             "isNew": 2,
             "isZeus": false,
-            "isClown": true
+            "isClown": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2433280,
@@ -3043,7 +4365,12 @@
             },
             "isNew": 1,
             "isZeus": false,
-            "isClown": false
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 5,
+              "hasL": true,
+              "hasNone": false
+            }
           },
           {
             "itemID": 2433310,
@@ -3079,7 +4406,12 @@
               "originalAmount": 1500
             },
             "isZeus": false,
-            "isClown": false
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            }
           },
           {
             "itemID": 2433311,
@@ -3116,7 +4448,12 @@
             },
             "isNew": 1,
             "isZeus": false,
-            "isClown": false
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            }
           },
           {
             "itemID": 2433312,
@@ -3153,7 +4490,12 @@
             },
             "isNew": 1,
             "isZeus": false,
-            "isClown": false
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2433313,
@@ -3190,7 +4532,12 @@
             },
             "isNew": 1,
             "isZeus": false,
-            "isClown": false
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2433314,
@@ -3227,7 +4574,12 @@
             },
             "isNew": 1,
             "isZeus": false,
-            "isClown": false
+            "isClown": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2433315,
@@ -3264,7 +4616,13 @@
             },
             "isNew": 1,
             "isZeus": false,
-            "isClown": true
+            "isClown": true,
+            "disabled": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            }
           }
         ]
       },
@@ -3279,16 +4637,20 @@
         "items": [
           {
             "itemID": 2457900,
-            "itemName": "Vault Boy Weather Vane",
-            "itemNameShort": "Vault Boy Weather Vane",
-            "itemDesc": "A weather vane in the shape of a Vault Boy. \r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemName": "Yao Guai Rug",
+            "itemNameShort": "Yao Guai Rug",
+            "itemDesc": "Cozy up by the fire with the Yao Guai Rug. Not so threatening now!\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "atx_camp_floordecor_weathervane_vaultboy_l.webp",
-              "directory": "/textures/atx/storefront/camp/floordecoration/"
+              "imageName": "92a932093ee9aebf9359cc73c1e0ce1b.dds",
+              "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_camp_floordecor_weathervane_vaultboy_c1.webp",
+                "imageName": "atx_camp_floordecor_yaoguairug_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_yaoguairug_c2.dds",
                 "directory": "/textures/atx/storefront/camp/floordecoration/"
               }
             ],
@@ -3307,9 +4669,93 @@
               "amount": 0,
               "originalAmount": 0
             },
-            "isNew": 0,
+            "isNew": 1,
             "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
             "isClown": false
+          },
+          {
+            "itemID": 2458363,
+            "itemName": "Vault-Tec Engineer Power Armor T-45 Paint",
+            "itemNameShort": "Vault-Tec Engineer T-45 Paint",
+            "itemDesc": "Join the ranks of Vault-Tec's engineers with this Paint for your Power Armor. \r\nIncludes a unique paint for the T-45 Power Armor.\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "atx_skin_powerarmor_paint_vaulttec2_l.webp",
+              "directory": "/textures/atx/storefront/player/powerarmor/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_powerarmor_paint_vaulttec2_c1.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_vaulttec2_c9.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458077,
+            "itemName": "Vault-Tec Engineer Power Armor X-01 Paint",
+            "itemNameShort": "Vault-Tec Engineer X-01 Paint",
+            "itemDesc": "Join the ranks of Vault-Tec's engineers with this Paint for your Power Armor. \r\nIncludes a unique paint for the X-01 Power Armor.\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "ATX_Skin_PowerArmor_Paint_VaultTec2_X01.dds",
+              "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "ATX_Skin_PowerArmor_Paint_VaultTec2_C7.dds",
+                "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
+              },
+              {
+                "imageName": "ATX_Skin_PowerArmor_Paint_VaultTec2_C8.dds",
+                "directory": "Textures/ATX/Storefront/Player/PowerArmor/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "isNew": false,
+            "isZeus": false
           },
           {
             "itemID": 2316946,
@@ -3337,6 +4783,44 @@
               "originalAmount": 0
             },
             "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2366300,
+            "itemName": "Free Lunchbox",
+            "itemNameShort": "Free Lunchbox",
+            "itemDesc": "Open a Lunchbox for you and your friends! You and players nearby receive an XP Boost and a random Buff Effect for a hour!\r\n\r\nFor Odds and Effects Information, visit Help > Lunchboxes.\r\n\r\n- LUNCHBOXES ARE UNDER AID IN THE PIP-BOY. LUNCHBOXES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
+            "primaryImage": {
+              "imageName": "atx_store_lunchbox001_l.webp",
+              "directory": "/textures/atx/storefront/utility/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": true,
+              "ltoTimer": "2026-02-04T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -3376,75 +4860,132 @@
             "isZeus": false,
             "isClown": false
           },
-          
           {
-            "itemID": 2458810,
-            "itemName": "UFO Hunter Bundle",
-            "itemNameShort": "UFO Hunter Bundle",
-            "itemDesc": "Add UFO Hunter the singing handyman to your C.A.M.P. with the UFO Hunter Bundle.\r\n\r\n- ALLIES APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE. -\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemID": 2458536,
+            "itemName": "Space Walk Emote",
+            "itemNameShort": "Space Walk",
+            "itemDesc": "Defy the laws of gravity with the Space Walk Emote.\r\n\r\n- UNLOCKS AN EMOTE OPTION. -",
             "primaryImage": {
-              "imageName": "09918c27f0935d939410575a941d8550.webp",
+              "imageName": "space_walk.webp",
+              "directory": "/textures/emotes/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 125,
+              "originalAmount": 125,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 125,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 250
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 102,
+            "itemName": "Dig It! Emote",
+            "itemNameShort": "Dig It!",
+            "itemDesc": "Show that you can dig it, with the Dig It! Emote\r\n\r\n- UNLOCKS AN EMOTE OPTION. -",
+            "primaryImage": {
+              "imageName": "dig_it.webp",
+              "directory": "/textures/emotes/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 125,
+              "originalAmount": 125,
+              "isLto": true,
+              "ltoTimer": "2026-02-06T17:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 125,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 250
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": false,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 103,
+            "itemName": "Disaster Dock Bundle",
+            "itemNameShort": "Disaster Dock Bundle",
+            "itemDesc": "Surely another disaster can't happen to the same boat, right? Find out with the Disaster Dock Bundle.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "de0bac844609fe34a94e9c17f0040850.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "score_s7_camp_ally_katherineswan_l.webp",
-                "directory": "/textures/atx/storefront/camp/ally/"
+                "imageName": "atx_entm_camp_structure_bulwark_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
               },
               {
-                "imageName": "score_s7_camp_floor_starscape_l.webp",
-                "directory": "/textures/atx/storefront/camp/floors/"
+                "imageName": "atx_camp_kit_ohioriveradventuredock_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
               },
               {
-                "imageName": "score_s7_skin_backpackflair_zetan_l.webp",
-                "directory": "/textures/atx/storefront/player/flair/"
+                "imageName": "atx_camp_collector_mirelurksteamer_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
               },
               {
-                "imageName": "score_s7_skin_backpackflair_zetanship_l.webp",
-                "directory": "/textures/atx/storefront/player/flair/"
+                "imageName": "atx_entm_camp_defense_fortpartition.webp",
+                "directory": "/textures/atx/storefront/camp/defenses/"
               },
               {
-                "imageName": "score_s7_camp_furniture_patiotable_ufo_l.webp",
-                "directory": "/textures/atx/storefront/camp/furniture/"
+                "imageName": "atx_camp_floordecor_tireroadsign_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               },
               {
-                "imageName": "score_s7_camp_wallpaper_starscape_l.webp",
-                "directory": "/textures/atx/storefront/camp/wallpaper/"
-              },
-              {
-                "imageName": "score_s7_camp_furniture_shootinggallery_alieninvasion_l.webp",
-                "directory": "/textures/atx/storefront/camp/furniture/"
+                "imageName": "atx_entm_camp_floordecor_plushie_overgrownrusher_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
               }
-
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Lite Ally: Katherine Swan"
+                "szItemName": "The Bulwark"
               },
               {
-                "szItemName": "Starscape Floors and Foundation"
+                "szItemName": "Ohio River Adventure Dock Kit"
               },
               {
-                "szItemName": "Alien Backpack Flair"
+                "szItemName": "Mirelurk Steamer"
               },
               {
-                "szItemName": "Alien Ship Backpack Flair"
+                "szItemName": "Fort Fortress & Plank Partition Set"
               },
               {
-                "szItemName": "UFO Umbrella Patio Table"
+                "szItemName": "Tire Road Sign"
               },
               {
-                "szItemName": "Starscape Wallpaper"
-              },
-              {
-                "szItemName": "Alien Invasion Shooting Gallery"
+                "szItemName": "Overgrown Thorn Plushie"
               }
             ],
             "lowPrice": {
               "amount": 900,
               "originalAmount": 900,
               "isLto": true,
-              "ltoTimer": "2026-02-28T12:00:00.000Z"
+              "ltoTimer": "2026-02-06T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 900,
@@ -3455,6 +4996,74 @@
               "originalAmount": 1800
             },
             "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
+            "isClown": false
+          },
+          {
+            "itemID": 2458810,
+            "itemName": "Sam Nguyen Bundle",
+            "itemNameShort": "Sam Nguyen Bundle",
+            "itemDesc": "Add Sam Nguyen the singing handyman to your C.A.M.P. with the Sam Nguyen Bundle.\r\n\r\n- ALLIES APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE. -\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "e307ef81a00b9e7f4eeb0868bd1d8285.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_ally_mechanic_samnguyen_c1.webp",
+                "directory": "/textures/atx/storefront/camp/ally/"
+              },
+              {
+                "imageName": "score_s8_camp_kit_responders_l.webp",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_furniture_instrument_resonatorguitar_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_machinery_workbench_armor_vaulttec_l.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Lite Ally: Sam Nguyen"
+              },
+              {
+                "szItemName": "Responders Kit"
+              },
+              {
+                "szItemName": "Resonator Guitar"
+              },
+              {
+                "szItemName": "Vault-Tec Official Armor Workbench"
+              }
+            ],
+            "lowPrice": {
+              "amount": 900,
+              "originalAmount": 900,
+              "isLto": true,
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 900,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isZeus": false,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -3493,49 +5102,59 @@
             },
             "isNew": 1,
             "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": false,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
             "itemID": 2458803,
-            "itemName": "Shadow Prime Bundle",
-            "itemNameShort": "Shadow Prime Bundle",
-            "itemDesc": "[b]DEMOCRACY WILL NEVER BE DEFEATED. Become a covert agent of democracy and justice with the Shadow Prime Power Armor![/b]\r\n\r\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "itemName": "Solomon Hardy Bundle",
+            "itemNameShort": "Solomon Hardy Bundle",
+            "itemDesc": "Lucky for you, the doctor is in...cluded in this Solomon Hardy C.A.M.P. Bundle. \r\n\r\n- ALLIES APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE. -\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "ee38747343ec2150bf478cbfabd1a79b.webp",
+              "imageName": "8982b0340bd5c8ccdc5ba18c8a99c9ec.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_skin_powerarmor_paint_libertyprime_black_l.webp",
-                "directory": "/textures/atx/storefront/player/powerarmor/"
-              },    
-              {
-                "imageName": "atx_skin_weaponskin_supersledge_blackbird_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
+                "imageName": "score_s3_camp_ally_medic_solomonhardy.webp",
+                "directory": "/textures/atx/storefront/camp/ally/"
               },
               {
-                "imageName": "atx_skin_weaponmodel_knife_blackdagger_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponmodel/"
+                "imageName": "atx_camp_bed_babylon_hospitalbed_clean_l.webp",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "atx_camp_furniture_babylon_officefilecabinet01_lootprewar_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "score_s3_camp_floor_shelters_vaulttile_white_l.webp",
+                "directory": "/textures/atx/storefront/camp/floors/"
               }
-             
             ],
             "dynamicBundleItems": [
-             
               {
-                "szItemName": "Black Combat Dagger"
+                "szItemName": "Lite Ally: Solomon Hardy"
               },
               {
-                "szItemName": "Blackbird Power Armor Paint"
+                "szItemName": "Clean Hospital Bed"
               },
               {
-                "szItemName": "Shadow Prime Power Armor Skin"
+                "szItemName": "Clean Office Cabinet"
+              },
+              {
+                "szItemName": "Vault Tile White Floors"
               }
             ],
             "lowPrice": {
               "amount": 900,
               "originalAmount": 900,
               "isLto": true,
-              "ltoTimer": "2026-02-28T12:00:00.000Z"
+              "ltoTimer": "2026-02-10T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 900,
@@ -3546,6 +5165,11 @@
               "originalAmount": 1800
             },
             "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           }
         ]
@@ -4153,6 +5777,11 @@
             },
             "isNew": 2,
             "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -4211,6 +5840,11 @@
             },
             "isNew": 2,
             "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 1,
+              "hasL": true,
+              "hasNone": true
+            },
             "isClown": false
           },
           {
@@ -4346,7 +5980,12 @@
               "purchaseLimit": 0
             },
             "isNew": 2,
-            "isZeus": true
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": true,
+              "hasNone": true
+            }
           },
           {
             "itemID": 2458492,
@@ -4547,7 +6186,12 @@
               "purchaseLimit": 0
             },
             "isNew": 2,
-            "isZeus": true
+            "isZeus": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": false,
+              "hasNone": true
+            }
           }
         ]
       }
