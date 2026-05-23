@@ -324,7 +324,17 @@
   width: 40%;
   justify-content: flex-end;
 }
-
+.shop-tile.large.tile-expired .tile-expired-label, .shop-tile.large.tile-expired .tile-expired-label-deal {
+  filter: none !important;
+  z-index: 99!important; /* ensure it sits above visuals */
+  transform: translate(-50%, -50%) scale(0.5)!important; /* keep centered and scale */
+  transform-origin: center!important;
+}
+/* correct selector and scale down for small tiles */
+.shop-tile.small.tile-expired .tile-expired-label, .shop-tile.small.tile-expired .tile-expired-label-deal {
+  transform: translate(-50%, -50%) scale(0.5)!important; /* keep centered and scale */
+  transform-origin: center!important;
+}
 .right-strip-container {
   right: -3%;
   width: 40%;
