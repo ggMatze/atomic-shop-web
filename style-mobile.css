@@ -8,9 +8,12 @@
 }
 .price-label:after {
   padding-left: 8px    !important;
-  
-
 }
+
+  .item-overlay.hidden {
+    display: none !important;
+  }
+
   #overlay-link-btn{
   visibility: hidden !important;
   }
