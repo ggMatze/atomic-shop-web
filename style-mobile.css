@@ -272,9 +272,17 @@
     text-align: left !important;
     display: block !important;
   }
-  .c-variant-indicator{
-    display: none !important;
-  }
+.c-variant-indicator {
+  color: transparent; /* hides original text */
+}
+
+.c-variant-indicator::after {
+  content: "\aSwipe image to navigate! (up, down, left, right)" !important; /* new text with line breaks */
+  color: #ffe59faf; /* visible text */
+  white-space: pre; /* or pre-line */
+  font-weight: bold !important;
+  font-size: 0.8em !important;
+}
   .overlay-title {
     font-size: 1.7rem !important;
     margin: 0 0 16px !important;
@@ -341,12 +349,13 @@
   justify-content: flex-start;
 }
   .center-image {
+    touch-action: none; /* disables all scrolling gestures */
     position: absolute !important;
     top: auto !important;
     left: auto !important;
     transform: none !important;
-    width: 400px!important;
-    max-width: 400px !important;
+    width: 450px!important;
+    max-width: 450px !important;
     height: auto !important;
     object-fit: cover !important;
     flex-shrink: 0 !important;
@@ -440,8 +449,8 @@ margin:0 !important;
     top: auto !important;
     left: auto !important;
     transform: none !important;
-    width: 340px!important;
-    max-width: 340px !important;
+    width: 400px!important;
+    max-width: 400px !important;
     height: auto !important;
     object-fit: cover !important;
     flex-shrink: 0 !important;

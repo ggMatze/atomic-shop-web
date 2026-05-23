@@ -322,6 +322,50 @@ function renderGallery(images, current = 0, opts = {}) {
   } catch (e) {}
 }
 
+// Touch event handling for swipe navigation on mobile devices
+const swipeArea = document.querySelector('.center-image');
+
+let startX = 0;
+let startY = 0;
+
+swipeArea.addEventListener('touchstart', (e) => {
+  const touch = e.touches[0];
+  startX = touch.clientX;
+  startY = touch.clientY;
+}, { passive: true });
+
+swipeArea.addEventListener('touchend', (e) => {
+  const touch = e.changedTouches[0];
+  const diffX = touch.clientX - startX;
+  const diffY = touch.clientY - startY;
+
+  const threshold = 50; // minimum swipe distance
+
+  // horizontal swipe
+  if (Math.abs(diffX) > Math.abs(diffY)) {
+    if (diffX > threshold && galleryState.current > 0) {
+      // swipe right → previous
+      galleryState.current--;
+      renderGallery(galleryState.images, galleryState.current);
+    } else if (diffX < -threshold && galleryState.current < galleryState.images.length - 1) {
+      // swipe left → next
+      galleryState.current++;
+      renderGallery(galleryState.images, galleryState.current);
+    }
+  }
+  // vertical swipe
+  else {
+    if (diffY < -threshold) {
+      // swipe up
+      cycleCVariant(+1);
+    } else if (diffY > threshold) {
+      // swipe down
+      cycleCVariant(-1);
+    }
+  }
+}, { passive: true });
+
+
 // Handles keyboard navigation within the gallery overlay
 function carouselKeyHandler(e) {
   const overlay = document.getElementById('item-overlay');
