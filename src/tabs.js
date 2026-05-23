@@ -330,10 +330,11 @@ async function initTabs() {
       disabled: !!item?.disabled,
       itemID: item?.itemID,
   // compute expiration using centralized parser so DST/offset logic is applied consistently
-  // Prefer explicit item.endTime but fall back to lowPrice.ltoTimer (common in store data)
+  // Prefer explicit item.endTime but fall back to lowPrice.ltoTimer only when the item is actually an LTO
   expired: (() => {
     try {
-      const endSource = item?.endTime || (item?.lowPrice && item.lowPrice.ltoTimer);
+      const hasLto = Boolean(item?.lowPrice?.isLto ?? item?.isLto);
+      const endSource = item?.endTime || (hasLto ? ((item?.lowPrice?.ltoTimer) ?? item?.ltoTimer) : null);
       if (!endSource) return false;
       const ts = parseStoreTime(endSource);
       return !isNaN(ts) && ts < Date.now();

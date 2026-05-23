@@ -302,7 +302,12 @@
     padding: 8px 0 !important;
     margin-bottom: 14px !important;
   }
-
+.shop-tile.large .tile-timer {
+   transform: scale(0.70)!important;
+   transform-origin: right bottom!important;
+   bottom: 42px!important;
+   right: -10px!important;
+}
 .strip-container {
   position: absolute;
   top: 50%;
@@ -442,7 +447,7 @@ margin:0 !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 30px auto !important;
-    padding: 0 10px !important;
+    padding: 0 5px !important;
     box-sizing: border-box !important;
   }
 
