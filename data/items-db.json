@@ -14427,7 +14427,8 @@
     },
     "carouselImages": [],
     "itemName": "Pallet Wood Wallpaper",
-    "itemNameShort": "Pallet Wood Wallpaper"
+    "itemNameShort": "Pallet Wood Wallpaper",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "SCORE_S1_ENTM_Photomode_Frame_Adventure",
@@ -14463,7 +14464,8 @@
     },
     "carouselImages": [],
     "itemName": "Hunting Lodge Chair",
-    "itemNameShort": "Hunting Lodge Chair"
+    "itemNameShort": "Hunting Lodge Chair",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "SCORE_S1_ENTM_CAMP_FloorDecor_Plushie_SheepsquatchGiant",
@@ -31776,6 +31778,33 @@
     ],
     "itemNameShort": "American Flag"
   },
+    {
+    "EDID": "ATX_ENTM_CAMP_Decoration_FlagWaving_Set",
+    "desc": "Stake your claim for Democracy with this American Flag.",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "itemName": "American Flag Set",
+    "itemNameShort": "American Flag Set",
+    "dynamicBundleItems": [],
+    "primaryImage": {
+      "imageName": "atx_camp_decoration_flagwaving_l.webp",
+      "directory": "/textures/atx/storefront/camp/flags/"
+    },
+    "highPriceOriginal": 300,
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_decoration_flagwaving_black_l.webp",
+        "directory": "/textures/atx/storefront/camp/flags"
+      },
+      {
+        "imageName": "atx_camp_decoration_flagwaving_l.webp",
+        "directory": "/textures/atx/storefront/camp/flags"
+      },
+      {
+        "imageName": "atx_camp_decoration_flagwaving_gold_l.webp",
+        "directory": "/textures/atx/storefront/camp/flags"
+      }
+    ]
+  },
   {
     "EDID": "Babylon_ENTM_CAMP_StashBox_Small",
     "desc": "Store things in this medium Nuclear Winter variant of your Stash Box.",
@@ -37087,7 +37116,8 @@
     },
     "carouselImages": [],
     "itemName": "Pallet Wood Floor and Foundations",
-    "itemNameShort": "Pallet Wood"
+    "itemNameShort": "Pallet Wood",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponModel_Bow_CaveHunter",
@@ -73487,6 +73517,71 @@
     ]
   },
   {
+    "EDID": "ATX_ENTM_BNDL_Armory_Weapon_Paints",
+    "desc": "prep your weapons for war with the Armory Weapon Paint Bundle.",
+    "disclaimer": "- SKIN IS CRAFTABLE AT WEAPONWORKBENCHES -",
+    "itemName": "Armory Weapon Paint Bundle",
+    "itemNameShort": "Armory Weapon Paint Bundle",
+    "primaryImage": {
+      "imageName": "c8e7b1a9c0d2ec9e1a7b8f0c8d2c5e4.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "highPriceOriginal": 2000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Copperhead Paint (Gatling Plasma)"
+      },
+      {
+        "szItemName": "Matte Black Paint (Handmade Rifle)"
+      },
+      {
+        "szItemName": "Black Knight Paint (Gatling Gun)"
+      },
+      {
+        "szItemName": "Super Mutant Paint (Super Sledge)"
+      },
+      {
+        "szItemName": "Patriotic Paint (The Fixer)"
+      },
+      {
+        "szItemName": "Gold 50 Cal Machine Gun Paint"
+      },
+      {
+        "szItemName": "Blackbird Hunting Rifle Paint"
+      }
+    ],
+    "carouselImages": [
+      {
+        "imageName": "atx_skin_weaponskin_gatlingplasma_copperhead.webp",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      },
+      {
+        "imageName": "atx_skin_weaponskin_handmadegun_matteblack_l.webp",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      },
+      {
+        "imageName": "atx_skin_weaponskin_gatlinggun_blackknight_l.webp",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      },
+      {
+        "imageName": "atx_skin_weaponskin_supersledge_supermutant_l.webp",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      },
+      {
+        "imageName": "atx_skin_weaponskin_combatrifle_thefixer_patriotic_l.webp",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      },
+      {
+        "imageName": "atx_skin_weaponskin_50cal_gold_l.webp",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      },
+      {
+        "imageName": "atx_skin_weaponskin_huntingrifle_blackbird_l.webp",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      }
+    ]
+  },
+  {
     "EDID": "ATX_ENTM_BNDL_HOLIDAY_DECORATIONS_BUNDLE",
     "desc": "Let's get your C.A.M.P. ready for the holidays with this bundle!",
     "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
@@ -75179,6 +75274,151 @@
         "directory": "/textures/atx/storefront/camp/beds/"
       }
     ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_BONE_AND_FELT_ANTLER_HEADBANDS",
+    "desc": "Someone took the idea of wearable Holiday antlers a BIT too far ...",
+    "disclaimer": "- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Bone and Felt Antler Headbands",
+    "itemNameShort": "Bone and Felt Antler Headbands",
+    "primaryImage": {
+      "imageName": "d9c8e5b9a0c3f1e9c8b0f2a7e5c3d9c.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "highPriceOriginal": 700,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Bone Antler Headband"
+      },
+      {
+        "szItemName": "Felt Antler Headband"
+      }
+    ],
+    "carouselImages": [
+      {
+        "imageName": "atx_apparel_headwear_antlerboneheadband_l.webp",
+        "directory": "/textures/atx/storefront/player/headgear/"
+      },
+      {
+        "imageName": "atx_apparel_headwear_antlerheadband_l.webp",
+        "directory": "/textures/atx/storefront/player/headgear/"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_BLOOD_EAGLE_BUNDLE",
+    "desc": "Embrace the Blood Eagle way of life with the Blood Eagle Nest for you and your C.A.M.P.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\r\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Blood Eagle Bundle",
+    "itemNameShort": "Blood Eagle Bundle",
+    "primaryImage": {
+      "imageName": "b540fa5a27ffe74403e3a4d0cea8b456.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "highPriceOriginal": 1200,
+    "dynamicBundleItems": [
+     {
+        "szItemName": "Blood Eagle Nest"
+      },
+      {
+        "szItemName": "Blood Eagle Totem"
+      },
+      {
+        "szItemName": "Angry Fist Shake Emote"
+      },
+      {
+        "szItemName": "Quack Outfit"
+      }
+    ],
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_structure_bloodeaglenest_l.webp",
+        "directory": "/textures/atx/storefront/camp/structures/"
+      },
+      {
+        "imageName": "atx_entm_camp_statue_bloodeagle_eagletotem.webp",
+        "directory": "/textures/atx/storefront/camp/structures/"
+      },
+      {
+        "imageName": "angry_fist.webp",
+        "directory": "/textures/emotes/"
+      },
+      {
+        "imageName": "atx_apparel_outfit_thequack_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      }
+    ]
+  },
+  {
+     "EDID": "ATX_ENTM_BNDL_Big_Game_Hunter",
+     "desc": "Track Them Down with the Big Game Hunter Bundle!",
+     "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\r\n- APPAREL IS CRAFTABLE AT ARM",
+     "itemName": "Big Game Hunter Bundle",
+     "itemNameShort": "Big Game Hunter",
+     "primaryImage": {
+       "imageName": "d1c8e5b9a0c3f1e9c8b0f2a7e5c3d9c.webp",
+        "directory": "/textures/atomic_shop_media/"
+     },
+      "highPriceOriginal": 1500,
+      "dynamicBundleItems": [
+        {
+          "szItemName": "Mounted Sheepsquatch Head"
+        },
+        {
+          "szItemName": "Mounted Sheepsquatch Rack"
+        },
+        {
+          "szItemName": "Minecart Cooking Stove"
+        },
+        {
+          "szItemName": "Hunting Lodge Chair"
+        },
+        {
+          "szItemName": "Hunting Lodge Lamp"
+        },
+        {
+          "szItemName": "Pallet Wood Wallpaper"
+        },
+        {
+          "szItemName": "Pallet Wood Floor and Foundations"
+        }
+      ],
+      "carouselImages": [
+        {
+          "imageName": "atx_camp_walldeco_taxidermy_head_sheepsquatch_l.webp",
+          "directory": "/textures/atx/storefront/camp/walldecoration/"
+        },
+        {
+          "imageName": "atx_camp_walldeco_taxidermy_sheepsquatch_rack_l.webp",
+          "directory": "/textures/atx/storefront/camp/walldecoration/"
+        },
+        {
+          "imageName": "atx_camp_machinery_workbench_cooking_stove_minecart_l.webp",
+          "directory": "/textures/atx/storefront/camp/machinery/"
+        },
+        {
+          "imageName": "atx_camp_furniture_chair_huntinglodge_l.webp",
+          "directory": "/textures/atx/storefront/camp/furniture/"
+        },
+        {
+          "imageName": "atx_camp_lights_huntinglodge_l.webp",
+          "directory": "/textures/atx/storefront/camp/lights/"
+        },
+        {
+          "imageName": "atx_camp_wallpaper_palletwood_l.webp",
+          "directory": "/textures/atx/storefront/camp/wallpaper/"
+        },
+        {
+          "imageName": "atx_camp_floor_palletwood_l.webp",
+          "directory": "/textures/atx/storefront/camp/floors/"
+        }
+
+      ]
+
   },
   {
     "EDID": "ATX_ENTM_BNDL_MOUNTAINEER_BUNDLE",

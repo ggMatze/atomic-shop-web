@@ -287,6 +287,7 @@ input[type="checkbox"][data-state="excluded"] {
     gap: 15px;
     position: relative;
     z-index: 1;
+    margin-bottom: 30px;
 }
 
 .item-card {
@@ -550,7 +551,12 @@ text-align: center;
     font-size: 14px;
     letter-spacing: 0.02em;
 }
-
+.custom-badge[data-badge="copy"]::after {
+    content: 'copy';
+    background: #db8d26;
+    font-size: 14px;
+     letter-spacing: 0.02em;
+}
 
 
 @media (max-width: 768px) {
