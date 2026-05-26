@@ -501,13 +501,14 @@ text-align: center;
     text-align: center;
   position: relative;
   z-index: 1;
-  background: #918f7980;
-  color: #fff;
+  background-color: #fff045!important;
   font-size: 22px;
   letter-spacing: 0.00em;
   font-kerning: normal;
   height: 60px;
   width: 60px;
+  padding: 0px!important;
+  margin: 0px!important;
   aspect-ratio: 1;
   --g:/12.97% 12.97% radial-gradient(#000 calc(71% - 1px),#0000 71%) no-repeat;
   mask: radial-gradient(100% 100%,#000 calc(43.028% - 1px),#0000 43.028%) subtract,100% 50% var(--g),97.779% 64.738% var(--g),91.312% 78.166% var(--g),81.174% 89.092% var(--g),68.267% 96.544% var(--g),53.737% 99.86% var(--g),38.874% 98.746% var(--g),25% 93.301% var(--g),13.347% 84.009% var(--g),4.952% 71.694% var(--g),0.558% 57.452% var(--g),0.558% 42.548% var(--g),4.952% 28.306% var(--g),13.347% 15.991% var(--g),25% 6.699% var(--g),38.874% 1.254% var(--g),53.737% 0.14% var(--g),68.267% 3.456% var(--g),81.174% 10.908% var(--g),91.312% 21.834% var(--g),97.779% 35.262% var(--g);
@@ -524,6 +525,8 @@ text-align: center;
     width: 100%;
     background-size: 90% auto;
     z-index: 0;
+    --g:/12.97% 12.97% radial-gradient(#000 calc(71% - 1px),#0000 71%) no-repeat;
+  mask: radial-gradient(100% 100%,#000 calc(43.028% - 1px),#0000 43.028%) subtract,100% 50% var(--g),97.779% 64.738% var(--g),91.312% 78.166% var(--g),81.174% 89.092% var(--g),68.267% 96.544% var(--g),53.737% 99.86% var(--g),38.874% 98.746% var(--g),25% 93.301% var(--g),13.347% 84.009% var(--g),4.952% 71.694% var(--g),0.558% 57.452% var(--g),0.558% 42.548% var(--g),4.952% 28.306% var(--g),13.347% 15.991% var(--g),25% 6.699% var(--g),38.874% 1.254% var(--g),53.737% 0.14% var(--g),68.267% 3.456% var(--g),81.174% 10.908% var(--g),91.312% 21.834% var(--g),97.779% 35.262% var(--g);
 }
 
 .custom-badge::after {
@@ -534,20 +537,24 @@ text-align: center;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    padding: 0px!important;
+    margin: 0px!important;
     width: 100%;
     height: 100%;
-    color: #fff;
+    color: #e95631;
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: capitalize;
     pointer-events: none;
 }
 .custom-badge[data-badge="cut"]::after {
     content: 'n/a';
     background: #db8d26;
+    color: #fff;
 }
 .custom-badge[data-badge="unreleased"]::after {
     content: 'soon?';
     background: #48994b;
+    color: #fff;
     font-size: 14px;
     letter-spacing: 0.02em;
 }
