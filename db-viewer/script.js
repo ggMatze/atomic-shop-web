@@ -270,7 +270,43 @@ function getItemCategories(item) {
             'atx_entm_camp_machinery_generator_small_clean',
             'score_s3_entm_camp_floordecor_toilet_clean',
             'atx_entm_camp_machinery_purifier_clean',
-            'atx_entm_camp_defense_prewar_picketfences'],
+            'atx_entm_camp_defense_prewar_picketfences',
+            'ATX_ENTM_Skin_PowerArmor_Paint_Excavator_Black',
+            'atx_entm_skin_backpack_coffin',
+            'atx_entm_camp_floordecor_closedcoffin',
+            'atx_entm_camp_stashbox_coffin',
+
+            'atx_entm_camp_lights_stringlights_holiday_oval',
+
+
+            'atx_entm_camp_decoration_communal_firepit',
+            'atx_entm_camp_structure_communistbunker',
+            'atx_entm_camp_utility_collectron_communist',
+            'atx_entm_camp_defense_communist_fence',
+            'atx_entm_skin_weaponmodel_handmadegun_communist',
+            'atx_entm_apparel_outfit_communistoutfit_advanced',
+            'atx_entm_camp_stashbox_communistmilitarysafe',
+            'score_s2_entm_apparel_headwear_gasmaskraider_officercap_commie',
+            'atx_entm_emotes_hello_salute_communist',
+            
+            'atx_entm_apparel_outfit_communistoutfit_basic',
+            'Contemporary C.A.M.P. Bundle',
+            'atx_entm_apparel_headwear_western_hat_02',
+            'atx_entm_apparel_outfit_western_04_cowhide',
+            'atx_entm_playericon_creepy_mothman',
+            'atx_entm_skin_backpack_cryptcrook',
+            'atx_entm_apparel_outfit_psychoclowncostume',
+            
+            'atx_entm_playerstyle_facepaint_darkharlequin',
+            'score_s1_entm_skin_weaponskin_combatrifle_black',
+            'atx_entm_camp_floor_wooddark',
+            'atx_entm_camp_walldeco_dartboard01',
+            'atx_entm_camp_walldeco_poster_deadmanshand',
+            'atx_entm_camp_statue_raider_bonetotem_04',
+            'atx_entm_camp_lights_bugzapper_deathray',
+            'atx_entm_camp_floordecor_roomdivider_decorative'
+        
+        ],
     };
 
     if (item.EDID) {
