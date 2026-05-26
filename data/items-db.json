@@ -15048,8 +15048,8 @@
     "itemNameShort": "Blood Eagle Nest"
   },
   {
-    "EDID": "ATX_ENTM_Apparel_Clothes_MothmanHunter_Set",
-    "desc": "The Mothman exists, and you're going to prove it. Track down the legendary Mothman with the Mothman Hunter Outfit!",
+    "EDID": "ATX_BNDL_ENTM_Apparel_Clothes_MothmanHunter_Set",
+    "desc": "The Mothman exists, and you're going to prove it. Track down the legendary Mothman with the Mothman Hunter Outfit Set!",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
     "itemName": "Mothman Hunter Outfit",
     "itemNameShort": "Mothman Hunter Outfit",
@@ -15098,7 +15098,7 @@
       "imageName": "atx_apparel_clothes_mothmanhunter_l.webp",
       "directory": "/textures/atx/storefront/player/outfit/"
     },
-    "highPriceOriginal": "800",
+    "highPriceOriginal": "600",
     "carouselImages": [],
     "itemNameShort": "Mothman Hunter Outfit"
   },
@@ -15321,7 +15321,8 @@
     },
     "carouselImages": [],
     "itemName": "Mothman Hunter Goggles",
-    "itemNameShort": "Mothman Hunter Goggles"
+    "itemNameShort": "Mothman Hunter Goggles",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_MothmanHunter_Hat",
@@ -15333,7 +15334,8 @@
     },
     "carouselImages": [],
     "itemName": "Mothman Hunter Hat",
-    "itemNameShort": "Mothman Hunter Hat"
+    "itemNameShort": "Mothman Hunter Hat",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_Photomode_Frame_Mothman02",
@@ -24757,7 +24759,7 @@
     "desc": "You can't get customers without a good sign.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "score_s18_camp_walldecor_blacksmithsign_l.webp",
+      "imageName": "atx_entm_camp_walldecor_blacksmithsign.webp",
       "directory": "/textures/atx/storefront/camp/walldecoration/"
     },
     "carouselImages": [],
@@ -79369,13 +79371,7 @@
     },
     "highPriceOriginal": 800,
     "dynamicBundleItems": [],
-   
-   
-
-   
-  
-   
-  
+    "cBadge": "Set",
     "carouselImages": [
       {
         "imageName": "atx_apparel_outfit_swimtrunks_wavywillard_l.webp",
