@@ -3,10 +3,21 @@ let displayedItems = [];
 let itemsPerPage = 15;
 let nextItemIndex = 0;
 let allCategories = [];
+let externalEdidKeywords = {};
 const searchInput = document.getElementById('searchInput');
 const resultsContainer = document.getElementById('results');
 const statsText = document.getElementById('statsText');
 const errorContainer = document.getElementById('errorContainer');
+
+//fetching json
+fetch('../data/edidkeywords.json')
+  .then(res => res.json())
+  .then(data => {
+    externalEdidKeywords = data;
+
+    initItems(); // or whatever starts your processing
+  });
+
 
 // Store item data by EDID for overlay access
 const itemDataStore = new Map();
@@ -183,131 +194,10 @@ function getItemCategories(item) {
         'Weapons Expert Extraordinaire': ['_weaponsexpert_'],
         'Sunset Stranger': ['_sunsetstranger_'],
         'Love Hurts': ['_miniseason_lovehurts_'],
-
-        'Support requested': ['score_s2_entm_skin_powerarmor_model_acefullassault',
-            'atx_entm_camp_floordecor_plushie_alien',
-            'atx_entm_bndl_alien_technology_camp_bundle',
-            'atx_entm_camp_floordecor_aluminumtrees',
-            'atx_entm_skin_weaponskin_lasergun_inventor',
-            'ATX_ENTM_CAMP_Decoration_FlagWaving_Set',       
-            'atx_entm_emotes_angry_fistshake',
-            'atx_entm_camp_floordecor_animatronicblackcat',
-            'score_s1_entm_skin_weaponmodel_gatlinggun_thunderpipe',
-            'atx_entm_apparel_headwear_gasmaskraiderskull_helmet',
-            'ATX_ENTM_BNDL_Armory_Weapon_Paints',
-            'atx_entm_skin_weaponskin_plasmacasterrifle_armyissue',
-            'atx_entm_camp_floor_astroturf',
-            'atx_entm_camp_lights_lampatomicblast',
-            'atx_entm_camp_floordecor_cementtire_barbedwire_chains',
-            'atx_entm_camp_utility_refrigerator_beerbarrel',
-            'ATX_ENTM_BNDL_Big_Game_Hunter',
-            'atx_entm_playericon_object_13',
-            'atx_entm_apparel_outfit_wvday_bear',
-            'atx_entm_bndl_black_cat_bundle',
-            'atx_entm_skin_weaponskin_gatlinggun_blackknight',
-            'atx_entm_skin_pipboyskin_black',
-            'atx_entm_skin_powerarmor_skin_blackrider',
-            'atx_entm_skin_weaponmodel_bow_bloodeagle',
-            'ATX_ENTM_BNDL_BLOOD_EAGLE_BUNDLE',
-            'atx_entm_skin_powerarmor_paint_bloodeagle',
-            'atx_entm_camp_statue_bloodeagle_eagletotem',
-            'atx_entm_camp_utility_refrigerator_arktos',
-            'atx_entm_camp_walldeco_nuke_mobile',
-            'ATX_ENTM_BNDL_BONE_AND_FELT_ANTLER_HEADBANDS',
-            'atx_entm_apparel_headwear_gasmask_bone',
-            'atx_entm_apparel_headwear_modernbonnetclean',
-            'atx_entm_skin_backpack_brotherhoodofsteel',
-            'atx_upgrade2020_bos_entm_camp_structure_bosscoutingtower',
-            'atx_entm_playericon_creature_03',
-            'atx_entm_camp_floordecor_brambles',
-            'atx_entm_bndl_burbling_brewhaha_nukashine_bundle',
-            'atx_entm_camp_structure_bosarmory',
-            'atx_entm_bndl_brotherhood_bundle',
-            'atx_entm_camp_stashbox_boshightech',
-            'Brotherhood of Steel Digital Deluxe Bundle',
-            'atx_entm_camp_utility_bubbleblower',
-            
-            'atx_entm_apparel_headwear_fasnacht_brahmin',
-            'atx_entm_camp_furniture_mechanicalbrahmin',
-            
-            'atx_entm_camp_furniture_couch_modularsofaset_burgundy',
-            'C.A.M.P. Structure Starter Bundle',
-            'Cactus',
-            
-            'atx_entm_apparel_underarmor_secretservice_camo',
-            'ATX_ENTM_Skin_ArmorSkin_SecretService_Camo',
-            'atx_entm_apparel_headwear_militaryutilitycap_camo',
-            'atx_entm_bndl_cappys_nukacola_train_bundle',
-            'atx_entm_apparel_outfit_captaincosmos',
-            'score_s1_entm_skin_powerarmor_model_captaincosmos',
-            
-            'atx_entm_apparel_outfit_caravantrader',
-            'atx_entm_camp_floordecor_carnivorousplant',
-            'atx_entm_camp_vendor_playervendingmachine_cashregister',
-            'atx_entm_camp_bed_princesscastle',
-            'atx_entm_camp_floordecor_topiary_cat',
-            'atx_entm_camp_floordecor_cementtirewall',
-            'atx_entm_camp_walldeco_letters_chalk',
-            'atx_entm_camp_structure_charleston_firestation',
-            'atx_entm_bndl_charleston_fire_station_bundle',
-            'atx_entm_bndl_christmas_sitting_room_bundle',
-            'atx_entm_camp_wallpaper_cinderblocks',
-            
-            'atx_entm_skin_weaponskin_gaussshotgun_clandestine',
-            'atx_entm_skin_weaponskin_gaussminigun_clandestine',
-            'atx_entm_camp_furniture_jukebox_classic',
-            'atx_entm_camp_structure_performancestage_wood',
-            'atx_entm_bndl_classic_western_bundle',
-            'atx_entm_camp_floordecor_classicalcolumn',
-            'atx_entm_playericon_vaultgirl_03',
-            
-            'atx_entm_camp_sign_billboardsm01',
-            'atx_entm_camp_structure_babylon_boxingring_clean',
-            'atx_entm_apparel_outfit_challymascot_clean',
-            'atx_entm_clean_mannequin_set',
-            'atx_entm_camp_decoration_clean_shower',
-            'score_s1_entm_camp_utility_sink_clean',
-            'atx_entm_camp_machinery_generator_small_clean',
-            'score_s3_entm_camp_floordecor_toilet_clean',
-            'atx_entm_camp_machinery_purifier_clean',
-            'atx_entm_camp_defense_prewar_picketfences',
-            'ATX_ENTM_Skin_PowerArmor_Paint_Excavator_Black',
-            'atx_entm_skin_backpack_coffin',
-            'atx_entm_camp_floordecor_closedcoffin',
-            'atx_entm_camp_stashbox_coffin',
-
-            'atx_entm_camp_lights_stringlights_holiday_oval',
-
-
-            'atx_entm_camp_decoration_communal_firepit',
-            'atx_entm_camp_structure_communistbunker',
-            'atx_entm_camp_utility_collectron_communist',
-            'atx_entm_camp_defense_communist_fence',
-            'atx_entm_skin_weaponmodel_handmadegun_communist',
-            'atx_entm_apparel_outfit_communistoutfit_advanced',
-            'atx_entm_camp_stashbox_communistmilitarysafe',
-            'score_s2_entm_apparel_headwear_gasmaskraider_officercap_commie',
-            'atx_entm_emotes_hello_salute_communist',
-            
-            'atx_entm_apparel_outfit_communistoutfit_basic',
-            'Contemporary C.A.M.P. Bundle',
-            'atx_entm_apparel_headwear_western_hat_02',
-            'atx_entm_apparel_outfit_western_04_cowhide',
-            'atx_entm_playericon_creepy_mothman',
-            'atx_entm_skin_backpack_cryptcrook',
-            'atx_entm_apparel_outfit_psychoclowncostume',
-            
-            'atx_entm_playerstyle_facepaint_darkharlequin',
-            'score_s1_entm_skin_weaponskin_combatrifle_black',
-            'atx_entm_camp_floor_wooddark',
-            'atx_entm_camp_walldeco_dartboard01',
-            'atx_entm_camp_walldeco_poster_deadmanshand',
-            'atx_entm_camp_statue_raider_bonetotem_04',
-            'atx_entm_camp_lights_bugzapper_deathray',
-            'atx_entm_camp_floordecor_roomdivider_decorative'
-        
-        ],
+        'Support requested': [] 
     };
+
+    Object.assign(edidCategoryKeywords, externalEdidKeywords);
 
     if (item.EDID) {
         const edid = item.EDID.toLowerCase();
