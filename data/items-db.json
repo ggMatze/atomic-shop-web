@@ -6590,7 +6590,7 @@
         "directory": "/textures/atx/storefront/camp/lights/"
       }], 
     "highPriceOriginal": 500,
-    "itemName": "Mothman Billboards",
+    "itemName": "Mothman Neon Billboards",
     "itemNameShort": "Mothman Billboards"
   },
   {
@@ -59148,10 +59148,43 @@
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_TX_Mothman",
     "desc": "Hide in the night, and stalk your enemies with the Mothman Power Armor Paints. This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_skin_powerarmor_paint_moth_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+    },
     "carouselImages": [],
     "itemName": "Mothman Power Armor Paint Set",
     "itemNameShort": "Mothman Paints"
+  },
+  {
+    "EDID": "ATX_BNDL_ENTM_Skin_PowerArmor_Paint_HeadLamp_Mothman_Set",
+    "desc": "Hide in the night, and stalk your enemies with the Mothman Power Armor Paints. This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.",
+    "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
+    "primaryImage": {
+      "imageName": "atx_skin_powerarmor_paint_moth_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+    },
+    "dynamicBundleItems":[
+      {
+        "szItemName":"Red Mothman Headlamp (T-Series)"
+      },
+      {
+        "szItemName":"Mothman Power Armor Paint Set"
+      }
+    ],
+    "carouselImages": [
+      {
+        "imageName":"atx_skin_powerarmor_headlamp_redmothman_l",
+        "directory":"/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+      "imageName": "atx_skin_powerarmor_paint_moth_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/" 
+      }
+    ],
+    "itemName": "Mothman Power Armor Paint Set and Head Lamp",
+    "itemNameShort": "Mothman Power Armor Paints and Lamp",
+    "cBadge": "Set"
   },
   {
     "EDID": "ATX_Upgrade2023_AC_ENTM_Skin_PowerArmor_Model_CivicDuty",
@@ -75734,6 +75767,7 @@
     "customdesc": "",
     "customdisclaimer": "",
     "itemName": "Mothman Festival Hunter Bundle",
+    "itemNameShort": "Mothman Hunter Bundle",
     "primaryImage": {
       "imageName": "c2b0bfedb38e5dcba262d6f396137fe2.webp",
       "directory": "/textures/atomic_shop_media/"
@@ -92374,6 +92408,14 @@
       "imageName": "atx_camp_floordecor_mounted_fish_l.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Standing Mounted Fish"
+      },
+      {
+        "szItemName": "atx_entm_camp_walldeco_mounted_fish"
+      }
+    ],
     "carouselImages": [
       {
         "imageName": "atx_camp_floordecor_mounted_fish_l.webp",
@@ -92385,7 +92427,7 @@
       }
     ],
     "highPriceOriginal": 300,
-    "dynamicBundleItems": []
+    "cBadge":"Set"
   },
   {
     "EDID": "ATX_ENTM_VENDING_MACHINE_PAINT_SET",
