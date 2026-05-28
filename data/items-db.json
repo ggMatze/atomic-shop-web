@@ -8808,6 +8808,7 @@
       "directory": "/textures/atx/storefront/camp/ally/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 1200,
     "itemName": "Lite Ally: Steven Scarberry",
     "itemNameShort": "Steven Scarberry"
   },
@@ -11456,7 +11457,8 @@
     },
     "carouselImages": [],
     "itemName": "Vault-Tec Lab Coat",
-    "itemNameShort": "Lab Coat"
+    "itemNameShort": "Lab Coat",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_PlayerStyle_HairStyle_M_RadRage",
@@ -13813,7 +13815,8 @@
     },
     "carouselImages": [],
     "itemName": "Mothman Barn Wallpaper",
-    "itemNameShort": "Mothman Barn Wallpaper"
+    "itemNameShort": "Mothman Barn Wallpaper",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_Structure_RedRocket_Garage",
@@ -23227,7 +23230,8 @@
     },
     "carouselImages": [],
     "itemName": "Medieval Portcullis",
-    "itemNameShort": "Medieval Portcullis"
+    "itemNameShort": "Medieval Portcullis",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Test_Static_Small",
@@ -25488,7 +25492,8 @@
     },
     "carouselImages": [],
     "itemName": "Moth Wing Chandelier",
-    "itemNameShort": "Moth Wing Chandelier"
+    "itemNameShort": "Moth Wing Chandelier",
+    "highPriceOriginal": 350
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponModel_GatlingPlasma_LightEmUp",
@@ -30329,7 +30334,8 @@
     },
     "carouselImages": [],
     "itemName": "Plague Doctor Mask",
-    "itemNameShort": "Plague Doctor Mask"
+    "itemNameShort": "Plague Doctor Mask",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_Ceiling_MothmanCultist",
@@ -34656,7 +34662,16 @@
       "directory": "/textures/atx/storefront/player/outfit/"
     },
     "highPriceOriginal": 0,
-    "carouselImages": [],
+        "carouselImages": [
+      {
+        "imageName": "atx_apparel_outfit_rangersuniform_standard_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "atx_apparel_headwear_rangersuniform_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      }
+    ],
     "itemNameShort": "Ranger Armor Outfit"
   },
   {
@@ -36726,7 +36741,8 @@
     },
     "carouselImages": [],
     "itemName": "Camo Secret Service Power Armor Skin",
-    "itemNameShort": "Camo Paint"
+    "itemNameShort": "Camo Paint",
+    "highPriceOriginal": 200
   },
   {
     "EDID": "REUSE_ATX_ENTM_Photomode_Pose_CleanSweep",
@@ -45144,7 +45160,8 @@
     },
     "carouselImages": [],
     "itemName": "Daring Adventure Pip-Boy Paint",
-    "itemNameShort": "Daring Adventure Pip-Boy Paint"
+    "itemNameShort": "Daring Adventure Pip-Boy Paint",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S12_ENTM_PlayerIcon_SheepsquatchIcon",
@@ -51016,7 +51033,8 @@
     },
     "carouselImages": [],
     "itemName": "Wicker Hanging Flower Basket",
-    "itemNameShort": "Wicker Hanging Flower Basket"
+    "itemNameShort": "Wicker Hanging Flower Basket",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDecor_BigBossAdvertisementPoster",
@@ -59921,7 +59939,8 @@
     },
     "carouselImages": [],
     "itemName": "Black Rider Power Armor Skin",
-    "itemNameShort": "Black Rider"
+    "itemNameShort": "Black Rider",
+    "highPriceOriginal": 1400
   },
   {
     "EDID": "Babylon_ENTM_Skin_PowerArmor_Paint_CamoBlue",
@@ -72004,7 +72023,8 @@
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": [],
-    "itemNameShort": "Gloom Goliath"
+    "itemNameShort": "Gloom Goliath",
+    "highPriceOriginal": 900
   },
   {
     "EDID": "ATX_ENTM_PlayerTitles_Prefix_Rusty",
@@ -72164,7 +72184,8 @@
       "directory": "/textures/atx/storefront/camp/utility/"
     },
     "carouselImages": [],
-    "itemNameShort": "Brahmin Tanning Rack"
+    "itemNameShort": "Brahmin Tanning Rack",
+    "highPriceOriginal": 200
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_FloorLamps_Carlight",
@@ -72189,7 +72210,8 @@
       "directory": "/textures/atx/storefront/camp/kits/"
     },
     "carouselImages": [],
-    "itemNameShort": "Stone Cathedral Kit"
+    "itemNameShort": "Stone Cathedral Kit",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_Shelters_ENTM_ShelterEntrance_RestrictedArea",
@@ -72226,6 +72248,7 @@
       "imageName": "atx_skin_pipboyskin_hunters.webp",
       "directory": "/textures/atx/storefront/player/pipboy/"
     },
+    "highPriceOriginal": 200,
     "carouselImages": [],
     "itemNameShort": "Hunter's Camo Paint"
   },
@@ -72239,7 +72262,8 @@
       "directory": "/textures/atx/storefront/camp/defenses/"
     },
     "carouselImages": [],
-    "itemNameShort": "Gnarled Fence"
+    "itemNameShort": "Gnarled Fence",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "zzzATX_ENTM_CAMP_CAMPPets_RadHog_Rooter",
@@ -87849,6 +87873,53 @@
     ]
   },
   {
+    "EDID": "ATX_ENTM_CAMP_FLOORDECOR_CACTUS_SET",
+    "desc": "Not everything in the Wasteland is lost to radiation. Add some greenery to your C.A.M.P. with this Wild Cactus.",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Cactus Set",
+    "itemNameShort": "Cactus Set",
+    "primaryImage": {
+      "imageName": "atx_camp_floordecor_cactus_set_04_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
+    "highPriceOriginal": 200,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Fierce Cactus"
+      },
+      {
+        "szItemName": "Photogenic Cactus"
+      },
+      {
+        "szItemName": "Sturdy Cactus"
+      },
+      {
+        "szItemName": "Wild Cactus"
+      }
+    ],
+    "carouselImages": [
+      {
+        "imageName": "atx_entm_camp_floordecor_cactus_set_02.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_cactus_set_04_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_cactus_set_03_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_cactus_set_01_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      }
+    ],
+    "cBadge": "Set"
+  },
+  {
     "EDID": "atx_bndl_entm_greenhouse_kit_camp_bundle",
     "desc": "Start the greenhouse of your dreams and then protect your new homestead with the Greenhouse Kit C.A.M.P. Bundle!",
     "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
@@ -87978,6 +88049,95 @@
         "directory": "/textures/atx/storefront/camp/kits/"
       }
     ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_BUCKING_BRAHMIN_BUNDLE",
+    "desc": "Ride through the winter with the Bucking Brahmin Bundle!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Bucking Brahmin Bundle",
+    "itemNameShort": "Bucking Brahmin Bundle",
+    "primaryImage": {
+      "imageName": "c4dcf6e97d71773327b8077c1881b2c0.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "highPriceOriginal": 1200,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "RobCo Snow Machine"
+      },
+      {
+        "szItemName": "Vault Boy Snow Globe Lamp"
+      },
+      {
+        "szItemName": "Vault-Boy Elf Lawn Gnome"
+      },
+      {
+        "szItemName": "Wasteland Snowman"
+      },
+      {
+        "szItemName": "Mechanical Bucking Brahmin Ride"
+      }
+    ],
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_utility_robcosnowmachine.webp",
+        "directory": "/textures/atx/storefront/camp/utility/"
+      },
+      {
+        "imageName": "atx_camp_lights_lamp_snowglobe_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_vaultboyelflawngnome_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_furniture_mechanicalbrahmin_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      }
+    ]
+  },
+  {
+    "EDID":"ATX_ENTM_BNDL_COMMUNIST_BUNKER_BUNDLE",
+    "desc":"",
+    "disclaimer":"- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc":"",
+    "customdisclaimer":"",
+    "itemName":"Communist Bunker Bundle",
+    "itemNameShort": "Bunker Bundle",
+    "highPriceOriginal": 1000,
+    "primaryImage":{
+      "imageName": "b2e4eb754a65e08f9aa8b29b581e5714.webp",
+      "directory":"/textures/atomic_shop_media/"
+    },
+    "dynamicBundleItems":[
+      {
+        "szItemName": "Communist Bunker"
+      },
+      {
+        "szItemName": "Red Menace Stash"
+      },
+      {
+        "szItemName": "Communist Fence"
+      }
+    ],
+    "carouselImages":[
+      {
+        "imageName": "atx_camp_structure_communistbunker_l.webp",
+        "directory": "/textures/atx/storefront/camp/structures/"
+      },
+      {
+        "imageName": "atx_camp_stashbox_communistmilitarysafe_l.webp",
+        "directory": "/textures/atx/storefront/camp/stash/"
+      },
+      {
+        "imageName": "atx_camp_defense_fence_communist_l.webp",
+        "directory": "/textures/atx/storefront/camp/defenses/"
+      }
+    ]
+            
   },
   {
     "EDID": "ATX_ENTM_BNDL_FOUNDATION_SETTLERS_BUNDLE",
@@ -94657,7 +94817,7 @@
     "customdisclaimer": "",
     "itemName": "Family Fun Center Bundle",
     "primaryImage": {
-      "imageName": "9ec90b557669d27fdc8dfabcfffcb6ec.webp",
+      "imageName": "placeholder.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [
@@ -94719,6 +94879,106 @@
       },
       {
         "szItemName": "Vault Boy Vampire Cutout"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_MOTHMAN_OUTFIT_BUNDLE",
+    "desc": "Unleash your inner Mothman with this collection of Masks and Paints.",
+    "disclaimer": "",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Mothman Outfit Bundle",
+    "primaryImage": {
+      "imageName": "a45y6s2c62ax45dsf2465daxs.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+    {
+      "szItemName": "Alien Mothman Mask"
+    },
+    {
+      "szItemName": "Metal Mothman Mask"
+    },
+    {
+      "szItemName": "Mothman Pip-Boy Paint"
+    },
+    {
+      "szItemName": "Cultist Bone Headpiece"
+    },
+    {
+      "szItemName": "Cultist Bone Hood"
+    },
+    {
+      "szItemName": "Mothman Power Armor Paint Set"
+    },
+    {
+      "szItemName": "Red Mothman Headlamp"
+    }
+    ],
+     "carouselImages": [
+     {
+        "imageName": "atx_apparel_headwear_mothmanmaskalien_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      },
+      {
+        "imageName": "atx_apparel_headwear_mothmanmaskmetal_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      },
+      {
+        "imageName": "atx_pipboy_mothman_l.webp",
+        "directory": "/textures/atx/storefront/player/pipboy/"
+      },
+      {
+        "imageName": "atx_apparel_headwear_cultistheadpiece_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      },
+      {
+        "imageName": "atx_apparel_headwear_cultisthood_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+       },
+       {
+        "imageName": "atx_skin_powerarmor_paint_moth_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+       },
+       {
+        "imageName": "atx_skin_powerarmor_headlamp_redmothman_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+     }
+      
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_CAMP_STRUCTURE_STARTER_BUNDLE",
+    "desc": "This bundle allows you to easily start creating a fantastic C.A.M.P. with these premade structures!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "C.A.M.P. Structure Starter Bundle",
+    "itemNameShort": "CAMP Structure Bundle",
+    "primaryImage": {
+      "imageName": "1ec4074b72b2e260a9ace81accd295f1.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+    ],
+    "highPriceOriginal": 2000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Blood-Eagle Nest"
+      },
+      {
+        "szItemName": "Red-Rocket Garage"
+      },
+      {
+        "szItemName": "Steel Backwoods Bungalow"
+      },
+      {
+        "szItemName": "Makeshift Mega Mansion"
+      },
+      {
+        "szItemName": "The Flying Fortress"
       }
     ]
   },
@@ -96150,6 +96410,546 @@
       },
       {
         "szItemName": "\"Survivalist\" Player Title Suffix"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_TERRIBLE_CRYPTIDS_BUNDLE",
+    "desc": "Some say they don't exist ... prove them wrong!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- BACKPACKS ARE CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This bundle contains mostly previously released items, packaged together as new.[/h]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Terrible Cryptids Bundle",
+    "primaryImage": {
+      "imageName": "b2753e1d43be336f2d48fa73d1eb1b30.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_apparel_outfit_cryptidenthusiastsuitset_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "atx_apparel_headwear_cryptidenthusiasthat_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      },
+      {
+        "imageName": "atx_entm_skin_backpack_cryptidhunter_l.webp",
+        "directory": "/textures/atx/storefront/player/backpack/"
+      },
+      {
+        "imageName": "score_s12_backpackflair_cryptidteeth_l.webp",
+        "directory": "/textures/atx/storefront/player/flair/"
+      },
+      {
+        "imageName": "atx_entm_camp_floordecor_taxidermylittledevil_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_entm_camp_floordecor_flatwoodsmonsterwaxsculpture_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_playericon_s12_sheepsquatch.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      }
+    ],
+    "highPriceOriginal": 1300,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Cryptid Enthusiast Suit"
+      },
+      {
+        "szItemName": "Cryptid Enthusiast Hat"
+      },
+      {
+        "szItemName": "Cryptid Hunter Backpack"
+      },
+      {
+        "szItemName": "Cryptid Teeth Backpack Flair"
+      },
+      {
+        "szItemName": "Taxidermy Little Devil"
+      },
+      {
+        "szItemName": "Flatwoods Monster Wax Figure"
+      },
+      {
+        "szItemName": "Sheepsquatch Icon"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_THE_WICKER_MOTHMAN_BUNDLE",
+    "desc": "Build your Mothman temple and make the Winged One proud!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]*This bundle contains some previously released items.[/h]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "The Wicker Mothman Bundle",
+    "primaryImage": {
+      "imageName": "943aa0503a3ff6bff0daf6642925ead3.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_entm_camp_floordecor_gloomgoliath_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_defense_fence_gnarled_l.webp",
+        "directory": "/textures/atx/storefront/camp/defenses/"
+      },
+      {
+        "imageName": "atx_entm_camp_kit_stonecathedral_l.webp",
+        "directory": "/textures/atx/storefront/camp/kits/"
+      },
+      {
+        "imageName": "atx_entm_camp_floordecor_largefire_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_statue_mothmancultist_goattotem_l.webp",
+        "directory": "/textures/atx/storefront/camp/statues/"
+      }
+    ],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Gloom Goliath"
+      },
+      {
+        "szItemName": "Gnarled Fence"
+      },
+      {
+        "szItemName": "Stone Cathedral C.A.M.P. Kit"
+      },
+      {
+        "szItemName": "Large Fire"
+      },
+      {
+        "szItemName": "Mothman Cultist Goat Totem"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_MOTHMAN_CULTIST_CAMP_BUNDLE",
+    "desc": "Show the Mothman you are one of the truest of believers with this Mothman Cultist C.A.M.P. Bundle.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Mothman Cultist C.A.M.P. Bundle",
+    "primaryImage": {
+      "imageName": "385743e6c21acacedf489989d6b5735e.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_lights_ceiling_mothmancultist_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_camp_statue_mothman_cultstatue_05_l.webp",
+        "directory": "/textures/atx/storefront/camp/statues/"
+      },
+      {
+        "imageName": "atx_camp_walldeco_mothman_culteffigy_l.webp",
+        "directory": "/textures/atx/storefront/camp/walldecoration/"
+      },
+      {
+        "imageName": "atx_camp_lights_mothmancultist_torch_03_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_camp_lights_mothmancultist_torch_01_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_camp_lights_mothmancultist_torch_02_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_camp_statue_mothman_cultstatue_01_l.webp",
+        "directory": "/textures/atx/storefront/camp/statues/"
+      },
+      {
+        "imageName": "atx_camp_statue_mothcult_treealter_l.webp",
+        "directory": "/textures/atx/storefront/camp/statues/"
+      },
+      {
+        "imageName": "atx_camp_statue_mothman_cultstatue_04_l.webp",
+        "directory": "/textures/atx/storefront/camp/statues/"
+      },
+      {
+        "imageName": "atx_camp_furniture_mothmancultist_chair_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_statue_mothman_cultstatue_03_l.webp",
+        "directory": "/textures/atx/storefront/camp/statues/"
+      },
+      {
+        "imageName": "atx_camp_furniture_mothmancultist_sidetable_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_bed_mothmancultist_l.webp",
+        "directory": "/textures/atx/storefront/camp/beds/"
+      },
+      {
+        "imageName": "atx_camp_statue_mothman_cultstatue_02_l.webp",
+        "directory": "/textures/atx/storefront/camp/statues/"
+      },
+      {
+        "imageName": "atx_camp_lights_mothmancultist_desklamp_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_camp_utility_smokemachine_l.webp",
+        "directory": "/textures/atx/storefront/camp/utility/"
+      }
+    ],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Mothman Cultist Ceiling Light"
+      },
+      {
+        "szItemName": "Towering Might"
+      },
+      {
+        "szItemName": "Mothman Cult Effigy"
+      },
+      {
+        "szItemName": "Mothman Cultist Candle Torch"
+      },
+      {
+        "szItemName": "Mothman Cultist Wicker Torch"
+      },
+      {
+        "szItemName": "Mothman Cultist Waxen Torch"
+      },
+      {
+        "szItemName": "Wicker Skull Statue"
+      },
+      {
+        "szItemName": "Mothman Cultist Tree Trunk Altar"
+      },
+      {
+        "szItemName": "Wreathed Horns"
+      },
+      {
+        "szItemName": "Mothman Cultist Chair"
+      },
+      {
+        "szItemName": "Twisted Roots Statue"
+      },
+      {
+        "szItemName": "Mothman Cultist Side Table"
+      },
+      {
+        "szItemName": "Mothman Cultist Bed"
+      },
+      {
+        "szItemName": "Masked Antlers Statue"
+      },
+      {
+        "szItemName": "Mothman Cultist Desk Lamp"
+      },
+      {
+        "szItemName": "Smoke Machine"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_MOTHMAN_WEATHER_BUNDLE",
+    "desc": "Give your C.A.M.P. the Mothman feeling with the Mothman Weather Bundle.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- UNLOCKS AN EMOTE OPTION.\nEMOTES ARE SELECTABLE IN THE EMOTE WHEEL. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Mothman Weather Bundle",
+    "primaryImage": {
+      "imageName": "077b2b9cc5c4a9d6b2291cb646918c02.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_utility_weatherstation_mothman_l.webp",
+        "directory": "/textures/atx/storefront/camp/utility/"
+      },
+      {
+        "imageName": "atx_camp_walldeco_windchime_mothman_l.webp",
+        "directory": "/textures/atx/storefront/camp/walldecoration/"
+      },
+      {
+        "imageName": "atx_entm_camp_door_secret_antiquearmoire_l.webp",
+        "directory": "/textures/atx/storefront/camp/doors/"
+      },
+      {
+        "imageName": "vengencefull_mothman.webp",
+        "directory": "/textures/emotes/"
+      }
+    ],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Weather Control Station (Mothman)"
+      },
+      {
+        "szItemName": "Mothman Wind Chime"
+      },
+      {
+        "szItemName": "Antique Armoire Door"
+      },
+      {
+        "szItemName": "The Vengeful Mothman Emote"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_RAIDERS_PARADISE_BUNDLE",
+    "desc": "Isn't it nice living in a Raider's Paradise?",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n[h]*This Bundle contains multiple previously released items.[/h]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Raider's Paradise Bundle",
+    "primaryImage": {
+      "imageName": "45e3f1905126f38b234a212f80414903.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_defense_rustedbarricade_l.webp",
+        "directory": "/textures/atx/storefront/camp/defenses/"
+      },
+      {
+        "imageName": "atx_camp_structure_pitt_scaffolding_kit.webp",
+        "directory": "/textures/atx/storefront/camp/structures/"
+      },
+      {
+        "imageName": "atx_playertitles_prefix_rusty_l.webp",
+        "directory": "/textures/atx/storefront/player/playertitles/"
+      },
+      {
+        "imageName": "atx_camp_defense_fences_junkyard_l.webp",
+        "directory": "/textures/atx/storefront/camp/defenses/"
+      },
+      {
+        "imageName": "atx_skin_weaponskin_50calmachinegun_rustriddler_l.webp",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      },
+      {
+        "imageName": "score_s18_camp_structure_raiderlodge_l.webp",
+        "directory": "/textures/atx/storefront/camp/structures/"
+      },
+      {
+        "imageName": "atx_camp_lights_floorlamps_carlight_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_camp_lights_floorlamps_rustedbrazier_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      }
+    ],
+    "highPriceOriginal": 1800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Rusted Barricade"
+      },
+      {
+        "szItemName": "Pitt Scaffold Kit"
+      },
+      {
+        "szItemName": "Rusty"
+      },
+      {
+        "szItemName": "Junkyard Fences"
+      },
+      {
+        "szItemName": "Rust Riddler Paint (.50 Cal Machine Gun)"
+      },
+      {
+        "szItemName": "Raider Lodge"
+      },
+      {
+        "szItemName": "The Carlight"
+      },
+      {
+        "szItemName": "Rusted Brazier"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_CRYPT_CROOK_BUNDLE",
+    "desc": "Planning on \"investigating\" some graves? If so, this is the bundle for you!\nElegant, yet morbid; probably best to leave the jacket at home so you don't rip it on the rebar!",
+    "disclaimer": "- BACKPACKS ARE CRAFTABLE AT ARMOR WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Crypt Crook Bundle",
+    "primaryImage": {
+      "imageName": "ac1534c1a5ce4a669a85b84587a7ae0f.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_apparel_outfit_cryptcrook_l.dds",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "atx_apparel_headwear_cryptcrook_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      },
+      {
+        "imageName": "atx_skin_backpack_cryptcrook_l.dds",
+        "directory": "/textures/atx/storefront/player/backpack/"
+      },
+      {
+        "imageName": "atx_playerstyle_hairstyle_metalmohawk.dds",
+        "directory": "/textures/atx/storefront/player/hairstyle/"
+      }
+    ],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Crypt Crook Outfit"
+      },
+      {
+        "szItemName": "Crypt Crook Mask"
+      },
+      {
+        "szItemName": "Crypt Crook Backpack"
+      },
+      {
+        "szItemName": "Metal Mohawk Hairstyle"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_APPALACHIAN_FAUNA_BUNDLE",
+    "desc": "Get closer to (irradiated) nature.",
+    "disclaimer": "- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\nPRODUCES:\n[url=https://www.theduchessflame.com/post/camp-resource-butterfly-sanctuary]✦ Acid (Scrap)   [/url]\n[url=https://www.theduchessflame.com/post/camp-resource-mirelurk-steamer]✦ Food (Meat)   [/url]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Appalachian Fauna Bundle",
+    "primaryImage": {
+      "imageName": "fcd49533d52d84d7e09522f33fae84da.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_entm_camp_floordecor_plushie_hamilton_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_apparel_headwear_radopposumhat_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      },
+      {
+        "imageName": "atx_camp_machinery_generator_small_molerat.webp",
+        "directory": "/textures/atx/storefront/camp/machinery/"
+      },
+      {
+        "imageName": "atx_camp_machinery_generator_medium_molerat.webp",
+        "directory": "/textures/atx/storefront/camp/machinery/"
+      },
+      {
+        "imageName": "atx_camp_machinery_generator_large_molerat.webp",
+        "directory": "/textures/atx/storefront/camp/machinery/"
+      },
+      {
+        "imageName": "atx_camp_machinery_generator_fusion_molerat.webp",
+        "directory": "/textures/atx/storefront/camp/machinery/"
+      },
+      {
+        "imageName": "atx_camp_collector_butterflysanctuary_l.webp",
+        "directory": "/textures/atx/storefront/camp/utility/"
+      },
+      {
+        "imageName": "atx_camp_collector_mirelurksteamer_l.webp",
+        "directory": "/textures/atx/storefront/camp/utility/"
+      },
+      {
+        "imageName": "atx_entm_camp_floordecor_turkeybuzzard_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      }
+    ],
+    "highPriceOriginal": 1800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Hamilton J. Pigg Plushie"
+      },
+      {
+        "szItemName": "Rad Opossum Hat"
+      },
+      {
+        "szItemName": "Mole Rat Small Generator"
+      },
+      {
+        "szItemName": "Mole Rat Medium Generator"
+      },
+      {
+        "szItemName": "Mole Rat Large Generator"
+      },
+      {
+        "szItemName": "Mole Rat Fusion Generator"
+      },
+      {
+        "szItemName": "✦ Butterfly Sanctuary"
+      },
+      {
+        "szItemName": "✦ Mirelurk Steamer"
+      },
+      {
+        "szItemName": "Turkey Buzzard"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_MOTHMAN_TRAVELER_BUNDLE",
+    "desc": "Travel around Appalachia in Mothman Style with the Mothman Traveler Bundle!",
+    "disclaimer": "- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- BACKPACKS ARE CRAFTABLE AT ARMOR WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Mothman Traveler Bundle",
+    "primaryImage": {
+      "imageName": "b22a0affe8306f3ad5b2c434681bfbb5.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_apparel_headwear_gasmask_mothman_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      },
+      {
+        "imageName": "atx_skin_powerarmor_jetpack_mothman_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "atx_skin_backpack_plushie_mothman_l.webp",
+        "directory": "/textures/atx/storefront/player/backpack/"
+      },
+      {
+        "imageName": "atx_camp_wallpaper_mothmanbarn_l.webp",
+        "directory": "/textures/atx/storefront/camp/wallpaper/"
+      },
+      {
+        "imageName": "atx_camp_wallpaper_mothmanprint_l.webp",
+        "directory": "/textures/atx/storefront/camp/wallpaper/"
+      },
+      {
+        "imageName": "atx_playericon_mothmancultist01.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      }
+    ],
+    "highPriceOriginal": 1200,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Covered Bridge Kit"
+      },
+      {
+        "szItemName": "Wildwood Den"
+      },
+      {
+        "szItemName": "Red Cedar Hedges"
       }
     ]
   }

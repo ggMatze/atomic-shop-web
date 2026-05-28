@@ -70,6 +70,13 @@ h1 {
     gap: 10px;
 }
 
+.search-input-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
 #searchInput {
     flex: 1;
     padding: 12px 15px;
@@ -79,11 +86,32 @@ h1 {
     color: #e0e0e0;
     font-size: 16px;
     outline: none;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, padding-right 0.1s;
+}
+
+#searchInput.has-clear-btn {
+    padding-right: 40px;
 }
 
 #searchInput:focus {
     border-color: #6af141;
+}
+
+.clear-search-btn {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #ffd350;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.clear-search-btn:hover {
+    color: #f15641;
 }
 
 .filter-controls {

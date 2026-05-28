@@ -36,7 +36,7 @@ const filterGroups = {
     'Photo Mode': [ 'Frames', 'Pose', 'Vanity Lights'],
     'Seasons': ['Season 1', 'Season 2', 'Season 3', 'Season 4', 'Season 5', 'Season 6', 'Season 7', 'Season 8', 'Season 9', 'Season 10', 'Season 11', 'Season 12', 'Season 13', 'Season 14', 'Season 15', 'Season 16', 'Season 17', 'Season 18', 'Season 19', 'Season 20', 'Season 21', 'Season 22', 'Season 23', 'Season 24'],
     'Mini Seasons': ['Appalachian Outlaws', 'Marvelous Fishing Excursion', 'Night at the Morgue', 'Weapons Expert Extraordinaire', 'Sunset Stranger', 'Love Hurts'],
-    'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'Support Item List (260/311)','P2W', 'No Image']
+    'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'Support Item List (279/311)','P2W', 'No Image']
 };
 
 // Custom filters based on arbitrary item key:value data.
@@ -193,8 +193,7 @@ function getItemCategories(item) {
         'Night at the Morgue': ['_nightatthemorgue_'],
         'Weapons Expert Extraordinaire': ['_weaponsexpert_'],
         'Sunset Stranger': ['_sunsetstranger_'],
-        'Love Hurts': ['_miniseason_lovehurts_'],
-        'Support Item List (260/311)': [] 
+        'Love Hurts': ['_miniseason_lovehurts_']
     };
 
     Object.assign(edidCategoryKeywords, externalEdidKeywords);
@@ -762,6 +761,29 @@ searchInput.addEventListener('input', (e) => {
     searchDebounceTimer = setTimeout(() => {
         search(e.target.value);
     }, searchDebounceDelay);
+    updateClearButtonVisibility();
+});
+
+// Clear search button functionality
+const clearSearchBtn = document.getElementById('clearSearchBtn');
+function updateClearButtonVisibility() {
+    if (searchInput.value.trim() !== '') {
+        clearSearchBtn.style.display = 'block';
+        searchInput.classList.add('has-clear-btn');
+    } else {
+        clearSearchBtn.style.display = 'none';
+        searchInput.classList.remove('has-clear-btn');
+    }
+}
+
+clearSearchBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    updateClearButtonVisibility();
+    clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(() => {
+        search('');
+    }, searchDebounceDelay);
+    searchInput.focus();
 });
 
 // ===== OVERLAY FUNCTIONALITY =====

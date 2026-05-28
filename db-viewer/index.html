@@ -20,12 +20,15 @@
             
             <div class="search-box">
                 <button id="go-ufas" title="Browse user-friendly atomic shop">&nbsp;</button>
-                <input 
-                    type="text" 
-                    id="searchInput" 
-                    placeholder="Search, ID or Item Name..."
-                    autocomplete="on"
-                >
+                <div class="search-input-wrapper">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search, ID or Item Name..."
+                        autocomplete="on"
+                    >
+                    <button id="clearSearchBtn" class="clear-search-btn" title="Clear search" style="display: none;">✕</button>
+                </div>
                 <button id="filter-toggle">Filters ▼</button>
             </div>
             <div id="filter-panel" class="filter-panel hidden">
