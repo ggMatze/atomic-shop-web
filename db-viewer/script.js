@@ -18,9 +18,9 @@ fetch('../data/edidkeywords.json')
     initItems(); // or whatever starts your processing
   });
 
-
-// Store item data by EDID for overlay access
+// Store item data by EDID for overlay access and bundle resolution
 const itemDataStore = new Map();
+const itemLookupByEdid = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
@@ -548,6 +548,10 @@ async function loadDatabase() {
         item._lowerName = ((item.itemName || item.name) || '').toLowerCase();
         item._lowerShortName = (item.itemNameShort || '').toLowerCase();
 
+        if (item.EDID) {
+            itemLookupByEdid.set(item._lowerEDID, item);
+        }
+
         (item._categories || []).forEach(cat => catSet.add(cat));
     } catch (e) {
         console.log("BROKEN ITEM AT INDEX:", i, item, e);
@@ -670,6 +674,69 @@ function getImagePath(directory, imageName) {
     if (!dir.endsWith('/')) { dir = dir + '/'; }
     
     return `../${dir}${imageName}`;
+}
+
+function normalizeEdid(value) {
+    return (typeof value === 'string' && value.trim()) ? value.trim().toLowerCase() : '';
+}
+
+function getItemByEdid(edid) {
+    if (!edid) return null;
+    return itemLookupByEdid.get(normalizeEdid(edid)) || null;
+}
+
+function resolveDynamicBundleEntry(entry) {
+    if (!entry) return null;
+
+    if (typeof entry === 'string') {
+        return {
+            id: null,
+            oldName: entry,
+            resolvedName: entry,
+            resolvedShortName: entry,
+            primaryImage: null,
+            carouselImages: [],
+            source: 'string'
+        };
+    }
+
+    const id = entry.EDID || entry.entmName || entry.edid || entry.entm || entry.id || null;
+    const oldName = entry.szItemName || entry.name || entry.itemName || '';
+    const record = id ? getItemByEdid(id) : null;
+    const resolvedName = record?.itemName || oldName || id || 'Unknown Item';
+    const resolvedShortName = record?.itemNameShort || record?.itemName || oldName || '';
+    const primaryImage = record?.primaryImage || entry.primaryImage || null;
+    const carouselImages = Array.isArray(record?.carouselImages) ? record.carouselImages : (Array.isArray(entry.carouselImages) ? entry.carouselImages : []);
+
+    return {
+        id: id || null,
+        oldName: oldName || null,
+        resolvedName,
+        resolvedShortName,
+        primaryImage,
+        carouselImages,
+        source: record ? 'resolved' : 'fallback',
+        record,
+        originalEntry: entry
+    };
+}
+
+function resolveDynamicBundleItems(item) {
+    if (!item || !Array.isArray(item.dynamicBundleItems)) return [];
+    return item.dynamicBundleItems.map(resolveDynamicBundleEntry).filter(Boolean);
+}
+
+function buildBundleCarouselImages(item) {
+    const bundleItems = resolveDynamicBundleItems(item);
+    return bundleItems
+        .map(bundleEntry => {
+            const image = bundleEntry.primaryImage || (Array.isArray(bundleEntry.carouselImages) ? bundleEntry.carouselImages[0] : null);
+            if (image && image.directory && image.imageName) {
+                return { directory: image.directory, imageName: image.imageName };
+            }
+            return null;
+        })
+        .filter(Boolean);
 }
 
 // Badge for cut stuff
@@ -817,29 +884,32 @@ function buildVariantName(base, ext, variantNum) {
 }
 
 // Auto-detect carousel variants (c1, c2, c3, etc.)
-async function detectCarouselVariants(item) {
+async function detectCarouselVariants(item, carouselImagesOverride = null) {
     const images = [];
-    
-    // Add primary image first
+    const hasExplicitCarousel = Array.isArray(item.carouselImages) && item.carouselImages.length > 0;
+    const hasDynamicBundle = Array.isArray(item.dynamicBundleItems) && item.dynamicBundleItems.length > 0;
+    const skipAutoVariants = hasExplicitCarousel || hasDynamicBundle || Array.isArray(carouselImagesOverride);
+
+    const carouselSource = Array.isArray(carouselImagesOverride) ? carouselImagesOverride : item.carouselImages;
     if (item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
         const primaryUrl = getImagePath(item.primaryImage.directory, item.primaryImage.imageName);
         if (primaryUrl) {
             images.push(primaryUrl);
         }
-        
-        // Add any existing carousel images from DB
-        if (item.carouselImages && Array.isArray(item.carouselImages)) {
-            for (const carousel of item.carouselImages) {
-                if (carousel.imageName && carousel.directory) {
-                    const carouselUrl = getImagePath(carousel.directory, carousel.imageName);
-                    if (carouselUrl && !images.includes(carouselUrl)) {
-                        images.push(carouselUrl);
-                    }
+    }
+
+    if (carouselSource && Array.isArray(carouselSource)) {
+        for (const carousel of carouselSource) {
+            if (carousel && carousel.imageName && carousel.directory) {
+                const carouselUrl = getImagePath(carousel.directory, carousel.imageName);
+                if (carouselUrl && !images.includes(carouselUrl)) {
+                    images.push(carouselUrl);
                 }
             }
         }
-        
-        // Try to find c1, c2, c3 variants based on primary image name
+    }
+
+    if (!skipAutoVariants && item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
         const baseFileName = item.primaryImage.imageName;
         const directory = item.primaryImage.directory;
         const parsed = parseVariantBase(baseFileName);
@@ -951,8 +1021,11 @@ function parseDescriptionAndDisclaimer(itemDesc) {
 async function openOverlay(item) {
     currentOverlayItem = item;
     
+    const bundleEntries = resolveDynamicBundleItems(item);
+    const bundleCarouselImages = buildBundleCarouselImages(item);
+
     // Detect carousel variants
-    currentGalleryImages = await detectCarouselVariants(item);
+    currentGalleryImages = await detectCarouselVariants(item, bundleCarouselImages.length ? bundleCarouselImages : null);
     currentGalleryIndex = 0;
     
     // Populate overlay content
@@ -978,16 +1051,25 @@ async function openOverlay(item) {
 document.querySelectorAll('.overlay-includes').forEach(el => el.remove());
 
 // Display dynamic bundle items if they exist
-const bundleItems = (item.dynamicBundleItems && Array.isArray(item.dynamicBundleItems)) 
-    ? item.dynamicBundleItems.map(b => b.EDID || b.szItemName || '') 
-    : [];
+const bundleItems = bundleEntries.map(entry => {
+    return entry.resolvedName || entry.oldName || 'Unknown Item';
+});
 
 if (bundleItems.length > 0) {
     const bundleHTML = '<div class="overlay-includes"><strong>Includes:</strong> ' + 
-        bundleItems.map(itemId => `<span class="bundle-item">${itemId}</span>`).join(', ') + 
+        bundleItems.map((itemName, idx) => `<span class="bundle-item include-item" data-include-index="${idx}">${itemName}</span>`).join(', ') + 
         '</div>';
 
     overlayDescription.insertAdjacentHTML('afterend', bundleHTML);
+    overlay._includeListEls = Array.from(document.querySelectorAll('.overlay-includes .include-item'));
+    overlay._bundleImageMap = bundleEntries.map((entry, idx) => {
+        const image = entry.primaryImage || (Array.isArray(entry.carouselImages) ? entry.carouselImages[0] : null);
+        const url = image && image.directory && image.imageName ? getImagePath(image.directory, image.imageName) : null;
+        return { idx, url: url ? url.toLowerCase() : null };
+    });
+} else {
+    overlay._includeListEls = [];
+    overlay._bundleImageMap = [];
 }
     
     // Populate DB Info Panel
@@ -1084,6 +1166,36 @@ function renderGallery() {
             renderGallery();
         });
         rightStrip.appendChild(img);
+    });
+
+    updateBundleHighlight();
+}
+
+function updateBundleHighlight() {
+    const includeEls = overlay._includeListEls || [];
+    if (!includeEls.length || !overlay._bundleImageMap) return;
+
+    const basename = (url) => {
+        if (!url) return '';
+        const parts = url.split('/');
+        return parts[parts.length - 1].toLowerCase();
+    };
+
+    const mainUrl = mainImage && mainImage.src ? mainImage.src.toLowerCase() : '';
+    const mainName = basename(mainUrl);
+
+    let activeIndex = null;
+    for (const mapping of overlay._bundleImageMap) {
+        if (!mapping.url) continue;
+        if (basename(mapping.url) === mainName) {
+            activeIndex = mapping.idx;
+            break;
+        }
+    }
+
+    includeEls.forEach(el => {
+        const idx = Number(el.getAttribute('data-include-index'));
+        el.classList.toggle('include-highlight', idx === activeIndex);
     });
 }
 
