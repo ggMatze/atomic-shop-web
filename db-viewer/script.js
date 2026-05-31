@@ -14,13 +14,18 @@ fetch('../data/edidkeywords.json')
   .then(res => res.json())
   .then(data => {
     externalEdidKeywords = data;
-
-    initItems(); // or whatever starts your processing
+  })
+  .catch(() => {
+    externalEdidKeywords = {};
+  })
+  .finally(() => {
+    loadDatabase();
   });
 
 // Store item data by EDID for overlay access and bundle resolution
 const itemDataStore = new Map();
 const itemLookupByEdid = new Map();
+const itemLookupByShareId = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
@@ -552,6 +557,18 @@ async function loadDatabase() {
             itemLookupByEdid.set(item._lowerEDID, item);
         }
 
+        const shareIdBase = getShareIdFromValue(item.EDID || item.itemName || item.name || String(i));
+        if (shareIdBase) {
+            let shareId = shareIdBase;
+            let collisionIndex = 1;
+            while (itemLookupByShareId.has(shareId) && itemLookupByShareId.get(shareId) !== item) {
+                shareId = hashStringToHex(`${shareIdBase}:${collisionIndex}`);
+                collisionIndex += 1;
+            }
+            item._shareId = shareId;
+            itemLookupByShareId.set(shareId, item);
+        }
+
         (item._categories || []).forEach(cat => catSet.add(cat));
     } catch (e) {
         console.log("BROKEN ITEM AT INDEX:", i, item, e);
@@ -562,7 +579,15 @@ async function loadDatabase() {
         populateFilters();
         updateFilterIndicator();
         statsText.textContent = `Loaded ${dbData.length} items`;
+
+        const initialSearch = getSearchParamFromUrl();
+        if (initialSearch) {
+            searchInput.value = initialSearch;
+            updateClearButtonVisibility();
+        }
+
         search(searchInput.value);
+        processShareLink();
     } catch (error) {
         errorContainer.innerHTML = `<div class="error">Error loading database: ${error.message}</div>`;
         statsText.textContent = 'Failed to load database';
@@ -599,12 +624,22 @@ function search(query) {
     // Apply text search
     if (query.trim()) {
         const lowerQuery = query.toLowerCase();
-        results = results.filter(item => {
-            const edid = item._lowerEDID || (item.EDID || '').toLowerCase();
-            const name = item._lowerName || (item.itemName || item.name || '').toLowerCase();
-            const shortName = item._lowerShortName || (item.itemNameShort || '').toLowerCase();
-            return edid.includes(lowerQuery) || name.includes(lowerQuery) || shortName.includes(lowerQuery);
-        });
+        const shareIdCandidate = lowerQuery.replace(/^0x/, '');
+        if (/^[0-9a-f]{6}$/.test(shareIdCandidate)) {
+            const shareItem = getItemByShareId(shareIdCandidate);
+            if (shareItem) {
+                results = [shareItem];
+            } else {
+                results = [];
+            }
+        } else {
+            results = results.filter(item => {
+                const edid = item._lowerEDID || (item.EDID || '').toLowerCase();
+                const name = item._lowerName || (item.itemName || item.name || '').toLowerCase();
+                const shortName = item._lowerShortName || (item.itemNameShort || '').toLowerCase();
+                return edid.includes(lowerQuery) || name.includes(lowerQuery) || shortName.includes(lowerQuery);
+            });
+        }
     }
     
     statsText.textContent = `Found ${results.length} of ${dbData.length} items`;
@@ -680,9 +715,101 @@ function normalizeEdid(value) {
     return (typeof value === 'string' && value.trim()) ? value.trim().toLowerCase() : '';
 }
 
+function hashStringToHex(value) {
+    let hash = 2166136261;
+    for (let i = 0; i < value.length; i++) {
+        hash ^= value.charCodeAt(i);
+        hash = Math.imul(hash, 16777619) >>> 0;
+    }
+    return hash.toString(16).padStart(8, '0').slice(-6);
+}
+
+function getShareIdFromValue(value) {
+    const normalized = normalizeEdid(value || '');
+    return normalized ? hashStringToHex(normalized) : null;
+}
+
 function getItemByEdid(edid) {
     if (!edid) return null;
     return itemLookupByEdid.get(normalizeEdid(edid)) || null;
+}
+
+function getItemByShareId(shareId) {
+    if (!shareId) return null;
+    const normalized = String(shareId).toLowerCase().replace(/^0x/, '');
+    return itemLookupByShareId.get(normalized) || null;
+}
+
+function getShareIdFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    let itemParam = params.get('item') || '';
+    if (!itemParam && window.location.hash) {
+        const hash = window.location.hash.replace(/^#/, '');
+        itemParam = hash.startsWith('item=') ? hash.split('=')[1] : hash;
+    }
+    return itemParam ? itemParam.toLowerCase().replace(/^0x/, '') : null;
+}
+
+function getShareUrlForItem(item) {
+    const params = new URLSearchParams(window.location.search);
+    params.set('item', item._shareId);
+    const base = window.location.href.split('?')[0].split('#')[0];
+    return `${base}?${params.toString()}`;
+}
+
+function updateUrlForCurrentItem(item) {
+    if (!item || !item._shareId) return;
+    history.replaceState(null, '', getShareUrlForItem(item));
+}
+
+function getSearchParamFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const searchValue = params.get('search') || '';
+    return searchValue.trim();
+}
+
+function setSearchParamInUrl(value) {
+    const params = new URLSearchParams(window.location.search);
+    if (value && value.trim()) {
+        params.set('search', value.trim().replace(/\s+/g, ' '));
+    } else {
+        params.delete('search');
+    }
+    const hash = window.location.hash || '';
+    const query = params.toString();
+    const newUrl = `${window.location.pathname}${query ? `?${query}` : ''}${hash}`;
+    history.replaceState(null, '', newUrl);
+}
+
+let searchUrlUpdateTimer;
+const searchUrlUpdateDelay = 1200;
+
+function scheduleSearchUrlUpdate(value) {
+    clearTimeout(searchUrlUpdateTimer);
+    searchUrlUpdateTimer = setTimeout(() => setSearchParamInUrl(value), searchUrlUpdateDelay);
+}
+
+function updateSearchUrlImmediately(value) {
+    clearTimeout(searchUrlUpdateTimer);
+    setSearchParamInUrl(value);
+}
+
+function removeItemParamFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    params.delete('item');
+    const hash = window.location.hash || '';
+    const query = params.toString();
+    const newUrl = `${window.location.pathname}${query ? `?${query}` : ''}${hash}`;
+    history.replaceState(null, '', newUrl);
+}
+
+function processShareLink() {
+    const shareId = getShareIdFromUrl();
+    if (!shareId) return;
+    const item = getItemByShareId(shareId);
+    if (item) {
+        openOverlay(item);
+    }
 }
 
 function resolveDynamicBundleEntry(entry) {
@@ -827,8 +954,12 @@ searchInput.addEventListener('input', (e) => {
     clearTimeout(searchDebounceTimer);
     searchDebounceTimer = setTimeout(() => {
         search(e.target.value);
+        scheduleSearchUrlUpdate(e.target.value);
     }, searchDebounceDelay);
     updateClearButtonVisibility();
+});
+searchInput.addEventListener('blur', () => {
+    updateSearchUrlImmediately(searchInput.value);
 });
 
 // Clear search button functionality
@@ -849,6 +980,7 @@ clearSearchBtn.addEventListener('click', () => {
     clearTimeout(searchDebounceTimer);
     searchDebounceTimer = setTimeout(() => {
         search('');
+        updateSearchUrlImmediately('');
     }, searchDebounceDelay);
     searchInput.focus();
 });
@@ -864,11 +996,13 @@ const overlayTitle = document.querySelector('.overlay-title');
 const overlayDescription = document.querySelector('.overlay-description');
 const overlayDisclaimer = document.querySelector('.overlay-disclaimer');
 const overlayDbInfo = document.getElementById('overlay-db-info');
+const overlayShareBtn = document.getElementById('overlay-link-btn');
+const overlayLinkBox = document.getElementById('overlay-link-box');
 const mainImage = document.getElementById('main-image');
 const leftStrip = document.getElementById('left-strip');
 const rightStrip = document.getElementById('right-strip');
 const overlayCloseBtn = document.querySelector('.overlay-close');
-const overlayButton = document.querySelector('.overlay-button');
+const overlayCloseTextBtn = document.getElementById('overlay-close-text-btn');
 
 // Parse variant filename to get base name and extension
 function parseVariantBase(filename) {
@@ -1086,6 +1220,8 @@ if (bundleItems.length > 0) {
         const priceDisplay = price ? `⚛ ${price}` : 'No price recorded';
         const displayName = item.itemName || item.name || item.itemNameShort || 'N/A';
         const displayShortName = item.itemNameShort || 'N/A';
+        const shareLink = item._shareId ? getShareUrlForItem(item) : '';
+        const shareId = item._shareId ? `#${item._shareId}` : 'N/A';
         
         let bundleHTML = '';
         if (bundleItems.length > 0) {
@@ -1101,6 +1237,8 @@ if (bundleItems.length > 0) {
             <div class="db-info-row">Primary Image:<br><code class="db-info-code">${primaryImageName}</code></div>
             <div class="db-info-row">Directory:<br><code class="db-info-code">${primaryImageDir}</code></div>
             <div class="db-info-row">Carousel Images:<br><code class="db-info-code">${actualCarouselCount}</code></div>
+            <div class="db-info-row">Share ID:<br><code class="db-info-code">${shareId}</code></div>
+            <div class="db-info-row">Share Link:<br><code class="db-info-code">${escapeAttr(shareLink)}</code></div>
             ${bundleHTML}
         `;
     }
@@ -1110,6 +1248,27 @@ if (bundleItems.length > 0) {
     
     // Show overlay
     overlay.classList.remove('hidden');
+    updateUrlForCurrentItem(item);
+}
+
+function copyShareLink() {
+    if (!currentOverlayItem || !currentOverlayItem._shareId) return;
+    const shareUrl = getShareUrlForItem(currentOverlayItem);
+    if (overlayLinkBox) {
+        overlayLinkBox.value = shareUrl;
+        overlayLinkBox.style.display = '';
+        overlayLinkBox.focus();
+        overlayLinkBox.select();
+        try { document.execCommand('copy'); } catch (e) {}
+    } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+            alert('Share link copied to clipboard');
+        }).catch(() => {
+            prompt('Copy this share link:', shareUrl);
+        });
+    } else {
+        prompt('Copy this share link:', shareUrl);
+    }
 }
 
 // Render gallery with current images (based on original gallery.js logic)
@@ -1205,6 +1364,7 @@ function closeOverlay() {
     currentOverlayItem = null;
     currentGalleryImages = [];
     currentGalleryIndex = 0;
+    removeItemParamFromUrl();
 }
 
 // Keyboard navigation
@@ -1232,8 +1392,24 @@ document.addEventListener('keydown', (e) => {
 
 // Event listeners for overlay controls
 overlayCloseBtn.addEventListener('click', closeOverlay);
-overlayButton.addEventListener('click', closeOverlay);
+if (overlayCloseTextBtn) {
+    overlayCloseTextBtn.addEventListener('click', closeOverlay);
+}
+if (overlayShareBtn) {
+    overlayShareBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        copyShareLink();
+    });
+}
+if (overlayLinkBox) {
+    overlayLinkBox.onblur = () => {
+        overlayLinkBox.style.display = 'none';
+    };
+}
 overlay.addEventListener('click', (e) => {
+    if (overlayLinkBox && e.target !== overlayLinkBox && e.target !== overlayShareBtn) {
+        overlayLinkBox.style.display = 'none';
+    }
     if (e.target === overlay) {
         closeOverlay();
     }
@@ -1330,11 +1506,6 @@ function createItemCard(item) {
 }
 // ===== INITIALIZATION =====
 
-// Event listeners
-searchInput.addEventListener('input', (e) => {
-    search(e.target.value);
-});
-
 document.getElementById('filter-toggle').addEventListener('click', () => {
     document.getElementById('filter-panel').classList.toggle('hidden');
 });
@@ -1359,9 +1530,6 @@ if (filterToggleBtn && !document.getElementById('filter-reset')) {
 document.getElementById('filter-panel').addEventListener('change', () => {
     search(searchInput.value);
 });
-
-// Initialize
-loadDatabase();
 
 document.getElementById("go-ufas").addEventListener("click", () => {
     window.open("../", "_blank");

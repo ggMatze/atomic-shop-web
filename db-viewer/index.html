@@ -89,6 +89,16 @@
             <div class="overlay-disclaimer" id="overlay-disclaimer"></div>
 
             <h2 class="overlay-title">Item Title</h2>
+            <span id="overlay-link-btn" class="link-btn" title="Share this item">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffd454" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="18" cy="5" r="3"/>
+                    <circle cx="6" cy="12" r="3"/>
+                    <circle cx="18" cy="19" r="3"/>
+                    <path d="M8.59 13.51l6.83 3.98"/>
+                    <path d="M15.41 6.51L8.59 10.49"/>
+                </svg>
+            </span>
+            <input id="overlay-link-box" class="link-box" type="text" readonly style="display:none;" title="Press Ctrl+C to copy the link">
             
             <!-- DB Info Panel (ABSOLUTE OVERLAY) -->
             <div id="overlay-db-info" class="overlay-db-info">
@@ -113,7 +123,7 @@
                 </div>
             </div>
 
-            <button class="overlay-button">Tab) CLOSE</button>
+            <button class="overlay-button" id="overlay-close-text-btn">Tab) CLOSE</button>
         </div>
     </div>
 
