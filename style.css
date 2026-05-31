@@ -2307,7 +2307,14 @@ body.uah-currency .price-label-final::after {
   box-shadow: 0 0 5px #000a;
   animation: fadeIn 0.3s ease-in-out;
 }
-
+.link-box:focus-visible {
+   border: 2px solid #E5D290;
+   outline: none;
+}
+.link-box::selection {
+  background: #8aff05;
+  color: #181C1D;
+}
 .overlay-expired-msg {
   position: absolute;
   top: 50px;
@@ -2372,3 +2379,10 @@ body.uah-currency .price-label-final::after {
 html, body {
   overflow-x: hidden !important;
 }
+
+
+
+
+
+
+  
