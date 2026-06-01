@@ -1033,12 +1033,19 @@ async function detectCarouselVariants(item, carouselImagesOverride = null) {
     }
 
     if (carouselSource && Array.isArray(carouselSource)) {
+        const carouselSeen = new Set();
         for (const carousel of carouselSource) {
             if (carousel && carousel.imageName && carousel.directory) {
                 const carouselUrl = getImagePath(carousel.directory, carousel.imageName);
-                if (carouselUrl && !images.includes(carouselUrl)) {
-                    images.push(carouselUrl);
+                if (!carouselUrl) continue;
+
+                const isPrimaryDuplicate = carouselUrl === images[0];
+                if (!carouselSeen.has(carouselUrl)) {
+                    if (isPrimaryDuplicate || !images.includes(carouselUrl)) {
+                        images.push(carouselUrl);
+                    }
                 }
+                carouselSeen.add(carouselUrl);
             }
         }
     }
