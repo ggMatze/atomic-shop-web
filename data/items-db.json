@@ -55114,6 +55114,31 @@
     "itemNameShort": "Ruby Reel Rod"
   },
   {
+    "EDID": "ATX_ENTM_CLEAN_MANNEQUIN_SET",
+    "desc": "Display Armor, Underarmor, Outfits, and Headwear at your C.A.M.P. with this Clean Mannequin Set!",
+    "disclaimer": "- A max of five Mannequins can be built in a given C.A.M.P. or Shelter -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Clean Mannequin Set",
+    "primaryImage": {
+      "imageName": "atx_camp_display_mannequin_male_clean_l.webp",
+      "directory": "/textures/atx/storefront/camp/displays/"
+    },
+    "highPriceOriginal": 800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Clean Male Mannequin",
+        "entmName": "atx_entm_camp_display_mannequin_male_clean"
+      },
+      {
+        "szItemName": "Clean Female Mannequin",
+        "entmName": "atx_entm_camp_display_mannequin_female_clean"
+      }
+        ],
+    "carouselImages": [],
+    "cBadge": "Set"
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_Collector_GamesCupboard_Red",
     "desc": "Time to set up for a good ol' board game night. Who get's to pick the first one? Generates Pre-war board games. This item cannot be built inside of a Shelter.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -78037,21 +78062,6 @@
       "directory": "/textures/atomic_shop_media/"
     },
     "highPriceOriginal": 700,
-    "dynamicBundleItems": [],
-    "carouselImages": []
-  },
-  {
-    "EDID": "ATX_ENTM_CLEAN_MANNEQUIN_SET",
-    "desc": "Display Armor, Underarmor, Outfits, and Headwear at your C.A.M.P. with this Clean Mannequin Set!",
-    "disclaimer": "- A max of five Mannequins can be built in a given C.A.M.P. or Shelter -",
-    "customdesc": "",
-    "customdisclaimer": "",
-    "itemName": "Clean Mannequin Set",
-    "primaryImage": {
-      "imageName": "atx_camp_display_mannequin_male_clean_l.webp",
-      "directory": "/textures/atx/storefront/camp/displays/"
-    },
-    "highPriceOriginal": 800,
     "dynamicBundleItems": [],
     "carouselImages": []
   },
