@@ -1340,6 +1340,10 @@ function renderGallery() {
 function updateBundleHighlight() {
     const includeEls = overlay._includeListEls || [];
     if (!includeEls.length || !overlay._bundleImageMap) return;
+    if (currentGalleryIndex === 0) {
+        includeEls.forEach(el => el.classList.remove('include-highlight'));
+        return;
+    }
 
     const basename = (url) => {
         if (!url) return '';
