@@ -1244,8 +1244,6 @@ if (bundleItems.length > 0) {
             <div class="db-info-row">Primary Image:<br><code class="db-info-code">${primaryImageName}</code></div>
             <div class="db-info-row">Directory:<br><code class="db-info-code">${primaryImageDir}</code></div>
             <div class="db-info-row">Carousel Images:<br><code class="db-info-code">${actualCarouselCount}</code></div>
-            <div class="db-info-row">Share ID:<br><code class="db-info-code">${shareId}</code></div>
-            <div class="db-info-row">Share Link:<br><code class="db-info-code">${escapeAttr(shareLink)}</code></div>
             ${bundleHTML}
         `;
     }
