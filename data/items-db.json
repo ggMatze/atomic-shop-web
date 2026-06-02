@@ -225,7 +225,7 @@
     "primaryImage": 
     {
       "imageName": "atx_camp_floordecor_swimsigns_l.webp",
-      "directory": "/textures/atx/storefront/camp/floordecor/"
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": []
   },
@@ -266,7 +266,7 @@
     "primaryImage": 
     {
       "imageName": "atx_camp_camppets_radhog_gruyere_l.webp",
-      "directory": "/textures/atx/storefront/camp/camppets/"
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": []
   },
@@ -306,7 +306,10 @@
     "itemNameShort": "Chefs' Kiss",
     "desc": "Perfect!",
     "disclaimer": "UNLOCKS AN EMOTE OPTION.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "chef_kiss.webp",
+      "directory": "/textures/emotes/"
+    },
     "carouselImages": []
   },
   {
@@ -331,7 +334,7 @@
     "primaryImage": 
     {
       "imageName": "score_s25_camp_decoration_outdoorshower_wooden_l.webp",
-      "directory": "/textures/atx/storefront/camp/decoration/"
+      "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": []
   },
@@ -343,7 +346,7 @@
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
       "imageName": "score_s25_camp_floordecor_stein_coffeepot_l.webp",
-      "directory": "/textures/atx/storefront/camp/floordecor/"
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": []
   },
@@ -356,7 +359,7 @@
     "primaryImage": 
     {
       "imageName": "score_s25_camp_camppets_radhog_glowinghog_l.webp",
-      "directory": "/textures/atx/storefront/camp/camppets/"
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": []
   },
@@ -423,7 +426,7 @@
     "disclaimer": "This item cannot be built inside of a Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage":{
       "imageName": "atx_camp_collector_nukavictory_l.webp",
-      "directory": "/textures/atx/storefront/camp/collector/"
+      "directory": "/textures/atx/storefront/camp/utility/"
     }
     ,
     "carouselImages": []
@@ -467,7 +470,7 @@
     "primaryImage": 
     {
       "imageName": "score_s25_camptitles_prefix_safeguarded_l.webp",
-      "directory": "/textures/atx/storefront/camp/playertitles/"
+      "directory": "/textures/atx/storefront/camp/camptitles/"
     },
     "carouselImages": []
   },
@@ -495,7 +498,7 @@
     "primaryImage": 
     {
       "imageName": "score_s25_camptitles_suffix_laststand_l.webp",
-      "directory": "/textures/atx/storefront/camp/playertitles/"
+      "directory": "/textures/atx/storefront/camp/camptitles/"
     },
     "carouselImages": []
   },
@@ -523,7 +526,7 @@
     "primaryImage": 
     {
       "imageName": "score_s25_camptitles_suffix_bunker_l.webp",
-      "directory": "/textures/atx/storefront/camp/playertitles/"
+      "directory": "/textures/atx/storefront/camp/camptitles/"
     },
     "carouselImages": []
   },
@@ -536,7 +539,7 @@
     "primaryImage": 
     {
       "imageName": "score_s25_camptitles_prefix_fortified_l.webp",
-      "directory": "/textures/atx/storefront/camp/playertitles/"
+      "directory": "/textures/atx/storefront/camp/camptitles/"
     },
     "carouselImages": []
   },
@@ -549,7 +552,7 @@
     "primaryImage": 
     {
       "imageName": "atx_camp_structure_boxcars_l.webp",
-      "directory": "/textures/atx/storefront/camp/structure/"
+      "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": []
   },
@@ -575,7 +578,7 @@
     "primaryImage": 
     {
       "imageName": "score_s25_camp_walldecor_appalachiafishposters_mirefish_l.webp",
-      "directory": "/textures/atx/storefront/camp/walldecor/"
+      "directory": "/textures/atx/storefront/camp/walldecoration/"
     },
     "carouselImages": []
   },
@@ -726,7 +729,7 @@
     "disclaimer": "Chophouse door is included and built separately.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
       "imageName": "atx_camp_structure_chophouse_l.webp",
-      "directory": "/textures/atx/storefront/camp/structure/"
+      "directory": "/textures/atx/storefront/camp/structures/"
     },
     "carouselImages": []
   },
@@ -738,7 +741,7 @@
     "disclaimer": "C.A.M.P. PETS  APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
     "primaryImage": {
       "imageName": "atx_camp_camppets_cat_mrpebbles_c1.webp",
-      "directory": "/textures/atx/storefront/camp/camppets/"
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": []
   },
@@ -838,7 +841,11 @@
     "itemNameShort": "Wall-Mounted Raider Walkway",
     "desc": "When you want to forge your own path, use the Wall-Mounted Raider Walkway!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s23_camp_walldecor_wallwalkwayraid_l.webp",
+      "directory": "/textures/atx/storefront/camp/walldecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -847,7 +854,11 @@
     "itemNameShort": "Claw Sharpener",
     "desc": "Every Deathclaw needs to keep their claws ready for their next meal.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_camppets_idlefurniture_deathclaw_clawsharpener.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -856,7 +867,11 @@
     "itemNameShort": "Deathclaw",
     "desc": "Every C.A.M.P. needs a nice Deathclaw.",
     "disclaimer": "Generates 1, 2, or 3 Star Legendary Items\n\n- C.A.M.P. PETS  APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_camppets_deathclaw_dc.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -865,7 +880,11 @@
     "itemNameShort": "Ochre Plating (Deathclaw)",
     "desc": "Time to add some metal to your Deathclaw.",
     "disclaimer": "CAMP PET CLOTHING IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_apparel_camppets_deathclaw_dcplating.webp",
+      "directory": "/textures/atx/storefront/player/outfit/"
+    },
     "carouselImages": []
   },
   {
@@ -874,7 +893,11 @@
     "itemNameShort": "Viscera Bowl",
     "desc": "A meal fit for a Deathclaw.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_camppets_idlefurniture_deathclaw_viscerabowl.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -883,7 +906,11 @@
     "itemNameShort": "Train Car Chair",
     "desc": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
     "disclaimer": "",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_furniture_chair_traincar.webp",
+      "directory": "/textures/atx/storefront/camp/furniture/"
+    },
     "carouselImages": []
   },
   {
@@ -892,7 +919,11 @@
     "itemNameShort": "Destroyed Cooling Tower",
     "desc": "Less cooling, more cool.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_structure_dmgcoolingtower_l.webp",
+      "directory": "/textures/atx/storefront/camp/structures/"
+    },
     "carouselImages": []
   },
   {
@@ -901,7 +932,11 @@
     "itemNameShort": "Goodboy",
     "desc": "Failure to pet Goodboy may result in emotional damage.",
     "disclaimer": "Generates 1, 2, or 3 Star Legendary Items\n\n- C.A.M.P. PETS  APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_camppets_dog_goodboy_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -925,7 +960,11 @@
     "itemNameShort": "Cyprus Cat",
     "desc": "The purr-fect companion to help you through the apocalypse! Comes with a cat bed!",
     "disclaimer": "Generates 1, 2, or 3 Star Legendary Items \n\n- C.A.M.P. PETS  APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_camppets_cat_cypruscat_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -934,7 +973,11 @@
     "itemNameShort": "Appalachian Radio Station",
     "desc": "The Appalachian WAPR Radio Broadcast Station facility has been engineered for reliable signal transmission and morale management.",
     "disclaimer": "The Appalachian Radio door is included and built separately.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_structure_blueridgeradio_l.webp",
+      "directory": "/textures/atx/storefront/camp/structures/"
+    },
     "carouselImages": []
   },
   {
@@ -943,7 +986,11 @@
     "itemNameShort": "Edelweiss Ring (Radhog)",
     "desc": "Alpine flair for every hog.",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_apparel_camppets_radhog_headwear_edelweiss_l.webp",
+      "directory": "/textures/atx/storefront/player/outfit/"
+    },
     "carouselImages": []
   },
   {
@@ -952,7 +999,11 @@
     "itemNameShort": "Weather Station (Rainbow)",
     "desc": "Follow the Rainbow!",
     "disclaimer": "Weather Control Station will change weather in the C.A.M.P. radius when connected to power.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_utility_weatherstation_rainbow_l.webp",
+      "directory": "/textures/atx/storefront/camp/utility/"
+    },
     "carouselImages": []
   },
   {
@@ -961,7 +1012,11 @@
     "itemNameShort": "Nuka Victory Couch",
     "desc": "You fought. You won. Now lounge in this comfy couch.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_furniture_couch_nukavictory_l.webp",
+      "directory": "/textures/atx/storefront/camp/furniture/"
+    },
     "carouselImages": []
   },
   {
@@ -970,7 +1025,11 @@
     "itemNameShort": "Star Collar (Dog)",
     "desc": "Because every good pup deserves to shine.",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_apparel_camppets_dog_neckwear_starcollar_l.webp",
+      "directory": "/textures/atx/storefront/player/outfit/"
+    },
     "carouselImages": []
   },
   {
@@ -979,7 +1038,11 @@
     "itemNameShort": "Teal Bathroom Urinal",
     "desc": "This Teal Bathroom Urinal is slightly damaged, but it'll do the job!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_walldecor_bathroomurinalteal_l.webp",
+      "directory": "/textures/atx/storefront/camp/walldecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -988,7 +1051,11 @@
     "itemNameShort": "Teal Toilet",
     "desc": "Impress your guests with the Teal Toilet.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_floordecor_toilet_teal_l.webp",
+      "directory": "/textures/atx/storefront/camp/utility/"
+    },
     "carouselImages": []
   },
   {
@@ -1006,7 +1073,11 @@
     "itemNameShort": "Camden Park Claw Machine",
     "desc": "Is it skill or luck that gets you the prize? Both! Build up your luck and perception with the Camden Park Claw Machine!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_furniture_clawmachine_l.webp",
+      "directory": "/textures/atx/storefront/camp/furniture/"
+    },
     "carouselImages": []
   },
   {
@@ -1015,7 +1086,11 @@
     "itemNameShort": "Megasloth Taxidermy",
     "desc": "One giant reminder of nature's grip.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_floordecor_taxidermy_megasloth.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -1024,7 +1099,11 @@
     "itemNameShort": "Hog Door Knocker",
     "desc": "This hog door knocker has a rustic charm with a hint of a threat.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_entm_camp_walldecor_knocker_hogdoor_l.webp",
+      "directory": "/textures/atx/storefront/camp/walldecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -1033,7 +1112,11 @@
     "itemNameShort": "Marshal Mallow",
     "desc": "\"Remember kids: don't feed the wildlife!\"",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_floordecor_marshal_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -1042,7 +1125,11 @@
     "itemNameShort": "Sir Loin Collectron",
     "desc": "It's a pleasure to meat you. How can I be of service? I offer a variety of meats to the bravest connoisseur.",
     "disclaimer": "This item cannot be built inside of a Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_utility_collectron_sirloin_l.webp",
+      "directory": "/textures/atx/storefront/camp/utility/"
+    },
     "carouselImages": []
   },
   {
@@ -1165,7 +1252,11 @@
     "itemNameShort": "Skunk Cabbage",
     "desc": "Don't sniff it.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_floordecor_skunkcabbage.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -1174,7 +1265,11 @@
     "itemNameShort": "Gruyere Plushie",
     "desc": "Colossal cuddle with a cheesy rad tint.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_floordecor_plushie_gruyere_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -1183,7 +1278,11 @@
     "itemNameShort": "Sharpening Stone",
     "desc": "Out for blood? Grants a 5% chance to drop Blood Packs from melee weapon kills.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_entm_camp_utility_sharpening_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -1192,7 +1291,11 @@
     "itemNameShort": "Houseboat",
     "desc": "This refined floating home offers privacy, comfort and (some) distance from the chaos.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_structure_houseboat_l.webp",
+      "directory": "/textures/atx/storefront/camp/structures/"
+    },
     "carouselImages": []
   },
   {
@@ -1201,7 +1304,11 @@
     "itemNameShort": "Glowing Dog",
     "desc": "A sign of the times, this Glowing Dog will still never leave your side!",
     "disclaimer": "C.A.M.P. PETS  APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_camppets_dog_glowingdog_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -1210,7 +1317,11 @@
     "itemNameShort": "Don't Pet the Deathclaw Sign",
     "desc": "Make sure all your visitors remember not to pet the Deathclaw.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_walldecor_dontpet_l.webp",
+      "directory": "/textures/atx/storefront/camp/walldecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -1219,7 +1330,11 @@
     "itemNameShort": "Prime Mover Generator",
     "desc": "Serious power for serious build. Power your camp like you mean it.",
     "disclaimer": "This generator is an Extra Large Generator. It provides 50 Wired Power and provides Radiant Power.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_machinery_generator_xlarge_primemover_l.webp",
+      "directory": "/textures/atx/storefront/camp/machinery/"
+    },
     "carouselImages": []
   },
   {
@@ -1243,7 +1358,11 @@
     "itemNameShort": "Vault-Tec Snow Machine",
     "desc": "Keep the nuclear winter out and the wonderful winter in with the help of your friends from Vault-Tec!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_utility_vaulttecsnowmachine_l.webp",
+      "directory": "/textures/atx/storefront/camp/utility/"
+    },
     "carouselImages": []
   },
   {
@@ -1261,7 +1380,11 @@
     "itemNameShort": "\"Camper\"",
     "desc": "Unlocks the Player Title Suffix \"Camper\".",
     "disclaimer": "PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_playertitles_suffix_camper.webp",
+      "directory": "/textures/atx/storefront/player/playertitles/"
+    },
     "carouselImages": []
   },
   {
@@ -1270,7 +1393,11 @@
     "itemNameShort": "Nuka Victory Wallpaper",
     "desc": "A blast of vintage Nuka-Cola Victory cheer on your walls!",
     "disclaimer": "WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_wallpaper_nukavictory_l.webp",
+      "directory": "/textures/atx/storefront/camp/wallpaper/"
+    },
     "carouselImages": []
   },
   {
@@ -1283,10 +1410,7 @@
       "imageName": "atx_playertitles_suffix_broadcaster.webp",
       "directory": "/textures/atx/storefront/player/playertitles/"
     },
-    "carouselImages": [],
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDeco_Pennant_PTS_P68",
@@ -1307,10 +1431,7 @@
       "imageName": "atx__skin_weaponskin_thirstzapper_nukavictory.webp",
       "directory": "/textures/atx/storefront/player/weaponskin/"
     },
-    "carouselImages": [],
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "carouselImages": []
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_NukaVictory",
@@ -1318,7 +1439,11 @@
     "itemNameShort": "Nuka Victory Car",
     "desc": "What better way to enjoy the sweet taste of freedom than an open bottle on the open road?",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_camp_floordecor_nukavictory.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
     "carouselImages": []
   },
   {
@@ -1342,7 +1467,11 @@
     "itemNameShort": "Wasteland Farm",
     "desc": "Proof that even after the bombs, someone still has to do the chores.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_structure_wastelandfarm_l.webp",
+      "directory": "/textures/atx/storefront/camp/structures/"
+    },
     "carouselImages": []
   },
   {
@@ -1351,7 +1480,11 @@
     "itemNameShort": "Hanging Backpack Display",
     "desc": "Every backpack tells a story. Some people just need more hooks for their stories.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_display_hangingbpdisplay_l.webp",
+      "directory": "/textures/atx/storefront/camp/displays/"
+    },
     "carouselImages": []
   },
   {
@@ -1360,7 +1493,11 @@
     "itemNameShort": "Train Headlight",
     "desc": "Vintage train light mounted on a tripod and rotating back and forth. Perfect for any perimeter!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx__camp_lights_floorlamps_trainheadlight.webp",
+      "directory": "/textures/atx/storefront/camp/lights/"
+    },
     "carouselImages": []
   },
   {
@@ -1369,7 +1506,11 @@
     "itemNameShort": "Train Car Bed",
     "desc": "This train car bed lets you rest easy even when the world has gone off the rails.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "atx_entm_camp_bed_traincar_l.webp",
+      "directory": "/textures/atx/storefront/camp/beds/"
+    },
     "carouselImages": []
   },
   {
@@ -1382,10 +1523,7 @@
       "imageName": "atx_apparel_outfit_discjockey_l.webp",
       "directory": "/textures/atx/storefront/player/outfit/"
     },
-    "carouselImages": [],
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "carouselImages": []
   },
   {
     "EDID": "SCORE_S25_ENTM_CAMP_Furniture_MechanicalNukeRide",
@@ -1393,7 +1531,11 @@
     "itemNameShort": "Nuclear Bomb Ride",
     "desc": "Stop worrying and start loving! Loving this Nuclear Bomb Ride that is!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_furniture_nukebombride_l.webp",
+      "directory": "/textures/atx/storefront/camp/furniture/"
+    },
     "carouselImages": []
   },
   {
@@ -1402,7 +1544,11 @@
     "itemNameShort": "Deathclaw Skull Weapon Rack",
     "desc": "Make the Deathclaw hold up what you used to put it down.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_walldeco_display_gunrack_deathclawskull_l.webp",
+      "directory": "/textures/atx/storefront/camp/displays/"
+    },
     "carouselImages": []
   },
   {
@@ -1534,7 +1680,11 @@
     "itemNameShort": "Mr. Farmhand Collectron Station",
     "desc": "Put your C.A.M.P. to work with the trusty Mr. Farmhand Collectron.",
     "disclaimer": "This item cannot be built inside of a Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": 
+    {
+      "imageName": "score_s25_camp_utility_collectron_mrfarmhand_l.webp",
+      "directory": "/textures/atx/storefront/camp/utility/"
+    },
     "carouselImages": []
   },
   {
