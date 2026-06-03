@@ -2992,9 +2992,14 @@
               "amount": 0,
               "originalAmount": 0
             },
-            "isNew": false,
             "isZeus": false,
-            "preferDB": true
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 2,
+              "hasL": true,
+              "hasNone": false
+            },
+            "isClown": false
           },
           {
             "itemID": 2316946,
@@ -3010,7 +3015,8 @@
             "lowPrice": {
               "amount": 0,
               "originalAmount": 0,
-              "isLto": true
+              "isLto": true,
+              "ltoTimer": "2026-06-03T17:26:00.000Z"
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -3114,12 +3120,12 @@
               "amount": 0,
               "originalAmount": 0
             },
-            "isZeus": true,
+            "isZeus": false,
             "preferDB": true,
             "_detectedSuffixInfo": {
               "maxC": 2,
               "hasL": true,
-              "hasNone": false
+              "hasNone": true
             },
             "isClown": false
           },
