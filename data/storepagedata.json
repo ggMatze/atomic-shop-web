@@ -3127,7 +3127,7 @@
             "itemID": 2526819,
             "itemName": "Megasloth Standing Taxidermy",
             "itemNameShort": "Megasloth Taxidermy",
-            "itemDesc": "One giant reminder of nature's grip.\r\n\r\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "One giant reminder of nature's grip.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
               "imageName": "atx_camp_floordecor_taxidermy_megasloth.webp",
               "directory": "/textures/atx/storefront/camp/floordecoration/"
@@ -3148,9 +3148,17 @@
               "amount": 0,
               "originalAmount": 0
             },
-            "isNew": true,
-            "isZeus": false,
-            "preferDB": true
+            "isNew": 1,
+            "isZeus": true,
+            "preferDB": true,
+            "_detectedSuffixInfo": {
+              "maxC": 0,
+              "hasL": false,
+              "hasNone": true
+            },
+            "hasCustomDesc": true,
+            "hasCustomDisc": true,
+            "isClown": false
           },
           {
             "itemID": 2527329,
