@@ -3260,76 +3260,17 @@
         "tabid": "fallout-1st",
         "isZeus": true,
         "image": {
-          "imageName": "cd5a36d0d20d102f97ec99d9ec56189f.webp",
+          "imageName": "cd5a36d0d20d102f97ec99d9ec56189f.dds",
           "directory": "textures/atomic_shop_media/"
         },
         "items": [
           {
-            "itemID": 2470350,
-            "itemName": "Fallout First Quarterly Catch Up Bundle 17",
-            "itemNameShort": "Fallout First Catch Up",
-            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle will let you find some of those items.\n\nThis offer is exclusive to Fallout 1st Members.\n[h]This bundle contains items from the following months:[/h]\n- Oktober 2023\n- November 2023\n- December 2023",
-            "primaryImage": {
-              "imageName": "f59820c7f314fe9db0801b254f762ee4.webp",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_floordecor_giantbrontosaurus_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_machinery_generator_powershelter.webp",
-                "directory": "/textures/atx/storefront/camp/machinery/"
-              },
-              {
-                "imageName": "atx_f1_survivaltent_skin_flatbedtruck_l.webp",
-                "directory": "/textures/atx/storefront/camp/tents/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Power Shelter Generator"
-              },
-              {
-                "szItemName": "Giant Brontosaurus"
-              },
-              {
-                "szItemName": "Flatbed Truck Tent"
-              }
-            ],
-            "lowPrice": {
-              "amount": 1000,
-              "originalAmount": 1000,
-              "isLto": false
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1000,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 1000
-            },
-            "isNew": 2,
-            "isZeus": true,
-            "isClown": false,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 0,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true
-          },
-          {
-            "itemID": 2470306,
+            "itemID": 2529629,
             "itemName": "Fallout First Yearly Catch Up Bundle 1",
             "itemNameShort": "Fallout First Catch Up",
-            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- - UNLOCKS A VARIANT OF THE SURVIVAL TENT.-  -\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n\nThis offer is exclusive to Fallout 1st Members.",
+            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- - UNLOCKS A VARIANT OF THE SURVIVAL TENT.-  -\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n\n[h]This offer is exclusive to Fallout 1st Members.[/h]",
             "primaryImage": {
-              "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.webp",
+              "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
@@ -3338,15 +3279,11 @@
                 "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
-                "imageName": "atx_f1_skin_headwear_rangersuniform_riot_l.webp",
-                "directory": "/textures/atx/storefront/player/armorskin/"
+                "imageName": "atx_f1_survivalttent_skin_settler_l.webp",
+                "directory": "/textures/atx/storefront/camp/tents/"
               },
               {
-                "imageName": "atx_f1_skin_outfit_rangersuniform_desert_l.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_f1_skin_headwear_rangersuniform_desert_l.webp",
+                "imageName": "atx_f1_skin_armorskin_leather_atomiccamo_l.webp",
                 "directory": "/textures/atx/storefront/player/armorskin/"
               },
               {
@@ -3358,15 +3295,15 @@
                 "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
-                "imageName": "atx_f1_skin_armorskin_wood_atomiccamo_l.webp",
+                "imageName": "atx_camp_bed_valentinesday_l.webp",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "atx_f1_skin_headwear_rangersuniform_desert_l.webp",
                 "directory": "/textures/atx/storefront/player/armorskin/"
               },
               {
-                "imageName": "atx_f1_skin_armorskin_leather_atomiccamo_l.webp",
-                "directory": "/textures/atx/storefront/player/armorskin/"
-              },
-              {
-                "imageName": "atx_f1_skin_armorskin_metal_atomiccamo_l.webp",
+                "imageName": "atx_f1_skin_headwear_rangersuniform_riot_l.webp",
                 "directory": "/textures/atx/storefront/player/armorskin/"
               },
               {
@@ -3374,35 +3311,39 @@
                 "directory": "/textures/atx/storefront/player/armorskin/"
               },
               {
+                "imageName": "atx_f1_skin_armorskin_wood_atomiccamo_l.webp",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              },
+              {
                 "imageName": "atx_apparel_outfit_bogwanderer_l.webp",
                 "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "score_s1_camp_floordecor_rug_roundarea_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_camp_bed_valentinesday_l.webp",
-                "directory": "/textures/atx/storefront/camp/beds/"
               },
               {
                 "imageName": "score_s1_camp_machinery_workbench_armor_vaulttecpristine_l.webp",
                 "directory": "/textures/atx/storefront/camp/machinery/"
               },
               {
+                "imageName": "atx_f1_skin_outfit_rangersuniform_desert_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_f1_survivalttent_skin_xmas_l.webp",
+                "directory": "/textures/atx/storefront/camp/tents/"
+              },
+              {
                 "imageName": "atx_f1_survivalttent_skin_responders_medical_l.webp",
                 "directory": "/textures/atx/storefront/camp/tents/"
               },
               {
+                "imageName": "score_s1_camp_floordecor_rug_roundarea_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_f1_skin_armorskin_metal_atomiccamo_l.webp",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              },
+              {
                 "imageName": "atx_f1_survivalttent_skin_raider_l.webp",
-                "directory": "/textures/atx/storefront/camp/tents/"
-              },
-              {
-                "imageName": "atx_f1_survivalttent_skin_settler_l.webp",
-                "directory": "/textures/atx/storefront/camp/tents/"
-              },
-              {
-                "imageName": "atx_f1_survivalttent_skin_xmas_l.webp",
                 "directory": "/textures/atx/storefront/camp/tents/"
               }
             ],
@@ -3411,13 +3352,10 @@
                 "szItemName": "Ranger Armor Outfit Riot Paint"
               },
               {
-                "szItemName": "Ranger Helmet Riot Paint"
+                "szItemName": "Settler Survival Tent"
               },
               {
-                "szItemName": "Ranger Armor Outfit Desert Paint"
-              },
-              {
-                "szItemName": "Ranger Helmet Desert Paint"
+                "szItemName": "Atomic Camo Leather Armor Paint"
               },
               {
                 "szItemName": "Elite Ranger Armor Outfit"
@@ -3426,43 +3364,46 @@
                 "szItemName": "Advanced Ranger Armor Outfit"
               },
               {
-                "szItemName": "Atomic Camo Wood Armor Paint"
+                "szItemName": "Sleazy Heart Bed"
               },
               {
-                "szItemName": "Atomic Camo Leather Armor Paint"
+                "szItemName": "Ranger Helmet Desert Paint"
               },
               {
-                "szItemName": "Atomic Camo Metal Armor Paint"
+                "szItemName": "Ranger Helmet Riot Paint"
               },
               {
                 "szItemName": "Atomic Camo Scout Armor Paint"
               },
               {
+                "szItemName": "Atomic Camo Wood Armor Paint"
+              },
+              {
                 "szItemName": "Bog Wanderer Outfit"
-              },
-              {
-                "szItemName": "Bog Wanderer Mask"
-              },
-              {
-                "szItemName": "Thatched Rug"
-              },
-              {
-                "szItemName": "Sleazy Heart Bed"
               },
               {
                 "szItemName": "Pristine Vault-Tec Armor Workbench"
               },
               {
-                "szItemName": "Responders Medical Tent"
+                "szItemName": "Ranger Armor Outfit Desert Paint"
               },
               {
-                "szItemName": "Raider Survival Tent"
-              },
-              {
-                "szItemName": "Settler Survival Tent"
+                "szItemName": "Bog Wanderer Mask"
               },
               {
                 "szItemName": "Holiday Survival Tent"
+              },
+              {
+                "szItemName": "Responders Medical Tent"
+              },
+              {
+                "szItemName": "Thatched Rug"
+              },
+              {
+                "szItemName": "Atomic Camo Metal Armor Paint"
+              },
+              {
+                "szItemName": "Raider Survival Tent"
               }
             ],
             "lowPrice": {
@@ -3479,23 +3420,15 @@
               "originalAmount": 4000
             },
             "isZeus": true,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 1,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
             "isClown": false
           },
           {
-            "itemID": 2470307,
+            "itemID": 2529630,
             "itemName": "Fallout First Yearly Catch Up Bundle 2",
             "itemNameShort": "Fallout First Catch Up",
-            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- - UNLOCKS A VARIANT OF THE SURVIVAL TENT.-  -\n- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- BACKPACKS ARE CRAFTABLE AT ARMOR WORKBENCHES. -\n\nThis offer is exclusive to Fallout 1st Members.",
+            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- - UNLOCKS A VARIANT OF THE SURVIVAL TENT.-  -\n- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- BACKPACKS ARE CRAFTABLE AT ARMOR WORKBENCHES. -\n\n[h]This offer is exclusive to Fallout 1st Members.[/h]",
             "primaryImage": {
-              "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.webp",
+              "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
@@ -3638,93 +3571,97 @@
               "originalAmount": 4000
             },
             "isZeus": true,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 1,
-              "hasL": true,
-              "hasNone": true
-            },
-            "isClown": false,
-            "hasCustomDesc": true,
-            "hasCustomDisc": true
+            "isClown": false
           },
           {
-            "itemID": 2470308,
+            "itemID": 2529631,
             "itemName": "Fallout First Yearly Catch Up Bundle 3",
             "itemNameShort": "Fallout First Catch Up",
-            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\n\nThis offer is exclusive to Fallout 1st Members.",
+            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle contains some of the best rewards from past years!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- - UNLOCKS A VARIANT OF THE SURVIVAL TENT.-  -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n\n[h]This offer is exclusive to Fallout 1st Members[/h].",
             "primaryImage": {
-              "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.webp",
+              "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_f1_camp_structure_car_blue_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_f1_camp_structure_backwoodsbungalow_red_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "atx_f1_survivaltent_skin_abandonedshack.webp",
-                "directory": "/textures/atx/storefront/camp/tents/"
-              },
-              {
-                "imageName": "atx_f1_survivaltent_skin_apc_rusted_l.webp",
-                "directory": "/textures/atx/storefront/camp/tents/"
-              },
-              {
-                "imageName": "atx_f1_camp_bed_alienstasischamber_l.webp",
-                "directory": "/textures/atx/storefront/camp/beds/"
-              },
-              {
-                "imageName": "atx_f1_camp_display_chassisdisplayframe_red_l.webp",
-                "directory": "/textures/atx/storefront/camp/displays/"
-              },
-              {
-                "imageName": "atx_f1_camp_lights_standingskulltorch_l.webp",
-                "directory": "/textures/atx/storefront/camp/lights/"
-              },
-              {
-                "imageName": "atx_camp_utility_collector_morbidwell.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "atx_f1_camp_furniture_babylon_officefilecabinet02_l.webp",
-                "directory": "/textures/atx/storefront/camp/furniture/"
-              },
-              {
-                "imageName": "atx_f1_camp_floordecor_rug_kinggrognak_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "atx_f1_camp_walldeco_pictureframeabstract_01_l.webp",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
-              },
-              {
-                "imageName": "atx_f1_camp_walldeco_pictureframeabstract_02_l.webp",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
-              },
-              {
-                "imageName": "atx_f1_camp_walldeco_pictureframeabstract_03_l.webp",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
-              },
-              {
-                "imageName": "atx_f1_apparel_outfit_hawaiianpantsoutfit_l.webp",
+                "imageName": "atx_f1_apparel_outfit_hawaiianpantsoutfit_l.dds",
                 "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
-                "imageName": "atx_f1_playerstyle_hairstyle_sparkplugs_l.webp",
+                "imageName": "atx_camp_utility_collector_morbidwell.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_f1_camp_structure_backwoodsbungalow_red_l.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_f1_camp_floordecor_rug_kinggrognak_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_f1_camp_lights_standingskulltorch_l.dds",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_f1_playerstyle_hairstyle_sparkplugs_l.dds",
                 "directory": "/textures/atx/storefront/player/hairstyle/"
+              },
+              {
+                "imageName": "atx_f1_survivaltent_skin_abandonedshack.dds",
+                "directory": "/textures/atx/storefront/camp/tents/"
+              },
+              {
+                "imageName": "atx_f1_camp_bed_alienstasischamber_l.dds",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "atx_f1_camp_walldeco_pictureframeabstract_01_l.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_f1_camp_furniture_babylon_officefilecabinet02_l.dds",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_f1_camp_structure_car_blue_l.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_f1_camp_walldeco_pictureframeabstract_02_l.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_f1_camp_walldeco_pictureframeabstract_03_l.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_f1_camp_display_chassisdisplayframe_red_l.dds",
+                "directory": "/textures/atx/storefront/camp/displays/"
+              },
+              {
+                "imageName": "atx_f1_survivaltent_skin_apc_rusted_l.dds",
+                "directory": "/textures/atx/storefront/camp/tents/"
               }
             ],
             "dynamicBundleItems": [
               {
-                "szItemName": "Blue Corvega Trailer"
+                "szItemName": "Hawaiian Outfit with Pants"
+              },
+              {
+                "szItemName": "Morbid Well Collector"
               },
               {
                 "szItemName": "Red Backwoods Bungalow"
+              },
+              {
+                "szItemName": "King Grognak Rug"
+              },
+              {
+                "szItemName": "Standing Skull Torch"
+              },
+              {
+                "szItemName": "Spark Plugs Hairstyle"
               },
               {
                 "szItemName": "Abandoned Shack Survival Tent"
@@ -3733,22 +3670,13 @@
                 "szItemName": "Alien Statis Chamber"
               },
               {
-                "szItemName": "Rusted APC Survival Tent"
-              },
-              {
-                "szItemName": "Red Chassis Display Frame"
-              },
-              {
-                "szItemName": "Standing Skull Torch"
-              },
-              {
-                "szItemName": "Morbid Well Collector"
+                "szItemName": "Abstract Painting"
               },
               {
                 "szItemName": "Open Office Cabinet"
               },
               {
-                "szItemName": "King Grognak Rug"
+                "szItemName": "Blue Corvega Trailer"
               },
               {
                 "szItemName": "Abstract Painting"
@@ -3757,22 +3685,19 @@
                 "szItemName": "Abstract Painting"
               },
               {
-                "szItemName": "Abstract Painting"
+                "szItemName": "Red Chassis Display Frame"
               },
               {
-                "szItemName": "Hawaiian Outfit with Pants"
-              },
-              {
-                "szItemName": "Spark Plugs Hairstyle"
+                "szItemName": "Rusted APC Survival Tent"
               }
             ],
             "lowPrice": {
-              "amount": 1547,
+              "amount": 4000,
               "originalAmount": 4000,
               "isLto": false
             },
             "lowestPurchasablePrice": {
-              "amount": 4000,
+              "amount": 0,
               "originalAmount": 0
             },
             "highPrice": {
@@ -3780,31 +3705,180 @@
               "originalAmount": 4000
             },
             "isZeus": true,
-            "isClown": false,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 0,
-              "hasL": true,
-              "hasNone": true
-            }
+            "isClown": false
           },
           {
-            "itemID": 2470120,
-            "itemName": "Ranger Armor Outfit",
-            "itemNameShort": "Ranger Armor Outfit",
-            "itemDesc": "Roam the Wasteland as a living legend.\n\nIncluded with membership in Fallout 1st.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemID": 2529682,
+            "itemName": "Fallout First Yearly Catch Up Bundle 4",
+            "itemNameShort": "Fallout First Catch Up",
+            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle will let you find some of those items.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- - UNLOCKS A VARIANT OF THE SURVIVAL TENT.-  -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains previously released items, non of these are new.[/h]\n[h]This offer is exclusive to Fallout 1st Members.[/h]",
             "primaryImage": {
-              "imageName": "0dc4f4304f3931e04a3d99b2cf99122a.webp",
+              "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_apparel_outfit_rangersuniform_standard_l.webp",
+                "imageName": "atx_entm_camp_structure_sealegspirateship_l.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_entm_camp_structure_landlubberpirateship_l.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx__camp_machinery_workbench_cooking_robotbutcher_l.dds",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "atx_camp_defense_guttedcargate_l.dds",
+                "directory": "/textures/atx/storefront/camp/defenses/"
+              },
+              {
+                "imageName": "atx_camp_utility_militarysearchlight.dds",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_cagedowl.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_grognakwaxfigure.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_fasnachtler_l.dds",
                 "directory": "/textures/atx/storefront/player/outfit/"
               },
               {
-                "imageName": "atx_apparel_headwear_rangersuniform_l.webp",
+                "imageName": "atx_apparel_headwear_fasnachtler_l.dds",
                 "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_f1_camp_furniture_table_special_9balltable_red.dds",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_f1_survivaltent_skin_leanto_l.dds",
+                "directory": "/textures/atx/storefront/camp/tents/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_catherinewheelfireworksstand_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_bed_ironmaiden.dds",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "atx_entm_camp_vendor_playervendingmachine_vendorbot_l.dds",
+                "directory": "/textures/atx/storefront/camp/vendors/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Sea Legs Pirate Ship"
+              },
+              {
+                "szItemName": "Landlubber Pirate Ship"
+              },
+              {
+                "szItemName": "Butch-O-Bot Cooking Station"
+              },
+              {
+                "szItemName": "Gutted Car Gate"
+              },
+              {
+                "szItemName": "Military Searchlight"
+              },
+              {
+                "szItemName": "Caged Owl"
+              },
+              {
+                "szItemName": "Grognak Wax Figure"
+              },
+              {
+                "szItemName": "Fasnachtler Outfit"
+              },
+              {
+                "szItemName": "Fasnachtler Mask"
+              },
+              {
+                "szItemName": "Red 9 Ball Table"
+              },
+              {
+                "szItemName": "Lean-to Survival Tent"
+              },
+              {
+                "szItemName": "Catherine Wheel Fireworks Stand"
+              },
+              {
+                "szItemName": "Iron Maiden Bed"
+              },
+              {
+                "szItemName": "Vendor Bot"
+              }
+            ],
+            "lowPrice": {
+              "amount": 4000,
+              "originalAmount": 4000,
+              "isLto": false
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 4000
+            },
+            "isNew": 2,
+            "isZeus": true,
+            "isClown": false
+          },
+          {
+            "itemID": 2529421,
+            "itemName": "Ranger Armor Outfit",
+            "itemNameShort": "Ranger Armor Outfit",
+            "itemDesc": "Roam the Wasteland as a living legend.\n\nIncluded with membership in Fallout 1st.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_apparel_outfit_rangersuniform_standard_l.webp",
+              "directory": "/textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": false
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "isZeus": true,
+            "isClown": false
+          },
+          {
+            "itemID": 2529048,
+            "itemName": "Red Mr. Fuzzy Tinker's Workbench",
+            "itemNameShort": "Mr. Fuzzy Tinker's Workbench",
+            "itemDesc": "Tinker with your pal, Mr. Fuzzy, with this special edition Red Mr. Fuzzy Tinker's Workbench.\n\nRequires the Tinker's Workbench Plan to be learned.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_machinery_workbench_tinkers_mrfuzzy_red.dds",
+              "directory": "/textures/atx/storefront/camp/machinery/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_machinery_workbench_tinkers_mrfuzzy_red_c1.dds",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "atx_camp_machinery_workbench_tinkers_mrfuzzy_red_c2.dds",
+                "directory": "/textures/atx/storefront/camp/machinery/"
               }
             ],
             "dynamicBundleItems": [],
@@ -3822,32 +3896,61 @@
               "originalAmount": 0
             },
             "isZeus": true,
-            "isClown": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 0,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true
+            "isClown": false
           },
           {
-            "itemID": 2470245,
+            "itemID": 2529213,
+            "itemName": "Megasloth Standing Taxidermy",
+            "itemNameShort": "Megasloth Taxidermy",
+            "itemDesc": "One giant reminder of nature's grip.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_floordecor_taxidermy_megasloth.dds",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_floordecor_taxidermy_megasloth_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_taxidermy_megasloth_c2.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 0,
+              "originalAmount": 0,
+              "isLto": true
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "isNew": 1,
+            "isZeus": true,
+            "isClown": false
+          },
+          {
+            "itemID": 2529553,
             "itemName": "Ammo Storage Box",
             "itemNameShort": "Ammo Storage Box",
             "itemDesc": "This box hosts unlimited storage for your ammunition.\n\nIncluded with membership in Fallout 1st. You must be an active Member to deposit ammo into the Ammo Storage Box.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "f1_camp_ammostoragebox_standard_l.webp",
+              "imageName": "f1_camp_ammostoragebox_standard.dds",
               "directory": "/textures/atx/storefront/camp/stash/"
             },
             "carouselImages": [
               {
-                "imageName": "f1_camp_ammostoragebox_standard_c1.webp",
+                "imageName": "f1_camp_ammostoragebox_standard_c1.dds",
                 "directory": "/textures/atx/storefront/camp/stash/"
               },
               {
-                "imageName": "f1_camp_ammostoragebox_standard_c2.webp",
+                "imageName": "f1_camp_ammostoragebox_standard_c2.dds",
                 "directory": "/textures/atx/storefront/camp/stash/"
               }
             ],
@@ -3866,32 +3969,24 @@
               "originalAmount": 0
             },
             "isZeus": true,
-            "isClown": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": true,
-              "hasNone": false
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true
+            "isClown": false
           },
           {
-            "itemID": 2470233,
+            "itemID": 2529536,
             "itemName": "Aid Box",
             "itemNameShort": "Aid Box",
             "itemDesc": "This Aid Box is here for your Medicinal and Chem storage needs, to infinitum!\n\nIncluded with membership in Fallout 1st. You must be an active Member to deposit aid items into the Aid Box.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "f1_camp_aidbox_standard_l.webp",
+              "imageName": "f1_camp_aidbox_standard.dds",
               "directory": "/textures/atx/storefront/camp/stash/"
             },
             "carouselImages": [
               {
-                "imageName": "f1_camp_aidbox_standard_c1.webp",
+                "imageName": "f1_camp_aidbox_standard_c1.dds",
                 "directory": "/textures/atx/storefront/camp/stash/"
               },
               {
-                "imageName": "f1_camp_aidbox_standard_c2.webp",
+                "imageName": "f1_camp_aidbox_standard_c2.dds",
                 "directory": "/textures/atx/storefront/camp/stash/"
               }
             ],
@@ -3910,23 +4005,15 @@
               "originalAmount": 0
             },
             "isZeus": true,
-            "isClown": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": true,
-              "hasNone": false
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true
+            "isClown": false
           },
           {
-            "itemID": 2469740,
+            "itemID": 2529030,
             "itemName": "Scrapbox",
             "itemNameShort": "Scrapbox",
             "itemDesc": "This small box hosts unlimited Storage for all of your crafting Scrap.\n\nIncluded with membership in Fallout 1st. You must be an active Member to deposit Scrap into the Scrapbox.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "f1_camp_scrapbox_standard_l.webp",
+              "imageName": "f1_camp_scrapbox_standard.dds",
               "directory": "/textures/atx/storefront/camp/stash/"
             },
             "carouselImages": [],
@@ -3945,342 +4032,15 @@
               "originalAmount": 0
             },
             "isZeus": true,
-            "isClown": false,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 0,
-              "hasL": true,
-              "hasNone": false
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true
-          },
-          {
-            "itemID": 2470351,
-            "itemName": "Fallout First Blue Ridge Catch Up Bundle",
-            "itemNameShort": "Fallout First Season Catch Up",
-            "itemDesc": "New to Fallout First or missed an item from Season 18? This Bundle will let you find some of those items.\n\nThis offer is exclusive to Fallout 1st Members.",
-            "primaryImage": {
-              "imageName": "739dc38dcf0b5eeba4c9e00476db734f.webp",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s18_camp_kit_corrodedconcrete_l.webp",
-                "directory": "/textures/atx/storefront/camp/kits/"
-              },
-              {
-                "imageName": "score_s18_skin_weaponskin_44_blueridge_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
-              },
-              {
-                "imageName": "score_s18_skin_weaponskin_gatlinggun_blueridge_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
-              },
-              {
-                "imageName": "score_s18_camp_defense_turret_blueridge_l.webp",
-                "directory": "/textures/atx/storefront/camp/defenses/"
-              },
-              {
-                "imageName": "score_s18_camp_floordecor_plushie_mrfuzzyblueridge_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "score_s18_apparel_underarmor_blueridge_bos_l.webp",
-                "directory": "/textures/atx/storefront/player/underarmor/"
-              },
-              {
-                "imageName": "atx_playericon_s18_blueridgelogo.webp",
-                "directory": "/textures/atx/storefront/player/playericons/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Corroded Concrete Kit"
-              },
-              {
-                "szItemName": "Blue Ridge Paint (.44)"
-              },
-              {
-                "szItemName": "Blue Ridge Paint (Gatling Gun)"
-              },
-              {
-                "szItemName": "Blue Ridge Machine Gun Turret Set"
-              },
-              {
-                "szItemName": "Blue Ridge Mr. Fuzzy Plushie"
-              },
-              {
-                "szItemName": "Blue Ridge Infantry Uniform and Hood"
-              },
-              {
-                "szItemName": "Blue Ridge Logo Player Icon"
-              }
-            ],
-            "lowPrice": {
-              "amount": 300,
-              "originalAmount": 1800,
-              "isLto": false
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1800,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 1800
-            },
-            "isNew": 2,
-            "isZeus": true,
-            "isClown": false,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 0,
-              "hasL": true,
-              "hasNone": true
-            },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true
-          },
-          {
-            "itemID": 2470352,
-            "itemName": "Fallout First Rusted Road Catch Up Bundle",
-            "itemNameShort": "Fallout First Season Catch Up",
-            "itemDesc": "New to Fallout First or missed an item from Season 18? This Bundle will let you find some of those items.\n\nThis offer is exclusive to Fallout 1st Members.",
-            "primaryImage": {
-              "imageName": "f1dcffc16c9b63500f5c2e26da85b2ca.webp",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s18_camp_door_recolored_saloon_l.webp",
-                "directory": "/textures/atx/storefront/camp/doors/"
-              },
-              {
-                "imageName": "score_s18_camp_structure_boxingring_raiders_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "score_s18_skin_powerarmor_paint_excavator_rusted_l.webp",
-                "directory": "/textures/atx/storefront/player/powerarmor/"
-              },
-              {
-                "imageName": "score_s18_skin_powerarmor_paint_x01_rusted_l.webp",
-                "directory": "/textures/atx/storefront/player/powerarmor/"
-              },
-              {
-                "imageName": "score_s18_skin_powerarmor_paint_union_rusted_l.webp",
-                "directory": "/textures/atx/storefront/player/powerarmor/"
-              },
-              {
-                "imageName": "score_s18_skin_weaponskin_minigun_rusted_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
-              },
-              {
-                "imageName": "scire_s18_skin_weaponskin_handmadegun_rusted_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
-              },
-              {
-                "imageName": "score_s18_skin_weaponskin_graffitistopsign_l.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
-              },
-              {
-                "imageName": "atx_playericon_s18_roadsidewarrior.webp",
-                "directory": "/textures/atx/storefront/player/playericons/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Saloon Door Set"
-              },
-              {
-                "szItemName": "Raider Boxing Ring"
-              },
-              {
-                "szItemName": "Rusted Excavator Power Armor Paint"
-              },
-              {
-                "szItemName": "Rusted X-01 Power Armor Paint"
-              },
-              {
-                "szItemName": "Rusted Union Power Armor Paint"
-              },
-              {
-                "szItemName": "Rusted Paint (Minigun)"
-              },
-              {
-                "szItemName": "Rusted Paint (Handmade Rifle)"
-              },
-              {
-                "szItemName": "Graffiti Stop Sign Paint"
-              },
-              {
-                "szItemName": "Roadside Warrior Player Icon"
-              }
-            ],
-            "lowPrice": {
-              "amount": 246,
-              "originalAmount": 1500,
-              "isLto": false
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1500,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 1500
-            },
-            "isNew": 2,
-            "isZeus": true,
-            "isClown": false,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 0,
-              "hasL": true,
-              "hasNone": true
-            }
-          },
-          {
-            "itemID": 2470353,
-            "itemName": "Fallout First Milepost Farm Catch Up Bundle",
-            "itemNameShort": "Fallout First Season Catch Up",
-            "itemDesc": "New to Fallout First or missed an item from Season 18? This Bundle will let you find some of those items.\n\nThis offer is exclusive to Fallout 1st Members.",
-            "primaryImage": {
-              "imageName": "a04b552f5c2c2aada02f9df2e6fec462.webp",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s18_camp_floordecor_cactus_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "score_s18_camp_utility_standingwindmillgenerator_l.webp",
-                "directory": "/textures/atx/storefront/camp/machinery/"
-              },
-              {
-                "imageName": "score_s18_camp_floordecor_tractor_l.webp",
-                "directory": "/textures/atx/storefront/camp/floordecoration/"
-              },
-              {
-                "imageName": "score_s18_camp_structure_flatbedsmall_l.webp",
-                "directory": "/textures/atx/storefront/camp/structures/"
-              },
-              {
-                "imageName": "score_s18_camp_collector_beehive_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "score_s18_camp_collector_brewingvat_l.webp",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "score_s18_camp_walldecor_raiderwallspikes_l.webp",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
-              },
-              {
-                "imageName": "atx_playericon_s18_supermutant.webp",
-                "directory": "/textures/atx/storefront/player/playericons/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Cactus"
-              },
-              {
-                "szItemName": "Standing Windmill Generator"
-              },
-              {
-                "szItemName": "Tractor"
-              },
-              {
-                "szItemName": "Small Flatbed"
-              },
-              {
-                "szItemName": "Beehive (Black & Yellow)"
-              },
-              {
-                "szItemName": "Brewing Vat"
-              },
-              {
-                "szItemName": "Wall Spikes"
-              },
-              {
-                "szItemName": "Super Mutant Super Sledge Player Icon"
-              }
-            ],
-            "lowPrice": {
-              "amount": 37,
-              "originalAmount": 1800,
-              "isLto": false
-            },
-            "lowestPurchasablePrice": {
-              "amount": 1800,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 1800
-            },
-            "isNew": 2,
-            "isZeus": true,
-            "isClown": false,
-            "preferDB": false,
-            "_detectedSuffixInfo": {
-              "maxC": 0,
-              "hasL": true,
-              "hasNone": true
-            }
-          },
-          {
-            "itemID": 284752151,
-            "itemName": "Rebar Reel Paint",
-            "itemNameShort": "Rebar Reel Paint",
-            "itemDesc": "Built from junk and determination. Fish beware.\n\nSKIN IS CRAFTABLE AT TINKER'S WORKBENCHES.",
-            "primaryImage": {
-              "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_l.webp",
-              "directory": "/textures/atx/storefront/player/weaponskin/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_c1.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
-              },
-              {
-                "imageName": "atx_skin_weaponskin_fishingrod_rebarreel_c2.webp",
-                "directory": "/textures/atx/storefront/player/weaponskin/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "amount": 0,
-              "originalAmount": 0
-            },
-            "highPrice": {
-              "amount": 0,
-              "originalAmount": 0
-            },
-            "lowestPurchasablePrice": {
-              "amount": 0,
-              "originalAmount": 0
-            },
-            "isZeus": true,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 2,
-              "hasL": true,
-              "hasNone": false
-            },
             "isClown": false
           },
           {
-            "itemID": 2469688,
+            "itemID": 2528970,
             "itemName": "Fallout 1st Weekly Consumable Bundle",
             "itemNameShort": "Fallout 1st Consumable Bundle",
-            "itemDesc": "A value like no other! Get yours today! Available every 7 days from purchase.\n\nGrants 10 Lunchboxes, 10 Basic Repair Kits, and 10 Scrap Kits.\n\nFor .webp and Effects Information for Lunchboxes, visit Help > Lunchboxes.\n\n- CONSUMABLES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
+            "itemDesc": "A value like no other! Get yours today! Available every 7 days from purchase.\n\nGrants 10 Lunchboxes, 10 Basic Repair Kits, and 10 Scrap Kits.\n\nFor Odds and Effects Information for Lunchboxes, visit Help > Lunchboxes.\n\n- CONSUMABLES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
             "primaryImage": {
-              "imageName": "ca3824e4d8c57814a1e4d944fbbee311.webp",
+              "imageName": "ca3824e4d8c57814a1e4d944fbbee311.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [],
@@ -4291,7 +4051,7 @@
               "isLto": false
             },
             "lowestPurchasablePrice": {
-              "amount": 500,
+              "amount": 0,
               "originalAmount": 0
             },
             "highPrice": {
@@ -4299,14 +4059,350 @@
               "originalAmount": 500
             },
             "isZeus": true,
-            "preferDB": true,
-            "_detectedSuffixInfo": {
-              "maxC": 0,
-              "hasL": false,
-              "hasNone": true
+            "isClown": false
+          },
+          {
+            "itemID": 2529683,
+            "itemName": "Fallout First Quarterly Catch Up Bundle 18",
+            "itemNameShort": "Fallout First Catch Up",
+            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle will let you find some of those items.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains previously released items, non of these are new.[/h]\n[h]This offer is exclusive to Fallout 1st Members.[/h]",
+            "primaryImage": {
+              "imageName": "f59820c7f314fe9db0801b254f762ee4.dds",
+              "directory": "/textures/atomic_shop_media/"
             },
-            "hasCustomDesc": true,
-            "hasCustomDisc": true,
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_utility_refrigerator_meatlocker.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_apparel_outfit_railsplitter_l.dds",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_railsplitter_l.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_f1_camp_floordecor_quentinossaxophone_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "The Meat Locker"
+              },
+              {
+                "szItemName": "Rail Splitter Outfit"
+              },
+              {
+                "szItemName": "Rail Splitter Hat"
+              },
+              {
+                "szItemName": "Quentino's Saxophone"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1000,
+              "originalAmount": 1000,
+              "isLto": false
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1000
+            },
+            "isNew": 2,
+            "isZeus": true,
+            "isClown": false
+          },
+          {
+            "itemID": 2529684,
+            "itemName": "Fallout First Enclave Officer Catch Up Bundle",
+            "itemNameShort": "Fallout First Season Catch Up",
+            "itemDesc": "New to Fallout First or missed an item from Season 19? This Bundle will let you find some of those items.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains previously released items, non of these are new.[/h][h]This offer is exclusive to Fallout 1st Members.[/h]",
+            "primaryImage": {
+              "imageName": "1c1de0d1074b23db86224faea6838923.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s19_skin_weaponskin_teslacannon_enclavesigmasquad_l.webp",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "atx_playericon_s19_scorchtongue.webp",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              },
+              {
+                "imageName": "atx_playericon_s19_drillaugerpa.webp",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              },
+              {
+                "imageName": "score_s19_camp_display_weaponrack_enclaverectangular_l.webp",
+                "directory": "/textures/atx/storefront/camp/displays/"
+              },
+              {
+                "imageName": "score_s19_camp_utility_plasmacorerecharger_enclave_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s19_apparel_outfit_enclavefatigues_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "score_s19_skin_powerarmor_paint_t51_enclaveofficer_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s19_f1_camp_ammostoragebox_fatmancrate_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s19_skin_powerarmor_paint_t60_enclaveofficer_l.webp",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s19_camp_vendor_playervendingmachine_modusterminal_l.webp",
+                "directory": "/textures/atx/storefront/camp/vendors/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Sigma Squad Paint (Tesla Cannon)"
+              },
+              {
+                "szItemName": "Ultracite Terror Player Icon"
+              },
+              {
+                "szItemName": "Auger Player Icon"
+              },
+              {
+                "szItemName": "Rectangular Enclave Weapon Rack"
+              },
+              {
+                "szItemName": "Plasma Core Recharger"
+              },
+              {
+                "szItemName": "Enclave Military Fatigues"
+              },
+              {
+                "szItemName": "Enclave Officer T-51 Power Armor Paint"
+              },
+              {
+                "szItemName": "Fatman Crate Ammo Storage Box"
+              },
+              {
+                "szItemName": "Enclave Officer T-60 Power Armor Paint"
+              },
+              {
+                "szItemName": "M.O.D.U.S. Terminal Vending Machine"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1800,
+              "originalAmount": 1800,
+              "isLto": false
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isNew": 2,
+            "isZeus": true,
+            "isClown": false
+          },
+          {
+            "itemID": 2529685,
+            "itemName": "Fallout First Enclave Scientist Catch Up Bundle",
+            "itemNameShort": "Fallout First Season Catch Up",
+            "itemDesc": "New to Fallout First or missed an item from Season 19? This Bundle will let you find some of those items.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains previously released items, non of these are new.[/h][h]This offer is exclusive to Fallout 1st Members.[/h]",
+            "primaryImage": {
+              "imageName": "1c1de0d1074b23db86224faea6838923.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_playericon_factionenclave01.webp",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              },
+              {
+                "imageName": "score_s19_camp_walldecor_smallindustrialfan_l.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s19_camp_floordecor_supermutantjar_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s19_camp_floordecor_deathclawjar_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s19_apparel_headwear_enclavescientistgoggles_l.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "score_s19_apparel_outfit_enclavescientist_l.webp",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "score_s19_skin_armorskin_hazmat_enclave_l.dds",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              },
+              {
+                "imageName": "score_s19_camp_machinery_workbench_cooking_enclavegrill_l.dds",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "score_s19_camp_floordecor_boxofpapers_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s19_camp_floordecor_beakers_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_playericon_s19_testmonkey.webp",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              },
+              {
+                "imageName": "score_s19_apparel_headwear_goldenenclave_eyepatch_l.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Enclave Logo Player Icon"
+              },
+              {
+                "szItemName": "Small Industrial Fan"
+              },
+              {
+                "szItemName": "Super Mutant Head in a Jar"
+              },
+              {
+                "szItemName": "Deathclaw Hand in a Jar"
+              },
+              {
+                "szItemName": "Enclave Scientist Goggles"
+              },
+              {
+                "szItemName": "Enclave Lab Coat"
+              },
+              {
+                "szItemName": "Enclave Hazmat Paint"
+              },
+              {
+                "szItemName": "Enclave Grill Cooking Station"
+              },
+              {
+                "szItemName": "Boxes of Paper"
+              },
+              {
+                "szItemName": "Collection of Beakers"
+              },
+              {
+                "szItemName": "Test Monkey Player Icon"
+              },
+              {
+                "szItemName": "Enclave Eyepatch (Gold)"
+              }
+            ],
+            "lowPrice": {
+              "amount": 2000,
+              "originalAmount": 2000,
+              "isLto": false
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 2000
+            },
+            "isNew": 2,
+            "isZeus": true,
+            "isClown": false
+          },
+          {
+            "itemID": 2529686,
+            "itemName": "Fallout First Enclave Field Supplies Catch Up Bundle",
+            "itemNameShort": "Fallout First Season Catch Up",
+            "itemDesc": "New to Fallout First or missed an item from Season 19? This Bundle will let you find some of those items.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains previously released items, non of these are new.[/h][h]This offer is exclusive to Fallout 1st Members.[/h]",
+            "primaryImage": {
+              "imageName": "1c1de0d1074b23db86224faea6838923.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s19_camp_machinery_powerswitch_plunger_l.dds",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "score_s19_camp_utility_weatherstation_nukezone_l.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s19_camp_stashbox_orbitaldropcrate_l.dds",
+                "directory": "/textures/atx/storefront/camp/stash/"
+              },
+              {
+                "imageName": "score_s19_camp_floordecor_radar_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s19_apparel_headwear_goldenskullmask_l.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "score_s19_playertitles_prefix_hellfire.webp",
+                "directory": "/textures/atx/storefront/player/playertitles/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Dynamite Plunger Power Switch"
+              },
+              {
+                "szItemName": "Weather Control Station (Nuke Zone)"
+              },
+              {
+                "szItemName": "Orbital Drop Crate Stashbox"
+              },
+              {
+                "szItemName": "Radar"
+              },
+              {
+                "szItemName": "Golden Skull Mask"
+              },
+              {
+                "szItemName": "\"Hellfire\" Player Title Prefix"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1500,
+              "originalAmount": 1500,
+              "isLto": false
+            },
+            "lowestPurchasablePrice": {
+              "amount": 0,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isNew": 2,
+            "isZeus": true,
             "isClown": false
           }
         ]
