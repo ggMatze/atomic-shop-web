@@ -657,7 +657,10 @@
     "itemNameShort": "Cannery Recipe Bundle #2",
     "desc": "Learn how to craft the Canned Blight Soup, Canned Smoked Mirelurk Fillets, and Canned Deathclaw Wellington to use at your Cannery Station.",
     "disclaimer": "RECIPE IS CRAFTABLE AT CANNERY STATION.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName":"score_s25_camp_cannery_recipe_group1_l.webp",
+      "directory": "/textures/atx/storefront/camp/machinery/"
+    },
     "carouselImages": []
   },
   {
@@ -836,7 +839,8 @@
     "desc": "He's a cute little guy!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": null,
-    "carouselImages": []
+    "carouselImages": [],
+    "cBadge": "cut"
   },
   {
     "EDID": "zzzSCORE_S23_ENTM_CAMP_WallDecor_WallWalkwayRaider",
@@ -1070,7 +1074,8 @@
     "desc": "Rinse away your fears with this Teal Shower.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": null,
-    "carouselImages": []
+    "carouselImages": [],
+    "cBadge": "cut"
   },
   {
     "EDID": "SCORE_S25_ENTM_CAMP_Furniture_CamdenClawMachine",
@@ -28783,7 +28788,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Rust King Plushie",
-    "itemNameShort": "Rust King Plushie"
+    "itemNameShort": "Rust King Plushie",
+    "cBadge": "cut"
   },
   {
     "EDID": "ATX_ENTM_Apparel_CAMPPets_RadHog_Headwear_NoseRing",
