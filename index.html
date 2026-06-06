@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  if (window.location.hostname.includes("pages.dev")) {
+    window.location.replace("https://atomicshop.fyi" + window.location.pathname + window.location.search);
+  }
+</script>
   <script src="src/description-matcher.js"></script>
   <!-- Meta tags moved to static HTML to ensure embeds and third-party scripts load reliably -->
   <meta name="theme-color" content="#ffd454">
