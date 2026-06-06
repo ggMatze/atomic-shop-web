@@ -10,7 +10,7 @@ const statsText = document.getElementById('statsText');
 const errorContainer = document.getElementById('errorContainer');
 
 //fetching json
-fetch('../data/edidkeywords.json')
+ fetch('../data/edidkeywords.json')
   .then(res => res.json())
   .then(data => {
     externalEdidKeywords = data;
