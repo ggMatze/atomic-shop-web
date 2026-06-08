@@ -3682,22 +3682,26 @@
             "preferDB": false
           },
           {
-            "itemID": 2532933,
-            "itemName": "Mr. Fuzzy Mascot Head (Clean)",
-            "itemNameShort": "Mr. Fuzzy Mascot Head",
-            "itemDesc": "Everything you have ever loved about Mr. Fuzzy, but now clean.\n\nAPPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+            "itemID": 2532754,
+            "itemName": "Infestation Protector Consumable Kit",
+            "itemNameShort": "Infestation Protector Kit",
+            "itemDesc": "Be ready to wipe out the nastiest infestations with the Protector Consumable Kit.\n\n\n",
             "primaryImage": {
-              "imageName": "edd36dab6ad521103445fdade3b65bf6.dds",
+              "imageName": "98564bdfdb3edac5ef317e0df16dc93e.webp",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_apparel_headwear_mrfuzzymascot_c2.dds",
-                "directory": "/textures/atx/storefront/player/headwear/"
+                "imageName": "score_utility_mysterybobblehead_l.webp",
+                "directory": "/textures/atx/storefront/utility/"
               },
-			  {
-                "imageName": "atx_apparel_headwear_mrfuzzymascot_c3.dds",
-                "directory": "/textures/atx/storefront/player/headwear/"
+              {
+                "imageName": "atx_store_lunchbox001_l.webp",
+                "directory": "/textures/atx/storefront/utility/"
+              },
+              {
+                "imageName": "score_coen_utility_banner_l.webp",
+                "directory": "/textures/atx/storefront/utility/"
               }
             ],
             "dynamicBundleItems": [],
@@ -3705,7 +3709,8 @@
               "amount": 0,
               "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-06-08T12:00:00.000Z"
+              "ltoTimer": "2026-06-09T12:00:00.000Z",
+              "purchaseLimit": 999
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -3717,10 +3722,7 @@
             },
             "isNew": 1,
             "isZeus": false,
-            "isClown": false,
-            "_dbEDID": "ATX_ENTM_Apparel_Headwear_MrFuzzyMascot",
-            "_dbOriginalDesc": "Everything you have ever loved about Mr. Fuzzy, but now clean.",
-            "_dbOriginalDisclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES."
+            "isClown": true
           },
           {
             "itemID": 101,
