@@ -3003,22 +3003,36 @@
             "isZeus": false,
             "isClown": false
           },
-          {
-            "itemID": 2551046,
-            "itemName": "Abraxo T-51 Power Armor Paint",
-            "itemNameShort": "Abraxo T-51 Paint",
-            "itemDesc": "Help Clean up Appalachia with this Abraxo Power Armor paint. \nIncludes a unique paint for the T-51 Power Armors.\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            {
+            "itemID": 2532754,
+            "itemName": "Infestation Protector Consumable Kit",
+            "itemNameShort": "Infestation Protector Kit",
+            "itemDesc": "Be ready to wipe out the nastiest infestations with the Protector Consumable Kit.\n\n\n",
             "primaryImage": {
-              "imageName": "6076219b8f4cf5c910acea6221d6c9ee.dds",
+              "imageName": "98564bdfdb3edac5ef317e0df16dc93e.webp",
               "directory": "/textures/atomic_shop_media/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "score_utility_mysterybobblehead_l.webp",
+                "directory": "/textures/atx/storefront/utility/"
+              },
+              {
+                "imageName": "atx_store_lunchbox001_l.webp",
+                "directory": "/textures/atx/storefront/utility/"
+              },
+              {
+                "imageName": "score_coen_utility_banner_l.webp",
+                "directory": "/textures/atx/storefront/utility/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "amount": 0,
               "originalAmount": 0,
               "isLto": true,
-              "ltoTimer": "2026-06-10T12:00:00.000Z"
+              "ltoTimer": "2026-06-11T12:00:00.000Z",
+              "purchaseLimit": 1
             },
             "lowestPurchasablePrice": {
               "amount": 0,
@@ -3030,7 +3044,7 @@
             },
             "isNew": 1,
             "isZeus": false,
-            "isClown": false
+            "isClown": true
           },
           {
             "itemID": 101,
