@@ -10,7 +10,7 @@ const statsText = document.getElementById('statsText');
 const errorContainer = document.getElementById('errorContainer');
 
 //fetching json
- fetch('../data/edidkeywords.json')
+ fetch('/data/edidkeywords.json')
   .then(res => res.json())
   .then(data => {
     externalEdidKeywords = data;
@@ -540,7 +540,7 @@ function getSelectedCategories() {
 // Load database
 async function loadDatabase() {
     try {
-        const response = await fetch('../data/items-db.json');
+        const response = await fetch('/data/items-db.json');
         if (!response.ok) throw new Error('Failed to load database');
         dbData = await response.json();
         
