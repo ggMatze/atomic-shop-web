@@ -289,9 +289,7 @@ function initOverlay() {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); newsBtn.click(); }
     });
   }
-document.getElementById("go-database").addEventListener("click", () => {
-    window.open("../db-viewer", "_blank");
-});
+
   // FAQ link
   const faqLink = document.getElementById('faq-link');
   if (faqLink) faqLink.addEventListener('click', function(e) {

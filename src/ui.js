@@ -10,7 +10,9 @@ function renderGallery(images, current = 0) {
   const mainImage = document.getElementById('main-image');
   if (mainImage && images && images[ current ]) mainImage.src = images[current];
 }
-
+document.getElementById("go-database").addEventListener("click", () => {
+    window.open(window.location.origin.replace("uf.", "db."), "_blank");
+});
 function attachTileClickHandlers() {
   const overlay = document.getElementById('item-overlay');
   const tiles = document.querySelectorAll('.shop-tile');
