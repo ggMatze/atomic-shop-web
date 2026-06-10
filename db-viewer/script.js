@@ -1542,7 +1542,8 @@ document.getElementById('filter-panel').addEventListener('change', () => {
 });
 
 document.getElementById("go-ufas").addEventListener("click", () => {
-    window.open("../", "_blank");
+    window.open(window.location.origin.replace("db.", "uf."), "_blank");
+
 });
 
 const scrollBtn = document.getElementById("scrollTopBtn");
