@@ -19,6 +19,21 @@ async function initTabs() {
   const tabNavScroll = document.querySelector('.tab-nav-scroll');
   if (!tabNavScroll || !shopGrid) return;
 
+  const defaultPageTitle = document.title;
+
+  function updatePageTitle(tabElement) {
+    if (!tabElement) return;
+    const rawName = tabElement.querySelector('.tab-title')?.textContent || '';
+    const subtitle = tabElement.querySelector('.tab-subtitle')?.textContent || '';
+    let name = rawName.trim();
+    if (name.toUpperCase().includes('S.P.E.C.I.A.L')) {
+      name = name.replace(/\./g, '');
+    }
+    if (!name && subtitle) name = subtitle.trim();
+    if (!name) return;
+    document.title = `${defaultPageTitle} - ${name}`;
+  }
+
   // Horizontal wheel behavior for tabs (rate-limited)
   let tabScrollWheelCooldown = false;
   tabNavScroll.addEventListener('wheel', function(e) {
@@ -530,6 +545,8 @@ async function initTabs() {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.tab-nav-scroll .tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.tab-nav-scroll .tab')[idx].classList.add('active');
+      updatePageTitle(tab);
+
       const tabIndex = tab.getAttribute('data-tab-index');
       const tabId = tab.getAttribute('data-tab-id');
       let tabParam;
@@ -588,6 +605,7 @@ async function initTabs() {
     }
   }
   targetTab.classList.add('active');
+  updatePageTitle(targetTab);
 
   setTimeout(() => { targetTab.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'center'}); }, 0);
   const ti = targetTab.getAttribute('data-tab-index');
