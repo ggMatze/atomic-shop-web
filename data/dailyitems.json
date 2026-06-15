@@ -193,14 +193,19 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Vault-Tec Supply Package (Level 2)",
-      "itemNameShort": "Vault-Tec Supply Package",
-      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
+      "itemName": "Free Lunchbox",
+      "itemNameShort": "Free Lunchbox",
+      "itemDesc": "Open a Lunchbox for you and your friends! You and players nearby receive an XP Boost and a random Buff Effect for a hour!\r\n For Odds and Effects Information, visit the Help ingame > Lunchboxes! \r\n\r\n- LUNCHBOXES ARE UNDER AID IN THE PIP-BOY. LUNCHBOXES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_scrapball_level2_l.webp"
+        "imageName": "atx_store_lunchbox001_l.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_store_lunchbox001_l.webp"
+        }
+      ],
       "lowPrice": {
         "ltoTimer": "2026-06-16T12:00:00.000Z",
         "isLto": true,
