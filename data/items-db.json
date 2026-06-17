@@ -127,8 +127,8 @@
     "itemNameShort": "Protector",
     "desc": "Unlocks the Player Title Suffix \"Protector\".",
     "disclaimer": "PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY.",
-    "primaryImage": 
-    {
+    "primaryImage": {
+	 
       "imageName": "atx_playertitles_suffix_protector.webp",
       "directory": "/textures/atx/storefront/player/playertitles/"
     },
@@ -140,9 +140,9 @@
     "itemNameShort": "\"Protector\"",
     "desc": "Unlocks the C.A.M.P. Title Suffix Protector\".",
     "disclaimer": "C.A.M.P. TITLES ARE SELECTABLE IN THE C.A.M.P. MENU ON THE MAP",
-    "primaryImage":     {
-       "imageName": "8f1007df3f96223218a3e09811ae6ce4.webp",
-       "directory": "textures/atomic_shop_media/"
+    "primaryImage": {
+      "imageName": "8f1007df3f96223218a3e09811ae6ce4.webp",
+      "directory": "textures/atomic_shop_media/"
     },
     "carouselImages": []
   },
@@ -152,8 +152,8 @@
     "itemNameShort": "Abraxo T-51 Paint",
     "desc": "Help Clean up Appalachia with this Abraxo Power Armor paint. \nIncludes a unique paint for the T-51 Power Armors.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
-    "primaryImage":
-    {
+    "primaryImage": {
+	 
       "imageName": "6076219b8f4cf5c910acea6221d6c9ee.webp",
       "directory": "/textures/atomic_shop_media/"
     },
@@ -221,6 +221,7 @@
     "newImagesAdded": 1,
     "matchedImages": 1,
     "dbIndexMode": true
+						  
   },
   {
     "EDID": "ATX_Shelters_ENTM_ShelterEntrance_Moonlight",
@@ -270,6 +271,11 @@
       "directory": "/textures/atx/storefront/player/headwear/"
     },
     "carouselImages": [],
+	   
+															  
+																
+	   
+	  
     "newImagesAdded": 1,
     "matchedImages": 1,
     "dbIndexMode": true,
@@ -412,7 +418,8 @@
       "imageName": "atx_camp_furniture_table_chophouse.webp",
       "directory": "/textures/atx/storefront/camp/furniture/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 250
   },
   {
     "EDID": "SCORE_S25_ENTM_Skin_ArmorSkin_Leather_Responders",
@@ -454,7 +461,8 @@
       "imageName": "atx_camp_collector_nukavictory_l.webp",
       "directory": "/textures/atx/storefront/camp/utility/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S25_ENTM_PlayerTitles_Suffix_Globetrotter",
@@ -758,7 +766,8 @@
       "imageName": "atx_camp_camppets_cat_mrpebbles_c1.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 800
   },
   {
     "EDID": "zzz_ATX_ENTM_Apparel_Headwear_Glasses_DiscJockey",
@@ -816,9 +825,8 @@
       "directory": "/textures/atx/storefront/player/outfit/"
     },
     "carouselImages": [],
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true
+    "highPriceOriginal": 800
+					   
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDeco_Letters_RadioStationLetters",
@@ -1023,7 +1031,8 @@
       "imageName": "atx_camp_furniture_couch_nukavictory_l.webp",
       "directory": "/textures/atx/storefront/camp/furniture/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 250							
   },
   {
     "EDID": "ATX_ENTM_Apparel_CAMPPets_Dog_Neckwear_StarCollar",
@@ -1094,6 +1103,7 @@
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": []
+	  
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDecor_Knocker_HogDoor",
@@ -1422,7 +1432,8 @@
       "imageName": "atx__skin_weaponskin_thirstzapper_nukavictory.webp",
       "directory": "/textures/atx/storefront/player/weaponskin/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_NukaVictory",
@@ -1434,7 +1445,8 @@
       "imageName": "atx_camp_floordecor_nukavictory.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 600
   },
   {
     "EDID": "SCORE_S25_ENTM_DisplayCase_BeerSteins_DeathclawSteinDisplay",
@@ -1899,7 +1911,8 @@
     },
     "carouselImages": [],
     "itemName": "Vault-Tec Camping Canopies",
-    "itemNameShort": "Vault-Tec Canopies"
+    "itemNameShort": "Vault-Tec Canopies",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Rug_Squares",
@@ -2531,7 +2544,8 @@
     },
     "carouselImages": [],
     "itemName": "The Silver Shroud Costume",
-    "itemNameShort": "Silver Shroud Costume"
+    "itemNameShort": "Silver Shroud Costume",
+    "highPriceOriginal": 800
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_Piper_Goggles_SP1",
@@ -3028,7 +3042,8 @@
     },
     "carouselImages": [],
     "itemName": "Walking Pose",
-    "itemNameShort": "Walking"
+    "itemNameShort": "Walking",
+    "highPriceOriginal": 150
   },
   {
     "EDID": "ATX_ENTM_Photomode_Pose_Greaser",
@@ -3054,7 +3069,8 @@
     },
     "carouselImages": [],
     "itemName": "The Champ Pose",
-    "itemNameShort": "Champ"
+    "itemNameShort": "Champ",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_Photomode_Pose_Heart",
@@ -3355,7 +3371,8 @@
     },
     "carouselImages": [],
     "itemName": "Potted Succulents",
-    "itemNameShort": "Succulents"
+    "itemNameShort": "Succulents",
+    "highPriceOriginal": 200
   },
   {
     "EDID": "ATX_ENTM_CAMP_Statue_VaultBoyStone",
@@ -3624,7 +3641,8 @@
     },
     "carouselImages": [],
     "itemName": "Warhawk Hairstyle",
-    "itemNameShort": "Warhawk"
+    "itemNameShort": "Warhawk",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "zzz_ATX_ENTM_PlayerStyle_HairStyle_M_BlastBack",
@@ -5294,7 +5312,8 @@
     },
     "carouselImages": [],
     "itemName": "Enclave Paint",
-    "itemNameShort": "Enclave Paint"
+    "itemNameShort": "Enclave Paint",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Outfit_PantSuit_VaultTec",
@@ -6058,6 +6077,7 @@
     "carouselImages": [],
     "itemName": "Vault-Tec Starburst Floor and Foundations",
     "itemNameShort": "Vault-Tec Starburst"
+															
   },
   {
     "EDID": "ATX_ENTM_CAMP_Floor_VaultTecRedWhite",
@@ -6922,7 +6942,8 @@
     },
     "carouselImages": [],
     "itemName": "Glow-in-the-Dark Appalachia Map",
-    "itemNameShort": "Glow-in-the-Dark Map"
+    "itemNameShort": "Glow-in-the-Dark Map",
+    "highPriceOriginal": 400
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_StringLights_Colored",
@@ -7158,7 +7179,8 @@
     },
     "carouselImages": [],
     "itemName": "Starlet Sniper Outfit",
-    "itemNameShort": "Sniper Outfit"
+    "itemNameShort": "Sniper Outfit",
+    "highPriceOriginal": 1400
   },
   {
     "EDID": "ATX_ENTM_CAMP_Bed_FourPosterCanopy",
@@ -7986,7 +8008,8 @@
     },
     "carouselImages": [],
     "itemName": "Camouflage Hunting Rifle Paint",
-    "itemNameShort": "Camouflage Paint"
+    "itemNameShort": "Camouflage Paint",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Outfit_ShortSuit_Tropical",
@@ -8230,9 +8253,19 @@
       "imageName": "atx_camp_lights_neonbillboards_mothmanground_l.webp",
       "directory": "/textures/atx/storefront/camp/lights/"
     },
-    "carouselImages": [],
-    "itemName": "Mothman Neon Billboard",
-    "itemNameShort": "Mothman Billboard"
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_lights_neonbillboards_mothmanrooftop_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_camp_lights_neonbillboards_mothmanground_l.webp",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      }
+    ],
+    "itemName": "Mothman Billboards",
+    "itemNameShort": "Mothman Billboard",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Bed_Twinbed_Mothman",
@@ -8644,7 +8677,8 @@
     },
     "carouselImages": [],
     "itemName": "Future-Tec World Globe",
-    "itemNameShort": "Future-Tec World Globe"
+    "itemNameShort": "Future-Tec World Globe",
+    "highPriceOriginal": 1200
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_NeonBillboards_Rooftop_SlocumsJoe",
@@ -8752,7 +8786,8 @@
     },
     "carouselImages": [],
     "itemName": "Raider Waster Outfit",
-    "itemNameShort": "Raider Waster Outfit"
+    "itemNameShort": "Raider Waster Outfit",
+    "highPriceOriginal": 800
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Alien",
@@ -8939,7 +8974,8 @@
     },
     "carouselImages": [],
     "itemName": "Stainless Steel Refrigerator",
-    "itemNameShort": "Stainless Steel Refrigerator"
+    "itemNameShort": "Stainless Steel Refrigerator",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDecor_DeadEndSign",
@@ -8999,7 +9035,8 @@
     },
     "carouselImages": [],
     "itemName": "Fire Alarm",
-    "itemNameShort": "Fire Alarm"
+    "itemNameShort": "Fire Alarm",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallPaper_RedShingle",
@@ -9158,9 +9195,23 @@
       "imageName": "atx_camp_furniture_barstool_nuka-cola_l.webp",
       "directory": "/textures/atx/storefront/camp/furniture/"
     },
-    "carouselImages": [],
-    "itemName": "Nuka-Cola Barstool",
-    "itemNameShort": "Nuka-Cola Barstool"
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_furniture_barstool_nuka-cola_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_furniture_barstool_nuka-colatwist_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_furniture_barstool_nuka-colaquantum_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      }
+    ],
+    "itemName": "Nuka-Cola Barstools",
+    "itemNameShort": "Nuka-Cola Barstool",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Outfit_NukaGirlOutfit_Twist",
@@ -11322,7 +11373,8 @@
     },
     "carouselImages": [],
     "itemName": "Fan The Hammer Emote",
-    "itemNameShort": "Fan The Hammer"
+    "itemNameShort": "Fan The Hammer",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Hourglass",
@@ -11411,7 +11463,8 @@
     },
     "carouselImages": [],
     "itemName": "The Moth Tracker Searchlight",
-    "itemNameShort": "The Moth Tracker Searchlight"
+    "itemNameShort": "The Moth Tracker Searchlight",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_Emotes_DigIt",
@@ -13458,7 +13511,8 @@
     },
     "carouselImages": [],
     "itemName": "Gravestone Loot Bag",
-    "itemNameShort": "Gravestone"
+    "itemNameShort": "Gravestone",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Statue_BabeBrahminBull",
@@ -14919,7 +14973,8 @@
     },
     "carouselImages": [],
     "itemName": "Mr. Fuzzy Valentine's Day Plushie",
-    "itemNameShort": "Valentine's Day Plushie"
+    "itemNameShort": "Valentine's Day Plushie",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Cat_Cowboy",
@@ -15820,7 +15875,8 @@
     },
     "carouselImages": [],
     "itemName": "Coffin Backpack",
-    "itemNameShort": "Coffin Backpack"
+    "itemNameShort": "Coffin Backpack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Skin_Backpack_Holiday_WrappedPresent",
@@ -15844,7 +15900,8 @@
     },
     "carouselImages": [],
     "itemName": "Corvega Hardcase Backpack",
-    "itemNameShort": "Corvega Backpack"
+    "itemNameShort": "Corvega Backpack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Skin_Backpack_Shovel_RedMenace",
@@ -16413,7 +16470,8 @@
     },
     "carouselImages": [],
     "itemName": "Flyboy Player Icon",
-    "itemNameShort": "Flyboy Icon"
+    "itemNameShort": "Flyboy Icon",
+    "highPriceOriginal": 150
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_NukaGirl_02",
@@ -16527,7 +16585,8 @@
     },
     "carouselImages": [],
     "itemName": "Flying Saucer Playscape",
-    "itemNameShort": "Flying Saucer"
+    "itemNameShort": "Flying Saucer",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "SCORE_S1_ENTM_CAMP_Lights_Fireflies",
@@ -17217,7 +17276,8 @@
     },
     "carouselImages": [],
     "itemName": "Tropic Lightning Camo Skin (Handmade Rifle)",
-    "itemNameShort": "Tropic Lightning Camo Skin"
+    "itemNameShort": "Tropic Lightning Camo Skin",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S2_ENTM_CAMP_Kit_Greenhouse",
@@ -17651,7 +17711,8 @@
     },
     "carouselImages": [],
     "itemName": "Enclave Power Armor Station",
-    "itemNameShort": "Enclave Station"
+    "itemNameShort": "Enclave Station",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S2_ENTM_CAMP_Furniture_ShootingGallery_ArmorAce",
@@ -17663,7 +17724,8 @@
     },
     "carouselImages": [],
     "itemName": "Armor Ace Laser Shooting Gallery",
-    "itemNameShort": "Shooting Gallery"
+    "itemNameShort": "Shooting Gallery",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S2_ENTM_CAMP_Structure_BoSFieldStation",
@@ -17985,7 +18047,8 @@
     },
     "carouselImages": [],
     "itemName": "Viking Costume",
-    "itemNameShort": "Viking Costume"
+    "itemNameShort": "Viking Costume",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_WeatherVane_Fox",
@@ -18261,7 +18324,8 @@
     },
     "carouselImages": [],
     "itemName": "Animatronic Black Cat",
-    "itemNameShort": "Animatronic Cat"
+    "itemNameShort": "Animatronic Cat",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_MilitaryUtilityCap_Tan",
@@ -18399,7 +18463,8 @@
     },
     "carouselImages": [],
     "itemName": "Wasteland Bandit Costume",
-    "itemNameShort": "Wasteland Bandit Costume"
+    "itemNameShort": "Wasteland Bandit Costume",
+    "highPriceOriginal": 800
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_RobberHat",
@@ -18622,7 +18687,8 @@
     },
     "carouselImages": [],
     "itemName": "Vintage Shelter Wallpaper",
-    "itemNameShort": "Vintage Shelter Wallpaper"
+    "itemNameShort": "Vintage Shelter Wallpaper",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "SCORE_S3_ENTM_Skin_BackpackFlair_RedRocket",
@@ -18869,7 +18935,8 @@
     "newImagesAdded": 1,
     "matchedImages": 1,
     "dbIndexMode": true,
-    "itemNameShort": "Jumping"
+    "itemNameShort": "Jumping",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "SCORE_S3_ENTM_Apparel_Outfit_KDInkwell",
@@ -18992,7 +19059,8 @@
     },
     "carouselImages": [],
     "itemName": "Clean Water Purifier - Industrial",
-    "itemNameShort": "Clean Purifier - Industrial"
+    "itemNameShort": "Clean Purifier - Industrial",
+    "highPriceOriginal": 400
   },
   {
     "EDID": "ATX_ENTM_CAMP_Machinery_Purifier_Small_Clean",
@@ -19235,7 +19303,8 @@
     },
     "carouselImages": [],
     "itemName": "Scavenger Collectron Station",
-    "itemNameShort": "Scavenger Collectron Station"
+    "itemNameShort": "Scavenger Collectron Station",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "zzzATX_ENTM_CAMP_Display_MannequinRack_Male_Blue",
@@ -19794,7 +19863,8 @@
     },
     "carouselImages": [],
     "itemName": "Heavy Vault Door",
-    "itemNameShort": "Vault Door"
+    "itemNameShort": "Vault Door",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_LightingKit_Floor_Hollywood",
@@ -19994,7 +20064,8 @@
     },
     "carouselImages": [],
     "itemName": "Deep Cave Hunter Backpack",
-    "itemNameShort": "Deep Cave Hunter Backpack"
+    "itemNameShort": "Deep Cave Hunter Backpack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Door_Metal_TwoTone01",
@@ -20097,7 +20168,8 @@
     },
     "carouselImages": [],
     "itemName": "Vault-Tec Refrigerator",
-    "itemNameShort": "Vault-Tec Refrigerator"
+    "itemNameShort": "Vault-Tec Refrigerator",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_F1_ENTM_Apparel_Underarmor_BOSInfantryCamo",
@@ -20186,7 +20258,8 @@
     },
     "carouselImages": [],
     "itemName": "Cream Modular Sofa Set",
-    "itemNameShort": "Cream Sofas"
+    "itemNameShort": "Cream Sofas",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Machinery_PowerConnectors_NukaCola",
@@ -20250,7 +20323,8 @@
     },
     "carouselImages": [],
     "itemName": "Secret Bookcase Stash Box",
-    "itemNameShort": "Secret Stash"
+    "itemNameShort": "Secret Stash",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_DE2021_Love_ENTM_Skin_WeaponModel_PipeWrench_Flowers",
@@ -20274,7 +20348,8 @@
     },
     "carouselImages": [],
     "itemName": "Super Mutant Backpack",
-    "itemNameShort": "Super Mutant Backpack"
+    "itemNameShort": "Super Mutant Backpack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_SuperMutantHelm",
@@ -20705,7 +20780,8 @@
     },
     "carouselImages": [],
     "itemName": "Cold Steel Wallpaper",
-    "itemNameShort": "Cold Steel Wallpaper"
+    "itemNameShort": "Cold Steel Wallpaper",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S4_ENTM_Apparel_Outfit_Beekeeper",
@@ -20781,7 +20857,8 @@
     },
     "carouselImages": [],
     "itemName": "Brotherhood of Steel Infantry Statue",
-    "itemNameShort": "Brotherhood Infantry Statue"
+    "itemNameShort": "Brotherhood Infantry Statue",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S4_ENTM_CAMP_Statue_BoSInfantryStatuePatina",
@@ -20841,7 +20918,8 @@
     },
     "carouselImages": [],
     "itemName": "Icebreaker Outfit",
-    "itemNameShort": "Icebreaker Outfit"
+    "itemNameShort": "Icebreaker Outfit",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_Decoration_HotTub",
@@ -21204,7 +21282,8 @@
     },
     "carouselImages": [],
     "itemName": "High-Powered Weapon Racks",
-    "itemNameShort": "High-Powered Weapon Racks"
+    "itemNameShort": "High-Powered Weapon Racks",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDeco_Display_ElectricWeaponRacks",
@@ -21252,7 +21331,8 @@
     },
     "carouselImages": [],
     "itemName": "Ore Basket Backpack",
-    "itemNameShort": "Ore Basket Backpack"
+    "itemNameShort": "Ore Basket Backpack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_Holiday_23",
@@ -21852,7 +21932,8 @@
     },
     "carouselImages": [],
     "itemName": "Antique Speed Bag",
-    "itemNameShort": "Antique Speed Bag"
+    "itemNameShort": "Antique Speed Bag",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S1_ENTM_CAMP_Collector_ChickenCoop",
@@ -22089,7 +22170,8 @@
     "newImagesAdded": 1,
     "matchedImages": 1,
     "dbIndexMode": true,
-    "itemNameShort": "Armor Ace Display Frame"
+    "itemNameShort": "Armor Ace Display Frame",
+    "highPriceOriginal": 1200
   },
   {
     "EDID": "SCORE_S5_ENTM_CAMP_Display_ChassisDisplayFrame",
@@ -22239,7 +22321,8 @@
     },
     "carouselImages": [],
     "itemName": "Gravitronic M.I.N.D. Weapon Racks",
-    "itemNameShort": "M.I.N.D. Weapon Racks"
+    "itemNameShort": "M.I.N.D. Weapon Racks",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Kit_LogCabinPorchSet",
@@ -22781,7 +22864,8 @@
     },
     "carouselImages": [],
     "itemName": "Elevator Secret Door",
-    "itemNameShort": "Elevator Secret Door"
+    "itemNameShort": "Elevator Secret Door",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S6_ENTM_PlayerIcon_Pyramind",
@@ -23337,7 +23421,8 @@
     },
     "carouselImages": [],
     "itemName": "Grognak Wallpaper",
-    "itemNameShort": "Grognak Wallpaper"
+    "itemNameShort": "Grognak Wallpaper",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S6_ENTM_CAMP_Floor_Grognak",
@@ -23460,7 +23545,8 @@
     },
     "carouselImages": [],
     "itemName": "Haunted House Porch Set",
-    "itemNameShort": "Haunted House Porch Set"
+    "itemNameShort": "Haunted House Porch Set",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_Bed_Twinbed",
@@ -24525,7 +24611,8 @@
     },
     "carouselImages": [],
     "itemName": "Enclave Backpack",
-    "itemNameShort": "Enclave Backpack"
+    "itemNameShort": "Enclave Backpack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_WormFarm",
@@ -24921,7 +25008,8 @@
     },
     "carouselImages": [],
     "itemName": "Union Backpack",
-    "itemNameShort": "Union Backpack"
+    "itemNameShort": "Union Backpack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Sign_BillboardLarge_NukaCola01",
@@ -25435,7 +25523,8 @@
     },
     "carouselImages": [],
     "itemName": "Walnut Panel Wallpaper",
-    "itemNameShort": "Walnut Panel Wallpaper"
+    "itemNameShort": "Walnut Panel Wallpaper",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "SCORE_S11_ENTM_Utility_Nuka_World_Garbage_Bin",
@@ -25808,7 +25897,8 @@
     },
     "carouselImages": [],
     "itemName": "Enclave Stairs",
-    "itemNameShort": "Enclave Stairs"
+    "itemNameShort": "Enclave Stairs",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Defense_GuttedCarGate",
@@ -26480,7 +26570,8 @@
     },
     "carouselImages": [],
     "itemName": "Iron Mountain Forge Workbench",
-    "itemNameShort": "Iron Mountain Forge Workbench"
+    "itemNameShort": "Iron Mountain Forge Workbench",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_Mask_FasnachtRobotHead",
@@ -26592,7 +26683,8 @@
     },
     "carouselImages": [],
     "itemName": "Overgrown Thorn Plushie",
-    "itemNameShort": "Overgrown Thorn Plushie"
+    "itemNameShort": "Overgrown Thorn Plushie",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ZZZ_SCORE_S16_ENTM_Emotes_Sobbing",
@@ -26957,7 +27049,8 @@
     },
     "carouselImages": [],
     "itemName": "Sawtooth Outfit",
-    "itemNameShort": "Sawtooth Outfit"
+    "itemNameShort": "Sawtooth Outfit",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_Utility_RedRocket_CoffeeMachine",
@@ -27021,7 +27114,8 @@
     },
     "carouselImages": [],
     "itemName": "The Vengeful Mothman Emote",
-    "itemNameShort": "The Vengeful Mothman"
+    "itemNameShort": "The Vengeful Mothman",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_Door_Secret_AntiqueArmoire",
@@ -27059,7 +27153,8 @@
     },
     "carouselImages": [],
     "itemName": "Rad-Pheasant Coop",
-    "itemNameShort": "Rad-Pheasant Coop"
+    "itemNameShort": "Rad-Pheasant Coop",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "SCORE_S18_ENTM_Account_PremiumBattlePass",
@@ -27253,7 +27348,8 @@
     },
     "carouselImages": [],
     "itemName": "Fusion Emitter Generator - Fusion",
-    "itemNameShort": "Fusion Emitter Generator - Fusion"
+    "itemNameShort": "Fusion Emitter Generator - Fusion",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_OrthofonicDeluxe45",
@@ -27829,7 +27925,8 @@
     },
     "carouselImages": [],
     "itemName": "Rotary Rifle Rack Display Case",
-    "itemNameShort": "Rotary Rifle Rack Display"
+    "itemNameShort": "Rotary Rifle Rack Display",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponSkin_CombatRifle_ThePersuader",
@@ -27841,7 +27938,8 @@
     },
     "carouselImages": [],
     "itemName": "The Persuader Paint (Combat Rifle + Fixer)",
-    "itemNameShort": "The Persuader Paint"
+    "itemNameShort": "The Persuader Paint",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_PlayerTitles_Suffix_GasJockey",
@@ -28002,7 +28100,8 @@
     },
     "carouselImages": [],
     "itemName": "Comrade Fuzzy Plushie",
-    "itemNameShort": "Comrade Fuzzy Plushie"
+    "itemNameShort": "Comrade Fuzzy Plushie",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "SCORE_MiniSeason_2025_AppalachianOutlaws_ENTM_PlayerTitles_Suffix_Outlaw",
@@ -28475,7 +28574,8 @@
     },
     "carouselImages": [],
     "itemName": "A Show Of Force Emote",
-    "itemNameShort": "A Show Of Force"
+    "itemNameShort": "A Show Of Force",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "Community_ATX_ENTM_PlayerTitles_Suffix_FishingFinalist",
@@ -29369,7 +29469,8 @@
     },
     "carouselImages": [],
     "itemName": "Winter Wanderland Power Armor Paint Set",
-    "itemNameShort": "Winter Wanderland Paints"
+    "itemNameShort": "Winter Wanderland Paints",
+    "highPriceOriginal": 1200
   },
   {
     "EDID": "Babylon_ENTM_CAMP_ChristmasTree_Christmas2019",
@@ -30241,7 +30342,8 @@
     },
     "carouselImages": [],
     "itemName": "Black Ice Outfit",
-    "itemNameShort": "Black Ice Outfit"
+    "itemNameShort": "Black Ice Outfit",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_BlackIce",
@@ -30279,7 +30381,8 @@
     },
     "carouselImages": [],
     "itemName": "Crashed Red Star",
-    "itemNameShort": "Red Star"
+    "itemNameShort": "Red Star",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponSkin_V63LaserCarbine_Communist",
@@ -37443,7 +37546,8 @@
       "directory": "/textures/atx/storefront/player/weaponskin/"
     },
     "carouselImages": [],
-    "itemNameShort": "Clandestine Service Paint"
+    "itemNameShort": "Clandestine Service Paint",
+    "highPriceOriginal": 1200
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Photoboard_Raider",
@@ -38044,7 +38148,8 @@
     },
     "carouselImages": [],
     "itemName": "Red Rocket Power Armor Station",
-    "itemNameShort": "Red Rocket Station"
+    "itemNameShort": "Red Rocket Station",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_Fasnacht_DevilHorns",
@@ -38355,7 +38460,8 @@
     },
     "carouselImages": [],
     "itemName": "Planetarium Lamp",
-    "itemNameShort": "Planetarium Lamp"
+    "itemNameShort": "Planetarium Lamp",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "SCORE_S1_ENTM_CAMP_FloorDecor_Stein_Jangles",
@@ -38418,7 +38524,8 @@
     },
     "carouselImages": [],
     "itemName": "Glow in the Dark - Stars and Planets Wallpaper",
-    "itemNameShort": "Stars and Planets Wallpaper"
+    "itemNameShort": "Stars and Planets Wallpaper",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDeco_Taxidermy_Sheepsquatch_Rack",
@@ -38708,7 +38815,8 @@
     },
     "carouselImages": [],
     "itemName": "Ghillie Hunting Rifle Paint",
-    "itemNameShort": "Ghillie Paint"
+    "itemNameShort": "Ghillie Paint",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S1_ENTM_CAMP_WallDeco_HangingRaiderCage",
@@ -41158,7 +41266,8 @@
     },
     "carouselImages": [],
     "itemName": "Starscape Floors and Foundations",
-    "itemNameShort": "Starscape Floor"
+    "itemNameShort": "Starscape Floor",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "SCORE_S7_ENTM_CAMP_Furniture_ShootingGallery_AlienInvasion",
@@ -41368,7 +41477,8 @@
     },
     "carouselImages": [],
     "itemName": "Zorbo Power Armor T-65 Paint",
-    "itemNameShort": "Zorbo T-65 Paint"
+    "itemNameShort": "Zorbo T-65 Paint",
+    "highPriceOriginal": 1200
   },
   {
     "EDID": "SCORE_S7_ENTM_Skin_PowerArmor_Paint_X01_Zorbo",
@@ -41616,7 +41726,8 @@
     "primaryImage": null,
     "carouselImages": [],
     "itemName": "Samurai Sword (Sword)",
-    "itemNameShort": "Samurai Sword"
+    "itemNameShort": "Samurai Sword",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "zzzSCORE_S8_ENTM_CAMP_Structure_VaultTecStorageFacility",
@@ -42265,7 +42376,8 @@
     },
     "carouselImages": [],
     "itemName": "Bone Bow Skin (Bow)",
-    "itemNameShort": "Bone Bow Skin"
+    "itemNameShort": "Bone Bow Skin",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S9_ENTM_CAMP_Lights_IndustrialFloodlight",
@@ -42565,7 +42677,8 @@
     },
     "carouselImages": [],
     "itemName": "Skeletal Ceiling Light",
-    "itemNameShort": "Skeletal Ceiling Light"
+    "itemNameShort": "Skeletal Ceiling Light",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_Skin_Backpack_Box_Cultist_Basket",
@@ -42849,7 +42962,8 @@
     },
     "carouselImages": [],
     "itemName": "Greenhouse Floor and Foundations",
-    "itemNameShort": "Greenhouse Floor"
+    "itemNameShort": "Greenhouse Floor",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_HeadInAJar",
@@ -43502,7 +43616,8 @@
     },
     "carouselImages": [],
     "itemName": "Tavern Wallpaper",
-    "itemNameShort": "Tavern Wallpaper"
+    "itemNameShort": "Tavern Wallpaper",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Headwear_Executioner",
@@ -43732,7 +43847,8 @@
       "imageName": "score_s16_camp_workbench_chemistry_autopsy_l.webp",
       "directory": "/textures/atx/storefront/camp/machinery/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S14_CAMP_Utility_Military_Cryo_Freezer",
@@ -44657,7 +44773,8 @@
     },
     "carouselImages": [],
     "itemName": "Deathclaw Mascot Helmet",
-    "itemNameShort": "Deathclaw Mascot Helmet"
+    "itemNameShort": "Deathclaw Mascot Helmet",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ZZZ_ATX_ENTM_CAMP_Structure_LookoutPost",
@@ -45597,7 +45714,8 @@
     },
     "carouselImages": [],
     "itemName": "Nuka-Cola Mystery Machine",
-    "itemNameShort": "Nuka-Cola Mystery Machine"
+    "itemNameShort": "Nuka-Cola Mystery Machine",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "SCORE_S11_ENTM_CAMP_FloorDecor_SodaFountainGlobe",
@@ -45621,7 +45739,8 @@
     },
     "carouselImages": [],
     "itemName": "Tire Swing Tree",
-    "itemNameShort": "Tire Swing Tree"
+    "itemNameShort": "Tire Swing Tree",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDecor_KwanzaaPoster",
@@ -46201,7 +46320,8 @@
     },
     "carouselImages": [],
     "itemName": "Nuka-Cola Friendship Display",
-    "itemNameShort": "Nuka-Cola Friendship Display"
+    "itemNameShort": "Nuka-Cola Friendship Display",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S11_ENTM_Skin_PowerArmor_Paint_Union_NukaColaClassic",
@@ -46601,7 +46721,8 @@
     },
     "carouselImages": [],
     "itemName": "Hands Over Heart Pose",
-    "itemNameShort": "Hands Over Heart Pose"
+    "itemNameShort": "Hands Over Heart Pose",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_Photomode_Pose_ValentinesDay_2023_Couples_Pose1",
@@ -46941,7 +47062,8 @@
     },
     "carouselImages": [],
     "itemName": "Violin Chair",
-    "itemNameShort": "Violin Chair"
+    "itemNameShort": "Violin Chair",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S12_ENTM_Photomode_Frame_ScorchBeast",
@@ -47015,7 +47137,8 @@
     },
     "carouselImages": [],
     "itemName": "Giant Dinosaur",
-    "itemNameShort": "Giant Dinosaur"
+    "itemNameShort": "Giant Dinosaur",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Skin_PipBoySkin_StPatricksVaultBoy",
@@ -47209,7 +47332,8 @@
     },
     "carouselImages": [],
     "itemName": "Enclave Outpost C.A.M.P. Kit",
-    "itemNameShort": "Enclave Outpost Kit"
+    "itemNameShort": "Enclave Outpost Kit",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_F1_ENTM_CAMP_FloorDecor_CatherineWheelFireworksStand",
@@ -47233,7 +47357,8 @@
     },
     "carouselImages": [],
     "itemName": "Caged Rabbit",
-    "itemNameShort": "Caged Rabbit"
+    "itemNameShort": "Caged Rabbit",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S12_ENTM_Skin_WeaponSkin_ColdShoulder_Gold",
@@ -47295,7 +47420,8 @@
     },
     "carouselImages": [],
     "itemName": "Mothman Found Pose",
-    "itemNameShort": "Mothman Found"
+    "itemNameShort": "Mothman Found",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponModel_Knife_FreeStates",
@@ -47858,7 +47984,8 @@
     },
     "carouselImages": [],
     "itemName": "Model of the Atom",
-    "itemNameShort": "Model of the Atom"
+    "itemNameShort": "Model of the Atom",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_Skin_LootBag_ThatsMine",
@@ -47870,7 +47997,8 @@
     },
     "carouselImages": [],
     "itemName": "That's Mine Loot Bag",
-    "itemNameShort": "That's Mine Loot Bag"
+    "itemNameShort": "That's Mine Loot Bag",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponSkin_Flamer_Flame-ingo",
@@ -48008,7 +48136,8 @@
     },
     "carouselImages": [],
     "itemName": "Big Fill & Bigger Fill Ceiling Light",
-    "itemNameShort": "Big Fill Ceiling Light"
+    "itemNameShort": "Big Fill Ceiling Light",
+    "highPriceOriginal": 350
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponSkin_ColdShoulder_ColdBlooded",
@@ -48971,7 +49100,8 @@
     },
     "carouselImages": [],
     "itemName": "Antiquated Wedding Dress Outfit",
-    "itemNameShort": "Antiquated Wedding Dress Outfit"
+    "itemNameShort": "Antiquated Wedding Dress Outfit",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_Displaycase_StatelyArmoire",
@@ -49154,7 +49284,8 @@
     "matchedImages": 2,
     "dbIndexMode": true,
     "itemName": "Taggerdy's Kit",
-    "itemNameShort": "Taggerdy's Kit"
+    "itemNameShort": "Taggerdy's Kit",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_Structure_WestVirginiaFamilyCenter",
@@ -49456,7 +49587,8 @@
     },
     "carouselImages": [],
     "itemName": "Camera Pack Backpack",
-    "itemNameShort": "Camera Pack Backpack"
+    "itemNameShort": "Camera Pack Backpack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S13_ENTM_CAMP_FloorDecor_Stein_StarStudded",
@@ -50297,7 +50429,8 @@
     },
     "carouselImages": [],
     "itemName": "Carved Eagle Weapon Rack",
-    "itemNameShort": "Carved Eagle Weapon Rack"
+    "itemNameShort": "Carved Eagle Weapon Rack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S14_ENTM_CAMP_WallDecor_ChemsSign",
@@ -50495,7 +50628,8 @@
     },
     "carouselImages": [],
     "itemName": "Wine Rack",
-    "itemNameShort": "Wine Rack"
+    "itemNameShort": "Wine Rack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S14_ENTM_CAMP_FloorDecor_Rug_OvalOfficeRug",
@@ -50611,7 +50745,8 @@
     },
     "carouselImages": [],
     "itemName": "Cardboard Robot Costume",
-    "itemNameShort": "Cardboard Robot Costume"
+    "itemNameShort": "Cardboard Robot Costume",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "zzzATX_ENTM_Apparel_HeadwearSkullRider_Rad",
@@ -51139,7 +51274,8 @@
     },
     "carouselImages": [],
     "itemName": "Mothman Nest",
-    "itemNameShort": "Mothman Nest"
+    "itemNameShort": "Mothman Nest",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Rug_VaultBoyBirthday",
@@ -51418,7 +51554,8 @@
     },
     "carouselImages": [],
     "itemName": "Flaming Skull Rider Helmet",
-    "itemNameShort": "Flaming Skull Rider"
+    "itemNameShort": "Flaming Skull Rider",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_SouvenirMusicBox",
@@ -51920,7 +52057,8 @@
     },
     "carouselImages": [],
     "itemName": "Cement Truck",
-    "itemNameShort": "Cement Truck"
+    "itemNameShort": "Cement Truck",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_Furniture_BarbersChair",
@@ -52015,7 +52153,8 @@
     },
     "carouselImages": [],
     "itemName": "Roasted Hot Dog Pose",
-    "itemNameShort": "Roasted Hot Dog"
+    "itemNameShort": "Roasted Hot Dog",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_Utility_FusionCoreRecharger_ModernHome",
@@ -53662,7 +53801,8 @@
     },
     "carouselImages": [],
     "itemName": "Ornate Horn Candle",
-    "itemNameShort": "Ornate Horn Candle"
+    "itemNameShort": "Ornate Horn Candle",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_Floor_StoneHouseFloor",
@@ -53735,7 +53875,8 @@
     },
     "carouselImages": [],
     "itemName": "Fancy Coffee Table",
-    "itemNameShort": "Fancy Coffee Table"
+    "itemNameShort": "Fancy Coffee Table",
+    "highPriceOriginal": 350
   },
   {
     "EDID": "ATX_ENTM_CAMP_Furniture_AtomicRoller",
@@ -53810,7 +53951,8 @@
     },
     "carouselImages": [],
     "itemName": "Fire Hazard C.A.M.P. Kit",
-    "itemNameShort": "Fire Hazard Kit"
+    "itemNameShort": "Fire Hazard Kit",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_Furniture_GameCabinet_AstroAttack",
@@ -54851,7 +54993,8 @@
     },
     "carouselImages": [],
     "itemName": "Cattail Bush",
-    "itemNameShort": "Cattail Bush"
+    "itemNameShort": "Cattail Bush",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_PrankRoach",
@@ -55117,7 +55260,8 @@
     },
     "carouselImages": [],
     "itemName": "Radiant Panel Floor and Foundations",
-    "itemNameShort": "Radiant Panel Floor"
+    "itemNameShort": "Radiant Panel Floor",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_CAMP_Utility_WeatherStation_Halloween",
@@ -55425,7 +55569,8 @@
     },
     "carouselImages": [],
     "itemName": "Slocum's Joe Plushie",
-    "itemNameShort": "Slocum's Joe Plushie"
+    "itemNameShort": "Slocum's Joe Plushie",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_Ceiling_HoneycombWitch",
@@ -56584,7 +56729,8 @@
     },
     "carouselImages": [],
     "itemName": "Steel Forge Power Armor Station",
-    "itemNameShort": "Steel Forge Station"
+    "itemNameShort": "Steel Forge Station",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_Machinery_Generator_Fusion_AstroHarvest",
@@ -56596,7 +56742,8 @@
     },
     "carouselImages": [],
     "itemName": "Astro Harvest Generator - Fusion",
-    "itemNameShort": "Astro Harvest Generator - Fusion"
+    "itemNameShort": "Astro Harvest Generator - Fusion",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_SpaceCrate",
@@ -56620,7 +56767,8 @@
     },
     "carouselImages": [],
     "itemName": "Well-Kept Weapons Workbench",
-    "itemNameShort": "Well-Kept Weapons Workbench"
+    "itemNameShort": "Well-Kept Weapons Workbench",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Skin_Backpack_BlackIce",
@@ -58437,7 +58585,8 @@
     },
     "carouselImages": [],
     "itemName": "Crypt Crook Backpack",
-    "itemNameShort": "Crypt Crook Backpack"
+    "itemNameShort": "Crypt Crook Backpack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S22_ENTM_Skin_ArmorSkin_Jetpack_NukaColaJP",
@@ -59314,7 +59463,7 @@
     "itemName": "Dino Themed T-Shirt (Purple)",
     "dynamicBundleItems": [],
     "primaryImage": null,
-    "highPriceOriginal": 0,
+    "highPriceOriginal": 1800,
     "carouselImages": [],
     "itemNameShort": "Dino Themed T-Shirt (Purple)"
   },
@@ -60507,7 +60656,8 @@
     },
     "carouselImages": [],
     "itemName": "Captain Cosmos Power Armor",
-    "itemNameShort": "Captain Cosmos Power Armor"
+    "itemNameShort": "Captain Cosmos Power Armor",
+    "highPriceOriginal": 1500
   },
   {
     "EDID": "ATX_Upgrade2022_Pitt_ENTM_Skin_PowerArmor_Paint_Fanatics",
@@ -60545,7 +60695,8 @@
     },
     "carouselImages": [],
     "itemName": "Dark Star Power Armor Paint",
-    "itemNameShort": "Dark Star Paint"
+    "itemNameShort": "Dark Star Paint",
+    "highPriceOriginal": 1400
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_Raider_Scabber",
@@ -60596,7 +60747,8 @@
     },
     "carouselImages": [],
     "itemName": "Free States Junkyard Power Armor Paint",
-    "itemNameShort": "Free States Junkyard Paint"
+    "itemNameShort": "Free States Junkyard Paint",
+    "highPriceOriginal": 1200
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_LibertyPrime_Black",
@@ -60712,7 +60864,8 @@
     "newImagesAdded": 1,
     "matchedImages": 1,
     "dbIndexMode": true,
-    "itemNameShort": "Ace Full Assault Power Armor Paint"
+    "itemNameShort": "Ace Full Assault Power Armor Paint",
+    "highPriceOriginal": 1200
   },
   {
     "EDID": "F1_ATX_ENTM_Skin_PowerArmor_Paint_ParkRanger_AtomicRanger",
@@ -61237,7 +61390,8 @@
     },
     "carouselImages": [],
     "itemName": "Howling Skellscream Power Armor Paint",
-    "itemNameShort": "Howling Skellscream Paint"
+    "itemNameShort": "Howling Skellscream Paint",
+    "highPriceOriginal": 1800
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Model_SkullLord",
@@ -61267,7 +61421,8 @@
     "newImagesAdded": 1,
     "matchedImages": 1,
     "dbIndexMode": true,
-    "itemNameShort": "Raider Marauder Skin"
+    "itemNameShort": "Raider Marauder Skin",
+    "highPriceOriginal": 1400
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_RaidRunner",
@@ -61360,7 +61515,8 @@
     },
     "carouselImages": [],
     "itemName": "Grease Goblin Power Armor Paint",
-    "itemNameShort": "Grease Goblin Paint"
+    "itemNameShort": "Grease Goblin Paint",
+    "highPriceOriginal": 1500
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_RedScare",
@@ -61534,7 +61690,8 @@
     },
     "carouselImages": [],
     "itemName": "Freedom Forge Power Armor Paint",
-    "itemNameShort": "Freedom Forge Paint"
+    "itemNameShort": "Freedom Forge Paint",
+    "highPriceOriginal": 1500
   },
   {
     "EDID": "Babylon_ENTM_Skin_PowerArmor_Skin_Inferno_Mk_3",
@@ -61681,7 +61838,8 @@
     "newImagesAdded": 1,
     "matchedImages": 1,
     "dbIndexMode": true,
-    "itemNameShort": "Settler Vigilante Paint"
+    "itemNameShort": "Settler Vigilante Paint",
+    "highPriceOriginal": 1400
   },
   {
     "EDID": "SCORE_S19_ENTM_Skin_PowerArmor_Model_EnclaveHellfire",
@@ -61923,7 +62081,8 @@
     },
     "carouselImages": [],
     "itemName": "Vertiguard Blood Eagle Power Armor Paint",
-    "itemNameShort": "Vertiguard Blood Eagle Paint"
+    "itemNameShort": "Vertiguard Blood Eagle Paint",
+    "highPriceOriginal": 1200
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_LibertyPrime",
@@ -63333,6 +63492,7 @@
     "carouselImages": [],
     "itemName": "Banded Alotolotl Plushie",
     "itemNameShort": "Banded Alotolotl"
+										   
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_SpottedAxolotl",
@@ -64686,7 +64846,8 @@
     },
     "carouselImages": [],
     "itemName": "Mothman Moth Sanctuary",
-    "itemNameShort": "Mothman Moth Sanctuary"
+    "itemNameShort": "Mothman Moth Sanctuary",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDeco_Pennant_PTS_P50",
@@ -67481,9 +67642,27 @@
       "imageName": "atx_f1_entm_limitedpreview_l.webp",
       "directory": "/textures/atx/storefront/events/"
     },
-    "carouselImages": [],
+     "carouselImages": [
+      {
+        "imageName": "15344e96f78a55860241eb8171484a28.dds",
+        "directory": "/textures/atomic_shop_media/"
+      },
+      {
+        "imageName": "367e685ccad2bd4bb3f0f536f1f8dc44.dds",
+        "directory": "/textures/atomic_shop_media/"
+      },
+      {
+        "imageName": "f1_camp_aidbox_standard_l.webp",
+        "directory": "/textures/atx/storefront/camp/stash/"
+      },
+      {
+        "imageName": "54780df90962378daa5a27683844f5a7.dds",
+        "directory": "/textures/atomic_shop_media/"
+      }
+    ],
     "itemName": "Fallout 1st Limited Preview",
-    "itemNameShort": "Fallout 1st Limited Preview"
+    "itemNameShort": "Fallout 1st Limited Preview",
+    "highPriceOriginal": 0
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_Raider_01",
@@ -67669,7 +67848,8 @@
     },
     "carouselImages": [],
     "itemName": "Camo Turret Set",
-    "itemNameShort": "Camo Turret Set"
+    "itemNameShort": "Camo Turret Set",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_F1_ENTM_CAMP_Statue_Crocollossus_Statuette",
@@ -67715,7 +67895,8 @@
     },
     "carouselImages": [],
     "itemName": "Rusted Chain-link Fence",
-    "itemNameShort": "Rusted Chain-link Fence"
+    "itemNameShort": "Rusted Chain-link Fence",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_Decoration_FlagWaving_CommunistFlag_Advanced_02",
@@ -69032,7 +69213,8 @@
     },
     "carouselImages": [],
     "itemName": "Vault-Tec Fusion Core Recharger",
-    "itemNameShort": "Vault-Tec Fusion Core Recharger"
+    "itemNameShort": "Vault-Tec Fusion Core Recharger",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Kit_BlueRidgeOutpost",
@@ -69069,7 +69251,8 @@
     },
     "carouselImages": [],
     "itemName": "Beer Mystery Machine",
-    "itemNameShort": "Beer Mystery Machine"
+    "itemNameShort": "Beer Mystery Machine",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_HeartlandHikerHat",
@@ -69191,7 +69374,8 @@
     },
     "carouselImages": [],
     "itemName": "Reveille Wake Up Emote",
-    "itemNameShort": "Reveille Wake Up"
+    "itemNameShort": "Reveille Wake Up",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_LargeCandleRack",
@@ -69317,7 +69501,8 @@
     },
     "carouselImages": [],
     "itemName": "Pioneer Scouts Flag",
-    "itemNameShort": "Pioneer Scouts Flag"
+    "itemNameShort": "Pioneer Scouts Flag",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Vendor_PlayerVendingMachine_BlueRidgeVendorBot",
@@ -69848,7 +70033,8 @@
     },
     "carouselImages": [],
     "itemName": "Games Cupboard",
-    "itemNameShort": "Games Cupboard"
+    "itemNameShort": "Games Cupboard",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDecor_MidnightClock",
@@ -69947,7 +70133,8 @@
     "newImagesAdded": 1,
     "matchedImages": 1,
     "dbIndexMode": true,
-    "itemNameShort": "Mr. Bony Plushie"
+    "itemNameShort": "Mr. Bony Plushie",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_JackoLights",
@@ -69959,7 +70146,8 @@
     },
     "carouselImages": [],
     "itemName": "Jack-o-Light Candles",
-    "itemNameShort": "Jack-o-Light Candles"
+    "itemNameShort": "Jack-o-Light Candles",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "SCORE_S18_ENTM_CAMP_FloorDecor_Stein_Mountain",
@@ -70810,7 +70998,8 @@
     },
     "carouselImages": [],
     "itemName": "Patriotic Cappy Plushie",
-    "itemNameShort": "Patriotic Cappy Plushie"
+    "itemNameShort": "Patriotic Cappy Plushie",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_Utility_PopcornMachine_PatriotPopper",
@@ -70822,7 +71011,8 @@
     },
     "carouselImages": [],
     "itemName": "Patriot Popper Popcorn Machine",
-    "itemNameShort": "Patriot Popper Popcorn Machine"
+    "itemNameShort": "Patriot Popper Popcorn Machine",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Utility_NukaColaMysteryMachine_Americana",
@@ -71675,7 +71865,8 @@
     },
     "carouselImages": [],
     "itemName": "Hollywood Vanity",
-    "itemNameShort": "Hollywood Vanity"
+    "itemNameShort": "Hollywood Vanity",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ZZZ_SCORE_S13_ENTM_CAMP_WallDecor_MountedDolphin",
@@ -71977,7 +72168,8 @@
     },
     "carouselImages": [],
     "itemName": "Birthday Banner",
-    "itemNameShort": "Birthday Banner"
+    "itemNameShort": "Birthday Banner",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "SCORE_S14_ENTM_CAMP_WallPaper_OvalOffice",
@@ -83178,8 +83370,32 @@
     ],
     "carouselImages": [
       {
+					   
+	   
+																 
+															  
+		
+	   
+														  
+																	 
         "imageName": "atx_camp_stashbox_coffin_l.webp",
         "directory": "/textures/atx/storefront/camp/stash/"
+													  
+														   
+		
+	   
+																		
+																	 
+		
+	   
+																
+																	
+		
+	   
+														   
+																	
+		
+	   
       }
     ]
   },
@@ -96348,6 +96564,10 @@
       {
         "imageName": "atx_camp_furniture_nukacolacask_stool.webp",
         "directory": "/textures/atx/storefront/camp/furniture/"
+																 
+															   
+		
+	   
       }
     ],
     "highPriceOriginal": 1300,
@@ -96375,6 +96595,9 @@
       {
         "szItemName": "Nuka-ColaThermometer",
         "entmName": "ATX_ENTM_CAMP_WallDeco_NukaColaThermometer"
+											 
+																
+		
       }
     ]
   },
@@ -98385,12 +98608,20 @@
         "directory": "/textures/atx/storefront/camp/walldecoration/"
       },
       {
+		
+	   
+																	  
+																
         "imageName": "atx_entm_camp_walldecor_defconsign.webp",
         "directory": "/textures/atx/storefront/camp/walldecoration/"
       },
       {
         "imageName": "score_s1_camp_utility_weightbench_l.webp",
         "directory": "/textures/atx/storefront/camp/utility/"
+																
+															 
+		
+	   
       }
     ],
     "highPriceOriginal": 1800,
@@ -102377,7 +102608,48 @@
       "imageName": "7bb7a2f0d2283633acd322ff234e8621.webp",
       "directory": "/textures/atomic_shop_media/"
     },
-    "carouselImages": [],
+    "carouselImages": [
+      {
+        "imageName": "score_s19_skin_weaponskin_teslacannon_enclavesigmasquad_l.webp",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      },
+      {
+        "imageName": "atx_playericon_s19_scorchtongue.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      },
+      {
+        "imageName": "atx_playericon_s19_drillaugerpa.webp",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      },
+      {
+        "imageName": "score_s19_camp_display_weaponrack_enclaverectangular_l.webp",
+        "directory": "/textures/atx/storefront/camp/displays/"
+      },
+      {
+        "imageName": "score_s19_camp_utility_plasmacorerecharger_enclave_l.webp",
+        "directory": "/textures/atx/storefront/camp/utility/"
+      },
+      {
+        "imageName": "score_s19_apparel_outfit_enclavefatigues_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "score_s19_skin_powerarmor_paint_t51_enclaveofficer_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s19_f1_camp_ammostoragebox_fatmancrate_l.webp",
+        "directory": "/textures/atx/storefront/camp/utility/"
+      },
+      {
+        "imageName": "score_s19_skin_powerarmor_paint_t60_enclaveofficer_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s19_camp_vendor_playervendingmachine_modusterminal_l.webp",
+        "directory": "/textures/atx/storefront/camp/vendors/"
+      }
+    ],
     "highPriceOriginal": 1500,
     "dynamicBundleItems": [
       {
@@ -102403,6 +102675,36 @@
       {
         "szItemName": "\"Hellfire\" Player Title Prefix",
         "entmName": "SCORE_S19_ENTM_PlayerTitles_Prefix_Hellfire"
+      },
+      {
+        "szItemName": "Sigma Squad Paint (Tesla Cannon)"
+      },
+      {
+        "szItemName": "Ultracite Terror Player Icon"
+      },
+      {
+        "szItemName": "Auger Player Icon"
+      },
+      {
+        "szItemName": "Rectangular Enclave Weapon Rack"
+      },
+      {
+        "szItemName": "Plasma Core Recharger"
+      },
+      {
+        "szItemName": "Enclave Military Fatigues"
+      },
+      {
+        "szItemName": "Enclave Officer T-51 Power Armor Paint"
+      },
+      {
+        "szItemName": "Fatman Crate Ammo Storage Box"
+      },
+      {
+        "szItemName": "Enclave Officer T-60 Power Armor Paint"
+      },
+      {
+        "szItemName": "M.O.D.U.S. Terminal Vending Machine"
       }
     ]
   },
@@ -102539,20 +102841,60 @@
     },
     "carouselImages": [
       {
-        "imageName": "atx_camp_utility_refrigerator_meatlocker.dds",
-        "directory": "/textures/atx/storefront/camp/utility/"
+        "imageName": "atx_entm_camp_structure_sealegspirateship_l.dds",
+        "directory": "/textures/atx/storefront/camp/structures/"
       },
       {
-        "imageName": "atx_apparel_outfit_railsplitter_l.dds",
+        "imageName": "atx_entm_camp_structure_landlubberpirateship_l.dds",
+        "directory": "/textures/atx/storefront/camp/structures/"
+      },
+      {
+        "imageName": "atx__camp_machinery_workbench_cooking_robotbutcher_l.dds",
+        "directory": "/textures/atx/storefront/camp/machinery/"
+      },
+      {
+        "imageName": "atx_camp_defense_guttedcargate_l.dds",
+        "directory": "/textures/atx/storefront/camp/defenses/"
+      },
+      {
+        "imageName": "atx_camp_utility_militarysearchlight.dds",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_entm_camp_floordecor_cagedowl.dds",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_entm_camp_floordecor_grognakwaxfigure.dds",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_apparel_outfit_fasnachtler_l.dds",
         "directory": "/textures/atx/storefront/player/outfit/"
       },
       {
-        "imageName": "atx_apparel_headwear_railsplitter_l.dds",
+        "imageName": "atx_apparel_headwear_fasnachtler_l.dds",
         "directory": "/textures/atx/storefront/player/headwear/"
       },
       {
-        "imageName": "atx_f1_camp_floordecor_quentinossaxophone_l.dds",
+        "imageName": "atx_f1_camp_furniture_table_special_9balltable_red.dds",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_f1_survivaltent_skin_leanto_l.dds",
+        "directory": "/textures/atx/storefront/camp/tents/"
+      },
+      {
+        "imageName": "atx_entm_camp_floordecor_catherinewheelfireworksstand_l.dds",
         "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_entm_camp_bed_ironmaiden.dds",
+        "directory": "/textures/atx/storefront/camp/beds/"
+      },
+      {
+        "imageName": "atx_entm_camp_vendor_playervendingmachine_vendorbot_l.dds",
+        "directory": "/textures/atx/storefront/camp/vendors/"
       }
     ],
     "highPriceOriginal": 1000,
@@ -102572,6 +102914,48 @@
       {
         "szItemName": "Quentino's Saxophone",
         "entmName": "ATX_F1_ENTM_CAMP_FloorDecor_QuentinosSaxophone"
+      },
+      {
+        "szItemName": "Sea Legs Pirate Ship"
+      },
+      {
+        "szItemName": "Landlubber Pirate Ship"
+      },
+      {
+        "szItemName": "Butch-O-Bot Cooking Station"
+      },
+      {
+        "szItemName": "Gutted Car Gate"
+      },
+      {
+        "szItemName": "Military Searchlight"
+      },
+      {
+        "szItemName": "Caged Owl"
+      },
+      {
+        "szItemName": "Grognak Wax Figure"
+      },
+      {
+        "szItemName": "Fasnachtler Outfit"
+      },
+      {
+        "szItemName": "Fasnachtler Mask"
+      },
+      {
+        "szItemName": "Red 9 Ball Table"
+      },
+      {
+        "szItemName": "Lean-to Survival Tent"
+      },
+      {
+        "szItemName": "Catherine Wheel Fireworks Stand"
+      },
+      {
+        "szItemName": "Iron Maiden Bed"
+      },
+      {
+        "szItemName": "Vendor Bot"
       }
     ]
   },
@@ -102658,7 +103042,80 @@
       "imageName": "02d60f7cb03a73ae3f58e6af35d9cc1e.dds",
       "directory": "/textures/atomic_shop_media/"
     },
-    "carouselImages": [],
+    "carouselImages": [
+      {
+        "imageName": "atx_f1_skin_outfit_rangersuniform_riot_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "atx_f1_survivalttent_skin_settler_l.webp",
+        "directory": "/textures/atx/storefront/camp/tents/"
+      },
+      {
+        "imageName": "atx_f1_skin_armorskin_leather_atomiccamo_l.webp",
+        "directory": "/textures/atx/storefront/player/armorskin/"
+      },
+      {
+        "imageName": "atx_apparel_outfit_rangersuniform_elite_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "atx_apparel_outfit_rangersuniform_advanced_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "atx_camp_bed_valentinesday_l.webp",
+        "directory": "/textures/atx/storefront/camp/beds/"
+      },
+      {
+        "imageName": "atx_f1_skin_headwear_rangersuniform_desert_l.webp",
+        "directory": "/textures/atx/storefront/player/armorskin/"
+      },
+      {
+        "imageName": "atx_f1_skin_headwear_rangersuniform_riot_l.webp",
+        "directory": "/textures/atx/storefront/player/armorskin/"
+      },
+      {
+        "imageName": "atx_f1_skin_armorskin_scout_atomiccamo_l.webp",
+        "directory": "/textures/atx/storefront/player/armorskin/"
+      },
+      {
+        "imageName": "atx_f1_skin_armorskin_wood_atomiccamo_l.webp",
+        "directory": "/textures/atx/storefront/player/armorskin/"
+      },
+      {
+        "imageName": "atx_apparel_outfit_bogwanderer_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "score_s1_camp_machinery_workbench_armor_vaulttecpristine_l.webp",
+        "directory": "/textures/atx/storefront/camp/machinery/"
+      },
+      {
+        "imageName": "atx_f1_skin_outfit_rangersuniform_desert_l.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "atx_f1_survivalttent_skin_xmas_l.webp",
+        "directory": "/textures/atx/storefront/camp/tents/"
+      },
+      {
+        "imageName": "atx_f1_survivalttent_skin_responders_medical_l.webp",
+        "directory": "/textures/atx/storefront/camp/tents/"
+      },
+      {
+        "imageName": "score_s1_camp_floordecor_rug_roundarea_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_f1_skin_armorskin_metal_atomiccamo_l.webp",
+        "directory": "/textures/atx/storefront/player/armorskin/"
+      },
+      {
+        "imageName": "atx_f1_survivalttent_skin_raider_l.webp",
+        "directory": "/textures/atx/storefront/camp/tents/"
+      }
+    ],
     "highPriceOriginal": 4000,
     "dynamicBundleItems": [
       {
@@ -102712,6 +103169,63 @@
       {
         "szItemName": "Rusted APC Survival Tent",
         "entmName": "ATX_F1_ENTM_SurvivalTent_Skin_APC_Rusted"
+      },
+      {
+        "szItemName": "Ranger Armor Outfit Riot Paint"
+      },
+      {
+        "szItemName": "Settler Survival Tent"
+      },
+      {
+        "szItemName": "Atomic Camo Leather Armor Paint"
+      },
+      {
+        "szItemName": "Elite Ranger Armor Outfit"
+      },
+      {
+        "szItemName": "Advanced Ranger Armor Outfit"
+      },
+      {
+        "szItemName": "Sleazy Heart Bed"
+      },
+      {
+        "szItemName": "Ranger Helmet Desert Paint"
+      },
+      {
+        "szItemName": "Ranger Helmet Riot Paint"
+      },
+      {
+        "szItemName": "Atomic Camo Scout Armor Paint"
+      },
+      {
+        "szItemName": "Atomic Camo Wood Armor Paint"
+      },
+      {
+        "szItemName": "Bog Wanderer Outfit"
+      },
+      {
+        "szItemName": "Pristine Vault-Tec Armor Workbench"
+      },
+      {
+        "szItemName": "Ranger Armor Outfit Desert Paint"
+      },
+      {
+        "szItemName": "Bog Wanderer Mask"
+      },
+      {
+        "szItemName": "Holiday Survival Tent"
+      },
+      {
+        "szItemName": "Responders Medical Tent"
+      },
+      {
+        "szItemName": "Thatched Rug"
+      },
+      {
+        "szItemName": "Atomic Camo Metal Armor Paint"
+      },
+      {
+        "szItemName": "Raider Survival Tent"
       }
     ]
   },
@@ -103010,7 +103524,108 @@
       "imageName": "cc26b9db4b51f2b8f02c61d1ae8931fb.dds",
       "directory": "/textures/atomic_shop_media/"
     },
-    "carouselImages": [],
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_displaycase_plushie_l.dds",
+        "directory": "/textures/atx/storefront/camp/displays/"
+      },
+      {
+        "imageName": "score_s11_camp_floordecor_plushie_nukacolamrfuzzy_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s15_camp_floordecor_plushie_mr.fuzzydealer_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s1_camp_floordeco_plushie_sheepsquatchgiant_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_entm_camp_floordecor_plushie_hamilton_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s12_camp_floordecor_plushie_graftonmonster_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s12_camp_floordecor_plushie_mothman_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s11_camp_floordecor_plushie_nukatwistmrfuzzy_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_entm_camp_floordecor_plushie_overgrownrusher_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_plushie_willard_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s7_camp_floordecor_plushie_octosaw_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s19_camp_floordecor_plushie_mrfuzzyscientist_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_plushie_trog_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_plushie_rabbit_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_plushie_slocumsmrfuzzy_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s11_camp_floordecor_plushie_nukaquantummrfuzzy_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_plushie_moethemole.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_plushie_sheepsquatch_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s20_camp_floordecor_plushie_ghoul_mrfuzzy_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s18_camp_floordecor_plushie_mrfuzzyblueridge_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_upgrade2023_ac_camp_floordecor_plushie_largeovergrown_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_entm_camp_floordecor_plushie_bloatedtic_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_plushie_wickermrfuzzy_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s17_camp_floordecor_plushie_mrfuzzypioneerscoutsquirrel_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s12_camp_floordecor_plushie_flatwoodsmonster_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      }
+    ],
     "highPriceOriginal": 2000,
     "dynamicBundleItems": [
       {
@@ -103126,7 +103741,44 @@
       "imageName": "e7e913044fbd199b7adfbd5e4448abfc.dds",
       "directory": "/textures/atomic_shop_media/"
     },
-    "carouselImages": [],
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_camppets_radhog_gruyere_l.dds",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_apparel_camppets_radhog_headwear_edelweiss_l.dds",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "atx_entm_camp_walldecor_knocker_hogdoor_l.dds",
+        "directory": "/textures/atx/storefront/camp/walldecoration/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_plushie_gruyere_l.dds",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "score_s8_skin_powerarmor_paint_t45_basicyellow_l.webp",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s8_skin_powerarmor_paint_t51_basicyellow_l.dds",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s8_skin_powerarmor_paint_t60_basicyellow_l.dds",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s8_skin_powerarmor_paint_x01_basicyellow_l.dds",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "atx_skin_powerarmor_paint_excavator_basicyellow_l.dds",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      }
+    ],
     "highPriceOriginal": 1500,
     "dynamicBundleItems": [
       {
@@ -103178,7 +103830,36 @@
       "imageName": "b9148a483aef940c5ef456913c102502.dds",
       "directory": "/textures/atomic_shop_media/"
     },
-    "carouselImages": [],
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_utility_collectron_sirloin_l.dds",
+        "directory": "/textures/atx/storefront/camp/utility/"
+      },
+      {
+        "imageName": "atx_camp_structure_chophouse_l.dds",
+        "directory": "/textures/atx/storefront/camp/structures/"
+      },
+      {
+        "imageName": "atx_camp_furniture_chair_chophouse.dds",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_furniture_table_chophouse.dds",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_butchercuttingboard_l.dds",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_lights_ceiling_elaboratesilver.dds",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "chef_kiss.webp",
+        "directory": "/textures/emotes/"
+      }
+    ],
     "highPriceOriginal": 1800,
     "dynamicBundleItems": [
       {
@@ -103210,5 +103891,298 @@
         "entmName": "ATX_ENTM_Emotes_ChefsKiss"
       }
     ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_A_TASTE_OF_VICTORY_BUNDLE",
+    "desc": "A celebratory stash of Nuka Victory decor to turn survival into triumph.",
+    "disclaimer": "- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- WEAPON SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "A Taste of Victory Bundle",
+    "primaryImage": {
+      "imageName": "a803c96346425a3f76af7d8d7d5209b8.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_apparel_outfit_nukagirloutfit_nukavictory.dds",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "atx_apparel_outfit_nukagirloutfit_nukavictory.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      },
+      {
+        "imageName": "atx_camp_furniture_couch_nukavictory_l.dds",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_wallpaper_nukavictory_l.dds",
+        "directory": "/textures/atx/storefront/camp/wallpaper/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_nukavictory.dds",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_collector_nukavictory_l.dds",
+        "directory": "/textures/atx/storefront/camp/utility/"
+      },
+      {
+        "imageName": "atx__skin_weaponskin_thirstzapper_nukavictory.dds",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      }
+    ],
+    "highPriceOriginal": 1800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Nuka-Girl Victory Outfit"
+      },
+      {
+        "szItemName": "Nuka-Girl Victory Helmet"
+      },
+      {
+        "szItemName": "Nuka Victory Couch"
+      },
+      {
+        "szItemName": "Nuka-Cola Victory Wallpaper"
+      },
+      {
+        "szItemName": "Nuka Victory Car"
+      },
+      {
+        "szItemName": "Nuka Victory Candy Machine"
+      },
+      {
+        "szItemName": "Nuka Victory Paint (Thirst Zapper)"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_PURRSEIDS_BUNDLE",
+    "desc": "Journey through the stars with Mr. Pebbles.",
+    "disclaimer": "- ALLIES  APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE. -\n- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]*This bundle contains mostly previous released items[/h]\n✨︎ [i]NEW ITEM[/i]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Purrseids Bundle",
+    "primaryImage": {
+      "imageName": "c3d352d3c7b1ee566935d289abb970bc.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "dd827548639d1dc6868018d1bb0d935b.dds",
+        "directory": "/textures/atomic_shop_media/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_plushie_mrpebbles_l.dds",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_entm_camp_floordecor_rug_runner_l.dds",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_lights_neonsign_starsign_july4th_l.dds",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "score_s7_camp_floor_starscape_l.dds",
+        "directory": "/textures/atx/storefront/camp/floors/"
+      },
+      {
+        "imageName": "score_s1_camp_wallpaper_glowinthedark_stars_l.dds",
+        "directory": "/textures/atx/storefront/camp/wallpaper/"
+      },
+      {
+        "imageName": "score_s7_camp_ally_xerxo_l.dds",
+        "directory": "/textures/atx/storefront/camp/ally/"
+      }
+    ],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "✨︎ Mr. Pebbles"
+      },
+      {
+        "szItemName": "Mr. Pebbles Plushie"
+      },
+      {
+        "szItemName": "Stars Runner Rug"
+      },
+      {
+        "szItemName": "Freedom Stars Neon Sign"
+      },
+      {
+        "szItemName": "Starscape Floors and Foundations"
+      },
+      {
+        "szItemName": "Glow in the Dark - Stars Wallpaper"
+      },
+      {
+        "szItemName": "Lite Ally: Xerxo"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_CAPTAIN_COSMOS_ORBITAL_BUNDLE",
+    "desc": "Be the captain who stands out across the stars.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- WEAPON SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- POWER ARMOR SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Captain Cosmos Orbital Bundle",
+    "primaryImage": {
+      "imageName": "10e8a13954786dd1c4ada40bfb094692.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "score_s1_skin_powerarmor_paint_captaincosmos_l.dds",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "score_s1_skin_powerarmor_jetpack_captaincosmos_l.dds",
+        "directory": "/textures/atx/storefront/player/powerarmor/"
+      },
+      {
+        "imageName": "atx_camp_furniture_coinop_gold_mrrocket_l.dds",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      },
+      {
+        "imageName": "atx_camp_bed_twinbed_captaincosmos_l.dds",
+        "directory": "/textures/atx/storefront/camp/beds/"
+      },
+      {
+        "imageName": "atx_skin_weaponskin_alienblaster_steel_l.dds",
+        "directory": "/textures/atx/storefront/player/weaponskin/"
+      },
+      {
+        "imageName": "atx_playericon_score_01.dds",
+        "directory": "/textures/atx/storefront/player/playericons/"
+      }
+    ],
+    "highPriceOriginal": 1800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Captain Cosmos Power Armor"
+      },
+      {
+        "szItemName": "Captain Cosmos Jetpack"
+      },
+      {
+        "szItemName": "Gold Mr. Rocket Kiddie Ride"
+      },
+      {
+        "szItemName": "Captain Cosmos Bed"
+      },
+      {
+        "szItemName": "Untarnished Paint (Alien Blaster)"
+      },
+      {
+        "szItemName": "Captain Cosmos Player Icon"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_SHELTER_CATWALK_BUNDLE",
+    "desc": "Put safety first in your shelter with the Catwalk Bundle!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Shelter Catwalk Bundle",
+    "primaryImage": {
+      "imageName": "atx_camp_structure_vaultcatwalk_l.dds",
+      "directory": "/textures/atx/storefront/camp/structures/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_floor_carpeteria_checkers_l.dds",
+        "directory": "/textures/atx/storefront/camp/floors/"
+      },
+      {
+        "imageName": "atx_camp_floor_carpeteria_purpleferns_l.dds",
+        "directory": "/textures/atx/storefront/camp/floors/"
+      },
+      {
+        "imageName": "atx_camp_floor_carpeteria_abstraite_l.dds",
+        "directory": "/textures/atx/storefront/camp/floors/"
+      },
+      {
+        "imageName": "atx_camp_floor_carpeteria_tiles_l.dds",
+        "directory": "/textures/atx/storefront/camp/floors/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_shelter_pottedtree_l.dds",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_walldeco_vaulttecutilitywallshelf_l.dds",
+        "directory": "/textures/atx/storefront/camp/walldecoration/"
+      },
+      {
+        "imageName": "atx_camp_structure_vaultcatwalk_l.dds",
+        "directory": "/textures/atx/storefront/camp/structures/"
+      },
+      {
+        "imageName": "atx_camp_lights_lightingkit_ceiling_fluorescentlong_l.dds",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_camp_lights_lightingkit_ceiling_fluorescentcircle_l.dds",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      },
+      {
+        "imageName": "atx_camp_lights_illuminatedvaultsigns_l.dds",
+        "directory": "/textures/atx/storefront/camp/lights/"
+      }
+    ],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Carpeteria Checkers Floor and Foundations"
+      },
+      {
+        "szItemName": "Carpeteria Purple Ferns Floor and Foundations"
+      },
+      {
+        "szItemName": "Carpeteria Abstraite Floor and Foundations"
+      },
+      {
+        "szItemName": "Carpeteria Tiles Floor and Foundations"
+      },
+      {
+        "szItemName": "Potted Tree"
+      },
+      {
+        "szItemName": "Utility Wall Shelf"
+      },
+      {
+        "szItemName": "Vault Catwalk"
+      },
+      {
+        "szItemName": "Long Fluorescent Light"
+      },
+      {
+        "szItemName": "Circle Fluorescent Light"
+      },
+      {
+        "szItemName": "Illuminated Vault Signs"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_FALLOUT_1ST_WEEKLY_CONSUMABLE_BUNDLE",
+    "desc": "A value like no other! Get yours today! Available every 7 days from purchase.",
+    "disclaimer": "Grants 10 Lunchboxes, 10 Basic Repair Kits, and 10 Scrap Kits.",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Fallout 1st Weekly Consumable Bundle",
+    "primaryImage": {
+      "imageName": "ca3824e4d8c57814a1e4d944fbbee311.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 500,
+    "dynamicBundleItems": []
   }
 ]
