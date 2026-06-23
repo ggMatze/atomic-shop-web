@@ -121,14 +121,56 @@ async function showNewsNotice(options = { force: false }) {
       .replace(/\r\n/g, '\n');
     text.innerHTML = rawText.split(/\n{2,}/).map(p => p.replace(/\n/g, '<br>')).join('<p></p>');
 
-    // store current news id on the notice and determine whether to show automatically based on dismissal TTL
+    // store current news id on the notice
     notice.dataset.newsId = String(news.id || '');
-    const alreadyDismissed = _isNewsDismissed(news.id);
-    if (!options.force && alreadyDismissed) {
-      notice.classList.add('hidden');
-    } else {
-      notice.classList.remove('hidden');
+
+    // Determine expiry state and show an expiry indicator inside the notice header
+    const expVal = news.expires || news.expiresAt || news.expireAt;
+    let expDate = null;
+    let isExpired = false;
+    if (expVal != null) {
+      if (typeof expVal === 'string') {
+        const d = new Date(expVal);
+        if (!isNaN(d.getTime())) expDate = d;
+      } else if (typeof expVal === 'number' && isFinite(expVal)) {
+        const d = new Date(Number(expVal));
+        if (!isNaN(d.getTime())) expDate = d;
+      }
+      if (expDate) isExpired = expDate.getTime() <= Date.now();
     }
+
+    // show expiry text in the header (create/replace element)
+    try {
+      let expiryEl = document.getElementById('news-expiry');
+      if (!expiryEl) {
+        expiryEl = document.createElement('span');
+        expiryEl.id = 'news-expiry';
+        expiryEl.className = 'news-expiry';
+        expiryEl.style.marginLeft = '8px';
+        expiryEl.style.fontSize = '0.9em';
+        expiryEl.style.opacity = '0.85';
+        header.appendChild(expiryEl);
+      }
+      if (expDate) {
+        if (isExpired) {
+          expiryEl.textContent = 'Expired News';
+          expiryEl.style.display = '';
+        } else {
+          // Do not show the date for non-expired news; keep label hidden
+          expiryEl.style.display = 'none';
+        }
+      } else {
+        expiryEl.style.display = 'none';
+      }
+      // mark notice visually when expired
+      if (isExpired) notice.classList.add('news-expired'); else notice.classList.remove('news-expired');
+    } catch (err) { /* ignore DOM failures */ }
+
+    // Determine whether to hide automatically based on previously-dismissed state.
+    // Treat expired news as dismissed by default so it does not popup on reload.
+    const alreadyDismissed = _isNewsDismissed(news.id);
+    const shouldHide = (!options.force && (alreadyDismissed || isExpired));
+    if (shouldHide) notice.classList.add('hidden'); else notice.classList.remove('hidden');
 
     // wire close button to hide permanently until manually reopened via the news button
     const closeBtn = document.getElementById('news-close');

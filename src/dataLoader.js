@@ -21,6 +21,7 @@ export async function loadNews() {
     const res = await fetch('/data/config.json');
     if (!res.ok) return null;
     const config = await res.json();
+    // Always return the news object (overlay will decide how to display expiry)
     return config.news || null;
   } catch (e) {
     return null;
