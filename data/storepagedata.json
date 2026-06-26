@@ -14,7 +14,7 @@
             "itemID": 2564190,
             "itemName": "Welcome to C.A.M.P. - Pioneer Starter Bundle",
             "itemNameShort": "Welcome to C.A.M.P. - Pioneer Bundle",
-            "itemDesc": "The perfect beginner-friendly collection for building, decorating and surviving in style!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\nPRODUCES\n[url=https://www.theduchessflame.com/post/camp-resource-mirelurk-steamer]✦ Mirelurk Meat      [/url]\n[h]This bundle contains previously released items, bundled together as value bundle.[/h]",
+            "itemDesc": "The perfect beginner-friendly collection for building, decorating and surviving in style!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\nPRODUCES\n[url=https://www.theduchessflame.com/post/camp-resource-mirelurk-steamer]✦ Mirelurk Meat       [/url]\n[h]This bundle contains previously released items, bundled together as value bundle.[/h]",
             "primaryImage": {
               "imageName": "81089b2a9b5e6c05386e27c5d1eaa6e0.dds",
               "directory": "/textures/atomic_shop_media/"
@@ -2149,6 +2149,494 @@
             "isZeus": false,
             "isClown": false,
             "preferDB": true
+          }
+        ]
+      },
+      {
+        "name": "Weekend Sale \\n The Season Returns!",
+        "tabid": "weekend-sale",
+        "isZeus": false,
+        "image": {
+          "imageName": "020b201b3595dd4c555ce48cdc45a582.dds",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2571168,
+            "itemName": "Fallout First Modern Home Catch Up Bundle",
+            "itemNameShort": "Fallout First Season Catch Up",
+            "itemDesc": "New to Fallout First or missed an item from Season 15? This Bundle contains some of the Season's best rewards!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n\n[h]This offer is exclusive to Fallout 1st Members.[/h]",
+            "primaryImage": {
+              "imageName": "1f0600d81dbe4a39a154ffbbb4453168.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s15_camp_floordecor_forklift_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s15_f1_survivaltent_skin_gazebo_l.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "score_s15_camp_kitchenset_modularkitchensetwhite_l.dds",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "score_s15_camp_structure_pavilionwall_l.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "score_s15_camp_walldecor_mounteddolphinhead_l.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s14_camp_scrapbox_h&htools02_l.dds",
+                "directory": "/textures/atx/storefront/camp/stash/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Forklift"
+              },
+              {
+                "szItemName": "Gazebo Survival Tent"
+              },
+              {
+                "szItemName": "White Modern Home Kitchen Set"
+              },
+              {
+                "szItemName": "Pavilion Kit"
+              },
+              {
+                "szItemName": "Mounted Dolphish Head"
+              },
+              {
+                "szItemName": "Red and Yellow H&H Tools Scrapbox"
+              }
+            ],
+            "lowPrice": {
+              "amount": 750,
+              "originalAmount": 750,
+              "isLto": true,
+              "ltoTimer": "2026-06-30T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 750,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isZeus": true,
+            "isClown": false
+          },
+          {
+            "itemID": 2571169,
+            "itemName": "Season 15 Poker Weapons Bundle",
+            "itemNameShort": "Season 15 Weapons Bundle",
+            "itemDesc": "Feeling lucky? Check out the hottest weapon skins from 2023's \"The Big Score\".\n\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "32a1459edbfd54bdf467202f442a068e.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s15_skin_weaponskin_plasmagun_poker_l.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s15_skin_weaponskin_chainsaw_poker_l.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s15_skin_weaponskin_gatlinglaser_poker_l.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s15_skin_weaponskin_combatrifle_poker_l.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s15_skin_weaponskin_combatshotgun_poker_l.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s15_skin_weaponskin_gatlingplasma_poker_l.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s15_skin_weaponskin_gaussminigun_poker_l.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "atx_playericon_s15_vaultgirlqueen.dds",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              },
+              {
+                "imageName": "atx_playericon_s15_vaultboyking.dds",
+                "directory": "/textures/atx/storefront/player/playericons/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Poker Paint (Plasma Gun + Enclave Plasma Gun)"
+              },
+              {
+                "szItemName": "Poker Paint (Chainsaw)"
+              },
+              {
+                "szItemName": "Poker Paint (Gatling Laser + Ultracite Gatling Laser)"
+              },
+              {
+                "szItemName": "Poker Paint (Combat Rifle + Fixer)"
+              },
+              {
+                "szItemName": "Poker Paint (Combat Shotgun)"
+              },
+              {
+                "szItemName": "Poker Paint (Gatling Plasma)"
+              },
+              {
+                "szItemName": "Poker Paint (Gauss Minigun)"
+              },
+              {
+                "szItemName": "Card Queen Player Icon"
+              },
+              {
+                "szItemName": "Card King Player Icon"
+              }
+            ],
+            "lowPrice": {
+              "amount": 900,
+              "originalAmount": 900,
+              "isLto": true,
+              "ltoTimer": "2026-06-30T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 900,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2571170,
+            "itemName": "Season 15 C.A.M.P. Bundle",
+            "itemNameShort": "Season 15 Poker C.A.M.P. Bundle",
+            "itemDesc": "Your C.A.M.P. will be the hottest spot between New Vegas and Atlantic City with these gems from 2023's \"The Big Score\".\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -",
+            "primaryImage": {
+              "imageName": "5e4de0009f97bf6b3d694e3e23850a1c.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s15_camp_floordecor_plushie_mr.fuzzydealer_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s15_camp_furniture_chair_pokerchipsstool_l.dds",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "score_s15_entm_camp_floordecor_stacksofcards_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s15_entm_camp_walldecor_wildcardsposter2_l.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s15_camp_wallpaper_ganghideoutwallpaper_l.dds",
+                "directory": "/textures/atx/storefront/camp/wallpaper/"
+              },
+              {
+                "imageName": "score_s15_camp_floordecor_rug_playingcardsrug_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s15_entm_camp_walldecor_wildcardsposter3_l.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s15_photomode_frame_frame1_l.dds",
+                "directory": "/textures/atx/storefront/player/photoframe/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Dealer Mr. Fuzzy Plushie"
+              },
+              {
+                "szItemName": "Poker Chips Stool"
+              },
+              {
+                "szItemName": "Stack of Cards"
+              },
+              {
+                "szItemName": "Ace of Diamonds Poster"
+              },
+              {
+                "szItemName": "Poker Den Wallpaper"
+              },
+              {
+                "szItemName": "4 Kings Playing Card Rugs"
+              },
+              {
+                "szItemName": "Jack of Spades Poster"
+              },
+              {
+                "szItemName": "Jackpot Photomode Frame"
+              }
+            ],
+            "lowPrice": {
+              "amount": 600,
+              "originalAmount": 600,
+              "isLto": true,
+              "ltoTimer": "2026-06-30T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 600,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1000
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2570550,
+            "itemName": "Poker Paint (Gatling Plasma)",
+            "itemNameShort": "Poker Paint (Gatling Plasma)",
+            "itemDesc": "Show that you know how to use the hand you've been dealt with this Poker Paint for the Gatling Plasma!\n\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "score_s15_skin_weaponskin_gatlingplasma_poker_l.dds",
+              "directory": "/textures/atx/storefront/player/weaponskin/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s15_skin_weaponskin_gatlingplasma_poker_c1.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s15_skin_weaponskin_gatlingplasma_poker_c2.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 350,
+              "originalAmount": 350,
+              "isLto": true,
+              "ltoTimer": "2026-06-30T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 350,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2570492,
+            "itemName": "Weather Control Station (Atlantic City Fog)",
+            "itemNameShort": "Weather Station (Atlantic City Fog)",
+            "itemDesc": "Bring a bit of moody Atlantic City fog back to Appalachia with this Weather Control Station!\n\nThis Weather Control Station will change weather in the C.A.M.P. radius when connected to power.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s15_camp_utility_weatherstation_xpdacboardwalk_l.dds",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s15_camp_utility_weatherstation_xpdacboardwalk_c1.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s15_camp_utility_weatherstation_xpdacboardwalk_c2.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s15_camp_utility_weatherstation_xpdacboardwalk_c3.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 840,
+              "originalAmount": 840,
+              "isLto": true,
+              "ltoTimer": "2026-06-30T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 840,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1200
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2570773,
+            "itemName": "Company Tea Machine",
+            "itemNameShort": "Company Tea Machine",
+            "itemDesc": "Enjoy a spot of tea in the comfort of your own C.A.M.P.!\n\n- Collects Company Tea over time. This item cannot be built inside of a Shelter. -\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s15_camp_collector_companyteakettle_l.dds",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s15_camp_collector_companyteakettle_c1.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s15_camp_collector_companyteakettle_c2.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 490,
+              "originalAmount": 490,
+              "isLto": true,
+              "ltoTimer": "2026-06-30T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 490,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2570822,
+            "itemName": "Diamond Dress Outfit",
+            "itemNameShort": "Diamond Dress Outfit",
+            "itemDesc": "Shine bright in this stylish diamond-themed dress!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "score_s15_apparel_outfit_diamonddress_l.dds",
+              "directory": "/textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s15_apparel_outfit_diamonddress_c1.dds",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "score_s15_apparel_outfit_diamonddress_c2.dds",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 490,
+              "originalAmount": 490,
+              "isLto": true,
+              "ltoTimer": "2026-06-30T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 490,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2570458,
+            "itemName": "Pirate Chest Stash Box",
+            "itemNameShort": "Pirate Chest Stash Box",
+            "itemDesc": "Keep your booty safe within this Pirate Chest Stash Box!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s15_camp_stashbox_piratechest.dds",
+              "directory": "/textures/atx/storefront/camp/stash/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s15_camp_stashbox_piratechest_c1.dds",
+                "directory": "/textures/atx/storefront/camp/stash/"
+              },
+              {
+                "imageName": "score_s15_camp_stashbox_piratechest_c2.dds",
+                "directory": "/textures/atx/storefront/camp/stash/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 350,
+              "originalAmount": 350,
+              "isLto": true,
+              "ltoTimer": "2026-06-30T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 350,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2571018,
+            "itemName": "Heart Shaped Bed",
+            "itemNameShort": "Heart Shaped Bed",
+            "itemDesc": "Dim the lights and turn up the romance with this sensual Heart Shaped Bed.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s15_camp_bed_heartshapedbed_l.dds",
+              "directory": "/textures/atx/storefront/camp/beds/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s15_camp_bed_heartshapedbed_c1.dds",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "score_s15_camp_bed_heartshapedbed_c2.dds",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 210,
+              "originalAmount": 210,
+              "isLto": true,
+              "ltoTimer": "2026-06-30T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 210,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 300
+            },
+            "isZeus": false,
+            "isClown": false
           }
         ]
       },
