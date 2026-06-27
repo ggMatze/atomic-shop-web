@@ -1648,10 +1648,10 @@ clip-path: polygon( 0% 20.9%, 100% 0%, 90% 87%, 8% 80.8% );
 
 .shop-tile .tile-img img {
   width: auto;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: fill;
   display: block;
 }
 
@@ -2380,6 +2380,90 @@ html, body {
   overflow-x: hidden !important;
 }
 
+/* ######## Custom Tooltip System CSS ####### */
+
+.tooltip {
+  position: fixed;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  max-width: 300px;
+  word-wrap: break-word;
+  white-space: normal;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+.tooltip.tooltip-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Type: Default */
+.tooltip.tooltip-default {
+  background-color: rgba(20, 20, 20, 0.95);
+  color: #eee;
+  border: 1px solid #555;
+}
+
+/* Type: Info */
+.tooltip.tooltip-info {
+  background-color: rgba(14, 99, 156, 0.95);
+  color: #fff;
+  border: 1px solid #0e639c;
+}
+
+/* Type: Warning */
+.tooltip.tooltip-warning {
+  background-color: rgba(220, 102, 0, 0.95);
+  color: #fff;
+  border: 1px solid #ff9500;
+}
+
+/* Optional: Add a small arrow/pointer to the tooltip */
+.tooltip::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: inherit;
+  border-color: inherit;
+  border-style: inherit;
+  border-width: 0;
+  transform: rotate(45deg);
+  bottom: -4px;
+  left: 50%;
+  margin-left: -4px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.tooltip.tooltip-default::before {
+  border-color: #555;
+}
+
+.tooltip.tooltip-info::before {
+  border-color: #0e639c;
+}
+
+.tooltip.tooltip-warning::before {
+  border-color: #ff9500;
+}
+
+/* Responsive: For mobile devices */
+@media (max-width: 768px) {
+  .tooltip {
+    font-size: 0.75em;
+    padding: 6px 10px;
+  }
+}
 
 
 
