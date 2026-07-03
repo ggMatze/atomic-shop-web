@@ -230,6 +230,8 @@ async function initTabs() {
   // Build HTML for a single tile
   function buildTileHTML(item, tileSize, idx, options = {}) {
     const tileDisabled = (item && (item.disabled === true)) ? 'tile-disabled' : '';
+    const isHighlighted = item?.isHighlight === true;
+    const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge" title="Must Have!">✨︎</div>' : '';
 
     const lp = item?.lowPrice;
     const lowest = item?.lowestPurchasablePrice;
@@ -342,6 +344,7 @@ async function initTabs() {
       isNew: item?.isNew,
       isZeus: !!item?.isZeus,
       isClown: !!item?.isClown,
+      isHighlight: isHighlighted,
       disabled: !!item?.disabled,
       itemID: item?.itemID,
   // compute expiration using centralized parser so DST/offset logic is applied consistently
@@ -360,7 +363,7 @@ async function initTabs() {
     const dataItemStr = JSON.stringify(dataItem).replace(/'/g, "&apos;");
 
     return `
-      <div class="shop-tile ${tileSize} ${tileDisabled}"
+      <div class="shop-tile ${tileSize} ${tileDisabled} ${isHighlighted ? 'tile-highlight' : ''}"
            data-item='${dataItemStr}'
            data-atom-original="${priceOriginal}"
            data-atom-final="${priceFinal}"
@@ -368,6 +371,7 @@ async function initTabs() {
         <div class="tile-img">
           <img src="${storefrontImageSrc}" alt="${(item && item.itemName) || ''}" onerror="if(!this.src.endsWith('_l.webp')){this.src=this.src.replace('.webp','_l.webp');}else{this.onerror=null;}" />
         </div>
+        ${highlightBadgeHTML}
         <div class="tile-badge">
           <div class="badge-top">
             <span class="discount"></span>
@@ -830,14 +834,16 @@ if (typeof window !== 'undefined') {
         }
       } catch (e) { /* defensive */ }
       const tileDisabled = (item.disabled === true || isExpired) ? 'tile-disabled' : '';
+      const isHighlighted = item?.isHighlight === true;
+      const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge">✨︎</div>' : '';
       const dateLabel = renderDateRange(item);
 
   // Safe JSON for embedding in attribute
-  const dataItemObj = { title: item.itemName, itemDesc: item.itemDesc, includes, storefrontImage, images, priceOriginal: atomPriceOriginal, priceFinal: atomPriceFinal, discount, isNew, isZeus, isClown: !!item.isClown, disabled: !!item.disabled, expired: isExpired, itemID: item.itemID };
+  const dataItemObj = { title: item.itemName, itemDesc: item.itemDesc, includes, storefrontImage, images, priceOriginal: atomPriceOriginal, priceFinal: atomPriceFinal, discount, isNew, isZeus, isClown: !!item.isClown, isHighlight: isHighlighted, disabled: !!item.disabled, expired: isExpired, itemID: item.itemID };
       let dataItemStr = JSON.stringify(dataItemObj).replace(/'/g, "&apos;").replace(/\r\n|\n|\\n/, "\\n");
 
       shopGridEl.innerHTML += `
-        <div class="${tileClass} ${tileDisabled}"
+        <div class="${tileClass} ${tileDisabled} ${isHighlighted ? 'tile-highlight' : ''}"
              data-item='${dataItemStr}'
              data-atom-original="${atomPriceOriginal}"
              data-atom-final="${atomPriceFinal}"
@@ -845,6 +851,7 @@ if (typeof window !== 'undefined') {
           <div class="tile-img">
             <img src="${storefrontImageSrc}" alt="${item.itemName}" onerror="if(!this.src.endsWith('_l.webp')){this.src=this.src.replace('.webp','_l.webp');}else{this.onerror=null;}" />
           </div>
+          ${highlightBadgeHTML}
           <div class="tile-price">
             <span class="old-price"></span>
             ${currentPrice}
