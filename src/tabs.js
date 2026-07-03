@@ -231,7 +231,7 @@ async function initTabs() {
   function buildTileHTML(item, tileSize, idx, options = {}) {
     const tileDisabled = (item && (item.disabled === true)) ? 'tile-disabled' : '';
     const isHighlighted = item?.isHighlight === true;
-    const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge" title="Must Have!">✨︎</div>' : '';
+    const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge" title="My recommendation">✨︎</div>' : '';
 
     const lp = item?.lowPrice;
     const lowest = item?.lowestPurchasablePrice;

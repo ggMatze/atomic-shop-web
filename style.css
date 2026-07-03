@@ -919,52 +919,51 @@ filter: saturate(0.5);
 
 .shop-tile.tile-highlight {
   background-color: #ffd35a;
-  border-color: #b6902a;
-}
-
-.shop-tile.tile-highlight:hover {
-  background: linear-gradient(0deg, #0b0b0b 10%,#1d1a13 71%,#e2ba4d  100%);
+  background: linear-gradient(0deg, #19181DD9 10%,#1d1a13D9 61%,#fccd4e  100%);
   border-color: #ffd35a;
 }
 
+.shop-tile.tile-highlight:hover {
+  background: #fccd4e;
+  border-color: #b6902a;
+}
+
 .shop-tile.tile-highlight .tile-footer {
-   background: #e2ba4d;
-   color: #1A1B1D;
+  background:#1E1F21 ;
+  color: #F5F3C2;
 }
 
 .shop-tile.tile-highlight:hover .tile-footer {
-  background: linear-gradient(90deg, #1d1a13 0%, #221e13 50%, #1d1a13 100%);
-  outline: 2px outset#13110d;
+  background: linear-gradient(90deg, #1E1F21 0%, #3f4452 50%, #1E1F21 100%);
+
+  outline: 2px outset#1e242e9c;
   outline-offset: -2px; 
-  color: #e6d7a6;
-  text-shadow: none;
+  color: #F5F3C2;
 }
 
 .shop-tile.tile-highlight .tile-highlight-badge {
   position: absolute;
-  bottom: -7px;
+  bottom: -5px;
   right: 8px;
   z-index: 3;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-family: "Berlin Sans FB", roboto condensed, sans-serif;
-  text-shadow: rgb(27, 10, 10) 1px 1px;
+  text-shadow: rgb(27, 10, 10) 1px 1px 1px;
   text-align: center;
-  color: #fff;
+  color: #ffffff;
   font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-weight: 900;
   padding: 0;
-  width: 50px;
-  min-width: 30px;
-  height: 50px;
-  min-height: 30px;
+  width: 45px;
+  min-width: 25px;
+  height: 45px;
+  min-height: 25px;
   aspect-ratio: 1 / 1;
+  padding-bottom: 2px;
   flex: 0 0 auto;
   background: #f8d444;
-  aspect-ratio: 1;
   --g:/25.486% 25.486% radial-gradient(#000 calc(71% - 1px),#0000 71%) no-repeat;
   mask: radial-gradient(100% 100%,#000 calc(35.01% - 1px),#0000 35.01%) subtract,100% 50% var(--g),88.302% 82.139% var(--g),58.682% 99.24% var(--g),25% 93.301% var(--g),3.015% 67.101% var(--g),3.015% 32.899% var(--g),25% 6.699% var(--g),58.682% 0.76% var(--g),88.302% 17.861% var(--g);
   cursor: help;
