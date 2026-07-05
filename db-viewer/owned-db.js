@@ -19,6 +19,10 @@
 
   let lastCookieValue = '';
 
+  function isCookieValueSafe(value) {
+    return typeof value === 'string' && encodeURIComponent(value).length <= 3800;
+  }
+
   function readSharedValue(key) {
     let localValue = '';
     try {
@@ -27,17 +31,20 @@
       console.warn('owned-db: localStorage read failed', e);
     }
 
+    if (localValue) {
+      return localValue;
+    }
+
     const cookieValue = readCookieValue(key);
-    if (cookieValue && cookieValue !== localValue) {
+    if (cookieValue) {
       try {
         localStorage.setItem(key, cookieValue);
       } catch (e) {
         // ignore
       }
-      localValue = cookieValue;
     }
 
-    return localValue;
+    return cookieValue;
   }
 
   function refreshOwnedCookieState() {
@@ -68,7 +75,7 @@
     }
 
     const cookieDomain = getCookieDomain();
-    if (!cookieDomain) return;
+    if (!cookieDomain || !isCookieValueSafe(value)) return;
 
     document.cookie = `${key}=${encodeURIComponent(value)}; path=/; max-age=31536000; SameSite=Lax; domain=${cookieDomain}`;
   }

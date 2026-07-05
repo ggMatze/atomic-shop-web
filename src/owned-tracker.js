@@ -17,6 +17,9 @@
     dbError: false
   };
 
+  const IMPORT_BUTTON_ID = 'owned-tracker-import';
+  const IMPORT_MESSAGE_ID = 'owned-tracker-import-msg';
+
   let lastCookieOwnedIds = '';
   let lastCookieOwnedNames = '';
 
@@ -44,6 +47,10 @@
     return cookieMatch ? decodeURIComponent(cookieMatch[1]) : '';
   }
 
+  function isCookieValueSafe(value) {
+    return typeof value === 'string' && encodeURIComponent(value).length <= 3800;
+  }
+
   function readSharedValue(key) {
     let localValue = '';
     try {
@@ -52,17 +59,69 @@
       console.warn('[owned-tracker] localStorage read failed', e);
     }
 
+    if (localValue) {
+      return localValue;
+    }
+
     const cookieValue = readCookieValue(key);
-    if (cookieValue && cookieValue !== localValue) {
+    if (cookieValue) {
       try {
         localStorage.setItem(key, cookieValue);
       } catch (e) {
         // ignore write failure
       }
-      localValue = cookieValue;
     }
 
-    return localValue;
+    return cookieValue;
+  }
+
+  function setupImportButton() {
+    const importButton = document.getElementById(IMPORT_BUTTON_ID);
+    if (!importButton) return;
+
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = '.json,application/json';
+    fileInput.style.display = 'none';
+    document.body.appendChild(fileInput);
+
+    importButton.addEventListener('click', () => {
+      fileInput.value = '';
+      fileInput.click();
+    });
+
+    fileInput.addEventListener('change', (event) => {
+      const file = event.target.files && event.target.files[0];
+      if (!file) {
+        showImportMessage('No file selected.', true);
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        let parsed;
+        try {
+          parsed = JSON.parse(reader.result);
+        } catch (e) {
+          showImportMessage('Invalid JSON file.', true);
+          return;
+        }
+
+        if (!Array.isArray(parsed)) {
+          showImportMessage('JSON must be an array of item IDs.', true);
+          return;
+        }
+
+        const count = saveOwnedIds(parsed);
+        loadOwnedIds();
+        loadOwnedNames();
+        decorateAllStoreTiles();
+        showImportMessage(`Imported ${count} owned item ID(s).`, false);
+      };
+
+      reader.onerror = () => showImportMessage('Could not read file.', true);
+      reader.readAsText(file, 'UTF-8');
+    });
   }
 
   function refreshOwnedCookieState() {
@@ -95,9 +154,34 @@
     }
 
     const cookieDomain = getCookieDomain();
-    if (!cookieDomain) return;
+    if (!cookieDomain || !isCookieValueSafe(value)) return;
 
     document.cookie = `${key}=${encodeURIComponent(value)}; path=/; max-age=31536000; SameSite=Lax; domain=${cookieDomain}`;
+  }
+
+  function saveOwnedIds(ids) {
+    const normalizedIds = Array.from(new Set(
+      (Array.isArray(ids) ? ids : [])
+        .map(id => (id || '').toString().trim())
+        .filter(Boolean)
+    ));
+
+    writeSharedValue(STORAGE_KEY_IDS, JSON.stringify(normalizedIds));
+    state.ownedIdSet = new Set(normalizedIds);
+    return normalizedIds.length;
+  }
+
+  function showImportMessage(text, isError) {
+    const msg = document.getElementById(IMPORT_MESSAGE_ID);
+    if (msg) {
+      msg.textContent = text;
+      msg.style.color = isError ? '#f88' : '#a9d18e';
+      setTimeout(() => {
+        if (msg.textContent === text) msg.textContent = '';
+      }, 5000);
+    } else if (isError) {
+      alert(text);
+    }
   }
 
   function clearSharedValue(key) {
@@ -488,6 +572,7 @@
     lastCookieOwnedIds = readCookieValue(STORAGE_KEY_IDS);
     lastCookieOwnedNames = readCookieValue(STORAGE_KEY_NAMES);
     installCookieSync();
+    setupImportButton();
 
     if (state.ownedIdSet.size) {
       loadDatabaseIndex().then(() => decorateAllStoreTiles()).catch(() => decorateAllStoreTiles());
