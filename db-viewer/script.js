@@ -29,7 +29,7 @@ const itemLookupByShareId = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
-    'CAMP', 'Clothing', 'Kits', 'Beds', 'Collectors', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Player Icons', 'Emotes'
+    'CAMP', 'Clothing', 'Kits', 'Beds', 'Collectors', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Player Icons', 'Emotes', 'Owned'
 ]);
 
 // Grouped categories for filters
@@ -41,7 +41,8 @@ const filterGroups = {
     'Photo Mode': [ 'Frames', 'Pose', 'Vanity Lights'],
     'Seasons': ['Season 1', 'Season 2', 'Season 3', 'Season 4', 'Season 5', 'Season 6', 'Season 7', 'Season 8', 'Season 9', 'Season 10', 'Season 11', 'Season 12', 'Season 13', 'Season 14', 'Season 15', 'Season 16', 'Season 17', 'Season 18', 'Season 19', 'Season 20', 'Season 21', 'Season 22', 'Season 23', 'Season 24', 'Season 25'],
     'Mini Seasons': ['Appalachian Outlaws', 'Marvelous Fishing Excursion', 'Night at the Morgue', 'Weapons Expert Extraordinaire', 'Sunset Stranger', 'Love Hurts'],
-    'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'Support Item List (279/311)','P2W', 'No Image']
+    'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'Support Item List (279/311)','P2W', 'No Image'],
+    'Owned': ['Owned'],
 };
 
 // Custom filters based on arbitrary item key:value data.
@@ -49,6 +50,59 @@ const customCategoryFilters = {
     // Example: item.cBadge === 'new' will add category 'New'
     '\u200BCut Content': ['cBadge:cut'],
 };
+
+const OWNED_STORAGE_KEY = 'atomicShopOwnedIds';
+let ownedIdsCache = null;
+
+function invalidateOwnedIdsCache() {
+    ownedIdsCache = null;
+}
+
+function normalizeOwnedId(value) {
+    return String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+}
+
+function getOwnedStorageIds() {
+    if (ownedIdsCache) return ownedIdsCache;
+
+    try {
+        const raw = localStorage.getItem(OWNED_STORAGE_KEY);
+        if (!raw) return ownedIdsCache = new Set();
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) return ownedIdsCache = new Set();
+        return ownedIdsCache = new Set(parsed
+            .map(id => String(id || '').trim())
+            .filter(Boolean)
+            .map(id => id.toLowerCase())
+        );
+    } catch (e) {
+        return ownedIdsCache = new Set();
+    }
+}
+
+function isItemOwned(item, ownedIds = null) {
+    const ownedSet = ownedIds || getOwnedStorageIds();
+    if (!ownedSet.size) return false;
+
+    const candidates = new Set();
+    if (item.EDID) candidates.add(item.EDID.trim().toLowerCase());
+    if (item.itemID != null) candidates.add(String(item.itemID).trim().toLowerCase());
+    if (item.itemName) candidates.add(normalizeOwnedId(item.itemName));
+    if (item.name) candidates.add(normalizeOwnedId(item.name));
+    if (item.itemNameShort) candidates.add(normalizeOwnedId(item.itemNameShort));
+
+    for (const candidate of candidates) {
+        if (!candidate) continue;
+        if (ownedSet.has(candidate)) return true;
+        if (ownedSet.has(normalizeOwnedId(candidate))) return true;
+    }
+
+    return false;
+}
 
 // Get categories for an item
 function getItemCategories(item) {
@@ -384,7 +438,6 @@ function populateFilters() {
             
             // Load saved state or default to unchecked
             const savedState = savedStates[cat] || 'unchecked';
-            console.log(`[Init Checkbox] ${cat}: saved state = ${savedState}`);
             applyCheckboxState(checkbox, savedState);
             updateFilterIndicator();
             // Three-state cycling using data attribute as source of truth
@@ -403,7 +456,6 @@ function populateFilters() {
                     }
                     // else stays 'unchecked'
                     
-                    console.log(`[Child Click] ${checkbox.dataset.category}: ${currentState} → ${newState}`);
                     applyCheckboxState(checkbox, newState);
                     
                     // Update group checkbox visual state
@@ -412,8 +464,6 @@ function populateFilters() {
                     const allIncluded = childStates.every(s => s === 'included');
                     const allExcluded = childStates.every(s => s === 'excluded');
                     const allUnchecked = childStates.every(s => s === 'unchecked');
-                    
-                    console.log(`[Group Update] Children states: ${JSON.stringify(childStates)} | allIncluded=${allIncluded}, allExcluded=${allExcluded}, allUnchecked=${allUnchecked}`);
                     
                     let groupState = 'unchecked';
                     if (allIncluded) {
@@ -424,7 +474,6 @@ function populateFilters() {
                         // Mixed states: show as indeterminate
                         groupState = 'excluded';
                     }
-                    console.log(`[Group State] ${groupName}: determined state = ${groupState}`);
                     applyCheckboxState(hiddenGroupCheckbox, groupState);
                     // Also update button checkbox
                     groupCheckbox.checked = hiddenGroupCheckbox.checked;
@@ -447,8 +496,6 @@ function populateFilters() {
         const allExcluded = childStates.every(s => s === 'excluded');
         const allUnchecked = childStates.every(s => s === 'unchecked');
         
-        console.log(`[Init Group] ${groupName}: children states = ${JSON.stringify(childStates)} | allIncluded=${allIncluded}, allExcluded=${allExcluded}, allUnchecked=${allUnchecked}`);
-        
         let groupState = 'unchecked';
         if (allIncluded) {
             groupState = 'included';
@@ -459,7 +506,6 @@ function populateFilters() {
             groupState = 'excluded';
         }
         
-        console.log(`[Init Group State] ${groupName}: calculated state = ${groupState}`);
         applyCheckboxState(hiddenGroupCheckbox, groupState);
         updateFilterIndicator();
         // Sync button checkbox with hidden checkbox
@@ -473,7 +519,6 @@ function populateFilters() {
             e.stopPropagation();
             updateFilterIndicator();
             const currentState = hiddenGroupCheckbox.dataset.state || 'unchecked';
-            console.log(`[Group Click] ${groupName}: current state = ${currentState}`);
             
             setTimeout(() => {
                 let newState = 'unchecked';
@@ -484,7 +529,6 @@ function populateFilters() {
                 }
                 // else stays 'unchecked'
                 
-                console.log(`[Group Click] ${groupName}: ${currentState} → ${newState}`);
                 applyCheckboxState(hiddenGroupCheckbox, newState);
                 // Sync button checkbox
                 groupCheckbox.checked = hiddenGroupCheckbox.checked;
@@ -493,10 +537,8 @@ function populateFilters() {
                
                 // Set all children to newState
                 const childCheckboxes = itemsContainer.querySelectorAll('input[type="checkbox"]');
-                console.log(`[Group Click] ${groupName}: setting ${childCheckboxes.length} children to ${newState}`);
                 childCheckboxes.forEach(cb => {
                     applyCheckboxState(cb, newState);
-                     
                 });
                 
                 saveFilterStates();
@@ -602,19 +644,28 @@ function search(query) {
     const { included, excluded } = getSelectedCategories();
     
     // Apply category filters
+    const ownsFilterUsed = included.includes('Owned') || excluded.includes('Owned');
+    const ownedIds = ownsFilterUsed ? getOwnedStorageIds() : null;
+
     if (included.length > 0 || excluded.length > 0) {
         results = results.filter(item => {
             const itemCats = item._categories || getItemCategories(item);
             
             // If categories are included, item must have at least one
             if (included.length > 0) {
-                const hasIncluded = included.some(cat => itemCats.includes(cat));
+                const hasIncluded = included.some(cat => {
+                    if (cat === 'Owned') return isItemOwned(item, ownedIds);
+                    return itemCats.includes(cat);
+                });
                 if (!hasIncluded) return false;
             }
             
             // If categories are excluded, item must not have any
             if (excluded.length > 0) {
-                const hasExcluded = excluded.some(cat => itemCats.includes(cat));
+                const hasExcluded = excluded.some(cat => {
+                    if (cat === 'Owned') return isItemOwned(item, ownedIds);
+                    return itemCats.includes(cat);
+                });
                 if (hasExcluded) return false;
             }
             
