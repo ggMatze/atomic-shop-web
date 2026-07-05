@@ -323,6 +323,12 @@
     return extractIncludedEntryNames(tileData).filter(entryMatchesOwned);
   }
 
+  function isTileFullyOwnedBundle(tileData) {
+    const includedEntries = extractIncludedEntryNames(tileData);
+    if (!includedEntries.length) return false;
+    return includedEntries.every(entryMatchesOwned);
+  }
+
   function syncOverlayOwnedIncludes() {
     const items = document.querySelectorAll('.overlay-includes .include-item, .overlay-items li');
     if (!items.length) return;
@@ -421,11 +427,12 @@
 
     const tileData = parseTileData(tile);
     const owned = isTileOwned(tile);
+    const fullyOwnedBundle = tileData ? isTileFullyOwnedBundle(tileData) : false;
     const ownedIncludes = tileData ? getOwnedIncludedEntries(tileData).length > 0 : false;
     const existingBadge = tile.querySelector(`.${BADGE_CLASS}`);
     const existingMarker = tile.querySelector(`.${BUNDLE_MARKER_CLASS}`);
 
-    if (owned) {
+    if (owned || fullyOwnedBundle) {
       if (!existingBadge) {
         const badge = document.createElement('div');
         badge.className = BADGE_CLASS;
@@ -467,11 +474,11 @@
       if (existingMarker) existingMarker.remove();
     }
 
-    tile.classList.toggle('owned-state-owned', owned);
-    tile.classList.toggle('owned-state-partial', !owned && ownedIncludes);
-    tile.classList.toggle('owned-state-none', !owned && !ownedIncludes);
-    tile.setAttribute(ATTR_OWNED, owned ? 'true' : (ownedIncludes ? 'partial' : 'false'));
-    tile.setAttribute(ATTR_STATE, owned ? 'owned' : (ownedIncludes ? 'partial' : 'none'));
+    tile.classList.toggle('owned-state-owned', owned || fullyOwnedBundle);
+    tile.classList.toggle('owned-state-partial', !(owned || fullyOwnedBundle) && ownedIncludes);
+    tile.classList.toggle('owned-state-none', !(owned || fullyOwnedBundle) && !ownedIncludes);
+    tile.setAttribute(ATTR_OWNED, (owned || fullyOwnedBundle) ? 'true' : (ownedIncludes ? 'partial' : 'false'));
+    tile.setAttribute(ATTR_STATE, (owned || fullyOwnedBundle) ? 'owned' : (ownedIncludes ? 'partial' : 'none'));
   }
 
   function decorateAllStoreTiles() {
@@ -529,12 +536,12 @@
     msg.style.color = '#a7a786';
 
     if (owned) {
-      msg.textContent = 'You own this item.';
+      msg.textContent = 'You own this item';
     } else {
       const tileData = tile ? parseTileData(tile) : null;
       const ownedIncludesCount = tileData ? getOwnedIncludedEntries(tileData).length : 0;
       const noun = ownedIncludesCount === 1 ? 'item' : 'items';
-      msg.textContent = `You own ${ownedIncludesCount} ${noun} of this bundle, so the ingame bundle price is reduced.`;
+      msg.textContent = `You own ${ownedIncludesCount} ${noun} of this bundle, so the ingame bundle price is reduced`;
     }
 
     overlay.appendChild(msg);
