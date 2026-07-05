@@ -1263,8 +1263,27 @@ filter: saturate(0.5);
   font-weight: 1;
   padding: 4px 16px;
   vertical-align: middle;
- 
 }
+
+.tile-price .owned-badge {
+  font-family: 'Roboto Condensed', Arial, Helvetica, Trebuchet MS, sans-serif;
+  background: #1E1F20;
+  color: #a7a786;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 4px 16px;
+  vertical-align: middle;
+  margin-top: 4px;
+}
+
+.shop-tile.owned-state-owned .tile-price .current-price {
+  color: #a7a786;
+}
+
+.owned-include-item {
+  color: #a7a786;
+}
+
 
 .old-price::after {
   content: "";
@@ -2371,12 +2390,12 @@ body.uah-currency .price-label-final::after {
 }
 .overlay-expired-msg {
   position: absolute;
-  top: 50px;
+  top: 60px;
   color: #FAF8D2;
   font-size: 1.5rem;
   margin-bottom: 20px;
   text-transform: uppercase;
-  font-weight: 900;
+  font-weight: 600;
 }
 /* ######## Background Video CSS ####### */
 
