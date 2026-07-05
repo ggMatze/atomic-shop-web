@@ -115,8 +115,10 @@
         const count = saveOwnedIds(parsed);
         loadOwnedIds();
         loadOwnedNames();
-        decorateAllStoreTiles();
-        showImportMessage(`Imported ${count} owned item ID(s).`, false);
+        loadDatabaseIndex()
+          .then(() => decorateAllStoreTiles())
+          .catch(() => decorateAllStoreTiles())
+          .finally(() => showImportMessage(`Imported ${count} owned item ID(s).`, false));
       };
 
       reader.onerror = () => showImportMessage('Could not read file.', true);
