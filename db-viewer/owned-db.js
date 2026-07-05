@@ -5,41 +5,30 @@
   const CHECKBOX_CLASS = 'owned-checkbox';
   const CHECKBOX_WRAPPER_CLASS = 'owned-checkbox-wrapper';
 
-  function getCookieDomain() {
-    const hostname = window.location.hostname || '';
-    if (!hostname || hostname === 'localhost' || hostname === '127.0.0.1') return '';
-    if (hostname.endsWith('.atomicshop.fyi') || hostname === 'atomicshop.fyi') return '.atomicshop.fyi';
-    return '';
-  }
-
   function readSharedValue(key) {
     try {
       const localValue = localStorage.getItem(key);
-      if (localValue !== null && localValue !== '') return localValue;
-    } catch (e) {}
-
-    const cookieMatch = document.cookie.match(new RegExp(`(?:^|; )${key}=([^;]*)`));
-    return cookieMatch ? decodeURIComponent(cookieMatch[1]) : '';
+      return localValue !== null ? localValue : '';
+    } catch (e) {
+      console.warn('owned-db: localStorage read failed', e);
+      return '';
+    }
   }
 
   function writeSharedValue(key, value) {
     try {
       localStorage.setItem(key, value);
-    } catch (e) {}
-
-    const cookieDomain = getCookieDomain();
-    const domainPart = cookieDomain ? `; domain=${cookieDomain}` : '';
-    document.cookie = `${key}=${encodeURIComponent(value)}; path=/; max-age=31536000; SameSite=Lax${domainPart}`;
+    } catch (e) {
+      console.warn('owned-db: localStorage write failed', e);
+    }
   }
 
   function clearSharedValue(key) {
     try {
       localStorage.removeItem(key);
-    } catch (e) {}
-
-    const cookieDomain = getCookieDomain();
-    const domainPart = cookieDomain ? `; domain=${cookieDomain}` : '';
-    document.cookie = `${key}=; path=/; max-age=0; SameSite=Lax${domainPart}`;
+    } catch (e) {
+      console.warn('owned-db: localStorage clear failed', e);
+    }
   }
 
   function parseStoredIds(value) {
