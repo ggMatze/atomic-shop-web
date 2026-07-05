@@ -2448,6 +2448,25 @@ body.uah-currency .price-label-final::after {
   position: relative;
   z-index: 2;
 }
+.legal-footer .owned-import-button {
+  margin-top: 0.7em;
+  padding: 0.4em 0.8em;
+  border: 1px solid #ffd454;
+  background: rgba(255, 212, 84, 0.08);
+  color: #ffd454;
+  cursor: pointer;
+  font-size: 0.95em;
+}
+.legal-footer .owned-import-button:hover {
+  background: rgba(255, 212, 84, 0.16);
+}
+.legal-footer .owned-import-msg {
+  display: inline-block;
+  margin-left: 1em;
+  color: #d8d8d8;
+  font-size: 0.9em;
+  vertical-align: middle;
+}
 /* Prevent horizontal scrolling on the entire site */
 html, body {
   overflow-x: hidden !important;
