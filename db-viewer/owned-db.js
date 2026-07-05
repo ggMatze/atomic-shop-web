@@ -5,13 +5,58 @@
   const CHECKBOX_CLASS = 'owned-checkbox';
   const CHECKBOX_WRAPPER_CLASS = 'owned-checkbox-wrapper';
 
+  function getCookieDomain() {
+    const hostname = window.location.hostname || '';
+    if (!hostname || hostname === 'localhost' || hostname === '127.0.0.1') return '';
+    if (hostname.endsWith('.atomicshop.fyi') || hostname === 'atomicshop.fyi') return '.atomicshop.fyi';
+    return '';
+  }
+
+  function readCookieValue(key) {
+    const cookieMatch = document.cookie.match(new RegExp(`(?:^|; )${key}=([^;]*)`));
+    return cookieMatch ? decodeURIComponent(cookieMatch[1]) : '';
+  }
+
+  let lastCookieValue = '';
+
   function readSharedValue(key) {
+    let localValue = '';
     try {
-      const localValue = localStorage.getItem(key);
-      return localValue !== null ? localValue : '';
+      localValue = localStorage.getItem(key) || '';
     } catch (e) {
       console.warn('owned-db: localStorage read failed', e);
-      return '';
+    }
+
+    const cookieValue = readCookieValue(key);
+    if (cookieValue && cookieValue !== localValue) {
+      try {
+        localStorage.setItem(key, cookieValue);
+      } catch (e) {
+        // ignore
+      }
+      localValue = cookieValue;
+    }
+
+    return localValue;
+  }
+
+  function refreshOwnedCookieState() {
+    const currentCookie = readCookieValue(STORAGE_KEY);
+    if (currentCookie !== lastCookieValue) {
+      lastCookieValue = currentCookie;
+      decorateViewerTiles();
+      updateStoredItemCount();
+    }
+  }
+
+  function installCookieSync() {
+    window.addEventListener('focus', refreshOwnedCookieState);
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') refreshOwnedCookieState();
+    });
+
+    if (typeof window.setInterval === 'function') {
+      setInterval(refreshOwnedCookieState, 5000);
     }
   }
 
@@ -21,6 +66,11 @@
     } catch (e) {
       console.warn('owned-db: localStorage write failed', e);
     }
+
+    const cookieDomain = getCookieDomain();
+    if (!cookieDomain) return;
+
+    document.cookie = `${key}=${encodeURIComponent(value)}; path=/; max-age=31536000; SameSite=Lax; domain=${cookieDomain}`;
   }
 
   function clearSharedValue(key) {
@@ -29,6 +79,11 @@
     } catch (e) {
       console.warn('owned-db: localStorage clear failed', e);
     }
+
+    const cookieDomain = getCookieDomain();
+    if (!cookieDomain) return;
+
+    document.cookie = `${key}=; path=/; max-age=0; SameSite=Lax; domain=${cookieDomain}`;
   }
 
   function parseStoredIds(value) {
@@ -407,6 +462,8 @@
     installResultObserver();
     setupHoverOverlayDelegation();
     initControls();
+    lastCookieValue = readCookieValue(STORAGE_KEY);
+    installCookieSync();
     updateStoredItemCount();
   }
 

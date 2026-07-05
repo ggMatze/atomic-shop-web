@@ -17,23 +17,73 @@
     dbError: false
   };
 
+  let lastCookieOwnedIds = '';
+  let lastCookieOwnedNames = '';
+
   function normalizeName(value) {
     if (!value && value !== 0) return '';
     return String(value)
-      .trim()
-      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
       .replace(/[\u2018\u2019\u201C\u201D"'`]/g, '')
-      .replace(/[^a-z0-9\s\-]/g, '')
-      .replace(/\s+/g, ' ');
+      .replace(/[^a-z0-9\s\-]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .toLowerCase();
+  }
+
+  function getCookieDomain() {
+    const hostname = window.location.hostname || '';
+    if (!hostname || hostname === 'localhost' || hostname === '127.0.0.1') return '';
+    if (hostname.endsWith('.atomicshop.fyi') || hostname === 'atomicshop.fyi') return '.atomicshop.fyi';
+    return '';
+  }
+
+  function readCookieValue(key) {
+    const cookieMatch = document.cookie.match(new RegExp(`(?:^|; )${key}=([^;]*)`));
+    return cookieMatch ? decodeURIComponent(cookieMatch[1]) : '';
   }
 
   function readSharedValue(key) {
+    let localValue = '';
     try {
-      const localValue = localStorage.getItem(key);
-      return localValue !== null ? localValue : '';
+      localValue = localStorage.getItem(key) || '';
     } catch (e) {
       console.warn('[owned-tracker] localStorage read failed', e);
-      return '';
+    }
+
+    const cookieValue = readCookieValue(key);
+    if (cookieValue && cookieValue !== localValue) {
+      try {
+        localStorage.setItem(key, cookieValue);
+      } catch (e) {
+        // ignore write failure
+      }
+      localValue = cookieValue;
+    }
+
+    return localValue;
+  }
+
+  function refreshOwnedCookieState() {
+    const cookieIds = readCookieValue(STORAGE_KEY_IDS);
+    const cookieNames = readCookieValue(STORAGE_KEY_NAMES);
+
+    if (cookieIds !== lastCookieOwnedIds || cookieNames !== lastCookieOwnedNames) {
+      lastCookieOwnedIds = cookieIds;
+      lastCookieOwnedNames = cookieNames;
+      decorateAllStoreTiles();
+    }
+  }
+
+  function installCookieSync() {
+    window.addEventListener('focus', refreshOwnedCookieState);
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') refreshOwnedCookieState();
+    });
+
+    if (typeof window.setInterval === 'function') {
+      setInterval(refreshOwnedCookieState, 5000);
     }
   }
 
@@ -43,6 +93,11 @@
     } catch (e) {
       console.warn('[owned-tracker] localStorage write failed', e);
     }
+
+    const cookieDomain = getCookieDomain();
+    if (!cookieDomain) return;
+
+    document.cookie = `${key}=${encodeURIComponent(value)}; path=/; max-age=31536000; SameSite=Lax; domain=${cookieDomain}`;
   }
 
   function clearSharedValue(key) {
@@ -51,6 +106,11 @@
     } catch (e) {
       console.warn('[owned-tracker] localStorage clear failed', e);
     }
+
+    const cookieDomain = getCookieDomain();
+    if (!cookieDomain) return;
+
+    document.cookie = `${key}=; path=/; max-age=0; SameSite=Lax; domain=${cookieDomain}`;
   }
 
   function parseStoredArray(raw) {
@@ -424,6 +484,10 @@
     window.__ownedTracker = window.__ownedTracker || {};
     window.__ownedTracker.refresh = decorateAllStoreTiles;
     window.__ownedTracker.reloadDbIndex = loadDatabaseIndex;
+
+    lastCookieOwnedIds = readCookieValue(STORAGE_KEY_IDS);
+    lastCookieOwnedNames = readCookieValue(STORAGE_KEY_NAMES);
+    installCookieSync();
 
     if (state.ownedIdSet.size) {
       loadDatabaseIndex().then(() => decorateAllStoreTiles()).catch(() => decorateAllStoreTiles());
