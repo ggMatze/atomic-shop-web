@@ -319,6 +319,79 @@ if (typeof window !== 'undefined') {
 
 export { renderGallery, attachTileClickHandlers, carouselKeyHandler };
 
+function initTabSelectionIndicator() {
+  if (typeof document === 'undefined') return;
+  const tabNavScroll = document.querySelector('.tab-nav-scroll');
+  if (!tabNavScroll) return;
+
+  const arrow = document.createElement('div');
+  Object.assign(arrow.style, {
+    position: 'fixed',
+    width: '0',
+    height: '0',
+    borderLeft: '30px solid transparent',
+    borderRight: '30px solid transparent',
+    borderTop: '16px solid #ffd454',
+    zIndex: '10000',
+    pointerEvents: 'none',
+    display: 'none',
+    transform: 'translateX(-50%)',
+  });
+  document.body.appendChild(arrow);
+
+  let rafId = null;
+  const refreshArrow = () => {
+    rafId = null;
+    const activeTab = tabNavScroll.querySelector('.tab.active');
+    if (!activeTab) {
+      arrow.style.display = 'none';
+      return;
+    }
+    const tabRect = activeTab.getBoundingClientRect();
+    const containerRect = tabNavScroll.getBoundingClientRect();
+    const tabCenter = tabRect.left + tabRect.width / 2;
+    const isCenterVisible = tabCenter > containerRect.left && tabCenter < containerRect.right;
+    if (!isCenterVisible) {
+      arrow.style.display = 'none';
+      return;
+    }
+    arrow.style.left = `${tabCenter}px`;
+    arrow.style.top = `${tabRect.bottom + 0}px`;
+    arrow.style.display = '';
+  };
+
+  const scheduleRefreshArrow = () => {
+    if (rafId !== null) cancelAnimationFrame(rafId);
+    arrow.style.display = 'none';
+    rafId = requestAnimationFrame(refreshArrow);
+  };
+
+  const observer = new MutationObserver(mutations => {
+    if (mutations.some(m => m.type === 'attributes' && m.attributeName === 'class')) {
+      scheduleRefreshArrow();
+    }
+  });
+
+  observer.observe(tabNavScroll, {
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['class'],
+  });
+
+  tabNavScroll.addEventListener('scroll', scheduleRefreshArrow, { passive: true });
+  window.addEventListener('resize', scheduleRefreshArrow);
+  window.addEventListener('scroll', scheduleRefreshArrow, { passive: true });
+  refreshArrow();
+}
+
+if (typeof window !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTabSelectionIndicator);
+  } else {
+    initTabSelectionIndicator();
+  }
+}
+
 // Tile badge / price updater
 function updateTilePrices() {
   const select = document.getElementById('currency-select');
