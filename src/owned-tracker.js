@@ -27,6 +27,43 @@
       .replace(/\s+/g, ' ');
   }
 
+  function getCookieDomain() {
+    const hostname = window.location.hostname || '';
+    if (!hostname || hostname === 'localhost' || hostname === '127.0.0.1') return '';
+    if (hostname.endsWith('.atomicshop.fyi') || hostname === 'atomicshop.fyi') return '.atomicshop.fyi';
+    return '';
+  }
+
+  function readSharedValue(key) {
+    try {
+      const localValue = localStorage.getItem(key);
+      if (localValue !== null && localValue !== '') return localValue;
+    } catch (e) {}
+
+    const cookieMatch = document.cookie.match(new RegExp(`(?:^|; )${key}=([^;]*)`));
+    return cookieMatch ? decodeURIComponent(cookieMatch[1]) : '';
+  }
+
+  function writeSharedValue(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (e) {}
+
+    const cookieDomain = getCookieDomain();
+    const domainPart = cookieDomain ? `; domain=${cookieDomain}` : '';
+    document.cookie = `${key}=${encodeURIComponent(value)}; path=/; max-age=31536000; SameSite=Lax${domainPart}`;
+  }
+
+  function clearSharedValue(key) {
+    try {
+      localStorage.removeItem(key);
+    } catch (e) {}
+
+    const cookieDomain = getCookieDomain();
+    const domainPart = cookieDomain ? `; domain=${cookieDomain}` : '';
+    document.cookie = `${key}=; path=/; max-age=0; SameSite=Lax${domainPart}`;
+  }
+
   function parseStoredArray(raw) {
     if (!raw) return [];
     try {
@@ -38,7 +75,7 @@
   }
 
   function loadOwnedIds() {
-    const stored = parseStoredArray(localStorage.getItem(STORAGE_KEY_IDS));
+    const stored = parseStoredArray(readSharedValue(STORAGE_KEY_IDS));
     state.ownedIdSet = new Set(
       stored.map(id => String(id).trim()).filter(Boolean)
     );
@@ -46,7 +83,7 @@
   }
 
   function loadOwnedNames() {
-    const stored = parseStoredArray(localStorage.getItem(STORAGE_KEY_NAMES));
+    const stored = parseStoredArray(readSharedValue(STORAGE_KEY_NAMES));
     state.ownedNameSet = new Set(stored.map(normalizeName).filter(Boolean));
     return state.ownedNameSet;
   }
