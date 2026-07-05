@@ -332,7 +332,7 @@ function initTabSelectionIndicator() {
     borderLeft: '30px solid transparent',
     borderRight: '30px solid transparent',
     borderTop: '16px solid #ffd454',
-    zIndex: '10000',
+    zIndex: '100',
     pointerEvents: 'none',
     display: 'none',
     transform: 'translateX(-50%)',
