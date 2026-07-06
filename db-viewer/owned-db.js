@@ -119,8 +119,74 @@
     updateStoredItemCount();
   }
 
+  function getMatchedItemIds() {
+    if (typeof displayedItems !== 'undefined' && Array.isArray(displayedItems) && displayedItems.length > 0) {
+      return Array.from(new Set(displayedItems
+        .map(getItemIdFromRecord)
+        .filter(Boolean)));
+    }
+
+    const results = document.getElementById('results');
+    if (!results) return [];
+    return Array.from(new Set(Array.from(results.querySelectorAll(TILE_SELECTOR)).map(getTileId).filter(Boolean)));
+  }
+
+  function getItemIdFromRecord(item) {
+    if (!item || typeof item !== 'object') return null;
+    if (item.EDID && String(item.EDID).trim()) return String(item.EDID).trim();
+    if (item.edid && String(item.edid).trim()) return String(item.edid).trim();
+    if (item.itemID != null && String(item.itemID).trim()) return String(item.itemID).trim();
+
+    const textFields = [item.itemName, item.itemNameShort, item.name, item.title]
+      .filter(field => typeof field === 'string' && field.trim())
+      .sort((a, b) => b.length - a.length);
+
+    if (textFields.length) {
+      return normalizeFallback(textFields[0]);
+    }
+
+    return null;
+  }
+
+  function updateOwnedStateForMatchedItems(owned) {
+    const matchedIds = getMatchedItemIds();
+    if (!matchedIds.length) {
+      showPanelMessage('No matched items found.', true);
+      return;
+    }
+
+    const stored = new Set(getStoredIds());
+    matchedIds.forEach(id => {
+      if (owned) stored.add(id);
+      else stored.delete(id);
+    });
+
+    saveStoredIds(Array.from(stored));
+    decorateViewerTiles();
+    showPanelMessage(`${owned ? 'Marked' : 'Unmarked'} ${matchedIds.length} matched item(s) as ${owned ? 'owned' : 'not owned'}.`);
+  }
+
+  let ownedControlsVisible = false;
+
   function normalizeFallback(value) {
     return String(value || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  }
+
+  function setOwnedControlsVisibility(visible) {
+    ownedControlsVisible = Boolean(visible);
+    const panel = document.getElementById('owned-db-panel');
+    const bulkPanel = document.getElementById('owned-db-bulk-panel');
+    const toggleBtn = document.getElementById('owned-db-toggle-btn');
+    if (panel) panel.style.display = ownedControlsVisible ? 'flex' : 'none';
+    if (bulkPanel) bulkPanel.style.display = ownedControlsVisible ? 'flex' : 'none';
+    if (toggleBtn) {
+      toggleBtn.textContent = ownedControlsVisible ? 'Item Tracking －' : 'Item Tracking ＋';
+    }
+    updatePanelPositions();
+  }
+
+  function toggleOwnedControlsVisibility() {
+    setOwnedControlsVisibility(!ownedControlsVisible);
   }
 
   function getTileId(tile) {
@@ -325,6 +391,25 @@
     const countEl = document.getElementById('owned-db-count');
     if (!countEl) return;
     countEl.textContent = `Marked as owned: ${getStoredIds().length}`;
+    updateBulkPanelPosition();
+  }
+
+  function updatePanelPositions() {
+    const togglePanel = document.getElementById('owned-db-toggle-panel');
+    const panel = document.getElementById('owned-db-panel');
+    const bulkPanel = document.getElementById('owned-db-bulk-panel');
+    const toggleRect = togglePanel ? togglePanel.getBoundingClientRect() : { bottom: 10 };
+    if (panel) {
+      panel.style.top = `${Math.max(toggleRect.bottom + 10, 20)}px`;
+    }
+    if (panel && bulkPanel) {
+      const panelRect = panel.getBoundingClientRect();
+      bulkPanel.style.top = `${Math.max(panelRect.bottom + 10, toggleRect.bottom + 20)}px`;
+    }
+  }
+
+  function updateBulkPanelPosition() {
+    updatePanelPositions();
   }
 
   function showPanelMessage(text, isError) {
@@ -332,6 +417,7 @@
     if (!msg) return;
     msg.textContent = text;
     msg.style.color = isError ? '#f88' : '#a9d18e';
+    updateBulkPanelPosition();
   }
 
   function createImportExportPanel() {
@@ -352,6 +438,21 @@
     `;
 
     document.body.appendChild(panel);
+
+    const bulkPanel = document.createElement('div');
+    bulkPanel.id = 'owned-db-bulk-panel';
+    bulkPanel.className = 'menu-right owned-db-panel';
+    bulkPanel.style.top = '220px';
+    bulkPanel.innerHTML = `
+      <div class="owned-db-actions">
+        <div class="owned-db-count">For current filter/search</div>
+        <button id="owned-db-mark-matches-owned" type="button">Mark Matches Owned</button>
+        <button id="owned-db-unmark-matches-owned" type="button">Mark Matches Not Owned</button>
+      </div>
+    `;
+    document.body.appendChild(bulkPanel);
+    updatePanelPositions();
+    window.addEventListener('resize', updatePanelPositions);
 
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
@@ -434,10 +535,39 @@
         showPanelMessage('');
       }, 2500);
     });
+
+    document.getElementById('owned-db-mark-matches-owned').addEventListener('click', () => {
+      updateOwnedStateForMatchedItems(true);
+    });
+
+    document.getElementById('owned-db-unmark-matches-owned').addEventListener('click', () => {
+      updateOwnedStateForMatchedItems(false);
+    });
+  }
+
+  function createTogglePanel() {
+    if (document.getElementById('owned-db-toggle-panel')) return;
+
+    const togglePanel = document.createElement('div');
+    togglePanel.id = 'owned-db-toggle-panel';
+    togglePanel.className = 'menu-right owned-db-panel';
+    togglePanel.style.top = '20px';
+    const buttonText = ownedControlsVisible ? 'item tracking ⛛' : 'item tracking ⛛';
+    togglePanel.innerHTML = `
+      <div class="owned-db-actions">
+        <button id="owned-db-toggle-btn" type="button">${buttonText}</button>
+      </div>
+    `;
+
+    document.body.appendChild(togglePanel);
+    document.getElementById('owned-db-toggle-btn').addEventListener('click', toggleOwnedControlsVisibility);
+    updatePanelPositions();
   }
 
   function initControls() {
+    createTogglePanel();
     createImportExportPanel();
+    setOwnedControlsVisibility(ownedControlsVisible);
   }
 
   let decorateTimer = null;
