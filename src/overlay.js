@@ -114,8 +114,9 @@ async function showNewsNotice(options = { force: false }) {
     if (!header || !title || !text) return;
 
     header.textContent = news.header || '';
-    title.textContent = news.title || '';
-    const rawText = String(news.text || '')
+    title.textContent = news.title || '';    if (news.textFontSize) {
+      text.style.fontSize = String(news.textFontSize).trim();
+    }    const rawText = String(news.text || '')
       .replace(/\\r\\n/g, '\n')
       .replace(/\\n/g, '\n')
       .replace(/\r\n/g, '\n');
