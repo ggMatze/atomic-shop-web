@@ -541,7 +541,7 @@
       const tileData = tile ? parseTileData(tile) : null;
       const ownedIncludesCount = tileData ? getOwnedIncludedEntries(tileData).length : 0;
       const noun = ownedIncludesCount === 1 ? 'item' : 'items';
-      msg.textContent = `You own ${ownedIncludesCount} ${noun} of this bundle, so the ingame bundle price is reduced`;
+      msg.textContent = `*You own ${ownedIncludesCount} ${noun} of this bundle, so the ingame bundle price is reduced`;
     }
 
     overlay.appendChild(msg);
