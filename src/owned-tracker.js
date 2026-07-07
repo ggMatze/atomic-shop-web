@@ -20,8 +20,8 @@
   const IMPORT_BUTTON_ID = 'owned-tracker-import';
   const IMPORT_MESSAGE_ID = 'owned-tracker-import-msg';
 
-  let lastCookieOwnedIds = '';
-  let lastCookieOwnedNames = '';
+  let lastSharedOwnedIds = '';
+  let lastSharedOwnedNames = '';
 
   function normalizeName(value) {
     if (!value && value !== 0) return '';
@@ -75,6 +75,29 @@
     return cookieValue;
   }
 
+  function isCookieSupported() {
+    return typeof document.cookie === 'string' && window.location.protocol !== 'file:';
+  }
+
+  function setLastSharedValue(key, value) {
+    if (key === STORAGE_KEY_IDS) {
+      lastSharedOwnedIds = value;
+    } else if (key === STORAGE_KEY_NAMES) {
+      lastSharedOwnedNames = value;
+    }
+  }
+
+  function refreshOwnedStorageState() {
+    const ids = readSharedValue(STORAGE_KEY_IDS);
+    const names = readSharedValue(STORAGE_KEY_NAMES);
+
+    if (ids !== lastSharedOwnedIds || names !== lastSharedOwnedNames) {
+      lastSharedOwnedIds = ids;
+      lastSharedOwnedNames = names;
+      decorateAllStoreTiles();
+    }
+  }
+
   function setupImportButton() {
     const importButton = document.getElementById(IMPORT_BUTTON_ID);
     if (!importButton) return;
@@ -126,25 +149,14 @@
     });
   }
 
-  function refreshOwnedCookieState() {
-    const cookieIds = readCookieValue(STORAGE_KEY_IDS);
-    const cookieNames = readCookieValue(STORAGE_KEY_NAMES);
-
-    if (cookieIds !== lastCookieOwnedIds || cookieNames !== lastCookieOwnedNames) {
-      lastCookieOwnedIds = cookieIds;
-      lastCookieOwnedNames = cookieNames;
-      decorateAllStoreTiles();
-    }
-  }
-
-  function installCookieSync() {
-    window.addEventListener('focus', refreshOwnedCookieState);
+  function installSharedStorageSync() {
+    window.addEventListener('focus', refreshOwnedStorageState);
     document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible') refreshOwnedCookieState();
+      if (document.visibilityState === 'visible') refreshOwnedStorageState();
     });
 
     if (typeof window.setInterval === 'function') {
-      setInterval(refreshOwnedCookieState, 5000);
+      setInterval(refreshOwnedStorageState, 5000);
     }
   }
 
@@ -155,16 +167,35 @@
       console.warn('[owned-tracker] localStorage write failed', e);
     }
 
-    const cookieDomain = getCookieDomain();
-    if (!cookieDomain || !isCookieValueSafe(value)) return;
+    if (!isCookieSupported() || !isCookieValueSafe(value)) {
+      setLastSharedValue(key, value);
+      return;
+    }
 
-    document.cookie = `${key}=${encodeURIComponent(value)}; path=/; max-age=31536000; SameSite=Lax; domain=${cookieDomain}`;
+    const cookieDomain = getCookieDomain();
+    const cookieParts = [`${key}=${encodeURIComponent(value)}`, 'path=/', 'max-age=31536000', 'SameSite=Lax'];
+    if (cookieDomain) {
+      cookieParts.push(`domain=${cookieDomain}`);
+    }
+
+    try {
+      document.cookie = cookieParts.join('; ');
+    } catch (e) {
+      console.warn('[owned-tracker] cookie write failed', e);
+    }
+
+    setLastSharedValue(key, value);
+  }
+
+  function normalizeId(value) {
+    if (!value && value !== 0) return '';
+    return String(value).trim().toLowerCase();
   }
 
   function saveOwnedIds(ids) {
     const normalizedIds = Array.from(new Set(
       (Array.isArray(ids) ? ids : [])
-        .map(id => (id || '').toString().trim())
+        .map(id => normalizeId(id))
         .filter(Boolean)
     ));
 
@@ -193,10 +224,23 @@
       console.warn('[owned-tracker] localStorage clear failed', e);
     }
 
-    const cookieDomain = getCookieDomain();
-    if (!cookieDomain) return;
+    if (!isCookieSupported()) {
+      setLastSharedValue(key, '');
+      return;
+    }
 
-    document.cookie = `${key}=; path=/; max-age=0; SameSite=Lax; domain=${cookieDomain}`;
+    const cookieDomain = getCookieDomain();
+    const baseCookie = `${key}=; path=/; max-age=0; SameSite=Lax`;
+    try {
+      document.cookie = baseCookie;
+      if (cookieDomain) {
+        document.cookie = `${baseCookie}; domain=${cookieDomain}`;
+      }
+    } catch (e) {
+      console.warn('[owned-tracker] cookie clear failed', e);
+    }
+
+    setLastSharedValue(key, '');
   }
 
   function parseStoredArray(raw) {
@@ -212,7 +256,7 @@
   function loadOwnedIds() {
     const stored = parseStoredArray(readSharedValue(STORAGE_KEY_IDS));
     state.ownedIdSet = new Set(
-      stored.map(id => String(id).trim()).filter(Boolean)
+      stored.map(id => normalizeId(id)).filter(Boolean)
     );
     return state.ownedIdSet;
   }
@@ -258,21 +302,36 @@
   function extractTileDirectCandidates(tile, tileData) {
     const ids = new Set();
     const names = new Set();
+    let hasStrongExplicitId = false;
 
     if (tileData) {
-      const directIdFields = [tileData.itemID, tileData.EDID, tileData.edid, tileData.itemId, tileData.id];
-      directIdFields.forEach(value => {
-        if (value != null && value !== '') ids.add(String(value).trim());
+      const directIdFields = [
+        { value: tileData.itemID, strong: false },
+        { value: tileData.EDID, strong: true },
+        { value: tileData.edid, strong: true },
+        { value: tileData.entmName, strong: true },
+        { value: tileData.itemId, strong: false },
+        { value: tileData.id, strong: false }
+      ];
+
+      directIdFields.forEach(({ value, strong }) => {
+        if (value != null && value !== '') {
+          ids.add(String(value).trim());
+          if (strong) hasStrongExplicitId = true;
+        }
       });
 
-      const directNameFields = [tileData.title, tileData.itemName, tileData.name, tileData.itemNameShort];
+      const directNameFields = [tileData.title, tileData.itemName, tileData.itemNameShort, tileData.name];
       directNameFields.forEach(value => {
         if (value) names.add(normalizeName(value));
       });
     }
 
     const attrEdid = tile.getAttribute('data-item-edid');
-    if (attrEdid) ids.add(String(attrEdid).trim());
+    if (attrEdid) {
+      ids.add(String(attrEdid).trim());
+      if (attrEdid.trim()) hasStrongExplicitId = true;
+    }
 
     const attrId = tile.getAttribute('data-item-id');
     if (attrId) ids.add(String(attrId).trim());
@@ -284,7 +343,8 @@
 
     return {
       ids: Array.from(ids).filter(Boolean),
-      names: Array.from(names).filter(Boolean)
+      names: Array.from(names).filter(Boolean),
+      hasStrongExplicitId
     };
   }
 
@@ -316,7 +376,7 @@
 
     const ids = state.dbNameIndex.get(normalized);
     if (!ids) return false;
-    return Array.from(ids).some(id => state.ownedIdSet.has(String(id).trim()));
+    return Array.from(ids).some(id => state.ownedIdSet.has(normalizeId(id)));
   }
 
   function getOwnedIncludedEntries(tileData) {
@@ -364,15 +424,18 @@
           const candidateNames = new Set();
           if (item.itemName) candidateNames.add(normalizeName(item.itemName));
           if (item.itemNameShort) candidateNames.add(normalizeName(item.itemNameShort));
+          if (item.title) candidateNames.add(normalizeName(item.title));
           if (item.name) candidateNames.add(normalizeName(item.name));
           if (item.EDID) candidateNames.add(normalizeName(item.EDID));
           if (item.edid) candidateNames.add(normalizeName(item.edid));
+          if (item.entmName) candidateNames.add(normalizeName(item.entmName));
 
           candidateNames.forEach(name => {
             if (!name) return;
             const ids = state.dbNameIndex.get(name) || new Set();
-            if (item.EDID || item.edid) ids.add(String(item.EDID || item.edid).trim());
-            if (item.itemID != null) ids.add(String(item.itemID).trim());
+            if (item.EDID || item.edid) ids.add(normalizeId(item.EDID || item.edid));
+            if (item.entmName) ids.add(normalizeId(item.entmName));
+            if (item.itemID != null) ids.add(normalizeId(item.itemID));
             state.dbNameIndex.set(name, ids);
           });
         });
@@ -392,7 +455,7 @@
   function tileHasOwnedId(tileData, tile) {
     const { ids } = extractTileDirectCandidates(tile, tileData);
     return ids.some(id => {
-      const normalized = String(id).trim();
+      const normalized = normalizeId(id);
       if (!normalized) return false;
       return state.ownedIdSet.has(normalized);
     });
@@ -400,11 +463,12 @@
 
   function tileHasDbOwnedId(tileData, tile) {
     if (!state.dbNameIndex.size || !state.ownedIdSet.size) return false;
-    const { names } = extractTileDirectCandidates(tile, tileData);
+    const { ids, names, hasStrongExplicitId } = extractTileDirectCandidates(tile, tileData);
+    if (ids.length && hasStrongExplicitId) return false; // avoid fuzzy DB name fallback when strong explicit IDs are available
     return names.some(name => {
       const ids = state.dbNameIndex.get(name);
       if (!ids) return false;
-      return Array.from(ids).some(id => state.ownedIdSet.has(String(id).trim()));
+      return Array.from(ids).some(id => state.ownedIdSet.has(normalizeId(id)));
     });
   }
 
@@ -417,9 +481,10 @@
   function isTileOwned(tile) {
     const tileData = parseTileData(tile);
     if (!tileData) return false;
+
     if (tileHasOwnedId(tileData, tile)) return true;
-    if (tileHasDbOwnedId(tileData, tile)) return true;
-    return tileHasOwnedName(tileData, tile);
+    if (tileHasOwnedName(tileData, tile)) return true;
+    return tileHasDbOwnedId(tileData, tile);
   }
 
   function decorateStoreTile(tile) {
@@ -578,9 +643,9 @@
     window.__ownedTracker.refresh = decorateAllStoreTiles;
     window.__ownedTracker.reloadDbIndex = loadDatabaseIndex;
 
-    lastCookieOwnedIds = readCookieValue(STORAGE_KEY_IDS);
-    lastCookieOwnedNames = readCookieValue(STORAGE_KEY_NAMES);
-    installCookieSync();
+    lastSharedOwnedIds = readSharedValue(STORAGE_KEY_IDS);
+    lastSharedOwnedNames = readSharedValue(STORAGE_KEY_NAMES);
+    installSharedStorageSync();
     setupImportButton();
 
     if (state.ownedIdSet.size) {

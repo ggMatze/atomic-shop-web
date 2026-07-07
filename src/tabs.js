@@ -347,6 +347,8 @@ async function initTabs() {
       isHighlight: isHighlighted,
       disabled: !!item?.disabled,
       itemID: item?.itemID,
+      EDID: item?.EDID || item?.edid || undefined,
+      entmName: item?.entmName || undefined,
   // compute expiration using centralized parser so DST/offset logic is applied consistently
   // Prefer explicit item.endTime but fall back to lowPrice.ltoTimer only when the item is actually an LTO
   expired: (() => {
@@ -365,6 +367,8 @@ async function initTabs() {
     return `
       <div class="shop-tile ${tileSize} ${tileDisabled} ${isHighlighted ? 'tile-highlight' : ''}"
            data-item='${dataItemStr}'
+           data-item-id="${item?.itemID || ''}"
+           data-item-edid="${item?.EDID || item?.edid || ''}"
            data-atom-original="${priceOriginal}"
            data-atom-final="${priceFinal}"
            data-discount="${discount}">
@@ -839,12 +843,14 @@ if (typeof window !== 'undefined') {
       const dateLabel = renderDateRange(item);
 
   // Safe JSON for embedding in attribute
-  const dataItemObj = { title: item.itemName, itemDesc: item.itemDesc, includes, storefrontImage, images, priceOriginal: atomPriceOriginal, priceFinal: atomPriceFinal, discount, isNew, isZeus, isClown: !!item.isClown, isHighlight: isHighlighted, disabled: !!item.disabled, expired: isExpired, itemID: item.itemID };
+  const dataItemObj = { title: item.itemName, itemDesc: item.itemDesc, includes, storefrontImage, images, priceOriginal: atomPriceOriginal, priceFinal: atomPriceFinal, discount, isNew, isZeus, isClown: !!item.isClown, isHighlight: isHighlighted, disabled: !!item.disabled, expired: isExpired, itemID: item.itemID, EDID: item.EDID || item.edid || undefined, entmName: item.entmName || undefined };
       let dataItemStr = JSON.stringify(dataItemObj).replace(/'/g, "&apos;").replace(/\r\n|\n|\\n/, "\\n");
 
       shopGridEl.innerHTML += `
         <div class="${tileClass} ${tileDisabled} ${isHighlighted ? 'tile-highlight' : ''}"
              data-item='${dataItemStr}'
+             data-item-id="${item.itemID || ''}"
+             data-item-edid="${item.EDID || item.edid || ''}"
              data-atom-original="${atomPriceOriginal}"
              data-atom-final="${atomPriceFinal}"
              data-discount="${discount}">

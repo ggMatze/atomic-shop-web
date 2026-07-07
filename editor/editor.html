@@ -20,7 +20,10 @@
     <span class="symbol" title="Copy symbol">☗</span>
     <span class="symbol" title="Copy symbol">♨</span>
   </div>
-  <div class="bundle-list"></div>
+  <div style="display:inline-flex; align-items:center; gap:10px; margin:0.5em 0; flex-wrap:wrap; width:auto;">
+    <div class="bundle-list"></div>
+    <button id="resolve-ids-btn" style="padding: 6px 12px; background: #9333ea; color: #fff; border: none; cursor: pointer; border-radius: 3px; flex-shrink: 0;">Resolve Bundle / EDID IDs</button>
+  </div>
   <div id="bundle-details"></div>
   <div class="output"></div>
   <script>
@@ -159,6 +162,8 @@ function persistUiToLastItem() {
         if (!lastItem.lowPrice) lastItem.lowPrice = {};
         lastItem.lowPrice.ltoTimer = dUtc.toISOString();
       }
+    } else if (lastItem.lowPrice && lastItem.lowPrice.hasOwnProperty('ltoTimer')) {
+      delete lastItem.lowPrice.ltoTimer;
     }
 
     // ltoType
@@ -205,7 +210,7 @@ function persistUiToLastItem() {
     // preferDB checkbox
     const preferDbCheck = document.getElementById('prefer-db-check');
     if (preferDbCheck) {
-      lastItem.preferDB = preferDbCheck.checked;
+      // lastItem.preferDB = preferDbCheck.checked;
     }
 
     // Description (rich text)
@@ -276,6 +281,11 @@ function showItemDetails(pageIdx, itemIdx) {
     tempImages.push(...item.carouselImages.map(img => ({ imageName: String(img.imageName || '').toLowerCase(), directory: normalizeDir(img.directory), _isPrimary: false })));
   }
 
+  // If the primary image preview is missing, try a _l variant fallback
+  ensurePrimaryImageFallback().catch(err => {
+    console.warn('Primary image fallback check failed:', err);
+  });
+
   // Get includes (dynamicBundleItems or similar)
   let includes = [];
   if (Array.isArray(item.dynamicBundleItems)) {
@@ -308,11 +318,9 @@ function showItemDetails(pageIdx, itemIdx) {
 
   // Lese ltoTimer aus allen möglichen Feldern
   let ltoRaw = item.lowPrice && item.lowPrice.ltoTimer;
-  let ltoDateObj;
+  let ltoDateObj = null;
   if (typeof ltoRaw === "string" && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?Z$/.test(ltoRaw)) {
     ltoDateObj = new Date(ltoRaw);
-  } else {
-    ltoDateObj = new Date();
   }
   // Convert a Date (UTC instant) to a string suitable for <input type="datetime-local"> (local wall-clock)
   function toDatetimeLocalValue(date) {
@@ -340,8 +348,8 @@ function showItemDetails(pageIdx, itemIdx) {
     // Interpret the input as a UTC instant (so '2025-11-11T12:00' => 2025-11-11T12:00:00Z)
     return new Date(Date.UTC(year, month, day, hour, minute, second, 0));
   }
-  const localValue = toDatetimeLocalValue(ltoDateObj);
-  const relValue = getRelativeTimeString(ltoDateObj.toISOString());
+  const localValue = ltoDateObj ? toDatetimeLocalValue(ltoDateObj) : '';
+  const relValue = ltoDateObj ? getRelativeTimeString(ltoDateObj.toISOString()) : '';
   // --- TIMER BLOCK END ---
 
   // Render
@@ -395,6 +403,7 @@ function showItemDetails(pageIdx, itemIdx) {
             <button id="load-from-db-btn" style="padding: 6px 12px; background: #28a745; color: #fff; border: none; cursor: pointer; border-radius: 3px;">Load from DB</button>
             <button id="save-to-db-btn" style="padding: 6px 12px; background: #0066cc; color: #fff; border: none; cursor: pointer; border-radius: 3px;">Save to DB</button>
             <button id="save-all-to-db-btn" style="padding: 6px 12px; background: #cc6600; color: #fff; border: none; cursor: pointer; border-radius: 3px;">Save All to DB</button>
+            <span id="resolve-ids-status" style="margin-left: 10px; color: #a5f3fc; font-size: 0.95rem;"></span>
             <button id="undo-load-btn" style="padding: 6px 12px; background: #6c757d; color: #fff; border: none; cursor: pointer; border-radius: 3px; display: none;">Undo Load</button>
             <label style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
               <input type="checkbox" class="checkbox-margin-small" id="prefer-db-check">
@@ -477,11 +486,11 @@ function showItemDetails(pageIdx, itemIdx) {
     if (currentContent !== lastSavedContent) {
       item.itemDesc = currentContent;
       if (currentContent && currentContent.trim()) {
-        item.hasCustomDesc = true;
+        // item.hasCustomDesc = true;
         // Update disclaimer flag if applicable
-        if (currentContent.includes('\n\n')) {
-          item.hasCustomDisc = true;
-        }
+        // if (currentContent.includes('\n\n')) {
+        //   item.hasCustomDisc = true;
+        // }
       }
       lastSavedContent = currentContent;
     }
@@ -515,6 +524,26 @@ function showItemDetails(pageIdx, itemIdx) {
   }
   if (saveAllToDbBtn) {
     saveAllToDbBtn.onclick = () => saveAllEditedItemsToDatabase();
+  }
+  const resolveIdsBtn = document.getElementById('resolve-ids-btn');
+  const resolveIdsStatus = document.getElementById('resolve-ids-status');
+  if (resolveIdsBtn) {
+    resolveIdsBtn.onclick = async () => {
+      resolveIdsBtn.disabled = true;
+      if (resolveIdsStatus) resolveIdsStatus.textContent = 'Resolving IDs…';
+      if (!Array.isArray(dbImageData)) await loadImageDatabase();
+      const result = await resolveItemIds(item);
+      if (resolveIdsStatus) resolveIdsStatus.textContent = result.message;
+      resolveIdsBtn.disabled = false;
+      showItemDetails(pageIdx, itemIdx);
+      setTimeout(() => {
+        const bundleSelect = document.querySelector('.bundle-list select');
+        if (bundleSelect) {
+          bundleSelect.focus();
+          bundleSelect.selectedIndex = bundleSelect.selectedIndex;
+        }
+      }, 0);
+    };
   }
   if (undoLoadBtn) {
     undoLoadBtn.onclick = () => undoLoadFromDB();
@@ -713,6 +742,25 @@ function showItemDetails(pageIdx, itemIdx) {
     // Persist current UI state (including description) before saving timer/flags
     persistUiToLastItem();
     const val = document.getElementById('ltotimer-input').value;
+    if (!val) {
+      if (item.lowPrice && item.lowPrice.hasOwnProperty('ltoTimer')) delete item.lowPrice.ltoTimer;
+      const tzLabelEl = document.getElementById('ltotimer-tzlabel');
+      const isoEl = document.getElementById('ltotimer-saved-iso');
+      const localEl = document.getElementById('ltotimer-saved-local');
+      if (relSpan) relSpan.textContent = '';
+      if (tzLabelEl) tzLabelEl.textContent = '';
+      if (isoEl) isoEl.textContent = '';
+      if (localEl) localEl.textContent = '';
+      document.getElementById('ltotimer-status').textContent = "Gelöscht!";
+      setTimeout(() => document.getElementById('ltotimer-status').textContent = '', 1500);
+      try {
+        saveTempImagesToItem();
+      } catch (e) { /* ignore */ }
+      try {
+        showItemDetails(pageIdx, itemIdx);
+      } catch (e) { /* ignore */ }
+      return;
+    }
     const dLocal = parseLocalDatetimeLocalValue(val);
     if (dLocal && !isNaN(dLocal.getTime())) {
       // Convert local Date to UTC ISO for storage
@@ -746,18 +794,18 @@ function showItemDetails(pageIdx, itemIdx) {
       if (relSpan) relSpan.textContent = getRelativeTimeString(iso);
       const tzLabelEl = document.getElementById('ltotimer-tzlabel');
       if (tzLabelEl) tzLabelEl.textContent = getTZLabel(new Date(iso));
-        const isoEl = document.getElementById('ltotimer-saved-iso');
-        const localEl = document.getElementById('ltotimer-saved-local');
-        if (isoEl) isoEl.textContent = iso;
-        if (localEl) localEl.textContent = new Date(iso).toLocaleString();
-        // Persist any image edits to the item and re-render details so saved
-        // values become visible in the UI without requiring a full page reload.
-        try {
-          saveTempImagesToItem();
-        } catch (e) { /* ignore */ }
-        try {
-          showItemDetails(pageIdx, itemIdx);
-        } catch (e) { /* ignore */ }
+      const isoEl = document.getElementById('ltotimer-saved-iso');
+      const localEl = document.getElementById('ltotimer-saved-local');
+      if (isoEl) isoEl.textContent = iso;
+      if (localEl) localEl.textContent = new Date(iso).toLocaleString();
+      // Persist any image edits to the item and re-render details so saved
+      // values become visible in the UI without requiring a full page reload.
+      try {
+        saveTempImagesToItem();
+      } catch (e) { /* ignore */ }
+      try {
+        showItemDetails(pageIdx, itemIdx);
+      } catch (e) { /* ignore */ }
     } else {
       document.getElementById('ltotimer-status').textContent = "Ungültiges Datum!";
     }
@@ -884,7 +932,7 @@ function renderImages() {
       const mergedMaxC = Math.max(prev.maxC || 0, maxC || 0);
       const mergedHasL = prev.hasL || hasL;
       const mergedHasNone = prev.hasNone || hasNone;
-      currentItem._detectedSuffixInfo = { maxC: mergedMaxC, hasL: mergedHasL, hasNone: mergedHasNone };
+      // currentItem._detectedSuffixInfo = { maxC: mergedMaxC, hasL: mergedHasL, hasNone: mergedHasNone };
       // use merged values for rendering
       maxC = mergedMaxC;
       hasL = mergedHasL;
@@ -1095,21 +1143,34 @@ window.outputImageList = function() {
   return allImages;
 };
 
+function moveEDIDAfterItemID(item) {
+  if (!item || typeof item !== 'object' || Array.isArray(item)) return item;
+  if (!item.hasOwnProperty('EDID') || !item.hasOwnProperty('itemID')) return item;
+
+  const reordered = {};
+  Object.keys(item).forEach(key => {
+    if (key === 'EDID') return;
+    reordered[key] = item[key];
+    if (key === 'itemID') {
+      reordered.EDID = item.EDID;
+    }
+  });
+  return reordered;
+}
+
 window.saveJson = function() {
   // Save current edits before saving
   saveTempImagesToItem();
   persistUiToLastItem();
   
-  // Add preferDB key to all items that don't have it
-  storeData.StorePageData.pages.forEach(page => {
-    page.items.forEach(item => {
-      if (!item.hasOwnProperty('preferDB')) {
-        const isBundle = item.dynamicBundleItems && item.dynamicBundleItems.length > 0;
-        item.preferDB = isBundle ? false : true;
-      }
+  // Reorder EDID in each store item so it appears right after itemID
+  if (storeData && storeData.StorePageData && Array.isArray(storeData.StorePageData.pages)) {
+    storeData.StorePageData.pages.forEach(page => {
+      if (!page || !Array.isArray(page.items)) return;
+      page.items = page.items.map(item => moveEDIDAfterItemID(item));
     });
-  });
-  
+  }
+
   // Download the modified JSON as a file
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(storeData, null, 2));
   const dlAnchor = document.createElement('a');
@@ -1248,6 +1309,102 @@ window.searchDbImages = function(query) {
   document.getElementById('db-image-results').innerHTML = resultsHtml;
 };
 
+function normalizeSearchString(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[\u2018\u2019‘’“”"]/g, '')
+    .replace(/[^a-z0-9_]+/g, ' ')
+    .trim();
+}
+
+function findDbEntryForText(text) {
+  if (!text || !Array.isArray(dbImageData)) return null;
+  const needle = normalizeSearchString(text);
+  if (!needle) return null;
+
+  const exactId = dbImageData.find(dbItem => {
+    return [dbItem.EDID, dbItem.entmName, dbItem.edid]
+      .filter(Boolean)
+      .some(field => normalizeSearchString(field) === needle);
+  });
+  if (exactId) return exactId;
+
+  const exactName = dbImageData.find(dbItem => {
+    return [dbItem.itemName, dbItem.itemNameShort]
+      .filter(Boolean)
+      .some(field => normalizeSearchString(field) === needle);
+  });
+  if (exactName) return exactName;
+
+  return dbImageData.find(dbItem => {
+    const fields = [dbItem.itemName, dbItem.itemNameShort, dbItem.EDID, dbItem.entmName, dbItem.edid]
+      .filter(Boolean)
+      .map(normalizeSearchString);
+    return fields.some(field => field.includes(needle) || needle.includes(field));
+  }) || null;
+}
+
+async function resolveItemIds(item) {
+  if (!item) {
+    return { message: 'No item selected.' };
+  }
+
+  if (!Array.isArray(dbImageData)) {
+    await loadImageDatabase();
+  }
+  if (!Array.isArray(dbImageData)) {
+    return { message: 'Could not load items-db.json.' };
+  }
+
+  let bundleResolvedCount = 0;
+  let bundleUnmatchedCount = 0;
+  let nonBundleResolved = 0;
+
+  if (Array.isArray(item.dynamicBundleItems)) {
+    item.dynamicBundleItems.forEach(entry => {
+      if (!entry || typeof entry !== 'object') return;
+      if (entry.entmName || entry.EDID || entry.edid) return;
+
+      const name = entry.szItemName || entry.itemName || entry.name || '';
+      const matched = findDbEntryForText(name);
+      if (matched) {
+        entry.entmName = matched.EDID || matched.entmName || matched.edid;
+        bundleResolvedCount += 1;
+      } else {
+        bundleUnmatchedCount += 1;
+      }
+    });
+  }
+
+  if (!Array.isArray(item.dynamicBundleItems) || item.dynamicBundleItems.length === 0) {
+    const primaryImages = [item.primaryImage, ...(item.carouselImages || [])].filter(img => img && img.imageName);
+    let matched = null;
+    for (let img of primaryImages) {
+      const normalizedImage = normalizeForMatch(img.imageName);
+      matched = dbImageData.find(dbItem => dbItem.EDID && normalizeForMatch(dbItem.EDID) === normalizedImage);
+      if (matched) break;
+    }
+    if (!matched) {
+      const nameCandidate = item.itemName || item.itemNameShort || item.szItemName || item.name || '';
+      matched = findDbEntryForText(nameCandidate);
+    }
+    if (matched) {
+      const resolvedId = matched.EDID || matched.entmName || matched.edid;
+      if (resolvedId && !item.EDID && !item.edid) {
+        item.EDID = resolvedId;
+        nonBundleResolved += 1;
+      }
+    }
+  }
+
+  const parts = [];
+  if (bundleResolvedCount) parts.push(`resolved ${bundleResolvedCount} bundle IDs`);
+  if (nonBundleResolved) parts.push(`set ${nonBundleResolved} item EDID`);
+  if (bundleUnmatchedCount) parts.push(`${bundleUnmatchedCount} bundle names unmatched`);
+  if (!parts.length) parts.push('No IDs resolved');
+  return { message: parts.join(', ') };
+}
+
 window.selectDbImage = function(idx) {
   selectedDbImageIndex = idx;
   
@@ -1304,6 +1461,37 @@ function checkImageExists(url) {
     img.onerror = () => resolve(false);
     img.src = url;
   });
+}
+
+function makeLVariantName(name) {
+  if (!name) return name;
+  const normalized = String(name).trim().toLowerCase();
+  const match = normalized.match(/^(.*?)(\.[^.]+)$/);
+  if (!match) return normalized + '_l';
+  const base = match[1].replace(/_l$/i, '');
+  const ext = match[2];
+  return `${base}_l${ext}`;
+}
+
+async function ensurePrimaryImageFallback() {
+  if (!tempImages || !tempImages.length) return;
+  const primary = tempImages.find(img => img && img._isPrimary) || tempImages[0];
+  if (!primary || !primary.imageName || !primary.directory) return;
+
+  const normalizedDir = normalizeDir(primary.directory);
+  const currentName = String(primary.imageName).toLowerCase();
+  const currentWebpUrl = '../' + normalizedDir + currentName.replace(/\.(dds|png)$/i, '.webp');
+  const currentExists = await checkImageExists(currentWebpUrl);
+  if (currentExists) return;
+
+  const lVariant = makeLVariantName(currentName);
+  if (lVariant === currentName) return;
+  const lWebpUrl = '../' + normalizedDir + lVariant.replace(/\.(dds|png)$/i, '.webp');
+  const lExists = await checkImageExists(lWebpUrl);
+  if (!lExists) return;
+
+  primary.imageName = lVariant;
+  renderImages();
 }
 
 function extractImageVariantBase(name) {
@@ -1907,12 +2095,12 @@ async function saveDescriptionToDatabase(item) {
     }
 
     // Mark item as having custom description
-    item.hasCustomDesc = true;
+    // item.hasCustomDesc = true;
 
     // Mark item as having custom disclaimer if it has one
-    if (disclaimer && disclaimer.trim()) {
-      item.hasCustomDisc = true;
-    }
+    // if (disclaimer && disclaimer.trim()) {
+    //   item.hasCustomDisc = true;
+    // }
 
     // These are the CUSTOM (edited) desc/disclaimer
     const customDesc = desc;

@@ -116,7 +116,22 @@ textarea {
    BUNDLE EDITOR STYLES
    ======================================== */
 
-.bundle-list { margin: 1em 0; }
+.bundle-list {
+  margin: 0;
+  padding-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  width: auto;
+  max-width: 100%;
+}
+
+.bundle-list select {
+  flex: 0 1 320px;
+  width: 320px;
+  max-width: calc(100vw - 220px);
+}
 
 .img-list {
   display: flex;

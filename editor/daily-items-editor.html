@@ -44,6 +44,7 @@
       <div class="items-actions">
         <button id="add-db-item-btn">Add selected DB item</button>
         <button id="replace-db-item-btn">Replace current item</button>
+        <button id="resolve-ids-btn">Resolve item/entmName IDs</button>
       </div>
     </div>
 
@@ -275,7 +276,7 @@ function showStatus(msg, type = 'info') {
 }
 
 function loadDbData() {
-  fetch(DB_DATA_PATH)
+  return fetch(DB_DATA_PATH)
     .then(res => {
       if (!res.ok) throw new Error('Could not load ' + DB_DATA_PATH);
       return res.json();
@@ -284,8 +285,99 @@ function loadDbData() {
       dbItems = Array.isArray(data) ? data : [];
       showStatus('Loaded items-db.json (' + dbItems.length + ' items)', 'success');
       searchDbItems();
+      return dbItems;
     })
-    .catch(err => showStatus(err.message, 'error'));
+    .catch(err => {
+      showStatus(err.message, 'error');
+      return [];
+    });
+}
+
+function normalizeSearchString(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[\u2018\u2019‘’“”"]/g, '')
+    .replace(/[^a-z0-9_]+/g, ' ')
+    .trim();
+}
+
+function findDbEntryForText(text) {
+  if (!text || !Array.isArray(dbItems)) return null;
+  const needle = normalizeSearchString(text);
+  if (!needle) return null;
+
+  const exactId = dbItems.find(dbItem => {
+    return [dbItem.EDID, dbItem.entmName, dbItem.edid]
+      .filter(Boolean)
+      .some(field => normalizeSearchString(field) === needle);
+  });
+  if (exactId) return exactId;
+
+  const exactName = dbItems.find(dbItem => {
+    return [dbItem.itemName, dbItem.itemNameShort]
+      .filter(Boolean)
+      .some(field => normalizeSearchString(field) === needle);
+  });
+  if (exactName) return exactName;
+
+  return dbItems.find(dbItem => {
+    const fields = [dbItem.itemName, dbItem.itemNameShort, dbItem.EDID, dbItem.entmName, dbItem.edid]
+      .filter(Boolean)
+      .map(normalizeSearchString);
+    return fields.some(field => field.includes(needle) || needle.includes(field));
+  }) || null;
+}
+
+async function resolveItemIds(item) {
+  if (!item) {
+    return { message: 'No item selected.' };
+  }
+
+  if (!Array.isArray(dbItems) || !dbItems.length) {
+    await loadDbData();
+  }
+  if (!Array.isArray(dbItems) || !dbItems.length) {
+    return { message: 'Could not load items-db.json.' };
+  }
+
+  let bundleResolvedCount = 0;
+  let bundleUnmatchedCount = 0;
+  let nonBundleResolved = 0;
+
+  if (Array.isArray(item.dynamicBundleItems)) {
+    item.dynamicBundleItems.forEach(entry => {
+      if (!entry || typeof entry !== 'object') return;
+      if (entry.entmName || entry.EDID || entry.edid) return;
+
+      const name = entry.szItemName || entry.itemName || entry.name || '';
+      const matched = findDbEntryForText(name);
+      if (matched) {
+        entry.entmName = matched.EDID || matched.entmName || matched.edid;
+        bundleResolvedCount += 1;
+      } else {
+        bundleUnmatchedCount += 1;
+      }
+    });
+  }
+
+  if (!Array.isArray(item.dynamicBundleItems) || item.dynamicBundleItems.length === 0) {
+    const nameCandidate = item.itemName || item.itemNameShort || item.szItemName || item.name || '';
+    const matched = findDbEntryForText(nameCandidate);
+    if (matched) {
+      const resolvedId = matched.EDID || matched.entmName || matched.edid;
+      if (resolvedId && !item.EDID && !item.edid) {
+        item.EDID = resolvedId;
+        nonBundleResolved += 1;
+      }
+    }
+  }
+
+  const parts = [];
+  if (bundleResolvedCount) parts.push(`resolved ${bundleResolvedCount} bundle IDs`);
+  if (nonBundleResolved) parts.push(`set ${nonBundleResolved} item EDID`);
+  if (bundleUnmatchedCount) parts.push(`${bundleUnmatchedCount} bundle names unmatched`);
+  if (!parts.length) parts.push('No IDs resolved');
+  return { message: parts.join(', ') };
 }
 
 function searchDbItems() {
@@ -360,6 +452,10 @@ function addDbItemToCurrentWeek() {
   }
   const items = dailyData.DailySalesByWeek[currentWeek];
   const itemName = titleCase(dbItem.itemName || dbItem.EDID || 'Unnamed Item');
+  const lowestPriceAmount = typeof dbItem.lowestPurchasablePrice?.Amount === 'number'
+    ? dbItem.lowestPurchasablePrice.Amount
+    : (typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : 0);
+  const highPriceAmount = typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : 0;
   const item = {
     itemID: generateRandomItemID(),
     replaceItemID: 0,
@@ -367,12 +463,11 @@ function addDbItemToCurrentWeek() {
     itemName: itemName,
     itemNameShort: itemName,
     itemDesc: combineDbDescription(dbItem),
-    lowestPurchasablePrice: { Amount: typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : 0 },
-    highPrice: { originalAmount: typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : 0 },
-    lowPrice: { ltoTimer: '' },
+    lowestPurchasablePrice: { Amount: lowestPriceAmount },
+    highPrice: { originalAmount: highPriceAmount },
+    lowPrice: { ltoTimer: '', isLto: true },
     startTime: '',
     endTime: '',
-    ltoTimer: '',
     primaryImage: dbItem.primaryImage ? {
       directory: normalizeDir(dbItem.primaryImage.directory || ''),
       imageName: String(dbItem.primaryImage.imageName || '').toLowerCase()
@@ -415,6 +510,12 @@ function replaceCurrentItemWithSelectedDbItem() {
   }
   const itemName = titleCase(dbItem.itemName || dbItem.EDID || 'Unnamed Item');
   const existing = items[currentItemIdx] || {};
+  const lowestPriceAmount = typeof dbItem.lowestPurchasablePrice?.Amount === 'number'
+    ? dbItem.lowestPurchasablePrice.Amount
+    : (typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : (existing.lowestPurchasablePrice?.Amount || 0));
+  const highPriceAmount = typeof dbItem.highPriceOriginal === 'number'
+    ? dbItem.highPriceOriginal
+    : (existing.highPrice?.originalAmount || 0);
   const replacement = {
     itemID: existing.itemID || generateRandomItemID(),
     replaceItemID: existing.replaceItemID || 0,
@@ -422,12 +523,11 @@ function replaceCurrentItemWithSelectedDbItem() {
     itemName: itemName,
     itemNameShort: itemName,
     itemDesc: combineDbDescription(dbItem),
-    lowestPurchasablePrice: { Amount: typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : (existing.lowestPurchasablePrice?.Amount || 0) },
-    highPrice: { originalAmount: typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : (existing.highPrice?.originalAmount || 0) },
-    lowPrice: { ltoTimer: existing.lowPrice?.ltoTimer || '' },
+    lowestPurchasablePrice: { Amount: lowestPriceAmount },
+    highPrice: { originalAmount: highPriceAmount },
+    lowPrice: { ltoTimer: existing.lowPrice?.ltoTimer || '', isLto: !!(existing.lowPrice?.ltoTimer) },
     startTime: existing.startTime || '',
     endTime: existing.endTime || '',
-    ltoTimer: existing.ltoTimer || '',
     primaryImage: dbItem.primaryImage ? {
       directory: normalizeDir(dbItem.primaryImage.directory || ''),
       imageName: String(dbItem.primaryImage.imageName || '').toLowerCase()
@@ -639,7 +739,8 @@ function renderImages() {
           <span style="color: #ffd454; font-size: 0.7em;">P</span>
         </label>
         <div style="position: absolute; bottom: 3px; left: 3px; right: 3px; display: flex; gap: 2px;">
-          <button onclick="syncPath(${idx})" style="flex: 1; padding: 2px; font-size: 0.85em;" title="Copy this path to all images">Sync</button>
+          <button onclick="syncPath(${idx})" style="flex: 1; padding: 2px; font-size: 0.85em;" data-tooltip="Copy this path to all images" data-tooltip-type="info">Sync</button>
+          <button onclick="addImageVariantsForItem(${idx})" style="flex: 1; padding: 2px; font-size: 0.85em;" data-tooltip="Add c1, c2 variants" data-tooltip-type="info">Var</button>
           <button onclick="removeImage(${idx})" style="flex: 1; padding: 2px; font-size: 0.85em;">Del</button>
         </div>
       </div>
@@ -809,6 +910,56 @@ function maybeAddColorVariantsForPrimary() {
   });
 }
 
+window.addImageVariantsForItem = function(idx) {
+  if (idx < 0 || idx >= tempImages.length) return;
+  
+  const baseImage = tempImages[idx];
+  if (!baseImage || !baseImage.imageName) return;
+  
+  const info = extractImageVariantBase(baseImage.imageName);
+  if (!info) return;
+  
+  const directory = normalizeDir(baseImage.directory);
+  const existingNames = new Set(tempImages.map(img => String(img.imageName || '').toLowerCase()));
+  const candidates = [];
+  
+  // Generate candidate variant names
+  for (let i = 1; i <= 10; i++) {
+    const candidate = `${info.base}_c${i}${info.ext}`.toLowerCase();
+    if (!existingNames.has(candidate)) {
+      candidates.push(candidate);
+    }
+  }
+  
+  if (!candidates.length) {
+    return; // No new variants to check
+  }
+  
+  // Check if candidate images exist
+  const baseUrl = directory.startsWith('/') ? '..' + directory : '../' + directory;
+  Promise.all(candidates.map(name => 
+    checkImageExists(baseUrl + name).then(found => ({ name, found }))
+  )).then(results => {
+    let addedCount = 0;
+    results.forEach(({ name, found }) => {
+      if (found) {
+        tempImages.splice(idx + 1 + addedCount, 0, {
+          imageName: name,
+          directory: baseImage.directory
+        });
+        addedCount++;
+      }
+    });
+    
+    if (addedCount > 0) {
+      renderImages();
+      showStatus(`Added ${addedCount} variant image(s)`, 'success');
+    } else {
+      showStatus('No variant images found', 'info');
+    }
+  });
+};
+
 function saveTempImagesToItem() {
   if (!lastItem) return;
   const primary = tempImages.find(img => img._isPrimary);
@@ -851,7 +1002,8 @@ function saveItem() {
   
   if (!item.lowPrice) item.lowPrice = {};
   const ltoTimer = localInputToIso(document.getElementById('ltoTimer').value);
-  if (ltoTimer) item.lowPrice.ltoTimer = ltoTimer;
+  item.lowPrice.ltoTimer = ltoTimer || '';
+  item.lowPrice.isLto = !!ltoTimer;
   
   item.isZeus = document.getElementById('isZeus').checked;
   
@@ -894,9 +1046,42 @@ window.deleteItem = function() {
   showStatus('Item deleted', 'success');
 };
 
+function moveEDIDAfterItemID(item) {
+  if (!item || typeof item !== 'object' || Array.isArray(item)) return item;
+  if (!item.hasOwnProperty('EDID') || !item.hasOwnProperty('itemID')) return item;
+
+  const reordered = {};
+  Object.keys(item).forEach(key => {
+    if (key === 'EDID') return;
+    reordered[key] = item[key];
+    if (key === 'itemID') {
+      reordered.EDID = item.EDID;
+    }
+  });
+  return reordered;
+}
+
+function reorderDailyItemsEdid(data) {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) return data;
+  if (!data.DailySalesByWeek || typeof data.DailySalesByWeek !== 'object') return data;
+
+  const reordered = { ...data };
+  reordered.DailySalesByWeek = {};
+
+  Object.keys(data.DailySalesByWeek).forEach(week => {
+    const items = Array.isArray(data.DailySalesByWeek[week])
+      ? data.DailySalesByWeek[week].map(item => moveEDIDAfterItemID(item))
+      : data.DailySalesByWeek[week];
+    reordered.DailySalesByWeek[week] = items;
+  });
+
+  return reordered;
+}
+
 window.exportJson = function() {
   saveTempImagesToItem();
-  const json = JSON.stringify(dailyData, null, 2);
+  const normalized = reorderDailyItemsEdid(dailyData);
+  const json = JSON.stringify(normalized, null, 2);
   const blob = new Blob([json], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -930,6 +1115,24 @@ document.getElementById('add-db-item-btn').addEventListener('click', addDbItemTo
 document.getElementById('replace-db-item-btn').addEventListener('click', (e) => {
   e.preventDefault();
   replaceCurrentItemWithSelectedDbItem();
+});
+document.getElementById('resolve-ids-btn').addEventListener('click', async (e) => {
+  e.preventDefault();
+  if (!lastItem) {
+    showStatus('Select an item first.', 'error');
+    return;
+  }
+  const button = e.currentTarget;
+  button.disabled = true;
+  const originalText = button.textContent;
+  button.textContent = 'Resolving...';
+  const result = await resolveItemIds(lastItem);
+  button.textContent = originalText;
+  button.disabled = false;
+  showStatus(result.message, result.message && result.message.toLowerCase().includes('resolved') ? 'success' : 'info');
+  if (currentItemIdx !== null && currentWeek) {
+    selectItem(currentItemIdx);
+  }
 });
 
 function toggleCollapsible() {
