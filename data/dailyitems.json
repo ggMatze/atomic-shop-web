@@ -1,5 +1,5 @@
 {
-  "showDailyTab": false,
+  "showDailyTab": true,
   "DailySalesWeekMeta": {
     "Week1": {
       "hidden": false
@@ -21,16 +21,21 @@
     {
       "replaceItemID": 2316946,
       "itemID": 2316946,
-      "itemName": "Vault-Tec Supply Package (Level 2)",
-      "itemNameShort": "Vault-Tec Supply Package",
-      "itemDesc": "A collection of useful materials to help you survive in the Wasteland, from your friends at Vault-Tec. \r\n\r\n- SCRAP THIS AT A WORKBENCH TO ACCESS THE MATERIALS. -",
+      "itemName": "Scrap Kit",
+      "itemNameShort": "Scrap Kit",
+      "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!  \r\n\r\n USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.",
       "primaryImage": {
         "directory": "textures/atx/storefront/utility/",
-        "imageName": "atx_utility_scrapball_level2_l.webp"
+        "imageName": "atx_utility_repairkit_scraptostash_l.webp"
       },
-      "carouselImages": [],
+      "carouselImages": [
+        {
+          "directory": "textures/atx/storefront/utility/",
+          "imageName": "atx_utility_repairkit_scraptostash_l.webp"
+        }
+      ],
       "lowPrice": {
-        "ltoTimer": "2026-07-01T12:00:00.000Z",
+        "ltoTimer": "2026-07-08T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -41,8 +46,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2026-06-30T12:00:00.000Z",
-      "endTime": "2026-07-01T12:00:00.000Z",
+      "startTime": "2026-07-07T12:00:00.000Z",
+      "endTime": "2026-07-08T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -57,7 +62,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2026-07-02T12:00:00.000Z",
+        "ltoTimer": "2026-07-09T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -68,8 +73,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2026-07-01T12:00:00.000Z",
-      "endTime": "2026-07-02T12:00:00.000Z",
+      "startTime": "2026-07-08T12:00:00.000Z",
+      "endTime": "2026-07-09T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -84,7 +89,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2026-07-03T12:00:00.000Z",
+        "ltoTimer": "2026-07-10T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -95,8 +100,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2026-07-02T12:00:00.000Z",
-      "endTime": "2026-07-03T12:00:00.000Z",
+      "startTime": "2026-07-09T12:00:00.000Z",
+      "endTime": "2026-07-10T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -111,7 +116,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2026-07-04T12:00:00.000Z",
+        "ltoTimer": "2026-07-11T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -122,8 +127,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2026-07-03T12:00:00.000Z",
-      "endTime": "2026-07-04T12:00:00.000Z",
+      "startTime": "2026-07-10T12:00:00.000Z",
+      "endTime": "2026-07-11T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -138,7 +143,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2026-07-05T12:00:00.000Z",
+        "ltoTimer": "2026-07-12T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -149,8 +154,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2026-07-04T12:00:00.000Z",
-      "endTime": "2026-07-05T12:00:00.000Z",
+      "startTime": "2026-07-11T12:00:00.000Z",
+      "endTime": "2026-07-12T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -165,7 +170,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2026-07-06T12:00:00.000Z",
+        "ltoTimer": "2026-07-13T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -176,8 +181,8 @@
       "highPrice": {
         "originalAmount": 0
       },
-      "startTime": "2026-07-05T12:00:00.000Z",
-      "endTime": "2026-07-06T12:00:00.000Z",
+      "startTime": "2026-07-12T12:00:00.000Z",
+      "endTime": "2026-07-13T12:00:00.000Z",
       "isZeus": false
     },
     {
@@ -192,7 +197,7 @@
       },
       "carouselImages": [],
       "lowPrice": {
-        "ltoTimer": "2026-07-07T12:00:00.000Z",
+        "ltoTimer": "2026-07-14T12:00:00.000Z",
         "isLto": true,
         "purchaseLimit": 1
       },
@@ -205,8 +210,8 @@
         "originalAmount": 0,
         "purchaseLimit": 1
       },
-      "startTime": "2026-07-06T12:00:00.000Z",
-      "endTime": "2026-07-07T12:00:00.000Z",
+      "startTime": "2026-07-13T12:00:00.000Z",
+      "endTime": "2026-07-14T12:00:00.000Z",
       "isZeus": false
     }
   ],
@@ -425,88 +430,90 @@
     "Week1": [
       {
         "itemID": 101,
-        "EDID": "ATX_ENTM_CAMP_Displaycase_RobotBeerSteins",
+        "EDID": "SCORE_S11_ENTM_CAMP_Ally_NukaAgent_leo",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Robot Beer Steins Display Case",
-        "itemNameShort": "Robot Beer Steins Display Case",
-        "itemDesc": "Build your very own mechanical bartender with the Robot Beer Steins Display Case!\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Lite Ally: Leo Petrov",
+        "itemNameShort": "Lite Ally: Leo Petrov",
+        "itemDesc": "A Nuka-Cola company man through and through. Loyal to the end, and beyond.\n\nALLIES APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
-          "Amount": 250
+          "Amount": 1200
         },
         "highPrice": {
-          "originalAmount": 500
+          "originalAmount": 1200
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-03T12:00:00.000Z",
+          "ltoTimer": "2026-07-08T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-02T12:00:00.000Z",
-        "endTime": "2026-06-03T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-07T12:00:00.000Z",
+        "endTime": "2026-07-08T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_camp_displaycase_robotbeersteins_l.webp",
-          "directory": "/textures/atx/storefront/camp/displays/"
+          "imageName": "score_s11_camp_ally_nukaagent_leo_l.webp",
+          "directory": "/textures/atx/storefront/camp/ally/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_displaycase_robotbeersteins_c1.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
+            "imageName": "score_s11_camp_ally_nukaagent_leo_c1.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
           },
           {
-            "imageName": "atx_camp_displaycase_robotbeersteins_c2.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
+            "imageName": "score_s11_camp_ally_nukaagent_leo_c2.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
           },
           {
-            "imageName": "atx_camp_displaycase_robotbeersteins_c3.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
+            "imageName": "score_s11_camp_ally_nukaagent_leo_c3.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
           }
         ]
       },
       {
         "itemID": 102,
-        "EDID": "ATX_ENTM_CAMP_Displaycase_BobbleHead_SecretService",
+        "EDID": "SCORE_S14_ENTM_CAMP_Ally_GrandmaJunko",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Secret Service Bobblehead Stand",
-        "itemNameShort": "Secret Service Bobblehead Stand",
-        "itemDesc": "Every secret agent needs a hobby to unwind. Make yours collecting bobbleheads with the Secret Service Bobblehead Stand!\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Lite Ally: Grandma Junko",
+        "itemNameShort": "Lite Ally: Grandma Junko",
+        "itemDesc": "Welcome this sweet old lady to your C.A.M.P.!\n\nALLIES APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
-          "Amount": 250
+          "Amount": 1500
         },
         "highPrice": {
-          "originalAmount": 500
+          "originalAmount": 1500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-04T12:00:00.000Z",
+          "ltoTimer": "2026-07-09T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-03T12:00:00.000Z",
-        "endTime": "2026-06-04T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-08T12:00:00.000Z",
+        "endTime": "2026-07-09T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_camp_displaycase_bobblehead_secretservice_l.webp",
-          "directory": "/textures/atx/storefront/camp/displays/"
+          "imageName": "score_s14_camp_ally_grandmajunko_l.webp",
+          "directory": "/textures/atx/storefront/camp/ally/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_displaycase_bobblehead_secretservice_c1.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
+            "imageName": "score_s14_camp_ally_grandmajunko_c1.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
           },
           {
-            "imageName": "atx_camp_displaycase_bobblehead_secretservice_c2.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
+            "imageName": "score_s14_camp_ally_grandmajunko_c2.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
+          },
+          {
+            "imageName": "score_s14_camp_ally_grandmajunko_c3.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
           }
         ]
       },
       {
         "itemID": 103,
-        "EDID": "ATX_ENTM_CAMP_WallDeco_Display_FasnachtMask",
+        "EDID": "SCORE_S3_ENTM_CAMP_Ally_Medic_SolomonHardy",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Fasnacht Mask Display",
-        "itemNameShort": "Fasnacht Mask Display",
-        "itemDesc": "Remember the joys of Fasnacht year-round with the Fasnacht Mask Display.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Lite Ally: Solomon Hardy",
+        "itemNameShort": "Lite Ally: Solomon Hardy",
+        "itemDesc": "Lucky for you, the doctor is in. What can he do for you?\n\nALLIES APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
           "Amount": 250
         },
@@ -514,75 +521,65 @@
           "originalAmount": 500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-05T12:00:00.000Z",
+          "ltoTimer": "2026-07-10T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-04T12:00:00.000Z",
-        "endTime": "2026-06-05T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-09T12:00:00.000Z",
+        "endTime": "2026-07-10T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_camp_walldeco_display_faschnachtmask.webp",
-          "directory": "/textures/atx/storefront/camp/walldecoration/"
+          "imageName": "score_s3_camp_ally_medic_solomonhardy.webp",
+          "directory": "/textures/atx/storefront/camp/ally/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_walldeco_display_faschnachtmask_c1.webp",
-            "directory": "/textures/atx/storefront/camp/walldecoration/"
-          },
-          {
-            "imageName": "atx_camp_walldeco_display_faschnachtmask_c2.webp",
-            "directory": "/textures/atx/storefront/camp/walldecoration/"
-          },
-          {
-            "imageName": "atx_camp_walldeco_display_faschnachtmask_c3.webp",
-            "directory": "/textures/atx/storefront/camp/walldecoration/"
+            "imageName": "score_s3_camp_ally_medic_solomonhardy_c1.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
           }
         ]
       },
       {
         "itemID": 104,
-        "EDID": "ATX_ENTM_CAMP_Display_WeaponRack_FishingRodDisplay_Fungal",
+        "EDID": "SCORE_S3_ENTM_CAMP_Ally_Chef_YasminChowdhury",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Fungal Fishing Rod Display",
-        "itemNameShort": "Fungal Fishing Rod Display",
-        "itemDesc": "Everyone knows fishing makes you a fun guy.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Lite Ally: Yasmin Chowdhury",
+        "itemNameShort": "Lite Ally: Yasmin Chowdhury",
+        "itemDesc": "Don't be shy, try her latest creation! Yasmin is a Chef that makes your C.A.M.P. feel like home.\n\nALLIES APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
-          "Amount": 250
+          "Amount": 1200
         },
         "highPrice": {
-          "originalAmount": 500
+          "originalAmount": 1200
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-06T12:00:00.000Z",
+          "ltoTimer": "2026-07-11T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-05T12:00:00.000Z",
-        "endTime": "2026-06-06T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-10T12:00:00.000Z",
+        "endTime": "2026-07-11T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_camp_display_weaponrack_fishingroddisplay_fungal.webp",
-          "directory": "/textures/atx/storefront/camp/displays/"
+          "imageName": "score_s3_camp_ally_chef_yasminchowdhury_l.webp",
+          "directory": "/textures/atx/storefront/camp/ally/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_display_weaponrack_fishingroddisplay_fungal_c1.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
+            "imageName": "score_s3_camp_ally_chef_yasminchowdhury_c1.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
           },
           {
-            "imageName": "atx_camp_display_weaponrack_fishingroddisplay_fungal_c2.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
+            "imageName": "score_s3_camp_ally_chef_yasminchowdhury_c2.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
           }
         ]
       },
       {
         "itemID": 105,
-        "EDID": "ATX_ENTM_CAMP_Display_WeaponStand_HeavyMetal_Heavy",
+        "EDID": "SCORE_S6_ENTM_CAMP_Ally_SuperMutant_Maul",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Heavy Metal Heavy Weapon Stand",
-        "itemNameShort": "Heavy Metal Heavy Weapon Stand",
-        "itemDesc": "Bring the heavy metal to your Heavy Metal Heavy Weapon Stand!\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Lite Ally: Maul",
+        "itemNameShort": "Lite Ally: Maul",
+        "itemDesc": "Maul will serve you meat while he hunts for a fabled hero.\n\nALLIES APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
           "Amount": 250
         },
@@ -590,61 +587,69 @@
           "originalAmount": 500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-07T12:00:00.000Z"
-        },
-        "startTime": "2026-06-06T12:00:00.000Z",
-        "endTime": "2026-06-07T12:00:00.000Z",
-        "ltoTimer": "",
-        "primaryImage": {
-          "directory": "/textures/atx/storefront/camp/floordecoration/",
-          "imageName": "atx_camp_walldeco_display_weaponracks_heavymetal_heavy_l.webp"
-        },
-        "carouselImages": []
-      },
-      {
-        "itemID": 106,
-        "EDID": "ATX_ENTM_CAMP_Displaycase_IceGloRefrigeratedDisplay",
-        "replaceItemID": 101,
-        "isZeus": false,
-        "itemName": "Iceglo Display Case",
-        "itemNameShort": "Iceglo Display Case",
-        "itemDesc": "Keep your favorite collectibles cool from the wasteland heat.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-        "lowestPurchasablePrice": {
-          "Amount": 250
-        },
-        "highPrice": {
-          "originalAmount": 500
-        },
-        "lowPrice": {
-          "ltoTimer": "2026-06-08T12:00:00.000Z",
+          "ltoTimer": "2026-07-12T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-07T12:00:00.000Z",
-        "endTime": "2026-06-08T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-11T12:00:00.000Z",
+        "endTime": "2026-07-12T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx__camp_displaycase_iceglorefrigerateddisplay_l.webp",
-          "directory": "/textures/atx/storefront/camp/displays/"
+          "imageName": "score_s6_camp_ally_supermutant_maul_l.webp",
+          "directory": "/textures/atx/storefront/camp/ally/"
         },
         "carouselImages": [
           {
-            "imageName": "atx__camp_displaycase_iceglorefrigerateddisplay_c1.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
+            "imageName": "score_s6_camp_ally_supermutant_maul_c1.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
           },
           {
-            "imageName": "atx__camp_displaycase_iceglorefrigerateddisplay_c2.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
+            "imageName": "score_s6_camp_ally_supermutant_maul_c2.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
+          }
+        ]
+      },
+      {
+        "itemID": 106,
+        "EDID": "SCORE_S7_ENTM_CAMP_Ally_KatherineSwan",
+        "replaceItemID": 101,
+        "isZeus": false,
+        "itemName": "Lite Ally: Katherine Swan",
+        "itemNameShort": "Lite Ally: Katherine Swan",
+        "itemDesc": "Reach for the stars with Katherine, an astronomer obsessed with the study of extraterrestrial life.\n\nALLIES APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
+        "lowestPurchasablePrice": {
+          "Amount": 1200
+        },
+        "highPrice": {
+          "originalAmount": 1200
+        },
+        "lowPrice": {
+          "ltoTimer": "2026-07-13T12:00:00.000Z",
+          "isLto": true
+        },
+        "startTime": "2026-07-12T12:00:00.000Z",
+        "endTime": "2026-07-13T12:00:00.000Z",
+        "primaryImage": {
+          "imageName": "score_s7_camp_ally_katherineswan_l.webp",
+          "directory": "/textures/atx/storefront/camp/ally/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "score_s7_camp_ally_katherineswan_c1.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
+          },
+          {
+            "imageName": "score_s7_camp_ally_katherineswan_c2.webp",
+            "directory": "/textures/atx/storefront/camp/ally/"
           }
         ]
       },
       {
         "itemID": 107,
-        "EDID": "ATX_ENTM_CAMP_Displaycase_FishTank",
+        "EDID": "ATX_ENTM_CAMP_CAMPPets_Dog_GermanShepherd",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Fish Tank Display Case",
-        "itemNameShort": "Fish Tank Display Case",
-        "itemDesc": "Show off your best small and medium sized fish in this Fish Tank\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "German Shepherd",
+        "itemNameShort": "German Shepherd",
+        "itemDesc": "Everyone loves to have a friend in your C.A.M.P. and now you can have a German Shepherd friend. Generates 1, 2, or 3 Star Legendary Items\n\nC.A.M.P. PETS APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
           "Amount": 350
         },
@@ -652,24 +657,23 @@
           "originalAmount": 700
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-09T12:00:00.000Z",
+          "ltoTimer": "2026-07-14T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-08T12:00:00.000Z",
-        "endTime": "2026-06-09T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-13T12:00:00.000Z",
+        "endTime": "2026-07-14T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_camp_displaycase_fishtank_l.webp",
-          "directory": "/textures/atx/storefront/camp/displays/"
+          "imageName": "atx_camp_camppets_dog_germanshepard_l.webp",
+          "directory": "/textures/atx/storefront/camp/floordecoration/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_displaycase_fishtank_c1.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
+            "imageName": "atx_camp_camppets_dog_germanshepard_c1.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
           },
           {
-            "imageName": "atx_camp_displaycase_fishtank_c2.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
+            "imageName": "atx_camp_camppets_dog_germanshepard_c2.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
           }
         ]
       }
@@ -677,12 +681,12 @@
     "Week2": [
       {
         "itemID": 201,
-        "EDID": "ATX_ENTM_CAMP_Collector_CurioCabinet",
+        "EDID": "SCORE_S12_ENTM_CAMP_WallPaper_CryptidHunt",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Curio Cabinet",
-        "itemNameShort": "Curio Cabinet",
-        "itemDesc": "The best oddities are made of porcelain. Generates Adhesive, Asbestos, and Ceramic. This item cannot be built inside of a Shelter.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.\nProduces:\n[url=https://www.theduchessflame.com/post/camp-resource-curio-cabinet]Scrap[/url]",
+        "itemName": "Mothman Hatchling Wallpaper",
+        "itemNameShort": "Mothman Hatchling Wallpaper",
+        "itemDesc": "Who wouldn't want to have their walls covered in moths?\n\nWALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE.",
         "lowestPurchasablePrice": {
           "Amount": 350
         },
@@ -690,175 +694,69 @@
           "originalAmount": 700
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-10T12:00:00.000Z",
+          "ltoTimer": "2026-07-15T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-09T12:00:00.000Z",
-        "endTime": "2026-06-10T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-14T12:00:00.000Z",
+        "endTime": "2026-07-15T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_camp_collector_curiocabinet_l.webp",
-          "directory": "/textures/atx/storefront/camp/utility/"
+          "imageName": "score_s16_camp_wallpaper_cryptidhunt_l.webp",
+          "directory": "/textures/atx/storefront/camp/wallpaper/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_collector_curiocabinet_c1.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "score_s16_camp_wallpaper_cryptidhunt_c1.webp",
+            "directory": "/textures/atx/storefront/camp/wallpaper/"
           },
           {
-            "imageName": "atx_camp_collector_curiocabinet_c2.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "score_s16_camp_wallpaper_cryptidhunt_c2.webp",
+            "directory": "/textures/atx/storefront/camp/wallpaper/"
           }
         ]
       },
       {
         "itemID": 202,
-        "EDID": "ATX_ENTM_CAMP_Stashbox_ToxicTincturesCabinet",
+        "EDID": "ATX_ENTM_CAMP_FloorDecor_SummoningCircle",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Toxic Tinctures Cabinet  Stash Box",
-        "itemNameShort": "Toxic Tinctures Cabinet  Stash Box",
-        "itemDesc": "The perfect place to store all your wild concoctions, along with anything else of value.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Summoning Circle",
+        "itemNameShort": "Summoning Circle",
+        "itemDesc": "Summon some inspiration and connect with a smarter power! - Using the Summoning Circle will grant an Intelligence Boost -\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
-          "Amount": 250
-        },
-        "highPrice": {
-          "originalAmount": 500
-        },
-        "lowPrice": {
-          "ltoTimer": "2026-06-11T12:00:00.000Z",
-          "isLto": true
-        },
-        "startTime": "2026-06-10T12:00:00.000Z",
-        "endTime": "2026-06-11T12:00:00.000Z",
-        "ltoTimer": "",
-        "primaryImage": {
-          "imageName": "atx_camp_stashbox_toxictincturescabinet.webp",
-          "directory": "/textures/atx/storefront/camp/stash/"
-        },
-        "carouselImages": [
-          {
-            "imageName": "atx_camp_stashbox_toxictincturescabinet_c1.webp",
-            "directory": "/textures/atx/storefront/camp/stash/"
-          }
-        ]
-      },
-      {
-        "itemID": 203,
-        "EDID": "ATX_ENTM_CAMP_FloorDecor_PickledBrain",
-        "replaceItemID": 101,
-        "isZeus": false,
-        "itemName": "Pickled Brain",
-        "itemNameShort": "Pickled Brain",
-        "itemDesc": "Give your C.A.M.P. a frightful decor with the pickled brain!\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-        "lowestPurchasablePrice": {
-          "Amount": 125
-        },
-        "highPrice": {
-          "originalAmount": 250
-        },
-        "lowPrice": {
-          "ltoTimer": "2026-06-12T12:00:00.000Z",
-          "isLto": true
-        },
-        "startTime": "2026-06-11T12:00:00.000Z",
-        "endTime": "2026-06-12T12:00:00.000Z",
-        "ltoTimer": "",
-        "primaryImage": {
-          "imageName": "atx_camp_floordecor_pickledbrain_l.webp",
-          "directory": "/textures/atx/storefront/camp/floordecoration/"
-        },
-        "carouselImages": [
-          {
-            "imageName": "atx_camp_floordecor_pickledbrain_c1.webp",
-            "directory": "/textures/atx/storefront/camp/floordecoration/"
-          },
-          {
-            "imageName": "atx_camp_floordecor_pickledbrain_c2.webp",
-            "directory": "/textures/atx/storefront/camp/floordecoration/"
-          }
-        ]
-      },
-      {
-        "itemID": 204,
-        "EDID": "ATX_ENTM_CAMP_Collector_BuddingApothecary",
-        "replaceItemID": 101,
-        "isZeus": false,
-        "itemName": "Budding Apothecary",
-        "itemNameShort": "Budding Apothecary",
-        "itemDesc": "Try to find that seed you are looking for with the Budding Apothecary machine. Generates Flora This item cannot be built inside of a Shelter.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-        "lowestPurchasablePrice": {
-          "Amount": 350
+          "Amount": 700
         },
         "highPrice": {
           "originalAmount": 700
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-13T12:00:00.000Z",
+          "ltoTimer": "2026-07-16T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-12T12:00:00.000Z",
-        "endTime": "2026-06-13T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-15T12:00:00.000Z",
+        "endTime": "2026-07-16T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx__camp_collector_buddingapothecary_l.webp",
-          "directory": "/textures/atx/storefront/camp/utility/"
+          "imageName": "atx_entm_camp_floordecor_summoningcircle_l.webp",
+          "directory": "/textures/atx/storefront/camp/floordecoration/"
         },
         "carouselImages": [
           {
-            "imageName": "atx__camp_collector_buddingapothecary_c1.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "atx_entm_camp_floordecor_summoningcircle_c1.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
           },
           {
-            "imageName": "atx__camp_collector_buddingapothecary_c2.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "atx_entm_camp_floordecor_summoningcircle_c2.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
           }
         ]
       },
       {
-        "itemID": 205,
-        "EDID": "ATX_ENTM_CAMP_Displaycase_StatelyArmoire",
+        "itemID": 203,
+        "EDID": "ATX_ENTM_CAMP_Lights_MothmanCultist_Torch_01",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Stately Armoire Display Case",
-        "itemNameShort": "Stately Armoire Display Case",
-        "itemDesc": "Display the most prestigious items in your collection with the Stately Armoire Display Case.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-        "lowestPurchasablePrice": {
-          "Amount": 250
-        },
-        "highPrice": {
-          "originalAmount": 500
-        },
-        "lowPrice": {
-          "ltoTimer": "2026-06-14T12:00:00.000Z",
-          "isLto": true
-        },
-        "startTime": "2026-06-13T12:00:00.000Z",
-        "endTime": "2026-06-14T12:00:00.000Z",
-        "ltoTimer": "",
-        "primaryImage": {
-          "imageName": "atx_camp_displaycase_statelyarmoire_l.webp",
-          "directory": "/textures/atx/storefront/camp/displays/"
-        },
-        "carouselImages": [
-          {
-            "imageName": "atx_camp_displaycase_statelyarmoire_c1.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
-          },
-          {
-            "imageName": "atx_camp_displaycase_statelyarmoire_c2.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
-          }
-        ]
-      },
-      {
-        "itemID": 206,
-        "EDID": "ATX_ENTM_CAMP_Lights_SkullCandles",
-        "replaceItemID": 101,
-        "isZeus": false,
-        "itemName": "Skull Candles",
-        "itemNameShort": "Skull Candles",
-        "itemDesc": "See no evil, hear no evil, and speak no evil with the Skull Candles in your C.A.M.P.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Mothman Cultist Wicker Torch",
+        "itemNameShort": "Mothman Cultist Wicker Torch",
+        "itemDesc": "Create a place of solemn reverence to the great and holy Mothman with the Mothman Cultist Wicker Torch.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
           "Amount": 125
         },
@@ -866,31 +764,69 @@
           "originalAmount": 250
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-15T12:00:00.000Z",
+          "ltoTimer": "2026-07-17T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-14T12:00:00.000Z",
-        "endTime": "2026-06-15T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-16T12:00:00.000Z",
+        "endTime": "2026-07-17T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_camp_lights_skullcandles_l.webp",
+          "imageName": "atx_camp_lights_mothmancultist_torch_01_l.webp",
           "directory": "/textures/atx/storefront/camp/lights/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_lights_skullcandles_c1.webp",
+            "imageName": "atx_camp_lights_mothmancultist_torch_01_c1.webp",
+            "directory": "/textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx_camp_lights_mothmancultist_torch_01_c2.webp",
             "directory": "/textures/atx/storefront/camp/lights/"
           }
         ]
       },
       {
-        "itemID": 207,
-        "EDID": "SCORE_S12_ENTM_CAMP_Machinery_Workbench_Tinker_Taxidermy",
+        "itemID": 204,
+        "EDID": "ATX_ENTM_CAMP_FloorDecor_FlatwoodsMonsterWaxFigure",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Taxidermy Tinker'S Workbench",
-        "itemNameShort": "Taxidermy Tinker'S Workbench",
-        "itemDesc": "For the tinkers who enjoy fur, leather, bones, and feathers. Requires the Tinker's Workbench to be Learned.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Flatwoods Monster Waxfigure",
+        "itemNameShort": "Flatwoods Monster Waxfigure",
+        "itemDesc": "Immortalize the Flatwoods Monster with this wax figure!\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "lowestPurchasablePrice": {
+          "Amount": 500
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "lowPrice": {
+          "ltoTimer": "2026-07-18T12:00:00.000Z",
+          "isLto": true
+        },
+        "startTime": "2026-07-17T12:00:00.000Z",
+        "endTime": "2026-07-18T12:00:00.000Z",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_floordecor_flatwoodsmonsterwaxsculpture_l.webp",
+          "directory": "/textures/atx/storefront/camp/floordecoration/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_floordecor_flatwoodsmonsterwaxsculpture_c1.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_entm_camp_floordecor_flatwoodsmonsterwaxsculpture_c2.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
+          }
+        ]
+      },
+      {
+        "itemID": 205,
+        "EDID": "ATX_ENTM_CAMP_FloorDecor_CultistCandelabra",
+        "replaceItemID": 101,
+        "isZeus": false,
+        "itemName": "Mothman Cultist Candelabra",
+        "itemNameShort": "Mothman Cultist Candelabra",
+        "itemDesc": "All praise the blessed Mothman.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
           "Amount": 250
         },
@@ -898,28 +834,110 @@
           "originalAmount": 500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-16T12:00:00.000Z",
+          "ltoTimer": "2026-07-19T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-15T12:00:00.000Z",
-        "endTime": "2026-06-16T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-18T12:00:00.000Z",
+        "endTime": "2026-07-19T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "score_s12_camp_machinery_workbench_tinker_taxidermy_l.webp",
-          "directory": "/textures/atx/storefront/camp/machinery/"
+          "imageName": "atx_camp_floordecor_cultistcandelabra.webp",
+          "directory": "/textures/atx/storefront/camp/floordecoration/"
         },
-        "carouselImages": []
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_floordecor_cultistcandelabra_c1.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
+          },
+          {
+            "imageName": "atx_camp_floordecor_cultistcandelabra_c2.webp",
+            "directory": "/textures/atx/storefront/camp/floordecoration/"
+          }
+        ]
+      },
+      {
+        "itemID": 206,
+        "EDID": "ATX_ENTM_CAMP_Kit_CultistSanctum",
+        "replaceItemID": 101,
+        "isZeus": false,
+        "itemName": "Cultist Sanctum C.A.M.P. Kit",
+        "itemNameShort": "Cultist Sanctum C.A.M.P. Kit",
+        "itemDesc": "Build a sanctum for your true believers!\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "lowestPurchasablePrice": {
+          "Amount": 700
+        },
+        "highPrice": {
+          "originalAmount": 700
+        },
+        "lowPrice": {
+          "ltoTimer": "2026-07-20T12:00:00.000Z",
+          "isLto": true
+        },
+        "startTime": "2026-07-19T12:00:00.000Z",
+        "endTime": "2026-07-20T12:00:00.000Z",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_kit_cultistsanctum_l.webp",
+          "directory": "/textures/atx/storefront/camp/kits/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_kit_cultistsanctum_c1.webp",
+            "directory": "/textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_entm_camp_kit_cultistsanctum_c2.webp",
+            "directory": "/textures/atx/storefront/camp/kits/"
+          },
+          {
+            "imageName": "atx_entm_camp_kit_cultistsanctum_c3.webp",
+            "directory": "/textures/atx/storefront/camp/kits/"
+          }
+        ]
+      },
+      {
+        "itemID": 207,
+        "EDID": "atx_entm_bndl_camp_lights_mothmanbillboards_set",
+        "replaceItemID": 101,
+        "isZeus": false,
+        "itemName": "Mothman Neon Billboards",
+        "itemNameShort": "Mothman Neon Billboards",
+        "itemDesc": "Will a giant sign attract the Mothman, or keep him at bay? Only one way to find out!\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "lowestPurchasablePrice": {
+          "Amount": 500
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "lowPrice": {
+          "ltoTimer": "2026-07-21T12:00:00.000Z",
+          "isLto": true
+        },
+        "startTime": "2026-07-20T12:00:00.000Z",
+        "endTime": "2026-07-21T12:00:00.000Z",
+        "primaryImage": {
+          "imageName": "80bd51f34b61caf9d36e661f119e4280.webp",
+          "directory": "/textures/atomic_shop_media/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_camp_lights_neonbillboards_mothmanground_l.webp",
+            "directory": "/textures/atx/storefront/camp/lights/"
+          },
+          {
+            "imageName": "atx_camp_lights_neonbillboards_mothmanrooftop_l.webp",
+            "directory": "/textures/atx/storefront/camp/lights/"
+          }
+        ]
       }
     ],
     "Week3": [
       {
         "itemID": 301,
-        "EDID": "ATX_ENTM_Skin_WeaponSkin_Minigun_Lucilles_Lullaby",
+        "EDID": "ATX_ENTM_CAMP_Furniture_Table_BearAccentTable",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Lucille'S Lullaby",
-        "itemNameShort": "Lucille'S Lullaby",
-        "itemDesc": "Lucille's Lullaby has enough swagger and timeless elegance for any occasion, whether it be behind the glass of a display case, or perforating your next target.\n\nSKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
+        "itemName": "Black Bear Accent Table",
+        "itemNameShort": "Black Bear Accent Table",
+        "itemDesc": "This little guy just wants to give you a helping hand! Decorate your C.A.M.P. with the Black Bear Accent Table.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
           "Amount": 200
         },
@@ -927,35 +945,34 @@
           "originalAmount": 400
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-17T12:00:00.000Z",
+          "ltoTimer": "2026-07-22T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-16T12:00:00.000Z",
-        "endTime": "2026-06-17T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-21T12:00:00.000Z",
+        "endTime": "2026-07-22T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_skin_weaponskin_minigun_lucilles_lullaby_l.webp",
-          "directory": "/textures/atx/storefront/player/weaponskin/"
+          "imageName": "atx_camp_furniture_bearaccenttable_l.webp",
+          "directory": "/textures/atx/storefront/camp/furniture/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_skin_weaponskin_minigun_lucilles_lullaby_c1.webp",
-            "directory": "/textures/atx/storefront/player/weaponskin/"
+            "imageName": "atx_camp_furniture_bearaccenttable_c1.webp",
+            "directory": "/textures/atx/storefront/camp/furniture/"
           },
           {
-            "imageName": "atx_skin_weaponskin_minigun_lucilles_lullaby_c2.webp",
-            "directory": "/textures/atx/storefront/player/weaponskin/"
+            "imageName": "atx_camp_furniture_bearaccenttable_c2.webp",
+            "directory": "/textures/atx/storefront/camp/furniture/"
           }
         ]
       },
       {
         "itemID": 302,
-        "EDID": "ATX_ENTM_Skin_WeaponSkin_PlasmaCasterRifle_ArmyIssue",
+        "EDID": "ATX_ENTM_CAMP_Lights_RocketFan",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Army Issue Plasma Caster Paint",
-        "itemNameShort": "Army Issue Plasma Caster Paint",
-        "itemDesc": "Green Army Issue Plasma Caster - Don't lose it, grunt! Or else!\n\nSKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
+        "itemName": "Rocket Ceiling Fan",
+        "itemNameShort": "Rocket Ceiling Fan",
+        "itemDesc": "Cool down and blast off on hot summer nights with the Rocket Fan.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
           "Amount": 250
         },
@@ -963,35 +980,34 @@
           "originalAmount": 500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-18T12:00:00.000Z",
+          "ltoTimer": "2026-07-23T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-17T12:00:00.000Z",
-        "endTime": "2026-06-18T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-22T12:00:00.000Z",
+        "endTime": "2026-07-23T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_skin_weaponskin_plasmacasterrifle_armyissue_l.webp",
-          "directory": "/textures/atx/storefront/player/weaponskin/"
+          "imageName": "atx_camp_lights_rocketfan_l.webp",
+          "directory": "/textures/atx/storefront/camp/lights/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_skin_weaponskin_plasmacasterrifle_armyissue_c1.webp",
-            "directory": "/textures/atx/storefront/player/weaponskin/"
+            "imageName": "atx_camp_lights_rocketfan_c1.webp",
+            "directory": "/textures/atx/storefront/camp/lights/"
           },
           {
-            "imageName": "atx_skin_weaponskin_plasmacasterrifle_armyissue_c2.webp",
-            "directory": "/textures/atx/storefront/player/weaponskin/"
+            "imageName": "atx_camp_lights_rocketfan_c2.webp",
+            "directory": "/textures/atx/storefront/camp/lights/"
           }
         ]
       },
       {
         "itemID": 303,
-        "EDID": "ATX_ENTM_Skin_WeaponSkin_BlackPowder_Dragon_RedRocket",
+        "EDID": "ATX_ENTM_CAMP_Lights_Candle_Spine",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Red Rocket Paint (The Dragon)",
-        "itemNameShort": "Red Rocket Paint",
-        "itemDesc": "Give your Dragon a little more fuel for the fire with the Red Rocket Paint for the Dragon Black Powder Rifle.\n\nSKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
+        "itemName": "Spine Candle",
+        "itemNameShort": "Spine Candle",
+        "itemDesc": "Add some spine-tingling atmosphere to your C.A.M.P. with the Spine Candle!\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
           "Amount": 250
         },
@@ -999,35 +1015,30 @@
           "originalAmount": 500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-19T12:00:00.000Z",
+          "ltoTimer": "2026-07-24T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-18T12:00:00.000Z",
-        "endTime": "2026-06-19T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-23T12:00:00.000Z",
+        "endTime": "2026-07-24T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_skin_blackpowder_dragon_redrocket.webp",
-          "directory": "/textures/atx/storefront/player/weaponmodel/"
+          "imageName": "atx_camp_lights_candle_spine.webp",
+          "directory": "/textures/atx/storefront/camp/lights/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_skin_blackpowder_dragon_redrocket_c1.webp",
-            "directory": "/textures/atx/storefront/player/weaponmodel/"
-          },
-          {
-            "imageName": "atx_skin_blackpowder_dragon_redrocket_c2.webp",
-            "directory": "/textures/atx/storefront/player/weaponmodel/"
+            "imageName": "atx_camp_lights_candle_spine_c1.webp",
+            "directory": "/textures/atx/storefront/camp/lights/"
           }
         ]
       },
       {
         "itemID": 304,
-        "EDID": "ATX_ENTM_Skin_WeaponSkin_LaserGun_Inventor",
+        "EDID": "ATX_ENTM_Apparel_Headwear_StrawHat",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Amateur Inventor'S Laser Gun Paint",
-        "itemNameShort": "Amateur Inventor'S Laser Gun Paint",
-        "itemDesc": "\"How hard could it be?\" are not the best last words to have.\n\nSKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
+        "itemName": "Straw Bucket Hat",
+        "itemNameShort": "Straw Bucket Hat",
+        "itemDesc": "Reconnect with the land with this simple Straw Bucket Hat.\n\nAPPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
         "lowestPurchasablePrice": {
           "Amount": 250
         },
@@ -1035,122 +1046,127 @@
           "originalAmount": 500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-20T12:00:00.000Z",
+          "ltoTimer": "2026-07-25T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-19T12:00:00.000Z",
-        "endTime": "2026-06-20T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-24T12:00:00.000Z",
+        "endTime": "2026-07-25T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_skin_weaponskin_lasergun_inventor_l.webp",
-          "directory": "/textures/atx/storefront/player/weaponskin/"
-        },
-        "carouselImages": []
-      },
-      {
-        "itemID": 305,
-        "EDID": "ATX_ENTM_Skin_WeaponSkin_GatlingPlasma_Copperhead",
-        "replaceItemID": 101,
-        "isZeus": false,
-        "itemName": "Copperhead Paint (Gatling Plasma)",
-        "itemNameShort": "Copperhead Paint (Gatling Plasma)",
-        "itemDesc": "Be ready to repeatedly strike with this Copperhead paint for your Gatling Plasma.\n\nSKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
-        "lowestPurchasablePrice": {
-          "Amount": 250
-        },
-        "highPrice": {
-          "originalAmount": 500
-        },
-        "lowPrice": {
-          "ltoTimer": "2026-06-21T12:00:00.000Z",
-          "isLto": true
-        },
-        "startTime": "2026-06-20T12:00:00.000Z",
-        "endTime": "2026-06-21T12:00:00.000Z",
-        "ltoTimer": "",
-        "primaryImage": {
-          "imageName": "atx_skin_weaponskin_gatlingplasma_copperhead.webp",
-          "directory": "/textures/atx/storefront/player/weaponskin/"
+          "imageName": "atx_apparel_headwear_strawhat_l.webp",
+          "directory": "/textures/atx/storefront/player/headwear/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_skin_weaponskin_gatlingplasma_copperhead_c1.webp",
-            "directory": "/textures/atx/storefront/player/weaponskin/"
+            "imageName": "atx_apparel_headwear_strawhat_c1.webp",
+            "directory": "/textures/atx/storefront/player/headwear/"
           },
           {
-            "imageName": "atx_skin_weaponskin_gatlingplasma_copperhead_c2.webp",
-            "directory": "/textures/atx/storefront/player/weaponskin/"
+            "imageName": "atx_apparel_headwear_strawhat_c2.webp",
+            "directory": "/textures/atx/storefront/player/headwear/"
+          }
+        ]
+      },
+      {
+        "itemID": 305,
+        "EDID": "ATX_ENTM_CAMP_Door_Secret_Phonebooth",
+        "replaceItemID": 101,
+        "isZeus": false,
+        "itemName": "Phonebooth Door",
+        "itemNameShort": "Phonebooth Door",
+        "itemDesc": "Call upon your inner spy and craft the perfect secret entrance with this Phonebooth Door!\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "lowestPurchasablePrice": {
+          "Amount": 250
+        },
+        "highPrice": {
+          "originalAmount": 500
+        },
+        "lowPrice": {
+          "ltoTimer": "2026-07-26T12:00:00.000Z",
+          "isLto": true
+        },
+        "startTime": "2026-07-25T12:00:00.000Z",
+        "endTime": "2026-07-26T12:00:00.000Z",
+        "primaryImage": {
+          "imageName": "atx_entm_camp_door_secret_phonebooth_l.webp",
+          "directory": "/textures/atx/storefront/camp/doors/"
+        },
+        "carouselImages": [
+          {
+            "imageName": "atx_entm_camp_door_secret_phonebooth_c1.webp",
+            "directory": "/textures/atx/storefront/camp/doors/"
+          },
+          {
+            "imageName": "atx_entm_camp_door_secret_phonebooth_c2.webp",
+            "directory": "/textures/atx/storefront/camp/doors/"
           }
         ]
       },
       {
         "itemID": 306,
-        "EDID": "ATX_ENTM_Skin_WeaponSkin_PlasmaCasterRifle_SoftServe",
+        "EDID": "ATX_ENTM_Apparel_Outfit_GraftonMonsterMascot",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Soft Serve Plasma Caster Paint",
-        "itemNameShort": "Soft Serve Plasma Caster Paint",
-        "itemDesc": "Serve up some soft, cold revenge with this Plasma Caster Paint.\n\nSKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
+        "itemName": "Grafton Monster Mascot Outfit",
+        "itemNameShort": "Grafton Monster Mascot Outfit",
+        "itemDesc": "Show everyone in the Wasteland that you are the biggest Monsters' fan of all.\n\nAPPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
         "lowestPurchasablePrice": {
-          "Amount": 250
+          "Amount": 600
         },
         "highPrice": {
-          "originalAmount": 500
+          "originalAmount": 600
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-22T12:00:00.000Z",
+          "ltoTimer": "2026-07-27T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-21T12:00:00.000Z",
-        "endTime": "2026-06-22T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-26T12:00:00.000Z",
+        "endTime": "2026-07-27T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_skin_weaponskin_plasmacasterrifle_softserve_l.webp",
-          "directory": "/textures/atx/storefront/player/weaponskin/"
+          "imageName": "atx_apparel_outfit_graftonmonstermascot_l.webp",
+          "directory": "/textures/atx/storefront/player/outfit/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_skin_weaponskin_plasmacasterrifle_softserve_c1.webp",
-            "directory": "/textures/atx/storefront/player/weaponskin/"
+            "imageName": "atx_apparel_outfit_graftonmonstermascot_c1.webp",
+            "directory": "/textures/atx/storefront/player/outfit/"
           },
           {
-            "imageName": "atx_skin_weaponskin_plasmacasterrifle_softserve_c2.webp",
-            "directory": "/textures/atx/storefront/player/weaponskin/"
+            "imageName": "atx_apparel_outfit_graftonmonstermascot_c2.webp",
+            "directory": "/textures/atx/storefront/player/outfit/"
           }
         ]
       },
       {
         "itemID": 307,
-        "EDID": "ATX_ENTM_Skin_WeaponSkin_FatMan_Aviator",
+        "EDID": "ATX_ENTM_Skin_WeaponSkin_44_Gold",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Aviator Paint (Fat Man)",
-        "itemNameShort": "Aviator Paint (Fat Man)",
-        "itemDesc": "Give your Fat Man that aerodynamic look with the Aviator Paint. Shiny!\n\nSKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
+        "itemName": ".44 Gold Paint",
+        "itemNameShort": ".44 Gold Paint",
+        "itemDesc": "When you want to make a point, and look great doing it, look no further than this Gold Paint for your .44.\n\nSKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
         "lowestPurchasablePrice": {
-          "Amount": 350
+          "Amount": 400
         },
         "highPrice": {
-          "originalAmount": 700
+          "originalAmount": 400
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-23T12:00:00.000Z",
+          "ltoTimer": "2026-07-28T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-22T12:00:00.000Z",
-        "endTime": "2026-06-23T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-27T12:00:00.000Z",
+        "endTime": "2026-07-28T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_skin_weaponskin_fatman_bomber_l.webp",
+          "imageName": "atx_skin_weaponskin_44_gold_l.webp",
           "directory": "/textures/atx/storefront/player/weaponskin/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_skin_weaponskin_fatman_bomber_c1.webp",
+            "imageName": "atx_skin_weaponskin_44_gold_c1.webp",
             "directory": "/textures/atx/storefront/player/weaponskin/"
           },
           {
-            "imageName": "atx_skin_weaponskin_fatman_bomber_c2.webp",
+            "imageName": "atx_skin_weaponskin_44_gold_c2.webp",
             "directory": "/textures/atx/storefront/player/weaponskin/"
           }
         ]
@@ -1159,12 +1175,12 @@
     "Week4": [
       {
         "itemID": 401,
-        "EDID": "ATX_ENTM_CAMP_Utility_FusionCoreRecharger_ModernHome",
+        "EDID": "ATX_ENTM_CAMP_Defense_Hedgehog",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Modern Home Fusion Core Recharger",
-        "itemNameShort": "Modern Home Fusion Core Recharger",
-        "itemDesc": "Revive your depleted fusion cores in style with the Modern Home Fusion Core Recharger! This item cannot be built inside of a Shelter.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Concrete Hedgehog",
+        "itemNameShort": "Concrete Hedgehog",
+        "itemDesc": "Lay down a spiky defense line with the Concrete Hedgehog for your C.A.M.P.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
           "Amount": 350
         },
@@ -1172,35 +1188,30 @@
           "originalAmount": 700
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-24T12:00:00.000Z",
+          "ltoTimer": "2026-07-29T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-23T12:00:00.000Z",
-        "endTime": "2026-06-24T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-28T12:00:00.000Z",
+        "endTime": "2026-07-29T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_camp_utility_fusioncorerecharger_modernhome_l.webp",
-          "directory": "/textures/atx/storefront/camp/utility/"
+          "imageName": "atx_camp_defense_hedgehog_l.webp",
+          "directory": "/textures/atx/storefront/camp/defenses/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_utility_fusioncorerecharger_modernhome_c1.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
-          },
-          {
-            "imageName": "atx_camp_utility_fusioncorerecharger_modernhome_c2.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "atx_camp_defense_hedgehog_c1.webp",
+            "directory": "/textures/atx/storefront/camp/defenses/"
           }
         ]
       },
       {
         "itemID": 402,
-        "EDID": "SCORE_S1_ENTM_Utility_AmmoConverter",
+        "EDID": "SCORE_S13_ENTM_CAMP_Door_Curtain_RedCurtainDoor",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Ammopoints Ammo Converter",
-        "itemNameShort": "Ammopoints Ammo Converter",
-        "itemDesc": "Turn other people's trash fire into your firepower! A terminal where you can convert unwanted ammo types into points. Then use those points to buy the ammo you need for your adventures in the wasteland. This item cannot be built inside of a Shelter.\n\nAVAILABLE FOR GOLD BULLION PER CHARACTER. C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Red Curtain Door",
+        "itemNameShort": "Red Curtain Door",
+        "itemDesc": "Impress your guests as you usher them through this Red Curtain Door!\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
           "Amount": 250
         },
@@ -1208,35 +1219,34 @@
           "originalAmount": 500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-25T12:00:00.000Z",
+          "ltoTimer": "2026-07-30T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-24T12:00:00.000Z",
-        "endTime": "2026-06-25T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-29T12:00:00.000Z",
+        "endTime": "2026-07-30T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "score_s1_camp_utility_ammoconverter_l.webp",
-          "directory": "/textures/atx/storefront/camp/utility/"
+          "imageName": "score_s13_camp_door_curtain_redcurtaindoor_l.webp",
+          "directory": "/textures/atx/storefront/camp/doors/"
         },
         "carouselImages": [
           {
-            "imageName": "score_s1_camp_utility_ammoconverter_c1.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "score_s13_camp_door_curtain_redcurtaindoor_c1.webp",
+            "directory": "/textures/atx/storefront/camp/doors/"
           },
           {
-            "imageName": "score_s1_camp_utility_ammoconverter_c2.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "score_s13_camp_door_curtain_redcurtaindoor_c2.webp",
+            "directory": "/textures/atx/storefront/camp/doors/"
           }
         ]
       },
       {
         "itemID": 403,
-        "EDID": "ATX_ENTM_CAMP_Bed_SporePlant",
+        "EDID": "ATX_ENTM_CAMP_Floor_Astroturf",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Spore Plant Bed",
-        "itemNameShort": "Spore Plant Bed",
-        "itemDesc": "This plant seems suspicious...ly comfortable.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Astroturf Floor And Foundations",
+        "itemNameShort": "Astroturf Floor And Foundations",
+        "itemDesc": "For the days when you want that grass look indoors, the Astroturf Floor is there for you.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
           "Amount": 250
         },
@@ -1244,71 +1254,73 @@
           "originalAmount": 500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-26T12:00:00.000Z",
+          "ltoTimer": "2026-07-31T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-25T12:00:00.000Z",
-        "endTime": "2026-06-26T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-30T12:00:00.000Z",
+        "endTime": "2026-07-31T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_camp_bed_sporeplant_l.webp",
-          "directory": "/textures/atx/storefront/camp/beds/"
+          "imageName": "atx_camp_floor_astroturf_l.webp",
+          "directory": "/textures/atx/storefront/camp/floors/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_bed_sporeplant_c1.webp",
-            "directory": "/textures/atx/storefront/camp/beds/"
+            "imageName": "atx_camp_floor_astroturf_c1.webp",
+            "directory": "/textures/atx/storefront/camp/floors/"
           },
           {
-            "imageName": "atx_camp_bed_sporeplant_c2.webp",
-            "directory": "/textures/atx/storefront/camp/beds/"
+            "imageName": "atx_camp_floor_astroturf_c2.webp",
+            "directory": "/textures/atx/storefront/camp/floors/"
+          },
+          {
+            "imageName": "atx_camp_floor_astroturf_c3.webp",
+            "directory": "/textures/atx/storefront/camp/floors/"
           }
         ]
       },
       {
         "itemID": 404,
-        "EDID": "ATX_ENTM_CAMP_Collector_MirelurkSteamer",
+        "EDID": "ATX_ENTM_CAMP_Vendor_PlayerVendingMachine_RustedVendorBot_Rusted",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Mirelurk Steamer",
-        "itemNameShort": "Mirelurk Steamer",
-        "itemDesc": "Have that perfectly prepared delicious Mirelurk meal of your dreams with the Mirelurk Steamer. Generates Mirelurk Food This item cannot be built inside of a Shelter.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Rusted Vendor Bot",
+        "itemNameShort": "Rusted Vendor Bot",
+        "itemDesc": "Every bit of rust tells a story.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
-          "Amount": 250
+          "Amount": 500
         },
         "highPrice": {
           "originalAmount": 500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-27T12:00:00.000Z",
+          "ltoTimer": "2026-08-01T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-26T12:00:00.000Z",
-        "endTime": "2026-06-27T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-07-31T12:00:00.000Z",
+        "endTime": "2026-08-01T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_camp_collector_mirelurksteamer_l.webp",
-          "directory": "/textures/atx/storefront/camp/utility/"
+          "imageName": "atx_camp_vendor_playervendingmachine_rustedvendorbot_l.webp",
+          "directory": "/textures/atx/storefront/camp/vendors/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_collector_mirelurksteamer_c1.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "atx_camp_vendor_playervendingmachine_rustedvendorbot_c1.webp",
+            "directory": "/textures/atx/storefront/camp/vendors/"
           },
           {
-            "imageName": "atx_camp_collector_mirelurksteamer_c2.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "atx_camp_vendor_playervendingmachine_rustedvendorbot_c2.webp",
+            "directory": "/textures/atx/storefront/camp/vendors/"
           }
         ]
       },
       {
         "itemID": 405,
-        "EDID": "ATX_ENTM_CAMP_Utility_DeepWell",
+        "EDID": "ATX_ENTM_CAMP_Sign_UnderConstruction",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Deep Well",
-        "itemNameShort": "Deep Well",
-        "itemDesc": "Drink deep! This Deep Well will dispense non-radiated water to keep your C.A.M.P. free from thirst. This item cannot be built inside of a Shelter.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Under Construction Sign",
+        "itemNameShort": "Under Construction Sign",
+        "itemDesc": "Mind the dust please while we make some renovations.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
         "lowestPurchasablePrice": {
           "Amount": 250
         },
@@ -1316,71 +1328,69 @@
           "originalAmount": 500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-28T12:00:00.000Z",
+          "ltoTimer": "2026-08-02T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-27T12:00:00.000Z",
-        "endTime": "2026-06-28T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-08-01T12:00:00.000Z",
+        "endTime": "2026-08-02T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_camp_utility_deepwell_l.webp",
-          "directory": "/textures/atx/storefront/camp/utility/"
+          "imageName": "atx_camp_sign_underconstruction_l.webp",
+          "directory": "/textures/atx/storefront/camp/signs/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_utility_deepwell_c1.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "atx_camp_sign_underconstruction_c1.webp",
+            "directory": "/textures/atx/storefront/camp/signs/"
           },
           {
-            "imageName": "atx_camp_utility_deepwell_c2.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "atx_camp_sign_underconstruction_c2.webp",
+            "directory": "/textures/atx/storefront/camp/signs/"
           }
         ]
       },
       {
         "itemID": 406,
-        "EDID": "ATX_ENTM_CAMP_Utility_TreeSapBucket",
+        "EDID": "ATX_ENTM_Skin_WeaponSkin_BlackPowder_Dragon_Nighthawk",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Tree Sap Collector",
-        "itemNameShort": "Sap Collector",
-        "itemDesc": "Stick to the basics and harness nature's glue with this Tree Sap Collector! Tree Sap Collector dispenses Adhesive.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "The Nighthawk Skin (The Dragon)",
+        "itemNameShort": "The Nighthawk Skin (The Dragon)",
+        "itemDesc": "Dark. Mysterious. The Nighthawk strikes without warning. Become The Nighthawk with this skin for The Dragon Black Powder Rifle.\n\nSKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
         "lowestPurchasablePrice": {
-          "Amount": 250
+          "Amount": 500
         },
         "highPrice": {
           "originalAmount": 500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-29T12:00:00.000Z",
+          "ltoTimer": "2026-08-03T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-28T12:00:00.000Z",
-        "endTime": "2026-06-29T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-08-02T12:00:00.000Z",
+        "endTime": "2026-08-03T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "atx_camp_utility_treesapbucket_l.webp",
-          "directory": "/textures/atx/storefront/camp/utility/"
+          "imageName": "atx_skin_weaponskin_blackpowder_dragon_nighthawk_l.webp",
+          "directory": "/textures/atx/storefront/player/weaponskin/"
         },
         "carouselImages": [
           {
-            "imageName": "atx_camp_utility_treesapbucket_c1.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "atx_skin_weaponskin_blackpowder_dragon_nighthawk_c1.webp",
+            "directory": "/textures/atx/storefront/player/weaponskin/"
           },
           {
-            "imageName": "atx_camp_utility_treesapbucket_c2.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "atx_skin_weaponskin_blackpowder_dragon_nighthawk_c2.webp",
+            "directory": "/textures/atx/storefront/player/weaponskin/"
           }
         ]
       },
       {
         "itemID": 407,
-        "EDID": "SCORE_S1_ENTM_CAMP_Collector_ChickenCoop",
+        "EDID": "ATX_ENTM_Skin_BackpackFlair_BirdSkull",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Chicken Coop",
-        "itemNameShort": "Chicken Coop",
-        "itemDesc": "Set up this Chicken Coop and generate some fertilizer for your farm! This item cannot be built inside of a Shelter.\n\nAVAILABLE FOR GOLD BULLION PER CHARACTER. C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+        "itemName": "Bird Skull Backpack Flair",
+        "itemNameShort": "Bird Skull Backpack Flair",
+        "itemDesc": "Death comes for us all in time. Keep a reminder of how close with this Bird Skull. Flairs can be applied to most Backpacks.\n\nFLAIRS ARE APPLIED AT ARMOR WORKBENCHES.",
         "lowestPurchasablePrice": {
           "Amount": 250
         },
@@ -1388,282 +1398,27 @@
           "originalAmount": 500
         },
         "lowPrice": {
-          "ltoTimer": "2026-06-30T12:00:00.000Z",
+          "ltoTimer": "2026-08-04T12:00:00.000Z",
           "isLto": true
         },
-        "startTime": "2026-06-29T12:00:00.000Z",
-        "endTime": "2026-06-30T12:00:00.000Z",
-        "ltoTimer": "",
+        "startTime": "2026-08-03T12:00:00.000Z",
+        "endTime": "2026-08-04T12:00:00.000Z",
         "primaryImage": {
-          "imageName": "score_s1_camp_utility_collector_chickencoop_l.webp",
-          "directory": "/textures/atx/storefront/camp/utility/"
+          "imageName": "atx_skin_backpackflair_birdskull.webp",
+          "directory": "/textures/atx/storefront/player/flair/"
         },
         "carouselImages": [
           {
-            "imageName": "score_s1_camp_utility_collector_chickencoop_c1.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "atx_skin_backpackflair_birdskull_c1.webp",
+            "directory": "/textures/atx/storefront/player/flair/"
           },
           {
-            "imageName": "score_s1_camp_utility_collector_chickencoop_c2.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
+            "imageName": "atx_skin_backpackflair_birdskull_c2.webp",
+            "directory": "/textures/atx/storefront/player/flair/"
           }
         ]
       }
     ],
-    "Week5": [
-      {
-        "itemID": 501,
-        "EDID": "ATX_ENTM_CAMP_Collector_FishTrap",
-        "replaceItemID": 101,
-        "isZeus": false,
-        "itemName": "Fish Trap",
-        "itemNameShort": "Fish Trap",
-        "itemDesc": "Why stand around when you can let the fish come to you with the Fish Trap. Generates Fish. This item cannot be built inside of a Shelter.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-        "lowestPurchasablePrice": {
-          "Amount": 350
-        },
-        "highPrice": {
-          "originalAmount": 700
-        },
-        "lowPrice": {
-          "ltoTimer": "2026-07-01T12:00:00.000Z",
-          "isLto": true
-        },
-        "startTime": "2026-06-30T12:00:00.000Z",
-        "endTime": "2026-07-01T12:00:00.000Z",
-        "primaryImage": {
-          "imageName": "atx_camp_collector_fishtrap_l.webp",
-          "directory": "/textures/atx/storefront/camp/utility/"
-        },
-        "carouselImages": [
-          {
-            "imageName": "atx_camp_collector_fishtrap_c1.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
-          },
-          {
-            "imageName": "atx_camp_collector_fishtrap_c2.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
-          },
-          {
-            "imageName": "atx_camp_collector_fishtrap_l.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
-          }
-        ]
-      },
-      {
-        "itemID": 502,
-        "EDID": "ATX_ENTM_CAMP_Foundation_Stilt",
-        "replaceItemID": 101,
-        "isZeus": false,
-        "itemName": "Wood Stilt Foundation",
-        "itemNameShort": "Wood Stilt Foundation",
-        "itemDesc": "Build your C.A.M.P. above the water or the earth with this Wood Stilt Foundation.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-        "lowestPurchasablePrice": {
-          "Amount": 250
-        },
-        "highPrice": {
-          "originalAmount": 500
-        },
-        "lowPrice": {
-          "ltoTimer": "2026-07-02T12:00:00.000Z",
-          "isLto": true
-        },
-        "startTime": "2026-07-01T12:00:00.000Z",
-        "endTime": "2026-07-02T12:00:00.000Z",
-        "primaryImage": {
-          "imageName": "atx_camp_foundation_stilt_l.webp",
-          "directory": "/textures/atx/storefront/camp/floors/"
-        },
-        "carouselImages": [
-          {
-            "imageName": "atx_camp_foundation_stilt_c1.webp",
-            "directory": "/textures/atx/storefront/camp/floors/"
-          },
-          {
-            "imageName": "atx_camp_foundation_stilt_c2.webp",
-            "directory": "/textures/atx/storefront/camp/floors/"
-          },
-          {
-            "imageName": "atx_camp_foundation_stilt_c3.webp",
-            "directory": "/textures/atx/storefront/camp/floors/"
-          }
-        ]
-      },
-      {
-        "itemID": 503,
-        "EDID": "ATX_ENTM_Apparel_Outfit_FishingOutfit",
-        "replaceItemID": 101,
-        "isZeus": false,
-        "itemName": "Fly-Fishing Outfit",
-        "itemNameShort": "Fly-Fishing Outfit",
-        "itemDesc": "The bass may not be biting, but this Fly-Fishing Outfit is perfect for hooking those Mirelurks.\n\nAPPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
-        "lowestPurchasablePrice": {
-          "Amount": 400
-        },
-        "highPrice": {
-          "originalAmount": 800
-        },
-        "lowPrice": {
-          "ltoTimer": "2026-07-03T12:00:00.000Z",
-          "isLto": true
-        },
-        "startTime": "2026-07-02T12:00:00.000Z",
-        "endTime": "2026-07-03T12:00:00.000Z",
-        "primaryImage": {
-          "imageName": "atx_apparel_outfit_fishingoutfit_l.webp",
-          "directory": "/textures/atx/storefront/player/outfit/"
-        },
-        "carouselImages": [
-          {
-            "imageName": "atx_apparel_outfit_fishingoutfit_c1.webp",
-            "directory": "/textures/atx/storefront/player/outfit/"
-          },
-          {
-            "imageName": "atx_apparel_outfit_fishingoutfit_c2.webp",
-            "directory": "/textures/atx/storefront/player/outfit/"
-          }
-        ]
-      },
-      {
-        "itemID": 504,
-        "EDID": "ATX_ENTM_CAMP_DisplayCase_FishingLureRack",
-        "replaceItemID": 101,
-        "isZeus": false,
-        "itemName": "Fishing Lure Rack",
-        "itemNameShort": "Fishing Lure Rack",
-        "itemDesc": "A nice case of old fishing lures.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-        "lowestPurchasablePrice": {
-          "Amount": 175
-        },
-        "highPrice": {
-          "originalAmount": 350
-        },
-        "lowPrice": {
-          "ltoTimer": "2026-07-04T12:00:00.000Z",
-          "isLto": true
-        },
-        "startTime": "2026-07-03T12:00:00.000Z",
-        "endTime": "2026-07-04T12:00:00.000Z",
-        "primaryImage": {
-          "imageName": "atx_camp_displaycase_fishinglurerack_l.webp",
-          "directory": "/textures/atx/storefront/camp/displays/"
-        },
-        "carouselImages": [
-          {
-            "imageName": "atx_camp_displaycase_fishinglurerack_c1.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
-          },
-          {
-            "imageName": "atx_camp_displaycase_fishinglurerack_c2.webp",
-            "directory": "/textures/atx/storefront/camp/displays/"
-          }
-        ]
-      },
-      {
-        "itemID": 505,
-        "EDID": "ATX_ENTM_CAMP_Utility_FishingCoolerCryoFrezer",
-        "replaceItemID": 101,
-        "isZeus": false,
-        "itemName": "Fishing Cooler Cryo Freezer",
-        "itemNameShort": "Fishing Cooler Cryo Freezer",
-        "itemDesc": "Keep your fish on ice with this Cryo Freezer. It will instantly freeze food and drink items reducing spoilage rates to 0%.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-        "lowestPurchasablePrice": {
-          "Amount": 250
-        },
-        "highPrice": {
-          "originalAmount": 500
-        },
-        "lowPrice": {
-          "ltoTimer": "2026-07-05T12:00:00.000Z",
-          "isLto": true
-        },
-        "startTime": "2026-07-04T12:00:00.000Z",
-        "endTime": "2026-07-05T12:00:00.000Z",
-        "primaryImage": {
-          "imageName": "atx_camp_utility_fishingcoolercryofrezer_l.webp",
-          "directory": "/textures/atx/storefront/camp/floordecoration/"
-        },
-        "carouselImages": [
-          {
-            "imageName": "atx_camp_utility_fishingcoolercryofrezer_c1.webp",
-            "directory": "/textures/atx/storefront/camp/floordecoration/"
-          },
-          {
-            "imageName": "atx_camp_utility_fishingcoolercryofrezer_c2.webp",
-            "directory": "/textures/atx/storefront/camp/floordecoration/"
-          }
-        ]
-      },
-      {
-        "itemID": 506,
-        "EDID": "ATX_ENTM_CAMP_Collector_PoisonedEarthWell",
-        "replaceItemID": 101,
-        "isZeus": false,
-        "itemName": "Poisoned Earth Well",
-        "itemNameShort": "Poisoned Earth Well",
-        "itemDesc": "Even this fouled well can serve a purpose. Generates Acid, Dirty Water, Nuclear Waste. This item cannot be built inside of a Shelter.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-        "lowestPurchasablePrice": {
-          "Amount": 350
-        },
-        "highPrice": {
-          "originalAmount": 700
-        },
-        "lowPrice": {
-          "ltoTimer": "2026-07-06T12:00:00.000Z",
-          "isLto": true
-        },
-        "startTime": "2026-07-05T12:00:00.000Z",
-        "endTime": "2026-07-06T12:00:00.000Z",
-        "primaryImage": {
-          "imageName": "atx_camp_collector_poisonedearthwell.webp",
-          "directory": "/textures/atx/storefront/camp/utility/"
-        },
-        "carouselImages": [
-          {
-            "imageName": "atx_camp_collector_poisonedearthwell_c1.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
-          },
-          {
-            "imageName": "atx_camp_collector_poisonedearthwell_c2.webp",
-            "directory": "/textures/atx/storefront/camp/utility/"
-          }
-        ]
-      },
-      {
-        "itemID": 507,
-        "EDID": "ATX_ENTM_CAMP_FloorDecor_FishPond",
-        "replaceItemID": 101,
-        "isZeus": false,
-        "itemName": "Fish Pond",
-        "itemNameShort": "Fish Pond",
-        "itemDesc": "Cement for strength, rust for style - the perfect survivor's pond. The pond cannot be used for fishing.\n\nC.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-        "lowestPurchasablePrice": {
-          "Amount": 250
-        },
-        "highPrice": {
-          "originalAmount": 500
-        },
-        "lowPrice": {
-          "ltoTimer": "2026-07-07T12:00:00.000Z",
-          "isLto": true
-        },
-        "startTime": "2026-07-06T12:00:00.000Z",
-        "endTime": "2026-07-07T12:00:00.000Z",
-        "primaryImage": {
-          "imageName": "atx_camp_floordecor_fishpond_l.webp",
-          "directory": "/textures/atx/storefront/camp/floordecoration/"
-        },
-        "carouselImages": [
-          {
-            "imageName": "atx_camp_floordecor_fishpond_c1.webp",
-            "directory": "/textures/atx/storefront/camp/floordecoration/"
-          },
-          {
-            "imageName": "atx_camp_floordecor_fishpond_c2.webp",
-            "directory": "/textures/atx/storefront/camp/floordecoration/"
-          }
-        ]
-      }
-    ]
+    "Week5": []
   }
 }
