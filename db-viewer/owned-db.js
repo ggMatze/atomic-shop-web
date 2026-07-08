@@ -1,9 +1,14 @@
 (function () {
   const STORAGE_KEY = 'atomicShopOwnedIds';
+  const FAVORITE_STORAGE_KEY = 'atomicShopFavoriteIds';
   const TILE_SELECTOR = '.shop-tile';
   const BADGE_CLASS = 'owned-badge';
   const CHECKBOX_CLASS = 'owned-checkbox';
   const CHECKBOX_WRAPPER_CLASS = 'owned-checkbox-wrapper';
+  const OWNED_TOGGLE_CLASS = 'owned-check-toggle';
+  const OWNED_TOGGLE_ACTIVE_CLASS = 'active';
+  const FAVORITE_TOGGLE_CLASS = 'favorite-heart-toggle';
+  const FAVORITE_TOGGLE_ACTIVE_CLASS = 'active';
 
   function getCookieDomain() {
     const hostname = window.location.hostname || '';
@@ -18,6 +23,7 @@
   }
 
   let lastCookieValue = '';
+  let lastFavoriteCookieValue = '';
 
   function isCookieValueSafe(value) {
     return typeof value === 'string' && encodeURIComponent(value).length <= 3800;
@@ -47,23 +53,25 @@
     return cookieValue;
   }
 
-  function refreshOwnedCookieState() {
-    const currentCookie = readCookieValue(STORAGE_KEY);
-    if (currentCookie !== lastCookieValue) {
-      lastCookieValue = currentCookie;
+  function refreshStoredState() {
+    const currentOwnedCookie = readCookieValue(STORAGE_KEY);
+    const currentFavoriteCookie = readCookieValue(FAVORITE_STORAGE_KEY);
+    if (currentOwnedCookie !== lastCookieValue || currentFavoriteCookie !== lastFavoriteCookieValue) {
+      lastCookieValue = currentOwnedCookie;
+      lastFavoriteCookieValue = currentFavoriteCookie;
       decorateViewerTiles();
       updateStoredItemCount();
     }
   }
 
   function installCookieSync() {
-    window.addEventListener('focus', refreshOwnedCookieState);
+    window.addEventListener('focus', refreshStoredState);
     document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible') refreshOwnedCookieState();
+      if (document.visibilityState === 'visible') refreshStoredState();
     });
 
     if (typeof window.setInterval === 'function') {
-      setInterval(refreshOwnedCookieState, 5000);
+      setInterval(refreshStoredState, 5000);
     }
   }
 
@@ -93,29 +101,55 @@
     document.cookie = `${key}=; path=/; max-age=0; SameSite=Lax; domain=${cookieDomain}`;
   }
 
+  function normalizeIdArray(ids) {
+    if (!Array.isArray(ids)) return [];
+    return Array.from(new Set(ids.filter(id => typeof id === 'string' && id.trim()).map(id => id.trim())));
+  }
+
   function parseStoredIds(value) {
     if (!value) return [];
     try {
       const parsed = JSON.parse(value);
-      return Array.isArray(parsed)
-        ? parsed.filter(id => typeof id === 'string' && id.trim()).map(id => id.trim())
-        : [];
+      return normalizeIdArray(parsed);
     } catch (e) {
       return [];
     }
   }
 
-  function getStoredIds() {
+  function getStoredIds(storageKey = STORAGE_KEY) {
     try {
-      return parseStoredIds(readSharedValue(STORAGE_KEY));
+      return parseStoredIds(readSharedValue(storageKey));
     } catch (e) {
       return [];
     }
   }
 
-  function saveStoredIds(ids) {
-    const uniqueIds = Array.from(new Set(ids.filter(id => typeof id === 'string' && id.trim()).map(id => id.trim())));
-    writeSharedValue(STORAGE_KEY, JSON.stringify(uniqueIds));
+  function saveStoredIds(ids, storageKey = STORAGE_KEY) {
+    const uniqueIds = normalizeIdArray(ids);
+    writeSharedValue(storageKey, JSON.stringify(uniqueIds));
+    updateStoredItemCount();
+  }
+
+  function getFavoriteIds() {
+    return getStoredIds(FAVORITE_STORAGE_KEY);
+  }
+
+  function saveFavoriteIds(ids) {
+    saveStoredIds(ids, FAVORITE_STORAGE_KEY);
+  }
+
+  function getStoredTrackingData() {
+    return {
+      owned: getStoredIds(STORAGE_KEY),
+      favorites: getFavoriteIds()
+    };
+  }
+
+  function saveStoredTrackingData(data) {
+    const owned = normalizeIdArray(data && data.owned);
+    const favorites = normalizeIdArray(data && data.favorites);
+    saveStoredIds(owned, STORAGE_KEY);
+    saveStoredIds(favorites, FAVORITE_STORAGE_KEY);
     updateStoredItemCount();
   }
 
@@ -166,6 +200,38 @@
     showPanelMessage(`${owned ? 'Marked' : 'Unmarked'} ${matchedIds.length} matched item(s) as ${owned ? 'owned' : 'not owned'}.`);
   }
 
+  function updateFavoriteStateForMatchedItems(favorited) {
+    const matchedIds = getMatchedItemIds();
+    if (!matchedIds.length) {
+      showPanelMessage('No matched items found.', true);
+      return;
+    }
+
+    const stored = new Set(getFavoriteIds());
+    matchedIds.forEach(id => {
+      if (favorited) stored.add(id);
+      else stored.delete(id);
+    });
+
+    saveFavoriteIds(Array.from(stored));
+    decorateViewerTiles();
+    showPanelMessage(`${favorited ? 'Added' : 'Removed'} ${matchedIds.length} matched item(s) to ${favorited ? 'favorites' : 'favorites list'}.`);
+  }
+
+  function toggleFavoriteForTile(tileId) {
+    if (!tileId) return;
+
+    const stored = new Set(getFavoriteIds());
+    if (stored.has(tileId)) {
+      stored.delete(tileId);
+    } else {
+      stored.add(tileId);
+    }
+
+    saveFavoriteIds(Array.from(stored));
+    decorateViewerTiles();
+  }
+
   let ownedControlsVisible = false;
 
   function normalizeFallback(value) {
@@ -211,7 +277,8 @@
     return null;
   }
 
-  let hoverOverlay = null;
+  let ownedHoverOverlay = null;
+  let wishlistHoverOverlay = null;
   let overlayTileId = null;
   let currentHoverTile = null;
   let hideOverlayTimer = null;
@@ -221,40 +288,7 @@
   let clearConfirmActive = false;
   let clearConfirmTimer = null;
 
-  function createHoverOverlay() {
-    if (hoverOverlay) return hoverOverlay;
-
-    hoverOverlay = document.createElement('div');
-    hoverOverlay.id = 'owned-hover-overlay';
-    hoverOverlay.style.display = 'none';
-
-    const input = document.createElement('input');
-    input.type = 'checkbox';
-    input.className = CHECKBOX_CLASS;
-    input.setAttribute('aria-label', 'Mark item as owned');
-    input.addEventListener('change', (event) => {
-      if (!overlayTileId) return;
-      const stored = new Set(getStoredIds());
-      if (event.target.checked) {
-        stored.add(overlayTileId);
-        console.debug('owned-db: checked', overlayTileId);
-      } else {
-        stored.delete(overlayTileId);
-        console.debug('owned-db: unchecked', overlayTileId);
-      }
-      saveStoredIds(Array.from(stored));
-      decorateViewerTiles();
-    });
-
-    const label = document.createElement('label');
-    label.className = CHECKBOX_WRAPPER_CLASS;
-    label.appendChild(input);
-
-    const text = document.createElement('span');
-    text.textContent = 'Owned';
-    label.appendChild(text);
-    hoverOverlay.appendChild(label);
-
+  function attachHoverOverlayBehavior(overlay) {
     const keepOverlayVisible = () => {
       hoverActive = true;
       if (hideOverlayTimer) {
@@ -268,16 +302,72 @@
       scheduleHideOverlay();
     };
 
-    hoverOverlay.addEventListener('mouseenter', keepOverlayVisible);
-    hoverOverlay.addEventListener('mousemove', keepOverlayVisible);
-    hoverOverlay.addEventListener('mouseleave', beginHideOverlay);
+    overlay.addEventListener('mouseenter', keepOverlayVisible);
+    overlay.addEventListener('mousemove', keepOverlayVisible);
+    overlay.addEventListener('mouseleave', beginHideOverlay);
 
-    hoverOverlay.addEventListener('pointerenter', keepOverlayVisible);
-    hoverOverlay.addEventListener('pointermove', keepOverlayVisible);
-    hoverOverlay.addEventListener('pointerleave', beginHideOverlay);
+    overlay.addEventListener('pointerenter', keepOverlayVisible);
+    overlay.addEventListener('pointermove', keepOverlayVisible);
+    overlay.addEventListener('pointerleave', beginHideOverlay);
+  }
 
-    document.body.appendChild(hoverOverlay);
-    return hoverOverlay;
+  function createHoverOverlay() {
+    if (ownedHoverOverlay && wishlistHoverOverlay) return;
+
+    if (!ownedHoverOverlay) {
+      ownedHoverOverlay = document.createElement('div');
+      ownedHoverOverlay.id = 'owned-hover-overlay';
+      ownedHoverOverlay.style.display = 'none';
+
+      const ownedButton = document.createElement('button');
+      ownedButton.type = 'button';
+      ownedButton.className = OWNED_TOGGLE_CLASS;
+      ownedButton.setAttribute('aria-label', 'Mark item as owned');
+      ownedButton.setAttribute('aria-pressed', 'false');
+      ownedButton.title = 'Mark Owned';
+      ownedButton.innerHTML = ` <svg viewBox="0 0 24 24" aria-hidden="true"> <path d="M8.5 18.5L2.5 12.5L5.3 9.7L8.5 12.9L18.7 2.7L21.5 5.5L8.5 18.5Z"></path> </svg>`;
+      ownedButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (!overlayTileId) return;
+        const stored = new Set(getStoredIds());
+        if (stored.has(overlayTileId)) {
+          stored.delete(overlayTileId);
+        } else {
+          stored.add(overlayTileId);
+        }
+        saveStoredIds(Array.from(stored));
+        decorateViewerTiles();
+        syncHoverOverlayState(overlayTileId);
+      });
+      ownedHoverOverlay.appendChild(ownedButton);
+      attachHoverOverlayBehavior(ownedHoverOverlay);
+      document.body.appendChild(ownedHoverOverlay);
+    }
+
+    if (!wishlistHoverOverlay) {
+      wishlistHoverOverlay = document.createElement('div');
+      wishlistHoverOverlay.id = 'wished-hover-overlay';
+      wishlistHoverOverlay.style.display = 'none';
+
+      const favoriteButton = document.createElement('button');
+      favoriteButton.type = 'button';
+      favoriteButton.className = FAVORITE_TOGGLE_CLASS;
+      favoriteButton.setAttribute('aria-label', 'Mark item as favorite');
+      favoriteButton.setAttribute('aria-pressed', 'false');
+      favoriteButton.title = 'Favorite/Wish';
+      favoriteButton.innerHTML = ` <svg viewBox="0 0 24 24" aria-hidden="true"> <path d="M12 21s-7.5-4.35-10-8.5C-.5 8 2 3.5 6 3.5c2.2 0 4.2 1.2 6 3.2 1.8-2 3.8-3.2 6-3.2 4 0 6.5 4.5 4 9-2.5 4.15-10 8.5-10 8.5z"> </path> </svg>`;
+      favoriteButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (!overlayTileId) return;
+        toggleFavoriteForTile(overlayTileId);
+        syncHoverOverlayState(overlayTileId);
+      });
+      wishlistHoverOverlay.appendChild(favoriteButton);
+      attachHoverOverlayBehavior(wishlistHoverOverlay);
+      document.body.appendChild(wishlistHoverOverlay);
+    }
   }
 
   function showHoverOverlay(tile) {
@@ -289,20 +379,40 @@
     overlayTileId = tileId;
     currentHoverTile = tile;
     hoverActive = true;
-    const overlay = createHoverOverlay();
+    createHoverOverlay();
     const rect = tile.getBoundingClientRect();
-    overlay.style.left = `${window.scrollX + rect.left + 8}px`;
-    overlay.style.top = `${window.scrollY + rect.top + 8}px`;
-    overlay.style.display = 'inline-flex';
-    const checkbox = overlay.querySelector(`.${CHECKBOX_CLASS}`);
-    if (checkbox) {
-      checkbox.checked = new Set(getStoredIds()).has(tileId);
+    ownedHoverOverlay.style.left = `${window.scrollX + rect.left + 4}px`;
+    ownedHoverOverlay.style.top = `${window.scrollY + rect.top + 6}px`;
+    ownedHoverOverlay.style.display = 'inline-flex';
+
+    wishlistHoverOverlay.style.left = `${window.scrollX + rect.right - 50}px`;
+    wishlistHoverOverlay.style.top = `${window.scrollY + rect.top + 6}px`;
+    wishlistHoverOverlay.style.display = 'inline-flex';
+
+    syncHoverOverlayState(tileId);
+  }
+
+  function syncHoverOverlayState(tileId) {
+    if (!ownedHoverOverlay && !wishlistHoverOverlay) return;
+    const ownedButton = ownedHoverOverlay ? ownedHoverOverlay.querySelector(`.${OWNED_TOGGLE_CLASS}`) : null;
+    if (ownedButton) {
+      const isOwned = new Set(getStoredIds()).has(tileId);
+      ownedButton.classList.toggle(OWNED_TOGGLE_ACTIVE_CLASS, isOwned);
+      ownedButton.setAttribute('aria-pressed', String(isOwned));
+      ownedButton.setAttribute('aria-label', isOwned ? 'Remove from owned' : 'Add to owned');
+    }
+    const favoriteButton = wishlistHoverOverlay ? wishlistHoverOverlay.querySelector(`.${FAVORITE_TOGGLE_CLASS}`) : null;
+    if (favoriteButton) {
+      const isFavorite = new Set(getFavoriteIds()).has(tileId);
+      favoriteButton.classList.toggle(FAVORITE_TOGGLE_ACTIVE_CLASS, isFavorite);
+      favoriteButton.setAttribute('aria-pressed', String(isFavorite));
+      favoriteButton.setAttribute('aria-label', isFavorite ? 'Remove from favorites' : 'Add to favorites');
     }
   }
 
   function hideHoverOverlay() {
-    if (!hoverOverlay) return;
-    hoverOverlay.style.display = 'none';
+    if (ownedHoverOverlay) ownedHoverOverlay.style.display = 'none';
+    if (wishlistHoverOverlay) wishlistHoverOverlay.style.display = 'none';
     overlayTileId = null;
     currentHoverTile = null;
     hoverActive = false;
@@ -318,10 +428,16 @@
   }
 
   function updateHoverOverlayPosition(tile) {
-    if (!hoverOverlay || !tile) return;
+    if (!tile) return;
     const rect = tile.getBoundingClientRect();
-    hoverOverlay.style.left = `${window.scrollX + rect.left + 8}px`;
-    hoverOverlay.style.top = `${window.scrollY + rect.top + 8}px`;
+    if (ownedHoverOverlay) {
+      ownedHoverOverlay.style.left = `${window.scrollX + rect.left + 4}px`;
+      ownedHoverOverlay.style.top = `${window.scrollY + rect.top + 6}px`;
+    }
+    if (wishlistHoverOverlay) {
+      wishlistHoverOverlay.style.left = `${window.scrollX + rect.right - 50}px`;
+      wishlistHoverOverlay.style.top = `${window.scrollY + rect.top + 6}px`;
+    }
   }
 
   function setupHoverOverlayDelegation() {
@@ -363,16 +479,17 @@
     const existingBadge = tile.querySelector(`.${BADGE_CLASS}`);
     const hasBadge = Boolean(existingBadge);
 
-    if (owned === hasBadge) return;
-
     if (owned) {
-      const badge = document.createElement('div');
-      badge.className = BADGE_CLASS;
-      badge.textContent = '(OWNED)';
-      priceEl.appendChild(badge);
+      if (!existingBadge) {
+        const badge = document.createElement('div');
+        badge.className = BADGE_CLASS;
+        badge.textContent = '(OWNED)';
+        priceEl.appendChild(badge);
+      }
     } else if (existingBadge) {
       existingBadge.remove();
     }
+
   }
 
   function decorateViewerTiles() {
@@ -390,7 +507,7 @@
   function updateStoredItemCount() {
     const countEl = document.getElementById('owned-db-count');
     if (!countEl) return;
-    countEl.textContent = `Marked as owned: ${getStoredIds().length}`;
+    countEl.textContent = `Owned: ${getStoredIds().length} • Favorites: ${getFavoriteIds().length}`;
     updateBulkPanelPosition();
   }
 
@@ -431,10 +548,10 @@
       <div class="owned-db-actions">
         <button id="owned-db-import" type="button">Import JSON</button>
         <button id="owned-db-export" type="button">Export JSON</button>
-        <button id="owned-db-clear" type="button">Clear Owned</button>
+        <button id="owned-db-clear" type="button">Clear Lists</button>
       </div>
       <div id="owned-db-msg" class="owned-db-msg"></div>
-      <div id="owned-db-count" class="owned-db-count">Stored owned items: 0</div>
+      <div id="owned-db-count" class="owned-db-count">Owned: 0 • Favorites: 0</div>
     `;
 
     document.body.appendChild(panel);
@@ -448,6 +565,8 @@
         <div class="owned-db-count">For current filter/search</div>
         <button id="owned-db-mark-matches-owned" type="button">Mark Matches Owned</button>
         <button id="owned-db-unmark-matches-owned" type="button">Mark Matches Not Owned</button>
+        <button id="owned-db-mark-matches-favorite" type="button">Favorite Matches</button>
+        <button id="owned-db-unmark-matches-favorite" type="button">Unfavorite Matches</button>
       </div>
     `;
     document.body.appendChild(bulkPanel);
@@ -461,20 +580,25 @@
     panel.appendChild(fileInput);
 
     document.getElementById('owned-db-export').addEventListener('click', () => {
-      const ids = getStoredIds();
-      console.debug('owned-db: export', ids);
-      const json = JSON.stringify(ids, null, 2);
+      const data = getStoredTrackingData();
+      const ownedIds = data.owned;
+      const favoriteIds = data.favorites;
+      const payload = {
+        owned: ownedIds,
+        favorites: favoriteIds
+      };
+      const json = JSON.stringify(payload, null, 2);
       const blob = new Blob([json], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement('a');
       anchor.href = url;
-      anchor.download = 'owned-items.json';
+      anchor.download = 'tracked-items.json';
       document.body.appendChild(anchor);
       anchor.click();
       anchor.remove();
       URL.revokeObjectURL(url);
       updateStoredItemCount();
-      showPanelMessage(`Exported ${ids.length} item ID(s).`);
+      showPanelMessage(`Exported ${ownedIds.length} owned and ${favoriteIds.length} favorite item ID(s).`);
     });
 
     document.getElementById('owned-db-import').addEventListener('click', () => {
@@ -498,13 +622,23 @@
           showPanelMessage('Invalid JSON file.', true);
           return;
         }
-        if (!Array.isArray(parsed)) {
-          showPanelMessage('JSON must be an array of item IDs.', true);
+        if (Array.isArray(parsed)) {
+          saveStoredTrackingData({ owned: parsed, favorites: [] });
+          decorateViewerTiles();
+          showPanelMessage(`Imported ${parsed.filter(id => typeof id === 'string' && id.trim()).length} item ID(s) into owned list.`);
           return;
         }
-        saveStoredIds(parsed);
-        decorateViewerTiles();
-        showPanelMessage(`Imported ${parsed.filter(id => typeof id === 'string' && id.trim()).length} item ID(s).`);
+
+        if (parsed && typeof parsed === 'object') {
+          const owned = Array.isArray(parsed.owned) ? parsed.owned : [];
+          const favorites = Array.isArray(parsed.favorites) ? parsed.favorites : [];
+          saveStoredTrackingData({ owned, favorites });
+          decorateViewerTiles();
+          showPanelMessage(`Imported ${owned.filter(id => typeof id === 'string' && id.trim()).length} owned and ${favorites.filter(id => typeof id === 'string' && id.trim()).length} favorite item ID(s).`);
+          return;
+        }
+
+        showPanelMessage('JSON must be an array of item IDs or an object with owned/favorites arrays.', true);
       };
       reader.onerror = () => showPanelMessage('Could not read file.', true);
       reader.readAsText(file, 'UTF-8');
@@ -519,10 +653,11 @@
           clearConfirmTimer = null;
         }
         clearSharedValue(STORAGE_KEY);
+        clearSharedValue(FAVORITE_STORAGE_KEY);
         decorateViewerTiles();
         updateStoredItemCount();
-        showPanelMessage('Cleared owned items.');
-        clearButton.textContent = 'Clear Owned';
+        showPanelMessage('Cleared owned and favorite items.');
+        clearButton.textContent = 'Clear Lists';
         return;
       }
 
@@ -542,6 +677,14 @@
 
     document.getElementById('owned-db-unmark-matches-owned').addEventListener('click', () => {
       updateOwnedStateForMatchedItems(false);
+    });
+
+    document.getElementById('owned-db-mark-matches-favorite').addEventListener('click', () => {
+      updateFavoriteStateForMatchedItems(true);
+    });
+
+    document.getElementById('owned-db-unmark-matches-favorite').addEventListener('click', () => {
+      updateFavoriteStateForMatchedItems(false);
     });
   }
 

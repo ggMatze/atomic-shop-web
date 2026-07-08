@@ -1,16 +1,19 @@
 (function () {
   const STORAGE_KEY_IDS = 'atomicShopOwnedIds';
   const STORAGE_KEY_NAMES = 'atomicShopOwnedNames';
+    const FAVORITE_STORAGE_KEY = 'atomicShopFavoriteIds';
   const TILE_SELECTOR = '.shop-tile';
   const BADGE_CLASS = 'owned-badge';
   const BUNDLE_MARKER_CLASS = 'owned-bundle-marker';
   const ATTR_OWNED = 'data-owned-badge';
+    const ATTR_FAVORITED = 'data-favorited';
   const ATTR_STATE = 'data-owned-state';
   let itemsDbUrl = null;
 
   const state = {
     ownedIdSet: new Set(),
     ownedNameSet: new Set(),
+    favoriteIdSet: new Set(),
     dbNameIndex: new Map(),
     dbLoading: false,
     dbLoaded: false,
@@ -22,6 +25,7 @@
 
   let lastSharedOwnedIds = '';
   let lastSharedOwnedNames = '';
+  let lastSharedFavoriteIds = '';
 
   function normalizeName(value) {
     if (!value && value !== 0) return '';
@@ -84,16 +88,25 @@
       lastSharedOwnedIds = value;
     } else if (key === STORAGE_KEY_NAMES) {
       lastSharedOwnedNames = value;
+    } else if (key === FAVORITE_STORAGE_KEY) {
+      lastSharedFavoriteIds = value;
     }
   }
 
   function refreshOwnedStorageState() {
-    const ids = readSharedValue(STORAGE_KEY_IDS);
-    const names = readSharedValue(STORAGE_KEY_NAMES);
+    // Read cookie values directly to detect cross-subdomain updates.
+    const idsCookie = readCookieValue(STORAGE_KEY_IDS);
+    const namesCookie = readCookieValue(STORAGE_KEY_NAMES);
+    const favsCookie = readCookieValue(FAVORITE_STORAGE_KEY);
 
-    if (ids !== lastSharedOwnedIds || names !== lastSharedOwnedNames) {
-      lastSharedOwnedIds = ids;
-      lastSharedOwnedNames = names;
+    if (idsCookie !== lastSharedOwnedIds || namesCookie !== lastSharedOwnedNames || favsCookie !== lastSharedFavoriteIds) {
+      lastSharedOwnedIds = idsCookie;
+      lastSharedOwnedNames = namesCookie;
+      lastSharedFavoriteIds = favsCookie;
+      // Reload local state from storage (cookie fallback will populate localStorage when needed)
+      loadOwnedIds();
+      loadFavoriteIds();
+      loadOwnedNames();
       decorateAllStoreTiles();
     }
   }
@@ -130,18 +143,34 @@
           return;
         }
 
-        if (!Array.isArray(parsed)) {
-          showImportMessage('JSON must be an array of item IDs.', true);
+        // Support legacy format (array of IDs) and new format ({ owned: [...], favorites: [...] })
+        if (Array.isArray(parsed)) {
+          const count = saveOwnedIds(parsed);
+          loadOwnedIds();
+          loadOwnedNames();
+          loadDatabaseIndex()
+            .then(() => decorateAllStoreTiles())
+            .catch(() => decorateAllStoreTiles())
+            .finally(() => showImportMessage(`Imported ${count} owned item ID(s).`, false));
           return;
         }
 
-        const count = saveOwnedIds(parsed);
-        loadOwnedIds();
-        loadOwnedNames();
-        loadDatabaseIndex()
-          .then(() => decorateAllStoreTiles())
-          .catch(() => decorateAllStoreTiles())
-          .finally(() => showImportMessage(`Imported ${count} owned item ID(s).`, false));
+        if (parsed && typeof parsed === 'object') {
+          const owned = Array.isArray(parsed.owned) ? parsed.owned : [];
+          const favorites = Array.isArray(parsed.favorites) ? parsed.favorites : [];
+          const ownedCount = saveOwnedIds(owned);
+          const favCount = saveFavoriteIds(favorites);
+          loadOwnedIds();
+          loadOwnedNames();
+          loadFavoriteIds();
+          loadDatabaseIndex()
+            .then(() => decorateAllStoreTiles())
+            .catch(() => decorateAllStoreTiles())
+            .finally(() => showImportMessage(`Imported ${ownedCount} owned and ${favCount} favorite item ID(s).`, false));
+          return;
+        }
+
+        showImportMessage('JSON must be an array of item IDs or an object with owned/favorites arrays.', true);
       };
 
       reader.onerror = () => showImportMessage('Could not read file.', true);
@@ -204,6 +233,18 @@
     return normalizedIds.length;
   }
 
+  function saveFavoriteIds(ids) {
+    const normalizedIds = Array.from(new Set(
+      (Array.isArray(ids) ? ids : [])
+        .map(id => normalizeId(id))
+        .filter(Boolean)
+    ));
+
+    writeSharedValue(FAVORITE_STORAGE_KEY, JSON.stringify(normalizedIds));
+    state.favoriteIdSet = new Set(normalizedIds);
+    return normalizedIds.length;
+  }
+
   function showImportMessage(text, isError) {
     const msg = document.getElementById(IMPORT_MESSAGE_ID);
     if (msg) {
@@ -259,6 +300,14 @@
       stored.map(id => normalizeId(id)).filter(Boolean)
     );
     return state.ownedIdSet;
+  }
+
+  function loadFavoriteIds() {
+    const stored = parseStoredArray(readSharedValue(FAVORITE_STORAGE_KEY));
+    state.favoriteIdSet = new Set(
+      stored.map(id => normalizeId(id)).filter(Boolean)
+    );
+    return state.favoriteIdSet;
   }
 
   function loadOwnedNames() {
@@ -368,6 +417,24 @@
     return Array.from(names).filter(Boolean);
   }
 
+    function extractIncludedEntryIds(tileData) {
+      const ids = new Set();
+      if (!tileData) return [];
+
+      if (Array.isArray(tileData.dynamicBundleItems)) {
+        tileData.dynamicBundleItems.forEach(entry => {
+          if (!entry) return;
+          if (typeof entry === 'object') {
+            const id = entry.EDID || entry.edid || entry.entmName || entry.entm || entry.id || entry.itemID;
+            if (id != null && String(id).trim()) ids.add(String(id).trim());
+          }
+          // strings are likely names, handled by extractIncludedEntryNames
+        });
+      }
+
+      return Array.from(ids).filter(Boolean);
+    }
+
   function entryMatchesOwned(entryName) {
     const normalized = normalizeName(entryName);
     if (!normalized) return false;
@@ -377,6 +444,16 @@
     const ids = state.dbNameIndex.get(normalized);
     if (!ids) return false;
     return Array.from(ids).some(id => state.ownedIdSet.has(normalizeId(id)));
+  }
+
+  function entryMatchesFavorite(entryName) {
+    const normalized = normalizeName(entryName);
+    if (!normalized) return false;
+    if (!state.dbNameIndex.size || !state.favoriteIdSet.size) return false;
+
+    const ids = state.dbNameIndex.get(normalized);
+    if (!ids) return false;
+    return Array.from(ids).some(id => state.favoriteIdSet.has(normalizeId(id)));
   }
 
   function getOwnedIncludedEntries(tileData) {
@@ -394,16 +471,13 @@
     if (!items.length) return;
 
     items.forEach(el => {
-      const owned = entryMatchesOwned(el.textContent || '');
+      const text = el.textContent || '';
+      const owned = entryMatchesOwned(text);
+      const favorited = entryMatchesFavorite(text);
+
       el.classList.toggle('owned-include-item', owned);
-      if (owned) {
-        el.style.textDecoration = 'line-through';
-        el.style.color = '#a7a786';
-      } else {
-        el.style.textDecoration = '';
-        el.style.opacity = '';
-        el.style.color = '';
-      }
+      el.classList.toggle('favorite-include-item', favorited);
+      // CSS handles colors and decoration via the classes above
     });
   }
 
@@ -478,6 +552,30 @@
     return names.some(name => state.ownedNameSet.has(name));
   }
 
+  function tileHasFavoriteId(tileData, tile) {
+    const { ids } = extractTileDirectCandidates(tile, tileData);
+    const includedIds = extractIncludedEntryIds(tileData);
+    const allIds = Array.from(new Set([...(ids || []), ...(includedIds || [])]));
+    return allIds.some(id => {
+      const normalized = normalizeId(id);
+      if (!normalized) return false;
+      return state.favoriteIdSet.has(normalized);
+    });
+  }
+
+  function tileHasDbFavoriteId(tileData, tile) {
+    if (!state.dbNameIndex.size || !state.favoriteIdSet.size) return false;
+    const { ids, names, hasStrongExplicitId } = extractTileDirectCandidates(tile, tileData);
+    if (ids.length && hasStrongExplicitId) return false;
+    const includedNames = extractIncludedEntryNames(tileData);
+    const allNames = Array.from(new Set([...(names || []), ...(includedNames || [])]));
+    return allNames.some(name => {
+      const ids = state.dbNameIndex.get(name);
+      if (!ids) return false;
+      return Array.from(ids).some(id => state.favoriteIdSet.has(normalizeId(id)));
+    });
+  }
+
   function isTileOwned(tile) {
     const tileData = parseTileData(tile);
     if (!tileData) return false;
@@ -492,6 +590,7 @@
 
     const tileData = parseTileData(tile);
     const owned = isTileOwned(tile);
+    const favorite = tileData ? (tileHasFavoriteId(tileData, tile) || tileHasDbFavoriteId(tileData, tile)) : false;
     const fullyOwnedBundle = tileData ? isTileFullyOwnedBundle(tileData) : false;
     const ownedIncludes = tileData ? getOwnedIncludedEntries(tileData).length > 0 : false;
     const existingBadge = tile.querySelector(`.${BADGE_CLASS}`);
@@ -542,12 +641,15 @@
     tile.classList.toggle('owned-state-owned', owned || fullyOwnedBundle);
     tile.classList.toggle('owned-state-partial', !(owned || fullyOwnedBundle) && ownedIncludes);
     tile.classList.toggle('owned-state-none', !(owned || fullyOwnedBundle) && !ownedIncludes);
+    tile.classList.toggle('favorite-state', Boolean(favorite));
     tile.setAttribute(ATTR_OWNED, (owned || fullyOwnedBundle) ? 'true' : (ownedIncludes ? 'partial' : 'false'));
+    tile.setAttribute(ATTR_FAVORITED, favorite ? 'true' : 'false');
     tile.setAttribute(ATTR_STATE, (owned || fullyOwnedBundle) ? 'owned' : (ownedIncludes ? 'partial' : 'none'));
   }
 
   function decorateAllStoreTiles() {
     loadOwnedIds();
+    loadFavoriteIds();
     loadOwnedNames();
     document.querySelectorAll(TILE_SELECTOR).forEach(tile => decorateStoreTile(tile));
     syncOverlayOwnedIncludes();
@@ -579,7 +681,7 @@
 
   function setupStorageListener() {
     window.addEventListener('storage', (event) => {
-      if (event.key === STORAGE_KEY_IDS || event.key === STORAGE_KEY_NAMES) {
+      if (event.key === STORAGE_KEY_IDS || event.key === STORAGE_KEY_NAMES || event.key === FAVORITE_STORAGE_KEY) {
         decorateAllStoreTiles();
       }
     });
@@ -643,8 +745,9 @@
     window.__ownedTracker.refresh = decorateAllStoreTiles;
     window.__ownedTracker.reloadDbIndex = loadDatabaseIndex;
 
-    lastSharedOwnedIds = readSharedValue(STORAGE_KEY_IDS);
-    lastSharedOwnedNames = readSharedValue(STORAGE_KEY_NAMES);
+    lastSharedOwnedIds = readCookieValue(STORAGE_KEY_IDS);
+    lastSharedOwnedNames = readCookieValue(STORAGE_KEY_NAMES);
+    lastSharedFavoriteIds = readCookieValue(FAVORITE_STORAGE_KEY);
     installSharedStorageSync();
     setupImportButton();
 

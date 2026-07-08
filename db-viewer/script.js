@@ -29,7 +29,7 @@ const itemLookupByShareId = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
-    'CAMP', 'Clothing', 'Kits', 'Beds', 'Collectors', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Player Icons', 'Emotes', 'Owned'
+    'CAMP', 'Clothing', 'Kits', 'Beds', 'Collectors', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Player Icons', 'Emotes', 'Owned', 'Favorites'
 ]);
 
 // Grouped categories for filters
@@ -42,7 +42,7 @@ const filterGroups = {
     'Seasons': ['Season 1', 'Season 2', 'Season 3', 'Season 4', 'Season 5', 'Season 6', 'Season 7', 'Season 8', 'Season 9', 'Season 10', 'Season 11', 'Season 12', 'Season 13', 'Season 14', 'Season 15', 'Season 16', 'Season 17', 'Season 18', 'Season 19', 'Season 20', 'Season 21', 'Season 22', 'Season 23', 'Season 24', 'Season 25'],
     'Mini Seasons': ['Appalachian Outlaws', 'Marvelous Fishing Excursion', 'Night at the Morgue', 'Weapons Expert Extraordinaire', 'Sunset Stranger', 'Love Hurts'],
     'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'Support Item List (279/311)','P2W', 'No Image'],
-    'Owned': ['Owned'],
+    'My Items': ['Owned', 'Favorites'],
 };
 
 // Custom filters based on arbitrary item key:value data.
@@ -99,6 +99,51 @@ function isItemOwned(item, ownedIds = null) {
         if (!candidate) continue;
         if (ownedSet.has(candidate)) return true;
         if (ownedSet.has(normalizeOwnedId(candidate))) return true;
+    }
+
+    return false;
+}
+
+const FAVORITE_STORAGE_KEY = 'atomicShopFavoriteIds';
+let favoriteIdsCache = null;
+
+function invalidateFavoriteIdsCache() {
+    favoriteIdsCache = null;
+}
+
+function getFavoriteStorageIds() {
+    if (favoriteIdsCache) return favoriteIdsCache;
+
+    try {
+        const raw = localStorage.getItem(FAVORITE_STORAGE_KEY);
+        if (!raw) return favoriteIdsCache = new Set();
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) return favoriteIdsCache = new Set();
+        return favoriteIdsCache = new Set(parsed
+            .map(id => String(id || '').trim())
+            .filter(Boolean)
+            .map(id => id.toLowerCase())
+        );
+    } catch (e) {
+        return favoriteIdsCache = new Set();
+    }
+}
+
+function isItemFavorite(item, favoriteIds = null) {
+    const favSet = favoriteIds || getFavoriteStorageIds();
+    if (!favSet.size) return false;
+
+    const candidates = new Set();
+    if (item.EDID) candidates.add(item.EDID.trim().toLowerCase());
+    if (item.itemID != null) candidates.add(String(item.itemID).trim().toLowerCase());
+    if (item.itemName) candidates.add(normalizeOwnedId(item.itemName));
+    if (item.name) candidates.add(normalizeOwnedId(item.name));
+    if (item.itemNameShort) candidates.add(normalizeOwnedId(item.itemNameShort));
+
+    for (const candidate of candidates) {
+        if (!candidate) continue;
+        if (favSet.has(candidate)) return true;
+        if (favSet.has(normalizeOwnedId(candidate))) return true;
     }
 
     return false;
@@ -645,7 +690,9 @@ function search(query) {
     
     // Apply category filters
     const ownsFilterUsed = included.includes('Owned') || excluded.includes('Owned');
+    const favoritesFilterUsed = included.includes('Favorites') || excluded.includes('Favorites');
     const ownedIds = ownsFilterUsed ? getOwnedStorageIds() : null;
+    const favoriteIds = favoritesFilterUsed ? getFavoriteStorageIds() : null;
 
     if (included.length > 0 || excluded.length > 0) {
         results = results.filter(item => {
@@ -655,6 +702,7 @@ function search(query) {
             if (included.length > 0) {
                 const hasIncluded = included.some(cat => {
                     if (cat === 'Owned') return isItemOwned(item, ownedIds);
+                    if (cat === 'Favorites') return isItemFavorite(item, favoriteIds);
                     return itemCats.includes(cat);
                 });
                 if (!hasIncluded) return false;
@@ -664,6 +712,7 @@ function search(query) {
             if (excluded.length > 0) {
                 const hasExcluded = excluded.some(cat => {
                     if (cat === 'Owned') return isItemOwned(item, ownedIds);
+                    if (cat === 'Favorites') return isItemFavorite(item, favoriteIds);
                     return itemCats.includes(cat);
                 });
                 if (hasExcluded) return false;

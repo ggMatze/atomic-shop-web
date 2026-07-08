@@ -153,13 +153,12 @@ input[type="checkbox"][data-state="excluded"] {
     display: none;
 }
 
-#owned-hover-overlay {
+#owned-hover-overlay,
+#wished-hover-overlay {
     position: absolute;
     display: none;
     align-items: center;
-    gap: 0.3rem;
-    background: rgba(41, 40, 28, 0.76);
-    padding: 0.2rem 0.45rem;
+    padding: 0.25rem 0.45rem;
     z-index: 10000;
     user-select: none;
     pointer-events: auto;
@@ -168,7 +167,8 @@ input[type="checkbox"][data-state="excluded"] {
     font-weight: 300;
 }
 
-#owned-hover-overlay .owned-checkbox-wrapper {
+#owned-hover-overlay .owned-checkbox-wrapper,
+#wished-hover-overlay .owned-checkbox-wrapper {
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
@@ -178,10 +178,74 @@ input[type="checkbox"][data-state="excluded"] {
     font-weight: 500;
 }
 
-#owned-hover-overlay .owned-checkbox {
+.owned-check-toggle {
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(17, 20, 20, 0.82);
+    color: #f5f3c2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+}
+
+.owned-check-toggle svg {
     width: 14px;
     height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.owned-check-toggle.active {
+    color: #ffe082;
+}
+
+.owned-check-toggle.active svg {
+    stroke: #ffe082;
+}
+
+.favorite-heart-toggle {
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(17, 20, 20, 0.82);
+    color: #f5f3c2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+}
+
+.favorite-heart-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.favorite-heart-toggle.active {
+    color: #ff5d7d;
+}
+
+.favorite-heart-toggle.active svg {
+    fill: #ff5d7d;
+    stroke: #ff5d7d;
+}
+
+.shop-tile {
+    position: relative;
 }
 
 #owned-db-open {
@@ -208,7 +272,21 @@ input[type="checkbox"][data-state="excluded"] {
     flex-direction: column;
     gap: 13px;
 }
+.owned-check-toggle svg {
+    width: 24px;
+    height: 24px;
+}
 
+.owned-check-toggle path {
+    fill: transparent;
+    stroke: currentColor;
+    stroke-width: 1.5;
+}
+
+.owned-check-toggle.active path {
+    fill: currentColor;
+    stroke: currentColor;
+}
 .owned-db-actions button {
     width: 100%;
     min-width: 0;

@@ -917,23 +917,32 @@ filter: saturate(0.5);
   border: 2px solid #19181D;
 }
 
-.shop-tile.tile-highlight {
+.shop-tile.tile-highlight,
+.shop-tile.favorite-state,
+.shop-tile[data-favorited="true"] {
   background-color: #ffd35a;
   background: linear-gradient(0deg, #19181DD9 10%,#1d1a13D9 61%,#fccd4e  100%);
   border-color: #ffd35a;
 }
 
-.shop-tile.tile-highlight:hover {
+.shop-tile.tile-highlight:hover,
+.shop-tile.favorite-state:hover,
+.shop-tile[data-favorited="true"]:hover {
   background: #fccd4e;
   border-color: #b6902a;
 }
 
-.shop-tile.tile-highlight .tile-footer {
+.shop-tile.tile-highlight .tile-footer,
+.shop-tile.favorite-state .tile-footer,
+.shop-tile[data-favorited="true"] .tile-footer {
   background:#1E1F21 ;
   color: #F5F3C2;
 }
 
-.shop-tile.tile-highlight:hover .tile-footer {
+.shop-tile.tile-highlight:hover .tile-footer,
+.shop-tile.favorite-state:hover .tile-footer,
+.shop-tile[data-favorited="true"]:hover .tile-footer {
+
   background: linear-gradient(90deg, #1E1F21 0%, #3f4452 50%, #1E1F21 100%);
 
   outline: 2px outset#1e242e9c;
@@ -941,7 +950,9 @@ filter: saturate(0.5);
   color: #F5F3C2;
 }
 
-.shop-tile.tile-highlight .tile-highlight-badge {
+.shop-tile.tile-highlight .tile-highlight-badge,
+.shop-tile.favorite-state .tile-highlight-badge,
+.shop-tile[data-favorited="true"] .tile-highlight-badge {
   position: absolute;
   bottom: -5px;
   right: 8px;
@@ -1282,8 +1293,19 @@ filter: saturate(0.5);
 
 .owned-include-item {
   color: #a7a786;
+  text-decoration: line-through;
 }
 
+.favorite-include-item {
+  color: #ff6d5a;
+}
+.favorite-include-item::after {
+  content: " ❤";
+  color: #ff6d5a;
+  font-size: 1.2em;
+  line-height: 0;
+  vertical-align: middle;
+}
 
 .old-price::after {
   content: "";
