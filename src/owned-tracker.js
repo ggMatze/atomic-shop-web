@@ -205,7 +205,7 @@
   }
 
   function loadFavoriteIds() {
-    const stored = parseStoredValue(readStoredValue(FAVORITE_STORAGE_KEY));
+    const stored = parseStoredArray(readStoredValue(FAVORITE_STORAGE_KEY));
     state.favoriteIdSet = new Set(
       stored.map(id => normalizeId(id)).filter(Boolean)
     );
