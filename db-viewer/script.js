@@ -67,20 +67,19 @@ function normalizeOwnedId(value) {
 }
 
 function getOwnedStorageIds() {
-    if (ownedIdsCache) return ownedIdsCache;
-
+    // Always read fresh from localStorage to ensure UI filters reflect changes
     try {
         const raw = localStorage.getItem(OWNED_STORAGE_KEY);
-        if (!raw) return ownedIdsCache = new Set();
+        if (!raw) return new Set();
         const parsed = JSON.parse(raw);
-        if (!Array.isArray(parsed)) return ownedIdsCache = new Set();
-        return ownedIdsCache = new Set(parsed
+        if (!Array.isArray(parsed)) return new Set();
+        return new Set(parsed
             .map(id => String(id || '').trim())
             .filter(Boolean)
             .map(id => id.toLowerCase())
         );
     } catch (e) {
-        return ownedIdsCache = new Set();
+        return new Set();
     }
 }
 
@@ -112,20 +111,19 @@ function invalidateFavoriteIdsCache() {
 }
 
 function getFavoriteStorageIds() {
-    if (favoriteIdsCache) return favoriteIdsCache;
-
+    // Always read fresh from localStorage to ensure UI filters reflect changes
     try {
         const raw = localStorage.getItem(FAVORITE_STORAGE_KEY);
-        if (!raw) return favoriteIdsCache = new Set();
+        if (!raw) return new Set();
         const parsed = JSON.parse(raw);
-        if (!Array.isArray(parsed)) return favoriteIdsCache = new Set();
-        return favoriteIdsCache = new Set(parsed
+        if (!Array.isArray(parsed)) return new Set();
+        return new Set(parsed
             .map(id => String(id || '').trim())
             .filter(Boolean)
             .map(id => id.toLowerCase())
         );
     } catch (e) {
-        return favoriteIdsCache = new Set();
+        return new Set();
     }
 }
 
@@ -1638,6 +1636,20 @@ if (filterToggleBtn && !document.getElementById('filter-reset')) {
 }
 
 document.getElementById('filter-panel').addEventListener('change', () => {
+    search(searchInput.value);
+});
+
+// React to storage changes from other tabs/windows (localStorage changes)
+window.addEventListener('storage', (e) => {
+    if (!e) return;
+    if (e.key === OWNED_STORAGE_KEY || e.key === FAVORITE_STORAGE_KEY || e.key === null) {
+        // re-run search to apply updated filters
+        search(searchInput.value);
+    }
+});
+
+// On focus, re-run search in case inline changes were made in overlays
+window.addEventListener('focus', () => {
     search(searchInput.value);
 });
 
