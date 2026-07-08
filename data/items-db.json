@@ -1297,7 +1297,7 @@
   },
   {
     "EDID": "ATX_ENTM_CAMP_Structure_Houseboat",
-    "itemName": "Luxurious Houseboat",
+    "itemName": "Houseboat",
     "itemNameShort": "Houseboat",
     "desc": "This refined floating home offers privacy, comfort and (some) distance from the chaos.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -15633,6 +15633,85 @@
     "highPriceOriginal": 250
   },
   {
+    "EDID": "ATX_ENTM_CAMP_WallPaper_Mothman_Set",
+    "desc": "Show your love for the Mothman with the Mothman Wallpaper Set!",
+    "disclaimer": "WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE.",
+    "primaryImage": {
+      "imageName": "atx_entm_camp_wallpaper_mothman_set.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_wallpaper_mothmanprint_l.webp",
+        "directory": "/textures/atx/storefront/camp/wallpaper/"
+      },
+      {
+        "imageName": "atx_camp_wallpaper_mothmanbarn_l.webp",
+        "directory": "/textures/atx/storefront/camp/wallpaper/"
+      }
+    ],
+    "dynamicBundleItems": [
+      {
+        "EDID": "ATX_ENTM_CAMP_WallPaper_Mothman01",
+        "szitemName": "Mothman Print Wallpaper"
+      },
+      {
+        "EDID": "ATX_ENTM_CAMP_WallPaper_Mothman02",
+        "szitemName": "Mothman Barn Wallpaper"
+      }
+    ],
+    "itemName": "Mothman Wallpaper Bundle",
+    "itemNameShort": "Mothman Wallpapers",
+    "highPriceOriginal": 500
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_Mausoleum_Bundle",
+    "desc": "Live your best afterlife above the ground with the Concrete Mausoleum.",
+    "itemName": "Mausoleum Bundle",
+    "dynamicBundleItems": [
+      {
+        "EDID": "atx_entm_camp_structure_concretemausoleum",
+        "szitemName": "Concrete Mausoleum"
+      },
+      {
+        "EDID": "atx_entm_camp_lights_batshadowlamp",
+        "szitemName": "Bat Shadow Lamp"
+      },
+      {
+        "EDID": "atx_entm_camp_floordecor_plushie_ferociousmrfuzzy",
+        "szitemName": "Ferocious Mr. Fuzzy Plushie"
+      },
+      {
+        "EDID": "atx_entm_camp_bed_tomb",
+        "szitemName": "Tomb Bed"
+      }
+    ],
+    "primaryImage": {
+      "imageName": "c9d218d6d091d29dccdf595c14409a51.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_camp_structure_mausoleum_concrete_l.webp",
+        "directory": "/textures/atx/storefront/camp/structures/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_lamp_batshadow_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_floordecor_plushie_ferociousmrfuzzy_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      },
+      {
+        "imageName": "atx_camp_furniture_bed_tomb_l.webp",
+        "directory": "/textures/atx/storefront/camp/furniture/"
+      }
+    ],
+    "itemNameShort": "Mausoleum Bundle",
+    "highPriceOriginal": 1000
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_Structure_RedRocket_Garage",
     "desc": "Set up this Red Rocket Garage and you will have a place to store your tools, your power armor, and your arsenal of high powered weapons! When powered, the Red Rocket Garage will power other items that do not require a direct wire attachment.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -16951,6 +17030,142 @@
     "carouselImages": [],
     "itemName": "Fusion Flea Stash Box",
     "itemNameShort": "Fusion Flea Stash"
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_Leprechaun_bunde",
+  "desc": "Ensure no one pinches you this St. Patrick’s Day with the Leprechaun Bundle.",
+  "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCH.\n\nUNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Leprechaun Bundle",
+  "primaryImage": {
+    "imageName": "atx_bundle_leprechaun.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 500,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Leprechaun Hat",
+      "entmName": "ATX_ENTM_Apparel_Headwear_Leprechaun_Hat"
+    },
+    {
+      "szItemName": "Pot of Gold Loot Bag",
+      "entmName": "ATX_ENTM_Skin_LootBag_PotofGold"
+    }
+  ]
+  },
+  {
+  "EDID": "atx_bndl_goldenyears_set",
+  "desc": "The future may look grim, but the golden years of America's past just keep getting brighter. Bring a classic look to your C.A.M.P. with the Golden Years Furniture Set.",
+  "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Golden Years Furniture Set",
+  "primaryImage": {
+    "imageName": "atx_bundle_goldenyears.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 500,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Golden Years Tri-Circle Table",
+      "entmName": "ATX_ENTM_CAMP_Furniture_Table_50s_Tricircle"
+    },
+    {
+      "szItemName": "Golden Years Rounded Couch",
+      "entmName": "ATX_ENTM_CAMP_Furniture_Couch_50s_Rounded"
+    },
+    {
+      "szItemName": "Golden Years Vinyl Chair",
+      "entmName": "ATX_ENTM_CAMP_Furniture_Chair_50s_Vinyl"
+    }
+  ]
+  },
+  {
+  "EDID": "atx_bndl_deep_cave_bundle",
+  "desc": "Gear up to dive into some of Appalachia's deepest caves and hunt Scorched with the Deep Cave Hunter Outfit.",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Deep Cave Bundle",
+  "primaryImage": {
+    "imageName": "7a55d596bdda55fa43925c71c6a39ebf.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1500,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Deep Cave Hunter Skin (Compound Bow)",
+      "entmName": "ATX_ENTM_Skin_WeaponModel_CompoundBow_CaveHunter"
+    },
+    {
+      "szItemName": "Deep Cave Hunter Backpack",
+      "entmName": "ATX_ENTM_Skin_Backpack_DeepCaveHunter"
+    },
+    {
+      "szItemName": "The Deep Cave Hunter Helmet",
+      "entmName": "ATX_ENTM_Apparel_Headwear_DeepCaveHunter"
+    },
+    {
+      "szItemName": "The Deep Cave Hunter Outfit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_DeepCaveHunter"
+    },
+    {
+      "szItemName": "Deep Cave Hunter Paint",
+      "entmName": "ATX_ENTM_Skin_PipBoySkin_DeepCaveHunter"
+    },
+    {
+      "szItemName": "Miner Lunch Pail Loot Bag",
+      "entmName": "ATX_ENTM_Skin_LootBag_Miner_LunchPail"
+    },
+    {
+      "szItemName": "Deep Cave Hunter Skin (Bow)",
+      "entmName": "ATX_ENTM_Skin_WeaponModel_Bow_CaveHunter"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_BNDL_ST_PATRICKS_DAY_BUNDLE",
+  "desc": "Ensure no one pinches you this St. Patrick's Day with the Leprechaun Bundle.",
+  "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCH.\n\nUNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "St. Patrick's Day Bundle",
+  "primaryImage": {
+    "imageName": "atx_bundle_leprechaun.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1500,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Pot of Gold Loot Bag",
+      "entmName": "ATX_ENTM_Skin_LootBag_PotofGold"
+    },
+    {
+      "szItemName": "Vault Boy Leper'chaun Outfit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_VaultBoy_Leperchaun"
+    },
+    {
+      "szItemName": "Vault Boy Leprechaun Outfit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_VaultBoy_Leprechaun"
+    },
+    {
+      "szItemName": "Vault Boy Leper'chaun Head",
+      "entmName": "ATX_ENTM_Apparel_Headwear_VaultBoy_Leperchaun"
+    },
+    {
+      "szItemName": "Vault Boy Leprechaun Head",
+      "entmName": "ATX_ENTM_Apparel_Headwear_VaultBoy_Leprechaun"
+    },
+    {
+      "szItemName": "Leprechaun Hat",
+      "entmName": "ATX_ENTM_Apparel_Headwear_Leprechaun_Hat"
+    }
+  ]
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_TheQuack",
@@ -19412,6 +19627,7 @@
       "directory": "/textures/atx/storefront/camp/ally/"
     },
     "carouselImages": [],
+    "highPriceOriginal": 1500,
     "itemName": "Lite Ally: Solomon Hardy",
     "itemNameShort": "Solomon Hardy"
   },
@@ -82934,6 +83150,7 @@
     "customdesc": "",
     "customdisclaimer": "",
     "itemName": "Lumberjack Outdoor Bundle",
+    "itemNameShort": "Lumberjack Bundle",
     "primaryImage": {
       "imageName": "207f94d3ca698677c828b7f229b52db6.webp",
       "directory": "/textures/atomic_shop_media/"
@@ -89600,6 +89817,34 @@
         "directory": "/textures/atx/storefront/camp/walldecoration/"
       }
     ]
+  },
+  {
+  "EDID": "atx_bndl_clandestine_gauss_weapons_bundle",
+  "desc": "Even the biggest of weapons needs to be hidden for clandestine missions.",
+  "disclaimer": " SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. ",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Clandestine Gauss Weapon Bundle",
+  "primaryImage": {
+    "imageName": "457a891356d40f2c9d9bd1f148092cae.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1200,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Clandestine Service Gauss Pistol Paint",
+      "entmName": "ATX_ENTM_Skin_WeaponSkin_GaussPistol_Clandestine"
+    },
+    {
+      "szItemName": "Clandestine Service Gauss Shotgun Paint",
+      "entmName": "ATX_ENTM_Skin_WeaponSkin_GaussShotgun_Clandestine"
+    },
+    {
+      "szItemName": "Clandestine Service Gauss Minigun Paint",
+      "entmName": "ATX_ENTM_Skin_WeaponSkin_GaussMinigun_Clandestine"
+    }
+  ]
   },
   {
     "EDID": "ATX_ENTM_BNDL_FALLOUT_FIRST_SCRIBE_OF_AVALON_CATCH_UP_BUNDLE",
@@ -101956,6 +102201,7 @@
     "customdesc": "",
     "customdisclaimer": "",
     "itemName": "Mobster Boss Bundle",
+    "itemNameShort": "Mob Boss Bundle",
     "primaryImage": {
       "imageName": "7757857104429175475446a60181c76d.webp",
       "directory": "/textures/atomic_shop_media/"
@@ -102160,6 +102406,7 @@
     "customdesc": "",
     "customdisclaimer": "",
     "itemName": "Green Thumb Greenhouse And Plant Bundle",
+    "itemNameShort": "Green Thumb Bundle",
     "primaryImage": {
       "imageName": "14d18e8e610daeb3ad4dfd1775580268.webp",
       "directory": "/textures/atomic_shop_media/"
