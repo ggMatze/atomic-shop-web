@@ -29,7 +29,7 @@ const itemLookupByShareId = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
-    'CAMP', 'Clothing', 'Kits', 'Beds', 'Collectors', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Player Icons', 'Emotes', 'Owned', 'Favorites'
+    'CAMP', 'Clothing', 'Kits', 'Beds', 'Collectors', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Player Icons', 'Emotes', 'Owned', 'Favorites/Wished'
 ]);
 
 // Grouped categories for filters
@@ -42,7 +42,7 @@ const filterGroups = {
     'Seasons': ['Season 1', 'Season 2', 'Season 3', 'Season 4', 'Season 5', 'Season 6', 'Season 7', 'Season 8', 'Season 9', 'Season 10', 'Season 11', 'Season 12', 'Season 13', 'Season 14', 'Season 15', 'Season 16', 'Season 17', 'Season 18', 'Season 19', 'Season 20', 'Season 21', 'Season 22', 'Season 23', 'Season 24', 'Season 25'],
     'Mini Seasons': ['Appalachian Outlaws', 'Marvelous Fishing Excursion', 'Night at the Morgue', 'Weapons Expert Extraordinaire', 'Sunset Stranger', 'Love Hurts'],
     'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'Support Item List (279/311)','P2W', 'No Image'],
-    'My Items': ['Owned', 'Favorites'],
+    'My Items': ['Owned', 'Favorites/Wished'],
 };
 
 // Custom filters based on arbitrary item key:value data.
@@ -688,7 +688,7 @@ function search(query) {
     
     // Apply category filters
     const ownsFilterUsed = included.includes('Owned') || excluded.includes('Owned');
-    const favoritesFilterUsed = included.includes('Favorites') || excluded.includes('Favorites');
+    const favoritesFilterUsed = included.includes('Favorites/Wished') || excluded.includes('Favorites/Wished');
     const ownedIds = ownsFilterUsed ? getOwnedStorageIds() : null;
     const favoriteIds = favoritesFilterUsed ? getFavoriteStorageIds() : null;
 
@@ -700,7 +700,7 @@ function search(query) {
             if (included.length > 0) {
                 const hasIncluded = included.some(cat => {
                     if (cat === 'Owned') return isItemOwned(item, ownedIds);
-                    if (cat === 'Favorites') return isItemFavorite(item, favoriteIds);
+                    if (cat === 'Favorites/Wished') return isItemFavorite(item, favoriteIds);
                     return itemCats.includes(cat);
                 });
                 if (!hasIncluded) return false;
@@ -710,7 +710,7 @@ function search(query) {
             if (excluded.length > 0) {
                 const hasExcluded = excluded.some(cat => {
                     if (cat === 'Owned') return isItemOwned(item, ownedIds);
-                    if (cat === 'Favorites') return isItemFavorite(item, favoriteIds);
+                    if (cat === 'Favorites/Wished') return isItemFavorite(item, favoriteIds);
                     return itemCats.includes(cat);
                 });
                 if (hasExcluded) return false;
@@ -1648,9 +1648,26 @@ window.addEventListener('storage', (e) => {
     }
 });
 
-// On focus, re-run search in case inline changes were made in overlays
+// Keep browser scroll restoration manual so returning to the tab does not jump.
+window.history.scrollRestoration = 'manual';
+
+const savedScrollPosition = { x: 0, y: 0 };
+window.addEventListener('blur', () => {
+    savedScrollPosition.x = window.scrollX;
+    savedScrollPosition.y = window.scrollY;
+});
+
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+        savedScrollPosition.x = window.scrollX;
+        savedScrollPosition.y = window.scrollY;
+    } else if (document.visibilityState === 'visible') {
+        window.scrollTo(savedScrollPosition.x, savedScrollPosition.y);
+    }
+});
+
 window.addEventListener('focus', () => {
-    search(searchInput.value);
+    window.scrollTo(savedScrollPosition.x, savedScrollPosition.y);
 });
 
 document.getElementById("go-ufas").addEventListener("click", () => {

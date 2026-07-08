@@ -381,12 +381,12 @@
     hoverActive = true;
     createHoverOverlay();
     const rect = tile.getBoundingClientRect();
-    ownedHoverOverlay.style.left = `${window.scrollX + rect.left + 4}px`;
-    ownedHoverOverlay.style.top = `${window.scrollY + rect.top + 6}px`;
+    ownedHoverOverlay.style.left = `${window.scrollX + rect.left + 5}px`;
+    ownedHoverOverlay.style.top = `${window.scrollY + rect.top + 8}px`;
     ownedHoverOverlay.style.display = 'inline-flex';
 
-    wishlistHoverOverlay.style.left = `${window.scrollX + rect.right - 50}px`;
-    wishlistHoverOverlay.style.top = `${window.scrollY + rect.top + 6}px`;
+    wishlistHoverOverlay.style.left = `${window.scrollX + rect.right - 53}px`;
+    wishlistHoverOverlay.style.top = `${window.scrollY + rect.top + 8}px`;
     wishlistHoverOverlay.style.display = 'inline-flex';
 
     syncHoverOverlayState(tileId);
@@ -431,12 +431,12 @@
     if (!tile) return;
     const rect = tile.getBoundingClientRect();
     if (ownedHoverOverlay) {
-      ownedHoverOverlay.style.left = `${window.scrollX + rect.left + 4}px`;
-      ownedHoverOverlay.style.top = `${window.scrollY + rect.top + 6}px`;
+      ownedHoverOverlay.style.left = `${window.scrollX + rect.left + 5}px`;
+      ownedHoverOverlay.style.top = `${window.scrollY + rect.top + 8}px`;
     }
     if (wishlistHoverOverlay) {
-      wishlistHoverOverlay.style.left = `${window.scrollX + rect.right - 50}px`;
-      wishlistHoverOverlay.style.top = `${window.scrollY + rect.top + 6}px`;
+      wishlistHoverOverlay.style.left = `${window.scrollX + rect.right - 53}px`;
+      wishlistHoverOverlay.style.top = `${window.scrollY + rect.top + 8}px`;
     }
   }
 
@@ -565,8 +565,7 @@
         <div class="owned-db-count">For current filter/search</div>
         <button id="owned-db-mark-matches-owned" type="button">Mark Matches Owned</button>
         <button id="owned-db-unmark-matches-owned" type="button">Mark Matches Not Owned</button>
-        <button id="owned-db-mark-matches-favorite" type="button">Favorite Matches</button>
-        <button id="owned-db-unmark-matches-favorite" type="button">Unfavorite Matches</button>
+       
       </div>
     `;
     document.body.appendChild(bulkPanel);
@@ -679,13 +678,6 @@
       updateOwnedStateForMatchedItems(false);
     });
 
-    document.getElementById('owned-db-mark-matches-favorite').addEventListener('click', () => {
-      updateFavoriteStateForMatchedItems(true);
-    });
-
-    document.getElementById('owned-db-unmark-matches-favorite').addEventListener('click', () => {
-      updateFavoriteStateForMatchedItems(false);
-    });
   }
 
   function createTogglePanel() {

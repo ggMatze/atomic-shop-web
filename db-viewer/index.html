@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- <script>
+<script>
   const host = window.location.hostname;
   const path = window.location.pathname;
+
+  // local development should not be redirected
+  if (host === "localhost" || host === "127.0.0.1") {
+    return;
+  }
 
   // 1. pages.dev → neue Subdomain
   if (host.includes("pages.dev")) {
@@ -18,7 +23,7 @@
   if (path.startsWith("/db-viewer")) {
     window.location.replace("https://db.atomicshop.fyi/");
   }
-</script>-->
+</script>
 
 
 <head>
