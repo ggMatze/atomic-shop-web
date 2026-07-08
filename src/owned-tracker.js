@@ -172,6 +172,15 @@
     }
   }
 
+  function refreshAfterImport() {
+    refreshOwnedStorageState();
+    decorateAllStoreTiles();
+    window.setTimeout(() => {
+      refreshOwnedStorageState();
+      decorateAllStoreTiles();
+    }, 50);
+  }
+
   function setupImportButton() {
     const importButton = document.getElementById(IMPORT_BUTTON_ID);
     if (!importButton) return;
@@ -209,6 +218,7 @@
           const count = saveOwnedIds(parsed);
           loadOwnedIds();
           loadOwnedNames();
+          refreshAfterImport();
           loadDatabaseIndex()
             .then(() => decorateAllStoreTiles())
             .catch(() => decorateAllStoreTiles())
@@ -224,6 +234,7 @@
           loadOwnedIds();
           loadOwnedNames();
           loadFavoriteIds();
+          refreshAfterImport();
           loadDatabaseIndex()
             .then(() => decorateAllStoreTiles())
             .catch(() => decorateAllStoreTiles())
@@ -262,6 +273,12 @@
         localStorage.setItem(payload.key, payload.value);
       } catch (e) {
         console.warn('[owned-tracker] localStorage sync write failed', e);
+      }
+
+      try {
+        sessionStorage.setItem(`${payload.key}::session`, payload.value);
+      } catch (e) {
+        console.warn('[owned-tracker] sessionStorage sync write failed', e);
       }
 
       writeStorageMeta(payload.key, payload.timestamp || Date.now());
@@ -304,7 +321,8 @@
         .filter(Boolean)
     ));
 
-    writeSharedValue(STORAGE_KEY_IDS, JSON.stringify(normalizedIds));
+    const serialized = JSON.stringify(normalizedIds);
+    writeSharedValue(STORAGE_KEY_IDS, serialized);
     state.ownedIdSet = new Set(normalizedIds);
     return normalizedIds.length;
   }
@@ -316,7 +334,8 @@
         .filter(Boolean)
     ));
 
-    writeSharedValue(FAVORITE_STORAGE_KEY, JSON.stringify(normalizedIds));
+    const serialized = JSON.stringify(normalizedIds);
+    writeSharedValue(FAVORITE_STORAGE_KEY, serialized);
     state.favoriteIdSet = new Set(normalizedIds);
     return normalizedIds.length;
   }
