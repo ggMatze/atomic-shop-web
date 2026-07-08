@@ -8,8 +8,6 @@
   const ATTR_OWNED = 'data-owned-badge';
   const ATTR_FAVORITED = 'data-favorited';
   const ATTR_STATE = 'data-owned-state';
-  const SYNC_CHANNEL_NAME = 'atomicShopOwnedSync';
-  const STORAGE_META_SUFFIX = '__meta';
   let itemsDbUrl = null;
 
   const state = {
@@ -19,16 +17,12 @@
     dbNameIndex: new Map(),
     dbLoading: false,
     dbLoaded: false,
-    dbError: false,
-    syncChannel: null
+    dbError: false
   };
 
   const IMPORT_BUTTON_ID = 'owned-tracker-import';
   const IMPORT_MESSAGE_ID = 'owned-tracker-import-msg';
 
-  let lastSharedOwnedIds = '';
-  let lastSharedOwnedNames = '';
-  let lastSharedFavoriteIds = '';
 
   function normalizeName(value) {
     if (!value && value !== 0) return '';
@@ -42,143 +36,33 @@
       .toLowerCase();
   }
 
-  function getCookieDomain() {
-    const hostname = window.location.hostname || '';
-    if (!hostname || hostname === 'localhost' || hostname === '127.0.0.1') return '';
-    if (hostname.endsWith('.atomicshop.fyi') || hostname === 'atomicshop.fyi') return '.atomicshop.fyi';
-    return '';
+  function readStoredValue(key) {
+    try {
+      return localStorage.getItem(key) || '';
+    } catch (e) {
+      console.warn('[owned-tracker] localStorage read failed', e);
+      return '';
+    }
   }
 
-  function readCookieValue(key) {
-    const cookieMatch = document.cookie.match(new RegExp(`(?:^|; )${key}=([^;]*)`));
-    return cookieMatch ? decodeURIComponent(cookieMatch[1]) : '';
-  }
-
-  function isCookieValueSafe(value) {
-    return typeof value === 'string' && encodeURIComponent(value).length <= 3800;
-  }
-
-  function persistSharedValue(key, value) {
+  function writeStoredValue(key, value) {
     try {
       localStorage.setItem(key, value);
     } catch (e) {
       console.warn('[owned-tracker] localStorage write failed', e);
     }
-
-    try {
-      sessionStorage.setItem(`${key}::session`, value);
-    } catch (e) {
-      console.warn('[owned-tracker] sessionStorage write failed', e);
-    }
   }
 
-  function getStorageMetaKey(key) {
-    return `${key}${STORAGE_META_SUFFIX}`;
-  }
-
-  function readStorageMeta(key) {
-    let localMeta = '';
+  function clearStoredValue(key) {
     try {
-      localMeta = localStorage.getItem(getStorageMetaKey(key)) || '';
+      localStorage.removeItem(key);
     } catch (e) {
-      localMeta = '';
-    }
-
-    if (localMeta) return localMeta;
-    return '';
-  }
-
-  function writeStorageMeta(key, version) {
-    const metaKey = getStorageMetaKey(key);
-    const metaValue = String(version);
-    try {
-      localStorage.setItem(metaKey, metaValue);
-    } catch (e) {
-      console.warn('[owned-tracker] localStorage meta write failed', e);
-    }
-
-    try {
-      sessionStorage.setItem(`${metaKey}::session`, metaValue);
-    } catch (e) {
-      console.warn('[owned-tracker] sessionStorage meta write failed', e);
-    }
-  }
-
-  function clearStorageMeta(key) {
-    try {
-      localStorage.removeItem(getStorageMetaKey(key));
-    } catch (e) {
-      console.warn('[owned-tracker] localStorage meta clear failed', e);
-    }
-
-    try {
-      sessionStorage.removeItem(`${getStorageMetaKey(key)}::session`);
-    } catch (e) {
-      console.warn('[owned-tracker] sessionStorage meta clear failed', e);
-    }
-  }
-
-  function readSharedValue(key) {
-    let localValue = '';
-    try {
-      localValue = localStorage.getItem(key) || '';
-    } catch (e) {
-      console.warn('[owned-tracker] localStorage read failed', e);
-    }
-
-    if (localValue) {
-      return localValue;
-    }
-
-    try {
-      const sessionValue = sessionStorage.getItem(`${key}::session`) || '';
-      if (sessionValue) {
-        return sessionValue;
-      }
-    } catch (e) {
-      console.warn('[owned-tracker] sessionStorage read failed', e);
-    }
-
-    return '';
-  }
-
-  function isCookieSupported() {
-    return typeof document.cookie === 'string' && window.location.protocol !== 'file:';
-  }
-
-  function setLastSharedValue(key, value) {
-    if (key === STORAGE_KEY_IDS) {
-      lastSharedOwnedIds = value;
-    } else if (key === STORAGE_KEY_NAMES) {
-      lastSharedOwnedNames = value;
-    } else if (key === FAVORITE_STORAGE_KEY) {
-      lastSharedFavoriteIds = value;
-    }
-  }
-
-  function refreshOwnedStorageState() {
-    const idsValue = readSharedValue(STORAGE_KEY_IDS);
-    const namesValue = readSharedValue(STORAGE_KEY_NAMES);
-    const favsValue = readSharedValue(FAVORITE_STORAGE_KEY);
-
-    if (idsValue !== lastSharedOwnedIds || namesValue !== lastSharedOwnedNames || favsValue !== lastSharedFavoriteIds) {
-      lastSharedOwnedIds = idsValue;
-      lastSharedOwnedNames = namesValue;
-      lastSharedFavoriteIds = favsValue;
-      loadOwnedIds();
-      loadFavoriteIds();
-      loadOwnedNames();
-      decorateAllStoreTiles();
+      console.warn('[owned-tracker] localStorage clear failed', e);
     }
   }
 
   function refreshAfterImport() {
-    refreshOwnedStorageState();
     decorateAllStoreTiles();
-    window.setTimeout(() => {
-      refreshOwnedStorageState();
-      decorateAllStoreTiles();
-    }, 50);
   }
 
   function setupImportButton() {
@@ -250,63 +134,8 @@
     });
   }
 
-  function broadcastSharedValue(key, value) {
-    if (!state.syncChannel || typeof state.syncChannel.postMessage !== 'function') return;
-    state.syncChannel.postMessage({
-      type: 'owned-tracker-sync',
-      key,
-      value,
-      timestamp: Date.now()
-    });
-  }
-
-  function installBroadcastSync() {
-    if (typeof BroadcastChannel !== 'function') return;
-    state.syncChannel = new BroadcastChannel(SYNC_CHANNEL_NAME);
-    state.syncChannel.addEventListener('message', (event) => {
-      const payload = event.data || {};
-      if (payload.type !== 'owned-tracker-sync') return;
-      if (typeof payload.key !== 'string' || typeof payload.value !== 'string') return;
-      if (payload.key !== STORAGE_KEY_IDS && payload.key !== STORAGE_KEY_NAMES && payload.key !== FAVORITE_STORAGE_KEY) return;
-
-      try {
-        localStorage.setItem(payload.key, payload.value);
-      } catch (e) {
-        console.warn('[owned-tracker] localStorage sync write failed', e);
-      }
-
-      try {
-        sessionStorage.setItem(`${payload.key}::session`, payload.value);
-      } catch (e) {
-        console.warn('[owned-tracker] sessionStorage sync write failed', e);
-      }
-
-      writeStorageMeta(payload.key, payload.timestamp || Date.now());
-      refreshOwnedStorageState();
-    });
-  }
-
-  function installSharedStorageSync() {
-    window.addEventListener('focus', refreshOwnedStorageState);
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible') refreshOwnedStorageState();
-    });
-
-    if (typeof window.setInterval === 'function') {
-      setInterval(refreshOwnedStorageState, 5000);
-    }
-  }
-
-  function writeSharedValue(key, value, options = {}) {
-    const shouldBroadcast = options.skipBroadcast !== true;
-
-    persistSharedValue(key, value);
-
-    const version = String(Date.now());
-    writeStorageMeta(key, version);
-
-    setLastSharedValue(key, value);
-    if (shouldBroadcast) broadcastSharedValue(key, value);
+  function writeSharedValue(key, value) {
+    writeStoredValue(key, value);
   }
 
   function normalizeId(value) {
@@ -324,6 +153,15 @@
     const serialized = JSON.stringify(normalizedIds);
     writeSharedValue(STORAGE_KEY_IDS, serialized);
     state.ownedIdSet = new Set(normalizedIds);
+
+    if (window.__iframeSync && typeof window.__iframeSync.setData === 'function') {
+      window.__iframeSync.setData({
+        owned: Array.from(state.ownedIdSet),
+        wishlist: Array.from(state.favoriteIdSet),
+        tracked: []
+      });
+    }
+
     return normalizedIds.length;
   }
 
@@ -337,6 +175,15 @@
     const serialized = JSON.stringify(normalizedIds);
     writeSharedValue(FAVORITE_STORAGE_KEY, serialized);
     state.favoriteIdSet = new Set(normalizedIds);
+
+    if (window.__iframeSync && typeof window.__iframeSync.setData === 'function') {
+      window.__iframeSync.setData({
+        owned: Array.from(state.ownedIdSet),
+        wishlist: Array.from(state.favoriteIdSet),
+        tracked: []
+      });
+    }
+
     return normalizedIds.length;
   }
 
@@ -354,20 +201,21 @@
   }
 
   function clearSharedValue(key) {
-    try {
-      localStorage.removeItem(key);
-    } catch (e) {
-      console.warn('[owned-tracker] localStorage clear failed', e);
-    }
+    clearStoredValue(key);
+  }
 
-    try {
-      sessionStorage.removeItem(`${key}::session`);
-    } catch (e) {
-      console.warn('[owned-tracker] sessionStorage clear failed', e);
-    }
+  function syncBridgeStateFromPayload(payload) {
+    const data = payload || {};
+    const owned = Array.isArray(data.owned) ? data.owned : [];
+    const wishlist = Array.isArray(data.wishlist) ? data.wishlist : [];
 
-    clearStorageMeta(key);
-    setLastSharedValue(key, '');
+    writeStoredValue(STORAGE_KEY_IDS, JSON.stringify(owned.map(id => normalizeId(id)).filter(Boolean)));
+    writeStoredValue(FAVORITE_STORAGE_KEY, JSON.stringify(wishlist.map(id => normalizeId(id)).filter(Boolean)));
+
+    loadOwnedIds();
+    loadFavoriteIds();
+    loadOwnedNames();
+    decorateAllStoreTiles();
   }
 
   function parseStoredArray(raw) {
@@ -381,7 +229,7 @@
   }
 
   function loadOwnedIds() {
-    const stored = parseStoredArray(readSharedValue(STORAGE_KEY_IDS));
+    const stored = parseStoredArray(readStoredValue(STORAGE_KEY_IDS));
     state.ownedIdSet = new Set(
       stored.map(id => normalizeId(id)).filter(Boolean)
     );
@@ -389,7 +237,7 @@
   }
 
   function loadFavoriteIds() {
-    const stored = parseStoredArray(readSharedValue(FAVORITE_STORAGE_KEY));
+    const stored = parseStoredArray(readStoredValue(FAVORITE_STORAGE_KEY));
     state.favoriteIdSet = new Set(
       stored.map(id => normalizeId(id)).filter(Boolean)
     );
@@ -397,7 +245,7 @@
   }
 
   function loadOwnedNames() {
-    const stored = parseStoredArray(readSharedValue(STORAGE_KEY_NAMES));
+    const stored = parseStoredArray(readStoredValue(STORAGE_KEY_NAMES));
     state.ownedNameSet = new Set(stored.map(normalizeName).filter(Boolean));
     return state.ownedNameSet;
   }
@@ -812,9 +660,14 @@
   }
 
   function init() {
+    window.addEventListener('iframe-sync:data', (event) => {
+      if (event && event.detail) {
+        syncBridgeStateFromPayload(event.detail);
+      }
+    });
+
     decorateAllStoreTiles();
     installGridObserver();
-    installBroadcastSync();
     setupStorageListener();
     installOverlaySync();
     wrapTabsRender();
@@ -832,10 +685,6 @@
     window.__ownedTracker.refresh = decorateAllStoreTiles;
     window.__ownedTracker.reloadDbIndex = loadDatabaseIndex;
 
-    lastSharedOwnedIds = readCookieValue(STORAGE_KEY_IDS);
-    lastSharedOwnedNames = readCookieValue(STORAGE_KEY_NAMES);
-    lastSharedFavoriteIds = readCookieValue(FAVORITE_STORAGE_KEY);
-    installSharedStorageSync();
     setupImportButton();
 
     if (state.ownedIdSet.size) {

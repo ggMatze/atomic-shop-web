@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atomic Shop Bridge</title>
+</head>
+<body>
+<script>
+(function () {
+  const ALLOWED_ORIGIN = 'https://uf.atomicshop.fyi';
+  const STORAGE_KEYS = ['wishlist', 'tracked', 'owned'];
+
+  function normalizeData(data) {
+    const result = { wishlist: [], tracked: [], owned: [] };
+    if (!data || typeof data !== 'object') return result;
+
+    STORAGE_KEYS.forEach((key) => {
+      const value = data[key];
+      if (Array.isArray(value)) {
+        result[key] = value;
+      } else if (value && typeof value === 'object') {
+        result[key] = [value];
+      }
+    });
+
+    return result;
+  }
+
+  function readStoredData() {
+    const result = {};
+    STORAGE_KEYS.forEach((key) => {
+      try {
+        const raw = localStorage.getItem(key);
+        result[key] = raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        result[key] = [];
+      }
+    });
+    return result;
+  }
+
+  function writeStoredData(data) {
+    const normalized = normalizeData(data);
+    STORAGE_KEYS.forEach((key) => {
+      try {
+        localStorage.setItem(key, JSON.stringify(normalized[key] || []));
+      } catch (e) {
+        console.warn('[bridge] write failed', e);
+      }
+    });
+    return normalized;
+  }
+
+  function updateSingleItem(data, section, item, add) {
+    const normalized = normalizeData(data);
+    const existing = Array.isArray(normalized[section]) ? normalized[section] : [];
+    const next = new Set(existing.map(value => JSON.stringify(value)));
+    const payload = typeof item === 'string' ? item : JSON.stringify(item);
+
+    if (add) {
+      next.add(payload);
+    } else {
+      next.delete(payload);
+    }
+
+    normalized[section] = Array.from(next).map(value => {
+      try { return JSON.parse(value); } catch (e) { return value; }
+    });
+
+    writeStoredData(normalized);
+    return normalized;
+  }
+
+  function sendReply(source, type, payload) {
+    if (!source || !source.postMessage) return;
+    source.postMessage({ type, payload }, ALLOWED_ORIGIN);
+  }
+
+  window.addEventListener('message', function (event) {
+    if (!event || event.origin !== ALLOWED_ORIGIN) return;
+    const message = event.data || {};
+    if (!message || typeof message !== 'object') return;
+
+    if (message.type === 'GET_DATA') {
+      sendReply(event.source, 'DATA', readStoredData());
+      return;
+    }
+
+    if (message.type === 'SET_DATA') {
+      const data = writeStoredData(message.payload || {});
+      sendReply(event.source, 'SET_ACK', data);
+      return;
+    }
+
+    if (message.type === 'UPDATE_ITEM') {
+      const { section, item, add = true } = message.payload || {};
+      const current = readStoredData();
+      const updated = updateSingleItem(current, section, item, add);
+      sendReply(event.source, 'UPDATE_ACK', updated);
+    }
+  });
+
+  window.parent.postMessage({ type: 'READY', payload: {} }, ALLOWED_ORIGIN);
+})();
+</script>
+</body>
+</html>
