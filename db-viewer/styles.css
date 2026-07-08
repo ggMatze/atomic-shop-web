@@ -267,10 +267,21 @@ input[type="checkbox"][data-state="excluded"] {
   max-width: 170px;
 }
 
+
 .owned-db-actions {
     display: flex;
     flex-direction: column;
     gap: 13px;
+     font-family: 'cabin', Arial, sans-serif;
+      line-height: 0.9em;
+}
+
+
+
+#owned-db-toggle-btn{
+font-size: 1em;
+line-height: 0.9em;
+font-family: 'cabin', Arial, sans-serif;
 }
 .owned-check-toggle svg {
     width: 24px;
@@ -297,6 +308,8 @@ input[type="checkbox"][data-state="excluded"] {
     cursor: pointer;
     font-family: inherit;
     font-size: 0.9rem;
+    line-height: 0.9;
+    font-family: 'cabin', Arial, sans-serif;
 }
 
 .owned-db-actions button:hover {

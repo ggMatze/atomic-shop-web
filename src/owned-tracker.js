@@ -1,13 +1,15 @@
 (function () {
   const STORAGE_KEY_IDS = 'atomicShopOwnedIds';
   const STORAGE_KEY_NAMES = 'atomicShopOwnedNames';
-    const FAVORITE_STORAGE_KEY = 'atomicShopFavoriteIds';
+  const FAVORITE_STORAGE_KEY = 'atomicShopFavoriteIds';
   const TILE_SELECTOR = '.shop-tile';
   const BADGE_CLASS = 'owned-badge';
   const BUNDLE_MARKER_CLASS = 'owned-bundle-marker';
   const ATTR_OWNED = 'data-owned-badge';
-    const ATTR_FAVORITED = 'data-favorited';
+  const ATTR_FAVORITED = 'data-favorited';
   const ATTR_STATE = 'data-owned-state';
+  const SYNC_CHANNEL_NAME = 'atomicShopOwnedSync';
+  const STORAGE_META_SUFFIX = '__meta';
   let itemsDbUrl = null;
 
   const state = {
@@ -17,7 +19,8 @@
     dbNameIndex: new Map(),
     dbLoading: false,
     dbLoaded: false,
-    dbError: false
+    dbError: false,
+    syncChannel: null
   };
 
   const IMPORT_BUTTON_ID = 'owned-tracker-import';
@@ -55,6 +58,67 @@
     return typeof value === 'string' && encodeURIComponent(value).length <= 3800;
   }
 
+  function getStorageMetaKey(key) {
+    return `${key}${STORAGE_META_SUFFIX}`;
+  }
+
+  function readStorageMeta(key) {
+    let localMeta = '';
+    try {
+      localMeta = localStorage.getItem(getStorageMetaKey(key)) || '';
+    } catch (e) {
+      localMeta = '';
+    }
+
+    if (localMeta) return localMeta;
+    return readCookieValue(getStorageMetaKey(key));
+  }
+
+  function writeStorageMeta(key, version) {
+    const metaKey = getStorageMetaKey(key);
+    const metaValue = String(version);
+    try {
+      localStorage.setItem(metaKey, metaValue);
+    } catch (e) {
+      console.warn('[owned-tracker] localStorage meta write failed', e);
+    }
+
+    if (!isCookieSupported() || !isCookieValueSafe(metaValue)) return;
+
+    const cookieDomain = getCookieDomain();
+    const cookieParts = [`${metaKey}=${encodeURIComponent(metaValue)}`, 'path=/', 'max-age=31536000', 'SameSite=Lax'];
+    if (cookieDomain) {
+      cookieParts.push(`domain=${cookieDomain}`);
+    }
+
+    try {
+      document.cookie = cookieParts.join('; ');
+    } catch (e) {
+      console.warn('[owned-tracker] cookie meta write failed', e);
+    }
+  }
+
+  function clearStorageMeta(key) {
+    try {
+      localStorage.removeItem(getStorageMetaKey(key));
+    } catch (e) {
+      console.warn('[owned-tracker] localStorage meta clear failed', e);
+    }
+
+    if (!isCookieSupported()) return;
+
+    const cookieDomain = getCookieDomain();
+    const baseCookie = `${getStorageMetaKey(key)}=; path=/; max-age=0; SameSite=Lax`;
+    try {
+      document.cookie = baseCookie;
+      if (cookieDomain) {
+        document.cookie = `${baseCookie}; domain=${cookieDomain}`;
+      }
+    } catch (e) {
+      console.warn('[owned-tracker] cookie meta clear failed', e);
+    }
+  }
+
   function readSharedValue(key) {
     let localValue = '';
     try {
@@ -63,20 +127,31 @@
       console.warn('[owned-tracker] localStorage read failed', e);
     }
 
-    if (localValue) {
+    const cookieValue = readCookieValue(key);
+    const localVersion = Number(readStorageMeta(key) || 0);
+    const cookieVersion = Number(readCookieValue(getStorageMetaKey(key)) || 0);
+
+    if (!localValue && !cookieValue) {
+      return '';
+    }
+
+    if (!localValue) {
+      return cookieValue;
+    }
+
+    if (!cookieValue) {
       return localValue;
     }
 
-    const cookieValue = readCookieValue(key);
-    if (cookieValue) {
-      try {
-        localStorage.setItem(key, cookieValue);
-      } catch (e) {
-        // ignore write failure
-      }
+    if (localVersion > cookieVersion) {
+      return localValue;
     }
 
-    return cookieValue;
+    if (cookieVersion > localVersion) {
+      return cookieValue;
+    }
+
+    return localValue || cookieValue;
   }
 
   function isCookieSupported() {
@@ -94,16 +169,14 @@
   }
 
   function refreshOwnedStorageState() {
-    // Read cookie values directly to detect cross-subdomain updates.
-    const idsCookie = readCookieValue(STORAGE_KEY_IDS);
-    const namesCookie = readCookieValue(STORAGE_KEY_NAMES);
-    const favsCookie = readCookieValue(FAVORITE_STORAGE_KEY);
+    const idsValue = readSharedValue(STORAGE_KEY_IDS);
+    const namesValue = readSharedValue(STORAGE_KEY_NAMES);
+    const favsValue = readSharedValue(FAVORITE_STORAGE_KEY);
 
-    if (idsCookie !== lastSharedOwnedIds || namesCookie !== lastSharedOwnedNames || favsCookie !== lastSharedFavoriteIds) {
-      lastSharedOwnedIds = idsCookie;
-      lastSharedOwnedNames = namesCookie;
-      lastSharedFavoriteIds = favsCookie;
-      // Reload local state from storage (cookie fallback will populate localStorage when needed)
+    if (idsValue !== lastSharedOwnedIds || namesValue !== lastSharedOwnedNames || favsValue !== lastSharedFavoriteIds) {
+      lastSharedOwnedIds = idsValue;
+      lastSharedOwnedNames = namesValue;
+      lastSharedFavoriteIds = favsValue;
       loadOwnedIds();
       loadFavoriteIds();
       loadOwnedNames();
@@ -178,6 +251,36 @@
     });
   }
 
+  function broadcastSharedValue(key, value) {
+    if (!state.syncChannel || typeof state.syncChannel.postMessage !== 'function') return;
+    state.syncChannel.postMessage({
+      type: 'owned-tracker-sync',
+      key,
+      value,
+      timestamp: Date.now()
+    });
+  }
+
+  function installBroadcastSync() {
+    if (typeof BroadcastChannel !== 'function') return;
+    state.syncChannel = new BroadcastChannel(SYNC_CHANNEL_NAME);
+    state.syncChannel.addEventListener('message', (event) => {
+      const payload = event.data || {};
+      if (payload.type !== 'owned-tracker-sync') return;
+      if (typeof payload.key !== 'string' || typeof payload.value !== 'string') return;
+      if (payload.key !== STORAGE_KEY_IDS && payload.key !== STORAGE_KEY_NAMES && payload.key !== FAVORITE_STORAGE_KEY) return;
+
+      try {
+        localStorage.setItem(payload.key, payload.value);
+      } catch (e) {
+        console.warn('[owned-tracker] localStorage sync write failed', e);
+      }
+
+      writeStorageMeta(payload.key, payload.timestamp || Date.now());
+      refreshOwnedStorageState();
+    });
+  }
+
   function installSharedStorageSync() {
     window.addEventListener('focus', refreshOwnedStorageState);
     document.addEventListener('visibilitychange', () => {
@@ -189,15 +292,21 @@
     }
   }
 
-  function writeSharedValue(key, value) {
+  function writeSharedValue(key, value, options = {}) {
+    const shouldBroadcast = options.skipBroadcast !== true;
+
     try {
       localStorage.setItem(key, value);
     } catch (e) {
       console.warn('[owned-tracker] localStorage write failed', e);
     }
 
+    const version = String(Date.now());
+    writeStorageMeta(key, version);
+
     if (!isCookieSupported() || !isCookieValueSafe(value)) {
       setLastSharedValue(key, value);
+      if (shouldBroadcast) broadcastSharedValue(key, value);
       return;
     }
 
@@ -214,6 +323,7 @@
     }
 
     setLastSharedValue(key, value);
+    if (shouldBroadcast) broadcastSharedValue(key, value);
   }
 
   function normalizeId(value) {
@@ -264,6 +374,8 @@
     } catch (e) {
       console.warn('[owned-tracker] localStorage clear failed', e);
     }
+
+    clearStorageMeta(key);
 
     if (!isCookieSupported()) {
       setLastSharedValue(key, '');
@@ -682,7 +794,7 @@
   function setupStorageListener() {
     window.addEventListener('storage', (event) => {
       if (event.key === STORAGE_KEY_IDS || event.key === STORAGE_KEY_NAMES || event.key === FAVORITE_STORAGE_KEY) {
-        decorateAllStoreTiles();
+        refreshOwnedStorageState();
       }
     });
   }
@@ -728,6 +840,7 @@
   function init() {
     decorateAllStoreTiles();
     installGridObserver();
+    installBroadcastSync();
     setupStorageListener();
     installOverlaySync();
     wrapTabsRender();
