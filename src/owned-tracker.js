@@ -153,15 +153,6 @@
     const serialized = JSON.stringify(normalizedIds);
     writeSharedValue(STORAGE_KEY_IDS, serialized);
     state.ownedIdSet = new Set(normalizedIds);
-
-    if (window.__iframeSync && typeof window.__iframeSync.setData === 'function') {
-      window.__iframeSync.setData({
-        owned: Array.from(state.ownedIdSet),
-        wishlist: Array.from(state.favoriteIdSet),
-        tracked: []
-      });
-    }
-
     return normalizedIds.length;
   }
 
@@ -175,15 +166,6 @@
     const serialized = JSON.stringify(normalizedIds);
     writeSharedValue(FAVORITE_STORAGE_KEY, serialized);
     state.favoriteIdSet = new Set(normalizedIds);
-
-    if (window.__iframeSync && typeof window.__iframeSync.setData === 'function') {
-      window.__iframeSync.setData({
-        owned: Array.from(state.ownedIdSet),
-        wishlist: Array.from(state.favoriteIdSet),
-        tracked: []
-      });
-    }
-
     return normalizedIds.length;
   }
 
@@ -202,20 +184,6 @@
 
   function clearSharedValue(key) {
     clearStoredValue(key);
-  }
-
-  function syncBridgeStateFromPayload(payload) {
-    const data = payload || {};
-    const owned = Array.isArray(data.owned) ? data.owned : [];
-    const wishlist = Array.isArray(data.wishlist) ? data.wishlist : [];
-
-    writeStoredValue(STORAGE_KEY_IDS, JSON.stringify(owned.map(id => normalizeId(id)).filter(Boolean)));
-    writeStoredValue(FAVORITE_STORAGE_KEY, JSON.stringify(wishlist.map(id => normalizeId(id)).filter(Boolean)));
-
-    loadOwnedIds();
-    loadFavoriteIds();
-    loadOwnedNames();
-    decorateAllStoreTiles();
   }
 
   function parseStoredArray(raw) {
@@ -237,7 +205,7 @@
   }
 
   function loadFavoriteIds() {
-    const stored = parseStoredArray(readStoredValue(FAVORITE_STORAGE_KEY));
+    const stored = parseStoredValue(readStoredValue(FAVORITE_STORAGE_KEY));
     state.favoriteIdSet = new Set(
       stored.map(id => normalizeId(id)).filter(Boolean)
     );
@@ -660,12 +628,6 @@
   }
 
   function init() {
-    window.addEventListener('iframe-sync:data', (event) => {
-      if (event && event.detail) {
-        syncBridgeStateFromPayload(event.detail);
-      }
-    });
-
     decorateAllStoreTiles();
     installGridObserver();
     setupStorageListener();
