@@ -58,6 +58,20 @@
     return typeof value === 'string' && encodeURIComponent(value).length <= 3800;
   }
 
+  function persistSharedValue(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (e) {
+      console.warn('[owned-tracker] localStorage write failed', e);
+    }
+
+    try {
+      sessionStorage.setItem(`${key}::session`, value);
+    } catch (e) {
+      console.warn('[owned-tracker] sessionStorage write failed', e);
+    }
+  }
+
   function getStorageMetaKey(key) {
     return `${key}${STORAGE_META_SUFFIX}`;
   }
@@ -71,7 +85,7 @@
     }
 
     if (localMeta) return localMeta;
-    return readCookieValue(getStorageMetaKey(key));
+    return '';
   }
 
   function writeStorageMeta(key, version) {
@@ -83,18 +97,10 @@
       console.warn('[owned-tracker] localStorage meta write failed', e);
     }
 
-    if (!isCookieSupported() || !isCookieValueSafe(metaValue)) return;
-
-    const cookieDomain = getCookieDomain();
-    const cookieParts = [`${metaKey}=${encodeURIComponent(metaValue)}`, 'path=/', 'max-age=31536000', 'SameSite=Lax'];
-    if (cookieDomain) {
-      cookieParts.push(`domain=${cookieDomain}`);
-    }
-
     try {
-      document.cookie = cookieParts.join('; ');
+      sessionStorage.setItem(`${metaKey}::session`, metaValue);
     } catch (e) {
-      console.warn('[owned-tracker] cookie meta write failed', e);
+      console.warn('[owned-tracker] sessionStorage meta write failed', e);
     }
   }
 
@@ -105,17 +111,10 @@
       console.warn('[owned-tracker] localStorage meta clear failed', e);
     }
 
-    if (!isCookieSupported()) return;
-
-    const cookieDomain = getCookieDomain();
-    const baseCookie = `${getStorageMetaKey(key)}=; path=/; max-age=0; SameSite=Lax`;
     try {
-      document.cookie = baseCookie;
-      if (cookieDomain) {
-        document.cookie = `${baseCookie}; domain=${cookieDomain}`;
-      }
+      sessionStorage.removeItem(`${getStorageMetaKey(key)}::session`);
     } catch (e) {
-      console.warn('[owned-tracker] cookie meta clear failed', e);
+      console.warn('[owned-tracker] sessionStorage meta clear failed', e);
     }
   }
 
@@ -127,31 +126,20 @@
       console.warn('[owned-tracker] localStorage read failed', e);
     }
 
-    const cookieValue = readCookieValue(key);
-    const localVersion = Number(readStorageMeta(key) || 0);
-    const cookieVersion = Number(readCookieValue(getStorageMetaKey(key)) || 0);
-
-    if (!localValue && !cookieValue) {
-      return '';
-    }
-
-    if (!localValue) {
-      return cookieValue;
-    }
-
-    if (!cookieValue) {
+    if (localValue) {
       return localValue;
     }
 
-    if (localVersion > cookieVersion) {
-      return localValue;
+    try {
+      const sessionValue = sessionStorage.getItem(`${key}::session`) || '';
+      if (sessionValue) {
+        return sessionValue;
+      }
+    } catch (e) {
+      console.warn('[owned-tracker] sessionStorage read failed', e);
     }
 
-    if (cookieVersion > localVersion) {
-      return cookieValue;
-    }
-
-    return localValue || cookieValue;
+    return '';
   }
 
   function isCookieSupported() {
@@ -295,32 +283,10 @@
   function writeSharedValue(key, value, options = {}) {
     const shouldBroadcast = options.skipBroadcast !== true;
 
-    try {
-      localStorage.setItem(key, value);
-    } catch (e) {
-      console.warn('[owned-tracker] localStorage write failed', e);
-    }
+    persistSharedValue(key, value);
 
     const version = String(Date.now());
     writeStorageMeta(key, version);
-
-    if (!isCookieSupported() || !isCookieValueSafe(value)) {
-      setLastSharedValue(key, value);
-      if (shouldBroadcast) broadcastSharedValue(key, value);
-      return;
-    }
-
-    const cookieDomain = getCookieDomain();
-    const cookieParts = [`${key}=${encodeURIComponent(value)}`, 'path=/', 'max-age=31536000', 'SameSite=Lax'];
-    if (cookieDomain) {
-      cookieParts.push(`domain=${cookieDomain}`);
-    }
-
-    try {
-      document.cookie = cookieParts.join('; ');
-    } catch (e) {
-      console.warn('[owned-tracker] cookie write failed', e);
-    }
 
     setLastSharedValue(key, value);
     if (shouldBroadcast) broadcastSharedValue(key, value);
@@ -375,24 +341,13 @@
       console.warn('[owned-tracker] localStorage clear failed', e);
     }
 
-    clearStorageMeta(key);
-
-    if (!isCookieSupported()) {
-      setLastSharedValue(key, '');
-      return;
-    }
-
-    const cookieDomain = getCookieDomain();
-    const baseCookie = `${key}=; path=/; max-age=0; SameSite=Lax`;
     try {
-      document.cookie = baseCookie;
-      if (cookieDomain) {
-        document.cookie = `${baseCookie}; domain=${cookieDomain}`;
-      }
+      sessionStorage.removeItem(`${key}::session`);
     } catch (e) {
-      console.warn('[owned-tracker] cookie clear failed', e);
+      console.warn('[owned-tracker] sessionStorage clear failed', e);
     }
 
+    clearStorageMeta(key);
     setLastSharedValue(key, '');
   }
 
