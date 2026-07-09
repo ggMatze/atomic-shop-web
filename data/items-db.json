@@ -3378,6 +3378,34 @@
     "highPriceOriginal": 200
   },
   {
+  "EDID": "ATX_ENTM_BNDL_CAMP_Succulent_Large_Set",
+  "desc": "Not everything in the Wasteland is lost to radiation. Add some greenery to your C.A.M.P. with this Arranged Potted Succulent.",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Large Succulent Set",
+  "primaryImage": {
+    "imageName": "default-bundle.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 300,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Arranged Potted Succulent",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Succulent_Set_Large_Pot02"
+    },
+    {
+      "szItemName": "Large Potted Succulent",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Succulent_Set_Large_Pot01"
+    },
+    {
+      "szItemName": "Potted Row of Succulents",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Succulent_Set_Large_Row"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_Statue_VaultBoyStone",
     "desc": "Bring both Vault-Tec pride and Romanesque class to your C.A.M.P. with this masterfully crafted Vault Boy Stone Statue.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -24025,6 +24053,39 @@
     "itemNameShort": "Abstract Painting"
   },
   {
+  "EDID": "ATX_ENTM_BDNL_CAMP_Bundle_JunkyardCamp",
+  "desc": "Redefine your C.A.M.P. with things you found from the Junkyard!",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Junkyard C.A.M.P. Bundle",
+  "itemNameShort": "Junkyard Bundle",
+  "primaryImage": {
+    "imageName": "atx_bundle_junkyardcamp.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1200,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Fusion Flea Stash Box",
+      "entmName": "ATX_ENTM_CAMP_StashBox_FusionFlea"
+    },
+    {
+      "szItemName": "Junkyard Fences",
+      "entmName": "ATX_ENTM_CAMP_Defense_Fence_Junkyard"
+    },
+    {
+      "szItemName": "Mothman Cultist Tripod Altar",
+      "entmName": "ATX_ENTM_CAMP_Statue_MothmanCultist_Tripod"
+    },
+    {
+      "szItemName": "Rain Water Collector",
+      "entmName": "ATX_ENTM_CAMP_Utility_RainBarrelCollector"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_F1_ENTM_CAMP_WallDeco_PictureFrameAbstract_01",
     "desc": "When you want some complexity for your C.A.M.P. walls, look no further than this Abstract Painting. This offer is exclusive to Fallout 1st Members. Available December 2021.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -31950,16 +32011,38 @@
     "itemNameShort": "General's Uniform"
   },
   {
-    "EDID": "ATX_ENTM_CAMP_FloorDecor_CementTireWall_02",
-    "desc": "Fortify your Free State C.A.M.P. with this Jagged Cement Tire Wall.",
-    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": {
-      "imageName": "atx_camp_floordecor_cementtirewall_l.webp",
-      "directory": "/textures/atx/storefront/camp/floordecoration/"
+  "EDID": "ATX_ENTM_CAMP_FloorDecor_CementTireWall_Set",
+  "desc": "Fortify your Free State C.A.M.P. with these Cement Tire Walls.",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Cement Tire Wall Set",
+  "itemNameShort": "Cement Tire Walls",
+  "primaryImage": {
+    "imageName": "atx_camp_floordecor_cementtirewall_l.webp",
+    "directory": "/textures/atx/storefront/camp/floordecoration/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 500,
+  "cBadge": "Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Jagged Cement Tire Wall",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_CementTireWall_02"
     },
-    "carouselImages": [],
-    "itemName": "Jagged Cement Tire Wall",
-    "itemNameShort": "Jagged Tire Wall"
+    {
+      "szItemName": "Flat Cement Tire Wall",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_CementTireWall_01"
+    },
+    {
+      "szItemName": "Pyramid Cement Tire Wall",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_CementTireWall_03"
+    },
+    {
+      "szItemName": "Tall Cement Tire Wall",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_CementTireWall_04"
+    }
+  ]
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Planter_Flowers_Daffodils",
@@ -32279,18 +32362,6 @@
     "itemNameShort": "Terrarium"
   },
   {
-    "EDID": "ATX_ENTM_CAMP_FloorDecor_CementTireWall_01",
-    "desc": "Fortify your Free State C.A.M.P. with this Flat Cement Tire Wall.",
-    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": {
-      "imageName": "atx_camp_floordecor_cementtirewall_l.webp",
-      "directory": "/textures/atx/storefront/camp/floordecoration/"
-    },
-    "carouselImages": [],
-    "itemName": "Flat Cement Tire Wall",
-    "itemNameShort": "Flat Tire Wall"
-  },
-  {
     "EDID": "ATX_ENTM_Photomode_Frame_Space",
     "desc": "Become an astral being with the Space Photomode Frame.",
     "disclaimer": "UNLOCKS A PHOTOMODE FRAME.",
@@ -32379,8 +32450,17 @@
     "EDID": "ATX_ENTM_CAMP_FloorDecor_CementTire_03",
     "desc": "Fortify your Free State C.A.M.P. with this Small Cement Filled Tire.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
-    "carouselImages": [],
+    "primaryImage":
+    { 
+      "imageName": "atx_camp_floordecor_cementtire_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
+    "carouselImages": [
+      {
+      "imageName": "atx_camp_floordecor_cementtire_03_c1.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+      }
+    ],
     "itemName": "Small Cement Filled Tire",
     "itemNameShort": "Small Tire"
   },
@@ -32866,7 +32946,12 @@
       "imageName": "atx_camp_floordecor_cementtire_l.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": [],
+    "carouselImages": [
+      {
+      "imageName": "atx_camp_floordecor_cementtire_02_c1.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+      }
+    ],
     "itemName": "Medium Cement Filled Tire",
     "dbIndex": 2455,
     "newImagesAdded": 1,
@@ -35285,11 +35370,48 @@
     "itemNameShort": "Hug Cutout"
   },
   {
+  "EDID": "ATX_ENTM_CAMP_FloorDecor_CementTire_Set",
+  "desc": "Fortify your Free State C.A.M.P. with these Cement Filled Tires.",
+  "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Cement Filled Tire Set",
+  "primaryImage": {
+    "imageName": "atx_camp_floordecor_cementtire_l.webp",
+    "directory": "/textures/atx/storefront/camp/floordecoration/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 300,
+  "cBadge": "Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Small Cement Filled Tire",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_CementTire_03"
+    },
+    {
+      "szItemName": "Medium Cement Filled Tire",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_CementTire_02"
+    },
+    {
+      "szItemName": "Large Cement Filled Tire",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_CementTire_01"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_CementTire_01",
     "desc": "Fortify your Free State C.A.M.P. with this Large Cement Filled Tire.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
-    "carouselImages": [],
+    "primaryImage": {
+      "imageName": "atx_camp_floordecor_cementtire_l.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
+    "carouselImages": [
+      {
+      "imageName": "atx_camp_floordecor_cementtire_01_c1.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+      }
+    ],
     "itemName": "Large Cement Filled Tire",
     "itemNameShort": "Large Tire"
   },
@@ -35305,6 +35427,48 @@
     "itemName": "Alpine Horn",
     "itemNameShort": "Alpine Horn",
     "highPriceOriginal": 200
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_Furniture_Set_MothmanCultist",
+  "desc": "",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Mothman Cultist Furniture Set",
+  "itemNameShort": "Mothman Furniture Set",
+  "primaryImage": {
+    "imageName": "04780b86104229c3447d3ee30964970e.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1200,
+  "cBadge": "Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Mothman Cultist Bed",
+      "entmName": "ATX_ENTM_CAMP_Bed_MothmanCultist"
+    },
+    {
+      "szItemName": "Mothman Cultist Ceiling Light",
+      "entmName": "ATX_ENTM_CAMP_Lights_Ceiling_MothmanCultist"
+    },
+    {
+      "szItemName": "Mothman Cultist Tree Trunk Altar",
+      "entmName": "ATX_ENTM_CAMP_Statue_MothmanCultist_TreeAltar"
+    },
+    {
+      "szItemName": "Mothman Cultist Chair",
+      "entmName": "ATX_ENTM_CAMP_Furniture_MothmanCultist_Chair"
+    },
+    {
+      "szItemName": "Mothman Cultist Desk Lamp",
+      "entmName": "ATX_ENTM_CAMP_Lights_MothmanCultist_DeskLamp"
+    },
+    {
+      "szItemName": "Mothman Cultist Side Table",
+      "entmName": "ATX_ENTM_CAMP_Furniture_MothmanCultist_SideTable"
+    }
+  ]
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_Fasnacht_Moon",
@@ -35445,7 +35609,7 @@
     "desc": "Fortify your Free State C.A.M.P. with this Pyramid Tire Wall.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "atx_camp_floordecor_cementtirewall_l.webp",
+      "imageName": "atx_camp_floordecor_cementtirewall_03_c1.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": [],
@@ -36043,6 +36207,35 @@
     "itemNameShort": "Small Barbed Wire Tire"
   },
   {
+  "EDID": "ATX_ENTM_CAMP_FloorDecor_CementTire_BarbedWire_Set",
+  "desc": "Fortify your Raider C.A.M.P. with these Barbed Wire Tires.",
+  "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Barbed Chained Tire Set",
+  "primaryImage": {
+    "imageName": "atx_camp_floordecor_cementtire_chains_l.webp",
+    "directory": "/textures/atx/storefront/camp/floordecoration/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 300,
+  "cBadge": "Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Small Barbed Wire Tire",
+      "entmName": "atx_entm_camp_floordecor_cementtire_barbedwire"
+    },
+    {
+      "szItemName": "Medium Barbed Wire Tire",
+      "entmName": "atx_entm_camp_floordecor_cementtire_chains"
+    },
+    {
+      "szItemName": "Large Barbed Chained Tire",
+      "entmName": "atx_entm_camp_floordecor_cementtire_barbedwire_chains"
+    }
+  ]
+  },
+  {
     "EDID": "Babylon_ENTM_CAMP_Decoration_Trophy_Silver_01",
     "desc": "Celebrate your Nuclear Winter victories with this trophy!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -36373,12 +36566,36 @@
     "desc": "Fortify your Free State C.A.M.P. with this Tall Cement Tire Wall.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "atx_camp_floordecor_cementtirewall_l.webp",
+      "imageName": "atx_camp_floordecor_cementtirewall_04_c1.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
     "carouselImages": [],
     "itemName": "Tall Cement Tire Wall",
     "itemNameShort": "Tall  Tire Wall"
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_FloorDecor_CementTireWall_02",
+    "desc": "Fortify your Free State C.A.M.P. with this Jagged Cement Tire Wall.",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "atx_camp_floordecor_cementtirewall_02_c1.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
+    "carouselImages": [],
+    "itemName": "Jagged Cement Tire Wall",
+    "itemNameShort": "Jagged Tire Wall"
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_FloorDecor_CementTireWall_01",
+    "desc": "Fortify your Free State C.A.M.P. with this Flat Cement Tire Wall.",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "atx_camp_floordecor_cementtirewall_01_c1.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
+    "carouselImages": [],
+    "itemName": "Flat Cement Tire Wall",
+    "itemNameShort": "Flat Tire Wall"
   },
   {
     "EDID": "F1_SCORE_S8_ENTM_CAMP_Furniture_Babylon_OfficeFileCabinet03",
@@ -37164,6 +37381,50 @@
     "carouselImages": [],
     "itemName": "Fog Machine",
     "itemNameShort": "Fog Machine"
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_CultistDungeon",
+  "desc": "Inspire some terror from your captives, I mean, \"C.A.M.P. visitors\" with the Cultist Dungeon Bundle.",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Cultist Dungeon Bundle",
+  "primaryImage": {
+    "imageName": "atx_bundle_cultistcamp.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1200,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Head in a Jar",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_HeadInAJar"
+    },
+    {
+      "szItemName": "Steel-Dipped Skull Torch",
+      "entmName": "ATX_ENTM_CAMP_Lights_Skull_Torch"
+    },
+    {
+      "szItemName": "Cultist Dungeon Outfit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_CultistDungeon"
+    },
+    {
+      "szItemName": "Cultist Dungeon Headwear",
+      "entmName": "ATX_ENTM_Apparel_Headwear_CultistDungeon"
+    },
+    {
+      "szItemName": "Radiation Test Dummy",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_RadiationDummy"
+    },
+    {
+      "szItemName": "Skeletal Ceiling Light",
+      "entmName": "ATX_ENTM_CAMP_Lights_Ceiling_Skeletal"
+    },
+    {
+      "szItemName": "Halberd (War Glaive Paint)",
+      "entmName": "ATX_ENTM_Skin_WeaponModel_WarGlaive_Halberd"
+    }
+  ]
   },
   {
     "EDID": "ATX_ENTM_CAMP_Floor_RedUprising",
