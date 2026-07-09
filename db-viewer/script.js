@@ -686,6 +686,93 @@ async function loadDatabase() {
     }
 }
 
+function getTextSearchTerms(item) {
+    if (!item) return { edid: '', name: '', shortName: '' };
+
+    return {
+        edid: (item._lowerEDID || (item.EDID || '').toLowerCase()),
+        name: (item._lowerName || (item.itemName || item.name || '').toLowerCase()),
+        shortName: (item._lowerShortName || (item.itemNameShort || '').toLowerCase())
+    };
+}
+
+function itemMatchesTextSearch(item, lowerQuery) {
+    if (!item) return false;
+
+    const { edid, name, shortName } = getTextSearchTerms(item);
+    return edid.includes(lowerQuery) || name.includes(lowerQuery) || shortName.includes(lowerQuery);
+}
+
+function hasDynamicBundleContents(item) {
+    return !!item && Array.isArray(item.dynamicBundleItems) && item.dynamicBundleItems.length > 0;
+}
+
+function itemMatchesReference(item, candidate) {
+    if (!item || !candidate) return false;
+
+    const itemEdid = (item.EDID || '').trim().toLowerCase();
+    const itemName = (item.itemName || item.name || '').trim().toLowerCase();
+    const itemShortName = (item.itemNameShort || '').trim().toLowerCase();
+
+    const candidateEdid = (candidate.EDID || '').trim().toLowerCase();
+    const candidateName = (candidate.itemName || candidate.name || '').trim().toLowerCase();
+    const candidateShortName = (candidate.itemNameShort || '').trim().toLowerCase();
+
+    return item === candidate ||
+        itemEdid === candidateEdid ||
+        itemEdid === candidateName ||
+        itemEdid === candidateShortName ||
+        itemName === candidateEdid ||
+        itemName === candidateName ||
+        itemName === candidateShortName ||
+        itemShortName === candidateEdid ||
+        itemShortName === candidateName ||
+        itemShortName === candidateShortName;
+}
+
+function entryMatchesItem(entry, item) {
+    if (!entry || !item) return false;
+
+    if (entry.record && itemMatchesReference(item, entry.record)) return true;
+
+    const entryId = (entry.id || entry.EDID || entry.edid || entry.entmName || entry.entm || entry.itemID || '').toString().trim().toLowerCase();
+    const entryName = (entry.resolvedName || entry.oldName || entry.name || entry.itemName || '').toString().trim().toLowerCase();
+    const entryShortName = (entry.resolvedShortName || '').toString().trim().toLowerCase();
+
+    const itemEdid = (item.EDID || '').trim().toLowerCase();
+    const itemName = (item.itemName || item.name || '').trim().toLowerCase();
+    const itemShortName = (item.itemNameShort || '').trim().toLowerCase();
+
+    return itemMatchesReference(item, { EDID: entryId, itemName: entryName, itemNameShort: entryShortName }) ||
+        itemEdid === entryId ||
+        itemName === entryId ||
+        itemShortName === entryId ||
+        itemEdid === entryName ||
+        itemName === entryName ||
+        itemShortName === entryName ||
+        itemEdid === entryShortName ||
+        itemName === entryShortName ||
+        itemShortName === entryShortName;
+}
+
+function getBundleContentsMatches(item, candidates) {
+    if (!hasDynamicBundleContents(item)) return [];
+
+    return resolveDynamicBundleItems(item)
+        .map(entry => entry?.record)
+        .filter(record => !!record && candidates.includes(record));
+}
+
+function getContainingBundleMatches(item, candidates) {
+    if (!item) return [];
+
+    return candidates.filter(candidate => {
+        if (candidate === item || !hasDynamicBundleContents(candidate)) return false;
+
+        return resolveDynamicBundleItems(candidate).some(entry => entryMatchesItem(entry, item));
+    });
+}
+
 // Search function
 function search(query) {
     let results = dbData;
@@ -726,6 +813,8 @@ function search(query) {
         });
     }
     
+    let expandedReason = '';
+
     // Apply text search
     if (query.trim()) {
         const lowerQuery = query.toLowerCase();
@@ -738,16 +827,34 @@ function search(query) {
                 results = [];
             }
         } else {
-            results = results.filter(item => {
-                const edid = item._lowerEDID || (item.EDID || '').toLowerCase();
-                const name = item._lowerName || (item.itemName || item.name || '').toLowerCase();
-                const shortName = item._lowerShortName || (item.itemNameShort || '').toLowerCase();
-                return edid.includes(lowerQuery) || name.includes(lowerQuery) || shortName.includes(lowerQuery);
-            });
+            const directMatches = results.filter(item => itemMatchesTextSearch(item, lowerQuery));
+
+            if (directMatches.length === 1) {
+                const onlyMatch = directMatches[0];
+                const expandedMatches = [onlyMatch];
+                const extraMatches = [];
+
+                if (hasDynamicBundleContents(onlyMatch)) {
+                    extraMatches.push(...getBundleContentsMatches(onlyMatch, results));
+                    if (extraMatches.length > 0) {
+                        expandedReason = 'additionally showing items included in this bundle';
+                    }
+                } else {
+                    extraMatches.push(...getContainingBundleMatches(onlyMatch, results));
+                    if (extraMatches.length > 0) {
+                        expandedReason = 'additionally showing bundles that include this item';
+                    }
+                }
+
+                expandedMatches.push(...extraMatches);
+                results = expandedMatches.filter((item, index, arr) => arr.indexOf(item) === index);
+            } else {
+                results = directMatches;
+            }
         }
     }
     
-    statsText.textContent = `Found ${results.length} of ${dbData.length} items`;
+    statsText.innerHTML = `Found ${results.length} of ${dbData.length} items${expandedReason ? ` <span class="search-expansion-hint">${expandedReason}</span>` : ''}`;
     resetAndRender(results);
 }
 
