@@ -45,6 +45,9 @@
       lastCookieValue = currentOwnedValue;
       lastFavoriteCookieValue = currentFavoriteValue;
       decorateViewerTiles();
+      if (overlayTileId) {
+        syncHoverOverlayState(overlayTileId);
+      }
       updateStoredItemCount();
     }
   }
@@ -86,9 +89,20 @@
     document.cookie = `${key}=; path=/; max-age=0; SameSite=Lax; domain=${cookieDomain}`;
   }
 
+  function normalizeTrackedId(value) {
+    return String(value || '')
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+  }
+
   function normalizeIdArray(ids) {
     if (!Array.isArray(ids)) return [];
-    return Array.from(new Set(ids.filter(id => typeof id === 'string' && id.trim()).map(id => id.trim())));
+    return Array.from(new Set(ids
+      .filter(id => typeof id === 'string' && id.trim())
+      .map(id => normalizeTrackedId(id))
+      .filter(Boolean)));
   }
 
   function parseStoredIds(value) {
@@ -152,16 +166,16 @@
 
   function getItemIdFromRecord(item) {
     if (!item || typeof item !== 'object') return null;
-    if (item.EDID && String(item.EDID).trim()) return String(item.EDID).trim();
-    if (item.edid && String(item.edid).trim()) return String(item.edid).trim();
-    if (item.itemID != null && String(item.itemID).trim()) return String(item.itemID).trim();
+    if (item.EDID && String(item.EDID).trim()) return normalizeTrackedId(item.EDID);
+    if (item.edid && String(item.edid).trim()) return normalizeTrackedId(item.edid);
+    if (item.itemID != null && String(item.itemID).trim()) return normalizeTrackedId(item.itemID);
 
     const textFields = [item.itemName, item.itemNameShort, item.name, item.title]
       .filter(field => typeof field === 'string' && field.trim())
       .sort((a, b) => b.length - a.length);
 
     if (textFields.length) {
-      return normalizeFallback(textFields[0]);
+      return normalizeTrackedId(textFields[0]);
     }
 
     return null;
@@ -220,7 +234,7 @@
   let ownedControlsVisible = false;
 
   function normalizeFallback(value) {
-    return String(value || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    return normalizeTrackedId(value);
   }
 
   function setOwnedControlsVisibility(visible) {
@@ -242,22 +256,22 @@
 
   function getTileId(tile) {
     const edid = tile.getAttribute('data-item-edid');
-    if (edid && edid.trim()) return edid.trim();
+    if (edid && edid.trim()) return normalizeTrackedId(edid);
 
     const rawDataItem = tile.getAttribute('data-item');
     if (rawDataItem) {
       try {
         const itemData = JSON.parse(rawDataItem.replace(/&apos;/g, "'"));
-        if (itemData?.EDID || itemData?.edid) return String(itemData.EDID || itemData.edid).trim();
-        if (itemData?.title) return normalizeFallback(itemData.title);
-        if (Array.isArray(itemData?.includes) && itemData.includes.length) return normalizeFallback(itemData.includes[0]);
+        if (itemData?.EDID || itemData?.edid) return normalizeTrackedId(itemData.EDID || itemData.edid);
+        if (itemData?.title) return normalizeTrackedId(itemData.title);
+        if (Array.isArray(itemData?.includes) && itemData.includes.length) return normalizeTrackedId(itemData.includes[0]);
       } catch (e) {
         // ignore
       }
     }
 
     const footer = tile.querySelector('.tile-footer');
-    if (footer && footer.textContent) return normalizeFallback(footer.textContent);
+    if (footer && footer.textContent) return normalizeTrackedId(footer.textContent);
 
     return null;
   }
