@@ -5782,6 +5782,7 @@
       "imageName": "atx_photomode_frame_newyear_l.webp",
       "directory": "/textures/atx/storefront/player/photoframe/"
     },
+    "highPriceOriginal": 300,
     "carouselImages": [],
     "itemName": "Happy New Year Frame",
     "itemNameShort": "Happy New Year"
@@ -14383,7 +14384,8 @@
     },
     "carouselImages": [],
     "itemName": "Mr. Fuzzy New Year's Plushie",
-    "itemNameShort": "Mr. Fuzzy New Year's Plushie"
+    "itemNameShort": "Mr. Fuzzy New Year's Plushie",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_CAMP_Sign_Vendor_Armor",
@@ -14692,7 +14694,8 @@
     },
     "carouselImages": [],
     "itemName": "Gala Dress",
-    "itemNameShort": "Gala Dress"
+    "itemNameShort": "Gala Dress",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_Gala_TuxHat",
@@ -14716,7 +14719,109 @@
     },
     "carouselImages": [],
     "itemName": "Gala Tuxedo",
-    "itemNameShort": "Gala Tuxedo"
+    "itemNameShort": "Gala Tuxedo",
+    "highPriceOriginal": 800
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_Neon_Sign_Set",
+  "desc": "For when a verbal warning just won't do, show'em you mean business with this Go Away Neon Sign Set.",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Go Away Neon Sign Set",
+  "itemNameShort":"Neon Sign Set",
+  "primaryImage": {
+    "imageName": "33a0d708467ae7c50aeb783d90eef96a.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 300,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Go Away Neon Sign",
+      "entmName": "ATX_ENTM_CAMP_Lights_NeonSign_GoAway"
+    },
+    {
+      "szItemName": "No Restroom Neon Sign",
+      "entmName": "ATX_ENTM_CAMP_Lights_NeonSign_NoRestroom"
+    },
+    {
+      "szItemName": "No Vacancy Neon Sign",
+      "entmName": "ATX_ENTM_CAMP_Lights_NeonSign_NoVacancy"
+    },
+    {
+      "szItemName": "Stay Away Neon Sign",
+      "entmName": "ATX_ENTM_CAMP_Lights_NeonSign_StayAway"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_New_Years_Tuxedo_Bundle",
+  "desc": "What better way to ring in the New Year than with the finest tuxedos in the wasteland ?! Can't decide on a cut or color? This bundle has it all!",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Bundle: New Year's Tuxedos",
+  "primaryImage": {
+    "imageName": "dev_atx_tuxedo_bundle.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 800,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Tuxedo",
+      "entmName": "ATX_ENTM_Apparel_Outfit_Tuxedo"
+    },
+    {
+      "szItemName": "White Tuxedo with Tails",
+      "entmName": "ATX_ENTM_Apparel_Outfit_WhiteTux"
+    },
+    {
+      "szItemName": "Black and White Tuxedo with Tails",
+      "entmName": "ATX_ENTM_Apparel_Outfit_WhiteBlackTux"
+    },
+    {
+      "szItemName": "Tuxedo Hat",
+      "entmName": "ATX_ENTM_Apparel_Headwear_TuxedoHat"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_New_Years_Eve_Bundle",
+  "desc": "Chime in the New Year with this festive bundle.",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "New Year's Eve Bundle",
+  "primaryImage": {
+    "imageName": "atx_new_years_eve_bundle.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1200,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Vault-Tec Grandfather Clock",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_GrandfatherClock_VaultTec"
+    },
+    {
+      "szItemName": "Gala Dress",
+      "entmName": "ATX_ENTM_Apparel_Outfit_GalaDress"
+    },
+    {
+      "szItemName": "Gala Tuxedo",
+      "entmName": "ATX_ENTM_Apparel_Outfit_Gala_Tuxedo"
+    },
+    {
+      "szItemName": "Gala Tuxedo Hat",
+      "entmName": "ATX_ENTM_Apparel_Headwear_Gala_TuxHat"
+    },
+    {
+      "szItemName": "Rifle Drill Emote",
+      "entmName": "ATX_ENTM_Emotes_Misc_RifleDrill"
+    }
+  ]
   },
   {
     "EDID": "ATX_ENTM_CAMP_Sign_NukaGirl",
@@ -24726,6 +24831,38 @@
     "itemNameShort": "Green Skull Mask"
   },
   {
+  "EDID": "ATX_ENTM_BNDL_Nuklear_Winter_Poster_Set",
+  "desc": "",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Nuclear Winter Poster Set",
+  "primaryImage": {
+    "imageName": "",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 200,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Build a Shelter Poster",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_Posters_Babylon_Camp"
+    },
+    {
+      "szItemName": "Keep an Eye Out Poster",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_Posters_Babylon_EyeOut"
+    },
+    {
+      "szItemName": "Power Up Poster",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_Posters_Babylon_PowerUp"
+    },
+    {
+      "szItemName": "Watch for Signs Poster",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_Posters_Babylon_Tracking"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_ENTM_Apparel_Headwear_Fasnacht_Jester_Blue",
     "desc": "Celebrate Fasnacht with this Blue Jester Mask.",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
@@ -28536,6 +28673,177 @@
     "carouselImages": [],
     "itemName": "Fish Bones Flair",
     "itemNameShort": "Fish Bones Flair"
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_Statue_Hero_of_wasteland_Satue_Set",
+  "desc": "Who needs diplomacy when you've got a mini nuke? Decorate your C.A.M.P. with these three life-sized Hero of the Wasteland Statues.",
+  "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Hero of the Wasteland Statue Set",
+  "primaryImage": {
+    "imageName": "dev_atx_floordecor_hero_statue_set.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 500,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Hero of the Wasteland Statue",
+      "entmName": "ATX_ENTM_CAMP_Statue_SurviveStatue"
+    },
+    {
+      "szItemName": "Iron Hero of the Wasteland Statue",
+      "entmName": "ATX_ENTM_CAMP_Statue_SurviveStatue_Iron"
+    },
+    {
+      "szItemName": "Weathered Hero of the Wasteland Statue",
+      "entmName": "ATX_ENTM_CAMP_Statue_SurviveStatue_BronzePatina"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_Hounds_Reclining_Chairs",
+  "desc": "Kick back and relax in these Hounds Reclining Sofa Chairs!",
+  "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Hounds Reclining Sofa Chair",
+  "primaryImage": {
+    "imageName": "",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 300,
+  "cBadge":"Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Green Hounds Reclining Sofa Chair",
+      "entmName": "ATX_ENTM_CAMP_Furniture_Chair_Reclining_Sofa_GreenHounds"
+    },
+    {
+      "szItemName": "Brown Hounds Reclining Sofa Chair",
+      "entmName": "ATX_ENTM_CAMP_Furniture_Chair_Reclining_Sofa_BrownHounds"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_Mudflap_Hat_Set",
+  "desc": "Who needs a new haircut, when a new hat will do just fine? These Three Mudflap hats are just for you then.",
+  "disclaimer": "- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Mudflap Hat Set",
+  "primaryImage": {
+    "imageName": "atx_apparel_headwear_mudflaphat_blackwater_l.webp",
+    "directory": "/textures/atx/storefront/player/headwear/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 300,
+  "cBadge":"Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Hunter's Mudflap Hat",
+      "entmName": "ATX_ENTM_Apparel_Headwear_MudflapHat_Hunting"
+    },
+    {
+      "szItemName": "Mudflap Hat",
+      "entmName": "ATX_ENTM_Apparel_Headwear_MudflapHat"
+    },
+    {
+      "szItemName": "Blackwater Mudflap Hat",
+      "entmName": "ATX_ENTM_Apparel_Headwear_MudflapHat_Blackwater"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_Skin_PowerArmor_LibertyPrime_Set",
+  "desc": "DEMOCRACY IS NON-NEGOTIABLE. Eradicate communism with these two Liberty Prime Power Armor Skins.\\nThis is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on the Excaator, Raider, T-45, T-51, T-60, Ultracite and X-01 Power Armors.\\nThe Power Armor Skin will play new, fuly voiced sound effects while equipped.",
+  "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Liberty Prime Power Armor Skin Set",
+  "primaryImage": {
+    "imageName": "5aa93fca271c357fd7b4351050d960ee.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1800,
+  "cBadge":"Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Liberty Prime Power Armor Skin",
+      "entmName": "ATX_ENTM_Skin_PowerArmor_Paint_LibertyPrime"
+    },
+    {
+      "szItemName": "Patriot Prime Power Armor Skin",
+      "entmName": "ATX_ENTM_Skin_PowerArmor_Paint_LibertyPrime_Patriot"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_Holiday_Emotes_Bundle",
+  "desc": "A collection of 12 emotes to help you share holiday cheer! Now you can spread joy with your friends, as you spread mayhem in the wasteland. Happy holidays!",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Holidays Emote Bundle",
+  "primaryImage": {
+    "imageName": "eaf377507c91e26c220ac76ef2db6f50.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1200,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Snowball Fight! Emote",
+      "entmName": "ATX_ENTM_Emotes_Taunt_Holiday2018"
+    },
+    {
+      "szItemName": "Snow Confused Emote",
+      "entmName": "ATX_ENTM_Emotes_Confused_Holiday2018"
+    },
+    {
+      "szItemName": "Festively Angry Emote",
+      "entmName": "ATX_ENTM_Emotes_Angry_Holiday2018"
+    },
+    {
+      "szItemName": "Ho Ho No Emote",
+      "entmName": "ATX_ENTM_Emotes_No_Holiday2018"
+    },
+    {
+      "szItemName": "Happy Holidays! Emote",
+      "entmName": "ATX_ENTM_Emotes_Hello_Holiday2018"
+    },
+    {
+      "szItemName": "Trapped! Emote",
+      "entmName": "ATX_ENTM_Emotes_Help_Holiday2018"
+    },
+    {
+      "szItemName": "Holiday Party! Emotes",
+      "entmName": "ATX_ENTM_Emotes_Interactions_Holiday2018"
+    },
+    {
+      "szItemName": "Share the Holidays Emote",
+      "entmName": "ATX_ENTM_Emotes_Love_Holiday2018"
+    },
+    {
+      "szItemName": "This Way to Joy! Emote",
+      "entmName": "ATX_ENTM_Emotes_Follow_Holiday2018"
+    },
+    {
+      "szItemName": "Wreck the Halls! Emote",
+      "entmName": "ATX_ENTM_Emotes_TeamUp_Holiday2018"
+    },
+    {
+      "szItemName": "Take a Break Emote",
+      "entmName": "ATX_ENTM_Emotes_Misc_Holiday2018"
+    },
+    {
+      "szItemName": "Nice List Emote",
+      "entmName": "ATX_ENTM_Emotes_Yes_Holiday2018"
+    }
+  ]
   },
   {
     "EDID": "SCORE_S20_ENTM_CAMP_Decoration_GooTub",
@@ -63264,18 +63572,14 @@
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Skin_SantaSuit",
-    "desc": "Become a mechanized harbinger of joy this holiday season, spreading cheer with extreme prejudice. The Power Armor Skin will play unique sound effects while equipped. This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.",
-    "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
+    "desc": "Become a mechanized harbinger of joy this holiday season, spreading cheer with extreme prejudice.The Power Armor Skin will play unique sound effects while equipped. This is a unique skin that completely alters the appearance of your Power Armor.",
+    "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.\n\nIt can be equipped on all main Power Armors.",
     "primaryImage": {
-      "imageName": "atx_skin_powerarmor_paint_santasslay_l.webp",
+      "imageName": "atx_skin_powerarmor_paint_atxmas_l.webp",
       "directory": "/textures/atx/storefront/player/powerarmor/"
     },
     "carouselImages": [],
     "itemName": "Northern Lights Power Armor Paint",
-    "dbIndex": 4886,
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true,
     "itemNameShort": "Northern Lights Paint (T-51)"
   },
   {
