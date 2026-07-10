@@ -1105,6 +1105,527 @@
         ]
       },
       {
+        "name": "Weekend Sale \\n The Season Returns!",
+        "tabid": "weekend-sale",
+        "isZeus": false,
+        "image": {
+          "imageName": "020b201b3595dd4c555ce48cdc45a582.dds",
+          "directory": "textures/atomic_shop_media/"
+        },
+        "items": [
+          {
+            "itemID": 2581504,
+            "itemName": "Fallout First Quarterly Catch Up Bundle 9",
+            "itemNameShort": "Fallout First Catch Up",
+            "itemDesc": "New to Fallout First or missed a monthly item? This Bundle will let you find some of those items.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- - UNLOCKS A VARIANT OF THE SURVIVAL TENT.-  -\n\nThis offer is exclusive to Fallout 1st Members.",
+            "primaryImage": {
+              "imageName": "f59820c7f314fe9db0801b254f762ee4.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_f1_camp_floordecor_rug_kinggrognak_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_f1_survivaltent_skin_abandonedshack.dds",
+                "directory": "/textures/atx/storefront/camp/tents/"
+              },
+              {
+                "imageName": "atx_f1_camp_walldeco_pictureframeabstract_01_l.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_f1_camp_walldeco_pictureframeabstract_02_l.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_f1_camp_walldeco_pictureframeabstract_03_l.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_f1_camp_structure_car_blue_l.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "King Grognak Rug",
+                "entmName": "ATX_F1_ENTM_CAMP_FloorDecor_Rug_KingGrognak"
+              },
+              {
+                "szItemName": "Abandoned Shack Survival Tent",
+                "entmName": "ATX_F1_ENTM_SurvivalTent_Skin_AbandonedShack"
+              },
+              {
+                "szItemName": "Abstract Painting",
+                "entmName": "ATX_F1_ENTM_CAMP_WallDeco_PictureFrameAbstract_02"
+              },
+              {
+                "szItemName": "Abstract Painting",
+                "entmName": "ATX_F1_ENTM_CAMP_WallDeco_PictureFrameAbstract_02"
+              },
+              {
+                "szItemName": "Abstract Painting",
+                "entmName": "ATX_F1_ENTM_CAMP_WallDeco_PictureFrameAbstract_02"
+              },
+              {
+                "szItemName": "Blue Corvega Trailer",
+                "entmName": "ATX_F1_ENTM_CAMP_Structure_Car_Blue"
+              }
+            ],
+            "lowPrice": {
+              "amount": 500,
+              "originalAmount": 500,
+              "isLto": true,
+              "ltoTimer": "2026-07-14T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 500,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1000
+            },
+            "isZeus": true,
+            "isClown": false
+          },
+          {
+            "itemID": 2581505,
+            "itemName": "Strike Fear Bundle",
+            "itemNameShort": "Strike Fear Bundle",
+            "itemDesc": "Fear is a great motivator.\n[h]Green laser grid door included with the Skull Tower[/h]\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "f669b34ddfb96bff62db03d4f1276116.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s9_skin_powerarmor_model_blackbird_elite_l.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s9_skin_powerarmor_jetpack_blackbird_elite_l.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_camp_defense_turret_red_l.dds",
+                "directory": "/textures/atx/storefront/camp/defenses/"
+              },
+              {
+                "imageName": "score_s1_skin_weaponskin_handmadegun_bloodeagle_l.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "atx_skin_armorskin_combat_bloodstained_l.dds",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              },
+              {
+                "imageName": "atx_entm_camp_structure_skulltower_l.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_door_skull_tower_l.webp",
+                "directory": "/textures/atx/storefront/camp/doors/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Blackbird Elite Power Armor Paint",
+                "entmName": "SCORE_S9_ENTM_Skin_PowerArmor_Model_Blackbird_Elite"
+              },
+              {
+                "szItemName": "Blackbird Elite Jet Pack",
+                "entmName": "SCORE_S9_ENTM_Skin_PowerArmor_Jetpack_Blackbird_Elite"
+              },
+              {
+                "szItemName": "Red Turret Pack",
+                "entmName": "ATX_ENTM_CAMP_Defense_Turret_Red"
+              },
+              {
+                "szItemName": "Blood Eagle Paint (Handmade Rifle)",
+                "entmName": "SCORE_S1_ENTM_Skin_WeaponSkin_HandmadeGun_BloodEagle"
+              },
+              {
+                "szItemName": "Blood-Washed Combat Armor Paint",
+                "entmName": "ATX_ENTM_Skin_ArmorSkin_Combat_BloodStained"
+              },
+              {
+                "szItemName": "Skull Tower",
+                "entmName": "ATX_ENTM_CAMP_Structure_SkullTower"
+              }
+            ],
+            "lowPrice": {
+              "amount": 1080,
+              "originalAmount": 1080,
+              "isLto": true,
+              "ltoTimer": "2026-07-14T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 1080,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1800
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2581506,
+            "itemName": "Mercenary Company Bundle",
+            "itemNameShort": "Mercenary Company Bundle",
+            "itemDesc": "Sign up for some easy caps with the Mercenary Company Bundle.\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "8fad52e5ec50dec0bf08db76648395de.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s9_skin_powerarmor_paint_t45_mercenarycompany_l.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s9_skin_powerarmor_paint_excavator_mercenarycompany_l.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s9_skin_powerarmor_paint_t51_mercenarycompany_l.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s9_skin_powerarmor_paint_t60_mercenarycompany_l.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s9_skin_powerarmor_paint_t65_mercenarycompany_l.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s9_skin_powerarmor_paint_ultracite_mercenarycompany_l.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s9_skin_powerarmor_paint_x01_mercenarycompany_l.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s9_skin_pipboyskin_mercenarycompany_l.dds",
+                "directory": "/textures/atx/storefront/player/pipboy/"
+              },
+              {
+                "imageName": "score_s9_skin_backpackflair_golddippedgrenade_l.dds",
+                "directory": "/textures/atx/storefront/player/flair/"
+              },
+              {
+                "imageName": "score_s9_camp_utility_armwrestlemachine_l.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Mercenary Company T-45 Power Armor Paint",
+                "entmName": "SCORE_S9_ENTM_Skin_PowerArmor_Paint_T45_MercenaryCompany"
+              },
+              {
+                "szItemName": "Mercenary Company Excavator Power Armor Paint",
+                "entmName": "SCORE_S9_ENTM_Skin_PowerArmor_Paint_Excavator_MercenaryCompany"
+              },
+              {
+                "szItemName": "Mercenary Company T-51 Power Armor Paint",
+                "entmName": "SCORE_S9_ENTM_Skin_PowerArmor_Paint_T51_MercenaryCompany"
+              },
+              {
+                "szItemName": "Mercenary Company T-60 Power Armor Paint",
+                "entmName": "SCORE_S9_ENTM_Skin_PowerArmor_Paint_T60_MercenaryCompany"
+              },
+              {
+                "szItemName": "Mercenary Company T-65 Paint Power Armor",
+                "entmName": "SCORE_S9_ENTM_Skin_PowerArmor_Paint_T65_MercenaryCompany"
+              },
+              {
+                "szItemName": "Mercenary Company Ultracite Power Armor Paint",
+                "entmName": "SCORE_S9_ENTM_Skin_PowerArmor_Paint_Ultracite_MercenaryCompany"
+              },
+              {
+                "szItemName": "Mercenary Company X-01 Power Armor Paint",
+                "entmName": "SCORE_S9_ENTM_Skin_PowerArmor_Paint_X01_MercenaryCompany"
+              },
+              {
+                "szItemName": "Mercenary Company Pip-Boy Paint",
+                "entmName": "SCORE_S9_ENTM_Skin_PipBoySkin_MercenaryCompany"
+              },
+              {
+                "szItemName": "Gold-Dipped Grenade Flair",
+                "entmName": "SCORE_S9_ENTM_Skin_BackpackFlair_GoldDippedGrenade"
+              },
+              {
+                "szItemName": "Arm Wrestle Machine",
+                "entmName": "SCORE_S9_ENTM_CAMP_Utility_ArmWrestleMachine"
+              }
+            ],
+            "lowPrice": {
+              "amount": 900,
+              "originalAmount": 900,
+              "isLto": true,
+              "ltoTimer": "2026-07-14T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 900,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1500
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2581427,
+            "EDID": "SCORE_S9_ENTM_Skin_ArmorSkin_SecretService_Raiderish",
+            "itemName": "Raiderish Armor Paint Set",
+            "itemNameShort": "Raiderish Armor Paint Set",
+            "itemDesc": "Are you Raider, or are you just Raiderish? Find out with the Raiderish Armor Paint Set.\n\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -\n\n",
+            "primaryImage": {
+              "imageName": "efee007722682c066e6c1a20aac0e15f.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s9_skin_armorskin_secretservice_raiderish_l.dds",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              },
+              {
+                "imageName": "score_s9_skin_armorskin_leather_raiderish_l.dds",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              },
+              {
+                "imageName": "score_s9_skin_armorskin_combat_raiderish_l.dds",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              },
+              {
+                "imageName": "score_s9_skin_armorskin_robot_raiderish_l.dds",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              },
+              {
+                "imageName": "score_s9_skin_armorskin_metal_raiderish_l.dds",
+                "directory": "/textures/atx/storefront/player/armorskin/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 840,
+              "originalAmount": 840,
+              "isLto": true,
+              "ltoTimer": "2026-07-14T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 840,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 1200
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2580731,
+            "EDID": "ATX_ENTM_CAMP_Structure_Watchpost",
+            "itemName": "Watchpost",
+            "itemNameShort": "Watchpost",
+            "itemDesc": "Stay on the lookout from above in this treehouse-style Watchpost!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_entm_camp_structure_watchpost_l.dds",
+              "directory": "/textures/atx/storefront/camp/structures/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_structure_watchpost_c1.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_entm_camp_structure_watchpost_c2.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_entm_camp_structure_watchpost_c3.dds",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 490,
+              "originalAmount": 490,
+              "isLto": true,
+              "ltoTimer": "2026-07-14T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 490,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2581455,
+            "EDID": "SCORE_S9_ENTM_Apparel_Headwear_Cultist_Junkyard",
+            "itemName": "Junkyard Cultist Outfit",
+            "itemNameShort": "Junkyard Cultist Outfit",
+            "itemDesc": "Scrap and junk are weapons in the hands of a Junkyard Cultist.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "7c36140c391c5a40c2e73acfe638f0ce.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s9_apparel_headwear_cultist_junkyard_c1.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 490,
+              "originalAmount": 490,
+              "isLto": true,
+              "ltoTimer": "2026-07-14T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 490,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2581091,
+            "EDID": "ATX_ENTM_CAMP_Utility_FusionCoreRecharger_Industrial",
+            "itemName": "Industrial Fusion Core Recharger",
+            "itemNameShort": "Industrial Fusion Core Recharger",
+            "itemDesc": "Scorchbeast Queen Helmets don't power themselves!\n\nThis item cannot be built inside of a Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_utility_fusioncorerecharger_fasnacht_l.dds",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_utility_fusioncorerecharger_fasnacht_c1.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_utility_fusioncorerecharger_fasnacht_c2.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 490,
+              "originalAmount": 490,
+              "isLto": true,
+              "ltoTimer": "2026-07-14T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 490,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 700
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2581449,
+            "EDID": "SCORE_S9_ENTM_CAMP_Machinery_Workbench_Cooking_Grill_Chuckwagon",
+            "itemName": "Chuckwagon Cooking Station",
+            "itemNameShort": "Chuckwagon",
+            "itemDesc": "Feed the whole herd with the Chuckwagon Cooking Station!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s9_camp_machinery_workbench_cooking_grill_chuckwagon_l.dds",
+              "directory": "/textures/atx/storefront/camp/machinery/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s9_camp_machinery_workbench_cooking_grill_chuckwagon_c1.dds",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "score_s9_camp_machinery_workbench_cooking_grill_chuckwagon_c2.dds",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 350,
+              "originalAmount": 350,
+              "isLto": true,
+              "ltoTimer": "2026-07-14T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 350,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2581382,
+            "EDID": "ATX_ENTM_CAMP_Lights_NeonBillboards_SnackBar",
+            "itemName": "Snack Bar Neon Billboard",
+            "itemNameShort": "Snack Bar Neon Billboard",
+            "itemDesc": "Keep the calories high with a neon billboard for your own snack bar!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_lights_neonbillboards_snackbar.dds",
+              "directory": "/textures/atx/storefront/camp/lights/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_lights_neonbillboards_snackbar_c1.dds",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_lights_neonbillboards_snackbar_c2.dds",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "amount": 350,
+              "originalAmount": 350,
+              "isLto": true,
+              "ltoTimer": "2026-07-14T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "amount": 350,
+              "originalAmount": 0
+            },
+            "highPrice": {
+              "amount": 0,
+              "originalAmount": 500
+            },
+            "isZeus": false,
+            "isClown": false
+          }
+        ]
+      },
+      {
         "name": "Atomic Sales \\n New Welcome Bundles and the best deals!",
         "tabid": "atomic-sales",
         "isZeus": false,
@@ -3047,7 +3568,6 @@
             "isZeus": false,
             "isClown": false
           },
-          
           {
             "itemID": 2581503,
             "itemName": "Grease Goblin Bundle",
