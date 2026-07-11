@@ -3385,13 +3385,15 @@
     "disclaimer": "",
     "customdesc": "",
     "customdisclaimer": "",
-    "itemName": "Large Succulent Set",
+    "itemName": "Large Potted Row Succulent Set",
+    "itemNameShort": "Large Succulent Set",
     "primaryImage": {
-      "imageName": "default-bundle.webp",
+      "imageName": "dev_atx_large_succulent_set.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [],
     "highPriceOriginal": 300,
+    "cBadge": "Set",
     "dynamicBundleItems": [
       {
         "szItemName": "Arranged Potted Succulent",
@@ -6131,7 +6133,7 @@
     "customdisclaimer": "",
     "itemName": "Contemporary C.A.M.P. Bundle",
     "primaryImage": {
-      "imageName": "atx_bundle_contemporary_camp_bundle.webp",
+      "imageName": "dev_atx_bundle_contemporary_camp_bundle.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [],
@@ -13674,7 +13676,10 @@
     "EDID": "ATX_Community2019_PCA_ENTM_PlayerIcon_Wendigo",
     "desc": "What do you like to eat?",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "directory": "/textures/atx/storefront/player/playericons/",
+      "imageName": "default-playericon.webp"
+    },
     "carouselImages": [],
     "itemName": "Wendigo Player Icon",
     "itemNameShort": "Wendigo Icon",
@@ -14795,7 +14800,7 @@
   "customdisclaimer": "",
   "itemName": "New Year's Eve Bundle",
   "primaryImage": {
-    "imageName": "atx_new_years_eve_bundle.webp",
+    "imageName": "dev_atx_new_years_eve_bundle.webp",
     "directory": "/textures/atomic_shop_media/"
   },
   "carouselImages": [],
@@ -15946,7 +15951,7 @@
     "desc": "Show your love for the Mothman with the Mothman Wallpaper Set!",
     "disclaimer": "WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE.",
     "primaryImage": {
-      "imageName": "atx_entm_camp_wallpaper_mothman_set.webp",
+      "imageName": "dev_atx_entm_camp_wallpaper_mothman_set.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [
@@ -17372,7 +17377,7 @@
     "customdisclaimer": "",
     "itemName": "Golden Years Furniture Set",
     "primaryImage": {
-      "imageName": "atx_bundle_goldenyears.webp",
+      "imageName": "dev_atx_bundle_goldenyears.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [],
@@ -17444,7 +17449,7 @@
     "customdisclaimer": "",
     "itemName": "St. Patrick's Day Bundle",
     "primaryImage": {
-      "imageName": "atx_bundle_leprechaun.webp",
+      "imageName": "dev_atx_bundle_leprechaun.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [],
@@ -24293,7 +24298,7 @@
     "itemName": "Junkyard C.A.M.P. Bundle",
     "itemNameShort": "Junkyard Bundle",
     "primaryImage": {
-      "imageName": "atx_bundle_junkyardcamp.webp",
+      "imageName": "dev_atx_bundle_junkyardcamp.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [],
@@ -27157,7 +27162,7 @@
     "customdisclaimer": "",
     "itemName": "Down Home Dweller Bundle",
     "primaryImage": {
-      "imageName": "atx_bundle_downhomedweller.webp",
+      "imageName": "dev_atx_bundle_downhomedweller.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [],
@@ -32371,7 +32376,8 @@
     },
     "carouselImages": [],
     "itemName": "Satellite Dish",
-    "itemNameShort": "Satellite Dish"
+    "itemNameShort": "Satellite Dish",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Babylon_VaultSuitPackageStatic",
@@ -34854,7 +34860,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_Golden76",
     "desc": "- UNLOCKS A PLAYER ICON. -",
     "disclaimer": "",
-    "primaryImage": null,
+    "primaryImage": {
+      "directory":"/textures/atx/storefront/player/playericons/",
+      "imageName":"default-playericon.webp"
+    },
     "carouselImages": [],
     "itemName": "Golden 76 Icon",
     "newImagesAdded": 1,
@@ -39456,7 +39465,7 @@
   "customdisclaimer": "",
   "itemName": "Halo and Horns Set",
   "primaryImage": {
-    "imageName": "atx_halo_and_horns_set.webp",
+    "imageName": "dev_atx_halo_and_horns_set.webp",
     "directory": "/textures/atomic_shop_media/"
   },
   "carouselImages": [],
@@ -41318,7 +41327,10 @@
     "EDID": "F1_SCORE_S4_ENTM_PlayerIcon_Special",
     "desc": "Show your allegiance to the Brotherhood with this Player Icon!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "directory":"/textures/atx/storefront/player/playericons/",
+      "imageName":"default-playericon.webp"
+    },
     "carouselImages": [],
     "itemName": "Cold Steel Special Player Icon",
     "itemNameShort": "Cold Steel Special Icon"
@@ -41353,7 +41365,10 @@
     "EDID": "SCORE_S4_ENTM_PlayerIcon_ColdSteel_4",
     "desc": "The intrepid time traveling historian!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "directory":"/textures/atx/storefront/player/playericons/",
+      "imageName":"default-playericon.webp"
+    },
     "carouselImages": [],
     "itemName": "Cold Steel Icon 4",
     "itemNameShort": "Cold Steel 4 Icon"
@@ -52364,7 +52379,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_LookingVaultBoy",
     "desc": "What's coming next for you and Fallout 76?!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "directory":"/textures/atx/storefront/player/playericons/",
+      "imageName":"default-playericon.webp"
+    },
     "carouselImages": [],
     "itemName": "Looking Vault-Boy Player Icon",
     "itemNameShort": "Looking Vault-Boy Icon"
@@ -52389,7 +52407,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_BattleScar",
     "desc": "Battle tested and battle scarred!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "directory":"/textures/atx/storefront/player/playericons/",
+      "imageName":"default-playericon.webp"
+    },
     "carouselImages": [],
     "itemName": "Battle Scar Player Icon",
     "itemNameShort": "Battle Scar Icon"
@@ -52414,7 +52435,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_TooBrightVaultBoy",
     "desc": "The future is bright for you and Fallout 76!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "directory":"/textures/atx/storefront/player/playericons/",
+      "imageName":"default-playericon.webp"
+    },
     "carouselImages": [],
     "itemName": "Too Bright Vault-Boy Player Icon",
     "itemNameShort": "Too Bright Vault-Boy Icon"
@@ -52423,7 +52447,10 @@
     "EDID": "ATX_ENTM_PlayerIcon_HollywoodStar",
     "desc": "What life is like when you Shoot for the Stars!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "directory":"/textures/atx/storefront/player/playericons/",
+      "imageName":"default-playericon.webp"
+    },
     "carouselImages": [],
     "itemName": "Hollywood Star Player Icon",
     "itemNameShort": "Hollywood Star Icon"
@@ -52462,30 +52489,28 @@
     },
     "carouselImages": [],
     "itemName": "Call of the Mirelurk Player Icon",
-    "dbIndex": 3975,
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true,
     "itemNameShort": "Call of the Mirelurk  Icon"
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_Mutation_GhoulRight",
     "desc": "One mutation too many...",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "directory":"/textures/atx/storefront/player/playericons/",
+      "imageName":"default-playericon.webp"
+    },
     "carouselImages": [],
     "itemName": "Mutated Ghoul Player Icon",
-    "dbIndex": 3976,
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true,
     "itemNameShort": "Mutated Ghoul Icon"
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_WinkingVaultGirl",
     "desc": "A S.P.E.C.I.A.L. wink for you!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "directory":"/textures/atx/storefront/player/playericons/",
+      "imageName":"default-playericon.webp"
+    },
     "carouselImages": [],
     "itemName": "Winking Vault-Girl Player Icon",
     "itemNameShort": "Winking Vault-Girl Icon"
@@ -52509,13 +52534,12 @@
     "EDID": "ATX_ENTM_PlayerIcon_Callof76_Ghoul",
     "desc": "Now performing in Atlantic City!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "directory":"/textures/atx/storefront/player/playericons/",
+      "imageName":"default-playericon.webp"
+    },
     "carouselImages": [],
     "itemName": "Ghoul Crooner Player Icon",
-    "dbIndex": 3979,
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true,
     "itemNameShort": "Ghoul Crooner Player Icon"
   },
   {
@@ -52528,17 +52552,16 @@
     },
     "carouselImages": [],
     "itemName": "Blue Devil Player Icon",
-    "dbIndex": 3980,
-    "newImagesAdded": 1,
-    "matchedImages": 1,
-    "dbIndexMode": true,
     "itemNameShort": "Blue Devil Icon"
   },
   {
     "EDID": "ATX_ENTM_PlayerIcon_BlueMoon_Campfire",
     "desc": "What stories have you heard about the Blue Moon?!",
     "disclaimer": "UNLOCKS A PLAYER ICON.",
-    "primaryImage": null,
+    "primaryImage": {
+      "directory":"/textures/atx/storefront/player/playericons/",
+      "imageName":"default-playericon.webp"
+    },
     "carouselImages": [],
     "itemName": "Campfire Traveller Player Icon",
     "itemNameShort": "Campfire Traveller Icon"
@@ -72017,7 +72040,7 @@
   "customdisclaimer": "",
   "itemName": "Fasnacht Mystical Mask Bundle",
   "primaryImage": {
-    "imageName": "atx_bundle_mystical_mask.webp",
+    "imageName": "dev_atx_bundle_mystical_mask.webp",
     "directory": "/textures/atomic_shop_media/"
   },
   "carouselImages": [],
@@ -72110,7 +72133,7 @@
     "customdisclaimer": "",
     "itemName": "Flyboy Bundle",
     "primaryImage": {
-      "imageName": "atx_flyboy_bundle.webp",
+      "imageName": "dev_atx_flyboy_bundle.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [],
@@ -93162,7 +93185,7 @@
     "itemName": "Greenhouse Kit C.A.M.P. Bundle",
     "itemNameShort": "Greenhouse Kit Bundle",
     "primaryImage": {
-      "imageName": "default-bundle.webp",
+      "imageName": "dev_atx_greenhouse_kit_bundle.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [
