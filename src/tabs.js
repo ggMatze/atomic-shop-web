@@ -1,5 +1,4 @@
 import { buildImageUrl, renderTimerHTML, renderSecondaryTimerHTML, renderDateRange } from './utils.js';
-import { buildItemImageAssets, resolveItemGalleryImages, loadItemsDb } from './gallery.js';
 
 // Central parser for store timestamps. Returns epoch ms or NaN.
 function parseStoreTime(input) {
@@ -13,59 +12,6 @@ function parseStoreTime(input) {
     }
   }
   return Date.parse(input);
-}
-
-function normalizePriceValue(value) {
-  if (typeof value === 'number' && Number.isFinite(value)) return value;
-  if (typeof value === 'string' && value.trim() !== '') {
-    const parsed = Number(value);
-    if (Number.isFinite(parsed)) return parsed;
-  }
-  return null;
-}
-
-function resolveItemPriceValues(item) {
-  const lp = item?.lowPrice;
-  const lowest = item?.lowestPurchasablePrice;
-  const high = item?.highPrice;
-
-  const lowestAmount = normalizePriceValue(lowest?.amount ?? lowest?.Amount);
-  const lowAmount = normalizePriceValue(lp?.amount ?? lp?.Amount);
-  const lowOriginalAmount = normalizePriceValue(lp?.originalAmount ?? lp?.OriginalAmount);
-  const highOriginal = normalizePriceValue(high?.originalAmount ?? high?.amount ?? high?.Amount);
-
-  let atomPriceFinal = 0;
-  let atomPriceOriginal = highOriginal ?? lowOriginalAmount ?? 0;
-
-  // Prefer the lowest purchasable price when it is a real positive value.
-  if (lowestAmount != null && lowestAmount > 0) {
-    atomPriceFinal = lowestAmount;
-  } else if (lowAmount != null && lowAmount > 0) {
-    // Only use lowPrice.amount as a fallback when it is not clearly below the
-    // lowest purchasable amount. This avoids treating user-specific discounts
-    // as the base public price when a stronger value is available.
-    const comparisonBase = (lowestAmount != null && lowestAmount > 0) ? lowestAmount : 0;
-    if (comparisonBase === 0 || lowAmount >= comparisonBase) {
-      atomPriceFinal = lowAmount;
-    }
-  }
-
-  // If we still have no usable final price, fall back to the original/high price.
-  if (atomPriceFinal === 0 && highOriginal != null && highOriginal > 0) {
-    atomPriceFinal = highOriginal;
-  }
-
-  // If the original price is missing, use the lowPrice original amount as a fallback.
-  if (atomPriceOriginal === 0 && lowOriginalAmount != null && lowOriginalAmount > 0) {
-    atomPriceOriginal = lowOriginalAmount;
-  }
-
-  // Guard against inconsistent data where the final price can exceed the original.
-  if (atomPriceOriginal < atomPriceFinal) {
-    atomPriceOriginal = atomPriceFinal;
-  }
-
-  return { atomPriceFinal, atomPriceOriginal };
 }
 
 async function initTabs() {
@@ -107,7 +53,6 @@ async function initTabs() {
   const { dailyReplacementsData = {}, storeData = {} } = (window.__dataLoader && window.__dataLoader.loadDailyAndStore)
     ? await window.__dataLoader.loadDailyAndStore()
     : { dailyReplacementsData: {}, storeData: {} };
-  await loadItemsDb();
   window.dailyReplacements = dailyReplacementsData.DailyReplacements || [];
   // Also expose Fallout First replacements if present
   window.dailyReplacements1st = dailyReplacementsData.DailyReplacements1st || [];
@@ -289,8 +234,21 @@ async function initTabs() {
     const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge" title="My recommendation">✨︎</div>' : '';
 
     const lp = item?.lowPrice;
+    const lowest = item?.lowestPurchasablePrice;
+    const high = item?.highPrice;
+
+    // atom values (store uses various casing across datasets)
+    const lowAmount = (lp && typeof lp.amount === 'number') ? lp.amount : 0;
     const lowIsLto = !!(lp && lp.isLto);
-    const { atomPriceFinal, atomPriceOriginal } = resolveItemPriceValues(item);
+    const lowestAmount = (lowest && (typeof lowest.Amount === 'number')) ? lowest.Amount : ((lowest && typeof lowest.amount === 'number') ? lowest.amount : 0);
+    const highOriginal = (high && (typeof high.originalAmount === 'number')) ? high.originalAmount : ((high && typeof high.amount === 'number') ? high.amount : 0);
+
+  let atomPriceFinal = 0;
+  let atomPriceOriginal = highOriginal || 0;
+  // priority: lowestPurchasablePrice -> fallback to original. Avoid using lowPrice.amount
+  // for public percent-off calculations because it can represent a per-user discount.
+  if (lowestAmount > 0) atomPriceFinal = lowestAmount;
+  else atomPriceFinal = atomPriceOriginal;
 
     // Compute discount and display prices (original vs final)
     let priceFinal = atomPriceFinal;
@@ -300,9 +258,19 @@ async function initTabs() {
       discount = Math.round(100 - (priceFinal / priceOriginal) * 100);
     }
 
-    // Image selection: prefer primaryImage, then bundle entries resolved from items-db by entmName/EDID.
-    const { storefrontImage, images } = buildItemImageAssets(item);
+    // Image selection: prefer primaryImage, then carousel, then other shapes
+    let storefrontImage = '';
+    if (item?.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
+      storefrontImage = buildImageUrl(item.primaryImage.directory, item.primaryImage.imageName);
+    } else if (item?.image && item.image.imageName && item.image.directory) {
+      storefrontImage = buildImageUrl(item.image.directory, item.image.imageName);
+    } else if (item?.carouselImages && item.carouselImages.length) {
+      const first = item.carouselImages[0];
+      if (first?.imageName && first?.directory) storefrontImage = buildImageUrl(first.directory, first.imageName);
+    }
     const storefrontImageSrc = storefrontImage || '';
+
+    const images = (item?.carouselImages || []).map(img => (img?.directory && img?.imageName) ? buildImageUrl(img.directory, img.imageName) : null).filter(Boolean);
 
     const currentPriceHTML = atomPriceFinal === 0
       ? `<span class="free-badge">FREE</span>`
@@ -367,7 +335,6 @@ async function initTabs() {
       title: item?.itemName,
       itemDesc: item?.itemDesc,
       includes: (item?.dynamicBundleItems || []).map(i => i.szItemName),
-      dynamicBundleItems: item?.dynamicBundleItems || [],
       storefrontImage,
       images,
       priceOriginal: priceOriginal,
@@ -814,7 +781,13 @@ if (typeof window !== 'undefined') {
     });
 
     (paidItems || []).forEach((item, idx) => {
-      const { atomPriceFinal, atomPriceOriginal } = resolveItemPriceValues(item);
+      const atomPriceOriginal = item.highPrice?.originalAmount ?? 0;
+      let atomPriceFinal = atomPriceOriginal;
+      const lpAmount = item.lowestPurchasablePrice?.Amount ?? item.lowestPurchasablePrice?.amount;
+      const lpNum = lpAmount != null ? Number(lpAmount) : NaN;
+      if (isFinite(lpNum) && lpNum > 0) atomPriceFinal = lpNum;
+      else if (lpAmount === item.highPrice?.originalAmount) atomPriceFinal = lpAmount;
+      else atomPriceFinal = item.highPrice?.originalAmount ?? 0;
 
       let discount = 0;
       if (atomPriceOriginal > atomPriceFinal && atomPriceFinal > 0) {
@@ -843,8 +816,10 @@ if (typeof window !== 'undefined') {
   const newLabel = '';
 
       const includes = (item.dynamicBundleItems || []).map(i => i.szItemName);
-      const { storefrontImage, images } = buildItemImageAssets(item);
+      let storefrontImage = '';
+      if (item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) storefrontImage = buildImageUrl(item.primaryImage.directory, item.primaryImage.imageName);
       const storefrontImageSrc = storefrontImage || '';
+      const images = (item.carouselImages || []).map(img => buildImageUrl(img.directory, img.imageName)).filter(Boolean);
 
   // Allow per-item override via `item.tileSize` but only accept explicit 'small' or 'large' (case-insensitive).
   // Default to 'small' unless explicitly forced via item.tileSize.
@@ -868,7 +843,7 @@ if (typeof window !== 'undefined') {
       const dateLabel = renderDateRange(item);
 
   // Safe JSON for embedding in attribute
-  const dataItemObj = { title: item.itemName, itemDesc: item.itemDesc, includes, dynamicBundleItems: item.dynamicBundleItems || [], storefrontImage, images, priceOriginal: atomPriceOriginal, priceFinal: atomPriceFinal, discount, isNew, isZeus, isClown: !!item.isClown, isHighlight: isHighlighted, disabled: !!item.disabled, expired: isExpired, itemID: item.itemID, EDID: item.EDID || item.edid || undefined, entmName: item.entmName || undefined };
+  const dataItemObj = { title: item.itemName, itemDesc: item.itemDesc, includes, storefrontImage, images, priceOriginal: atomPriceOriginal, priceFinal: atomPriceFinal, discount, isNew, isZeus, isClown: !!item.isClown, isHighlight: isHighlighted, disabled: !!item.disabled, expired: isExpired, itemID: item.itemID, EDID: item.EDID || item.edid || undefined, entmName: item.entmName || undefined };
       let dataItemStr = JSON.stringify(dataItemObj).replace(/'/g, "&apos;").replace(/\r\n|\n|\\n/, "\\n");
 
       shopGridEl.innerHTML += `
