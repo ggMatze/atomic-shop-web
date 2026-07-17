@@ -1885,6 +1885,706 @@
         ]
       },
       {
+        "name": "Weekend Sale \\n The Season Returns!",
+        "tabid": "weekend-sale",
+        "isZeus": false,
+        "image": {
+          "directory": "textures/atomic_shop_media/",
+          "imageName": "020b201b3595dd4c555ce48cdc45a582.dds"
+        },
+        "items": [
+          {
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Tropical Cryptid Shirt and Shorts Outfit",
+                "entmName": "SCORE_S16_ENTM_Apparel_Outfit_TropicalCryptidPrintOutfit"
+              },
+              {
+                "szItemName": "Percival's Pith Helmet",
+                "entmName": "SCORE_S16_ENTM_Apparel_Headwear_PithHelmet"
+              },
+              {
+                "szItemName": "Ball Buddies",
+                "entmName": "SCORE_S16_ENTM_CAMP_FloorDecor_BallBuddies"
+              },
+              {
+                "szItemName": "Rip and Friends Surfboard Wall Decoration Set",
+                "entmName": "SCORE_S16_ENTM_CAMP_WallDecor_SurfboardSet_01"
+              },
+              {
+                "szItemName": "Hot Dog Sign",
+                "entmName": "SCORE_S16_ENTM_CAMP_FloorDecor_HotDogSign"
+              },
+              {
+                "szItemName": "Wet Floor Sign",
+                "entmName": "SCORE_S16_ENTM_CAMP_FloorDecor_WetFloorSign"
+              },
+              {
+                "szItemName": "Peepers Paint (Cremator)",
+                "entmName": "SCORE_S16_ENTM_Skin_WeaponSkin_Cremator_Peepers"
+              },
+              {
+                "szItemName": "Peepers Paint (Auto Axe)",
+                "entmName": "SCORE_S16_ENTM_Skin_WeaponSkin_AutoAxe_Peepers"
+              },
+              {
+                "szItemName": "Jersey Shore Vacation Photomode Frame",
+                "entmName": "SCORE_S16_ENTM_Photomode_Frame_JerseyShoreVacation"
+              }
+            ],
+            "highPrice": {
+              "originalAmount": 1200,
+              "amount": 0
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 0
+            },
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 600,
+              "amount": 600,
+              "ltoTimer": "2026-07-21T12:00:00.000Z"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s16_apparel_outfit_tropicalcryptidprintoutfit_l.dds",
+                "directory": "/textures/atx/storefront/player/outfit/"
+              },
+              {
+                "imageName": "score_s16_apparel_headwear_pithhelmet_l.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "score_s16_camp_floordecor_ballbuddies_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s16_camp_walldecor_surfboard_l.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "score_s16_camp_floordecor_hotdogsign_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s16_camp_floordecor_wetfloorsign_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s16_skin_weaponskin_cremator_peepers_l.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s16_skin_weaponskin_autoaxe_peepers_l.dds",
+                "directory": "/textures/atx/storefront/player/weaponskin/"
+              },
+              {
+                "imageName": "score_s16_photomode_frame_jerseyshorevacation_l.dds",
+                "directory": "/textures/atx/storefront/player/photoframe/"
+              }
+            ],
+            "primaryImage": {
+              "imageName": "fa5aceb775714f5739d2a17e0d679de3.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "itemDesc": "New to Fallout First or missed an item from Season 16? This Bundle contains some of the Season's best rewards!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n\n[h]This offer is exclusive to Fallout 1st Members.[/h]",
+            "itemNameShort": "Fallout First Season Catch Up",
+            "itemName": "Fallout First Jersey Rip’s Catch Up Bundle",
+            "itemID": 2584835,
+            "EDID": "ATX_ENTM_BNDL_FALLOUT_FIRST_JERSEY_RIPS_CATCH_UP_BUNDLE",
+            "isZeus": true,
+            "isClown": false
+          },
+          {
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Woodland Retreat",
+                "entmName": "ATX_ENTM_CAMP_Structure_WoodlandRetreat"
+              },
+              {
+                "szItemName": "Decorative Mirror",
+                "entmName": "ATX_ENTM_CAMP_WallDecor_DecorativeMirror"
+              },
+              {
+                "szItemName": "Helvetian Hanging Quilt",
+                "entmName": "ATX_ENTM_CAMP_WallDecor_HelvetianHangingQuilt"
+              },
+              {
+                "szItemName": "Scent-o-matic Perfume Dispenser",
+                "entmName": "ATX_ENTM_CAMP_Utility_Scent-o-maticPerfumeDispenser"
+              },
+              {
+                "szItemName": "Summer Elm Trees",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_ElmTrees_Summer"
+              },
+              {
+                "szItemName": "Fall Elm Trees",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_ElmTrees_Fall"
+              },
+              {
+                "szItemName": "Winter Elm Trees",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_ElmTrees_Winter"
+              },
+              {
+                "szItemName": "Cream Modular Sofa Set",
+                "entmName": "SCORE_S8_ENTM_CAMP_Furniture_Couch_ModularSofaSet_Cream"
+              },
+              {
+                "szItemName": "Red Bedside Light",
+                "entmName": "ATX_ENTM_CAMP_Lights_Wall_RedBedside"
+              },
+              {
+                "szItemName": "Helvetian Lodge Sign",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_HelvetianLodgeSign"
+              },
+              {
+                "szItemName": "Helvetia Wooden Door",
+                "entmName": "ATX_ENTM_CAMP_Door_Wood_Helvetia"
+              },
+              {
+                "szItemName": "Wicker Hanging Flower Basket",
+                "entmName": "ATX_ENTM_CAMP_WallDecor_WickerHangingFlowerBasket"
+              },
+              {
+                "szItemName": "Green Bedside Light",
+                "entmName": "ATX_ENTM_CAMP_Lights_Wall_GreenBedside"
+              },
+              {
+                "szItemName": "Daffodil Arrangement",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_Planter_Flowers_Daffodils"
+              },
+              {
+                "szItemName": "Helvetian Window Canopy",
+                "entmName": "ATX_ENTM_CAMP_WallDecor_HelvetianWindowCanopy"
+              },
+              {
+                "szItemName": "Helvetian Fence Set",
+                "entmName": "ATX_ENTM_CAMP_Defense_Fence_Helvetian"
+              },
+              {
+                "szItemName": "Antique Speed Bag",
+                "entmName": "SCORE_S3_ENTM_CAMP_FloorDecor_ExerciseEquipment_AntiqueSpeedBag"
+              },
+              {
+                "szItemName": "Fortune Teller Cart",
+                "entmName": "ATX_ENTM_CAMP_Vendor_PlayerVendingMachine_FortuneTellerCart"
+              },
+              {
+                "szItemName": "Armoire Stash Box",
+                "entmName": "ATX_ENTM_CAMP_Stashbox_Armoire"
+              },
+              {
+                "szItemName": "Radiation Glove Box",
+                "entmName": "SCORE_S10_ENTM_CAMP_Utility_Radiation_Glove_Box"
+              },
+              {
+                "szItemName": "Wicker Basket Stash Box",
+                "entmName": "ATX_ENTM_CAMP_Stashbox_WickerBasket"
+              },
+              {
+                "szItemName": "Swiss Flower Cart",
+                "entmName": "ATX_ENTM_CAMP_Decoration_Swiss_Flower_Cart"
+              },
+              {
+                "szItemName": "Exercise Bike",
+                "entmName": "SCORE_S8_ENTM_CAMP_Utility_ExerciseBike"
+              },
+              {
+                "szItemName": "Weight Bench",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_ExerciseEquipment_WeightBench"
+              },
+              {
+                "szItemName": "Mechanical Derby Game",
+                "entmName": "SCORE_S9_ENTM_CAMP_Furniture_HorseRacingGame"
+              },
+              {
+                "szItemName": "Modern Conveniences Bed",
+                "entmName": "ATX_ENTM_CAMP_Bed_Guest"
+              },
+              {
+                "szItemName": "Tulip Arrangement",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_Planter_Flowers_Tulips"
+              }
+            ],
+            "highPrice": {
+              "originalAmount": 4500,
+              "amount": 0
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 2700
+            },
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 2700,
+              "amount": 2700,
+              "ltoTimer": "2026-07-21T12:00:00.000Z"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_structure_woodlandretreat_l.webp",
+                "directory": "/textures/atx/storefront/camp/structures/"
+              },
+              {
+                "imageName": "atx_camp_walldecor_decorativemirror_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_walldecor_helvetianhangingquilt_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_utility_scent-o-maticperfumedispenser_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_elmtrees_summer_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_elmtrees_fall_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_elmtrees_winter_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_furniture_couch_modularsofaset_cream.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_entm_camp_lights_wall_redbedside_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_helvetianlodgesign_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_door_wood_helvetia.webp",
+                "directory": "/textures/atx/storefront/camp/doors/"
+              },
+              {
+                "imageName": "atx_entm_camp_walldecor_wickerhangingflowerbasket_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_lights_wall_greenbedside_l.webp",
+                "directory": "/textures/atx/storefront/camp/lights/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_planter_flowers_daffodils_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_walldecor_helvetianwindowcanopy_l.webp",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_defense_fence_helvetian_l.webp",
+                "directory": "/textures/atx/storefront/camp/defenses/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_exerciseequipment_antiquespeedbag_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_vendor_playervendingmachine_fortunetellercart_l.webp",
+                "directory": "/textures/atx/storefront/camp/vendors/"
+              },
+              {
+                "imageName": "atx_camp_stashbox_armoire.webp",
+                "directory": "/textures/atx/storefront/camp/stash/"
+              },
+              {
+                "imageName": "score_s10_camp_utility_radiation_glove_box_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_stashbox_wickerbasket_l.webp",
+                "directory": "/textures/atx/storefront/camp/stash/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_swissflowercart.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "score_s8_camp_utility_exercisebike_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "score_s1_camp_utility_weightbench_l.webp",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_furniture_horseracinggame_l.webp",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_entm_camp_bed_guest.webp",
+                "directory": "/textures/atx/storefront/camp/beds/"
+              },
+              {
+                "imageName": "atx_camp_floordecor_planter_flowers_tulips_l.webp",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "primaryImage": {
+              "imageName": "d7d34c6a2dba01a6231bb530b21491fa.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "itemDesc": "This Woodland Hideaway Bundle contains the contents of the Woodland Retreat Bundle, Guest Room Bundle, S.P.E.C.I.A.L. C.A.M.P. Bundle and the Outside In Helvetia Bundle.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemNameShort": "Woodland Hideaway Bundle",
+            "itemName": "Woodland Hideaway Bundle",
+            "itemID": 2584836,
+            "EDID": "ATX_ENTM_BNDL_WOODLAND_HIDEAWAY_BUNDLE",
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Turkey Buzzard",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_TurkeyBuzzard"
+              },
+              {
+                "szItemName": "Hamilton J. Pigg Plushie",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_Plushie_Hamilton"
+              },
+              {
+                "szItemName": "Rad Opossum Hat",
+                "entmName": "ATX_ENTM_Apparel_Headwear_RadOpossumHat"
+              },
+              {
+                "szItemName": "Mole Rat Small Generator",
+                "entmName": "ATX_ENTM_CAMP_Machinery_Generator_Small_Molerat"
+              },
+              {
+                "szItemName": "Mole Rat Medium Generator",
+                "entmName": "ATX_ENTM_CAMP_Machinery_Generator_Medium_Molerat"
+              },
+              {
+                "szItemName": "Mole Rat Large Generator",
+                "entmName": "ATX_ENTM_CAMP_Machinery_Generator_Large_Molerat"
+              },
+              {
+                "szItemName": "Mole Rat Fusion Generator",
+                "entmName": "ATX_ENTM_CAMP_Machinery_Generator_Fusion_Molerat"
+              },
+              {
+                "szItemName": "✦ Butterfly Sanctuary",
+                "entmName": "ATX_ENTM_CAMP_Collector_ButterflySanctuary"
+              },
+              {
+                "szItemName": "✦ Mirelurk Steamer",
+                "entmName": "ATX_ENTM_CAMP_Collector_MirelurkSteamer"
+              }
+            ],
+            "highPrice": {
+              "originalAmount": 1800,
+              "amount": 0
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 1080
+            },
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-07-21T12:00:00.000Z",
+              "originalAmount": 1080,
+              "amount": 1080
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_floordecor_turkeybuzzard_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_entm_camp_floordecor_plushie_hamilton_l.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_radopposumhat_l.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_camp_machinery_generator_small_molerat.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "atx_camp_machinery_generator_medium_molerat.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "atx_camp_machinery_generator_large_molerat.webp",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "atx_camp_machinery_generator_fusion_molerat.dds",
+                "directory": "/textures/atx/storefront/camp/machinery/"
+              },
+              {
+                "imageName": "atx_camp_collector_butterflysanctuary_l.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_collector_mirelurksteamer_l.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "primaryImage": {
+              "imageName": "fcd49533d52d84d7e09522f33fae84da.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "itemDesc": "Get closer to (irradiated) nature.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n\nPRODUCES:\n[url=https://www.theduchessflame.com/post/camp-resource-butterfly-sanctuary]✦ Acid      [/url]\n[url=https://www.theduchessflame.com/post/camp-resource-mirelurk-steamer]✦ Cooked Mirelurk Meats      [/url]",
+            "itemNameShort": "Appalachian Fauna Bundle",
+            "itemName": "Appalachian Fauna Bundle",
+            "itemID": 2584837,
+            "EDID": "ATX_ENTM_BNDL_APPALACHIAN_FAUNA_BUNDLE",
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "dynamicBundleItems": [],
+            "highPrice": {
+              "originalAmount": 700,
+              "amount": 0
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 490
+            },
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-07-21T12:00:00.000Z",
+              "originalAmount": 490,
+              "amount": 490
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_headwear_wvday_bear_c1.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              },
+              {
+                "imageName": "atx_apparel_headwear_wvday_bear_c2.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              }
+            ],
+            "primaryImage": {
+              "imageName": "c268bf5e69200174b2da5924c2376f65.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "itemDesc": "Dress up as West Virginia's state animal with the Black Bear Mascot Outfit.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemNameShort": "Black Bear Mascot",
+            "itemName": "Black Bear Mascot Outfit",
+            "itemID": 2584489,
+            "EDID": "ATX_ENTM_Apparel_Headwear_WVDay_Bear",
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "dynamicBundleItems": [],
+            "highPrice": {
+              "originalAmount": 700,
+              "amount": 0
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 490
+            },
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-07-21T12:00:00.000Z",
+              "originalAmount": 490,
+              "amount": 490
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_kit_tiki_c1.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_tiki_c2.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_tiki_c3.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              }
+            ],
+            "primaryImage": {
+              "imageName": "atx_camp_kit_tiki_l.dds",
+              "directory": "/textures/atx/storefront/camp/kits/"
+            },
+            "itemDesc": "Add the welcoming feel of Tiki to your C.A.M.P. with this new kit.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemNameShort": "Tiki Kit",
+            "itemName": "Tiki Kit",
+            "itemID": 2584384,
+            "EDID": "ATX_ENTM_CAMP_Kit_Tiki",
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "dynamicBundleItems": [],
+            "highPrice": {
+              "originalAmount": 500,
+              "amount": 0
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 350
+            },
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-07-21T12:00:00.000Z",
+              "originalAmount": 350,
+              "amount": 350
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_kit_tikiporch_c1.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_tikiporch_c2.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              },
+              {
+                "imageName": "atx_camp_kit_tikiporch_c3.dds",
+                "directory": "/textures/atx/storefront/camp/kits/"
+              }
+            ],
+            "primaryImage": {
+              "imageName": "atx_camp_kit_tikiporch_l.dds",
+              "directory": "/textures/atx/storefront/camp/kits/"
+            },
+            "itemDesc": "Add the welcoming feel of Tiki to your C.A.M.P. with this new Tiki porch kit.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemNameShort": "Tiki Porch",
+            "itemName": "Tiki Porch Kit",
+            "itemID": 2584166,
+            "EDID": "ATX_ENTM_CAMP_Kit_TikiPorch",
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "dynamicBundleItems": [],
+            "highPrice": {
+              "originalAmount": 500,
+              "amount": 0
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 350
+            },
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-07-21T12:00:00.000Z",
+              "originalAmount": 350,
+              "amount": 350
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_door_secret_antiquearmoire_c1.dds",
+                "directory": "/textures/atx/storefront/camp/doors/"
+              },
+              {
+                "imageName": "atx_entm_camp_door_secret_antiquearmoire_c2.dds",
+                "directory": "/textures/atx/storefront/camp/doors/"
+              }
+            ],
+            "primaryImage": {
+              "imageName": "atx_entm_camp_door_secret_antiquearmoire_l.dds",
+              "directory": "/textures/atx/storefront/camp/doors/"
+            },
+            "itemDesc": "Hopefully the hinges are well oiled as to not squeak and give up the game.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemNameShort": "Antique Armoire Door",
+            "itemName": "Antique Armoire Door",
+            "itemID": 2584573,
+            "EDID": "ATX_ENTM_CAMP_Door_Secret_AntiqueArmoire",
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "dynamicBundleItems": [],
+            "highPrice": {
+              "originalAmount": 500,
+              "amount": 0
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 350
+            },
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-07-21T12:00:00.000Z",
+              "originalAmount": 350,
+              "amount": 350
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_utility_balloonstation_mrfuzzy_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_utility_balloonstation_mrfuzzy_c2.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "primaryImage": {
+              "imageName": "atx_camp_utility_balloonstation_mrfuzzy_l.dds",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
+            },
+            "itemDesc": "Camden Park isn't complete without balloons*!\n\n*Balloons sponsored by Vault-Tec are not the responsibility of Camden Park or its employees. \n\nGives a random Vault-Tec colored balloon when used.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemNameShort": "Mr. Fuzzy Balloon Station",
+            "itemName": "Mr. Fuzzy Balloon Station",
+            "itemID": 2584213,
+            "EDID": "ATX_ENTM_CAMP_Utility_BalloonStation_MrFuzzy",
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "dynamicBundleItems": [],
+            "highPrice": {
+              "originalAmount": 500,
+              "amount": 0
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 350
+            },
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 350,
+              "amount": 350,
+              "ltoTimer": "2026-07-21T18:10:00.000Z"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_furniture_coinop_mrfuzzyride_c1.dds",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_camp_furniture_coinop_mrfuzzyride_c2.dds",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              }
+            ],
+            "primaryImage": {
+              "imageName": "atx_camp_furniture_coinop_mrfuzzyride_l.dds",
+              "directory": "/textures/atx/storefront/camp/furniture/"
+            },
+            "itemDesc": "Embrace your inner child with the Mr. Fuzzy Kiddie Ride!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemNameShort": "Mr. Fuzzy Kiddie Ride",
+            "itemName": "Mr. Fuzzy Kiddie Ride",
+            "itemID": 2584632,
+            "EDID": "ATX_ENTM_CAMP_Furniture_CoinOp_MrFuzzy",
+            "isZeus": false,
+            "isClown": false
+          }
+        ]
+      },
+      {
         "name": "Murky Catch \\n Life in the murk.",
         "tabid": "murky-catch",
         "isZeus": false,
