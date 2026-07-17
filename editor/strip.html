@@ -32,10 +32,10 @@
   <script>
     // Haupt-Keys, die du wirklich brauchst
     const allowedKeys = [
-      "itemID", "itemName", "itemNameShort", "itemDesc",
+      "itemID", "itemName", "itemNameShort", "itemDesc", "EDID", "edid",
       "primaryImage", "carouselImages", "dynamicBundleItems",
       "lowPrice", "lowestPurchasablePrice", "highPrice",
-      "isNew", "isZeus", "isClown", "tileSize"
+      "isNew", "isZeus", "isClown", "tileSize", "tabid"
     ];
 
   // Nur diese Felder in Preis-Objekten übernehmen
@@ -45,8 +45,8 @@
     // Nur diese Felder in primaryImage und carouselImages übernehmen
     const allowedImageKeys = ["imageName", "directory"];
 
-    // Nur diese Felder in dynamicBundleItems übernehmen
-    const allowedBundleItemKeys = ["szItemName"];
+    // Preserve bundle names and ID fields so bundle-image matching still works after stripping
+    const allowedBundleItemKeys = ["szItemName", "itemName", "name", "EDID", "edid", "entmName", "entm", "id", "itemID"];
 
   // Welche Felder auf Page-Ebene erhalten bleiben sollen
   const allowedPageKeys = ["name", "isZeus", "image", "items"];
@@ -54,8 +54,8 @@
     function stripPrice(obj) {
       if (!obj || typeof obj !== "object") return undefined;
       const result = {};
-      allowedPriceKeys.forEach(key => {
-        if (obj.hasOwnProperty(key)) result[key] = obj[key];
+      Object.keys(obj).forEach(key => {
+        if (allowedPriceKeys.includes(key)) result[key] = obj[key];
       });
       return result;
     }
@@ -63,8 +63,8 @@
     function stripImage(obj) {
       if (!obj || typeof obj !== "object") return undefined;
       const result = {};
-      allowedImageKeys.forEach(key => {
-        if (obj.hasOwnProperty(key)) result[key] = obj[key];
+      Object.keys(obj).forEach(key => {
+        if (allowedImageKeys.includes(key)) result[key] = obj[key];
       });
       return result;
     }
@@ -72,27 +72,27 @@
     function stripBundleItem(obj) {
       if (!obj || typeof obj !== "object") return undefined;
       const result = {};
-      allowedBundleItemKeys.forEach(key => {
-        if (obj.hasOwnProperty(key)) result[key] = obj[key];
+      Object.keys(obj).forEach(key => {
+        if (allowedBundleItemKeys.includes(key)) result[key] = obj[key];
       });
       return result;
     }
 
     function stripItem(item) {
+      if (!item || typeof item !== "object") return {};
       const result = {};
-      allowedKeys.forEach(key => {
-        if (item.hasOwnProperty(key)) {
-          if (["lowPrice", "lowestPurchasablePrice", "highPrice"].includes(key)) {
-            result[key] = stripPrice(item[key]);
-          } else if (key === "primaryImage") {
-            result[key] = stripImage(item[key]);
-          } else if (key === "carouselImages" && Array.isArray(item[key])) {
-            result[key] = item[key].map(stripImage);
-          } else if (key === "dynamicBundleItems" && Array.isArray(item[key])) {
-            result[key] = item[key].map(stripBundleItem);
-          } else {
-            result[key] = item[key];
-          }
+      Object.keys(item).forEach(key => {
+        if (!allowedKeys.includes(key)) return;
+        if (["lowPrice", "lowestPurchasablePrice", "highPrice"].includes(key)) {
+          result[key] = stripPrice(item[key]);
+        } else if (key === "primaryImage") {
+          result[key] = stripImage(item[key]);
+        } else if (key === "carouselImages" && Array.isArray(item[key])) {
+          result[key] = item[key].map(stripImage);
+        } else if (key === "dynamicBundleItems" && Array.isArray(item[key])) {
+          result[key] = item[key].map(stripBundleItem);
+        } else {
+          result[key] = item[key];
         }
       });
       // Remove any private/metadata keys that start with '_' if present
@@ -114,15 +114,28 @@
       return p;
     }
 
+    function getPagesFromData(data) {
+      if (Array.isArray(data)) return data;
+      if (!data || typeof data !== 'object') return [];
+      if (data.StorePageData && typeof data.StorePageData === 'object') {
+        if (Array.isArray(data.StorePageData.pages)) return data.StorePageData.pages;
+        if (Array.isArray(data.StorePageData)) return data.StorePageData;
+      }
+      if (Array.isArray(data.pages)) return data.pages;
+      if (Array.isArray(data.items)) return [data];
+      return [];
+    }
+
     function stripJSON() {
       let input = document.getElementById('input').value;
       try {
         let data = JSON.parse(input);
         let out = {};
-        if (data.StorePageData && Array.isArray(data.StorePageData.pages)) {
+        const pages = getPagesFromData(data);
+        if (pages.length) {
           // Auto-generate tabid per page (respect explicit page.tabid if present).
           const usedTabIds = new Set();
-          out.StorePageData = { pages: data.StorePageData.pages.map((page, idx) => {
+          out.StorePageData = { pages: pages.map((page, idx) => {
             const stripped = stripPage(page);
             // helper: return a new object with tabid directly after name
             const buildPageObject = (base, id) => {

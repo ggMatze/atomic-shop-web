@@ -1,3 +1,5 @@
+import { buildImageUrl } from './utils.js';
+
 // Gallery module: manages gallery images and keyboard navigation
 const galleryState = {
   images: [],
@@ -9,6 +11,209 @@ galleryState._cIndexMap = {}; // key -> current c number (0 = base/_l)
 galleryState._cMissing = {}; // key -> Set of missing numbers
 galleryState._cAvailable = {}; // key -> Set of discovered available numbers
 galleryState._cOriginal = {}; // key -> original main-image src when opened
+
+let itemsDbCache = null;
+let itemsDbPromise = null;
+
+function normalizeLookupValue(value) {
+  if (value == null) return '';
+  return String(value).trim().toLowerCase();
+}
+
+function resolveItemsDbUrl() {
+  const origin = window.location.origin || '';
+  const pathname = window.location.pathname || '';
+  const base = pathname.replace(/\/[^/]*$/, '/');
+  const candidates = [];
+
+  if (window.location.protocol === 'file:') {
+    candidates.push(new URL('../data/items-db.json', window.location.href).toString());
+    candidates.push('/data/items-db.json');
+  } else {
+    candidates.push(new URL('data/items-db.json', `${origin}${base}`).toString());
+    candidates.push(new URL('/data/items-db.json', origin).toString());
+    candidates.push(new URL('items-db.json', `${origin}${base}`).toString());
+    candidates.push(new URL('/items-db.json', origin).toString());
+  }
+
+  return candidates.find(Boolean) || null;
+}
+
+async function loadItemsDb() {
+  if (itemsDbCache !== null) return itemsDbCache;
+  if (itemsDbPromise) return itemsDbPromise;
+
+  itemsDbPromise = (async () => {
+    try {
+      const dbUrl = resolveItemsDbUrl();
+      if (!dbUrl) throw new Error('No items DB URL resolved');
+      const response = await fetch(dbUrl);
+      if (!response.ok) throw new Error(`Failed to fetch items db (${response.status})`);
+      const items = await response.json();
+      itemsDbCache = Array.isArray(items) ? items : [];
+      return itemsDbCache;
+    } catch (e) {
+      console.warn('[gallery] failed to load items db for bundle images', e);
+      itemsDbCache = [];
+      return itemsDbCache;
+    }
+  })();
+
+  return itemsDbPromise;
+}
+
+function resolveBundleEntryImage(entry, itemsDb) {
+  if (!entry || !Array.isArray(itemsDb) || !itemsDb.length) return null;
+
+  const idCandidates = [];
+  const directId = entry?.EDID || entry?.edid || entry?.entmName || entry?.entm || entry?.id || entry?.itemID;
+  if (directId != null && String(directId).trim()) idCandidates.push(String(directId).trim());
+
+  const match = itemsDb.find((dbEntry) => {
+    if (!dbEntry) return false;
+
+    const dbIds = [dbEntry.EDID, dbEntry.edid, dbEntry.entmName, dbEntry.entm, dbEntry.id, dbEntry.itemID]
+      .filter(value => value != null && String(value).trim())
+      .map(value => normalizeLookupValue(value));
+
+    const hasMatchingId = idCandidates.some(candidate => dbIds.includes(normalizeLookupValue(candidate)));
+    if (hasMatchingId) return true;
+
+    const nameCandidate = normalizeLookupValue(entry?.szItemName || entry?.itemName || entry?.name);
+    if (!nameCandidate) return false;
+    const dbNames = [dbEntry.itemName, dbEntry.itemNameShort, dbEntry.title, dbEntry.name]
+      .filter(value => value != null && String(value).trim())
+      .map(value => normalizeLookupValue(value));
+
+    return dbNames.includes(nameCandidate);
+  });
+
+  if (!match) return null;
+
+  const image = match.primaryImage;
+  if (image && image.imageName && image.directory) {
+    return { directory: image.directory, imageName: image.imageName };
+  }
+
+  return null;
+}
+
+function buildItemImageAssets(item, itemsDb = null) {
+  const db = Array.isArray(itemsDb) ? itemsDb : itemsDbCache;
+  const resolvedImages = [];
+
+  const explicitImages = Array.isArray(item?.images)
+    ? item.images.filter(value => typeof value === 'string' && value.trim())
+    : [];
+  explicitImages.forEach((value) => {
+    const normalized = value.trim();
+    if (normalized) resolvedImages.push({ directory: '', imageName: normalized, explicit: true });
+  });
+
+  if (item?.storefrontImage) {
+    const normalized = String(item.storefrontImage).trim();
+    if (normalized) resolvedImages.push({ directory: '', imageName: normalized, explicit: true });
+  }
+
+  if (item?.primaryImage?.imageName && item.primaryImage.directory) {
+    resolvedImages.push({ directory: item.primaryImage.directory, imageName: item.primaryImage.imageName });
+  }
+
+  if (Array.isArray(item?.dynamicBundleItems)) {
+    item.dynamicBundleItems.forEach((bundleEntry) => {
+      const resolved = resolveBundleEntryImage(bundleEntry, db || []);
+      if (resolved) {
+        resolvedImages.push(resolved);
+      }
+    });
+  }
+
+  const uniqueImages = [];
+  const seen = new Set();
+  resolvedImages.forEach((img) => {
+    const normalizedValue = (img.explicit ? img.imageName : buildImageUrl(img.directory, img.imageName)) || '';
+    const key = normalizedValue.toLowerCase();
+    if (!normalizedValue || seen.has(key)) return;
+    seen.add(key);
+    uniqueImages.push(img);
+  });
+
+  const storefrontImage = uniqueImages.length
+    ? (uniqueImages[0].explicit ? uniqueImages[0].imageName : buildImageUrl(uniqueImages[0].directory, uniqueImages[0].imageName))
+    : '';
+
+  const images = uniqueImages
+    .map(img => (img.explicit ? img.imageName : buildImageUrl(img.directory, img.imageName)))
+    .filter(Boolean);
+
+  return { storefrontImage, images };
+}
+
+function probeImageUrl(url) {
+  return new Promise((resolve) => {
+    if (!url) return resolve(false);
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+}
+
+function getVariantCandidateUrls(src) {
+  const urls = [];
+  const parsed = _parseVariantBase(src);
+  if (!parsed) return urls;
+
+  const addBasePath = (basePath) => {
+    if (!basePath) return;
+    for (let n = 1; n <= 8; n++) {
+      urls.push(_buildCVariant(basePath, parsed.ext, n));
+    }
+  };
+
+  addBasePath(parsed.basePath);
+
+  const directory = String(parsed.dir || '').replace(/\/+$/, '');
+  const lastSegment = (directory.split('/').filter(Boolean).pop() || '').toLowerCase();
+  if (lastSegment === 'floordecoration') {
+    const altDir = directory.replace(/\/floordecoration$/i, '/utility');
+    if (altDir && altDir !== directory) addBasePath(`${altDir}/${parsed.baseName}`);
+  } else if (lastSegment === 'utility') {
+    const altDir = directory.replace(/\/utility$/i, '/floordecoration');
+    if (altDir && altDir !== directory) addBasePath(`${altDir}/${parsed.baseName}`);
+  }
+
+  return urls.filter(Boolean);
+}
+
+async function resolveItemGalleryImages(item, itemsDb = null) {
+  const { storefrontImage, images } = buildItemImageAssets(item, itemsDb);
+  const galleryImages = [];
+  const seen = new Set();
+
+  const addImage = (value) => {
+    if (!value) return;
+    const normalized = String(value).trim();
+    if (!normalized) return;
+    const key = normalized.toLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    galleryImages.push(normalized);
+  };
+
+  [storefrontImage, ...(Array.isArray(images) ? images : [])].forEach(addImage);
+
+  const primaryImage = galleryImages[0] || '';
+  if (primaryImage) {
+    for (const candidate of getVariantCandidateUrls(primaryImage)) {
+      if (!candidate || candidate === primaryImage) continue;
+      const exists = await probeImageUrl(candidate);
+      if (exists) addImage(candidate);
+    }
+  }
+
+  return { storefrontImage, images: galleryImages };
+}
 
 function _keyForSrc(src) {
   return src || '';
@@ -407,6 +612,8 @@ if (typeof window !== 'undefined') {
   window.__gallery.renderGallery = renderGallery;
   window.__gallery.carouselKeyHandler = carouselKeyHandler;
   window.__gallery._state = galleryState;
+  window.__gallery.loadItemsDb = loadItemsDb;
+  window.__gallery.buildItemImageAssets = buildItemImageAssets;
 }
 
-export { renderGallery, carouselKeyHandler, galleryState };
+export { renderGallery, carouselKeyHandler, galleryState, buildItemImageAssets, resolveItemGalleryImages, loadItemsDb };

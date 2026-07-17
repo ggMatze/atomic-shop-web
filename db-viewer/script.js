@@ -1229,6 +1229,34 @@ function buildVariantName(base, ext, variantNum) {
     return base + (variantNum === 0 ? '_l' : `_c${variantNum}`) + ext;
 }
 
+function getVariantCandidateUrls(directory, imageName) {
+    const urls = [];
+    if (!directory || !imageName) return urls;
+
+    const parsed = parseVariantBase(imageName);
+    if (!parsed) return urls;
+
+    const baseDirectories = [String(directory).replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/$/, '')];
+    const lastSegment = (baseDirectories[0].split('/').filter(Boolean).pop() || '').toLowerCase();
+    if (lastSegment === 'floordecoration') {
+        const altDir = baseDirectories[0].replace(/\/floordecoration$/i, '/utility');
+        if (altDir && altDir !== baseDirectories[0]) baseDirectories.push(altDir);
+    } else if (lastSegment === 'utility') {
+        const altDir = baseDirectories[0].replace(/\/utility$/i, '/floordecoration');
+        if (altDir && altDir !== baseDirectories[0]) baseDirectories.push(altDir);
+    }
+
+    baseDirectories.forEach((dir) => {
+        const normalizedDir = String(dir).replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/$/, '');
+        for (let i = 1; i <= 16; i++) {
+            const variantName = buildVariantName(parsed.base, parsed.ext, i);
+            urls.push(getImagePath(normalizedDir, variantName));
+        }
+    });
+
+    return urls;
+}
+
 // Auto-detect carousel variants (c1, c2, c3, etc.)
 async function detectCarouselVariants(item, carouselImagesOverride = null) {
     const images = [];
@@ -1263,24 +1291,11 @@ async function detectCarouselVariants(item, carouselImagesOverride = null) {
     }
 
     if (!skipAutoVariants && item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
-        const baseFileName = item.primaryImage.imageName;
-        const directory = item.primaryImage.directory;
-        const parsed = parseVariantBase(baseFileName);
-        
-        if (parsed) {
-            // Try up to 16 variants
-            for (let i = 1; i <= 16; i++) {
-                const variantName = buildVariantName(parsed.base, parsed.ext, i);
-                const variantUrl = getImagePath(directory, variantName);
-                
-                // Check if image exists
-                const imageExists = await checkImageExists(variantUrl);
-                if (imageExists && !images.includes(variantUrl)) {
-                    images.push(variantUrl);
-                } else if (!imageExists) {
-                    // Stop searching after first missing variant to save time
-                    if (i > 3) break;
-                }
+        const variantUrls = getVariantCandidateUrls(item.primaryImage.directory, item.primaryImage.imageName);
+        for (const variantUrl of variantUrls) {
+            const imageExists = await checkImageExists(variantUrl);
+            if (imageExists && !images.includes(variantUrl)) {
+                images.push(variantUrl);
             }
         }
     }

@@ -1,5 +1,6 @@
 // UI module: overlay and gallery logic
 import { buildImageUrl } from './utils.js';
+import { resolveItemGalleryImages, loadItemsDb } from './gallery.js';
 
 // We'll expose functions on window.__ui for legacy script.js to call
 function renderGallery(images, current = 0) {
@@ -8,7 +9,14 @@ function renderGallery(images, current = 0) {
   }
   // Fallback: basic minimal rendering if gallery module missing
   const mainImage = document.getElementById('main-image');
-  if (mainImage && images && images[ current ]) mainImage.src = images[current];
+  const leftStrip = document.getElementById('left-strip');
+  const rightStrip = document.getElementById('right-strip');
+  if (mainImage) {
+    if (Array.isArray(images) && images.length && images[current]) mainImage.src = images[current];
+    else mainImage.removeAttribute('src');
+  }
+  if (leftStrip) leftStrip.innerHTML = '';
+  if (rightStrip) rightStrip.innerHTML = '';
 }
 document.getElementById("go-database").addEventListener("click", () => {
     window.open(window.location.origin.replace("uf.", "db."), "_blank");
@@ -45,8 +53,15 @@ function attachTileClickHandlers() {
   };
 
   tiles.forEach(tile => {
-    tile.addEventListener('click', () => {
-      overlay.classList.remove('hidden');
+    tile.addEventListener('click', async () => {
+      // Clear any stale gallery state immediately so the previous item's images don't flash through.
+      if (window.__gallery && typeof window.__gallery.renderGallery === 'function') {
+        window.__gallery.renderGallery([], 0);
+      } else {
+        renderGallery([], 0);
+      }
+      overlay.classList.add('hidden');
+      await loadItemsDb();
       const currencySelect = document.getElementById('currency-select');
       if (currencySelect) currencySelect.disabled = true;
 
@@ -62,31 +77,16 @@ function attachTileClickHandlers() {
       }
       if (!item) item = { title: tile.querySelector('.tile-footer') ? tile.querySelector('.tile-footer').textContent.trim() : 'No title', itemDesc: '', includes: [], storefrontImage: '', images: [] };
 
-      // build images
-      let images = [];
-      if (Array.isArray(item.images)) images = item.images.slice();
-      else if (Array.isArray(item.carouselImages)) images = item.carouselImages.filter(img => img && img.directory && img.imageName).map(img => buildImageUrl(img.directory, img.imageName)).filter(Boolean);
-
-      // Determine primary/storefront URLs. We want the lead image to appear
-      // at the front (primary/storefront), but we must preserve any existing
-      // occurrences in the carousel so index-based highlighting stays correct.
-      let primaryUrl = '';
-      if (item.primaryImage && item.primaryImage.directory && item.primaryImage.imageName) {
-        primaryUrl = buildImageUrl(item.primaryImage.directory, item.primaryImage.imageName) || '';
-      }
-
-      let storefrontImage = '';
-      if (item.storefrontImage) storefrontImage = item.storefrontImage;
-      else if (primaryUrl) storefrontImage = primaryUrl;
-
-      const lead = storefrontImage || primaryUrl;
-      if (lead) {
-        if (!images.length || images[0] !== lead) images.unshift(lead);
-      }
+      // build images using the gallery module so bundle images resolve via items-db
+      const { storefrontImage, images } = await resolveItemGalleryImages(item);
+      let galleryImages = Array.isArray(images) ? images.slice() : [];
+      const lead = storefrontImage || '';
+      if (lead && (!galleryImages.length || galleryImages[0] !== lead)) galleryImages.unshift(lead);
 
       // gallery
-      if (window.__gallery && typeof window.__gallery.renderGallery === 'function') window.__gallery.renderGallery(images, 0);
-      else renderGallery(images, 0);
+      if (window.__gallery && typeof window.__gallery.renderGallery === 'function') window.__gallery.renderGallery(galleryImages, 0);
+      else renderGallery(galleryImages, 0);
+      overlay.classList.remove('hidden');
 
       // cleanup keyboard handler when overlay closes
       overlay.addEventListener('transitionend', function cleanup() {

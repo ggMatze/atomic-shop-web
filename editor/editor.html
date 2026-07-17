@@ -207,12 +207,6 @@ function persistUiToLastItem() {
     if (is1) lastItem.isZeus = !!is1.checked;
     if (isClown) lastItem.isClown = !!isClown.checked;
 
-    // preferDB checkbox
-    const preferDbCheck = document.getElementById('prefer-db-check');
-    if (preferDbCheck) {
-      // lastItem.preferDB = preferDbCheck.checked;
-    }
-
     // Description (rich text)
     try {
       const desc = getRichTextContent();
@@ -405,10 +399,6 @@ function showItemDetails(pageIdx, itemIdx) {
             <button id="save-all-to-db-btn" style="padding: 6px 12px; background: #cc6600; color: #fff; border: none; cursor: pointer; border-radius: 3px;">Save All to DB</button>
             <span id="resolve-ids-status" style="margin-left: 10px; color: #a5f3fc; font-size: 0.95rem;"></span>
             <button id="undo-load-btn" style="padding: 6px 12px; background: #6c757d; color: #fff; border: none; cursor: pointer; border-radius: 3px; display: none;">Undo Load</button>
-            <label style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
-              <input type="checkbox" class="checkbox-margin-small" id="prefer-db-check">
-              <span><b>Use DB Description</b></span>
-            </label>
           </div>
           <iframe id="rte-frame" class="active" src="rich-text-editor.html" style="width:100%; height:320px; border:1px solid #555; border-radius: 4px;" title="Rich Text Editor"></iframe>
           <textarea id="itemDesc" style="display:none;"></textarea>
@@ -504,12 +494,6 @@ function showItemDetails(pageIdx, itemIdx) {
     window.autoSaveIntervals = [];
   }
   window.addEventListener('beforeunload', cleanupAutoSave);
-
-  // Load preferDB checkbox state
-  const preferDbCheck = document.getElementById('prefer-db-check');
-  if (preferDbCheck) {
-    preferDbCheck.checked = item.preferDB === true;
-  }
 
   // Attach Load from DB button handler
   const loadFromDbBtn = document.getElementById('load-from-db-btn');
@@ -1317,31 +1301,90 @@ function normalizeSearchString(value) {
     .trim();
 }
 
-function findDbEntryForText(text) {
+function looksLikeBundleIdentifier(value) {
+  const normalized = String(value || '').toLowerCase();
+  return normalized.includes('bndl') || normalized.includes('bundle');
+}
+
+function getSearchVariants(value) {
+  const normalized = normalizeSearchString(value);
+  if (!normalized) return [];
+  const withoutBundleWords = normalized
+    .replace(/\b(bundle|bundles|bndl|kit|pack|event|set)\b/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return [normalized, withoutBundleWords].filter(Boolean);
+}
+
+function isBundleLikeDbItem(dbItem) {
+  const haystack = [dbItem.itemName, dbItem.itemNameShort, dbItem.EDID, dbItem.entmName, dbItem.edid]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+  const hasBundleSignal = /\b(bundle|bundles|bndl|pack|kit)\b/.test(haystack);
+  const hasDynamicBundleItems = Array.isArray(dbItem.dynamicBundleItems) && dbItem.dynamicBundleItems.length > 0;
+  return hasBundleSignal || hasDynamicBundleItems;
+}
+
+function scoreDbEntryMatch(text, dbItem, options = {}) {
+  const variants = getSearchVariants(text);
+  if (!variants.length) return -Infinity;
+
+  const needle = variants[0];
+  const strippedNeedle = variants[1] || needle;
+  const idFields = [dbItem.EDID, dbItem.entmName, dbItem.edid].filter(Boolean).map(normalizeSearchString);
+  const nameFields = [dbItem.itemName, dbItem.itemNameShort].filter(Boolean).map(normalizeSearchString);
+  const allFields = [...idFields, ...nameFields];
+
+  let score = 0;
+
+  if (allFields.some(field => field === needle || field === strippedNeedle)) {
+    score += 220;
+  }
+
+  for (const field of allFields) {
+    if (!field) continue;
+    if (field === needle || field === strippedNeedle) {
+      score += 140;
+    } else if (field.includes(needle) || needle.includes(field)) {
+      score += 90;
+    } else if (field.includes(strippedNeedle) || strippedNeedle.includes(field)) {
+      score += 50;
+    }
+  }
+
+  const tokens = needle.split(/\s+/).filter(token => token.length > 2);
+  const tokenOverlap = allFields.reduce((total, field) => total + tokens.filter(token => field.includes(token)).length, 0);
+  score += tokenOverlap * 10;
+
+  if (options.preferBundle) {
+    if (isBundleLikeDbItem(dbItem)) score += 35;
+    if (idFields.some(field => looksLikeBundleIdentifier(field))) score += 25;
+    if (Array.isArray(dbItem.dynamicBundleItems) && dbItem.dynamicBundleItems.length > 0) score += 20;
+  } else if (options.preferItemLike) {
+    if (isBundleLikeDbItem(dbItem)) score -= 45;
+  }
+
+  if (options.preferBundle && /\bbundle\b/.test(needle)) {
+    score += 20;
+  }
+
+  return score;
+}
+
+function findDbEntryForText(text, options = {}) {
   if (!text || !Array.isArray(dbImageData)) return null;
   const needle = normalizeSearchString(text);
   if (!needle) return null;
 
-  const exactId = dbImageData.find(dbItem => {
-    return [dbItem.EDID, dbItem.entmName, dbItem.edid]
-      .filter(Boolean)
-      .some(field => normalizeSearchString(field) === needle);
-  });
-  if (exactId) return exactId;
+  const scored = dbImageData
+    .map(dbItem => ({ dbItem, score: scoreDbEntryMatch(text, dbItem, options) }))
+    .filter(entry => entry.score >= (options.preferBundle ? 120 : 90));
 
-  const exactName = dbImageData.find(dbItem => {
-    return [dbItem.itemName, dbItem.itemNameShort]
-      .filter(Boolean)
-      .some(field => normalizeSearchString(field) === needle);
-  });
-  if (exactName) return exactName;
+  if (!scored.length) return null;
 
-  return dbImageData.find(dbItem => {
-    const fields = [dbItem.itemName, dbItem.itemNameShort, dbItem.EDID, dbItem.entmName, dbItem.edid]
-      .filter(Boolean)
-      .map(normalizeSearchString);
-    return fields.some(field => field.includes(needle) || needle.includes(field));
-  }) || null;
+  scored.sort((a, b) => b.score - a.score);
+  return scored[0].dbItem;
 }
 
 async function resolveItemIds(item) {
@@ -1366,7 +1409,7 @@ async function resolveItemIds(item) {
       if (entry.entmName || entry.EDID || entry.edid) return;
 
       const name = entry.szItemName || entry.itemName || entry.name || '';
-      const matched = findDbEntryForText(name);
+      const matched = findDbEntryForText(name, { preferItemLike: true });
       if (matched) {
         entry.entmName = matched.EDID || matched.entmName || matched.edid;
         bundleResolvedCount += 1;
@@ -1374,6 +1417,20 @@ async function resolveItemIds(item) {
         bundleUnmatchedCount += 1;
       }
     });
+  }
+
+  if (Array.isArray(item.dynamicBundleItems) && item.dynamicBundleItems.length > 0) {
+    const bundleNameCandidates = [item.itemName, item.itemNameShort, item.szItemName, item.name].filter(Boolean);
+    const bundleMatched = bundleNameCandidates
+      .map(candidate => findDbEntryForText(candidate, { preferBundle: true }))
+      .find(Boolean);
+    const bundleResolvedId = bundleMatched ? (bundleMatched.EDID || bundleMatched.entmName || bundleMatched.edid) : '';
+    const looksLikeBundleId = bundleResolvedId && looksLikeBundleIdentifier(bundleResolvedId);
+    const hasNoExistingId = !item.EDID && !item.edid;
+    if (bundleResolvedId && hasNoExistingId && looksLikeBundleId) {
+      item.EDID = bundleResolvedId;
+      nonBundleResolved += 1;
+    }
   }
 
   if (!Array.isArray(item.dynamicBundleItems) || item.dynamicBundleItems.length === 0) {
@@ -1707,12 +1764,6 @@ async function loadDescriptionFromDB(item) {
       setRichTextContent(fullText);
     }
 
-    // Auto-check the preferDB checkbox
-    const preferDbCheck = document.getElementById('prefer-db-check');
-    if (preferDbCheck) {
-      preferDbCheck.checked = true;
-    }
-
     // Show undo button
     const undoLoadBtn = document.getElementById('undo-load-btn');
     if (undoLoadBtn) {
@@ -1728,12 +1779,6 @@ function undoLoadFromDB() {
   if (savedDescription !== null) {
     if (typeof setRichTextContent === 'function') {
       setRichTextContent(savedDescription);
-    }
-
-    // Uncheck the preferDB checkbox
-    const preferDbCheck = document.getElementById('prefer-db-check');
-    if (preferDbCheck) {
-      preferDbCheck.checked = false;
     }
 
     // Hide undo button
