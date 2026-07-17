@@ -2,12 +2,12 @@
 export function buildImageUrl(directory, imageName) {
   if (!directory || !imageName) return '';
   if (/^https?:\/\//.test(imageName)) return imageName;
-  let dir = directory.toLowerCase();
+  let dir = directory.toLowerCase().replace(/\/$/, ''); // Remove trailing slash if present
   let name = imageName.toLowerCase();
   if (!name.endsWith('.webp')) {
     name = name.replace('.dds', '.webp').replace('.png', '.webp');
   }
-  return dir + name;
+  return dir + '/' + name; // Always add single slash separator
 }
 // DST helpers: automatically detect Eastern Daylight/Standard Time per-date.
 // Manual overrides via window.__siteConfig.dstHourOffset are intentionally ignored
