@@ -1317,13 +1317,11 @@ async function detectCarouselVariants(item, carouselImagesOverride = null) {
 
     if (!skipAutoVariants && item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
         const variantUrls = getVariantCandidateUrls(item.primaryImage.directory, item.primaryImage.imageName);
-        const maxChecks = 6;
-        for (const variantUrl of variantUrls.slice(0, maxChecks)) {
+        for (const variantUrl of variantUrls) {
             const imageExists = await checkImageExists(variantUrl);
             if (imageExists && !images.includes(variantUrl)) {
                 images.push(variantUrl);
             }
-            if (images.length >= 8) break;
         }
     }
     
@@ -1419,33 +1417,9 @@ async function openOverlay(item) {
     const bundleEntries = resolveDynamicBundleItems(item);
     const bundleCarouselImages = buildBundleCarouselImages(item);
 
-    // Start with the primary and explicit carousel images so the overlay opens immediately.
-    currentGalleryImages = [];
+    // Detect carousel variants
+    currentGalleryImages = await detectCarouselVariants(item, bundleCarouselImages.length ? bundleCarouselImages : null);
     currentGalleryIndex = 0;
-
-    const initialGalleryImages = [];
-    if (item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
-        const primaryUrl = getImagePath(item.primaryImage.directory, item.primaryImage.imageName);
-        if (primaryUrl) initialGalleryImages.push(primaryUrl);
-    }
-
-    const carouselSource = bundleCarouselImages.length ? bundleCarouselImages : item.carouselImages;
-    if (Array.isArray(carouselSource)) {
-        const carouselSeen = new Set();
-        for (const carousel of carouselSource) {
-            if (carousel && carousel.imageName && carousel.directory) {
-                const carouselUrl = getImagePath(carousel.directory, carousel.imageName);
-                if (!carouselUrl) continue;
-                const isPrimaryDuplicate = carouselUrl === initialGalleryImages[0];
-                if (!carouselSeen.has(carouselUrl) && (isPrimaryDuplicate || !initialGalleryImages.includes(carouselUrl))) {
-                    initialGalleryImages.push(carouselUrl);
-                }
-                carouselSeen.add(carouselUrl);
-            }
-        }
-    }
-
-    currentGalleryImages = initialGalleryImages;
     
     // Populate overlay content
     overlayTitle.textContent = item.itemName || item.itemNameShort || item.name || 'Item';
@@ -1530,24 +1504,8 @@ if (bundleItems.length > 0) {
     renderGallery();
     
     // Show overlay
-    requestAnimationFrame(() => {
-        if (currentOverlayItem !== item) return;
-        overlay.classList.remove('hidden');
-    });
+    overlay.classList.remove('hidden');
     updateUrlForCurrentItem(item);
-
-    // Populate additional carousel variants in the background after the overlay is visible.
-    void detectCarouselVariants(item, bundleCarouselImages.length ? bundleCarouselImages : null).then((detectedImages) => {
-        if (currentOverlayItem !== item) return;
-        if (!detectedImages.length) return;
-
-        const hasNewImages = detectedImages.some((url) => !currentGalleryImages.includes(url));
-        if (hasNewImages) {
-            currentGalleryImages = detectedImages;
-            currentGalleryIndex = Math.min(currentGalleryIndex, Math.max(0, currentGalleryImages.length - 1));
-            renderGallery();
-        }
-    });
 }
 
 function copyShareLink() {
