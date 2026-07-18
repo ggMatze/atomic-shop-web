@@ -23260,6 +23260,87 @@
     "itemNameShort": "Red Menace Stash"
   },
   {
+  "EDID": "ATX_ENTM_BNDL_CAMP_FloorDecor_Plushie_Bundle",
+  "desc": "Do you love plushies? Because they love you! Liven up your C.A.M.P. or Shelter with this Plushie Bundle!",
+  "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Plushie C.A.M.P. Bundle",
+  "primaryImage": {
+    "imageName": "dev_atx_bndl_plushie_camp_bundle.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1200,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Sheepsquatch Plushie",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Plushie_Sheepsquatch"
+    },
+    {
+      "szItemName": "Rabbit Plushie",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Plushie_Rabbit"
+    },
+    {
+      "szItemName": "Mr. Pebbles Plushie",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Plushie_MrPebbles"
+    },
+    {
+      "szItemName": "Wavy Willard Plushie",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Plushie_Willard"
+    },
+    {
+      "szItemName": "Vault Boy 2000 Plushie",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Plushie_VaultBoy_2000"
+    },
+    {
+      "szItemName": "Silver Shroud Plushie",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Plushie_SilverShroud"
+    },
+    {
+      "szItemName": "Grognak Plushie",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Plushie_Grognak"
+    },
+    {
+      "szItemName": "Alien Plushie",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Plushie_Alien"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_Outfit_Jumpsuit_NukaCola_Set",
+  "desc": "It's time to make the Nuka-Cola. Suit up and get to work.",
+  "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Nuka-Cola Jumpsuit Set",
+  "primaryImage": {
+    "imageName": "atx_apparel_outfit_jumpsuit_nukacola_l.webp",
+    "directory": "/textures/atx/storefront/player/outfit/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 600,
+  "cBadge": "Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Nuka-Cola Dark Jumpsuit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_Jumpsuit_NukaColaDark"
+    },
+    {
+      "szItemName": "Nuka-Cola Cherry Jumpsuit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_Jumpsuit_NukaColaCherry"
+    },
+    {
+      "szItemName": "Nuka-Cola Jumpsuit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_Jumpsuit_NukaCola"
+    },
+    {
+      "szItemName": "Nuka-Cola Quantum Jumpsuit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_Jumpsuit_NukaColaQuantum"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_Utility_PopcornMachine",
     "desc": "Fresh Popcorn, who wants some Popcorn? - Collects Popcorn over time - This item cannot be built inside of a Shelter.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -39586,6 +39667,66 @@
     "itemName": "Fasnacht Red Raven Mask",
     "itemNameShort": "Red Raven Mask",
     "highPriceOriginal": 300
+  },
+  {
+  "EDID": "atx_entm_bndl_skull_totem_set",
+  "desc": "",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Skull Totem Set",
+  "primaryImage": {
+    "imageName": "",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 200,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Braced Skull Totem",
+      "entmName": "ATX_ENTM_CAMP_Statue_Raider_BoneTotem_02"
+    },
+    {
+      "szItemName": "Death Awaits Skull Totem",
+      "entmName": "ATX_ENTM_CAMP_Statue_Raider_BoneTotem_04"
+    },
+    {
+      "szItemName": "No Hope Skull Totem",
+      "entmName": "ATX_ENTM_CAMP_Statue_Raider_BoneTotem_03"
+    },
+    {
+      "szItemName": "Propped Skull Totem",
+      "entmName": "ATX_ENTM_CAMP_Statue_Raider_BoneTotem_01"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_Elm_Tree_Set",
+  "desc": "",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Elm Tree Set",
+  "primaryImage": {
+    "imageName": "",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 500,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Fall Elm Trees",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_ElmTrees_Fall"
+    },
+    {
+      "szItemName": "Summer Elm Trees",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_ElmTrees_Summer"
+    },
+    {
+      "szItemName": "Winter Elm Trees",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_ElmTrees_Winter"
+    }
+  ]
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_Fasnacht_Frog",
@@ -107898,6 +108039,144 @@
     {
       "szItemName": "Nuka-Cola Quantum Sign",
       "entmName": "ATX_ENTM_CAMP_Lights_SignNukaColaQuantum"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_RESPONDERS_RESCUE_BUNDLE",
+  "desc": "Answer the call and save the Wasteland with this improved Responders Rescue Bundle!",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Responders Rescue Bundle",
+  "itemNameShort": "Responders Bundle",
+  "primaryImage": {
+    "imageName": "dev_atx_responders_rescue_bundle.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1800,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Order of the Crossed Axes Decoration",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_Responders_CrossedAxeDecor"
+    },
+    {
+      "szItemName": "Responder Paint",
+      "entmName": "ATX_ENTM_Skin_PipBoySkin_Responder"
+    },
+    {
+      "szItemName": "Responder Power Armor Paint",
+      "entmName": "ATX_ENTM_Skin_PowerArmor_Paint_Responder"
+    },
+    {
+      "szItemName": "Responders Rescue Backpack",
+      "entmName": "ATX_ENTM_Skin_Backpack_Responders_Rescue"
+    },
+    {
+      "szItemName": "Responders Plywood Signs",
+      "entmName": "ATX_ENTM_CAMP_Sign_Responders_Plywood"
+    },
+    {
+      "szItemName": "Klaxon Wall Light",
+      "entmName": "ATX_ENTM_CAMP_Lights_Klaxon"
+    },
+    {
+      "szItemName": "Blue Responders Flag",
+      "entmName": "ATX_ENTM_CAMP_Decoration_FlagWaving_Responders_Blue"
+    },
+    {
+      "szItemName": "Responders Fire Breathers Flag",
+      "entmName": "ATX_ENTM_CAMP_Decoration_FlagWaving_Responders_Fire"
+    },
+    {
+      "szItemName": "Responders Armor Workbench",
+      "entmName": "ATX_ENTM_CAMP_Machinery_Workbench_Armor_Responders"
+    },
+    {
+      "szItemName": "Responders Power Armor Station",
+      "entmName": "ATX_ENTM_CAMP_Machinery_Workbench_PowerArmor_Responders"
+    },
+    {
+      "szItemName": "Responders Weapons Workbench",
+      "entmName": "ATX_ENTM_CAMP_Machinery_Workbench_Weapon_Responders"
+    },
+    {
+      "szItemName": "Responders Red Player Icon",
+      "entmName": "ATX_ENTM_PlayerIcon_Responders_Red"
+    },
+    {
+      "szItemName": "White Responders Flag",
+      "entmName": "ATX_ENTM_CAMP_Decoration_FlagWaving_Responders_White"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_REVOLUTIONARY_BUNDLE",
+  "desc": "A Bundle for a Revolutionary like no other!",
+  "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- WEAPON SKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Revolutionary Free States Faction Bundle",
+  "itemNameShort": "Revolutionary Bundle",
+  "primaryImage": {
+    "imageName": "DEV_ATX_BNDL_Revolutionary_Free_States_Faction_Bundle.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 2000,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Free States Revolutionary Jetpack",
+      "entmName": "ATX_ENTM_Skin_PowerArmor_Jetpack_FreeStates_02"
+    },
+    {
+      "szItemName": "Revolutionary Power Armor Paint Set",
+      "entmName": "ATX_ENTM_Skin_PowerArmor_Paint_TX_FreeStates_Revolutionary"
+    },
+    {
+      "szItemName": "Free States Revolutionary Outfit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_FreeStates_Revolutionary"
+    },
+    {
+      "szItemName": "Free States Revolutionary Helmet",
+      "entmName": "ATX_ENTM_Apparel_Headwear_FreeStates_Revolutionary"
+    },
+    {
+      "szItemName": "Revolutionary Paint",
+      "entmName": "ATX_ENTM_Skin_PipBoySkin_FreeStatesAdvanced"
+    },
+    {
+      "szItemName": "Free States Revolutionary Flag - Blue",
+      "entmName": "ATX_ENTM_CAMP_Decoration_FreeStates_T2_A"
+    },
+    {
+      "szItemName": "Free States Revolutionary Flag - Black",
+      "entmName": "ATX_ENTM_CAMP_Decoration_FreeStates_T2_B"
+    },
+    {
+      "szItemName": "Free States Truckbed Trailer",
+      "entmName": "ATX_ENTM_CAMP_Structure_Truck_FreeStates"
+    },
+    {
+      "szItemName": "Free States Truckbed Trailer with Junk",
+      "entmName": "ATX_ENTM_CAMP_Structure_Truck_FreeStates_Gear"
+    },
+    {
+      "szItemName": "Free States Paint Vending Machine",
+      "entmName": "ATX_ENTM_CAMP_Vendor_PlayerVendingMachine_FreeStates"
+    },
+    {
+      "szItemName": "Free States Paint (Combat Shotgun)",
+      "entmName": "ATX_ENTM_Skin_WeaponSkin_CombatShotgun_FreeStates"
+    },
+    {
+      "szItemName": "Free States Salute",
+      "entmName": "ATX_ENTM_Emotes_Hello_Salute_FreeStates"
+    },
+    {
+      "szItemName": "Free States Revolutionary Icon",
+      "entmName": "ATX_ENTM_PlayerIcon_FreeStates_02"
     }
   ]
   },
