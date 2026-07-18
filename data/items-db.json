@@ -25858,6 +25858,84 @@
     "itemNameShort": "Fire_Large"
   },
   {
+  "EDID": "ATX_ENTM_BNDL_Whitespring_Resort_Bundle",
+  "desc": "Bring a bit of the luxury of the Whitespring Resort to your own home!",
+  "disclaimer": "CAMP ITEMS APPEAR WHILE IN CAMP MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Whitespring Resort Bundle",
+  "itemNameShort": "Whitesprings C.A.M.P. Bundle",
+  "primaryImage": {
+    "imageName": "dev_atx_bundle_whitespring_resort_bundle.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1500,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Orgatronic Deluxe",
+      "entmName": "ATX_ENTM_CAMP_Furniture_Instrument_Orgatronic"
+    },
+    {
+      "szItemName": "Golf Cart Ride",
+      "entmName": "ATX_ENTM_CAMP_Furniture_CoinOp_GolfCart"
+    },
+    {
+      "szItemName": "Striped Window Awnings",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_WindowAwnings"
+    },
+    {
+      "szItemName": "Whitespring Floor Set",
+      "entmName": "ATX_ENTM_CAMP_Floor_WhitespringsFloorSet"
+    },
+    {
+      "szItemName": "Whitespring Wallpaper Set",
+      "entmName": "ATX_ENTM_CAMP_WallPaper_WhitespringsWallpaperSet"
+    },
+    {
+      "szItemName": "Kirby Head Art Deco Bust Set",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_ArtDecoBusts_KirbyHead"
+    },
+    {
+      "szItemName": "Fancy Performance Stage",
+      "entmName": "ATX_ENTM_CAMP_Structure_PerformanceStage_FancyWood"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_WV_Table_Set",
+  "desc": "Bring a slice of appalachian geography into your C.A.M.P with this set of West Virginia themed items!",
+  "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "West Virginia Table Set",
+  "primaryImage": {
+    "imageName": "atx_camp_furniture_bearaccenttable_l.webp",
+    "directory": "/textures/atx/storefront/camp/furniture/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 500,
+  "cBadge": "Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Black Bear Lamp",
+      "entmName": "ATX_ENTM_CAMP_Lights_BearLamp"
+    },
+    {
+      "szItemName": "Black Bear Accent Table",
+      "entmName": "ATX_ENTM_CAMP_Furniture_Table_BearAccentTable"
+    },
+    {
+      "szItemName": "West Virginia Accent Table",
+      "entmName": "ATX_ENTM_CAMP_Furniture_Table_WVATable"
+    },
+    {
+      "szItemName": "Cardinal Wind Chime",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_WindChime_Cardinal"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Test_Static_Medium",
     "desc": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
     "disclaimer": "",
@@ -31188,6 +31266,112 @@
     "carouselImages": [],
     "itemName": "Detective Board",
     "itemNameShort": "Detective Board"
+  },
+  {
+  "EDID": "atx_entm_bndl_vaulttec_starter_bundle",
+  "desc": "A bundle from Vault-Tec to help start you out on your adventure to reclaim the wasteland!",
+  "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES -",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Vault-Tec Starter Bundle",
+  "primaryImage": {
+    "imageName": "dev_atx_bndl_vaulttec_starter_bundle.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1500,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Vault-Tec Combat Armor Paint",
+      "entmName": "ATX_ENTM_Skin_ArmorSkin_Combat_VaultTec"
+    },
+    {
+      "szItemName": "Vault-Tec Hunting Rifle Paint",
+      "entmName": "ATX_ENTM_Skin_WeaponSkin_HuntingRifle_VaultTec"
+    },
+    {
+      "szItemName": "Vault-Tec Laser Gun Paint",
+      "entmName": "ATX_ENTM_Skin_WeaponSkin_LaserGun_VaultTec"
+    },
+    {
+      "szItemName": "Vault-Tec Leather Armor Paint",
+      "entmName": "ATX_ENTM_Skin_ArmorSkin_Leather_VaultTec"
+    },
+    {
+      "szItemName": "Vault-Tec Metal Armor Paint",
+      "entmName": "ATX_ENTM_Skin_ArmorSkin_Metal_VaultTec"
+    },
+    {
+      "szItemName": "Vault-Tec Paint",
+      "entmName": "ATX_ENTM_Skin_PipBoySkin_VaultTec"
+    },
+    {
+      "szItemName": "Vault-Tec Paint (Fat Man)",
+      "entmName": "ATX_ENTM_Skin_WeaponSkin_FatMan_VaultTec"
+    },
+    {
+      "szItemName": "Vault-Tec Short Suit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_ShortSuit_VaultTec"
+    },
+    {
+      "szItemName": "Vault-Tec Suit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_PantSuit_VaultTec"
+    }
+  ]
+  },
+  {
+  "EDID": "atx_entm_bndl_vendorsign_set",
+  "desc": "Advertise that you have all manner of things that you need to sell with the Vendor Sign Set.",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Vendor Sign Set",
+  "itemNameShort": "Vendor Sign Set",
+  "primaryImage": {
+    "imageName": "dev_atx_bundle_vendorsign_set.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 300,
+  "cBadge": "Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Vendor Armor Sign",
+      "entmName": "ATX_ENTM_CAMP_Sign_Vendor_Armor"
+    },
+    {
+      "szItemName": "Vendor Plans Sign",
+      "entmName": "ATX_ENTM_CAMP_Sign_Vendor_Plans"
+    },
+    {
+      "szItemName": "Vendor Ammo Sign",
+      "entmName": "ATX_ENTM_CAMP_Sign_Vendor_Ammo"
+    },
+    {
+      "szItemName": "Vendor Legendary Weapons Sign",
+      "entmName": "ATX_ENTM_CAMP_Sign_Vendor_Legendary_Weapons"
+    },
+    {
+      "szItemName": "Vendor Serums, Junk and Maps Sign",
+      "entmName": "ATX_ENTM_CAMP_Sign_Vendor_Serums"
+    },
+    {
+      "szItemName": "Vendor Got Gunz Sign",
+      "entmName": "ATX_ENTM_CAMP_Sign_Vendor_GotGunz"
+    },
+    {
+      "szItemName": "Vendor Food and Drink Sign",
+      "entmName": "ATX_ENTM_CAMP_Sign_Vendor_Food_Drink"
+    },
+    {
+      "szItemName": "Vendor Weapons Sign",
+      "entmName": "ATX_ENTM_CAMP_Sign_Vendor_Weapons"
+    },
+    {
+      "szItemName": "Vendor Stims Sign",
+      "entmName": "ATX_ENTM_CAMP_Sign_Vendor_Stims"
+    }
+  ]
   },
   {
     "EDID": "SCORE_MiniSeason_2025_AppalachianOutlaws_ENTM_CAMP_WallDecor_GhoulWantedPoster",
@@ -63037,6 +63221,46 @@
     "itemNameShort": "Waster Power Armor Skin"
   },
   {
+  "EDID": "atx_entm_bndl_wavywillardspark_bundle",
+  "desc": "Bring Wavy Willard's home with the Wavy Willard's Park Bundle.",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Wavy Willard's Park Bundle",
+  "primaryImage": {
+    "imageName": "e14dec835e413e59b7494d5466f854d8.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1500,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Wavy Willard's Park Map",
+      "entmName": "ATX_ENTM_CAMP_FloorDeco_Map_WaterPark"
+    },
+    {
+      "szItemName": "Wavy Willard's Park Sign",
+      "entmName": "ATX_ENTM_CAMP_Sign_WaterPark"
+    },
+    {
+      "szItemName": "Wavy Willard's Bubble Blower",
+      "entmName": "ATX_ENTM_CAMP_Utility_BubbleBlower"
+    },
+    {
+      "szItemName": "Wavy Willard's Waterbed",
+      "entmName": "ATX_ENTM_CAMP_Bed_WavyWilards_Waterbed"
+    },
+    {
+      "szItemName": "Wavy Willard's Camping Canopies",
+      "entmName": "ATX_ENTM_CAMP_Structure_CampingCanopy_WavyWillards"
+    },
+    {
+      "szItemName": "Wavy Willard's Lifeguard Chair",
+      "entmName": "ATX_ENTM_CAMP_Furniture_Chair_WavyWillards_Lifeguard"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_Upgrade2020_BoS_ENTM_Skin_PowerArmor_Paint_BosReclaimed",
     "desc": "Use what you find and reclaim Appalachia! This is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors. Included with the Brotherhood of Steel Digital Upgrades.",
     "disclaimer": "SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
@@ -68665,8 +68889,7 @@
     },
     "carouselImages": [],
     "itemName": "Gumball Machine Planter",
-    "itemNameShort": "Gumball Machine Planter",
-    "cBadge": "cut"
+    "itemNameShort": "Gumball Machine Planter"
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_StreetLamps",
@@ -76159,6 +76382,7 @@
     "customdesc": "",
     "customdisclaimer": "",
     "itemName": "Thanksgiving Tables Bundle",
+    "itemNameShort": "Thanksgiving Bundle",
     "primaryImage": {
       "imageName": "1c43f03ac3f451e2adb5877ab4ded9ba.webp",
       "directory": "/textures/atomic_shop_media/"
@@ -76903,6 +77127,7 @@
       "directory": "/textures/atx/storefront/player/powerarmor/"
     },
     "highPriceOriginal": 800,
+    "cBadge": "Set",
     "dynamicBundleItems": [],
     "carouselImages": []
   },
@@ -90139,12 +90364,137 @@
     "carouselImages": []
   },
   {
+  "EDID": "ATX_ENTM_BNDL_OLE_TIMEY_DINER_BUNDLE",
+  "desc": "Candy, flowers, and hearts are all perfect gifts for your special someone!",
+  "disclaimer": "CAMP ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Ole Timey Diner Bundle",
+  "primaryImage": {
+    "imageName": "dev_atx_bndl_ole_timey_diner.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1200,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Corvega Diner Seat",
+      "entmName": "ATX_ENTM_CAMP_Furniture_Couch_CorvegaCarDinerSeat"
+    },
+    {
+      "szItemName": "Gumball Machine Planter",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_GumballPlanterDUPLICATE000"
+    },
+    {
+      "szItemName": "Barbershop Pole Light",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_BarbershopPole"
+    },
+    {
+      "szItemName": "Heart-Shaped Geode",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_HeartShapedGeode"
+    },
+    {
+      "szItemName": "Hubcap Flowers Set",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_HubcapFlowerSet_Colorful"
+    },
+    {
+      "szItemName": "Wheel Flowers Set",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_HubcapFlowerSet_Wheel"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_SHOGATSU_BUNDLE",
+  "desc": "Celebrate the New Year at your C.A.M.P. with this Kagami Mochi and Kadomatsu Bundle!",
+  "disclaimer": "-C.A.M.P.ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Shogatsu Bundle",
+  "primaryImage": {
+    "imageName": "atx_camp_floordecor_kadomatsu_l.webp",
+    "directory": "/textures/atx/storefront/camp/floordecoration/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 700,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Kagami Mochi",
+      "entmName": "ATX_ENTM_CAMP_Decoration_KagamiMochi"
+    },
+    {
+      "szItemName": "Kadomatsu",
+      "entmName": "ATX_ENTM_CAMP_Decoration_Kadomatsu"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_SLOCUMS_JOE_CAMP_BUNDLE",
+  "desc": "Turn your C.A.M.P. into the ultimate Slocum’s Joe diner with the Slocum’s Joe C.A.M.P. Bundle!",
+  "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Slocum's Joe C.A.M.P. Bundle",
+  "primaryImage": {
+    "imageName": "fec7a85cd4c2c2ea8cf631be5cdfa009.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1500,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Black Diner Floor and Foundations",
+      "entmName": "ATX_ENTM_CAMP_Floor_BlackDiner"
+    },
+    {
+      "szItemName": "Red Diner Floor and Foundations",
+      "entmName": "ATX_ENTM_CAMP_Floor_RedDiner"
+    },
+    {
+      "szItemName": "Slocum's Bar Stools",
+      "entmName": "ATX_ENTM_CAMP_Furniture_Slocum_Stools"
+    },
+    {
+      "szItemName": "Slocum's Cup of Joe Neon Sign",
+      "entmName": "ATX_ENTM_CAMP_Lights_NeonBillboards_Rooftop_CupOfJoe"
+    },
+    {
+      "szItemName": "Train Car",
+      "entmName": "ATX_ENTM_CAMP_Structure_TrainCar"
+    },
+    {
+      "szItemName": "Slocum's Diner Wallpaper",
+      "entmName": "ATX_ENTM_CAMP_WallPaper_SlocumsDiner"
+    },
+    {
+      "szItemName": "Slocum's Good Morning Mural",
+      "entmName": "ATX_ENTM_CAMP_Sign_Slocum_Morning"
+    },
+    {
+      "szItemName": "Slocum's Good Evening Mural",
+      "entmName": "ATX_ENTM_CAMP_Sign_Slocum_GoodEvening"
+    },
+    {
+      "szItemName": "Slocum's Diner Bar Set",
+      "entmName": "ATX_ENTM_CAMP_Furniture_BarSet_Slocum"
+    },
+    {
+      "szItemName": "Slocum's Cup of Joe Neon Sign",
+      "entmName": "ATX_ENTM_CAMP_Lights_NeonBillboards_Rooftop_CupOfJoe"
+    },
+    {
+      "szItemName": "Slocum's Joe Vending Station",
+      "entmName": "ATX_ENTM_CAMP_Vendor_PlayerVendingMachine_Slocum"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_ENTM_BNDL_SPRING_CAMP_BUNDLE",
     "desc": "Spring is here and it is time to spruce up your C.A.M.P. with the Spring C.A.M.P. Bundle.",
-    "disclaimer": "Includes: Asbestos Roof Tile Set, Summer Elm Trees, Fall Elm Trees, Winter Elm Trees, Brambles, Nuclear Waste Barrel Planter, Mushroom Lamp, and Red Turret Pack.",
+    "disclaimer": "",
     "customdesc": "",
     "customdisclaimer": "",
     "itemName": "Spring C.A.M.P. Bundle",
+    "itemNameShort": "Spring Bundle",
     "primaryImage": {
       "imageName": "e92bfde3338f50778320a71da36fd281.webp",
       "directory": "/textures/atomic_shop_media/"
@@ -107488,15 +107838,79 @@
     ]
   },
   {
-    "EDID": "ATX_ENTM_BNDL_NUKACOLA_SECRET_DOOR_BUNDLE",
-    "desc": "The greatest soft drink icon, brought home to your C.A.M.P.",
-    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-    "customdesc": "",
-    "customdisclaimer": "",
-    "itemName": "Nuka-Cola Secret Door Bundle",
+  "EDID": "ATX_ENTM_BNDL_NUKACOLA_SECRET_DOOR_BUNDLE",
+  "desc": "The greatest soft drink icon, brought home to your C.A.M.P.",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Nuka-Cola Secret Door Bundle",
     "primaryImage": {
       "imageName": "atx_camp_door_secret_nukacola_l.webp",
       "directory": "/textures/atx/storefront/camp/doors/"
+    },
+  "carouselImages": [],
+  "highPriceOriginal": 1200,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Nuka Girl Signs",
+      "entmName": "ATX_ENTM_CAMP_Sign_NukaGirl"
+    },
+    {
+      "szItemName": "Large Nuka-Cola Bottle",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_NukaColaBottle_Large"
+    },
+    {
+      "szItemName": "Nuka-Cola Projection Lamp",
+      "entmName": "ATX_ENTM_CAMP_Lights_NukaColaLamp"
+    },
+    {
+      "szItemName": "Stained Glass Nuka-Cola Lamps",
+      "entmName": "ATX_ENTM_CAMP_Lights_NukaColaStainedGlassLamp"
+    },
+    {
+      "szItemName": "Nuka-Cola Secret Door",
+      "entmName": "ATX_ENTM_CAMP_Door_Secret_NukaCola"
+    },
+    {
+      "szItemName": "Nuka-Cola Metal Stairs",
+      "entmName": "ATX_ENTM_CAMP_Structure_Stairs_NukaCola"
+    },
+    {
+      "szItemName": "Nuka-Cola Cherry Jumpsuit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_Jumpsuit_NukaColaCherry"
+    },
+    {
+      "szItemName": "Nuka-Cola Dark Jumpsuit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_Jumpsuit_NukaColaDark"
+    },
+    {
+      "szItemName": "Nuka-Cola Jumpsuit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_Jumpsuit_NukaCola"
+    },
+    {
+      "szItemName": "Nuka-Cola Quantum Jumpsuit",
+      "entmName": "ATX_ENTM_Apparel_Outfit_Jumpsuit_NukaColaQuantum"
+    },
+    {
+      "szItemName": "Pristine Nuka-Cola Vending Machine",
+      "entmName": "ATX_ENTM_CAMP_Utility_NukaColaVendingMachine_Clean"
+    },
+    {
+      "szItemName": "Nuka-Cola Quantum Sign",
+      "entmName": "ATX_ENTM_CAMP_Lights_SignNukaColaQuantum"
+    }
+  ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_NUKACOLA_BUNDLE",
+    "desc": "",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Nuka-Cola Bundle",
+    "primaryImage": {
+      "imageName": "ca9d1890a63d8cdd62e486e7a303208e.webp",
+      "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [
       {
@@ -107945,7 +108359,7 @@
       },
       {
         "imageName": "score_s3_camp_furniture_shelters_nightstand_l.webp",
-        "directory": "/textures/atx/storefront/camp/furniture//"
+        "directory": "/textures/atx/storefront/camp/furniture/"
       },
       {
         "imageName": "atx_camp_utility_toilet_clean_l.webp",
@@ -107961,7 +108375,7 @@
       },
       {
         "imageName": "score_s3_camp_floor_carpeteria_vaulttec_l.webp",
-        "directory": "/textures/atx/storefront/camp/floors//"
+        "directory": "/textures/atx/storefront/camp/floors/"
       }
     ],
     "highPriceOriginal": 1800,
