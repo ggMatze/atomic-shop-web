@@ -503,6 +503,21 @@ input[type="checkbox"][data-state="excluded"] {
     width: fit-content;
 }
 
+.stats .search-expansion-hint a {
+    color: #73ff6e;
+    text-decoration: underline;
+}
+
+.stats .search-expansion-hint a:hover {
+    color: #a6ff9f;
+}
+
+a:focus {
+    outline: none!important;
+    background: #73ff6e57;
+    padding-bottom: 3px;
+}
+
 .results {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
