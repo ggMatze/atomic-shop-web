@@ -355,7 +355,7 @@ function _updateVariantIndicator(key) {
       }
     }
     if (hasCandidate) {
-      indicator.textContent = 'W/S or ▲/▼ to alternate images';
+      indicator.textContent = 'W/S or â–²/â–¼ to alternate images';
       indicator.classList.add('visible');
       mainImage.classList.add('has-variants');
     } else {
@@ -587,11 +587,11 @@ swipeArea.addEventListener('touchend', (e) => {
   // horizontal swipe
   if (Math.abs(diffX) > Math.abs(diffY)) {
     if (diffX > threshold && galleryState.current > 0) {
-      // swipe right → previous
+      // swipe right â†’ previous
       galleryState.current--;
       renderGallery(galleryState.images, galleryState.current);
     } else if (diffX < -threshold && galleryState.current < galleryState.images.length - 1) {
-      // swipe left → next
+      // swipe left â†’ next
       galleryState.current++;
       renderGallery(galleryState.images, galleryState.current);
     }

@@ -123,13 +123,13 @@ async function initTabs() {
   tabNavScroll.innerHTML = '';
   pages.forEach((page, idx) => {
     // compute tab slug (prefer explicit page.tabid, otherwise derive from the first title line)
-    // Use only the first line of `name` and trim at common separators (e.g. " - ", "—", ":", "|") to avoid long descriptions in slugs.
+    // Use only the first line of `name` and trim at common separators (e.g. " - ", "â€”", ":", "|") to avoid long descriptions in slugs.
     const explicitTabId = (page.tabid && String(page.tabid)) ? String(page.tabid) : null;
     // Normalize any escaped newlines in the source name
     const _nameForSlugSrc = (page.name || '').replace(/\\r\\n/g, '\n').replace(/\\n/g, '\n').replace(/\r\n/g, '\n');
     let titlePart = explicitTabId || (_nameForSlugSrc.split('\n')[0] || '');
     // Trim off common separators and anything after (keeps slug concise)
-    titlePart = titlePart.split(/\s[-—:\|]\s|\s[-—]\s|\s:\s|\|/)[0].trim();
+    titlePart = titlePart.split(/\s[-â€”:\|]\s|\s[-â€”]\s|\s:\s|\|/)[0].trim();
     // Cap length to 40 chars to avoid excessively long slugs
     if (titlePart.length > 40) titlePart = titlePart.slice(0, 40).trim();
 
@@ -286,7 +286,7 @@ async function initTabs() {
   function buildTileHTML(item, tileSize, idx, options = {}) {
     const tileDisabled = (item && (item.disabled === true)) ? 'tile-disabled' : '';
     const isHighlighted = item?.isHighlight === true;
-    const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge" title="My recommendation">✨︎</div>' : '';
+    const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge" title="My recommendation">âœ¨ï¸Ž</div>' : '';
 
     const lp = item?.lowPrice;
     const lowIsLto = !!(lp && lp.isLto);
@@ -864,7 +864,7 @@ if (typeof window !== 'undefined') {
       } catch (e) { /* defensive */ }
       const tileDisabled = (item.disabled === true || isExpired) ? 'tile-disabled' : '';
       const isHighlighted = item?.isHighlight === true;
-      const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge">✨︎</div>' : '';
+      const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge">âœ¨ï¸Ž</div>' : '';
       const dateLabel = renderDateRange(item);
 
   // Safe JSON for embedding in attribute

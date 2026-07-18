@@ -117,7 +117,7 @@ function attachTileClickHandlers() {
           const idx = splitMatch.index;
           description = normalized.slice(0, idx).trim();
           const rest = normalized.slice(idx).replace(/^\n+/, '');
-          const dashChars = '-\u2010-\u2015–—\u2212';
+          const dashChars = '-\u2010-\u2015â€“â€”\u2212';
           const dashStartRe = new RegExp('^[' + dashChars + ']\\s*');
           const dashEndRe = new RegExp('\\s*[' + dashChars + ']\\s*$');
           const rawParas = rest.split(/\n{2,}/).map(p => p.trim()).filter(Boolean);

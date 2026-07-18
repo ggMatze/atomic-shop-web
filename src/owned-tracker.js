@@ -591,7 +591,7 @@
 
   function syncOverlayOwnedMessage(tile) {
     const overlay = document.getElementById('item-overlay');
-    const msgEl = document.getElementById('overlay-owned-msg');
+    const msgEl = document.getElementById('overlay-expired-msg');
     const stateValue = tile ? tile.getAttribute(ATTR_STATE) : '';
     const owned = stateValue === 'owned';
     const partial = stateValue === 'partial';
@@ -600,8 +600,8 @@
     if (!overlay || overlay.classList.contains('hidden') || (!owned && !partial)) return;
 
     const msg = document.createElement('div');
-    msg.id = 'overlay-owned-msg';
-    msg.className = 'overlay-owned-msg';
+    msg.id = 'overlay-expired-msg';
+    msg.className = 'overlay-expired-msg';
     msg.style.color = '#a7a786';
 
     if (owned) {
