@@ -2419,20 +2419,23 @@ body.uah-currency .price-label-final::after {
   background: #8aff05;
   color: #181C1D;
 }
-.overlay-expired-msg,
-.overlay-owned-msg {
+.overlay-expired-msg {
   position: absolute;
-  top: 60px;
-  font-size: 1.5rem;
+  top: 62px;
+  color: #ff814f;
+  font-size: 1.2rem;
   margin-bottom: 20px;
   text-transform: uppercase;
   font-weight: 600;
 }
-.overlay-expired-msg {
-  color: #FAF8D2;
-}
 .overlay-owned-msg {
-  color: #a7a786;
+  position: absolute;
+  top: 80px;
+  color: #FAF8D2;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-transform: full-width;
+  font-weight: 500;
 }
 /* ######## Background Video CSS ####### */
 

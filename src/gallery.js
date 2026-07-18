@@ -1,3 +1,4 @@
+
 import { buildImageUrl } from './utils.js';
 
 // Gallery module: manages gallery images and keyboard navigation
@@ -355,7 +356,7 @@ function _updateVariantIndicator(key) {
       }
     }
     if (hasCandidate) {
-      indicator.textContent = 'W/S or â–²/â–¼ to alternate images';
+      indicator.textContent = 'W/S or ▲/▼ to alternate images';
       indicator.classList.add('visible');
       mainImage.classList.add('has-variants');
     } else {

@@ -9,6 +9,7 @@
   const ATTR_FAVORITED = 'data-favorited';
   const ATTR_STATE = 'data-owned-state';
   let itemsDbUrl = null;
+  let lastOverlayTile = null;
 
   const state = {
     ownedIdSet: new Set(),
@@ -589,28 +590,48 @@
     });
   }
 
+  function observeOverlayVisibility() {
+    const overlay = document.getElementById('item-overlay');
+    if (!overlay || typeof MutationObserver === 'undefined') return;
+
+    const observer = new MutationObserver(() => {
+      if (!overlay.classList.contains('hidden') && lastOverlayTile) {
+        syncOverlayOwnedIncludes();
+        syncOverlayOwnedMessage(lastOverlayTile);
+      }
+    });
+
+    observer.observe(overlay, { attributes: true, attributeFilter: ['class'] });
+  }
+
   function syncOverlayOwnedMessage(tile) {
     const overlay = document.getElementById('item-overlay');
-    const msgEl = document.getElementById('overlay-expired-msg');
+    const msgEl = document.getElementById('overlay-owned-msg');
+    const tileData = tile ? parseTileData(tile) : null;
     const stateValue = tile ? tile.getAttribute(ATTR_STATE) : '';
-    const owned = stateValue === 'owned';
-    const partial = stateValue === 'partial';
+    const ownedByState = stateValue === 'owned';
+    const partialByState = stateValue === 'partial';
+    const ownedByData = tileData ? isTileOwned(tile) : false;
+    const ownedIncludesCount = tileData ? getOwnedIncludedEntries(tileData).length : 0;
+    const owned = ownedByState || ownedByData;
+    const partial = partialByState || (!owned && ownedIncludesCount > 0);
 
     if (msgEl) msgEl.remove();
-    if (!overlay || overlay.classList.contains('hidden') || (!owned && !partial)) return;
+    if (!overlay || (!owned && !partial)) return;
 
     const msg = document.createElement('div');
-    msg.id = 'overlay-expired-msg';
-    msg.className = 'overlay-expired-msg';
+    msg.id = 'overlay-owned-msg';
+    msg.className = 'overlay-owned-msg';
     msg.style.color = '#a7a786';
 
-    if (owned) {
-      msg.textContent = 'You own this item';
-    } else {
+
+    if (partial) {
       const tileData = tile ? parseTileData(tile) : null;
       const ownedIncludesCount = tileData ? getOwnedIncludedEntries(tileData).length : 0;
       const noun = ownedIncludesCount === 1 ? 'item' : 'items';
-      msg.textContent = `*You own ${ownedIncludesCount} ${noun} of this bundle, so the ingame bundle price is reduced`;
+      msg.textContent = `*(You own ${ownedIncludesCount} ${noun} of this Bundle. The in-game price will adjust accordingly.)`;
+    } else {
+      msg.textContent = '(You own this item)';
     }
 
     overlay.appendChild(msg);
@@ -620,6 +641,7 @@
     document.addEventListener('click', (event) => {
       const tile = event.target && event.target.closest && event.target.closest(TILE_SELECTOR);
       if (!tile) return;
+      lastOverlayTile = tile;
       window.setTimeout(() => syncOverlayOwnedIncludes(), 0);
       window.setTimeout(() => syncOverlayOwnedIncludes(), 80);
       window.setTimeout(() => syncOverlayOwnedMessage(tile), 0);
@@ -632,6 +654,7 @@
     installGridObserver();
     setupStorageListener();
     installOverlaySync();
+    observeOverlayVisibility();
     wrapTabsRender();
 
     if (!window.__tabs || !window.__tabs.__ownedTrackerWrapped) {
