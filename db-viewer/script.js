@@ -1483,6 +1483,8 @@ function getOverlayGalleryCacheKey(item) {
 
 // Open overlay with item data
 async function openOverlay(item) {
+    console.time('db-viewer.openOverlay');
+    console.time('db-viewer.openOverlay.build');
     currentOverlayItem = item;
     
     const bundleEntries = resolveDynamicBundleItems(item);
@@ -1644,7 +1646,9 @@ if (bundleItems.length > 0) {
     updateUrlForCurrentItem(item);
 
     // Populate additional carousel variants in the background after the overlay is visible.
+    console.time('db-viewer.openOverlay.backgroundDetect');
     void detectCarouselVariants(item, bundleCarouselImages.length ? bundleCarouselImages : null).then((detectedImages) => {
+        console.timeEnd('db-viewer.openOverlay.backgroundDetect');
         if (currentOverlayItem !== item) return;
         if (!detectedImages.length) return;
 
@@ -1653,8 +1657,12 @@ if (bundleItems.length > 0) {
             currentGalleryImages = detectedImages;
             currentGalleryIndex = Math.min(currentGalleryIndex, Math.max(0, currentGalleryImages.length - 1));
             if (cacheKey) overlayGalleryCache.set(cacheKey, currentGalleryImages.slice());
+            console.time('db-viewer.openOverlay.reRender');
             renderGallery();
+            console.timeEnd('db-viewer.openOverlay.reRender');
         }
+    }).finally(() => {
+        console.timeEnd('db-viewer.openOverlay');
     });
 }
 
