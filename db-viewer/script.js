@@ -1334,14 +1334,15 @@ async function detectCarouselVariants(item, carouselImagesOverride = null) {
     }
 
     if (!skipAutoVariants && item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
-        const variantUrls = getVariantCandidateUrls(item.primaryImage.directory, item.primaryImage.imageName);
-        const maxChecks = 6;
-        for (const variantUrl of variantUrls.slice(0, maxChecks)) {
-            const imageExists = await checkImageExists(variantUrl);
-            if (imageExists && !images.includes(variantUrl)) {
-                images.push(variantUrl);
+        const variantUrls = getVariantCandidateUrls(item.primaryImage.directory, item.primaryImage.imageName).filter(u => u && !images.includes(u));
+        const maxChecks = 8;
+        const candidates = variantUrls.slice(0, maxChecks);
+        if (candidates.length) {
+            const results = await Promise.all(candidates.map(u => checkImageExistsWithTimeout(u, 220)));
+            for (let i = 0; i < candidates.length; i++) {
+                if (results[i] && !images.includes(candidates[i])) images.push(candidates[i]);
+                if (images.length >= 8) break;
             }
-            if (images.length >= 8) break;
         }
     }
     
@@ -1426,6 +1427,13 @@ function checkImageExists(url) {
     });
 
     return probePromise;
+}
+
+function checkImageExistsWithTimeout(url, timeoutMs = 220) {
+    if (!url) return Promise.resolve(false);
+    const p = checkImageExists(url);
+    const timeout = new Promise((resolve) => setTimeout(() => resolve(false), timeoutMs));
+    return Promise.race([p, timeout]);
 }
 
 // Parse description and disclaimer from desc field (similar to original overlay logic)

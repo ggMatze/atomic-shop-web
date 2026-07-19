@@ -362,6 +362,24 @@ if (typeof window !== 'undefined') {
 
 export { renderGallery, attachTileClickHandlers, carouselKeyHandler };
 
+// Kick off a background prewarm of variant probes after items DB is available.
+// Uses idle scheduling so it won't interfere with interactive work.
+if (typeof window !== 'undefined' && typeof window.prewarmGalleryVariants === 'function') {
+  void (async () => {
+    try {
+      const items = await loadItemsDb();
+      if (!items || !items.length) return;
+      const schedule = window.requestIdleCallback || ((fn) => setTimeout(fn, 500));
+      schedule(() => {
+        try {
+          // conservative defaults: warm up only a couple variants per item
+          window.prewarmGalleryVariants({ items, maxItems: 120, perItemLimit: 2, timeoutMs: 120, batchSize: 48 });
+        } catch (e) { /* ignore */ }
+      });
+    } catch (e) { /* ignore */ }
+  })();
+}
+
 function initTabSelectionIndicator() {
   if (typeof document === 'undefined') return;
   const tabNavScroll = document.querySelector('.tab-nav-scroll');

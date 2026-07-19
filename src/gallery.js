@@ -262,6 +262,13 @@ function probeImageUrl(url) {
   return probePromise;
 }
 
+function probeImageUrlWithTimeout(url, timeoutMs = 250) {
+  if (!url) return Promise.resolve(false);
+  const probe = probeImageUrl(url);
+  const timeout = new Promise((resolve) => setTimeout(() => resolve(false), timeoutMs));
+  return Promise.race([probe, timeout]);
+}
+
 function getVariantCandidateUrls(src) {
   const urls = [];
   const parsed = _parseVariantBase(src);
@@ -307,14 +314,15 @@ async function resolveItemGalleryImages(item, itemsDb = null) {
     // add a few variant candidates in the background rather than blocking the overlay.
     const galleryImages = images.filter(Boolean);
     const primaryImage = galleryImages[0] || '';
-    if (primaryImage) {
-      const initialCandidates = getVariantCandidateUrls(primaryImage).slice(0, 4);
-      for (const candidate of initialCandidates) {
-        if (!candidate || galleryImages.includes(candidate)) continue;
-        const exists = await probeImageUrl(candidate);
-        if (exists) galleryImages.push(candidate);
+      if (primaryImage) {
+        const candidates = getVariantCandidateUrls(primaryImage).filter(c => c && !galleryImages.includes(c)).slice(0, 8);
+        if (candidates.length) {
+          const results = await Promise.all(candidates.map(c => probeImageUrlWithTimeout(c, 220)));
+          for (let i = 0; i < candidates.length; i++) {
+            if (results[i]) galleryImages.push(candidates[i]);
+          }
+        }
       }
-    }
 
     const result = { storefrontImage, images: galleryImages };
     if (cacheKey) {
@@ -332,6 +340,62 @@ async function resolveItemGalleryImages(item, itemsDb = null) {
 
   return resolvePromise;
 }
+
+// Non-blocking prewarm: probe likely variant URLs during idle time
+// Options: { items, maxItems, perItemLimit, timeoutMs, batchSize, idleDelay }
+function prewarmGalleryVariants(options = {}) {
+  const {
+    items = [],
+    maxItems = 200,
+    perItemLimit = 4,
+    timeoutMs = 220,
+    batchSize = 32,
+    idleDelay = 200
+  } = options || {};
+
+  if (!Array.isArray(items) || !items.length) return Promise.resolve();
+
+  const allCandidates = [];
+  for (let i = 0; i < Math.min(items.length, maxItems); i++) {
+    const it = items[i];
+    if (!it) continue;
+    const primary = it.primaryImage && it.primaryImage.directory && it.primaryImage.imageName
+      ? buildImageUrl(it.primaryImage.directory, it.primaryImage.imageName)
+      : null;
+    if (!primary) continue;
+    const candidates = getVariantCandidateUrls(primary).filter(u => u && !imageProbeCache.has(u));
+    if (!candidates.length) continue;
+    allCandidates.push(...candidates.slice(0, perItemLimit));
+    if (allCandidates.length >= maxItems) break;
+  }
+
+  if (!allCandidates.length) return Promise.resolve();
+
+  const schedule = window.requestIdleCallback || function(cb) { return setTimeout(cb, idleDelay); };
+  const cancel = window.cancelIdleCallback || function(id) { clearTimeout(id); };
+
+  let idx = 0;
+  let cancelled = false;
+
+  return new Promise((resolve) => {
+    function runBatch() {
+      if (cancelled) return resolve();
+      const batch = allCandidates.slice(idx, idx + batchSize);
+      if (!batch.length) return resolve();
+      Promise.all(batch.map(u => probeImageUrlWithTimeout(u, timeoutMs))).finally(() => {
+        idx += batch.length;
+        if (idx >= allCandidates.length) return resolve();
+        // schedule next batch during idle so we don't compete with user interactions
+        schedule(runBatch);
+      });
+    }
+
+    schedule(runBatch);
+  });
+}
+
+// Expose for UI to call after items DB load or at a convenient idle point
+window.prewarmGalleryVariants = prewarmGalleryVariants;
 
 function _keyForSrc(src) {
   return src || '';
