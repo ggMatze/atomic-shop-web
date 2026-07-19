@@ -15,10 +15,41 @@ galleryState._cOriginal = {}; // key -> original main-image src when opened
 
 let itemsDbCache = null;
 let itemsDbPromise = null;
+const galleryImageResultCache = new Map();
+const galleryImageResultPromiseCache = new Map();
+const imageProbeCache = new Map();
+const imageProbePromiseCache = new Map();
 
 function normalizeLookupValue(value) {
   if (value == null) return '';
   return String(value).trim().toLowerCase();
+}
+
+function getGalleryCacheKey(item) {
+  if (!item || typeof item !== 'object') return '';
+
+  const parts = [];
+  const pushValue = (value) => {
+    if (value == null || value === '') return;
+    const normalized = String(value).trim().toLowerCase();
+    if (normalized) parts.push(normalized);
+  };
+
+  pushValue(item.EDID || item.edid || item.id);
+  pushValue(item.itemName || item.title || item.name || item.itemNameShort);
+  if (item.primaryImage) {
+    pushValue(item.primaryImage.directory);
+    pushValue(item.primaryImage.imageName);
+  }
+
+  if (Array.isArray(item.dynamicBundleItems)) {
+    item.dynamicBundleItems.forEach((entry) => {
+      pushValue(entry?.EDID || entry?.edid || entry?.entmName || entry?.entm || entry?.id || entry?.itemID);
+      pushValue(entry?.szItemName || entry?.itemName || entry?.name);
+    });
+  }
+
+  return parts.join('|');
 }
 
 function resolveItemsDbUrl() {
@@ -199,13 +230,36 @@ function buildItemImageAssets(item, itemsDb = null) {
 }
 
 function probeImageUrl(url) {
-  return new Promise((resolve) => {
-    if (!url) return resolve(false);
+  const normalizedUrl = typeof url === 'string' ? url.trim() : '';
+  if (!normalizedUrl) return Promise.resolve(false);
+
+  if (imageProbeCache.has(normalizedUrl)) {
+    return Promise.resolve(imageProbeCache.get(normalizedUrl));
+  }
+
+  if (imageProbePromiseCache.has(normalizedUrl)) {
+    return imageProbePromiseCache.get(normalizedUrl);
+  }
+
+  const probePromise = new Promise((resolve) => {
     const img = new Image();
-    img.onload = () => resolve(true);
-    img.onerror = () => resolve(false);
-    img.src = url;
+    img.onload = () => {
+      imageProbeCache.set(normalizedUrl, true);
+      resolve(true);
+    };
+    img.onerror = () => {
+      imageProbeCache.set(normalizedUrl, false);
+      resolve(false);
+    };
+    img.src = normalizedUrl;
   });
+
+  imageProbePromiseCache.set(normalizedUrl, probePromise);
+  probePromise.finally(() => {
+    imageProbePromiseCache.delete(normalizedUrl);
+  });
+
+  return probePromise;
 }
 
 function getVariantCandidateUrls(src) {
@@ -236,23 +290,47 @@ function getVariantCandidateUrls(src) {
 }
 
 async function resolveItemGalleryImages(item, itemsDb = null) {
-  const { storefrontImage, images } = buildItemImageAssets(item, itemsDb);
-  
-  // Images array from buildItemImageAssets already contains storefrontImage as first item
-  // and is properly deduplicated with entmId awareness. Start with the known images and
-  // add a few variant candidates in the background rather than blocking the overlay.
-  const galleryImages = images.filter(Boolean);
-  const primaryImage = galleryImages[0] || '';
-  if (primaryImage) {
-    const initialCandidates = getVariantCandidateUrls(primaryImage).slice(0, 4);
-    for (const candidate of initialCandidates) {
-      if (!candidate || galleryImages.includes(candidate)) continue;
-      const exists = await probeImageUrl(candidate);
-      if (exists) galleryImages.push(candidate);
-    }
+  const cacheKey = getGalleryCacheKey(item);
+  if (cacheKey && galleryImageResultCache.has(cacheKey)) {
+    return galleryImageResultCache.get(cacheKey);
   }
 
-  return { storefrontImage, images: galleryImages };
+  if (cacheKey && galleryImageResultPromiseCache.has(cacheKey)) {
+    return galleryImageResultPromiseCache.get(cacheKey);
+  }
+
+  const resolvePromise = (async () => {
+    const { storefrontImage, images } = buildItemImageAssets(item, itemsDb);
+    
+    // Images array from buildItemImageAssets already contains storefrontImage as first item
+    // and is properly deduplicated with entmId awareness. Start with the known images and
+    // add a few variant candidates in the background rather than blocking the overlay.
+    const galleryImages = images.filter(Boolean);
+    const primaryImage = galleryImages[0] || '';
+    if (primaryImage) {
+      const initialCandidates = getVariantCandidateUrls(primaryImage).slice(0, 4);
+      for (const candidate of initialCandidates) {
+        if (!candidate || galleryImages.includes(candidate)) continue;
+        const exists = await probeImageUrl(candidate);
+        if (exists) galleryImages.push(candidate);
+      }
+    }
+
+    const result = { storefrontImage, images: galleryImages };
+    if (cacheKey) {
+      galleryImageResultCache.set(cacheKey, result);
+    }
+    return result;
+  })();
+
+  if (cacheKey) {
+    galleryImageResultPromiseCache.set(cacheKey, resolvePromise);
+    resolvePromise.finally(() => {
+      galleryImageResultPromiseCache.delete(cacheKey);
+    });
+  }
+
+  return resolvePromise;
 }
 
 function _keyForSrc(src) {
@@ -447,7 +525,15 @@ function renderGallery(images, current = 0, opts = {}) {
       this.onerror = null;
     }
   };
-  mainImage.src = galleryState.images[galleryState.current];
+
+  const targetSrc = galleryState.images[galleryState.current] || '';
+  const currentSrc = mainImage.getAttribute('src') || mainImage.currentSrc || '';
+  if (!targetSrc) {
+    mainImage.removeAttribute('src');
+    mainImage.src = '';
+  } else if (currentSrc !== targetSrc) {
+    mainImage.src = targetSrc;
+  }
   // remember the exact original URL shown for this image (used for wrapping back)
   try {
     const origKey = _keyForSrc(galleryState.images[galleryState.current]);
@@ -510,7 +596,8 @@ function renderGallery(images, current = 0, opts = {}) {
   const leftImages = galleryState.images.slice(Math.max(0, galleryState.current - 3), galleryState.current);
   leftImages.forEach((src, index) => {
     const img = document.createElement('img');
-    img.src = src;
+    const currentThumbSrc = img.getAttribute('src') || img.currentSrc || '';
+    if (currentThumbSrc !== src) img.src = src;
     img.alt = `Left ${galleryState.current - 3 + index}`;
     img.onclick = () => renderGallery(galleryState.images, galleryState.current - (leftImages.length - index), { carouselOffset: galleryState._carouselOffset });
     leftStrip.appendChild(img);
@@ -521,7 +608,8 @@ function renderGallery(images, current = 0, opts = {}) {
   const rightImages = galleryState.images.slice(galleryState.current + 1, galleryState.current + 4);
   rightImages.forEach((src, index) => {
     const img = document.createElement('img');
-    img.src = src;
+    const currentThumbSrc = img.getAttribute('src') || img.currentSrc || '';
+    if (currentThumbSrc !== src) img.src = src;
     img.alt = `Right ${galleryState.current + 1 + index}`;
     img.onclick = () => renderGallery(galleryState.images, galleryState.current + 1 + index, { carouselOffset: galleryState._carouselOffset });
     rightStrip.appendChild(img);

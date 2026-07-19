@@ -26,6 +26,9 @@ const errorContainer = document.getElementById('errorContainer');
 const itemDataStore = new Map();
 const itemLookupByEdid = new Map();
 const itemLookupByShareId = new Map();
+const overlayGalleryCache = new Map();
+const overlayImageProbeCache = new Map();
+const overlayImageProbePromiseCache = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
@@ -1393,12 +1396,36 @@ loadHistory();
 
 // Check if image exists by attempting to load it
 function checkImageExists(url) {
-    return new Promise((resolve) => {
+    const normalizedUrl = typeof url === 'string' ? url.trim() : '';
+    if (!normalizedUrl) return Promise.resolve(false);
+
+    if (overlayImageProbeCache.has(normalizedUrl)) {
+        return Promise.resolve(overlayImageProbeCache.get(normalizedUrl));
+    }
+
+    if (overlayImageProbePromiseCache.has(normalizedUrl)) {
+        return overlayImageProbePromiseCache.get(normalizedUrl);
+    }
+
+    const probePromise = new Promise((resolve) => {
         const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
+        img.onload = () => {
+            overlayImageProbeCache.set(normalizedUrl, true);
+            resolve(true);
+        };
+        img.onerror = () => {
+            overlayImageProbeCache.set(normalizedUrl, false);
+            resolve(false);
+        };
+        img.src = normalizedUrl;
     });
+
+    overlayImageProbePromiseCache.set(normalizedUrl, probePromise);
+    probePromise.finally(() => {
+        overlayImageProbePromiseCache.delete(normalizedUrl);
+    });
+
+    return probePromise;
 }
 
 // Parse description and disclaimer from desc field (similar to original overlay logic)
@@ -1427,14 +1454,79 @@ function parseDescriptionAndDisclaimer(itemDesc) {
     return { description, disclaimer };
 }
 
+function getOverlayGalleryCacheKey(item) {
+    if (!item || typeof item !== 'object') return '';
+
+    const parts = [];
+    const pushValue = (value) => {
+        if (value == null || value === '') return;
+        const normalized = String(value).trim().toLowerCase();
+        if (normalized) parts.push(normalized);
+    };
+
+    pushValue(item.EDID || item.edid || item.id);
+    pushValue(item.itemName || item.itemNameShort || item.name || item.title);
+    if (item.primaryImage) {
+        pushValue(item.primaryImage.directory);
+        pushValue(item.primaryImage.imageName);
+    }
+
+    if (Array.isArray(item.dynamicBundleItems)) {
+        item.dynamicBundleItems.forEach((entry) => {
+            pushValue(entry?.EDID || entry?.edid || entry?.entmName || entry?.entm || entry?.id || entry?.itemID);
+            pushValue(entry?.szItemName || entry?.itemName || entry?.name);
+        });
+    }
+
+    return parts.join('|');
+}
+
 // Open overlay with item data
 async function openOverlay(item) {
     currentOverlayItem = item;
     
     const bundleEntries = resolveDynamicBundleItems(item);
     const bundleCarouselImages = buildBundleCarouselImages(item);
+    const cacheKey = getOverlayGalleryCacheKey(item);
 
-    // Start with the primary and explicit carousel images so the overlay opens immediately.
+    if (cacheKey && overlayGalleryCache.has(cacheKey)) {
+        currentGalleryImages = overlayGalleryCache.get(cacheKey).slice();
+        currentGalleryIndex = 0;
+    } else {
+        // Start with the primary and explicit carousel images so the overlay opens immediately.
+        currentGalleryImages = [];
+        currentGalleryIndex = 0;
+
+        const initialGalleryImages = [];
+        if (item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
+            const primaryUrl = getImagePath(item.primaryImage.directory, item.primaryImage.imageName);
+            if (primaryUrl) initialGalleryImages.push(primaryUrl);
+        }
+
+        const carouselSource = bundleCarouselImages.length ? bundleCarouselImages : item.carouselImages;
+        if (Array.isArray(carouselSource)) {
+            const carouselSeen = new Set();
+            for (const carousel of carouselSource) {
+                if (carousel && carousel.imageName && carousel.directory) {
+                    const carouselUrl = getImagePath(carousel.directory, carousel.imageName);
+                    if (!carouselUrl) continue;
+                    const isPrimaryDuplicate = carouselUrl === initialGalleryImages[0];
+                    if (!carouselSeen.has(carouselUrl) && (isPrimaryDuplicate || !initialGalleryImages.includes(carouselUrl))) {
+                        initialGalleryImages.push(carouselUrl);
+                    }
+                    carouselSeen.add(carouselUrl);
+                }
+            }
+        }
+
+        currentGalleryImages = initialGalleryImages;
+    }
+
+    if (cacheKey && !overlayGalleryCache.has(cacheKey) && currentGalleryImages.length) {
+        overlayGalleryCache.set(cacheKey, currentGalleryImages.slice());
+    }
+
+    // Populate overlay content
     currentGalleryImages = [];
     currentGalleryIndex = 0;
 
@@ -1560,6 +1652,7 @@ if (bundleItems.length > 0) {
         if (hasNewImages) {
             currentGalleryImages = detectedImages;
             currentGalleryIndex = Math.min(currentGalleryIndex, Math.max(0, currentGalleryImages.length - 1));
+            if (cacheKey) overlayGalleryCache.set(cacheKey, currentGalleryImages.slice());
             renderGallery();
         }
     });
