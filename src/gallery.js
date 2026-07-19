@@ -239,12 +239,13 @@ async function resolveItemGalleryImages(item, itemsDb = null) {
   const { storefrontImage, images } = buildItemImageAssets(item, itemsDb);
   
   // Images array from buildItemImageAssets already contains storefrontImage as first item
-  // and is properly deduplicated with entmId awareness. Just add variant candidates.
+  // and is properly deduplicated with entmId awareness. Start with the known images and
+  // add a few variant candidates in the background rather than blocking the overlay.
   const galleryImages = images.filter(Boolean);
-  
   const primaryImage = galleryImages[0] || '';
   if (primaryImage) {
-    for (const candidate of getVariantCandidateUrls(primaryImage)) {
+    const initialCandidates = getVariantCandidateUrls(primaryImage).slice(0, 4);
+    for (const candidate of initialCandidates) {
       if (!candidate || galleryImages.includes(candidate)) continue;
       const exists = await probeImageUrl(candidate);
       if (exists) galleryImages.push(candidate);

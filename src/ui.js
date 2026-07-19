@@ -85,16 +85,44 @@ function attachTileClickHandlers() {
         storefrontImage: item.storefrontImage || ''  // Use storefrontImage as fallback if no primaryImage
       };
 
-      // build images using the gallery module so bundle images resolve via items-db
-      const { storefrontImage, images } = await resolveItemGalleryImages(itemForGallery);
-      let galleryImages = Array.isArray(images) ? images.slice() : [];
-      const lead = storefrontImage || '';
-      if (lead && (!galleryImages.length || galleryImages[0] !== lead)) galleryImages.unshift(lead);
+      const initialGalleryImages = [];
+      const explicitImages = Array.isArray(item.images) ? item.images.filter(value => typeof value === 'string' && value.trim()) : [];
+      explicitImages.forEach((value) => {
+        const normalized = value.trim();
+        if (normalized) initialGalleryImages.push(normalized);
+      });
 
-      // gallery
-      if (window.__gallery && typeof window.__gallery.renderGallery === 'function') window.__gallery.renderGallery(galleryImages, 0);
-      else renderGallery(galleryImages, 0);
-      overlay.classList.remove('hidden');
+      const leadFromItem = item.storefrontImage || item.primaryImage?.imageName || '';
+      if (leadFromItem && (!initialGalleryImages.length || initialGalleryImages[0] !== leadFromItem)) {
+        initialGalleryImages.unshift(leadFromItem);
+      }
+
+      if (item.primaryImage?.imageName && item.primaryImage.directory) {
+        const primaryUrl = `${item.primaryImage.directory}/${item.primaryImage.imageName}`;
+        if (!initialGalleryImages.includes(primaryUrl)) initialGalleryImages.unshift(primaryUrl);
+      }
+
+      if (window.__gallery && typeof window.__gallery.renderGallery === 'function') window.__gallery.renderGallery(initialGalleryImages, 0);
+      else renderGallery(initialGalleryImages, 0);
+
+      requestAnimationFrame(() => {
+        overlay.classList.remove('hidden');
+      });
+
+      void (async () => {
+        try {
+          await loadItemsDb();
+          const { storefrontImage, images } = await resolveItemGalleryImages(itemForGallery);
+          let galleryImages = Array.isArray(images) ? images.slice() : [];
+          const lead = storefrontImage || '';
+          if (lead && (!galleryImages.length || galleryImages[0] !== lead)) galleryImages.unshift(lead);
+
+          if (window.__gallery && typeof window.__gallery.renderGallery === 'function') window.__gallery.renderGallery(galleryImages, 0);
+          else renderGallery(galleryImages, 0);
+        } catch (err) {
+          console.warn('Overlay gallery background refresh failed', err);
+        }
+      })();
 
       // cleanup keyboard handler when overlay closes
       overlay.addEventListener('transitionend', function cleanup() {
