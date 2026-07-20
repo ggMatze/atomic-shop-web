@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <script>
-  const host = window.location.hostname;
-  const path = window.location.pathname;
+(function(){
+    const host = window.location.hostname;
+    const path = window.location.pathname;
 
-  // local development should not be redirected
-  if (host === "localhost" || host === "127.0.0.1") {
-    return;
-  }
+    // local development should not be redirected
+    if (host === "localhost" || host === "127.0.0.1") {
+        return;
+    }
 
-  // 1. pages.dev → neue Subdomain
-  if (host.includes("pages.dev")) {
-    window.location.replace("https://db.atomicshop.fyi" + path.replace("/db-viewer", "") + window.location.search);
-  }
+    // 1. pages.dev → neue Subdomain
+    if (host.includes("pages.dev")) {
+        window.location.replace("https://db.atomicshop.fyi" + path.replace("/db-viewer", "") + window.location.search);
+    }
 
-  // 2. alte Subdomain uf.atomicshop.fyi → neue Subdomain
-  if (host === "uf.atomicshop.fyi") {
-    window.location.replace("https://db.atomicshop.fyi" + path.replace("/db-viewer", "") + window.location.search);
-  }
+    // 2. alte Subdomain uf.atomicshop.fyi → neue Subdomain
+    if (host === "uf.atomicshop.fyi") {
+        window.location.replace("https://db.atomicshop.fyi" + path.replace("/db-viewer", "") + window.location.search);
+    }
 
-  // 3. Falls jemand direkt /db-viewer/ aufruft → auf Root der neuen Subdomain
-  if (path.startsWith("/db-viewer")) {
-    window.location.replace("https://db.atomicshop.fyi/");
-  }
+    // 3. Falls jemand direkt /db-viewer/ aufruft → auf Root der neuen Subdomain
+    if (path.startsWith("/db-viewer")) {
+        window.location.replace("https://db.atomicshop.fyi/");
+    }
+})();
 </script>
 
 

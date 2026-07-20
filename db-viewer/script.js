@@ -720,6 +720,8 @@ async function loadDatabase() {
 
         search(searchInput.value);
         processShareLink();
+        // non-blocking warm of image probes for top items
+        try { preprobeTopItemsDb(40, 3); } catch (e) {}
     } catch (error) {
         errorContainer.innerHTML = `<div class="error">Error loading database: ${error.message}</div>`;
         statsText.textContent = 'Failed to load database';
@@ -1409,12 +1411,16 @@ function checkImageExists(url) {
 
     const probePromise = new Promise((resolve) => {
         const img = new Image();
+        // instrumentation: log when probe starts and finishes
+        try { console.debug('[probe:start]', normalizedUrl, performance.now()); } catch (e) {}
         img.onload = () => {
             overlayImageProbeCache.set(normalizedUrl, true);
+            try { console.debug('[probe:ok]', normalizedUrl, performance.now()); } catch (e) {}
             resolve(true);
         };
         img.onerror = () => {
             overlayImageProbeCache.set(normalizedUrl, false);
+            try { console.debug('[probe:err]', normalizedUrl, performance.now()); } catch (e) {}
             resolve(false);
         };
         img.src = normalizedUrl;
@@ -1426,6 +1432,32 @@ function checkImageExists(url) {
     });
 
     return probePromise;
+}
+
+// Preprobe top items to warm caches and avoid request delay on overlay open
+async function preprobeTopItemsDb(count = 40, maxPerItem = 3) {
+    if (!Array.isArray(dbData) || !dbData.length) return;
+    const max = Math.min(count, dbData.length);
+    const rcb = window.requestIdleCallback || function(fn){ return setTimeout(fn, 50); };
+
+    rcb(async () => {
+        for (let i = 0; i < max; i++) {
+            const item = dbData[i];
+            if (!item || !item.primaryImage) continue;
+            const candidates = getVariantCandidateUrls(item.primaryImage.directory, item.primaryImage.imageName).slice(0, maxPerItem);
+            for (const c of candidates) {
+                try {
+                    const exists = await Promise.race([
+                        checkImageExists(c),
+                        new Promise(res => setTimeout(() => res(false), 400))
+                    ]);
+                    if (exists) break; // stop probing this item on first hit
+                } catch (e) {}
+            }
+            // small pause to avoid network burst
+            await new Promise(r => setTimeout(r, 20));
+        }
+    });
 }
 
 // Parse description and disclaimer from desc field (similar to original overlay logic)
@@ -1711,41 +1743,82 @@ function renderGallery() {
         mainImage.onerror = () => { mainImage.src = '../../media/items/default-item.webp'; };
     }
     
-    // Populate left strip with up to 3 previous images
-    leftStrip.innerHTML = '';
+    // Populate left strip with up to 3 previous images — reuse img elements to avoid recreating DOM nodes
+    try { console.time('db-viewer.gallery.buildStrips'); } catch (e) {}
     const leftImages = currentGalleryImages.slice(
         Math.max(0, currentGalleryIndex - 3),
         currentGalleryIndex
     );
-    leftImages.forEach((src, index) => {
+    // ensure 3 img placeholders exist
+    while (leftStrip.children.length < 3) {
         const img = document.createElement('img');
-        img.src = src;
-        img.alt = `Previous ${index + 1}`;
         img.onerror = () => { img.style.display = 'none'; };
-        img.addEventListener('click', () => {
-            currentGalleryIndex = Math.max(0, currentGalleryIndex - (leftImages.length - index));
-            renderGallery();
-        });
         leftStrip.appendChild(img);
-    });
+    }
+    for (let i = 0; i < 3; i++) {
+        const imgEl = leftStrip.children[i];
+        const src = leftImages[i];
+        if (src) {
+            try { console.debug('[thumb:set]', src, performance.now()); } catch (e) {}
+            imgEl.style.display = '';
+            imgEl.alt = `Previous ${i + 1}`;
+            // show lightweight SVG placeholder immediately
+            imgEl.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="144"><rect width="100%" height="100%" fill="%23ddd"/></svg>';
+            // async load actual image and swap when ready
+            (function(el, realSrc){
+                const loader = new Image();
+                loader.onload = () => { try { el.src = realSrc; console.debug('[thumb:loaded]', realSrc, performance.now()); } catch (e) {} };
+                loader.onerror = () => { try { el.style.display = 'none'; } catch(e){} };
+                loader.src = realSrc;
+            })(imgEl, src);
+            imgEl.onclick = () => {
+                currentGalleryIndex = Math.max(0, currentGalleryIndex - (leftImages.length - i));
+                renderGallery();
+            };
+        } else {
+            imgEl.style.display = 'none';
+            imgEl.src = '';
+            imgEl.alt = '';
+            imgEl.onclick = null;
+        }
+    }
+    try { console.timeEnd('db-viewer.gallery.buildStrips'); } catch (e) {}
     
-    // Populate right strip with up to 3 next images
-    rightStrip.innerHTML = '';
+    // Populate right strip with up to 3 next images — reuse img elements
     const rightImages = currentGalleryImages.slice(
         currentGalleryIndex + 1,
         currentGalleryIndex + 4
     );
-    rightImages.forEach((src, index) => {
+    while (rightStrip.children.length < 3) {
         const img = document.createElement('img');
-        img.src = src;
-        img.alt = `Next ${index + 1}`;
         img.onerror = () => { img.style.display = 'none'; };
-        img.addEventListener('click', () => {
-            currentGalleryIndex = Math.min(currentGalleryImages.length - 1, currentGalleryIndex + 1 + index);
-            renderGallery();
-        });
         rightStrip.appendChild(img);
-    });
+    }
+    for (let i = 0; i < 3; i++) {
+        const imgEl = rightStrip.children[i];
+        const src = rightImages[i];
+        if (src) {
+            try { console.debug('[thumb:set]', src, performance.now()); } catch (e) {}
+            imgEl.style.display = '';
+            imgEl.alt = `Next ${i + 1}`;
+            imgEl.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="144"><rect width="100%" height="100%" fill="%23ddd"/></svg>';
+            (function(el, realSrc){
+                const loader = new Image();
+                loader.onload = () => { try { el.src = realSrc; console.debug('[thumb:loaded]', realSrc, performance.now()); } catch (e) {} };
+                loader.onerror = () => { try { el.style.display = 'none'; } catch(e){} };
+                loader.src = realSrc;
+            })(imgEl, src);
+            imgEl.onclick = () => {
+                currentGalleryIndex = Math.min(currentGalleryImages.length - 1, currentGalleryIndex + 1 + i);
+                renderGallery();
+            };
+        } else {
+            imgEl.style.display = 'none';
+            imgEl.src = '';
+            imgEl.alt = '';
+            imgEl.onclick = null;
+        }
+    }
 
     updateBundleHighlight();
 }
