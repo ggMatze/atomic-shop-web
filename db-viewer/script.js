@@ -29,6 +29,7 @@ const itemLookupByShareId = new Map();
 const overlayGalleryCache = new Map();
 const overlayImageProbeCache = new Map();
 const overlayImageProbePromiseCache = new Map();
+const overlayImageLoadCache = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
@@ -1329,6 +1330,7 @@ async function preprobeTopItemsDb(options = {}) {
                     for (const c of candidates) {
                         const ok = await checkImageExistsWithTimeout(c, timeoutMs);
                         if (!ok) break; // stop probing further variants for this item on first miss
+                        try { prefetchOverlayImage(c); } catch (e) {}
                     }
                 }
             })().finally(() => {
@@ -1474,6 +1476,22 @@ function checkImageExistsWithTimeout(url, timeoutMs = 120) {
     const p = checkImageExists(url);
     const t = new Promise((resolve) => setTimeout(() => resolve(false), timeoutMs));
     return Promise.race([p, t]);
+}
+
+function prefetchOverlayImage(url) {
+    const normalized = typeof url === 'string' ? url.trim() : '';
+    if (!normalized) return Promise.resolve(false);
+    if (overlayImageLoadCache.has(normalized)) return overlayImageLoadCache.get(normalized);
+    const p = new Promise((resolve) => {
+        try {
+            const img = new Image();
+            img.onload = () => resolve(true);
+            img.onerror = () => resolve(false);
+            img.src = normalized;
+        } catch (e) { resolve(false); }
+    });
+    overlayImageLoadCache.set(normalized, p);
+    return p;
 }
 
 // Parse description and disclaimer from desc field (similar to original overlay logic)
