@@ -29,7 +29,6 @@ const itemLookupByShareId = new Map();
 const overlayGalleryCache = new Map();
 const overlayImageProbeCache = new Map();
 const overlayImageProbePromiseCache = new Map();
-const overlayImageLoadCache = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
@@ -721,15 +720,6 @@ async function loadDatabase() {
 
         search(searchInput.value);
         processShareLink();
-        // Schedule a non-blocking preprobe of top items' variants to warm overlay caches.
-        try {
-            const schedule = window.requestIdleCallback || function (cb) { return setTimeout(cb, 500); };
-            schedule(() => {
-                try {
-                    preprobeTopItemsDb({ maxItems: 50, perItemLimit: 3, timeoutMs: 120, batchSize: 16 });
-                } catch (e) {}
-            });
-        } catch (e) {}
     } catch (error) {
         errorContainer.innerHTML = `<div class="error">Error loading database: ${error.message}</div>`;
         statsText.textContent = 'Failed to load database';
@@ -1310,39 +1300,6 @@ function getVariantCandidateUrls(directory, imageName) {
     return urls;
 }
 
-// Non-blocking preprobe for db-viewer: probe top items' variants during idle
-async function preprobeTopItemsDb(options = {}) {
-    const { maxItems = 50, perItemLimit = 3, timeoutMs = 120, batchSize = 16, idleDelay = 200 } = options || {};
-    if (!Array.isArray(dbData) || !dbData.length) return;
-    const count = Math.min(dbData.length, maxItems);
-    const schedule = window.requestIdleCallback || function (cb) { return setTimeout(cb, idleDelay); };
-    let idx = 0;
-    return new Promise((resolve) => {
-        function runBatch() {
-            const end = Math.min(idx + batchSize, count);
-            (async () => {
-                for (let i = idx; i < end; i++) {
-                    const it = dbData[i];
-                    if (!it || !it.primaryImage) continue;
-                    const primary = (it.primaryImage.directory && it.primaryImage.imageName) ? `${it.primaryImage.directory}/${it.primaryImage.imageName}` : null;
-                    if (!primary) continue;
-                    const candidates = getVariantCandidateUrls(it.primaryImage.directory, it.primaryImage.imageName).slice(0, perItemLimit);
-                    for (const c of candidates) {
-                        const ok = await checkImageExistsWithTimeout(c, timeoutMs);
-                        if (!ok) break; // stop probing further variants for this item on first miss
-                        try { prefetchOverlayImage(c); } catch (e) {}
-                    }
-                }
-            })().finally(() => {
-                idx = end;
-                if (idx >= count) return resolve();
-                schedule(runBatch);
-            });
-        }
-        schedule(runBatch);
-    });
-}
-
 // Auto-detect carousel variants (c1, c2, c3, etc.)
 async function detectCarouselVariants(item, carouselImagesOverride = null) {
     const images = [];
@@ -1469,29 +1426,6 @@ function checkImageExists(url) {
     });
 
     return probePromise;
-}
-
-function checkImageExistsWithTimeout(url, timeoutMs = 120) {
-    if (!url) return Promise.resolve(false);
-    const p = checkImageExists(url);
-    const t = new Promise((resolve) => setTimeout(() => resolve(false), timeoutMs));
-    return Promise.race([p, t]);
-}
-
-function prefetchOverlayImage(url) {
-    const normalized = typeof url === 'string' ? url.trim() : '';
-    if (!normalized) return Promise.resolve(false);
-    if (overlayImageLoadCache.has(normalized)) return overlayImageLoadCache.get(normalized);
-    const p = new Promise((resolve) => {
-        try {
-            const img = new Image();
-            img.onload = () => resolve(true);
-            img.onerror = () => resolve(false);
-            img.src = normalized;
-        } catch (e) { resolve(false); }
-    });
-    overlayImageLoadCache.set(normalized, p);
-    return p;
 }
 
 // Parse description and disclaimer from desc field (similar to original overlay logic)
@@ -1705,6 +1639,8 @@ if (bundleItems.length > 0) {
     // Show overlay
     requestAnimationFrame(() => {
         if (currentOverlayItem !== item) return;
+        // mark when overlay becomes visible
+        try { console.time('db-viewer.overlay.visibleToImageLoad'); } catch (e) {}
         overlay.classList.remove('hidden');
     });
     updateUrlForCurrentItem(item);
@@ -1756,13 +1692,24 @@ function renderGallery() {
         return;
     }
     
-    // Set main image
+    // Set main image with instrumentation to measure load time
     const currentImg = currentGalleryImages[currentGalleryIndex];
-    mainImage.src = currentImg;
-    mainImage.onerror = () => {
-        mainImage.onerror = null;
+    if (currentImg) {
+        try { console.time(`db-viewer.mainImage.load`); } catch (e) {}
+        mainImage.onload = function() {
+            try { console.timeEnd(`db-viewer.mainImage.load`); } catch (e) {}
+            try { console.timeEnd('db-viewer.overlay.visibleToImageLoad'); } catch (e) {}
+        };
+        mainImage.onerror = function() {
+            try { console.timeEnd(`db-viewer.mainImage.load`); } catch (e) {}
+            mainImage.onerror = null;
+            mainImage.src = '../../media/items/default-item.webp';
+        };
+        mainImage.src = currentImg;
+    } else {
         mainImage.src = '../../media/items/default-item.webp';
-    };
+        mainImage.onerror = () => { mainImage.src = '../../media/items/default-item.webp'; };
+    }
     
     // Populate left strip with up to 3 previous images
     leftStrip.innerHTML = '';

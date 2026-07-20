@@ -54,8 +54,6 @@ function attachTileClickHandlers() {
 
   tiles.forEach(tile => {
     tile.addEventListener('click', async () => {
-      console.time('ui.openOverlay');
-      console.time('ui.openOverlay.build');
       // Clear any stale gallery state immediately so the previous item's images don't flash through.
       if (window.__gallery && typeof window.__gallery.renderGallery === 'function') {
         window.__gallery.renderGallery([], 0);
@@ -63,8 +61,7 @@ function attachTileClickHandlers() {
         renderGallery([], 0);
       }
       overlay.classList.add('hidden');
-      // Kick off items DB load but don't block the UI open; background code will await this promise.
-      const itemsDbLoadPromise = loadItemsDb();
+      await loadItemsDb();
       const currencySelect = document.getElementById('currency-select');
       if (currencySelect) currencySelect.disabled = true;
 
@@ -110,14 +107,11 @@ function attachTileClickHandlers() {
 
       requestAnimationFrame(() => {
         overlay.classList.remove('hidden');
-        console.timeEnd('ui.openOverlay.build');
       });
 
       void (async () => {
         try {
-          console.time('ui.openOverlay.background');
-          await (itemsDbLoadPromise || loadItemsDb());
-          console.timeEnd('ui.openOverlay.background');
+          await loadItemsDb();
           const { storefrontImage, images } = await resolveItemGalleryImages(itemForGallery);
           let galleryImages = Array.isArray(images) ? images.slice() : [];
           const lead = storefrontImage || '';
@@ -125,7 +119,6 @@ function attachTileClickHandlers() {
 
           if (window.__gallery && typeof window.__gallery.renderGallery === 'function') window.__gallery.renderGallery(galleryImages, 0);
           else renderGallery(galleryImages, 0);
-          console.timeEnd('ui.openOverlay');
         } catch (err) {
           console.warn('Overlay gallery background refresh failed', err);
         }
@@ -361,24 +354,6 @@ if (typeof window !== 'undefined') {
 }
 
 export { renderGallery, attachTileClickHandlers, carouselKeyHandler };
-
-// Kick off a background prewarm of variant probes after items DB is available.
-// Uses idle scheduling so it won't interfere with interactive work.
-if (typeof window !== 'undefined' && typeof window.prewarmGalleryVariants === 'function') {
-  void (async () => {
-    try {
-      const items = await loadItemsDb();
-      if (!items || !items.length) return;
-      const schedule = window.requestIdleCallback || ((fn) => setTimeout(fn, 500));
-      schedule(() => {
-        try {
-          // conservative defaults: warm up only a couple variants per item
-          window.prewarmGalleryVariants({ items, maxItems: 120, perItemLimit: 2, timeoutMs: 120, batchSize: 48 });
-        } catch (e) { /* ignore */ }
-      });
-    } catch (e) { /* ignore */ }
-  })();
-}
 
 function initTabSelectionIndicator() {
   if (typeof document === 'undefined') return;
