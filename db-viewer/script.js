@@ -720,6 +720,15 @@ async function loadDatabase() {
 
         search(searchInput.value);
         processShareLink();
+        // Schedule a non-blocking preprobe of top items' variants to warm overlay caches.
+        try {
+            const schedule = window.requestIdleCallback || function (cb) { return setTimeout(cb, 500); };
+            schedule(() => {
+                try {
+                    preprobeTopItemsDb({ maxItems: 50, perItemLimit: 3, timeoutMs: 120, batchSize: 16 });
+                } catch (e) {}
+            });
+        } catch (e) {}
     } catch (error) {
         errorContainer.innerHTML = `<div class="error">Error loading database: ${error.message}</div>`;
         statsText.textContent = 'Failed to load database';
@@ -1300,6 +1309,38 @@ function getVariantCandidateUrls(directory, imageName) {
     return urls;
 }
 
+// Non-blocking preprobe for db-viewer: probe top items' variants during idle
+async function preprobeTopItemsDb(options = {}) {
+    const { maxItems = 50, perItemLimit = 3, timeoutMs = 120, batchSize = 16, idleDelay = 200 } = options || {};
+    if (!Array.isArray(dbData) || !dbData.length) return;
+    const count = Math.min(dbData.length, maxItems);
+    const schedule = window.requestIdleCallback || function (cb) { return setTimeout(cb, idleDelay); };
+    let idx = 0;
+    return new Promise((resolve) => {
+        function runBatch() {
+            const end = Math.min(idx + batchSize, count);
+            (async () => {
+                for (let i = idx; i < end; i++) {
+                    const it = dbData[i];
+                    if (!it || !it.primaryImage) continue;
+                    const primary = (it.primaryImage.directory && it.primaryImage.imageName) ? `${it.primaryImage.directory}/${it.primaryImage.imageName}` : null;
+                    if (!primary) continue;
+                    const candidates = getVariantCandidateUrls(it.primaryImage.directory, it.primaryImage.imageName).slice(0, perItemLimit);
+                    for (const c of candidates) {
+                        const ok = await checkImageExistsWithTimeout(c, timeoutMs);
+                        if (!ok) break; // stop probing further variants for this item on first miss
+                    }
+                }
+            })().finally(() => {
+                idx = end;
+                if (idx >= count) return resolve();
+                schedule(runBatch);
+            });
+        }
+        schedule(runBatch);
+    });
+}
+
 // Auto-detect carousel variants (c1, c2, c3, etc.)
 async function detectCarouselVariants(item, carouselImagesOverride = null) {
     const images = [];
@@ -1334,15 +1375,14 @@ async function detectCarouselVariants(item, carouselImagesOverride = null) {
     }
 
     if (!skipAutoVariants && item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
-        const variantUrls = getVariantCandidateUrls(item.primaryImage.directory, item.primaryImage.imageName).filter(u => u && !images.includes(u));
-        const maxChecks = 8;
-        const candidates = variantUrls.slice(0, maxChecks);
-        if (candidates.length) {
-            const results = await Promise.all(candidates.map(u => checkImageExistsWithTimeout(u, 220)));
-            for (let i = 0; i < candidates.length; i++) {
-                if (results[i] && !images.includes(candidates[i])) images.push(candidates[i]);
-                if (images.length >= 8) break;
+        const variantUrls = getVariantCandidateUrls(item.primaryImage.directory, item.primaryImage.imageName);
+        const maxChecks = 6;
+        for (const variantUrl of variantUrls.slice(0, maxChecks)) {
+            const imageExists = await checkImageExists(variantUrl);
+            if (imageExists && !images.includes(variantUrl)) {
+                images.push(variantUrl);
             }
+            if (images.length >= 8) break;
         }
     }
     
@@ -1429,11 +1469,11 @@ function checkImageExists(url) {
     return probePromise;
 }
 
-function checkImageExistsWithTimeout(url, timeoutMs = 220) {
+function checkImageExistsWithTimeout(url, timeoutMs = 120) {
     if (!url) return Promise.resolve(false);
     const p = checkImageExists(url);
-    const timeout = new Promise((resolve) => setTimeout(() => resolve(false), timeoutMs));
-    return Promise.race([p, timeout]);
+    const t = new Promise((resolve) => setTimeout(() => resolve(false), timeoutMs));
+    return Promise.race([p, t]);
 }
 
 // Parse description and disclaimer from desc field (similar to original overlay logic)
@@ -1491,8 +1531,6 @@ function getOverlayGalleryCacheKey(item) {
 
 // Open overlay with item data
 async function openOverlay(item) {
-    console.time('db-viewer.openOverlay');
-    console.time('db-viewer.openOverlay.build');
     currentOverlayItem = item;
     
     const bundleEntries = resolveDynamicBundleItems(item);
@@ -1654,9 +1692,7 @@ if (bundleItems.length > 0) {
     updateUrlForCurrentItem(item);
 
     // Populate additional carousel variants in the background after the overlay is visible.
-    console.time('db-viewer.openOverlay.backgroundDetect');
     void detectCarouselVariants(item, bundleCarouselImages.length ? bundleCarouselImages : null).then((detectedImages) => {
-        console.timeEnd('db-viewer.openOverlay.backgroundDetect');
         if (currentOverlayItem !== item) return;
         if (!detectedImages.length) return;
 
@@ -1665,12 +1701,8 @@ if (bundleItems.length > 0) {
             currentGalleryImages = detectedImages;
             currentGalleryIndex = Math.min(currentGalleryIndex, Math.max(0, currentGalleryImages.length - 1));
             if (cacheKey) overlayGalleryCache.set(cacheKey, currentGalleryImages.slice());
-            console.time('db-viewer.openOverlay.reRender');
             renderGallery();
-            console.timeEnd('db-viewer.openOverlay.reRender');
         }
-    }).finally(() => {
-        console.timeEnd('db-viewer.openOverlay');
     });
 }
 
