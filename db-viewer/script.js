@@ -1451,7 +1451,19 @@ async function preprobeTopItemsDb(count = 40, maxPerItem = 3) {
                         checkImageExists(c),
                         new Promise(res => setTimeout(() => res(false), 400))
                     ]);
-                    if (exists) break; // stop probing this item on first hit
+                    if (exists) {
+                        // try to decode the image bytes to warm browser decode/cache
+                        try {
+                            const img = new Image();
+                            img.src = c;
+                            if (img.decode) {
+                                img.decode().then(() => {
+                                    try { console.debug('[predecode:ok]', c, performance.now()); } catch (e) {}
+                                }).catch(() => {});
+                            }
+                        } catch (e) {}
+                        break; // stop probing this item on first hit
+                    }
                 } catch (e) {}
             }
             // small pause to avoid network burst
