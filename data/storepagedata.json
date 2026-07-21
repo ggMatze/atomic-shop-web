@@ -12,7 +12,7 @@
         "items": [
           {
             "itemID": 2584801,
-            "EDID": "ATX_ENTM_BNDL_EVER_UPWARDS_BUNDLE",
+            "EDID": "ATX_ENTM_BNDL_TURF_WAR_BUNDLE",
             "itemName": "Turf War Bundle",
             "itemNameShort": "Turf War",
             "itemDesc": "There's nothing more American than a green lawn. H&H Tools is here to help you make that happen!\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -",
@@ -28,11 +28,11 @@
               },
               {
                 "szItemName": "Reaper Power Armor Paint",
-                "EDID": "atx_entm_camp_floordecor_gruntgreenery"
+                "EDID": "atx_entm_skin_powerarmor_paint_reaper"
               },
               {
                 "szItemName": "Grunt Greenery (x3)",
-                "EDID": "atx_entm_apparel_headwear_gruntgreenery"
+                "EDID": "atx_entm_camp_floordecor_gruntgreenery"
               },
               {
                 "szItemName": "Fishing Rod Bramble Bobber Mod",
@@ -63,6 +63,7 @@
           },
           {
             "itemID": 2584802,
+            "EDID": "ATX_ENTM_BNDL_GARDEN_PARTY_BUNDLE",
             "itemName": "Garden Party Bundle",
             "itemNameShort": "Garden Party",
             "itemDesc": "Turn your C.A.M.P. into Appalachia's swankiest summer hot spot!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
@@ -1873,7 +1874,7 @@
             "EDID": "ATX_ENTM_BNDL_NIGHT_UNDER_THE_STARS_BUNDLE",
             "itemName": "Night under the Stars Bundle",
             "itemNameShort": "Night under the Stars Bundle",
-            "itemDesc": "Camp in style with all these camping goodies.",
+            "itemDesc": "Camp in style with all these camping goodies.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n\nPRODUCES:\n[url=https://www.theduchessflame.com/post/camp-resource-firewood-pile-and-reskins]✦ Wood Scrap[/url]",
             "primaryImage": {
               "imageName": "5e3a50f068aa86324aacec84dbba6106.dds",
               "directory": "/textures/atomic_shop_media/"
@@ -1885,8 +1886,8 @@
                 "entmName": "ATX_ENTM_CAMP_Structure_FirewatchTower"
               },
               {
-                "szItemName": "Firewood Pile",
-                "entmName": "zzz_SCORE_S12_ENTM_CAMP_Utility_FirewoodPile"
+                "szItemName": "✦ Firewood Pile",
+                "entmName": "score_s12_entm_camp_utility_firewoodpile"
               },
               {
                 "szItemName": "Canoe Chair",
@@ -2264,95 +2265,95 @@
             },
             "carouselImages": [],
             "dynamicBundleItems": [
-      {
-        "szItemName": "The Flatlands Shelter",
-        "entmName": "ATX_Shelters_ENTM_ShelterEntrance_TheFlatlands"
-      },
-      {
-        "szItemName": "Brotherhood of Steel Salute",
-        "entmName": "ATX_Upgrade2020_BoS_ENTM_Emotes_BoSSalute"
-      },
-      {
-        "szItemName": "Steel Reign Power Armor Paint",
-        "entmName": "ATX_ENTM_Skin_PowerArmor_Paint_SteelReign"
-      },
-      {
-        "szItemName": "The Brotherhood Chassis Display Frame",
-        "entmName": "ATX_ENTM_CAMP_Display_ChassisDisplayFrame_TheBrotherhood"
-      },
-      {
-        "szItemName": "Brotherhood of Steel Headwraps",
-        "entmName": "ATX_ENTM_Apparel_Headwear_BOSHeadwrap"
-      },
-      {
-        "szItemName": "Chalkboard Letter Kit",
-        "entmName": "ATX_ENTM_CAMP_WallDeco_Letters_Chalk"
-      },
-      {
-        "szItemName": "Glow-in-the-Dark Appalachia Map",
-        "entmName": "ATX_ENTM_CAMP_WallDeco_MapGlowInTheDark"
-      },
-      {
-        "szItemName": "Brotherhood of Steel Guard Post",
-        "entmName": "ATX_ENTM_CAMP_Defense_GuardPost_BrotherhoodofSteel"
-      },
-      {
-        "szItemName": "Brotherhood of Steel Armory",
-        "entmName": "ATX_ENTM_CAMP_Structure_BoSArmory"
-      },
-      {
-        "szItemName": "Haunted House Window Boards",
-        "entmName": "ATX_ENTM_CAMP_WallDeco_WindowBoards_HauntedHouse"
-      },
-      {
-        "szItemName": "Brotherhood of Steel Scouting Tower",
-        "entmName": "ATX_Upgrade2020_BoS_ENTM_CAMP_Structure_BoSScoutingTower"
-      },
-      {
-        "szItemName": "Brotherhood of Steel Field Station",
-        "entmName": "SCORE_S2_ENTM_CAMP_Structure_BoSFieldStation"
-      },
-      {
-        "szItemName": "DEFCON Sign",
-        "entmName": "ATX_ENTM_CAMP_WallDecor_DEFCONSign"
-      },
-      {
-        "szItemName": "Brotherhood Reclaimed Power Armor Paint",
-        "entmName": "ATX_Upgrade2020_BoS_ENTM_Skin_PowerArmor_Paint_BosReclaimed"
-      },
-      {
-        "szItemName": "Brotherhood of Steel Standing Banner",
-        "entmName": "ATX_Community2020_ATLAS_ENTM_CAMP_FloorDecor_BoS_StandingBanner"
-      },
-      {
-        "szItemName": "Brotherhood of Steel Barricade",
-        "entmName": "ATX_Upgrade2020_BoS_ENTM_CAMP_Defense_BoSBarricade"
-      },
-      {
-        "szItemName": "Brotherhood Barracks Locker",
-        "entmName": "ATX_Upgrade2020_BoS_ENTM_CAMP_StashBox_BoSBarracksLocker"
-      },
-      {
-        "szItemName": "Brotherhood High Tech Stash Box",
-        "entmName": "ATX_ENTM_CAMP_StashBox_BoSHighTech"
-      },
-      {
-        "szItemName": "Weight Bench",
-        "entmName": "ATX_ENTM_CAMP_FloorDecor_ExerciseEquipment_WeightBench"
-      },
-      {
-        "szItemName": "Brotherhood Tactical Field Pack",
-        "entmName": "ATX_Upgrade2020_BoS_ENTM_Skin_Backpack_BosTacticalFieldPack"
-      },
-      {
-        "szItemName": "Industrial Slate Chalkboard",
-        "entmName": "ATX_ENTM_CAMP_FloorDecor_Chalkboard_Industrial"
-      },
-      {
-        "szItemName": "Brotherhood Barracks C.A.M.P. Kit",
-        "entmName": "ATX_ENTM_CAMP_Kit_TheBrotherhood"
-      }
-    ],
+              {
+                "szItemName": "The Flatlands Shelter",
+                "entmName": "ATX_Shelters_ENTM_ShelterEntrance_TheFlatlands"
+              },
+              {
+                "szItemName": "Brotherhood of Steel Salute",
+                "entmName": "ATX_Upgrade2020_BoS_ENTM_Emotes_BoSSalute"
+              },
+              {
+                "szItemName": "Steel Reign Power Armor Paint",
+                "entmName": "ATX_ENTM_Skin_PowerArmor_Paint_SteelReign"
+              },
+              {
+                "szItemName": "The Brotherhood Chassis Display Frame",
+                "entmName": "ATX_ENTM_CAMP_Display_ChassisDisplayFrame_TheBrotherhood"
+              },
+              {
+                "szItemName": "Brotherhood of Steel Headwraps",
+                "entmName": "ATX_ENTM_Apparel_Headwear_BOSHeadwrap"
+              },
+              {
+                "szItemName": "Chalkboard Letter Kit",
+                "entmName": "ATX_ENTM_CAMP_WallDeco_Letters_Chalk"
+              },
+              {
+                "szItemName": "Glow-in-the-Dark Appalachia Map",
+                "entmName": "ATX_ENTM_CAMP_WallDeco_MapGlowInTheDark"
+              },
+              {
+                "szItemName": "Brotherhood of Steel Guard Post",
+                "entmName": "ATX_ENTM_CAMP_Defense_GuardPost_BrotherhoodofSteel"
+              },
+              {
+                "szItemName": "Brotherhood of Steel Armory",
+                "entmName": "ATX_ENTM_CAMP_Structure_BoSArmory"
+              },
+              {
+                "szItemName": "Haunted House Window Boards",
+                "entmName": "ATX_ENTM_CAMP_WallDeco_WindowBoards_HauntedHouse"
+              },
+              {
+                "szItemName": "Brotherhood of Steel Scouting Tower",
+                "entmName": "ATX_Upgrade2020_BoS_ENTM_CAMP_Structure_BoSScoutingTower"
+              },
+              {
+                "szItemName": "Brotherhood of Steel Field Station",
+                "entmName": "SCORE_S2_ENTM_CAMP_Structure_BoSFieldStation"
+              },
+              {
+                "szItemName": "DEFCON Sign",
+                "entmName": "ATX_ENTM_CAMP_WallDecor_DEFCONSign"
+              },
+              {
+                "szItemName": "Brotherhood Reclaimed Power Armor Paint",
+                "entmName": "ATX_Upgrade2020_BoS_ENTM_Skin_PowerArmor_Paint_BosReclaimed"
+              },
+              {
+                "szItemName": "Brotherhood of Steel Standing Banner",
+                "entmName": "ATX_Community2020_ATLAS_ENTM_CAMP_FloorDecor_BoS_StandingBanner"
+              },
+              {
+                "szItemName": "Brotherhood of Steel Barricade",
+                "entmName": "ATX_Upgrade2020_BoS_ENTM_CAMP_Defense_BoSBarricade"
+              },
+              {
+                "szItemName": "Brotherhood Barracks Locker",
+                "entmName": "ATX_Upgrade2020_BoS_ENTM_CAMP_StashBox_BoSBarracksLocker"
+              },
+              {
+                "szItemName": "Brotherhood High Tech Stash Box",
+                "entmName": "ATX_ENTM_CAMP_StashBox_BoSHighTech"
+              },
+              {
+                "szItemName": "Weight Bench",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_ExerciseEquipment_WeightBench"
+              },
+              {
+                "szItemName": "Brotherhood Tactical Field Pack",
+                "entmName": "ATX_Upgrade2020_BoS_ENTM_Skin_Backpack_BosTacticalFieldPack"
+              },
+              {
+                "szItemName": "Industrial Slate Chalkboard",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_Chalkboard_Industrial"
+              },
+              {
+                "szItemName": "Brotherhood Barracks C.A.M.P. Kit",
+                "entmName": "ATX_ENTM_CAMP_Kit_TheBrotherhood"
+              }
+            ],
             "lowPrice": {
               "amount": 2685,
               "originalAmount": 2685,
@@ -2382,23 +2383,23 @@
             },
             "carouselImages": [],
             "dynamicBundleItems": [
-            {
-              "szItemName": "Blue Ridge Power Armor Paint",
-              "entmName": "ATX_ENTM_Skin_PowerArmor_Paint_BlueRidge"
-            },
-            {
-              "szItemName": "Blue Ridge Trader Hat",
-              "entmName": "ATX_ENTM_Apparel_Headwear_BlueridgeTrader"
-            },
-            {
-              "szItemName": "Blue Ridge Trader Outfit",
-              "entmName": "ATX_ENTM_Apparel_Outfit_BlueridgeTrader"
-            },
-            {
-              "szItemName": "Blue Ridge Paint (Lever Action Rifle)",
-              "entmName": "ATX_ENTM_Skin_WeaponSkin_LeverGun_BlueRidge"
-            }
-          ],
+              {
+                "szItemName": "Blue Ridge Power Armor Paint",
+                "entmName": "ATX_ENTM_Skin_PowerArmor_Paint_BlueRidge"
+              },
+              {
+                "szItemName": "Blue Ridge Trader Hat",
+                "entmName": "ATX_ENTM_Apparel_Headwear_BlueridgeTrader"
+              },
+              {
+                "szItemName": "Blue Ridge Trader Outfit",
+                "entmName": "ATX_ENTM_Apparel_Outfit_BlueridgeTrader"
+              },
+              {
+                "szItemName": "Blue Ridge Paint (Lever Action Rifle)",
+                "entmName": "ATX_ENTM_Skin_WeaponSkin_LeverGun_BlueRidge"
+              }
+            ],
             "lowPrice": {
               "amount": 900,
               "originalAmount": 900,

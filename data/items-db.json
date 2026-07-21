@@ -17,6 +17,7 @@
     "itemNameShort": "Grunt Greenery",
     "desc": "Three-piece floor decor set featuring repurposed containers. The best blend of industrial toughness and greenery.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "highPriceOriginal": 300,
     "primaryImage": {
       "imageName": "atx_camp_floordecor_gruntgreenery.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
@@ -473,6 +474,7 @@
     "itemNameShort": "Weed Killer Auto Axe Paint",
     "desc": "H&H Tools cannot be held liable for death or injury caused by this gardening implement because everyone at H&H Tools is already dead.",
     "disclaimer": "SKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
+    "highPriceOriginal": 500,
     "primaryImage": 
     {
       "imageName": "atx_skin_weaponskin_autoaxe_weedkiller_l.webp",
@@ -620,6 +622,133 @@
       "directory": "/textures/atx/storefront/player/photoframe/"
     },
     "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_ROAD_RASH_BUNDLE",
+    "desc": "A bundle dedicated to cruising with the windows down with your best friend beside you.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Road Rash Bundle",
+    "itemNameShort": "Road Rash",
+    "primaryImage": {
+      "imageName": "9c078c5fa08aa13226ae09867ac4a592.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1800,
+    "dynamicBundleItems": [
+              {
+                "szItemName": "Destroyed Highway Kit",
+                "EDID": "atx_entm_camp_floordecor_destroyedhighwaykit"
+              },
+              {
+                "szItemName": "Offroad Vehicle",
+                "EDID": "atx_entm_camp_floordecor_offroadvehicle_offroadvehicle"
+              },
+              {
+                "szItemName": "Rusty Wrench on a Chain Flair",
+                "EDID": "score_s10_entm_skin_backpackflair_rusty_wrench"
+              },
+              {
+                "szItemName": "Stop Sign Paint",
+                "EDID": "score_s18_entm_skin_weaponskin_stopsign"
+              },
+              {
+                "szItemName": "American Trucker Cap",
+                "EDID": "atx_entm_apparel_headwear_truckerhat_americanflag"
+              },
+              {
+                "szItemName": "White German Shepherd",
+                "EDID": "score_s19_entm_camp_camppets_dog_whitegermanshepherd"
+              }
+            ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_GARDEN_PARTY_BUNDLE",
+    "desc": "Turn your C.A.M.P. into Appalachia's swankiest summer hot spot!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Garden Party Bundle",
+    "itemNameShort": "Garden Party",
+    "primaryImage": {
+      "imageName": "9777923ed567852cef0937e1b8d18c76.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 2000,
+    "dynamicBundleItems": [
+              {
+                "szItemName": "Grass Roof Kit",
+                "EDID": "score_s16_entm_camp_kit_grassroofkit"
+              },
+              {
+                "szItemName": "Daffodil Arrangement",
+                "EDID": "atx_entm_camp_floordecor_planter_flowers_daffodils"
+              },
+              {
+                "szItemName": "Vault Boy Lawn Gnome",
+                "EDID": "atx_entm_camp_floordecor_vaultboylawngnome"
+              },
+              {
+                "szItemName": "Vined Garden Archway",
+                "EDID": "score_s17_entm_camp_floordecor_gardenarchway_vines"
+              },
+              {
+                "szItemName": "Death Ray Bug Zapper",
+                "EDID": "atx_entm_camp_lights_bugzapper_deathray"
+              },
+              {
+                "szItemName": "Red Cedar Hedges",
+                "EDID": "atx_entm_camp_defense_fence_redcedarhedges"
+              },
+              {
+                "szItemName": "Picnic Basket Stashbox",
+                "EDID": "score_s17_entm_camp_stashbox_picnicbasket"
+              },
+              {
+                "szItemName": "Tulip Arrangement",
+                "EDID": "atx_entm_camp_floordecor_planter_flowers_tulips"
+              }
+            ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_TURF_WAR_BUNDLE",
+    "desc": "There's nothing more American than a green lawn. H&H Tools is here to help you make that happen!",
+    "disclaimer": "- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Turf War Bundle",
+    "itemNameShort": "Turf War",
+    "primaryImage": {
+      "imageName": "4dc5f0cb871b3039a49e4991f0254409.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1400,
+    "dynamicBundleItems": [
+              {
+                "szItemName": "Weed Killer Auto Axe Paint",
+                "EDID": "atx_entm_skin_weaponskin_autoaxe_weedkiller"
+              },
+              {
+                "szItemName": "Reaper Power Armor Paint",
+                "EDID": "atx_entm_skin_powerarmor_paint_reaper"
+              },
+              {
+                "szItemName": "Grunt Greenery (x3)",
+                "EDID": "atx_entm_camp_floordecor_gruntgreenery"
+              },
+              {
+                "szItemName": "Fishing Rod Bramble Bobber Mod",
+                "EDID": "atx_entm_weapons_fishing_mod_fishingrod_weapon_rodbobber_bramblebobber"
+              },
+              {
+                "szItemName": "\"Overgrown\" Player Title Prefix",
+                "EDID": "atx_entm_playertitles_prefix_overgrown"
+              }
+            ]
   },
   {
     "EDID": "SCORE_S25_ENTM_Apparel_Headwear_FishnHoleHat",
@@ -8460,7 +8589,8 @@
     },
     "carouselImages": [],
     "itemName": "American Trucker Cap",
-    "itemNameShort": "American Trucker Cap"
+    "itemNameShort": "American Trucker Cap",
+    "highPriceOriginal": 400
   },
   {
     "EDID": "ATX_ENTM_Photomode_Pose_AirGuitar",
@@ -22690,7 +22820,8 @@
     },
     "carouselImages": [],
     "itemName": "Red Cedar Hedges",
-    "itemNameShort": "Hedges"
+    "itemNameShort": "Hedges",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_Apparel_Outfit_NukaWorldLogo_ShirtAndPants_01",
@@ -71071,7 +71202,8 @@
     },
     "carouselImages": [],
     "itemName": "Vined Garden Archway",
-    "itemNameShort": "Vined Garden Archway"
+    "itemNameShort": "Vined Garden Archway",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "SCORE_S17_ENTM_CAMP_FloorDecor_OutdoorMovieProjector",
@@ -79102,9 +79234,9 @@
   {
     "EDID": "ATX_ENTM_BNDL_BIRTHDAY_BASH_BUNDLE",
     "desc": "It's birthday party time! Everyone needs a good birthday suit.",
-    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
     "customdesc": "",
-    "customdisclaimer": "",
+    "customdisclaimer": " C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\nPRODUCES:\n[url=https://www.theduchessflame.com/post/camp-resource-birthday-cake]✦ Slice of Birthday Cake[/url]",
     "itemName": "Birthday Bash Bundle",
     "primaryImage": {
       "imageName": "f6b4ec5a5586bbd73ed6b819f8de8c2b.webp",
@@ -80385,7 +80517,7 @@
     "desc": "Camp in style with all these camping goodies.",
     "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
     "customdesc": "",
-    "customdisclaimer": "",
+    "customdisclaimer": " C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n\nPRODUCES:\n[url=https://www.theduchessflame.com/post/camp-resource-firewood-pile-and-reskins]✦ Wood Scrap[/url]",
     "itemName": "Night Under the Stars Bundle",
     "primaryImage": {
       "imageName": "5e3a50f068aa86324aacec84dbba6106.webp",
