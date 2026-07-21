@@ -1,5 +1,584 @@
 ﻿[
   {
+    "EDID": "ATX_ENTM_PlayerTitles_Prefix_Overgrown",
+    "itemName": "\"Overgrown\" Player Title Prefix",
+    "itemNameShort": "\"Overgrown\" Player Title Prefix",
+    "desc": "Unlocks the Player Title Prefix \"Overgrown\".",
+    "disclaimer": "PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY.",
+    "primaryImage": {
+      "imageName": "atx_playertitles_prefix_overgrown.webp",
+      "directory": "/textures/atx/storefront/player/playertitles/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_FloorDecor_GruntGreenery",
+    "itemName": "Grunt Greenery (x3)",
+    "itemNameShort": "Grunt Greenery",
+    "desc": "Three-piece floor decor set featuring repurposed containers. The best blend of industrial toughness and greenery.",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "atx_camp_floordecor_gruntgreenery.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Weapons_Fishing_mod_FishingRod_Weapon_RodBobber_BrambleBobber",
+    "itemName": "Fishing Rod Bramble Bobber Mod",
+    "itemNameShort": "Bramble Bobber",
+    "desc": "Unofficially classified as \"fishing equipment\" this bobber smells faintly of swamp.",
+    "disclaimer": "ITEM IS CRAFTABLE AT WEAPON WORKBENCHES. REQUIRES THE  FISHING ROD.",
+    "primaryImage": {
+      "imageName": "atx_weapons_fishing_mod_fishingrod_weapon_rodbobber_bramblebobber.webp",
+      "directory": "/textures/atx/storefront/player/weaponskin/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_WallPaper_Blossoms",
+    "itemName": "Blossoms Wallpaper",
+    "itemNameShort": "Blossoms Wallpaper",
+    "desc": "- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -",
+    "disclaimer": "",
+    "primaryImage": {
+      "imageName": "atx_camp_wallpaper_blossoms.webp",
+      "directory": "/textures/atx/storefront/camp/wallpaper/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_Collector_TeaWizard",
+    "itemName": "Tea Wizard",
+    "itemNameShort": "Tea Wizard",
+    "desc": "Turn your teammates into tea mates! Produces 4 cups of Lucky Leaf Tea each time an Event begins.",
+    "disclaimer": "This item cannot be built inside of a Shelter. -\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "atx_camp_collector_teawizard_l.webp",
+      "directory": "/textures/atx/storefront/camp/utility/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_FloorDecor_ServiceTruck",
+    "itemName": "Service Truck",
+    "itemNameShort": "Service Truck",
+    "desc": "Built to last, these beauties will dot the American landscape from here to California for centuries to come.",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "atx_camp_floordecor_servicetruck.webp",
+      "directory": "/textures/atx/storefront/camp/floordecoration/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_F1_ENTM_SurvivalTent_Skin_GNNVan",
+    "itemName": "GNN News Van (Survival Tent)",
+    "itemNameShort": "GNN News Van",
+    "desc": "The GNN News Van is perfect for setting up where news is breaking, like on the outskirts of a nuclear blast!",
+    "disclaimer": "The Survival Tent can be placed through the Favorites Menu.\n\nThis offer is exclusive to Fallout 1st Members. \n\n- UNLOCKS A VARIANT OF THE SURVIVAL TENT.",
+    "primaryImage": {
+      "imageName": "atx_f1_survivaltent_skin_gnnvan.webp",
+      "directory": "/textures/atx/storefront/camp/tents/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_PlayerTitles_Suffix_Beauty",
+    "itemName": "Beauty",
+    "itemNameShort": "Beauty",
+    "desc": "Unlocks the Player Title Suffix \"Beauty\".",
+    "disclaimer": "PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY.",
+    "primaryImage": {
+      "imageName": "atx_playertitles_suffix_beauty.webp",
+      "directory": "/textures/atx/storefront/player/playertitles/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_PlayerTitles_Prefix_Flipped",
+    "itemName": "Flipped",
+    "itemNameShort": "Flipped",
+    "desc": "Unlocks the Player Title Prefix \"Flipped\".",
+    "disclaimer": "PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY.",
+    "primaryImage": {
+      "imageName": "atx_playertitles_prefix_flipped.webp",
+      "directory": "/textures/atx/storefront/player/playertitles/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Skin_WeaponSkin_PowerFist_OffTheRecord",
+    "itemName": "Off The Record (Power Fist)",
+    "itemNameShort": "Off The Record Fist",
+    "desc": "Perfect for Galaxy News reporters working on a tight deadline.",
+    "disclaimer": "SKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
+    "primaryImage": {
+      "imageName": "atx_skin_weaponskin_powerfist_offtherecord_l.webp",
+      "directory": "/textures/atx/storefront/player/weaponskin/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Skin_BackpackFlair_PressPass",
+    "itemName": "Press Pass Backpack Flair",
+    "itemNameShort": "Press Pass",
+    "desc": "Show off your credentials with this genuine GNN press pass.",
+    "disclaimer": "SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
+    "primaryImage": {
+      "imageName": "atx_skin_backpackflair_presspass_l.webp",
+      "directory": "/textures/atx/storefront/player/flair/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Skin_BackpackFlair_TeaCup",
+    "itemName": "Teacup Backpack Flair",
+    "itemNameShort": "Teacup Flair",
+    "desc": "Fancy a cuppa? Pinky up!",
+    "disclaimer": "SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
+    "primaryImage": {
+      "imageName": "atx_skin_backpackflair_teacup_l.webp",
+      "directory": "/textures/atx/storefront/player/flair/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Apparel_Headwear_Stringer",
+    "itemName": "Stringer Fedora",
+    "itemNameShort": "Stringer Fedora",
+    "desc": "Be the envy of the press pool with this stylish new hat.",
+    "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+    "primaryImage": {
+      "imageName": "atx_apparel_headwear_stringer.webp",
+      "directory": "/textures/atx/storefront/player/headwear/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Apparel_Outfit_Stringer",
+    "itemName": "Stringer Outfit",
+    "itemNameShort": "Stringer Outfit",
+    "desc": "Breaking news: local Vault Dweller looks good in new outfit! More at 11!",
+    "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+    "primaryImage": {
+      "imageName": "atx_apparel_outfit_stringer.webp",
+      "directory": "/textures/atx/storefront/player/outfit/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Emotes_TakingNotes",
+    "itemName": "Taking Notes",
+    "itemNameShort": "Taking Notes",
+    "desc": "You've got a pad, a pencil and a duty to report the facts.",
+    "disclaimer": "UNLOCKS AN EMOTE OPTION.",
+    "primaryImage": 
+    {
+      "imageName": "taking_notes.webp",
+      "directory": "/textures/emotes/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "zzzATX_ENTM_Emotes_ParadeMarch",
+    "itemName": "ParadeMarch",
+    "itemNameShort": "ParadeMarch",
+    "desc": "- UNLOCKS AN EMOTE OPTION. -",
+    "disclaimer": "",
+    "primaryImage": {
+      "imageName": "parade_march.webp",
+      "directory": "/textures/emotes/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Skin_PowerArmor_Model_OldManSummerPAHelm",
+    "itemName": "Old Man Summer Paint",
+    "itemNameShort": "Old Man Summer Paint",
+    "desc": "Who needs Father Winter when you got Old man Summer!\nHELMET ONLY!!!!",
+    "disclaimer": "This is a unique skin that completely alters the appearance of your Power Armor. It  can be equipped on the Excavator, Raider, T-45, T-51, T-60, T-65, Ultracite, Vulcan and X-01 Power Armors.\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
+    "primaryImage": {
+      "imageName": "atx_skin_powerarmor_model_oldmansummerpahelm_l.webp",
+      "directory": "/textures/atx/storefront/player/powerarmor/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_CAMP_WallDecor_VTUPoster",
+    "itemName": "Vault-Tec University Sock Hop Poster",
+    "itemNameShort": "Vault-Tec University Sock Hop Poster",
+    "desc": "Vault-Tec proudly presents the best Sock Hop in any Vault!",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "score_miniseason_2026_sockhop_camp_walldecor_vtuposter_l.webp",
+      "directory": "/textures/atx/storefront/camp/walldecoration/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_Emotes_ShimmyDance",
+    "itemName": "Shimmy Dance",
+    "itemNameShort": "Shimmy Dance",
+    "desc": "Get to shimmying and hollering with the Shimmy Dance Emote!",
+    "disclaimer": "UNLOCKS AN EMOTE OPTION.",
+    "primaryImage": {
+      "imageName": "shimmy_dance.webp",
+      "directory": "/textures/emotes/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_CAMPTitles_Prefix_Varnished",
+    "itemName": "\"Varnished\" C.A.M.P. Title Prefix",
+    "itemNameShort": "\"Varnished\"",
+    "desc": "Unlocks the C.A.M.P. Title Prefix \"Varnished\".",
+    "disclaimer": "C.A.M.P. TITLES ARE SELECTABLE IN THE C.A.M.P. MENU ON THE MAP",
+    "primaryImage": {
+      "imageName": "score_miniseason_2026_sockhop_camptitles_prefix_varnished_l.webp",
+      "directory": "/textures/atx/storefront/camp/camptitles/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_CAMP_Furniture_Instrument_BlackPiano",
+    "itemName": "Black Piano",
+    "itemNameShort": "Black Piano",
+    "desc": "No party is complete without a classic Black Piano to get everyone up and at it!",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "score_miniseason_2026_sockhop_camp_furniture_instrument_blackpiano_l.webp",
+      "directory": "/textures/atx/storefront/camp/furniture/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_PlayerTitles_Prefix_Suffix_Enjoyer",
+    "itemName": "\"Enjoyer\" Player Title Prefix and Suffix",
+    "itemNameShort": "\"Enjoyer\"",
+    "desc": "Unlocks the Player Title Prefix and Suffix \"Enjoyer\".",
+    "disclaimer": "PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY.",
+    "primaryImage": {
+      "imageName": "score_miniseason_2026_sockhop_playertitles_prefix_suffix_enjoyer_l.webp",
+      "directory": "/textures/atx/storefront/player/playertitles/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_CAMPTitles_Suffix_Gym",
+    "itemName": "\"Gym\" C.A.M.P. Title Suffix",
+    "itemNameShort": "\"Gym\"",
+    "desc": "Unlocks the C.A.M.P. Title Prefix \"Gym\".",
+    "disclaimer": "C.A.M.P. TITLES ARE SELECTABLE IN THE C.A.M.P. MENU ON THE MAP",
+    "primaryImage": {
+      "imageName": "score_miniseason_2026_sockhop_camptitles_suffix_gym_l.webp",
+      "directory": "/textures/atx/storefront/camp/camptitles/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_PlayerTitles_Prefix_SockHop",
+    "itemName": "\"Sock Hop\" Player Title Prefix",
+    "itemNameShort": "\"Sock Hop\"",
+    "desc": "Unlocks the Player Title Prefix \"Sock Hop\".",
+    "disclaimer": "PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY.",
+    "primaryImage": {
+      "imageName": "score_miniseason_2026_sockhop_playertitles_prefix_sockhop_l.webp",
+      "directory": "/textures/atx/storefront/player/playertitles/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_PlayerTitles_Prefix_Buzzin",
+    "itemName": "\"Buzzin'\" Player Title Prefix",
+    "itemNameShort": "\"Buzzin'\"",
+    "desc": "Unlocks the Player Title Prefix \"Buzzin\".",
+    "disclaimer": "PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY.",
+    "primaryImage": {
+      "imageName": "atx_playertitles_prefix_buzzin.webp",
+      "directory": "/textures/atx/storefront/player/playertitles/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "zzzATX_ENTM_Apparel_Headwear_PelicanMaskGlowing",
+    "itemName": "PelicanMaskGlowing",
+    "itemNameShort": "PelicanMaskGlowing",
+    "desc": "- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+    "disclaimer": "",
+    "primaryImage": {
+      "imageName": "atx_apparel_headwear_pelicanmaskglowing.webp",
+      "directory": "/textures/atx/storefront/player/headwear/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Skin_Backpack_PatchworkOwl",
+    "itemName": "Patchwork Owl Backpack",
+    "itemNameShort": "Patchwork Owl Backpack",
+    "desc": "Carry a little woodland charm wherever you wander. Perfect for everyday adventures.",
+    "disclaimer": "This skin can be applied to both the Small and Standard Backpack as a mod.\n\n - SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
+    "primaryImage": {
+      "imageName": "atx_entm_skin_backpack_patchworkowl.webp",
+      "directory": "/textures/atx/storefront/player/backpack/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Apparel_Outfit_Barbershopper",
+    "itemName": "Barbershopper Outfit",
+    "itemNameShort": "Barbershopper Outfit",
+    "desc": "Form a quartet with your friends or just walk around like this all the time for no reason at all!",
+    "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+    "primaryImage": 
+    {
+      "imageName": "atx_apparel_outfit_barbershopper.webp",
+      "directory": "/textures/atx/storefront/player/outfit/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Structure_Furniture_AtomicDryer",
+    "itemName": "Atomic Hair Dryer",
+    "itemNameShort": "Atomic Hair Dryer",
+    "desc": "Sit back, relax, and let the warmth of radioactive decay dry your hair!",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "atx__structure_furniture_atomicdryer.webp",
+      "directory": "/textures/atx/storefront/camp/furniture/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Apparel_Headwear_Barbershopper",
+    "itemName": "Barbershopper Hat",
+    "itemNameShort": "Barbershopper Hat",
+    "desc": "Form a quartet with your friends or just walk around like this all the time for no reason at all!",
+    "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+    "primaryImage": {
+      "imageName": "atx_apparel_headwear_barbershopper.webp",
+      "directory": "/textures/atx/storefront/player/headwear/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_Door_Wood_ShopDoor",
+    "itemName": "Shop Door",
+    "itemNameShort": "Shop Door",
+    "desc": "A classic shop door with a welcoming chime.",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "atx_entm_camp_door_wood_shopdoor.webp",
+      "directory": "/textures/atx/storefront/camp/doors/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_CAMP_WallDecor_SandySockHop",
+    "itemName": "Sandy's Sock Hop Sign",
+    "itemNameShort": "Sandy's Sock Hop Sign",
+    "desc": "Bring along your favorite gal or guy along to dance where the Sandy's Sock Hop Sign is located!",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "score_miniseason_2026_sockhop_camp_walldecor_sandysockhop_l.webp",
+      "directory": "/textures/atx/storefront/camp/walldecoration/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_Ally_CamBot",
+    "itemName": "Lite Ally: Cambot Nine",
+    "itemNameShort": "Lite Ally: Cambot Nine",
+    "desc": "This is Cambot Nine, reporting live from Appalachia!",
+    "disclaimer": "ALLIES  APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "atx_camp_ally_cambot_l.webp",
+      "directory": "/textures/atx/storefront/camp/ally/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "HTO_ENTM_Emotes_TeamUp_RequestingBackup",
+    "itemName": "Requesting Backup",
+    "itemNameShort": "Backup",
+    "desc": "Come Join! Requesting Backup!",
+    "disclaimer": "UNLOCKS AN EMOTE OPTION.",
+    "primaryImage": {
+      "imageName": "infestation1.webp",
+      "directory": "/textures/emotes/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Apparel_Headwear_Glasses_DiscJockey",
+    "itemName": "Disc Jockey Glasses",
+    "itemNameShort": "Disc Jockey Glasses",
+    "desc": "Once belonged to the galaxy's greatest voice, someone louder than the bomb and whose words echoed across the wasteland.",
+    "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+    "primaryImage": null,
+    "cBadge":"cut",
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_Structure_BarberShop",
+    "itemName": "Barber Shop",
+    "itemNameShort": "Barber Shop",
+    "desc": "Commercial real estate with private space on second floor. What better place to start your small business?",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "atx_camp_structure_barbershop_l.webp",
+      "directory": "/textures/atx/storefront/camp/structures/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_CAMP_WallDecor_SockHopPoster",
+    "itemName": "Sandy's Sock Hop Poster",
+    "itemNameShort": "Sandy's Sock Hop Poster",
+    "desc": "Be inspired to grab your best guy or gal and enjoy an endless time of dancing with the Sandy's Sock Hop Poster!",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": {
+      "imageName": "score_miniseason_2026_sockhop_camp_walldecor_sockhopposter_l.webp",
+      "directory": "/textures/atx/storefront/camp/walldecoration/"
+    },
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_CAMP_FloorDecor_SockHopBoy",
+    "itemName": "Sock Hop Boy Cutouts",
+    "itemNameShort": "Sock Hop Boy Cutouts",
+    "desc": "Show off your best moves with these Sock Hop Boy Cutouts!",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_CAMP_FloorDecor_SockHopGirl",
+    "itemName": "Sock Hop Girl Cutouts",
+    "itemNameShort": "Sock Hop Girl Cutouts",
+    "desc": "Show off your best moves with these Sock Hop Girl Cutouts!",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Skin_WeaponSkin_AutoAxe_WeedKiller",
+    "itemName": "Weed Killer Auto Axe Paint",
+    "itemNameShort": "Weed Killer Auto Axe Paint",
+    "desc": "H&H Tools cannot be held liable for death or injury caused by this gardening implement because everyone at H&H Tools is already dead.",
+    "disclaimer": "SKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_WallDecor_PendulumClock",
+    "itemName": "Modern Wall Clock",
+    "itemNameShort": "Modern Wall Clock",
+    "desc": "Do you have time to kill, or is it time to kill?",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_Reaper",
+    "itemName": "Reaper Power Armor Paint",
+    "itemNameShort": "Reaper Paint",
+    "desc": "Communism is a weed, its malcontents are vermin. This Power Armor paint gives you the tools you need to keep the reds down and your lawn green.",
+    "disclaimer": "Includes a unique paint for each of the T-45, T-51, T-60, T-65, Ultracite, Excavator, Union, and X-01 Power Armors.\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Apparel_Headwear_Mask_PelicanMask_Variant",
+    "itemName": "Fasnacht Glowing Pelican Mask",
+    "itemNameShort": "Fasnacht Glowing Pelican Mask",
+    "desc": "In case you needed a light to catch fish... and looks.",
+    "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Apparel_Headwear_Mask_PelicanMask",
+    "itemName": "Fasnacht Pelican Mask",
+    "itemNameShort": "Fasnacht Pelican Mask",
+    "desc": "Catching fish... and looks.",
+    "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_DisplayCase_PlaceSetting",
+    "itemName": "Place Setting",
+    "itemNameShort": "Place Setting",
+    "desc": "Company is coming! Time to bust out the fine china and display your tastiest treats.",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_CAMP_FloorDecor_Lonecycle",
+    "itemName": "Hot Shot Motorcycle",
+    "itemNameShort": "Hot Shot Motorcycle",
+    "desc": "They'll see just how slick you are, with the Hot Shot Motorcycle!",
+    "disclaimer": "GRANTS AN ENDURANCE AND CHARISMA BUFF -\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Emotes_MadeInTheShade",
+    "itemName": "Greasin' Up",
+    "itemNameShort": "Greasin' Up",
+    "desc": "Kick back and slick back.",
+    "disclaimer": "UNLOCKS AN EMOTE OPTION.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_Skin_BackpackFlair_GewinnerMedal",
+    "itemName": "Gewinner Medal Backpack Flair",
+    "itemNameShort": "Gewinner Medal",
+    "desc": "Show off your wins with this Backpack Flair!",
+    "disclaimer": "SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_WallDecor_BarbershopMirror",
+    "itemName": "Barbershop Mirror",
+    "itemNameShort": "Barbershop Mirror",
+    "desc": "Careful! You might just get a fresh cut.",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_CAMP_WallDeco_WindChime_SausageRack",
+    "itemName": "Hanging Sausage Rack",
+    "itemNameShort": "Sausage Rack",
+    "desc": "Get hooked on sausage!",
+    "disclaimer": "AVAILABLE IN C.A.M.P. MODE IN THE WALL DECORATIONS CATEGORY.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "ZZZ_SCORE_MiniSeason_2026_SockHop_ENTM_CAMP_WallDecor_LiveandLovePoster",
+    "itemName": "Live and Love Poster",
+    "itemNameShort": "Live and Love Poster",
+    "desc": "",
+    "disclaimer": "",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
+    "EDID": "SCORE_MiniSeason_2026_SockHop_Photomode_Logo_MarqueeLogo_MS69",
+    "itemName": "Sock Hop Marquee Photomode Logo",
+    "itemNameShort": "Sock Hop Photomode Logo",
+    "desc": "",
+    "disclaimer": "",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
     "EDID": "SCORE_S25_ENTM_Apparel_Headwear_FishnHoleHat",
     "itemName": "Fish'n Hole Hat",
     "itemNameShort": "Fish'n Hole Hat",
@@ -79,7 +658,7 @@
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_MrFuzzyMascot",
-    "itemName": "Mr. Fuzzy Mascot Head",
+    "itemName": "Mr. Fuzzy Mascot Head (Clean)",
     "itemNameShort": "Mr. Fuzzy Mascot Head",
     "desc": "Everything you have ever loved about Mr. Fuzzy, but now clean.",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
@@ -101,7 +680,7 @@
   },
   {
     "EDID": "ATX_ENTM_Apparel_Outfit_MrFuzzyMascot",
-    "itemName": "Mr. Fuzzy Mascot Suit",
+    "itemName": "Mr. Fuzzy Mascot Suit (Clean)",
     "itemNameShort": "Mr. Fuzzy Mascot Suit",
     "desc": "Everything you have ever loved about Mr. Fuzzy, but now clean.",
     "disclaimer": "APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
@@ -929,8 +1508,8 @@
     "EDID": "ATX_ENTM_CAMP_Furniture_Chair_TrainCar",
     "itemName": "Train Car Chair",
     "itemNameShort": "Train Car Chair",
-    "desc": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-    "disclaimer": "",
+    "desc": "",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
       "imageName": "atx_camp_furniture_chair_traincar.webp",
       "directory": "/textures/atx/storefront/camp/furniture/"
@@ -1449,8 +2028,8 @@
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDeco_Pennant_PTS_P68",
-    "itemName": "P.T.S. Pet Pennant",
-    "itemNameShort": "P.T.S. Pet Pennant",
+    "itemName": "P.T.S. Pennant",
+    "itemNameShort": "P.T.S. Pennant",
     "desc": "A small reward for all your help on Fallout 76's Public Test Server.",
     "disclaimer": "This includes a framed and unframed pennant to celebrate Rediscovering Appalachia.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": null,
@@ -1616,7 +2195,7 @@
   {
     "EDID": "SCORE_S25_ENTM_Skin_ArmorSkin_SecretService_Responders",
     "itemName": "Responders Secret Service Armor Paint",
-    "itemNameShort": "Responders Secret Service Armor",
+    "itemNameShort": "Responders Secret Service Armor Paint",
     "desc": "Issued to protect what matters most, even when the world is falling apart.",
     "disclaimer": "SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
     "primaryImage": {
