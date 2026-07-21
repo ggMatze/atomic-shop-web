@@ -62481,6 +62481,38 @@
     "highPriceOriginal": 800
   },
   {
+  "EDID": "atx_bndl_german_shepherd_pet_bundle",
+  "desc": "Bring home your newest dog friend!",
+  "disclaimer": "CAMP ITEMS APPEAR WHILE IN CAMP MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "German Shepherd Pet Bundle",
+  "primaryImage": {
+    "imageName": "d9008442a69a6148507f27795a195251.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1200,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "\"Dog\" Player Title Prefix and Suffix",
+      "entmName": "ATX_ENTM_PlayerTitles_Prefix_Suffix_Dog"
+    },
+    {
+      "szItemName": "Red Bow Collar (Dog)",
+      "entmName": "ATX_ENTM_Apparel_CAMPPets_Dog_Neckwear_CollarRedBow"
+    },
+    {
+      "szItemName": "Dog Dirt Pile",
+      "entmName": "ATX_ENTM_CAMP_CAMPPets_Furniture_DogMound"
+    },
+    {
+      "szItemName": "German Shepherd",
+      "entmName": "ATX_ENTM_CAMP_CAMPPets_Dog_GermanShepherd"
+    }
+  ]
+  },
+  {
     "EDID": "SCORE_S19_ENTM_CAMP_CAMPPets_Dog_WhiteGermanShepherd",
     "desc": "Have yourself a brilliant time with this White Shepherd! Generates 1, 2, or 3 Star Legendary Items",
     "disclaimer": "C.A.M.P. PETS APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
@@ -62939,6 +62971,50 @@
     "dynamicBundleItems": [],
     "carouselImages": [],
     "itemNameShort": "Dinky Plushie"
+  },
+  {
+  "EDID": "atx_bndl_special_camp_bundle",
+  "desc": "Give your C.A.M.P. that S.P.E.C.I.A.L. boost you need with the S.P.E.C.I.A.L. C.A.M.P. Bundle!",
+  "disclaimer": "CAMP ITEMS APPEAR WHILE IN CAMP MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": " S.P.E.C.I.A.L. C.A.M.P. Bundle",
+  "primaryImage": {
+    "imageName": "0bb52dacfc6943471236b0fe0a705e20.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1800,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Scent-o-matic Perfume Dispenser",
+      "entmName": "ATX_ENTM_CAMP_Utility_Scent-o-maticPerfumeDispenser"
+    },
+    {
+      "szItemName": "Antique Speed Bag",
+      "entmName": "SCORE_S3_ENTM_CAMP_FloorDecor_ExerciseEquipment_AntiqueSpeedBag"
+    },
+    {
+      "szItemName": "Fortune Teller Machine",
+      "entmName": "SCORE_S5_ENTM_CAMP_FloorDecor_FortuneTellerMachine"
+    },
+    {
+      "szItemName": "Radiation Glove Box",
+      "entmName": "SCORE_S10_ENTM_CAMP_Utility_Radiation_Glove_Box"
+    },
+    {
+      "szItemName": "Exercise Bike",
+      "entmName": "SCORE_S8_ENTM_CAMP_Utility_ExerciseBike"
+    },
+    {
+      "szItemName": "Weight Bench",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_ExerciseEquipment_WeightBench"
+    },
+    {
+      "szItemName": "Mechanical Derby Game",
+      "entmName": "SCORE_S9_ENTM_CAMP_Furniture_HorseRacingGame"
+    }
+  ]
   },
   {
     "EDID": "ZZZ_SCORE_S23_ENTM_CAMP_StashBox_SunsetCrate",
