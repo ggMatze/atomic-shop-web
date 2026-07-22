@@ -13,82 +13,48 @@
   const RELAY_STORAGE_IDS = 'atomicShopOwnedIds';
   const RELAY_STORAGE_FAVORITES = 'atomicShopFavoriteIds';
   
-  // Track connected clients
-  const connectedClients = new Set();
-  
-  // Allowed origins
-  const ALLOWED_ORIGINS = [
-    'https://uf.atomicshop.fyi',
-    'https://db.atomicshop.fyi',
-    'http://uf.atomicshop.fyi',
-    'http://db.atomicshop.fyi',
-    'file://'
-  ];
-  
-  function isOriginAllowed(origin) {
-    return ALLOWED_ORIGINS.some(allowed => 
-      origin === allowed || 
-      origin.startsWith('http://localhost:') ||
-      origin.startsWith('http://127.0.0.1:')
-    );
-  }
+  // Track parent window
+  let parentWindow = window.parent;
+  let parentOrigin = '*';
   
   function readData(key) {
     try {
-      return localStorage.getItem(key) || '[]';
+      return localStorage.getItem(key) || '';
     } catch (e) {
       console.error('[relay] localStorage read failed', e);
-      return '[]';
+      return '';
     }
   }
   
   function writeData(key, value) {
     try {
       localStorage.setItem(key, value);
+      console.log('[relay] Stored', key, 'length:', value.length);
     } catch (e) {
       console.error('[relay] localStorage write failed', e);
     }
   }
   
-  function broadcastToAll(message, excludeSource) {
-    // Broadcast to all connected clients
-    Array.from(connectedClients).forEach(client => {
-      if (client !== excludeSource) {
-        try {
-          client.postMessage(message, '*');
-        } catch (e) {
-          console.error('[relay] broadcast failed', e);
-          connectedClients.delete(client);
-        }
-      }
-    });
-  }
-  
-  // Listen for messages from both sites
+  // Listen for messages from parent window
   window.addEventListener('message', (event) => {
-    const origin = event.origin || event.originalEvent.origin;
-    
-    if (!isOriginAllowed(origin)) {
-      console.warn('[relay] Rejected message from unauthorized origin:', origin);
-      return;
-    }
-    
-    const source = event.source;
     const data = event.data;
     
     if (!data || typeof data !== 'object') return;
     
-    // Register new client
+    console.log('[relay] Received message:', data.type);
+    
+    // Register parent window
     if (data.type === 'RELAY_REGISTER') {
-      connectedClients.add(source);
-      console.log('[relay] Client registered from', origin, '. Total clients:', connectedClients.size);
+      parentWindow = event.source;
+      parentOrigin = event.origin;
+      console.log('[relay] Parent window registered from', event.origin);
       
-      // Send current data to new client
-      source.postMessage({
+      // Send current data to parent
+      parentWindow.postMessage({
         type: 'RELAY_DATA',
         ownedIds: readData(RELAY_STORAGE_IDS),
         favoriteIds: readData(RELAY_STORAGE_FAVORITES)
-      }, '*');
+      }, parentOrigin);
       return;
     }
     
@@ -96,14 +62,6 @@
     if (data.type === 'RELAY_UPDATE_OWNED') {
       if (typeof data.ownedIds === 'string') {
         writeData(RELAY_STORAGE_IDS, data.ownedIds);
-        console.log('[relay] Updated owned IDs from', origin);
-        
-        // Broadcast to other clients
-        broadcastToAll({
-          type: 'RELAY_DATA',
-          ownedIds: data.ownedIds,
-          favoriteIds: readData(RELAY_STORAGE_FAVORITES)
-        }, source);
       }
       return;
     }
@@ -112,26 +70,41 @@
     if (data.type === 'RELAY_UPDATE_FAVORITES') {
       if (typeof data.favoriteIds === 'string') {
         writeData(RELAY_STORAGE_FAVORITES, data.favoriteIds);
-        console.log('[relay] Updated favorite IDs from', origin);
-        
-        // Broadcast to other clients
-        broadcastToAll({
-          type: 'RELAY_DATA',
-          ownedIds: readData(RELAY_STORAGE_IDS),
-          favoriteIds: data.favoriteIds
-        }, source);
       }
       return;
     }
     
     // Get current data
     if (data.type === 'RELAY_GET_DATA') {
-      source.postMessage({
+      parentWindow.postMessage({
         type: 'RELAY_DATA',
         ownedIds: readData(RELAY_STORAGE_IDS),
         favoriteIds: readData(RELAY_STORAGE_FAVORITES)
-      }, '*');
+      }, parentOrigin);
       return;
+    }
+  });
+  
+  // Listen for localStorage changes from other relay instances (other tabs/windows on atomicshop.fyi)
+  window.addEventListener('storage', (event) => {
+    if (event.key === RELAY_STORAGE_IDS || event.key === RELAY_STORAGE_FAVORITES) {
+      console.log('[relay] Storage event detected for', event.key, 'new length:', event.newValue ? event.newValue.length : 0);
+      
+      // Notify parent window of the change
+      if (parentWindow && parentWindow !== window.parent) {
+        parentWindow.postMessage({
+          type: 'RELAY_DATA',
+          ownedIds: readData(RELAY_STORAGE_IDS),
+          favoriteIds: readData(RELAY_STORAGE_FAVORITES)
+        }, parentOrigin);
+      } else {
+        // If parent not yet registered, send to current parent anyway
+        window.parent.postMessage({
+          type: 'RELAY_DATA',
+          ownedIds: readData(RELAY_STORAGE_IDS),
+          favoriteIds: readData(RELAY_STORAGE_FAVORITES)
+        }, '*');
+      }
     }
   });
   
