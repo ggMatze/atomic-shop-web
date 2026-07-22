@@ -360,23 +360,116 @@
   }
 
   function getOwnedIncludedEntries(tileData) {
-    return extractIncludedEntryNames(tileData).filter(entryMatchesOwned);
+    const ownedEntries = new Set();
+
+    // Check includes array by name
+    if (tileData && Array.isArray(tileData.includes)) {
+      tileData.includes.forEach(value => {
+        if (value && entryMatchesOwned(value)) {
+          ownedEntries.add(value);
+        }
+      });
+    }
+
+    // Check dynamicBundleItems by ID first, then name
+    if (tileData && Array.isArray(tileData.dynamicBundleItems)) {
+      tileData.dynamicBundleItems.forEach(item => {
+        if (!item) return;
+        if (typeof item === 'object') {
+          // Try to match by ID first
+          const id = item.EDID || item.edid || item.entmName || item.entm || item.id || item.itemID;
+          if (id) {
+            const normalizedId = normalizeId(id);
+            if (normalizedId && state.ownedIdSet.has(normalizedId)) {
+              const displayName = item.szItemName || item.itemName || item.name || id;
+              ownedEntries.add(displayName);
+              return;
+            }
+          }
+        }
+        // Fall back to checking by name
+        const name = typeof item === 'object' ? (item.szItemName || item.itemName || item.name) : item;
+        if (name && entryMatchesOwned(name)) {
+          ownedEntries.add(name);
+        }
+      });
+    }
+
+    return Array.from(ownedEntries);
   }
 
   function isTileFullyOwnedBundle(tileData) {
-    const includedEntries = extractIncludedEntryNames(tileData);
+    const includedEntries = [];
+
+    // Collect includes array
+    if (tileData && Array.isArray(tileData.includes)) {
+      tileData.includes.forEach(value => {
+        if (value) includedEntries.push(value);
+      });
+    }
+
+    // Collect dynamicBundleItems
+    if (tileData && Array.isArray(tileData.dynamicBundleItems)) {
+      tileData.dynamicBundleItems.forEach(item => {
+        if (item) includedEntries.push(item);
+      });
+    }
+
     if (!includedEntries.length) return false;
-    return includedEntries.every(entryMatchesOwned);
+
+    // Check if all entries are owned (by ID or name)
+    return includedEntries.every(entry => {
+      if (typeof entry === 'object') {
+        // Check by ID first
+        const id = entry.EDID || entry.edid || entry.entmName || entry.entm || entry.id || entry.itemID;
+        if (id) {
+          const normalizedId = normalizeId(id);
+          if (normalizedId && state.ownedIdSet.has(normalizedId)) return true;
+        }
+      }
+      // Check by name
+      const name = typeof entry === 'object' ? (entry.szItemName || entry.itemName || entry.name) : entry;
+      return name && entryMatchesOwned(name);
+    });
   }
 
   function syncOverlayOwnedIncludes() {
     const items = document.querySelectorAll('.overlay-includes .include-item, .overlay-items li');
     if (!items.length) return;
 
+    // Try to get tile data for better matching by ID
+    const tileData = lastOverlayTile ? parseTileData(lastOverlayTile) : null;
+
     items.forEach(el => {
       const text = el.textContent || '';
-      const owned = entryMatchesOwned(text);
-      const favorited = entryMatchesFavorite(text);
+      let owned = false;
+      let favorited = false;
+
+      // Try to match against tile data by ID first (for dynamicBundleItems)
+      if (tileData && Array.isArray(tileData.dynamicBundleItems)) {
+        const matchedItem = tileData.dynamicBundleItems.find(item => {
+          if (!item || typeof item !== 'object') return false;
+          const name = item.szItemName || item.itemName || item.name;
+          return name && normalizeName(name) === normalizeName(text);
+        });
+        
+        if (matchedItem) {
+          const id = matchedItem.EDID || matchedItem.edid || matchedItem.entmName || matchedItem.entm || matchedItem.id || matchedItem.itemID;
+          if (id) {
+            const normalizedId = normalizeId(id);
+            owned = normalizedId && state.ownedIdSet.has(normalizedId);
+            favorited = normalizedId && state.favoriteIdSet.has(normalizedId);
+          }
+        }
+      }
+
+      // Fall back to name-based matching
+      if (!owned) {
+        owned = entryMatchesOwned(text);
+      }
+      if (!favorited) {
+        favorited = entryMatchesFavorite(text);
+      }
 
       el.classList.toggle('owned-include-item', owned);
       el.classList.toggle('favorite-include-item', favorited);
