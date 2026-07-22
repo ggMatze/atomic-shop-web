@@ -269,6 +269,13 @@
 
   function clearSharedValue(key) {
     clearStoredValue(key);
+    
+    // Sync clear to relay
+    if (key === STORAGE_KEY_IDS) {
+      sendToRelay({ type: 'RELAY_CLEAR_OWNED' });
+    } else if (key === FAVORITE_STORAGE_KEY) {
+      sendToRelay({ type: 'RELAY_CLEAR_FAVORITES' });
+    }
   }
 
   function parseStoredArray(raw) {

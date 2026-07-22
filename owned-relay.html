@@ -13,9 +13,8 @@
   const RELAY_STORAGE_IDS = 'atomicShopOwnedIds';
   const RELAY_STORAGE_FAVORITES = 'atomicShopFavoriteIds';
   
-  // Track parent window
-  let parentWindow = window.parent;
-  let parentOrigin = '*';
+  // Track all connected parent windows
+  const connectedParents = new Map(); // { origin: window }
   
   function readData(key) {
     try {
@@ -35,26 +34,36 @@
     }
   }
   
-  // Listen for messages from parent window
+  function broadcastToAllParents(message) {
+    connectedParents.forEach((parentWindow, origin) => {
+      try {
+        parentWindow.postMessage(message, origin);
+      } catch (e) {
+        console.error('[relay] Broadcast to', origin, 'failed', e);
+        connectedParents.delete(origin);
+      }
+    });
+  }
+  
+  // Listen for messages from parent windows
   window.addEventListener('message', (event) => {
     const data = event.data;
     
     if (!data || typeof data !== 'object') return;
     
-    console.log('[relay] Received message:', data.type);
+    console.log('[relay] Received message:', data.type, 'from', event.origin);
     
     // Register parent window
     if (data.type === 'RELAY_REGISTER') {
-      parentWindow = event.source;
-      parentOrigin = event.origin;
-      console.log('[relay] Parent window registered from', event.origin);
+      connectedParents.set(event.origin, event.source);
+      console.log('[relay] Parent window registered from', event.origin, '. Total parents:', connectedParents.size);
       
-      // Send current data to parent
-      parentWindow.postMessage({
+      // Send current data to registering parent
+      event.source.postMessage({
         type: 'RELAY_DATA',
         ownedIds: readData(RELAY_STORAGE_IDS),
         favoriteIds: readData(RELAY_STORAGE_FAVORITES)
-      }, parentOrigin);
+      }, event.origin);
       return;
     }
     
@@ -62,6 +71,12 @@
     if (data.type === 'RELAY_UPDATE_OWNED') {
       if (typeof data.ownedIds === 'string') {
         writeData(RELAY_STORAGE_IDS, data.ownedIds);
+        // Broadcast updated data to all other parents
+        broadcastToAllParents({
+          type: 'RELAY_DATA',
+          ownedIds: data.ownedIds,
+          favoriteIds: readData(RELAY_STORAGE_FAVORITES)
+        });
       }
       return;
     }
@@ -71,6 +86,12 @@
       try {
         localStorage.removeItem(RELAY_STORAGE_IDS);
         console.log('[relay] Cleared owned IDs');
+        // Broadcast cleared data to all parents
+        broadcastToAllParents({
+          type: 'RELAY_DATA',
+          ownedIds: '',
+          favoriteIds: readData(RELAY_STORAGE_FAVORITES)
+        });
       } catch (e) {
         console.error('[relay] localStorage clear failed', e);
       }
@@ -81,6 +102,12 @@
     if (data.type === 'RELAY_UPDATE_FAVORITES') {
       if (typeof data.favoriteIds === 'string') {
         writeData(RELAY_STORAGE_FAVORITES, data.favoriteIds);
+        // Broadcast updated data to all other parents
+        broadcastToAllParents({
+          type: 'RELAY_DATA',
+          ownedIds: readData(RELAY_STORAGE_IDS),
+          favoriteIds: data.favoriteIds
+        });
       }
       return;
     }
@@ -90,6 +117,12 @@
       try {
         localStorage.removeItem(RELAY_STORAGE_FAVORITES);
         console.log('[relay] Cleared favorite IDs');
+        // Broadcast cleared data to all parents
+        broadcastToAllParents({
+          type: 'RELAY_DATA',
+          ownedIds: readData(RELAY_STORAGE_IDS),
+          favoriteIds: ''
+        });
       } catch (e) {
         console.error('[relay] localStorage clear failed', e);
       }
@@ -98,35 +131,26 @@
     
     // Get current data
     if (data.type === 'RELAY_GET_DATA') {
-      parentWindow.postMessage({
+      event.source.postMessage({
         type: 'RELAY_DATA',
         ownedIds: readData(RELAY_STORAGE_IDS),
         favoriteIds: readData(RELAY_STORAGE_FAVORITES)
-      }, parentOrigin);
+      }, event.origin);
       return;
     }
   });
   
-  // Listen for localStorage changes from other relay instances (other tabs/windows on atomicshop.fyi)
+  // Listen for localStorage changes from storage events (when other relay iframes on same origin update storage)
   window.addEventListener('storage', (event) => {
     if (event.key === RELAY_STORAGE_IDS || event.key === RELAY_STORAGE_FAVORITES) {
       console.log('[relay] Storage event detected for', event.key, 'new length:', event.newValue ? event.newValue.length : 0);
       
-      // Notify parent window of the change
-      if (parentWindow && parentWindow !== window.parent) {
-        parentWindow.postMessage({
-          type: 'RELAY_DATA',
-          ownedIds: readData(RELAY_STORAGE_IDS),
-          favoriteIds: readData(RELAY_STORAGE_FAVORITES)
-        }, parentOrigin);
-      } else {
-        // If parent not yet registered, send to current parent anyway
-        window.parent.postMessage({
-          type: 'RELAY_DATA',
-          ownedIds: readData(RELAY_STORAGE_IDS),
-          favoriteIds: readData(RELAY_STORAGE_FAVORITES)
-        }, '*');
-      }
+      // Notify all connected parents about the storage change
+      broadcastToAllParents({
+        type: 'RELAY_DATA',
+        ownedIds: readData(RELAY_STORAGE_IDS),
+        favoriteIds: readData(RELAY_STORAGE_FAVORITES)
+      });
     }
   });
   
