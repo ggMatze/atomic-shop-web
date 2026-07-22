@@ -24,6 +24,67 @@
   const IMPORT_BUTTON_ID = 'owned-tracker-import';
   const IMPORT_MESSAGE_ID = 'owned-tracker-import-msg';
 
+  // Relay for cross-domain sync
+  let relayWindow = null;
+  let relayReady = false;
+  const relayQueue = [];
+
+  function resolveRelayUrl() {
+    const origin = window.location.origin || '';
+    const candidates = [
+      new URL('/owned-relay.html', origin).toString(),
+      new URL('../owned-relay.html', origin).toString(),
+      origin + '/owned-relay.html',
+      origin + '/../owned-relay.html'
+    ];
+    return candidates[0]; // Use the first one, adjust if needed
+  }
+
+  function initRelay() {
+    const relayUrl = resolveRelayUrl();
+    const relayIframe = document.createElement('iframe');
+    relayIframe.id = 'owned-relay-iframe';
+    relayIframe.style.display = 'none';
+    relayIframe.src = relayUrl;
+    document.body.appendChild(relayIframe);
+
+    relayWindow = relayIframe.contentWindow;
+
+    // Listen for relay responses
+    window.addEventListener('message', (event) => {
+      if (event.source !== relayWindow) return;
+      const data = event.data;
+      if (!data || typeof data !== 'object') return;
+
+      if (data.type === 'RELAY_DATA') {
+        // Update our state from relay data
+        const storedIds = parseStoredArray(data.ownedIds);
+        const storedFavs = parseStoredArray(data.favoriteIds);
+        state.ownedIdSet = new Set(storedIds.map(id => normalizeId(id)).filter(Boolean));
+        state.favoriteIdSet = new Set(storedFavs.map(id => normalizeId(id)).filter(Boolean));
+        decorateAllStoreTiles();
+      }
+    });
+
+    setTimeout(() => {
+      relayReady = true;
+      if (relayWindow) {
+        relayWindow.postMessage({ type: 'RELAY_REGISTER' }, '*');
+        // Flush queued messages
+        while (relayQueue.length) {
+          relayWindow.postMessage(relayQueue.shift(), '*');
+        }
+      }
+    }, 500);
+  }
+
+  function sendToRelay(message) {
+    if (relayReady && relayWindow) {
+      relayWindow.postMessage(message, '*');
+    } else {
+      relayQueue.push(message);
+    }
+  }
 
   function normalizeName(value) {
     if (!value && value !== 0) return '';
@@ -137,6 +198,13 @@
 
   function writeSharedValue(key, value) {
     writeStoredValue(key, value);
+    
+    // Sync to relay for cross-domain sharing
+    if (key === STORAGE_KEY_IDS) {
+      sendToRelay({ type: 'RELAY_UPDATE_OWNED', ownedIds: value });
+    } else if (key === FAVORITE_STORAGE_KEY) {
+      sendToRelay({ type: 'RELAY_UPDATE_FAVORITES', favoriteIds: value });
+    }
   }
 
   function normalizeId(value) {
@@ -743,6 +811,7 @@
   }
 
   function init() {
+    initRelay();
     decorateAllStoreTiles();
     installGridObserver();
     setupStorageListener();

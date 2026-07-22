@@ -10,6 +10,68 @@
   const FAVORITE_TOGGLE_CLASS = 'favorite-heart-toggle';
   const FAVORITE_TOGGLE_ACTIVE_CLASS = 'active';
 
+  // Relay for cross-domain sync
+  let relayWindow = null;
+  let relayReady = false;
+  const relayQueue = [];
+
+  function resolveRelayUrl() {
+    const origin = window.location.origin || '';
+    const candidates = [
+      new URL('/owned-relay.html', origin).toString(),
+      new URL('../../owned-relay.html', origin).toString(),
+      origin + '/owned-relay.html',
+      origin + '/../../owned-relay.html'
+    ];
+    return candidates[0]; // Use the first one, adjust if needed
+  }
+
+  function initRelay() {
+    const relayUrl = resolveRelayUrl();
+    const relayIframe = document.createElement('iframe');
+    relayIframe.id = 'owned-relay-iframe';
+    relayIframe.style.display = 'none';
+    relayIframe.src = relayUrl;
+    document.body.appendChild(relayIframe);
+
+    relayWindow = relayIframe.contentWindow;
+
+    // Listen for relay responses
+    window.addEventListener('message', (event) => {
+      if (event.source !== relayWindow) return;
+      const data = event.data;
+      if (!data || typeof data !== 'object') return;
+
+      if (data.type === 'RELAY_DATA') {
+        // Update our stored state from relay data
+        const ownedData = parseStoredIds(data.ownedIds);
+        const favData = parseStoredIds(data.favoriteIds);
+        lastCookieValue = data.ownedIds;
+        lastFavoriteCookieValue = data.favoriteIds;
+        decorateViewerTiles();
+      }
+    });
+
+    setTimeout(() => {
+      relayReady = true;
+      if (relayWindow) {
+        relayWindow.postMessage({ type: 'RELAY_REGISTER' }, '*');
+        // Flush queued messages
+        while (relayQueue.length) {
+          relayWindow.postMessage(relayQueue.shift(), '*');
+        }
+      }
+    }, 500);
+  }
+
+  function sendToRelay(message) {
+    if (relayReady && relayWindow) {
+      relayWindow.postMessage(message, '*');
+    } else {
+      relayQueue.push(message);
+    }
+  }
+
   function getCookieDomain() {
     const hostname = window.location.hostname || '';
     if (!hostname || hostname === 'localhost' || hostname === '127.0.0.1') return '';
@@ -71,9 +133,24 @@
     }
 
     const cookieDomain = getCookieDomain();
-    if (!cookieDomain || !isCookieValueSafe(value)) return;
+    if (!cookieDomain || !isCookieValueSafe(value)) {
+      // Still sync to relay even if can't set cookie
+      if (key === STORAGE_KEY) {
+        sendToRelay({ type: 'RELAY_UPDATE_OWNED', ownedIds: value });
+      } else if (key === FAVORITE_STORAGE_KEY) {
+        sendToRelay({ type: 'RELAY_UPDATE_FAVORITES', favoriteIds: value });
+      }
+      return;
+    }
 
     document.cookie = `${key}=${encodeURIComponent(value)}; path=/; max-age=31536000; SameSite=Lax; domain=${cookieDomain}`;
+
+    // Also sync to relay for cross-domain sharing
+    if (key === STORAGE_KEY) {
+      sendToRelay({ type: 'RELAY_UPDATE_OWNED', ownedIds: value });
+    } else if (key === FAVORITE_STORAGE_KEY) {
+      sendToRelay({ type: 'RELAY_UPDATE_FAVORITES', favoriteIds: value });
+    }
   }
 
   function clearSharedValue(key) {
@@ -729,6 +806,7 @@
     if (initialized) return;
     initialized = true;
 
+    initRelay();
     decorateViewerTiles();
     installResultObserver();
     setupHoverOverlayDelegation();

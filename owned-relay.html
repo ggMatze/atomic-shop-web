@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Owned Items Relay</title>
+    <style>
+        body { margin: 0; padding: 0; display: none; }
+    </style>
+</head>
+<body>
+<script>
+(function() {
+  const RELAY_STORAGE_IDS = 'atomicShopOwnedIds';
+  const RELAY_STORAGE_FAVORITES = 'atomicShopFavoriteIds';
+  
+  // Track connected clients
+  const connectedClients = new Set();
+  
+  // Allowed origins
+  const ALLOWED_ORIGINS = [
+    'https://uf.atomicshop.fyi',
+    'https://db.atomicshop.fyi',
+    'http://uf.atomicshop.fyi',
+    'http://db.atomicshop.fyi',
+    'file://'
+  ];
+  
+  function isOriginAllowed(origin) {
+    return ALLOWED_ORIGINS.some(allowed => 
+      origin === allowed || 
+      origin.startsWith('http://localhost:') ||
+      origin.startsWith('http://127.0.0.1:')
+    );
+  }
+  
+  function readData(key) {
+    try {
+      return localStorage.getItem(key) || '[]';
+    } catch (e) {
+      console.error('[relay] localStorage read failed', e);
+      return '[]';
+    }
+  }
+  
+  function writeData(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (e) {
+      console.error('[relay] localStorage write failed', e);
+    }
+  }
+  
+  function broadcastToAll(message, excludeSource) {
+    // Broadcast to all connected clients
+    Array.from(connectedClients).forEach(client => {
+      if (client !== excludeSource) {
+        try {
+          client.postMessage(message, '*');
+        } catch (e) {
+          console.error('[relay] broadcast failed', e);
+          connectedClients.delete(client);
+        }
+      }
+    });
+  }
+  
+  // Listen for messages from both sites
+  window.addEventListener('message', (event) => {
+    const origin = event.origin || event.originalEvent.origin;
+    
+    if (!isOriginAllowed(origin)) {
+      console.warn('[relay] Rejected message from unauthorized origin:', origin);
+      return;
+    }
+    
+    const source = event.source;
+    const data = event.data;
+    
+    if (!data || typeof data !== 'object') return;
+    
+    // Register new client
+    if (data.type === 'RELAY_REGISTER') {
+      connectedClients.add(source);
+      console.log('[relay] Client registered from', origin, '. Total clients:', connectedClients.size);
+      
+      // Send current data to new client
+      source.postMessage({
+        type: 'RELAY_DATA',
+        ownedIds: readData(RELAY_STORAGE_IDS),
+        favoriteIds: readData(RELAY_STORAGE_FAVORITES)
+      }, '*');
+      return;
+    }
+    
+    // Update owned IDs
+    if (data.type === 'RELAY_UPDATE_OWNED') {
+      if (typeof data.ownedIds === 'string') {
+        writeData(RELAY_STORAGE_IDS, data.ownedIds);
+        console.log('[relay] Updated owned IDs from', origin);
+        
+        // Broadcast to other clients
+        broadcastToAll({
+          type: 'RELAY_DATA',
+          ownedIds: data.ownedIds,
+          favoriteIds: readData(RELAY_STORAGE_FAVORITES)
+        }, source);
+      }
+      return;
+    }
+    
+    // Update favorite IDs
+    if (data.type === 'RELAY_UPDATE_FAVORITES') {
+      if (typeof data.favoriteIds === 'string') {
+        writeData(RELAY_STORAGE_FAVORITES, data.favoriteIds);
+        console.log('[relay] Updated favorite IDs from', origin);
+        
+        // Broadcast to other clients
+        broadcastToAll({
+          type: 'RELAY_DATA',
+          ownedIds: readData(RELAY_STORAGE_IDS),
+          favoriteIds: data.favoriteIds
+        }, source);
+      }
+      return;
+    }
+    
+    // Get current data
+    if (data.type === 'RELAY_GET_DATA') {
+      source.postMessage({
+        type: 'RELAY_DATA',
+        ownedIds: readData(RELAY_STORAGE_IDS),
+        favoriteIds: readData(RELAY_STORAGE_FAVORITES)
+      }, '*');
+      return;
+    }
+  });
+  
+  console.log('[relay] Owned Items Relay initialized');
+})();
+</script>
+</body>
+</html>
