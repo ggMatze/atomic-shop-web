@@ -27,7 +27,11 @@
   // Relay for cross-domain sync
   let relayWindow = null;
   let relayReady = false;
+  let relayDataReceived = false;
   const relayQueue = [];
+  let relayDataPromise = new Promise(resolve => {
+    window.__relayDataResolve = resolve;
+  });
 
   function resolveRelayUrl() {
     const protocol = window.location.protocol;
@@ -52,11 +56,28 @@
       if (!data || typeof data !== 'object') return;
 
       if (data.type === 'RELAY_DATA') {
+        // Store relay data in local storage so it persists
+        if (data.ownedIds) {
+          writeStoredValue(STORAGE_KEY_IDS, data.ownedIds);
+        }
+        if (data.favoriteIds) {
+          writeStoredValue(FAVORITE_STORAGE_KEY, data.favoriteIds);
+        }
+        
         // Update our state from relay data
         const storedIds = parseStoredArray(data.ownedIds);
         const storedFavs = parseStoredArray(data.favoriteIds);
         state.ownedIdSet = new Set(storedIds.map(id => normalizeId(id)).filter(Boolean));
         state.favoriteIdSet = new Set(storedFavs.map(id => normalizeId(id)).filter(Boolean));
+        
+        // Mark that we've received relay data
+        if (!relayDataReceived) {
+          relayDataReceived = true;
+          if (window.__relayDataResolve) {
+            window.__relayDataResolve();
+          }
+        }
+        
         decorateAllStoreTiles();
       }
     });
@@ -807,7 +828,20 @@
 
   function init() {
     initRelay();
-    decorateAllStoreTiles();
+    
+    // Wait for relay data with a timeout, then initialize UI
+    Promise.race([
+      relayDataPromise,
+      new Promise(resolve => setTimeout(resolve, 2000))
+    ]).then(() => {
+      // Relay data received or timeout - now safe to decorate
+      decorateAllStoreTiles();
+      
+      if (state.ownedIdSet.size) {
+        loadDatabaseIndex().then(() => decorateAllStoreTiles()).catch(() => decorateAllStoreTiles());
+      }
+    });
+    
     installGridObserver();
     setupStorageListener();
     installOverlaySync();
@@ -828,10 +862,6 @@
     window.__ownedTracker.reloadDbIndex = loadDatabaseIndex;
 
     setupImportButton();
-
-    if (state.ownedIdSet.size) {
-      loadDatabaseIndex().then(() => decorateAllStoreTiles()).catch(() => decorateAllStoreTiles());
-    }
   }
 
   if (document.readyState === 'loading') {

@@ -13,7 +13,11 @@
   // Relay for cross-domain sync
   let relayWindow = null;
   let relayReady = false;
+  let relayDataReceived = false;
   const relayQueue = [];
+  let relayDataPromise = new Promise(resolve => {
+    window.__relayDataResolve = resolve;
+  });
 
   function resolveRelayUrl() {
     const protocol = window.location.protocol;
@@ -38,11 +42,28 @@
       if (!data || typeof data !== 'object') return;
 
       if (data.type === 'RELAY_DATA') {
+        // Store relay data in local storage so it persists
+        if (data.ownedIds) {
+          writeSharedValue(STORAGE_KEY, data.ownedIds);
+        }
+        if (data.favoriteIds) {
+          writeSharedValue(FAVORITE_STORAGE_KEY, data.favoriteIds);
+        }
+        
         // Update our stored state from relay data
         const ownedData = parseStoredIds(data.ownedIds);
         const favData = parseStoredIds(data.favoriteIds);
         lastCookieValue = data.ownedIds;
         lastFavoriteCookieValue = data.favoriteIds;
+        
+        // Mark that we've received relay data
+        if (!relayDataReceived) {
+          relayDataReceived = true;
+          if (window.__relayDataResolve) {
+            window.__relayDataResolve();
+          }
+        }
+        
         decorateViewerTiles();
       }
     });
@@ -802,14 +823,22 @@
     initialized = true;
 
     initRelay();
-    decorateViewerTiles();
+    
+    // Wait for relay data with a timeout, then decorate
+    Promise.race([
+      relayDataPromise,
+      new Promise(resolve => setTimeout(resolve, 2000))
+    ]).then(() => {
+      decorateViewerTiles();
+      updateStoredItemCount();
+    });
+    
     installResultObserver();
     setupHoverOverlayDelegation();
     initControls();
     lastCookieValue = readSharedValue(STORAGE_KEY);
     lastFavoriteCookieValue = readSharedValue(FAVORITE_STORAGE_KEY);
     installCookieSync();
-    updateStoredItemCount();
   }
 
   if (document.readyState === 'loading') {
