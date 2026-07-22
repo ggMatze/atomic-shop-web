@@ -16,14 +16,9 @@
   const relayQueue = [];
 
   function resolveRelayUrl() {
-    const origin = window.location.origin || '';
-    const candidates = [
-      new URL('/owned-relay.html', origin).toString(),
-      new URL('../../owned-relay.html', origin).toString(),
-      origin + '/owned-relay.html',
-      origin + '/../../owned-relay.html'
-    ];
-    return candidates[0]; // Use the first one, adjust if needed
+    const protocol = window.location.protocol;
+    // Always use the root domain for the relay
+    return protocol + '//atomicshop.fyi/owned-relay.html';
   }
 
   function initRelay() {
