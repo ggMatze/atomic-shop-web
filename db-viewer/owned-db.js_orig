@@ -10,92 +10,6 @@
   const FAVORITE_TOGGLE_CLASS = 'favorite-heart-toggle';
   const FAVORITE_TOGGLE_ACTIVE_CLASS = 'active';
 
-  // Relay for cross-domain sync
-  let relayWindow = null;
-  let relayReady = false;
-  let relayDataReceived = false;
-  const relayQueue = [];
-  let relayDataPromise = new Promise(resolve => {
-    window.__relayDataResolve = resolve;
-  });
-
-  function resolveRelayUrl() {
-    const protocol = window.location.protocol;
-    // Always use the root domain for the relay
-    return protocol + '//atomicshop.fyi/owned-relay.html';
-  }
-
-  function initRelay() {
-    const relayUrl = resolveRelayUrl();
-    const relayIframe = document.createElement('iframe');
-    relayIframe.id = 'owned-relay-iframe';
-    relayIframe.style.display = 'none';
-    relayIframe.src = relayUrl;
-    document.body.appendChild(relayIframe);
-
-    relayWindow = relayIframe.contentWindow;
-
-    // Listen for relay responses
-    window.addEventListener('message', (event) => {
-      if (event.source !== relayWindow) return;
-      const data = event.data;
-      if (!data || typeof data !== 'object') return;
-
-      if (data.type === 'RELAY_DATA') {
-        // Store relay data in local storage so it persists
-        if (typeof data.ownedIds === 'string') {
-          try {
-            localStorage.setItem(STORAGE_KEY, data.ownedIds);
-          } catch (e) {
-            console.warn('owned-db: relay state write failed', e);
-          }
-        }
-        if (typeof data.favoriteIds === 'string') {
-          try {
-            localStorage.setItem(FAVORITE_STORAGE_KEY, data.favoriteIds);
-          } catch (e) {
-            console.warn('owned-db: relay favorite write failed', e);
-          }
-        }
-        
-        // Update our stored state from relay data
-        const ownedData = parseStoredIds(data.ownedIds);
-        const favData = parseStoredIds(data.favoriteIds);
-        lastCookieValue = data.ownedIds;
-        lastFavoriteCookieValue = data.favoriteIds;
-        
-        // Mark that we've received relay data
-        if (!relayDataReceived) {
-          relayDataReceived = true;
-          if (window.__relayDataResolve) {
-            window.__relayDataResolve();
-          }
-        }
-        
-        decorateViewerTiles();
-      }
-    });
-
-    setTimeout(() => {
-      relayReady = true;
-      if (relayWindow) {
-        relayWindow.postMessage({ type: 'RELAY_REGISTER' }, '*');
-        // Flush queued messages
-        while (relayQueue.length) {
-          relayWindow.postMessage(relayQueue.shift(), '*');
-        }
-      }
-    }, 500);
-  }
-
-  function sendToRelay(message) {
-    if (relayReady && relayWindow) {
-      relayWindow.postMessage(message, '*');
-    } else {
-      relayQueue.push(message);
-    }
-  }
-
   function getCookieDomain() {
     const hostname = window.location.hostname || '';
     if (!hostname || hostname === 'localhost' || hostname === '127.0.0.1') return '';
@@ -157,24 +71,9 @@
     }
 
     const cookieDomain = getCookieDomain();
-    if (!cookieDomain || !isCookieValueSafe(value)) {
-      // Still sync to relay even if can't set cookie
-      if (key === STORAGE_KEY) {
-        sendToRelay({ type: 'RELAY_UPDATE_OWNED', ownedIds: value });
-      } else if (key === FAVORITE_STORAGE_KEY) {
-        sendToRelay({ type: 'RELAY_UPDATE_FAVORITES', favoriteIds: value });
-      }
-      return;
-    }
+    if (!cookieDomain || !isCookieValueSafe(value)) return;
 
     document.cookie = `${key}=${encodeURIComponent(value)}; path=/; max-age=31536000; SameSite=Lax; domain=${cookieDomain}`;
-
-    // Also sync to relay for cross-domain sharing
-    if (key === STORAGE_KEY) {
-      sendToRelay({ type: 'RELAY_UPDATE_OWNED', ownedIds: value });
-    } else if (key === FAVORITE_STORAGE_KEY) {
-      sendToRelay({ type: 'RELAY_UPDATE_FAVORITES', favoriteIds: value });
-    }
   }
 
   function clearSharedValue(key) {
@@ -185,16 +84,9 @@
     }
 
     const cookieDomain = getCookieDomain();
-    if (cookieDomain) {
-      document.cookie = `${key}=; path=/; max-age=0; SameSite=Lax; domain=${cookieDomain}`;
-    }
-    
-    // Sync clear to relay
-    if (key === STORAGE_KEY) {
-      sendToRelay({ type: 'RELAY_CLEAR_OWNED' });
-    } else if (key === FAVORITE_STORAGE_KEY) {
-      sendToRelay({ type: 'RELAY_CLEAR_FAVORITES' });
-    }
+    if (!cookieDomain) return;
+
+    document.cookie = `${key}=; path=/; max-age=0; SameSite=Lax; domain=${cookieDomain}`;
   }
 
   function normalizeTrackedId(value) {
@@ -837,23 +729,14 @@
     if (initialized) return;
     initialized = true;
 
-    initRelay();
-    
-    // Wait for relay data with a timeout, then decorate
-    Promise.race([
-      relayDataPromise,
-      new Promise(resolve => setTimeout(resolve, 2000))
-    ]).then(() => {
-      decorateViewerTiles();
-      updateStoredItemCount();
-    });
-    
+    decorateViewerTiles();
     installResultObserver();
     setupHoverOverlayDelegation();
     initControls();
     lastCookieValue = readSharedValue(STORAGE_KEY);
     lastFavoriteCookieValue = readSharedValue(FAVORITE_STORAGE_KEY);
     installCookieSync();
+    updateStoredItemCount();
   }
 
   if (document.readyState === 'loading') {

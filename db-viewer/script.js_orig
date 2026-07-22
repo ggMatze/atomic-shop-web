@@ -26,9 +26,6 @@ const errorContainer = document.getElementById('errorContainer');
 const itemDataStore = new Map();
 const itemLookupByEdid = new Map();
 const itemLookupByShareId = new Map();
-const overlayGalleryCache = new Map();
-const overlayImageProbeCache = new Map();
-const overlayImageProbePromiseCache = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
@@ -38,12 +35,12 @@ const validCategories = new Set([
 // Grouped categories for filters
 const filterGroups = {
     'CAMP': ['Kits','Floors/Foundation', 'Roofs', 'Wallpaper','Doors', 'Decoration', 'Floordecor','Walldecor','Signs','Vendors','Lights','Machinery','Power Connectors','Power Generators','Furniture','Beds','Stash','Displays','Shelters','Structures','Defenses','Allies', 'Utility', 'Collectron'],
-    'Skins': ['C.A.M.P.','Clothing', 'Headwear', 'Armor', 'Wood Armor','Leather Armor','Metal Armor','Robot Armor','Marine Armor','Scout Armor','Combat Armor','Civil Engineer Armor','Recon Armor','Secret Service Armor','Backpack' , 'PipBoy', 'Lootbags', 'Camera', 'Weapons', 'Weapon Skins', 'Weapon Models', 'Powerarmor', 'Tents'],
-    'Apparel': ['Outfits', 'Headwear', 'Underarmor', 'Armor','PipBoy', 'Flairs', 'Backpack'],
+    'Skins': ['C.A.M.P.','Clothing', 'Headwear', 'Armor', 'Backpack' , 'PipBoy', 'Lootbags', 'Camera', 'Weapons', 'Weapon Skins', 'Weapon Models', 'Powerarmor', 'Tents'],
+    'Apparel': ['Outfits', 'Headwear', 'Underarmor', 'Armor', 'PipBoy', 'Flairs', 'Backpack'],
     'Player Appearance': ['Hairstyle', 'Tattoos', 'Facepaint'],
     'Photo Mode': [ 'Frames', 'Pose', 'Vanity Lights'],
     'Seasons': ['Season 1', 'Season 2', 'Season 3', 'Season 4', 'Season 5', 'Season 6', 'Season 7', 'Season 8', 'Season 9', 'Season 10', 'Season 11', 'Season 12', 'Season 13', 'Season 14', 'Season 15', 'Season 16', 'Season 17', 'Season 18', 'Season 19', 'Season 20', 'Season 21', 'Season 22', 'Season 23', 'Season 24', 'Season 25'],
-    'Mini Seasons': ['Appalachian Outlaws', 'Marvelous Fishing Excursion', 'Night at the Morgue', 'Weapons Expert Extraordinaire', 'Sunset Stranger', 'Love Hurts', 'Sock Hop' ],
+    'Mini Seasons': ['Appalachian Outlaws', 'Marvelous Fishing Excursion', 'Night at the Morgue', 'Weapons Expert Extraordinaire', 'Sunset Stranger', 'Love Hurts'],
     'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'Support Item List','P2W', 'No Image'],
     'My Items': ['Owned', 'Favorites/Wished'],
 };
@@ -237,25 +234,10 @@ function getItemCategories(item) {
     // Map categories to keywords - easily customizable
     const edidCategoryKeywords = {
         'Apparel': ['_apparel_', '_outfit_'],
-        'Outfits': ['_apparel_outfit_'],
-        'Headwear': ['_headwear_'],
-        'Armor': ['_armorskin_'],
-        'Wood Armor': ['_armorskin_wood_'],
-        'Leather Armor': ['_armorskin_leather_'],
-        'Metal Armor': ['_armorskin_metal_'],
-        'Robot Armor': ['_armorskin_robot_'],
-        'Marine Armor': ['_armorskin_marine_'],
-        'Scout Armor': ['_armorskin_scout_'],
-        'Combat Armor': ['_armorskin_combat_'],
-        'Civil Engineer Armor': ['_armorskin_civilengineer_'],
-        'Recon Armor': ['_armorskin_recon_'],
-        'Secret Service Armor': ['_armorskin_secretservice_'],
         'CAMP': ['_camp_'],
         'C.A.M.P.': ['_deployable_'],
-        'Wallpaper': ['_wallpaper_'],
         'Kits': ['_entm_camp_kit_'],
-        'Vendors': ['_camp_vendor_'],
-        'Roofs': ['_roofs_', '_roof_', '_grassroofkit'],
+        'Roofs': ['_roofs_', '_roof_'],
         'Power Generators': ['_generator_'],
         'Power Connectors': ['_powerconnectors_'],
         'Camera': ['_cameraskin_'],
@@ -277,7 +259,7 @@ function getItemCategories(item) {
         '\u200BCut Content': ['zzz', 'reuse','armorskin_wood_nw','_armorskin_metal_nw','_armorskin_marine_nw','_armorskin_scout_nw',
                             '_outfit_nukagirloutfit_'
         ],
-        'Bundle': ['_bndl_', '_bundle_', '_bundle'],
+        'Bundle': ['_bndl_'],
         'Vanity Lights': ['_vanitylight_'],
         'Frames': ['_photomode_frame_'],
         'Player Icons': ['_playericon_'],
@@ -314,8 +296,7 @@ function getItemCategories(item) {
         'Night at the Morgue': ['_nightatthemorgue_'],
         'Weapons Expert Extraordinaire': ['_weaponsexpert_'],
         'Sunset Stranger': ['_sunsetstranger_'],
-        'Love Hurts': ['_miniseason_lovehurts_'],
-        'Sock Hop': ['_miniseason_2026_sockhop_']
+        'Love Hurts': ['_miniseason_lovehurts_']
     };
 
     Object.assign(edidCategoryKeywords, externalEdidKeywords);
@@ -1336,13 +1317,11 @@ async function detectCarouselVariants(item, carouselImagesOverride = null) {
 
     if (!skipAutoVariants && item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
         const variantUrls = getVariantCandidateUrls(item.primaryImage.directory, item.primaryImage.imageName);
-        const maxChecks = 6;
-        for (const variantUrl of variantUrls.slice(0, maxChecks)) {
+        for (const variantUrl of variantUrls) {
             const imageExists = await checkImageExists(variantUrl);
             if (imageExists && !images.includes(variantUrl)) {
                 images.push(variantUrl);
             }
-            if (images.length >= 8) break;
         }
     }
     
@@ -1397,36 +1376,12 @@ loadHistory();
 
 // Check if image exists by attempting to load it
 function checkImageExists(url) {
-    const normalizedUrl = typeof url === 'string' ? url.trim() : '';
-    if (!normalizedUrl) return Promise.resolve(false);
-
-    if (overlayImageProbeCache.has(normalizedUrl)) {
-        return Promise.resolve(overlayImageProbeCache.get(normalizedUrl));
-    }
-
-    if (overlayImageProbePromiseCache.has(normalizedUrl)) {
-        return overlayImageProbePromiseCache.get(normalizedUrl);
-    }
-
-    const probePromise = new Promise((resolve) => {
+    return new Promise((resolve) => {
         const img = new Image();
-        img.onload = () => {
-            overlayImageProbeCache.set(normalizedUrl, true);
-            resolve(true);
-        };
-        img.onerror = () => {
-            overlayImageProbeCache.set(normalizedUrl, false);
-            resolve(false);
-        };
-        img.src = normalizedUrl;
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = url;
     });
-
-    overlayImageProbePromiseCache.set(normalizedUrl, probePromise);
-    probePromise.finally(() => {
-        overlayImageProbePromiseCache.delete(normalizedUrl);
-    });
-
-    return probePromise;
 }
 
 // Parse description and disclaimer from desc field (similar to original overlay logic)
@@ -1455,105 +1410,16 @@ function parseDescriptionAndDisclaimer(itemDesc) {
     return { description, disclaimer };
 }
 
-function getOverlayGalleryCacheKey(item) {
-    if (!item || typeof item !== 'object') return '';
-
-    const parts = [];
-    const pushValue = (value) => {
-        if (value == null || value === '') return;
-        const normalized = String(value).trim().toLowerCase();
-        if (normalized) parts.push(normalized);
-    };
-
-    pushValue(item.EDID || item.edid || item.id);
-    pushValue(item.itemName || item.itemNameShort || item.name || item.title);
-    if (item.primaryImage) {
-        pushValue(item.primaryImage.directory);
-        pushValue(item.primaryImage.imageName);
-    }
-
-    if (Array.isArray(item.dynamicBundleItems)) {
-        item.dynamicBundleItems.forEach((entry) => {
-            pushValue(entry?.EDID || entry?.edid || entry?.entmName || entry?.entm || entry?.id || entry?.itemID);
-            pushValue(entry?.szItemName || entry?.itemName || entry?.name);
-        });
-    }
-
-    return parts.join('|');
-}
-
 // Open overlay with item data
 async function openOverlay(item) {
     currentOverlayItem = item;
     
     const bundleEntries = resolveDynamicBundleItems(item);
     const bundleCarouselImages = buildBundleCarouselImages(item);
-    const cacheKey = getOverlayGalleryCacheKey(item);
 
-    if (cacheKey && overlayGalleryCache.has(cacheKey)) {
-        currentGalleryImages = overlayGalleryCache.get(cacheKey).slice();
-        currentGalleryIndex = 0;
-    } else {
-        // Start with the primary and explicit carousel images so the overlay opens immediately.
-        currentGalleryImages = [];
-        currentGalleryIndex = 0;
-
-        const initialGalleryImages = [];
-        if (item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
-            const primaryUrl = getImagePath(item.primaryImage.directory, item.primaryImage.imageName);
-            if (primaryUrl) initialGalleryImages.push(primaryUrl);
-        }
-
-        const carouselSource = bundleCarouselImages.length ? bundleCarouselImages : item.carouselImages;
-        if (Array.isArray(carouselSource)) {
-            const carouselSeen = new Set();
-            for (const carousel of carouselSource) {
-                if (carousel && carousel.imageName && carousel.directory) {
-                    const carouselUrl = getImagePath(carousel.directory, carousel.imageName);
-                    if (!carouselUrl) continue;
-                    const isPrimaryDuplicate = carouselUrl === initialGalleryImages[0];
-                    if (!carouselSeen.has(carouselUrl) && (isPrimaryDuplicate || !initialGalleryImages.includes(carouselUrl))) {
-                        initialGalleryImages.push(carouselUrl);
-                    }
-                    carouselSeen.add(carouselUrl);
-                }
-            }
-        }
-
-        currentGalleryImages = initialGalleryImages;
-    }
-
-    if (cacheKey && !overlayGalleryCache.has(cacheKey) && currentGalleryImages.length) {
-        overlayGalleryCache.set(cacheKey, currentGalleryImages.slice());
-    }
-
-    // Populate overlay content
-    currentGalleryImages = [];
+    // Detect carousel variants
+    currentGalleryImages = await detectCarouselVariants(item, bundleCarouselImages.length ? bundleCarouselImages : null);
     currentGalleryIndex = 0;
-
-    const initialGalleryImages = [];
-    if (item.primaryImage && item.primaryImage.imageName && item.primaryImage.directory) {
-        const primaryUrl = getImagePath(item.primaryImage.directory, item.primaryImage.imageName);
-        if (primaryUrl) initialGalleryImages.push(primaryUrl);
-    }
-
-    const carouselSource = bundleCarouselImages.length ? bundleCarouselImages : item.carouselImages;
-    if (Array.isArray(carouselSource)) {
-        const carouselSeen = new Set();
-        for (const carousel of carouselSource) {
-            if (carousel && carousel.imageName && carousel.directory) {
-                const carouselUrl = getImagePath(carousel.directory, carousel.imageName);
-                if (!carouselUrl) continue;
-                const isPrimaryDuplicate = carouselUrl === initialGalleryImages[0];
-                if (!carouselSeen.has(carouselUrl) && (isPrimaryDuplicate || !initialGalleryImages.includes(carouselUrl))) {
-                    initialGalleryImages.push(carouselUrl);
-                }
-                carouselSeen.add(carouselUrl);
-            }
-        }
-    }
-
-    currentGalleryImages = initialGalleryImages;
     
     // Populate overlay content
     overlayTitle.textContent = item.itemName || item.itemNameShort || item.name || 'Item';
@@ -1629,7 +1495,7 @@ if (bundleItems.length > 0) {
             <div class="db-info-row">Price:<br><code class="db-info-code">${priceDisplay}</code></div>
             <div class="db-info-row">Primary Image:<br><code class="db-info-code">${primaryImageName}</code></div>
             <div class="db-info-row">Directory:<br><code class="db-info-code">${primaryImageDir}</code></div>
-            <div class="db-info-row" id="db-carousel-count">Carousel Images:<br><code class="db-info-code">${actualCarouselCount}</code></div>
+            <div class="db-info-row">Carousel Images:<br><code class="db-info-code">${actualCarouselCount}</code></div>
             ${bundleHTML}
         `;
     }
@@ -1638,30 +1504,8 @@ if (bundleItems.length > 0) {
     renderGallery();
     
     // Show overlay
-    requestAnimationFrame(() => {
-        if (currentOverlayItem !== item) return;
-        overlay.classList.remove('hidden');
-    });
+    overlay.classList.remove('hidden');
     updateUrlForCurrentItem(item);
-
-    // Populate additional carousel variants in the background after the overlay is visible.
-    void detectCarouselVariants(item, bundleCarouselImages.length ? bundleCarouselImages : null).then((detectedImages) => {
-        if (currentOverlayItem !== item) return;
-        if (!detectedImages.length) return;
-
-        const hasNewImages = detectedImages.some((url) => !currentGalleryImages.includes(url));
-        if (hasNewImages) {
-            currentGalleryImages = detectedImages;
-            currentGalleryIndex = Math.min(currentGalleryIndex, Math.max(0, currentGalleryImages.length - 1));
-            if (cacheKey) overlayGalleryCache.set(cacheKey, currentGalleryImages.slice());
-            renderGallery();
-
-            const carouselCount = document.querySelector('#db-carousel-count .db-info-code');
-            if (carouselCount) {
-                carouselCount.textContent = String(Math.max(0, currentGalleryImages.length - 1));
-            }
-        }
-    });
 }
 
 function copyShareLink() {

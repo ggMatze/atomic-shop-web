@@ -57,10 +57,10 @@
 
       if (data.type === 'RELAY_DATA') {
         // Store relay data in local storage so it persists
-        if (data.ownedIds) {
+        if (typeof data.ownedIds === 'string') {
           writeStoredValue(STORAGE_KEY_IDS, data.ownedIds);
         }
-        if (data.favoriteIds) {
+        if (typeof data.favoriteIds === 'string') {
           writeStoredValue(FAVORITE_STORAGE_KEY, data.favoriteIds);
         }
         
