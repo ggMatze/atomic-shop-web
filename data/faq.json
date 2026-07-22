@@ -34,6 +34,12 @@
       "a": "The daily free consumables usually follow a weekly rotation, but Bethesda sometimes randomizes them (especially on Tuesdays).\nSince I update the items manually based on what's shown in-game, they can occasionally be out of sync or in a different order."
     },
     {
+      "q": "Can I track items I own in-game?",
+      "a": "Yes, you can track items you own in-game by using the *Item Tracking* feature on the Data-Base-Browser.\nClick on the checkmark or heart icon in the item tile to mark an item as owned or wished. You can also filter by these tags to view your collection.\nThe tracked item data is stored in your browser's local storage and will persist across sessions and the two websites, but it won't sync between devices or browsers.",
+      "url": "db.atomicshop.fyi",
+      "urlLabel": "Atomic Shop Data-Base-Browser"
+    },
+    {
       "q": "Why does the website show a daily offer that isn't shown in-game?",
       "a": "The daily offers on this site are based on Bethesda's official news blog, where upcoming items are listed in advance.\nOccasionally those listings can be incorrect or are missing in-game when Bethesda makes changes (this often happens also on Tuesdays), which is why you might see an offer here that isn't available in-game.",
       "url": "https://bethesda.net/en-US/news?q=atomic%2Bshop",
@@ -81,7 +87,7 @@
     },
     {
         "q": "Does this site collect personal data?",
-        "a": "*No personal data is collected* by this site. We use *localStorage* only for storing user settings, like selected currency."
+        "a": "*No personal data is collected* by this site. We use *localStorage* only for storing user settings, like selected currency or owned/wished item tracking."
     },
     {
       "q": "Do you run ads or track users?",
