@@ -177,9 +177,16 @@
     }
 
     const cookieDomain = getCookieDomain();
-    if (!cookieDomain) return;
-
-    document.cookie = `${key}=; path=/; max-age=0; SameSite=Lax; domain=${cookieDomain}`;
+    if (cookieDomain) {
+      document.cookie = `${key}=; path=/; max-age=0; SameSite=Lax; domain=${cookieDomain}`;
+    }
+    
+    // Sync clear to relay
+    if (key === STORAGE_KEY) {
+      sendToRelay({ type: 'RELAY_CLEAR_OWNED' });
+    } else if (key === FAVORITE_STORAGE_KEY) {
+      sendToRelay({ type: 'RELAY_CLEAR_FAVORITES' });
+    }
   }
 
   function normalizeTrackedId(value) {

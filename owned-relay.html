@@ -66,10 +66,32 @@
       return;
     }
     
+    // Clear owned IDs
+    if (data.type === 'RELAY_CLEAR_OWNED') {
+      try {
+        localStorage.removeItem(RELAY_STORAGE_IDS);
+        console.log('[relay] Cleared owned IDs');
+      } catch (e) {
+        console.error('[relay] localStorage clear failed', e);
+      }
+      return;
+    }
+    
     // Update favorite IDs
     if (data.type === 'RELAY_UPDATE_FAVORITES') {
       if (typeof data.favoriteIds === 'string') {
         writeData(RELAY_STORAGE_FAVORITES, data.favoriteIds);
+      }
+      return;
+    }
+    
+    // Clear favorite IDs
+    if (data.type === 'RELAY_CLEAR_FAVORITES') {
+      try {
+        localStorage.removeItem(RELAY_STORAGE_FAVORITES);
+        console.log('[relay] Cleared favorite IDs');
+      } catch (e) {
+        console.error('[relay] localStorage clear failed', e);
       }
       return;
     }
