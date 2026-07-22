@@ -34,8 +34,9 @@
     }
   }
   
-  function broadcastToAllParents(message) {
+  function broadcastToAllParents(message, excludeOrigin) {
     connectedParents.forEach((parentWindow, origin) => {
+      if (excludeOrigin === origin) return; // Don't send back to sender
       try {
         parentWindow.postMessage(message, origin);
       } catch (e) {
@@ -71,12 +72,12 @@
     if (data.type === 'RELAY_UPDATE_OWNED') {
       if (typeof data.ownedIds === 'string') {
         writeData(RELAY_STORAGE_IDS, data.ownedIds);
-        // Broadcast updated data to all other parents
+        // Broadcast updated data to all OTHER parents
         broadcastToAllParents({
           type: 'RELAY_DATA',
           ownedIds: data.ownedIds,
           favoriteIds: readData(RELAY_STORAGE_FAVORITES)
-        });
+        }, event.origin);
       }
       return;
     }
@@ -86,12 +87,12 @@
       try {
         localStorage.removeItem(RELAY_STORAGE_IDS);
         console.log('[relay] Cleared owned IDs');
-        // Broadcast cleared data to all parents
+        // Broadcast cleared data to all OTHER parents
         broadcastToAllParents({
           type: 'RELAY_DATA',
           ownedIds: '',
           favoriteIds: readData(RELAY_STORAGE_FAVORITES)
-        });
+        }, event.origin);
       } catch (e) {
         console.error('[relay] localStorage clear failed', e);
       }
@@ -102,12 +103,12 @@
     if (data.type === 'RELAY_UPDATE_FAVORITES') {
       if (typeof data.favoriteIds === 'string') {
         writeData(RELAY_STORAGE_FAVORITES, data.favoriteIds);
-        // Broadcast updated data to all other parents
+        // Broadcast updated data to all OTHER parents
         broadcastToAllParents({
           type: 'RELAY_DATA',
           ownedIds: readData(RELAY_STORAGE_IDS),
           favoriteIds: data.favoriteIds
-        });
+        }, event.origin);
       }
       return;
     }
@@ -117,12 +118,12 @@
       try {
         localStorage.removeItem(RELAY_STORAGE_FAVORITES);
         console.log('[relay] Cleared favorite IDs');
-        // Broadcast cleared data to all parents
+        // Broadcast cleared data to all OTHER parents
         broadcastToAllParents({
           type: 'RELAY_DATA',
           ownedIds: readData(RELAY_STORAGE_IDS),
           favoriteIds: ''
-        });
+        }, event.origin);
       } catch (e) {
         console.error('[relay] localStorage clear failed', e);
       }
@@ -141,16 +142,12 @@
   });
   
   // Listen for localStorage changes from storage events (when other relay iframes on same origin update storage)
+  // Note: We don't need to broadcast here since we already do explicit broadcasts in message handlers
   window.addEventListener('storage', (event) => {
     if (event.key === RELAY_STORAGE_IDS || event.key === RELAY_STORAGE_FAVORITES) {
       console.log('[relay] Storage event detected for', event.key, 'new length:', event.newValue ? event.newValue.length : 0);
-      
-      // Notify all connected parents about the storage change
-      broadcastToAllParents({
-        type: 'RELAY_DATA',
-        ownedIds: readData(RELAY_STORAGE_IDS),
-        favoriteIds: readData(RELAY_STORAGE_FAVORITES)
-      });
+      // Storage events indicate the data changed in another relay instance (another parent window)
+      // The other relay has already broadcasted the change, so we don't need to do anything
     }
   });
   
