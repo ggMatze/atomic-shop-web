@@ -272,6 +272,7 @@ function getItemCategories(item) {
         'Foundations': ['_foundation_'],
         'Floors': ['_floor_'],
         'Utility': ['_camp_utility_'],
+        'P2W': ['SCORE_COEN_','atx_entm_bndl_fallout_1st_weekly_consumable_bundle'],
         'Beds': ['_bed_'],
         'Misc': ['_account_'],
         '\u200BCut Content': ['zzz', 'reuse','armorskin_wood_nw','_armorskin_metal_nw','_armorskin_marine_nw','_armorskin_scout_nw',
@@ -748,27 +749,33 @@ function hasDynamicBundleContents(item) {
     return !!item && Array.isArray(item.dynamicBundleItems) && item.dynamicBundleItems.length > 0;
 }
 
+function normalizeReferenceValue(value) {
+    if (value === null || value === undefined) return '';
+    return String(value).trim().toLowerCase();
+}
+
 function itemMatchesReference(item, candidate) {
     if (!item || !candidate) return false;
+    if (item === candidate) return true;
 
-    const itemEdid = (item.EDID || '').trim().toLowerCase();
-    const itemName = (item.itemName || item.name || '').trim().toLowerCase();
-    const itemShortName = (item.itemNameShort || '').trim().toLowerCase();
+    const itemEdid = normalizeReferenceValue(item.EDID || item.edid || item.id || item.entmName || item.entm || item.itemID);
+    const candidateEdid = normalizeReferenceValue(candidate.EDID || candidate.edid || candidate.id || candidate.entmName || candidate.entm || candidate.itemID);
 
-    const candidateEdid = (candidate.EDID || '').trim().toLowerCase();
-    const candidateName = (candidate.itemName || candidate.name || '').trim().toLowerCase();
-    const candidateShortName = (candidate.itemNameShort || '').trim().toLowerCase();
+    if (itemEdid && candidateEdid) {
+        return itemEdid === candidateEdid;
+    }
 
-    return item === candidate ||
-        itemEdid === candidateEdid ||
-        itemEdid === candidateName ||
-        itemEdid === candidateShortName ||
-        itemName === candidateEdid ||
-        itemName === candidateName ||
-        itemName === candidateShortName ||
-        itemShortName === candidateEdid ||
-        itemShortName === candidateName ||
-        itemShortName === candidateShortName;
+    if (!itemEdid && !candidateEdid) {
+        const itemName = normalizeReferenceValue(item.itemName || item.name || item.resolvedName || item.oldName);
+        const candidateName = normalizeReferenceValue(candidate.itemName || candidate.name || candidate.resolvedName || candidate.oldName);
+        const itemShortName = normalizeReferenceValue(item.itemNameShort || item.resolvedShortName || item.shortName);
+        const candidateShortName = normalizeReferenceValue(candidate.itemNameShort || candidate.resolvedShortName || candidate.shortName);
+
+        return (itemName && candidateName && itemName === candidateName) ||
+            (itemShortName && candidateShortName && itemShortName === candidateShortName);
+    }
+
+    return false;
 }
 
 function entryMatchesItem(entry, item) {
@@ -776,24 +783,24 @@ function entryMatchesItem(entry, item) {
 
     if (entry.record && itemMatchesReference(item, entry.record)) return true;
 
-    const entryId = (entry.id || entry.EDID || entry.edid || entry.entmName || entry.entm || entry.itemID || '').toString().trim().toLowerCase();
-    const entryName = (entry.resolvedName || entry.oldName || entry.name || entry.itemName || '').toString().trim().toLowerCase();
-    const entryShortName = (entry.resolvedShortName || '').toString().trim().toLowerCase();
+    const entryId = normalizeReferenceValue(entry.id || entry.EDID || entry.edid || entry.entmName || entry.entm || entry.itemID);
+    const entryName = normalizeReferenceValue(entry.resolvedName || entry.oldName || entry.name || entry.itemName);
+    const entryShortName = normalizeReferenceValue(entry.resolvedShortName || entry.shortName);
 
-    const itemEdid = (item.EDID || '').trim().toLowerCase();
-    const itemName = (item.itemName || item.name || '').trim().toLowerCase();
-    const itemShortName = (item.itemNameShort || '').trim().toLowerCase();
+    const itemEdid = normalizeReferenceValue(item.EDID || item.edid || item.id || item.entmName || item.entm || item.itemID);
+    const itemName = normalizeReferenceValue(item.itemName || item.name || item.resolvedName || item.oldName);
+    const itemShortName = normalizeReferenceValue(item.itemNameShort || item.resolvedShortName || item.shortName);
 
-    return itemMatchesReference(item, { EDID: entryId, itemName: entryName, itemNameShort: entryShortName }) ||
-        itemEdid === entryId ||
-        itemName === entryId ||
-        itemShortName === entryId ||
-        itemEdid === entryName ||
-        itemName === entryName ||
-        itemShortName === entryName ||
-        itemEdid === entryShortName ||
-        itemName === entryShortName ||
-        itemShortName === entryShortName;
+    if (entryId && itemEdid) {
+        return entryId === itemEdid;
+    }
+
+    if (!entryId && !itemEdid) {
+        return (entryName && itemName && entryName === itemName) ||
+            (entryShortName && itemShortName && entryShortName === itemShortName);
+    }
+
+    return false;
 }
 
 function getBundleContentsMatches(item, candidates) {
