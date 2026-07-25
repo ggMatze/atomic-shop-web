@@ -129,8 +129,12 @@
 
 <!-- News button: shows if there is current news (hidden when no news or when the notice is open) -->
 <!-- <button hidden id="wishlist-btn" title="Wishlist">&nbsp;</button> -->
-<button id="news-btn" title="News">&nbsp;</button>
-<button id="go-database" title="Browse the database">&nbsp;</button>
+<div class="news-container">
+  <button id="news-btn" title="News">&nbsp;</button><span id="news-label" class="news-badge">Open News</span>
+</div>
+<div class="database-container">
+  <button id="go-database" title="Browse the database">&nbsp;</button><span id="db-label" >Browse Data</span>
+</div>
 
 <!-- Timestamps are now loaded from data/config.json by configLoader.js -->
 </div>

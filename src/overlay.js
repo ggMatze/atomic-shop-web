@@ -55,10 +55,12 @@ function _getNewsDismissEntry(newsId) {
 
 function _updateNewsButtonVisibility(news, noticeEl) {
   const btn = document.getElementById('news-btn');
+  const label = document.getElementById('news-label');
   if (!btn) return;
   // hide when no news, or when notice is visible
   if (!news || (noticeEl && !noticeEl.classList.contains('hidden'))) {
     btn.style.display = 'none';
+    if (label) label.style.display = 'none';
     // clear styling state
     btn.classList.remove('news-dismissed-permanent', 'news-dismissed-ttl');
     btn.removeAttribute('data-news-dismiss');
@@ -68,6 +70,7 @@ function _updateNewsButtonVisibility(news, noticeEl) {
 
   // show the button so the user can re-open dismissed/visible news
   btn.style.display = '';
+  if (label) label.style.display = '';
 
   // Update appearance based on dismissal state (permanent or temporary)
   try {

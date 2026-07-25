@@ -604,6 +604,40 @@ filter: saturate(0.5);
 #news-btn:hover::before, #go-database:hover::before, #wishlist-btn:hover::before {
   background: radial-gradient(circle, #f5f4ad 20%, #ebc458 60%, #ebc458 100%);
 }
+
+.database-container, .news-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+#go-database, #news-btn {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#db-label, #news-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: "roboto condensed";
+  text-shadow: 1px 1px 2px #000;
+  color: #e4cd89;
+  font-weight: 400;
+  font-size: 1.1em;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+#db-label::before, #news-label::before{
+  content: '-⠀';
+}
+
 #news-btn::after {
   content: '\1F514\FE0E';
   
