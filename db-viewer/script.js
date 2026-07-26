@@ -9,6 +9,10 @@ const resultsContainer = document.getElementById('results');
 const statsText = document.getElementById('statsText');
 const errorContainer = document.getElementById('errorContainer');
 
+const keywordLabelOverrides = {
+    'Support Item List': 'Support Item List'
+};
+
 //fetching json
  fetch('/data/edidkeywords.json')
   .then(res => res.json())
@@ -1185,6 +1189,34 @@ function escapeAttr(s) {
     return String(s).replace(/"/g, '&quot;');
 }
 
+function getMatchingKeywordLabel(item) {
+    if (!item || !item.EDID) return '';
+
+    const edid = String(item.EDID).toLowerCase();
+
+    for (const [category, keywords] of Object.entries(externalEdidKeywords)) {
+        if (!Array.isArray(keywords)) continue;
+        const matches = keywords.some(keyword => String(keyword).toLowerCase() === edid);
+        if (!matches) continue;
+
+        return 'Available for purchase via Bethesda\'s support.';
+    }
+
+    return '';
+}
+
+function buildKeywordLabelMarkup(item) {
+    const label = getMatchingKeywordLabel(item);
+    if (!label) return '';
+    return `<div class="overlay-keyword-label">${escapeAttr(label)}</div>`;
+}
+
+function buildTileKeywordMarkup(item) {
+    const label = getMatchingKeywordLabel(item);
+    if (!label) return '';
+    return 'supportlist';
+}
+
 function matchesItemCondition(item, condition) {
     if (!condition) return false;
     const [rawKey, ...rawValueParts] = condition.split(':');
@@ -1257,6 +1289,7 @@ let currentGalleryIndex = 0;
 
 const overlay = document.getElementById('item-overlay');
 const overlayTitle = document.querySelector('.overlay-title');
+const overlayKeywordTags = document.getElementById('overlay-keyword-tags');
 const overlayDescription = document.querySelector('.overlay-description');
 const overlayDisclaimer = document.querySelector('.overlay-disclaimer');
 const overlayDbInfo = document.getElementById('overlay-db-info');
@@ -1564,6 +1597,9 @@ async function openOverlay(item) {
     currentGalleryImages = initialGalleryImages;
     
     // Populate overlay content
+    if (overlayKeywordTags) {
+        overlayKeywordTags.innerHTML = buildKeywordLabelMarkup(item);
+    }
     overlayTitle.textContent = item.itemName || item.itemNameShort || item.name || 'Item';
     
     // Parse and display description
@@ -1789,6 +1825,9 @@ function closeOverlay() {
     currentOverlayItem = null;
     currentGalleryImages = [];
     currentGalleryIndex = 0;
+    if (overlayKeywordTags) {
+        overlayKeywordTags.innerHTML = '';
+    }
     removeItemParamFromUrl();
 }
 
@@ -1898,6 +1937,7 @@ function createItemCard(item) {
             : '';
 
     const badgeHTML = getItemBadges(item);
+    const tileKeywordClass = buildTileKeywordMarkup(item);
 
     // Store item data for later access
     if (item.EDID) {
@@ -1911,7 +1951,7 @@ function createItemCard(item) {
     const bundleCount = item.dynamicBundleItems.length;
 
     return `
-        <div class="shop-tile small" style="cursor: pointer; position: relative;" data-item-edid="${item.EDID || ''}">
+        <div class="shop-tile small ${tileKeywordClass}" style="cursor: pointer; position: relative;" data-item-edid="${item.EDID || ''}" data-keyword-label="${escapeAttr(getMatchingKeywordLabel(item))}">
             ${badgeHTML ? `<div class="tile-badge-container">${badgeHTML}</div>` : ''}
 
             <div class="tile-img" style="width: 100%; height: 100%;">

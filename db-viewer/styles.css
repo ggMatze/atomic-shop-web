@@ -664,6 +664,29 @@ font-size: 1.2em;
     font-size: 25px;
 }
 
+.overlay-keyword-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 0 8px 0;
+}
+
+.overlay-keyword-label {
+    display: inline-block;
+    color: #b6ae81;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 0;
+    letter-spacing: 0.02em;
+    position: relative;
+    top: 75px;
+}
+
+.shop-tile.supportlist {
+    box-shadow: 0 0 0 2px#b6ae81a8;
+}
+
 .tile-badge-container {
     position: absolute;
     top: 3px;
@@ -814,14 +837,17 @@ text-align: center;
 }
 
 /* ===== OVERLAY STYLING OVERRIDES FOR DB-VIEWER ===== */
-
+.overlay-title{
+        margin-bottom: 40px;
+        margin-top: 20px;
+}
 .overlay-db-info {
     position: absolute;
     top: 75px;
     left: -2px;
     width: 490px;
     min-height: 50px;
-    max-height: 500px;
+    max-height: 470px;
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -899,12 +925,15 @@ text-align: center;
     width: 100vw !important;
     max-width: 100vw !important;
     padding: 20px !important;
+    top: 0px !important;
+    height: 100vh !important;
     margin-left: calc(-50vw + 50%) !important;
 }
 
 .overlay-includes {
     width: 90% !important;
     max-width: 100% !important;
+    height: 119px !important;
 }
 /* Override inline max-width constraints on flex containers */
 .overlay-content div[style*="flex"] {
@@ -963,7 +992,24 @@ text-align: center;
   position: absolute;
   transform: translate(-50%, -50%);
 }
+#ufas-label{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: "roboto condensed";
+  text-shadow: 1px 1px 2px #000;
+  color: #e4cd89;
+  font-weight: 400;
+  font-size: 1.1em;
+  line-height: 1;
+  vertical-align: middle;
+}
 
+
+
+#ufas-label::after{
+  content: '⠀-';
+}
 #scrollTopBtn {
     display: none;
     cursor: pointer;
