@@ -44,7 +44,7 @@ const filterGroups = {
     'Photo Mode': [ 'Frames', 'Pose', 'Vanity Lights'],
     'Seasons': ['Season 1', 'Season 2', 'Season 3', 'Season 4', 'Season 5', 'Season 6', 'Season 7', 'Season 8', 'Season 9', 'Season 10', 'Season 11', 'Season 12', 'Season 13', 'Season 14', 'Season 15', 'Season 16', 'Season 17', 'Season 18', 'Season 19', 'Season 20', 'Season 21', 'Season 22', 'Season 23', 'Season 24', 'Season 25'],
     'Mini Seasons': ['Appalachian Outlaws', 'Marvelous Fishing Excursion', 'Night at the Morgue', 'Weapons Expert Extraordinaire', 'Sunset Stranger', 'Love Hurts', 'Sock Hop' ],
-    'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundle', '\u200BCut Content','Misc','Bobbers', 'Support Item List','P2W', 'No Image'],
+    'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundles', 'Sets', '\u200BCut Content','Misc','Bobbers', 'Support Item List','P2W', 'No Image'],
     'My Items': ['Owned', 'Favorites/Wished'],
 };
 
@@ -278,7 +278,8 @@ function getItemCategories(item) {
         '\u200BCut Content': ['zzz', 'reuse','armorskin_wood_nw','_armorskin_metal_nw','_armorskin_marine_nw','_armorskin_scout_nw',
                             '_outfit_nukagirloutfit_'
         ],
-        'Bundle': ['_bndl_', '_bundle_', '_bundle'],
+        'Bundles': ['_bndl_', '_bundle_', '_bundle','FlagWaving_PrideAssortment'],
+        'Sets': ['entm_set_'],
         'Vanity Lights': ['_vanitylight_'],
         'Frames': ['_photomode_frame_'],
         'Player Icons': ['_playericon_'],
