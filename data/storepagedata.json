@@ -55,41 +55,12 @@
               "amount": 1600,
               "ltoTimer": "2026-08-18T12:00:00.000Z"
             },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_collector_teawizard_l.dds",
-                "directory": "/textures/atx/storefront/camp/utility/"
-              },
-              {
-                "imageName": "atx_skin_backpackflair_teacup_l.dds",
-                "directory": "/textures/atx/storefront/player/flair/"
-              },
-              {
-                "imageName": "atx_camp_displaycase_placesetting_l.dds",
-                "directory": "/textures/atx/storefront/camp/displays/"
-              },
-              {
-                "imageName": "atx_camp_walldecor_pendulumclock.dds",
-                "directory": "/textures/atx/storefront/camp/walldecoration/"
-              },
-              {
-                "imageName": "atx_camp_wallpaper_blossoms.dds",
-                "directory": "/textures/atx/storefront/camp/wallpaper/"
-              },
-              {
-                "imageName": "atx_apparel_headwear_monocle_l.dds",
-                "directory": "/textures/atx/storefront/player/headwear/"
-              },
-              {
-                "imageName": "atx_playertitles_prefix_flipped.webp",
-                "directory": "/textures/atx/storefront/player/playertitles/"
-              }
-            ],
+            "carouselImages": [],
             "primaryImage": {
               "imageName": "3a161c9f389d4fa4e56dfc43cc679787.dds",
               "directory": "/textures/atomic_shop_media/"
             },
-            "itemDesc": "Ever wanted to host a fancy party in your C.A.M.P.? Now you can! Pinky up!\n\n- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "Ever wanted to host a fancy party in your C.A.M.P.? Now you can! Pinky up!\n\n- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\nPRODUCES:\n[url=https://db.atomicshop.fyi/?item=3923f9]✦ Luck Leaf Tea     [/url] (every time an Event starts)\n\n[h]*This Bundle contains some previously released items.[/h]",
             "itemNameShort": "Tea Party",
             "itemName": "Tea Party Bundle",
             "itemID": 2594773,
@@ -101,8 +72,8 @@
           {
             "dynamicBundleItems": [
               {
-                "szItemName": "Blue Ridge Beer Keg Set",
-                "entmName": "SCORE_S18_ENTM_CAMP_Utility_BlueRidgeBeerKeg"
+                "szItemName": "Barn",
+                "entmName": "SCORE_S18_ENTM_CAMP_Structure_Barn"
               },
               {
                 "szItemName": "Radhog",
@@ -113,12 +84,8 @@
                 "entmName": "SCORE_S16_ENTM_CAMP_Lights_FloorLamps_TikiTorch"
               },
               {
-                "szItemName": "Summer Shorts",
-                "entmName": "ATX_ENTM_Apparel_Outfit_SummerShorts"
-              },
-              {
-                "szItemName": "Barn",
-                "entmName": "SCORE_S18_ENTM_CAMP_Structure_Barn"
+                "szItemName": "Blue Ridge Beer Keg Set",
+                "entmName": "SCORE_S18_ENTM_CAMP_Utility_BlueRidgeBeerKeg"
               },
               {
                 "szItemName": "Bottle Clutter Set #2",
@@ -129,12 +96,16 @@
                 "entmName": "SCORE_S21_ENTM_CAMP_FloorDecor_BottleClutter01"
               },
               {
+                "szItemName": "Drum Set",
+                "entmName": "ATX_ENTM_CAMP_Furniture_Instrument_DrumSet"
+              },
+              {
                 "szItemName": "Laundered Blue Dress",
                 "entmName": "ATX_ENTM_Apparel_Outfit_PrewarHouseDress_Blue_Clean"
               },
               {
-                "szItemName": "Drum Set",
-                "entmName": "ATX_ENTM_CAMP_Furniture_Instrument_DrumSet"
+                "szItemName": "Summer Shorts",
+                "entmName": "ATX_ENTM_Apparel_Outfit_SummerShorts"
               }
             ],
             "highPrice": {
@@ -156,7 +127,7 @@
               "imageName": "374643558610aa5628d50dc85745fa20.dds",
               "directory": "/textures/atomic_shop_media/"
             },
-            "itemDesc": "Get ready for the best party this side of the county line!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemDesc": "Get ready for the best party this side of the county line!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains some previously released items.[/h]",
             "itemNameShort": "Party Animal",
             "itemName": "Party Animal Bundle",
             "itemID": 2594774,
@@ -184,12 +155,16 @@
                 "entmName": "ATX_ENTM_CAMP_FloorDecor_BloodSkullBottle"
               },
               {
-                "szItemName": "Written in Blood Billboard",
-                "entmName": "ATX_ENTM_CAMP_Sign_Billboard_Shop_01"
+                "szItemName": "Plasma Skull Bottle",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_PlasmaSkullBottle"
               },
               {
                 "szItemName": "Bile Skull Bottle",
                 "entmName": "ATX_ENTM_CAMP_FloorDecor_BileSkullBottle"
+              },
+              {
+                "szItemName": "Written in Blood Billboard",
+                "entmName": "ATX_ENTM_CAMP_Sign_Billboard_Shop_01"
               },
               {
                 "szItemName": "Goo Letter Kit Set",
@@ -198,10 +173,6 @@
               {
                 "szItemName": "Goo Splatter",
                 "entmName": "SCORE_S20_ENTM_CAMP_WallDecor_GooSplatter"
-              },
-              {
-                "szItemName": "Plasma Skull Bottle",
-                "entmName": "ATX_ENTM_CAMP_FloorDecor_PlasmaSkullBottle"
               }
             ],
             "highPrice": {
@@ -223,7 +194,7 @@
               "imageName": "ebec7407304531ad9457a91916fc03d3.dds",
               "directory": "/textures/atomic_shop_media/"
             },
-            "itemDesc": "Everything you need to make your gooey, sticky mark on the world.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemDesc": "Everything you need to make your gooey, sticky mark on the world.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains previously released items, bundled as \"NEW\".[/h]",
             "itemNameShort": "Smile for Slime",
             "itemName": "Smile for Slime Bundle",
             "itemID": 2594775,
