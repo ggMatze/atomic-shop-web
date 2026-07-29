@@ -58,6 +58,7 @@
       "imageName": "atx_camp_collector_teawizard_l.webp",
       "directory": "/textures/atx/storefront/camp/utility/"
     },
+    "highPriceOriginal": 700,
     "carouselImages": []
   },
   {
@@ -107,6 +108,154 @@
       "directory": "/textures/atx/storefront/player/playertitles/"
     },
     "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_PARTY_ANIMAL_BUNDLE",
+    "desc": "Get ready for the best party this side of the county line!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Party Animal Bundle",
+    "primaryImage": {
+      "imageName": "374643558610aa5628d50dc85745fa20.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1900,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Blue Ridge Beer Keg Set",
+        "entmName": "SCORE_S18_ENTM_CAMP_Utility_BlueRidgeBeerKeg"
+      },
+      {
+        "szItemName": "Radhog",
+        "entmName": "ATX_ENTM_CAMP_CAMPPets_RadHog_Standard"
+      },
+      {
+        "szItemName": "Tiki Torches",
+        "entmName": "SCORE_S16_ENTM_CAMP_Lights_FloorLamps_TikiTorch"
+      },
+      {
+        "szItemName": "Summer Shorts",
+        "entmName": "ATX_ENTM_Apparel_Outfit_SummerShorts"
+      },
+      {
+        "szItemName": "Barn",
+        "entmName": "SCORE_S18_ENTM_CAMP_Structure_Barn"
+      },
+      {
+        "szItemName": "Bottle Clutter Set #2",
+        "entmName": "SCORE_S21_ENTM_CAMP_FloorDecor_BottleClutter02"
+      },
+      {
+        "szItemName": "Bottle Clutter Set #1",
+        "entmName": "SCORE_S21_ENTM_CAMP_FloorDecor_BottleClutter01"
+      },
+      {
+        "szItemName": "Laundered Blue Dress",
+        "entmName": "ATX_ENTM_Apparel_Outfit_PrewarHouseDress_Blue_Clean"
+      },
+      {
+        "szItemName": "Drum Set",
+        "entmName": "ATX_ENTM_CAMP_Furniture_Instrument_DrumSet"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_SMILE_FOR_SLIME_BUNDLE",
+    "desc": "Everything you need to make your gooey, sticky mark on the world.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Smile for Slime Bundle",
+    "primaryImage": {
+      "imageName": "ebec7407304531ad9457a91916fc03d3.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Yellow Vault-Tec Hazmat Suit",
+        "entmName": "SCORE_S20_ENTM_Apparel_Outfit_VaultTecYellow_HazmatSuit"
+      },
+      {
+        "szItemName": "Dissection Kit",
+        "entmName": "SCORE_S17_ENTM_CAMP_FloorDecor_DissectionKit"
+      },
+      {
+        "szItemName": "Radioac-table",
+        "entmName": "SCORE_S20_ENTM_CAMP_Furniture_Table_NuclearBarrelTable"
+      },
+      {
+        "szItemName": "Blood Skull Bottle",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_BloodSkullBottle"
+      },
+      {
+        "szItemName": "Written in Blood Billboard",
+        "entmName": "ATX_ENTM_CAMP_Sign_Billboard_Shop_01"
+      },
+      {
+        "szItemName": "Bile Skull Bottle",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_BileSkullBottle"
+      },
+      {
+        "szItemName": "Goo Letter Kit Set",
+        "entmName": "SCORE_S21_ENTM_CAMP_WallDecor_LetterKit_GooLetters"
+      },
+      {
+        "szItemName": "Goo Splatter",
+        "entmName": "SCORE_S20_ENTM_CAMP_WallDecor_GooSplatter"
+      },
+      {
+        "szItemName": "Plasma Skull Bottle",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_PlasmaSkullBottle"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_TEA_PARTY_BUNDLE",
+    "desc": "Ever wanted to host a fancy party in your C.A.M.P.? Now you can! Pinky up!",
+    "disclaimer": "- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Tea Party Bundle",
+    "primaryImage": {
+      "imageName": "3a161c9f389d4fa4e56dfc43cc679787.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1600,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Blossoms Wallpaper",
+        "entmName": "ATX_ENTM_CAMP_WallPaper_Blossoms"
+      },
+      {
+        "szItemName": "✦ Tea Wizard",
+        "entmName": "ATX_ENTM_CAMP_Collector_TeaWizard"
+      },
+      {
+        "szItemName": "Modern Wall Clock",
+        "entmName": "ATX_ENTM_CAMP_WallDecor_PendulumClock"
+      },
+      {
+        "szItemName": "Teacup Backpack Flair",
+        "entmName": "ATX_ENTM_Skin_BackpackFlair_TeaCup"
+      },
+      {
+        "szItemName": "Place Setting",
+        "entmName": "ATX_ENTM_CAMP_DisplayCase_PlaceSetting"
+      },
+      {
+        "szItemName": "Monocle",
+        "entmName": "ATX_ENTM_Apparel_Headwear_Monocle"
+      },
+      {
+        "szItemName": "\"Flipped\" Player Title Prefix",
+        "entmName": "atx_entm_playertitles_prefix_flipped"
+      }
+    ]
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponSkin_PowerFist_OffTheRecord",
@@ -489,7 +638,8 @@
       "imageName": "atx_camp_walldecor_pendulumclock.webp",
       "directory": "/textures/atx/storefront/camp/walldecoration/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_Reaper",
@@ -537,7 +687,8 @@
       "imageName": "atx_camp_displaycase_placesetting_l.webp",
       "directory": "/textures/atx/storefront/camp/displays/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_CAMP_FloorDecor_Lonecycle",
@@ -637,27 +788,33 @@
     "dynamicBundleItems": [
       {
         "szItemName": "Destroyed Highway Kit",
-        "EDID": "atx_entm_camp_floordecor_destroyedhighwaykit"
+        "EDID": "atx_entm_camp_floordecor_destroyedhighwaykit",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_DestroyedHighwayKit"
       },
       {
         "szItemName": "Offroad Vehicle",
-        "EDID": "atx_entm_camp_floordecor_offroadvehicle_offroadvehicle"
+        "EDID": "atx_entm_camp_floordecor_offroadvehicle_offroadvehicle",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_OffroadVehicle_OffroadVehicle"
       },
       {
         "szItemName": "Rusty Wrench on a Chain Flair",
-        "EDID": "score_s10_entm_skin_backpackflair_rusty_wrench"
+        "EDID": "score_s10_entm_skin_backpackflair_rusty_wrench",
+        "entmName": "SCORE_S10_ENTM_Skin_BackpackFlair_Rusty_Wrench"
       },
       {
         "szItemName": "Stop Sign Paint",
-        "EDID": "score_s18_entm_skin_weaponskin_stopsign"
+        "EDID": "score_s18_entm_skin_weaponskin_stopsign",
+        "entmName": "SCORE_S18_ENTM_Skin_WeaponSkin_StopSign"
       },
       {
         "szItemName": "American Trucker Cap",
-        "EDID": "atx_entm_apparel_headwear_truckerhat_americanflag"
+        "EDID": "atx_entm_apparel_headwear_truckerhat_americanflag",
+        "entmName": "ATX_ENTM_Apparel_Headwear_TruckerHat_AmericanFlag"
       },
       {
         "szItemName": "White German Shepherd",
-        "EDID": "score_s19_entm_camp_camppets_dog_whitegermanshepherd"
+        "EDID": "score_s19_entm_camp_camppets_dog_whitegermanshepherd",
+        "entmName": "score_s19_entm_camp_camppets_dog_whitegermanshepherd"
       }
     ]
   },
@@ -678,35 +835,43 @@
     "dynamicBundleItems": [
       {
         "szItemName": "Grass Roof Kit",
-        "EDID": "score_s16_entm_camp_kit_grassroofkit"
+        "EDID": "score_s16_entm_camp_kit_grassroofkit",
+        "entmName": "zzzSCORE_S24_ENTM_CAMP_Kit_RoofKit"
       },
       {
         "szItemName": "Daffodil Arrangement",
-        "EDID": "atx_entm_camp_floordecor_planter_flowers_daffodils"
+        "EDID": "atx_entm_camp_floordecor_planter_flowers_daffodils",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_Planter_Flowers_Daffodils"
       },
       {
         "szItemName": "Vault Boy Lawn Gnome",
-        "EDID": "atx_entm_camp_floordecor_vaultboylawngnome"
+        "EDID": "atx_entm_camp_floordecor_vaultboylawngnome",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_VaultBoyLawnGnome"
       },
       {
         "szItemName": "Vined Garden Archway",
-        "EDID": "score_s17_entm_camp_floordecor_gardenarchway_vines"
+        "EDID": "score_s17_entm_camp_floordecor_gardenarchway_vines",
+        "entmName": "SCORE_S17_ENTM_CAMP_FloorDecor_GardenArchway_Vines"
       },
       {
         "szItemName": "Death Ray Bug Zapper",
-        "EDID": "atx_entm_camp_lights_bugzapper_deathray"
+        "EDID": "atx_entm_camp_lights_bugzapper_deathray",
+        "entmName": "ATX_ENTM_CAMP_Lights_Bugzapper_Deathray"
       },
       {
         "szItemName": "Red Cedar Hedges",
-        "EDID": "atx_entm_camp_defense_fence_redcedarhedges"
+        "EDID": "atx_entm_camp_defense_fence_redcedarhedges",
+        "entmName": "ATX_ENTM_CAMP_Defense_Fence_RedCedarHedges"
       },
       {
         "szItemName": "Picnic Basket Stashbox",
-        "EDID": "score_s17_entm_camp_stashbox_picnicbasket"
+        "EDID": "score_s17_entm_camp_stashbox_picnicbasket",
+        "entmName": "SCORE_S17_ENTM_CAMP_Stashbox_PicnicBasket"
       },
       {
         "szItemName": "Tulip Arrangement",
-        "EDID": "atx_entm_camp_floordecor_planter_flowers_tulips"
+        "EDID": "atx_entm_camp_floordecor_planter_flowers_tulips",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_Planter_Flowers_Tulips"
       }
     ]
   },
@@ -727,23 +892,28 @@
     "dynamicBundleItems": [
       {
         "szItemName": "Weed Killer Auto Axe Paint",
-        "EDID": "atx_entm_skin_weaponskin_autoaxe_weedkiller"
+        "EDID": "atx_entm_skin_weaponskin_autoaxe_weedkiller",
+        "entmName": "ATX_ENTM_Skin_WeaponSkin_AutoAxe_WeedKiller"
       },
       {
         "szItemName": "Reaper Power Armor Paint",
-        "EDID": "atx_entm_skin_powerarmor_paint_reaper"
+        "EDID": "atx_entm_skin_powerarmor_paint_reaper",
+        "entmName": "ATX_ENTM_Skin_PowerArmor_Paint_Reaper"
       },
       {
         "szItemName": "Grunt Greenery (x3)",
-        "EDID": "atx_entm_camp_floordecor_gruntgreenery"
+        "EDID": "atx_entm_camp_floordecor_gruntgreenery",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_GruntGreenery"
       },
       {
         "szItemName": "Fishing Rod Bramble Bobber Mod",
-        "EDID": "atx_entm_weapons_fishing_mod_fishingrod_weapon_rodbobber_bramblebobber"
+        "EDID": "atx_entm_weapons_fishing_mod_fishingrod_weapon_rodbobber_bramblebobber",
+        "entmName": "ATX_ENTM_Weapons_Fishing_mod_FishingRod_Weapon_RodBobber_BrambleBobber"
       },
       {
         "szItemName": "\"Overgrown\" Player Title Prefix",
-        "EDID": "atx_entm_playertitles_prefix_overgrown"
+        "EDID": "atx_entm_playertitles_prefix_overgrown",
+        "entmName": "ATX_ENTM_PlayerTitles_Prefix_Overgrown"
       }
     ]
   },
@@ -11928,7 +12098,8 @@
     },
     "carouselImages": [],
     "itemName": "Yellow Vault-Tec Hazmat Suit",
-    "itemNameShort": "Yellow Vault-Tec Hazmat Suit"
+    "itemNameShort": "Yellow Vault-Tec Hazmat Suit",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S20_ENTM_Apparel_Headwear_NoseyGlasses",
@@ -12312,7 +12483,8 @@
     },
     "carouselImages": [],
     "itemName": "Saddlebag Backpack",
-    "itemNameShort": "Saddlebag Backpack"
+    "itemNameShort": "Saddlebag Backpack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_SummoningCircle",
@@ -16684,9 +16856,10 @@
     "desc": "Do you love Easter bunnies? Because this one loves you! Place this adorable Easter Rabbit Plushie in your C.A.M.P.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
     "primaryImage": {
-      "imageName": "atx_camp_floordecor_plushie_rabbit_l.webp",
-      "directory": "/textures/atx/storefront/camp/floordecoration/"
+      "imageName": "dev_atx_camp_floordecor_easterrabbitplush.webp",
+      "directory": "/textures/atomic_shop_media/"
     },
+    "cBadge": "cut",
     "carouselImages": [],
     "itemName": "Easter Rabbit Plushie",
     "itemNameShort": "Easter Rabbit Plushie"
@@ -36658,7 +36831,8 @@
     },
     "carouselImages": [],
     "itemName": "Rabbit Plushie",
-    "itemNameShort": "Rabbit Plushie"
+    "itemNameShort": "Rabbit Plushie",
+    "highPriceOriginal": 200
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_NukashineBeerHat_Flag",
@@ -36700,38 +36874,38 @@
     "itemNameShort": "Modern Sales Billboard"
   },
   {
-  "EDID": "ATX_ENTM_SET_CAMP_Sign_Shop_Billboards",
-  "desc": "Let the world know you've got a a great sale with these Shop Billboards!",
-  "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-  "customdesc": "",
-  "customdisclaimer": "",
-  "itemName": "Shop Billboard Set",
-  "itemNameShort": "Shop Billboards",
-  "primaryImage": {
-    "imageName": "dev_atx_set_camp_billboards.webp",
-    "directory": "/textures/atomic_shop_media/"
-  },
-  "carouselImages": [],
-  "highPriceOriginal": 500,
-  "cBadge": "Set",
-  "dynamicBundleItems": [
-    {
-      "szItemName": "Clean Solid Billboard",
-      "entmName": "ATX_ENTM_CAMP_Sign_BillboardSm01"
+    "EDID": "ATX_ENTM_SET_CAMP_Sign_Shop_Billboards",
+    "desc": "Let the world know you've got a a great sale with these Shop Billboards!",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Shop Billboard Set",
+    "itemNameShort": "Shop Billboards",
+    "primaryImage": {
+      "imageName": "dev_atx_set_camp_billboards.webp",
+      "directory": "/textures/atomic_shop_media/"
     },
-    {
-      "szItemName": "(Probably) Trustworthy Billboard",
-      "entmName": "ATX_ENTM_CAMP_Sign_Billboard_Shop_04"
-    },
-    {
-      "szItemName": "Written in Blood Billboard",
-      "entmName": "ATX_ENTM_CAMP_Sign_Billboard_Shop_01"
-    },
-    {
-      "szItemName": "Rustic Sales Billboard",
-      "entmName": "ATX_ENTM_CAMP_Sign_Billboard_Shop_03"
-    }
-  ]
+    "carouselImages": [],
+    "highPriceOriginal": 500,
+    "cBadge": "Set",
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Clean Solid Billboard",
+        "entmName": "ATX_ENTM_CAMP_Sign_BillboardSm01"
+      },
+      {
+        "szItemName": "(Probably) Trustworthy Billboard",
+        "entmName": "ATX_ENTM_CAMP_Sign_Billboard_Shop_04"
+      },
+      {
+        "szItemName": "Written in Blood Billboard",
+        "entmName": "ATX_ENTM_CAMP_Sign_Billboard_Shop_01"
+      },
+      {
+        "szItemName": "Rustic Sales Billboard",
+        "entmName": "ATX_ENTM_CAMP_Sign_Billboard_Shop_03"
+      }
+    ]
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_CarnivorousPlant",
@@ -39008,29 +39182,29 @@
     "itemNameShort": "West Virginia Rooftop Billboard"
   },
   {
-  "EDID": "ATX_ENTM_SET_CAMP_Lights_WV_NeonBillboards",
-  "desc": "Keep West Virginia wild and wonderful with these Neon Billboards.",
-  "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-  "customdesc": "",
-  "customdisclaimer": "",
-  "itemName": "West Virginia Neon Billboards",
-  "itemNameShort": "West Virginia Billboards",
-  "primaryImage": {
-    "imageName": "",
-    "directory": "/textures/atomic_shop_media/"
-  },
-  "carouselImages": [],
-  "highPriceOriginal": 500,
-  "dynamicBundleItems": [
-    {
-      "szItemName": "West Virginia Neon Billboard",
-      "entmName": "ATX_ENTM_CAMP_Lights_NeonBillboards_VisitBeautifulWV"
+    "EDID": "ATX_ENTM_SET_CAMP_Lights_WV_NeonBillboards",
+    "desc": "Keep West Virginia wild and wonderful with these Neon Billboards.",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "West Virginia Neon Billboards",
+    "itemNameShort": "West Virginia Billboards",
+    "primaryImage": {
+      "imageName": "",
+      "directory": "/textures/atomic_shop_media/"
     },
-    {
-      "szItemName": "West Virginia Rooftop Neon Billboard",
-      "entmName": "ATX_ENTM_CAMP_Lights_NeonBillboards_Rooftop_VisitBeautifulWV"
-    }
-  ]
+    "carouselImages": [],
+    "highPriceOriginal": 500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "West Virginia Neon Billboard",
+        "entmName": "ATX_ENTM_CAMP_Lights_NeonBillboards_VisitBeautifulWV"
+      },
+      {
+        "szItemName": "West Virginia Rooftop Neon Billboard",
+        "entmName": "ATX_ENTM_CAMP_Lights_NeonBillboards_Rooftop_VisitBeautifulWV"
+      }
+    ]
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_VaultBoy",
@@ -54085,48 +54259,48 @@
     "itemNameShort": "Assured Victory Painting"
   },
   {
-  "EDID": "ATX_ENTM_BNDL_CAMP_Bundle_RootOfAllEvil",
-  "desc": "Give your C.A.M.P. that evil feeling with the Root of All Evil C.A.M.P. Bundle.",
-  "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-  "customdesc": "",
-  "customdisclaimer": "",
-  "itemName": "Root of all evil C.A.M.P. Bundle",
-  "primaryImage": {
-    "imageName": "36b51695e4bb406d6ca8f9e5c93e7014.webp",
-    "directory": "/textures/atomic_shop_media/"
-  },
-  "carouselImages": [],
-  "highPriceOriginal": 1200,
-  "dynamicBundleItems": [
-    {
-      "szItemName": "Spider Webs Suite",
-      "entmName": "ATX_ENTM_CAMP_WallDecor_SpiderWeb"
+    "EDID": "ATX_ENTM_BNDL_CAMP_Bundle_RootOfAllEvil",
+    "desc": "Give your C.A.M.P. that evil feeling with the Root of All Evil C.A.M.P. Bundle.",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Root of all evil C.A.M.P. Bundle",
+    "primaryImage": {
+      "imageName": "36b51695e4bb406d6ca8f9e5c93e7014.webp",
+      "directory": "/textures/atomic_shop_media/"
     },
-    {
-      "szItemName": "Plasma Skull Bottle",
-      "entmName": "ATX_ENTM_CAMP_FloorDecor_PlasmaSkullBottle"
-    },
-    {
-      "szItemName": "Blood Skull Bottle",
-      "entmName": "ATX_ENTM_CAMP_FloorDecor_BloodSkullBottle"
-    },
-    {
-      "szItemName": "Bile Skull Bottle",
-      "entmName": "ATX_ENTM_CAMP_FloorDecor_BileSkullBottle"
-    },
-    {
-      "szItemName": "Ritual Votive Stand",
-      "entmName": "ATX_ENTM_CAMP_FloorDecor_RitualVotiveStand"
-    },
-    {
-      "szItemName": "Torture Rack Tinker's Workbench",
-      "entmName": "ATX_ENTM_CAMP_Machinery_Workbench_Tinkers_TortureRack"
-    },
-    {
-      "szItemName": "Shackled Skeleton",
-      "entmName": "ATX_ENTM_CAMP_WallDecor_ShackledSkeleton"
-    }
-  ]
+    "carouselImages": [],
+    "highPriceOriginal": 1200,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Spider Webs Suite",
+        "entmName": "ATX_ENTM_CAMP_WallDecor_SpiderWeb"
+      },
+      {
+        "szItemName": "Plasma Skull Bottle",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_PlasmaSkullBottle"
+      },
+      {
+        "szItemName": "Blood Skull Bottle",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_BloodSkullBottle"
+      },
+      {
+        "szItemName": "Bile Skull Bottle",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_BileSkullBottle"
+      },
+      {
+        "szItemName": "Ritual Votive Stand",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_RitualVotiveStand"
+      },
+      {
+        "szItemName": "Torture Rack Tinker's Workbench",
+        "entmName": "ATX_ENTM_CAMP_Machinery_Workbench_Tinkers_TortureRack"
+      },
+      {
+        "szItemName": "Shackled Skeleton",
+        "entmName": "ATX_ENTM_CAMP_WallDecor_ShackledSkeleton"
+      }
+    ]
   },
   {
     "EDID": "SCORE_S14_ENTM_CAMP_WallDecor_RecruitmentPoster",
@@ -64566,7 +64740,8 @@
     },
     "carouselImages": [],
     "itemName": "Conqueror Power Armor Paint",
-    "itemNameShort": "Conqueror Paint"
+    "itemNameShort": "Conqueror Paint",
+    "highPriceOriginal": 1200
   },
   {
     "EDID": "SCORE_S5_ENTM_Skin_PowerArmor_Model_EnlightenedMIND",
@@ -64603,7 +64778,8 @@
     },
     "carouselImages": [],
     "itemName": "Wasteland Walker Power Armor Paint Set",
-    "itemNameShort": "Wasteland Walker Paints"
+    "itemNameShort": "Wasteland Walker Paints",
+    "highPriceOriginal": 1200
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Model_Vertiguard_Enclave",
@@ -70743,6 +70919,31 @@
     "itemNameShort": "Iron Fences"
   },
   {
+  "EDID": "ATX_ENTM_SET_CAMP_Kit_LogCabin",
+  "desc": "Find your own personal, rustic peace in Appalachia with the Log Cabin Kit.",
+  "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Log Cabin Kit",
+  "primaryImage": {
+    "imageName": "dev_atx_bundle_logcabinkit.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "cBadge": "Set",
+  "highPriceOriginal": 700,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Log Cabin Kit",
+      "entmName": "ATX_ENTM_CAMP_Kit_LogCabin"
+    },
+    {
+      "szItemName": "Log Cabin Porch Set",
+      "entmName": "ATX_ENTM_CAMP_Kit_LogCabinPorchSet"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_Kit_LogCabin",
     "desc": "Find your own personal, rustic peace in Appalachia with the Log Cabin Kit. Includes new Wall and Roof items. This kit does not support wallpapers, and has a unique interior look.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -75311,7 +75512,8 @@
     },
     "carouselImages": [],
     "itemName": "Bottle Clutter Set #2",
-    "itemNameShort": "Bottle Clutter Set #2"
+    "itemNameShort": "Bottle Clutter Set #2",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "SCORE_S21_ENTM_CAMP_FloorDecor_BottleClutter01",
@@ -80228,7 +80430,8 @@
         "szItemName": "Lunchbox"
       },
       {
-        "szItemName": "Basic Repair Kit"
+        "szItemName": "Basic Repair Kit",
+        "entmName": "ATX_COEN_Utility_RepairKit_Basic"
       }
     ],
     "carouselImages": [
@@ -93564,7 +93767,8 @@
         "entmName": "ATX_ENTM_Apparel_Outfit_Jumpsuit_CamdenPark"
       },
       {
-        "szItemName": "Basic Repair Kit"
+        "szItemName": "Basic Repair Kit",
+        "entmName": "ATX_COEN_Utility_RepairKit_Basic"
       },
       {
         "szItemName": "Lunchbox"
@@ -93635,7 +93839,8 @@
         "entmName": "ATX_ENTM_Apparel_Outfit_Jumpsuit_NukaColaCherry"
       },
       {
-        "szItemName": "Basic Repair Kit"
+        "szItemName": "Basic Repair Kit",
+        "entmName": "ATX_COEN_Utility_RepairKit_Basic"
       },
       {
         "szItemName": "Lunchbox"
@@ -93706,7 +93911,8 @@
         "entmName": "ATX_ENTM_CAMP_Utility_SlocumsJoe_CoffeeMachinePinkOrange"
       },
       {
-        "szItemName": "Basic Repair Kit"
+        "szItemName": "Basic Repair Kit",
+        "entmName": "ATX_COEN_Utility_RepairKit_Basic"
       },
       {
         "szItemName": "Lunchbox"
@@ -96851,101 +97057,72 @@
     ]
   },
   {
-    "EDID": "ATX_ENTM_BNDL_FASTNACHT_SUMMER_BUNDLE",
-    "desc": "Celebrate the Fastnacht summer with this special bundle!",
-    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-    "customdesc": "",
-    "customdisclaimer": "",
-    "itemName": "Fastnacht summer bundle",
-    "primaryImage": {
-      "imageName": "83816a7e0ac9ea9402002573efe2ea59.webp",
-      "directory": "/textures/atomic_shop_media/"
+  "EDID": "ATX_ENTM_BNDL_CLEAN_RANCH_HOUSING_BUNDLE",
+  "desc": "Nothing gives a warmer welcome than country living. Find your home with the Clean Ranch Housing Kit.",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Clean Ranch Housing Bundle",
+  "primaryImage": {
+    "imageName": "c65c163baa695aef0b4ba93648c72654.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1500,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Everglean Christmas Tree",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_EvergleanChristmasTree"
     },
-    "highPriceOriginal": 1200,
-    "dynamicBundleItems": [
-      {
-        "szItemName": "Winter Man Fasnacht Mask Backpack Flair",
-        "entmName": "ATX_ENTM_Skin_BackpackFlair_WinterManFasnacht"
-      },
-      {
-        "szItemName": "Scorchbeast Fasnacht Backpack Flair",
-        "entmName": "ATX_ENTM_Skin_BackpackFlair_ScorchbeastFasnacht"
-      },
-      {
-        "szItemName": "Minotaur Fasnacht Backpack Flair",
-        "entmName": "ATX_ENTM_Skin_BackpackFlair_MinotaurFasnacht"
-      },
-      {
-        "szItemName": "Jewelry Stand Flair Display",
-        "entmName": "SCORE_S13_ENTM_Display_FlairDisplay"
-      },
-      {
-        "szItemName": "Barn Mailbox",
-        "entmName": "ATX_ENTM_CAMP_Utility_Mailbox_Barn"
-      },
-      {
-        "szItemName": "Hag Fasnacht Mask Backpack Flair",
-        "entmName": "ATX_ENTM_Skin_BackpackFlair_HagFasnacht"
-      },
-      {
-        "szItemName": "Demon Fasnacht Mask Backpack Flair",
-        "entmName": "ATX_ENTM_Skin_BackpackFlair_DemonFasnacht"
-      },
-      {
-        "szItemName": "Brewery Fermenter",
-        "entmName": "SCORE_S14_ENTM_CAMP_Machinery_Workbench_BreweryFermenter"
-      },
-      {
-        "szItemName": "Beezlebub Plushie",
-        "entmName": "ATX_ENTM_CAMP_FloorDecor_Plushie_Beezlebub"
-      },
-      {
-        "szItemName": "Conductor Player Title Suffix",
-        "entmName": "ATX_ENTM_PlayerTitles_Suffix_Conductor"
-      }
-    ],
-    "carouselImages": [
-      {
-        "imageName": "atx_skin_backpackflair_wintermanfasnacht_l.webp",
-        "directory": "/textures/atx/storefront/player/flair/"
-      },
-      {
-        "imageName": "atx_skin_backpackflair_scorchbeastfasnacht_l.webp",
-        "directory": "/textures/atx/storefront/player/flair/"
-      },
-      {
-        "imageName": "atx_skin_backpackflair_minotaurfasnacht_l.webp",
-        "directory": "/textures/atx/storefront/player/flair/"
-      },
-      {
-        "imageName": "score_s13_display_flairdisplay_l.webp",
-        "directory": "/textures/atx/storefront/camp/displays/"
-      },
-      {
-        "imageName": "atx_camp_utility_mailbox_barn.webp",
-        "directory": "/textures/atx/storefront/camp/utility/"
-      },
-      {
-        "imageName": "atx_skin_backpackflair_hagfasnacht_l.webp",
-        "directory": "/textures/atx/storefront/player/flair/"
-      },
-      {
-        "imageName": "atx_skin_backpackflair_demonfasnacht_l.webp",
-        "directory": "/textures/atx/storefront/player/flair/"
-      },
-      {
-        "imageName": "score_s14_camp_machinery_workbench_fermenter_l.webp",
-        "directory": "/textures/atx/storefront/camp/machinery/"
-      },
-      {
-        "imageName": "atx_camp_floordecor_plushie_beezlebub_l.webp",
-        "directory": "/textures/atx/storefront/camp/floordecoration/"
-      },
-      {
-        "imageName": "atx_playertitles_suffix_conductor.webp",
-        "directory": "/textures/atx/storefront/player/playertitles/"
-      }
-    ]
+    {
+      "szItemName": "Carpeted Stairs",
+      "entmName": "ATX_ENTM_CAMP_Structure_Stairs_Carpeted"
+    },
+    {
+      "szItemName": "Holiday Wallpaper",
+      "entmName": "ATX_ENTM_CAMP_WallPaper_Holiday"
+    },
+    {
+      "szItemName": "Black and White Floor and Foundations",
+      "entmName": "ATX_ENTM_CAMP_Floor_BlackandWhite"
+    },
+    {
+      "szItemName": "Clean Toilet",
+      "entmName": "SCORE_S3_ENTM_CAMP_FloorDecor_Toilet_Clean"
+    },
+    {
+      "szItemName": "Clean Sink",
+      "entmName": "SCORE_S1_ENTM_CAMP_Utility_Sink_Clean"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_STASH_BOX_BUNDLE",
+  "desc": "No matter what kind of C.A.M.P. you want to build, make sure you also have the right stash box available!",
+  "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Stash Box Bundle",
+  "primaryImage": {
+    "imageName": "dev_atx_bundle_stashbox.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1000,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Secret Bookcase Stash Box",
+      "entmName": "ATX_ENTM_CAMP_StashBox_SecretStash"
+    },
+    {
+      "szItemName": "Ornate Stash Box",
+      "entmName": "ATX_ENTM_CAMP_StashBox_Ornate"
+    },
+    {
+      "szItemName": "Toys Stash Box",
+      "entmName": "ATX_ENTM_CAMP_StashBox_Toys"
+    }
+  ]
   },
   {
     "EDID": "ATX_ENTM_BNDL_CAMP_SIGNS_BUNDLE",
@@ -105254,6 +105431,42 @@
       {
         "szItemName": "Sheepsquatch Icon",
         "entmName": "SCORE_S12_ENTM_PlayerIcon_SheepsquatchIcon"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_PIONEER_SCOUT_RECRUITMENT_BUNDLE",
+    "desc": "A true scout must always be prepared.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Pioneer Scout Recruitment Bundle",
+    "primaryImage": {
+      "imageName": "158e006b1b51f0ba466ac6d8f138a5d8.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Pioneer Scouts Recruiting Poster",
+        "entmName": "ATX_ENTM_CAMP_WallDeco_Poster_Tadpole"
+      },
+      {
+        "szItemName": "Pioneer Scout Lever Action Rifle Paint",
+        "entmName": "ATX_ENTM_Skin_WeaponSkin_LeverGun_Pioneer"
+      },
+      {
+        "szItemName": "Pioneer Scout Squirrel Uniform Outfit",
+        "entmName": "SCORE_S12_ENTM_Apparel_Outfit_PioneerScoutsSquirrel"
+      },
+      {
+        "szItemName": "Pioneer Mr. Fuzzy Plushie",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_Plushie_PioneerMrFuzzy"
+      },
+      {
+        "szItemName": "Pioneer Scout Black Powder Rifle Paint",
+        "entmName": "ATX_ENTM_Skin_WeaponSkin_BlackPowder_Rifle_Pioneer"
       }
     ]
   },
