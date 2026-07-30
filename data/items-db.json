@@ -17458,7 +17458,8 @@
     },
     "carouselImages": [],
     "itemName": "Responders Plywood Signs",
-    "itemNameShort": "Responders Plywood Signs"
+    "itemNameShort": "Responders Plywood Signs",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_Sign_Slocum_GoodEvening",
@@ -25595,6 +25596,35 @@
     "highPriceOriginal": 500
   },
   {
+  "EDID": "ATX_ENTM_SET_CAMP_Tombstones",
+  "desc": "A set of 3 Tombstones. Gargoyle, Royal and Undead.",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Tombstone Set",
+  "primaryImage": {
+    "imageName": "dev_atx_set_tombstones.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 750,
+  "cBadge": "Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Gargoyle Tombstone",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Tombstones_Gargoyle"
+    },
+    {
+      "szItemName": "Royal Tombstone",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Tombstones_Royal"
+    },
+    {
+      "szItemName": "Undead Tombstone",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Tombstones_Undead"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Tombstones_Gargoyle",
     "desc": "Your grave is safe with the Gargoyle Tombstone.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -29566,6 +29596,34 @@
     "itemNameShort": "Track House"
   },
   {
+  "EDID": "ATX_ENTM_SET_CAMP_ANIMAL_WEATHER_VANES",
+  "desc": "Sniff out bad weather with these Animal Weather Vanes!",
+  "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Animal Weather Vane Set",
+  "primaryImage": {
+    "imageName": "09dbbb0a0a513452b7531f15d6e6655a.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 300,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Fox Weather Vane",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_WeatherVane_Fox"
+    },
+    {
+      "szItemName": "Rooster Weather Vane",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_WeatherVane_Rooster"
+    },
+    {
+      "szItemName": "Goat Weather Vane",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_WeatherVane_Goat"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_Collector_RadPheasantCoop",
     "desc": "Add your very own Rad-Pheasant to your C.A.M.P. with the Rad-Pheasant Coop. Generates fertilizer. This item cannot be built inside of a Shelter.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -32710,6 +32768,46 @@
     "dynamicBundleItems": [],
     "carouselImages": [],
     "itemNameShort": "Rustic Helvetian C.A.M.P. Kit"
+  },
+  {
+  "EDID": "ATX_ENTM_BNDL_CAMP_Bundle_HelvetiaBundle",
+  "desc": "Celebrate Fasnacht with this Fasnacht themed bundle. A new trickster is in town!",
+  "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.\n APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Helvetia Bundle",
+  "primaryImage": {
+    "imageName": "6987c09773e32770b7976c7dae1dea49.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1200,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Fasnacht Blissful Buffoon Mask",
+      "entmName": "ATX_ENTM_Apparel_Headwear_Fasnacht_Buffoon"
+    },
+    {
+      "szItemName": "Fasnacht Devious Demon Mask",
+      "entmName": "ATX_ENTM_Apparel_Headwear_Fasnacht_Demon"
+    },
+    {
+      "szItemName": "Fasnacht Bucking Brahmin Mask",
+      "entmName": "ATX_ENTM_Apparel_Headwear_Fasnacht_Brahmin"
+    },
+    {
+      "szItemName": "Industrial Street Lamps",
+      "entmName": "ATX_ENTM_CAMP_Lights_StreetLamps"
+    },
+    {
+      "szItemName": "Swiss Flower Cart",
+      "entmName": "ATX_ENTM_CAMP_Decoration_Swiss_Flower_Cart"
+    },
+    {
+      "szItemName": "Swiss Rug",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_Rug_Helvetia"
+    }
+  ]
   },
   {
     "EDID": "ATX_ENTM_CAMP_Furniture_BowlingArcadeMachine_RollingStars",
@@ -39965,6 +40063,31 @@
     "itemNameShort": "Red Menace Floor"
   },
   {
+  "EDID": "ATX_ENTM_SET_RedMenaceFlags",
+  "desc": "Plant a flag that will strike fear into the hearts of the American filth. This land will soon be ours.",
+  "disclaimer": "",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Red Menace Flag Set",
+  "primaryImage": {
+    "imageName": "dev_atx_set_redmenaceflags.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "cBadge": "Set",
+  "highPriceOriginal": 300,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Red Menace Flag 1",
+      "entmName": "ATX_ENTM_CAMP_Decoration_FlagWaving_CommunistFlag_Advanced_01"
+    },
+    {
+      "szItemName": "Red Menace Flag 2",
+      "entmName": "ATX_ENTM_CAMP_Decoration_FlagWaving_CommunistFlag_Advanced_02"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_WallPaper_RedUprising",
     "desc": "The Red Uprising Wallpaper is perfect for any revolution.",
     "disclaimer": "WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE.",
@@ -40218,6 +40341,31 @@
     "carouselImages": [],
     "itemName": "Hazmat Mr. Fuzzy Plushie",
     "itemNameShort": "Hazmat Mr. Fuzzy Plushie"
+  },
+  {
+  "EDID": "ATX_ENTM_SET_JackoLanterns",
+  "desc": "Astonish your guests on Halloween with this Astonished and Evil Jack-o-Lanterns!",
+  "disclaimer": "CAMP ITEMS APPEAR WHILE IN CAMP MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Jack-o-Lantern Set",
+  "primaryImage": {
+    "imageName": "dev_atx_set_jackolantern.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 300,
+  "cBadge": "Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Astonished Jack O' Lantern",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_JackoLantern_Astonished"
+    },
+    {
+      "szItemName": "Evil Jack O' Lantern",
+      "entmName": "ATX_ENTM_CAMP_FloorDecor_JackoLantern_Evil"
+    }
+  ]
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_JackoLantern_Evil",
@@ -41189,6 +41337,62 @@
     "itemNameShort": "Raider Braziers"
   },
   {
+  "EDID": "ATX_ENTM_SET_CAMP_Curtains_RedFlowerTattered",
+  "desc": "Create the perfect window dressings for that haunted house look with the Tattered Red Flower Curtains.",
+  "disclaimer": "CAMP ITEMS APPEAR WHILE IN CAMP MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Tattered Red Flower Curtains",
+  "primaryImage": {
+    "imageName": "dev_atx_set_curtains_redflowertattered.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 300,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Tattered Red Flower Curtains",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_Curtain_Single_Halloween_RedFlower"
+    },
+    {
+      "szItemName": "Tattered Red Flower Wide Curtains",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_Curtain_Double_Halloween_RedFlower"
+    },
+    {
+      "szItemName": "Tattered Red Flower Long Curtains",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_Curtain_Long_Halloween_RedFlower"
+    }
+  ]
+  },
+  {
+  "EDID": "ATX_ENTM_SET_CAMP_Curtains_BlueBatsTattered",
+  "desc": "Finish off your Halloween inspired C.A.M.P. with the Tattered Blue Bat Curtains.",
+  "disclaimer": "CAMP ITEMS APPEAR WHILE IN CAMP MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Tattered Blue Bat Curtains",
+  "primaryImage": {
+    "imageName": "dev_atx_set_curtains_bluebattattered.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 300,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Tattered Blue Bat Curtains",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_Curtain_Single_Halloween_BlueBats"
+    },
+    {
+      "szItemName": "Tattered Blue Bats Wide Curtains",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_Curtain_Double_Halloween_BlueBats"
+    },
+    {
+      "szItemName": "Tattered Blue Bat Long Curtains",
+      "entmName": "ATX_ENTM_CAMP_WallDeco_Curtain_Long_Halloween_BlueBats"
+    }
+  ]
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_WallDeco_Poster_Tadpole",
     "desc": "Join the Pioneer Scouts today! (Interacting with this poster will begin the quest \"The Order of the Tadpole\".)",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -41883,6 +42087,31 @@
     "carouselImages": [],
     "itemName": "Dr. Bones Skeleton",
     "itemNameShort": "Dr. Bones Skeleton"
+  },
+  {
+  "EDID": "ATX_ENTM_SET_SpookyHalloweenTurretPack",
+  "desc": "Celebrate Halloween with the Spooky Halloween Turret Pack!",
+  "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Spooky Halloween Turret Pack",
+  "primaryImage": {
+    "imageName": "dev_atx_set_spookyturrets.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 700,
+  "cBadge": "Set",
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Spooky Halloween Turret Pack",
+      "entmName": "ATX_ENTM_CAMP_Defense_Turret_Halloween_Black"
+    },
+    {
+      "szItemName": "Jack-o'-lantern Turret Skin Pack",
+      "entmName": "ATX_ENTM_CAMP_Defense_Turret_Halloween_Orange"
+    }
+  ]
   },
   {
     "EDID": "SCORE_S1_ENTM_Skin_WeaponSkin_HandmadeGun_BloodEagle",
@@ -75754,6 +75983,38 @@
     "itemNameShort": "Boat Fishing Rod Display"
   },
   {
+  "EDID": "ATX_ENTM_BNDL_CAMP_BeeKeeper_Bundle",
+  "desc": "Bee one with the hive after you set up this bundle in your C.A.M.P.",
+  "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+  "customdesc": "",
+  "customdisclaimer": "",
+  "itemName": "Bee Keeper Bundle",
+  "primaryImage": {
+    "imageName": "153ef92c6e11d3b9fd898aed95d75226.webp",
+    "directory": "/textures/atomic_shop_media/"
+  },
+  "carouselImages": [],
+  "highPriceOriginal": 1000,
+  "dynamicBundleItems": [
+    {
+      "szItemName": "Beekeeper Hat",
+      "entmName": "SCORE_S4_ENTM_Apparel_Headwear_Beekeeper"
+    },
+    {
+      "szItemName": "Beekeeper Outfit",
+      "entmName": "SCORE_S4_ENTM_Apparel_Outfit_Beekeeper"
+    },
+    {
+      "szItemName": "Beehive",
+      "entmName": "SCORE_S4_ENTM_CAMP_Collector_Beehive"
+    },
+    {
+      "szItemName": "Swiss Flower Cart",
+      "entmName": "ATX_ENTM_CAMP_Decoration_Swiss_Flower_Cart"
+    }
+  ]
+  },
+  {
     "EDID": "SCORE_S21_ENTM_CAMP_FloorDecor_FishBasket",
     "desc": "Fresh, non-dead fish are overrated.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -92439,7 +92700,7 @@
     "customdisclaimer": "",
     "itemName": "Brotherhood of Steel Mega Bundle",
     "primaryImage": {
-      "imageName": "e84d8d12b229da92723039606ccce574.webp",
+      "imageName": "dev_atx_bundle_bos_mega_bundle.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "highPriceOriginal": 5500,
