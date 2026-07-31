@@ -82916,7 +82916,7 @@
     ]
   },
   {
-    "EDID": "SCORE_S1_ENTM_BNDL_FlatwoodsFletcher_Skin",
+    "EDID": "SCORE_S1_ENTM_SET_FlatwoodsFletcher_Skin",
     "desc": "Arm yourself to hunt down the Flatwoods monster with the Flatwoods Fletcher Skin Set.",
     "disclaimer": "- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
     "customdesc": "",
@@ -82927,7 +82927,17 @@
       "directory": "/textures/atx/storefront/player/weaponmodel/"
     },
     "highPriceOriginal": 500,
-    "dynamicBundleItems": [],
+    "cBadge": "Set",
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Flatwoods Fletcher Skin (Bow)",
+        "entmName": "score_s1_entm_skin_weaponmodel_bow_flatwoodsfletcher"
+      },
+      {
+        "szItemName": "Flatwoods Fletcher Skin (Compound Bow)",
+        "entmName": "score_s1_entm_skin_weaponmodel_compoundbow_flatwoodsfletcher"
+      }
+    ],
     "carouselImages": []
   },
   {
