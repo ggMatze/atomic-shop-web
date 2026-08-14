@@ -515,6 +515,10 @@ filter: saturate(0.5);
   visibility: visible;
 }
 #news-notice #news-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
     text-transform: uppercase;
     font-size: 1.3em;
     color: #ffd454;
@@ -646,6 +650,20 @@ filter: saturate(0.5);
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
+}
+
+#news-expiry,
+.news-expiry {
+  position: absolute;
+  top: 4px;
+  display: block;
+  margin: 0;
+  font-size: 0.4em!important;
+  letter-spacing: 0.18em;
+  opacity: 0.9;
+  color: #f9df86;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 #wishlist-btn::after {

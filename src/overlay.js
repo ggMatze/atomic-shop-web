@@ -150,9 +150,6 @@ async function showNewsNotice(options = { force: false }) {
         expiryEl = document.createElement('span');
         expiryEl.id = 'news-expiry';
         expiryEl.className = 'news-expiry';
-        expiryEl.style.marginLeft = '8px';
-        expiryEl.style.fontSize = '0.9em';
-        expiryEl.style.opacity = '0.85';
         header.appendChild(expiryEl);
       }
       if (expDate) {
