@@ -2,6 +2,429 @@
   "StorePageData": {
     "pages": [
       {
+        "name": "Hey Good Lookin' \\n Fresh Cuts!",
+        "tabid": "hey-good-lookin",
+        "isZeus": false,
+        "image": {
+          "directory": "textures/atomic_shop_media/",
+          "imageName": "f3be377bcf064000659284f9e1462df7.dds"
+        },
+        "items": [
+          {
+            "itemID": 2606860,
+            "EDID": "ATX_ENTM_BNDL_RUSTIC_BARBERSHOP_BUNDLE",
+            "itemName": "Barbershop Bundle",
+            "itemNameShort": "Barbershop Bundle",
+            "itemDesc": "No matter what happens folks are always gonna need to get their hair cut.\n\n- UNLOCKS AN EMOTE OPTION.\nEMOTES ARE SELECTABLE IN THE EMOTE WHEEL. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains one previously released item.[/h]",
+            "primaryImage": {
+              "imageName": "6ada840f5af501e7a59010b33f59b7bd.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Barber Shop",
+                "entmName": "ATX_ENTM_CAMP_Structure_BarberShop"
+              },
+              {
+                "szItemName": "Barber's Chair",
+                "entmName": "ATX_ENTM_CAMP_Furniture_BarbersChair"
+              },
+              {
+                "szItemName": "Atomic Hair Dryer",
+                "entmName": "ATX_ENTM_Structure_Furniture_AtomicDryer"
+              },
+              {
+                "szItemName": "Shop Door",
+                "entmName": "ATX_ENTM_CAMP_Door_Wood_ShopDoor"
+              },
+              {
+                "szItemName": "Greasin' Up Emote",
+                "entmName": "ATX_ENTM_Emotes_MadeInTheShade"
+              },
+              {
+                "szItemName": "Barbershop Mirror",
+                "entmName": "ATX_ENTM_CAMP_WallDecor_BarbershopMirror"
+              },
+              {
+                "szItemName": "Barbershop Pole Light",
+                "entmName": "ATX_ENTM_CAMP_WallDeco_BarbershopPole"
+              },
+              {
+                "szItemName": "Super Duper Mart Register",
+                "entmName": "ATX_ENTM_CAMP_Vendor_PlayerVendingMachine_SuperDuperMartRegister"
+              },
+              {
+                "szItemName": "\"Buzzin'\" Player Title Prefix",
+                "entmName": "ATX_ENTM_PlayerTitles_Prefix_Buzzin"
+              }
+            ],
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 2000,
+              "amount": 2000,
+              "ltoTimer": "2026-09-08T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 2000
+            },
+            "highPrice": {
+              "originalAmount": 2000,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isNew": 2,
+            "isClown": false
+          },
+          {
+            "itemID": 2606861,
+            "EDID": "ATX_ENTM_BNDL_HOME_HIGHLIGHTS_BUNDLE",
+            "itemName": "High Note Bundle",
+            "itemNameShort": "High Note Bundle",
+            "itemDesc": "Hello my honey / Hello my baby / Hello my rad-time gal!\n\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains previously released items, bundled together as new.[/h]",
+            "primaryImage": {
+              "imageName": "4d2b17b44d0ce93f4a8a01cc1443e27f.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Queue Barrier",
+                "entmName": "ATX_ENTM_CAMP_Defense_Barrier_Queue_NWOT"
+              },
+              {
+                "szItemName": "Turnstile",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_Turnstile"
+              },
+              {
+                "szItemName": "Hollywood Gramophone",
+                "entmName": "SCORE_S13_ENTM_CAMP_Utility_Gramophone_Hollywood"
+              },
+              {
+                "szItemName": "Barbershopper Hat",
+                "entmName": "ATX_ENTM_Apparel_Headwear_Barbershopper"
+              },
+              {
+                "szItemName": "Barbershopper Outfit",
+                "entmName": "ATX_ENTM_Apparel_Outfit_Barbershopper"
+              },
+              {
+                "szItemName": "Tip Box Stash Box",
+                "entmName": "ATX_ENTM_CAMP_Stashbox_TipJar"
+              },
+              {
+                "szItemName": "\"Beauty\" Player Title Suffix",
+                "entmName": "ATX_ENTM_PlayerTitles_Suffix_Beauty"
+              }
+            ],
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-09-08T12:00:00.000Z",
+              "originalAmount": 1700,
+              "amount": 1700
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 1700
+            },
+            "highPrice": {
+              "originalAmount": 1700,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isNew": 2,
+            "isClown": false
+          },
+          {
+            "itemID": 2606862,
+            "EDID": "ATX_ENTM_BNDL_BACK_IN_BLACK_BUNDLE",
+            "itemName": "Back to School Bundle",
+            "itemNameShort": "Back to School Bundle",
+            "itemDesc": "Bring school back to the Wasteland. Parents will love you, but their kids sure won't.\n\n- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- UNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "9461be6e62a7fa950f8e6885a798cc20.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "School House C.A.M.P. Kit",
+                "entmName": "ATX_ENTM_CAMP_Kit_SchoolHouse"
+              },
+              {
+                "szItemName": "Bulletin Board",
+                "entmName": "ATX_ENTM_CAMP_WallDecor_BulletinBoard"
+              },
+              {
+                "szItemName": "Miner Lunch Pail Loot Bag",
+                "entmName": "ATX_ENTM_Skin_LootBag_Miner_LunchPail"
+              },
+              {
+                "szItemName": "Student Combo Desk",
+                "entmName": "ATX_ENTM_CAMP_Furniture_Table_StudentsDesk"
+              },
+              {
+                "szItemName": "School House Wallpaper",
+                "entmName": "ATX_ENTM_CAMP_WallPaper_SchoolHouse"
+              },
+              {
+                "szItemName": "Chalkboard Secret Door",
+                "entmName": "ATX_ENTM_CAMP_Door_Secret_Chalkboard"
+              },
+              {
+                "szItemName": "Dunce Cap",
+                "entmName": "ATX_ENTM_Apparel_Headwear_DunceCap"
+              },
+              {
+                "szItemName": "Grafton High School Poster",
+                "entmName": "ATX_ENTM_CAMP_WallDeco_Poster_GraftonHigh_01"
+              },
+              {
+                "szItemName": "Dunce Stool Chair",
+                "entmName": "ATX_ENTM_CAMP_Furniture_Chair_DunceStool"
+              },
+              {
+                "szItemName": "Teacher's Desk Table",
+                "entmName": "ATX_ENTM_CAMP_Furniture_Table_TeachersDesk_Variant"
+              }
+            ],
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 1500,
+              "amount": 1500,
+              "ltoTimer": "2026-09-08T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 1500
+            },
+            "highPrice": {
+              "originalAmount": 1500,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isNew": 2,
+            "isClown": false
+          },
+          {
+            "itemID": 2606616,
+            "EDID": "ATX_ENTM_CAMP_Door_Wood_ShopDoor",
+            "itemName": "Barber Shop",
+            "itemNameShort": "Barber Shop",
+            "itemDesc": "Commercial real estate with private space on second floor. What better place to start your small business? Includes a shop door with a bell that chimes as customers come in.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_structure_barbershop_l.webp",
+              "directory": "/textures/atx/storefront/camp/structures/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_door_wood_shopdoor.dds",
+                "directory": "/textures/atx/storefront/camp/doors/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-09-08T12:00:00.000Z",
+              "originalAmount": 700,
+              "amount": 700
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 700
+            },
+            "highPrice": {
+              "originalAmount": 700,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isNew": 1,
+            "isClown": false
+          },
+          {
+            "itemID": 2606131,
+            "EDID": "ATX_ENTM_Apparel_Headwear_Barbershopper",
+            "itemName": "Barbershopper Outfit Set",
+            "itemNameShort": "Barbershopper Outfit Set",
+            "itemDesc": "Form a quartet with your friends or just walk around like this all the time for no reason at all!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_apparel_outfit_barbershopper.webp",
+              "directory": "/textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_headwear_barbershopper.dds",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 700,
+              "amount": 700,
+              "ltoTimer": "2026-09-08T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 700
+            },
+            "highPrice": {
+              "originalAmount": 700,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isNew": 1,
+            "isClown": false
+          },
+          {
+            "itemID": 2606119,
+            "EDID": "ATX_ENTM_Structure_Furniture_AtomicDryer",
+            "itemName": "Atomic Hair Dryer",
+            "itemNameShort": "Atomic Hair Dryer",
+            "itemDesc": "Sit back, relax, and let the warmth of radioactive decay dry your hair!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx__structure_furniture_atomicdryer.dds",
+              "directory": "/textures/atx/storefront/camp/furniture/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 500,
+              "amount": 500,
+              "ltoTimer": "2026-09-08T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 500
+            },
+            "highPrice": {
+              "originalAmount": 500,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isNew": 1,
+            "isClown": false
+          },
+          {
+            "itemID": 2606373,
+            "EDID": "ATX_ENTM_CAMP_WallDecor_BarbershopMirror",
+            "itemName": "Barbershop Mirror",
+            "itemNameShort": "Barbershop Mirror",
+            "itemDesc": "Careful! You might just get a fresh cut.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_walldecor_barbershopmirror_l.dds",
+              "directory": "/textures/atx/storefront/camp/walldecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_walldecor_barbershopmirror_c1.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              },
+              {
+                "imageName": "atx_camp_walldecor_barbershopmirror_c2.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 250,
+              "amount": 250,
+              "ltoTimer": "2026-09-08T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 250
+            },
+            "highPrice": {
+              "originalAmount": 250,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isNew": 1,
+            "isClown": false
+          },
+          {
+            "itemID": 2606530,
+            "EDID": "ATX_ENTM_CAMP_Furniture_BarbersChair",
+            "itemName": "Barber's Chair",
+            "itemNameShort": "Barber's Chair",
+            "itemDesc": "Just a little off the top and even out the sides please.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_entm_camp_furniture_barberschair.dds",
+              "directory": "/textures/atx/storefront/camp/furniture/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_entm_camp_furniture_barberschair_c1.dds",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              },
+              {
+                "imageName": "atx_entm_camp_furniture_barberschair_c2.dds",
+                "directory": "/textures/atx/storefront/camp/furniture/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 500,
+              "amount": 500,
+              "ltoTimer": "2026-09-08T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 500
+            },
+            "highPrice": {
+              "originalAmount": 500,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2606125,
+            "EDID": "ATX_ENTM_Skin_WeaponModel_Knife_Dagger_Black",
+            "itemName": "Black Combat Dagger (Combat Knife Skin)",
+            "itemNameShort": "Black Combat Dagger",
+            "itemDesc": "The Black Combat Dagger is that perfect blade for when you need to knife someone up in the dark. Handy, reliable, and matte! With the Black Combat Dagger you can rest assured that they may have had it coming, but they sure won't see it coming!\n\nThis Skin will give your weapon a unique look and maintain all mod effects.\n\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_skin_weaponmodel_knife_blackdagger_l.dds",
+              "directory": "/textures/atx/storefront/player/weaponmodel/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_skin_weaponmodel_knife_blackdagger_c1.dds",
+                "directory": "/textures/atx/storefront/player/weaponmodel/"
+              },
+              {
+                "imageName": "atx_skin_weaponmodel_knife_blackdagger_c2.dds",
+                "directory": "/textures/atx/storefront/player/weaponmodel/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 300,
+              "amount": 300,
+              "ltoTimer": "2026-09-08T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 300
+            },
+            "highPrice": {
+              "originalAmount": 300,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          }
+        ]
+      },
+      {
         "name": "Sales \\n Time for the sales!",
         "tabid": "sales",
         "isZeus": false,
@@ -1372,392 +1795,6 @@
         ]
       },
       {
-        "name": "Boiling Point \\n It's time to party!",
-        "tabid": "boiling-point",
-        "isZeus": false,
-        "image": {
-          "directory": "textures/atomic_shop_media/",
-          "imageName": "3712ee1765823f5c415790abd76854f2.dds"
-        },
-        "items": [
-          {
-            "itemID": 2594773,
-            "EDID": "ATX_ENTM_BNDL_GARDEN_PARTY_BUNDLE",
-            "itemName": "Tea Party Bundle",
-            "itemNameShort": "Tea Party",
-            "itemDesc": "Ever wanted to host a fancy party in your C.A.M.P.? Now you can! Pinky up!\n\n- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\nPRODUCES:\n[url=https://db.atomicshop.fyi/?item=3923f9]✦ Luck Leaf Tea     [/url] (every time an Event starts)\n\n[h]*This Bundle contains some previously released items.[/h]",
-            "primaryImage": {
-              "imageName": "3a161c9f389d4fa4e56dfc43cc679787.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Blossoms Wallpaper",
-                "entmName": "ATX_ENTM_CAMP_WallPaper_Blossoms"
-              },
-              {
-                "szItemName": "✦ Tea Wizard",
-                "entmName": "ATX_ENTM_CAMP_Collector_TeaWizard"
-              },
-              {
-                "szItemName": "Modern Wall Clock",
-                "entmName": "ATX_ENTM_CAMP_WallDecor_PendulumClock"
-              },
-              {
-                "szItemName": "Teacup Backpack Flair",
-                "entmName": "ATX_ENTM_Skin_BackpackFlair_TeaCup"
-              },
-              {
-                "szItemName": "Place Setting",
-                "entmName": "ATX_ENTM_CAMP_DisplayCase_PlaceSetting"
-              },
-              {
-                "szItemName": "Monocle",
-                "entmName": "ATX_ENTM_Apparel_Headwear_Monocle"
-              },
-              {
-                "szItemName": "\"Flipped\" Player Title Prefix",
-                "entmName": "ATX_ENTM_PlayerTitles_Prefix_Flipped"
-              }
-            ],
-            "lowPrice": {
-              "isLto": true,
-              "originalAmount": 1600,
-              "amount": 1600,
-              "ltoTimer": "2026-08-18T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 1600
-            },
-            "highPrice": {
-              "originalAmount": 1600,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false,
-            "isNew": 2
-          },
-          {
-            "itemID": 2594774,
-            "EDID": "ATX_ENTM_BNDL_GARDEN_PARTY_BUNDLE",
-            "itemName": "Party Animal Bundle",
-            "itemNameShort": "Party Animal",
-            "itemDesc": "Get ready for the best party this side of the county line!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains some previously released items.[/h]",
-            "primaryImage": {
-              "imageName": "374643558610aa5628d50dc85745fa20.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Barn",
-                "entmName": "SCORE_S18_ENTM_CAMP_Structure_Barn"
-              },
-              {
-                "szItemName": "Radhog",
-                "entmName": "ATX_ENTM_CAMP_CAMPPets_RadHog_Standard"
-              },
-              {
-                "szItemName": "Tiki Torches",
-                "entmName": "SCORE_S16_ENTM_CAMP_Lights_FloorLamps_TikiTorch"
-              },
-              {
-                "szItemName": "Blue Ridge Beer Keg Set",
-                "entmName": "SCORE_S18_ENTM_CAMP_Utility_BlueRidgeBeerKeg"
-              },
-              {
-                "szItemName": "Bottle Clutter Set #2",
-                "entmName": "SCORE_S21_ENTM_CAMP_FloorDecor_BottleClutter02"
-              },
-              {
-                "szItemName": "Bottle Clutter Set #1",
-                "entmName": "SCORE_S21_ENTM_CAMP_FloorDecor_BottleClutter01"
-              },
-              {
-                "szItemName": "Drum Set",
-                "entmName": "ATX_ENTM_CAMP_Furniture_Instrument_DrumSet"
-              },
-              {
-                "szItemName": "Laundered Blue Dress",
-                "entmName": "ATX_ENTM_Apparel_Outfit_PrewarHouseDress_Blue_Clean"
-              },
-              {
-                "szItemName": "Summer Shorts",
-                "entmName": "ATX_ENTM_Apparel_Outfit_SummerShorts"
-              }
-            ],
-            "lowPrice": {
-              "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 1900,
-              "amount": 1900
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 1900
-            },
-            "highPrice": {
-              "originalAmount": 1900,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false,
-            "isNew": 2
-          },
-          {
-            "itemID": 2594775,
-            "EDID": "ATX_ENTM_BNDL_COMFORTS_OF_HOME_CAMP_BUNDLE",
-            "itemName": "Smile for Slime Bundle",
-            "itemNameShort": "Smile for Slime",
-            "itemDesc": "Everything you need to make your gooey, sticky mark on the world.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains previously released items, bundled as \"NEW\".[/h]",
-            "primaryImage": {
-              "imageName": "ebec7407304531ad9457a91916fc03d3.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Yellow Vault-Tec Hazmat Suit",
-                "entmName": "SCORE_S20_ENTM_Apparel_Outfit_VaultTecYellow_HazmatSuit"
-              },
-              {
-                "szItemName": "Dissection Kit",
-                "entmName": "SCORE_S17_ENTM_CAMP_FloorDecor_DissectionKit"
-              },
-              {
-                "szItemName": "Radioac-table",
-                "entmName": "SCORE_S20_ENTM_CAMP_Furniture_Table_NuclearBarrelTable"
-              },
-              {
-                "szItemName": "Blood Skull Bottle",
-                "entmName": "ATX_ENTM_CAMP_FloorDecor_BloodSkullBottle"
-              },
-              {
-                "szItemName": "Plasma Skull Bottle",
-                "entmName": "ATX_ENTM_CAMP_FloorDecor_PlasmaSkullBottle"
-              },
-              {
-                "szItemName": "Bile Skull Bottle",
-                "entmName": "ATX_ENTM_CAMP_FloorDecor_BileSkullBottle"
-              },
-              {
-                "szItemName": "Written in Blood Billboard",
-                "entmName": "ATX_ENTM_CAMP_Sign_Billboard_Shop_01"
-              },
-              {
-                "szItemName": "Goo Letter Kit Set",
-                "entmName": "SCORE_S21_ENTM_CAMP_WallDecor_LetterKit_GooLetters"
-              },
-              {
-                "szItemName": "Goo Splatter",
-                "entmName": "SCORE_S20_ENTM_CAMP_WallDecor_GooSplatter"
-              }
-            ],
-            "lowPrice": {
-              "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 1500,
-              "amount": 1500
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 1500
-            },
-            "highPrice": {
-              "originalAmount": 1500,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false,
-            "isNew": 2
-          },
-          {
-            "itemID": 2594011,
-            "EDID": "ATX_ENTM_CAMP_Collector_TeaWizard",
-            "itemName": "Tea Wizard",
-            "itemNameShort": "Tea Wizard",
-            "itemDesc": "Turn your teammates into tea mates! Produces 4 cups of Lucky-Leaf Tea each time an Event begins.\n\n- This item cannot be built inside of a Shelter. -\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "atx_camp_collector_teawizard_l.dds",
-              "directory": "/textures/atx/storefront/camp/utility/"
-            },
-            "carouselImages": [],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 700,
-              "amount": 700
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 700
-            },
-            "highPrice": {
-              "originalAmount": 700,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false,
-            "isNew": true
-          },
-          {
-            "itemID": 2594567,
-            "EDID": "ATX_ENTM_CAMP_DisplayCase_PlaceSetting",
-            "itemName": "Place Setting",
-            "itemNameShort": "Place Setting",
-            "itemDesc": "Company is coming! Time to bust out the fine china and display your tastiest treats.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "atx_camp_displaycase_placesetting_l.dds",
-              "directory": "/textures/atx/storefront/camp/displays/"
-            },
-            "carouselImages": [],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 500,
-              "amount": 500
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 500
-            },
-            "highPrice": {
-              "originalAmount": 500,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false,
-            "isNew": true
-          },
-          {
-            "itemID": 2594049,
-            "EDID": "SCORE_S20_ENTM_Apparel_Outfit_VaultTecYellow_HazmatSuit",
-            "itemName": "Yellow Vault-Tec Hazmat Suit",
-            "itemNameShort": "Yellow Vault-Tec Hazmat Suit",
-            "itemDesc": "Your favorite hazmat suit, now in spiffy Vault-Tec yellow!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage": {
-              "imageName": "score_s20_apparel_outfit_vaulttecyellow_hazmatsuit_l.dds",
-              "directory": "/textures/atx/storefront/player/outfit/"
-            },
-            "carouselImages": [],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 500,
-              "amount": 500
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 500
-            },
-            "highPrice": {
-              "originalAmount": 500,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false
-          },
-          {
-            "itemID": 2594318,
-            "EDID": "ATX_ENTM_CAMP_WallDecor_PendulumClock",
-            "itemName": "Modern Wall Clock",
-            "itemNameShort": "Modern Wall Clock",
-            "itemDesc": "Do you have time to kill, or is it time to kill?\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "atx_camp_walldecor_pendulumclock.dds",
-              "directory": "/textures/atx/storefront/camp/walldecoration/"
-            },
-            "carouselImages": [],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "isLto": true,
-              "originalAmount": 250,
-              "amount": 250,
-              "ltoTimer": "2026-08-18T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 250
-            },
-            "highPrice": {
-              "originalAmount": 250,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false,
-            "isNew": true
-          },
-          {
-            "itemID": 2594481,
-            "EDID": "SCORE_S21_ENTM_CAMP_FloorDecor_BottleClutter01",
-            "itemName": "Bottle Clutter Set #1",
-            "itemNameShort": "Bottle Clutter Set #1",
-            "itemDesc": "Decorate your home with the beauty of a shining selection of bottles.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "score_s21_camp_floordecor_bottleclutter01_l.dds",
-              "directory": "/textures/atx/storefront/camp/floordecoration/"
-            },
-            "carouselImages": [],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 250,
-              "amount": 250
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 250
-            },
-            "highPrice": {
-              "originalAmount": 250,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false
-          },
-          {
-            "itemID": 2594658,
-            "EDID": "ATX_ENTM_Apparel_Headwear_Monocle",
-            "itemName": "Monocle",
-            "itemNameShort": "Monocle",
-            "itemDesc": "Let everyone know just how refined you are with this classic Monocle.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage": {
-              "imageName": "atx_apparel_headwear_monocle_l.dds",
-              "directory": "/textures/atx/storefront/player/headwear/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_apparel_headwear_monocle_c1.dds",
-                "directory": "/textures/atx/storefront/player/headwear/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 300,
-              "amount": 300
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 300
-            },
-            "highPrice": {
-              "originalAmount": 300,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false
-          }
-        ]
-      },
-      {
         "name": "Greatest Hits \\n Best of the best!",
         "tabid": "greatest-hits",
         "isZeus": false,
@@ -1767,244 +1804,352 @@
         },
         "items": [
           {
-            "itemID": 2603700,
-            "EDID": "ATX_ENTM_BNDL_MINE_RECLAMATION_BUNDLE",
-            "itemName": "Mine Reclamation Bundle",
-            "itemNameShort": "Mine Reclamation Bundle",
-            "itemDesc": "Reclaim that Abandoned Mine with the Mine Reclamation Bundle\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SHELTER ENTRANCES CAN BE PLACED IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemID": 2606880,
+            "EDID": "ATX_BNDL_ENTM_TEST_BUNDLE",
+            "itemName": "Blacksmith's Apprentice Bundle",
+            "itemNameShort": "Blacksmith's Apprentice Bundle",
+            "itemDesc": "Start your journey to become a master blacksmith with the Blacksmith's Apprentice Bundle.\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
             "primaryImage": {
-              "imageName": "90d9907cbf261edcab1a30fe07563581.dds",
+              "imageName": "1d1c4b94a25ee0cb655eaf6e1f35fd23.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [],
             "dynamicBundleItems": [
               {
-                "szItemName": "Miner Lunch Pail Loot Bag",
-                "entmName": "ATX_ENTM_Skin_LootBag_Miner_LunchPail"
+                "szItemName": "Wasteland Knight Power Armor Paint",
+                "entmName": "ATX_ENTM_Skin_PowerArmor_Model_WastelandKnight"
               },
               {
-                "szItemName": "Mole Miner Stash Box",
-                "entmName": "ATX_ENTM_CAMP_StashBox_MoleMiner"
+                "szItemName": "Railroad Water Tower",
+                "entmName": "ATX_ENTM_CAMP_Collector_RailroadWaterTower"
               },
               {
-                "szItemName": "Pristine Moe the Mole Head",
-                "entmName": "ATX_ENTM_Apparel_Headwear_MoeDigs_Clean"
+                "szItemName": "Settler Carpenter Outfit",
+                "entmName": "ATX_WST_ENTM_Apparel_Outfit_Settler_Carpenter"
               },
               {
-                "szItemName": "Pristine Moe the Mole Outfit",
-                "entmName": "ATX_ENTM_Apparel_Outfit_MoeDigs_Clean"
+                "szItemName": "Rust Bucket Hammer (Super Sledge)",
+                "entmName": "SCORE_S2_ENTM_Skin_WeaponModel_SuperSledge_RustBucket"
               },
               {
-                "szItemName": "Cooking Stove - Minecart",
-                "entmName": "ATX_ENTM_CAMP_Machinery_Workbench_Cooking_Stove_MineCart"
-              },
-              {
-                "szItemName": "Abandoned Mine Shelter",
-                "entmName": "Shelters_ENTM_ShelterEntrance_AbandonedMine"
+                "szItemName": "Settler Carpenter Hat",
+                "entmName": "ATX_WST_ENTM_Apparel_Headwear_Settler_Carpenter"
               }
             ],
             "lowPrice": {
               "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 900,
-              "amount": 900
+              "ltoTimer": "2026-08-25T12:00:00.000Z",
+              "originalAmount": 1050,
+              "amount": 1050
             },
             "lowestPurchasablePrice": {
               "originalAmount": 0,
-              "amount": 0
+              "amount": 1050
             },
             "highPrice": {
-              "originalAmount": 1800,
-              "amount": 0
-            },
-            "isZeus": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2603701,
-            "itemName": "Enclave Mega Bundle",
-            "itemNameShort": "Enclave Mega Bundle",
-            "itemDesc": "This Enclave Mega Bundle contains the contents of Enclave C.A.M.P. Bundle, Enclave Outpost Bundle, Enclave Returns Outfit Bundle and the Enclave Bundle.\n\n- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- BACKPACKS ARE CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
-            "primaryImage": {
-              "imageName": "b79ddf8faa60311b719a9693ca0139c3.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Enclave Turret Set"
-              },
-              {
-                "szItemName": "Enclave C.A.M.P. Kit"
-              },
-              {
-                "szItemName": "Enclave Light Machine Gun Paint"
-              },
-              {
-                "szItemName": "Enclave Power Armor Station"
-              },
-              {
-                "szItemName": "Enclave Military Beret"
-              },
-              {
-                "szItemName": "Enclave Polished Steel Turret Set"
-              },
-              {
-                "szItemName": "Enclave Signalman Hat"
-              },
-              {
-                "szItemName": "Enclave Light Set"
-              },
-              {
-                "szItemName": "Enclave Backpack"
-              },
-              {
-                "szItemName": "Enclave Foundation"
-              },
-              {
-                "szItemName": "Enclave Signalman Headwear"
-              },
-              {
-                "szItemName": "Enclave Signalman Outfit"
-              },
-              {
-                "szItemName": "Enclave Power Armor Paint"
-              },
-              {
-                "szItemName": "Alien Radiation Dummy"
-              },
-              {
-                "szItemName": "Enclave Stairs"
-              },
-              {
-                "szItemName": "Enclave Flat-Laser Door"
-              },
-              {
-                "szItemName": "Enclave Office Wallpaper"
-              },
-              {
-                "szItemName": "Enclave Support Post"
-              },
-              {
-                "szItemName": "Enclave Jetpack"
-              },
-              {
-                "szItemName": "Enclave Paint"
-              },
-              {
-                "szItemName": "Enclave Outpost C.A.M.P. Kit"
-              },
-              {
-                "szItemName": "Enclave Chassis Display Frame"
-              }
-            ],
-            "lowPrice": {
-              "isLto": true,
-              "originalAmount": 2100,
-              "amount": 2100,
-              "ltoTimer": "2026-08-18T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 2100
-            },
-            "highPrice": {
-              "originalAmount": 3000,
+              "originalAmount": 1500,
               "amount": 0
             },
             "isZeus": false,
             "isClown": false
           },
           {
-            "itemID": 2603702,
-            "EDID": "ATX_ENTM_BNDL_THE_LOOKOUT_BUNDLE",
-            "itemName": "The Lookout Bundle",
-            "itemNameShort": "The Lookout Bundle",
-            "itemDesc": "Stay on the lookout from above in this treehouse-style Watchpost and Lookout Outfit!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n\nPRODUCES:\n[url=https://www.theduchessflame.com/post/camp-resources-tree-sap-collector]✦ Adhesive [/url]",
+            "itemID": 2606881,
+            "EDID": "ATX_BNDL_ENTM_TEST_BUNDLE",
+            "itemName": "Budding Blacksmith C.A.M.P. Bundle",
+            "itemNameShort": "Budding Blacksmith C.A.M.P. Bundle",
+            "itemDesc": "Get ready to get your forge working hot with the Budding Blacksmith C.A.M.P. Bundle.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. –",
             "primaryImage": {
-              "imageName": "8ed12a603e8a593c617f27372fe593df.dds",
+              "imageName": "30c2f97f828abdaeb7162d1c6c779469.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [],
             "dynamicBundleItems": [
               {
-                "szItemName": "Lookout Outfit",
-                "entmName": "ATX_ENTM_Apparel_Outfit_Lookout"
+                "szItemName": "Chalkboard Letter Kit",
+                "entmName": "ATX_ENTM_CAMP_WallDeco_Letters_Chalk"
               },
               {
-                "szItemName": "Watchpost",
-                "entmName": "ATX_ENTM_CAMP_Structure_Watchpost"
+                "szItemName": "Wall Weapon Racks",
+                "entmName": "ATX_ENTM_CAMP_WallDeco_Display_GunRacks"
               },
               {
-                "szItemName": "Small Fire",
-                "entmName": "ATX_ENTM_CAMP_FloorDecor_SmallFire"
+                "szItemName": "Raven Perch",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_Raven_Perch"
               },
               {
-                "szItemName": "Large Fire",
-                "entmName": "ATX_ENTM_CAMP_FloorDecor_LargeFire"
+                "szItemName": "Tall Windmill Generator",
+                "entmName": "ATX_ENTM_CAMP_Utility_TallWindmillGenerator"
               },
               {
-                "szItemName": "✦ Tree Sap Collector",
-                "entmName": "ATX_ENTM_CAMP_Utility_TreeSapBucket"
+                "szItemName": "Gone Fission Sign",
+                "entmName": "ATX_ENTM_CAMP_WallDecor_GoneFissionSign"
               },
               {
-                "szItemName": "Lookout Hood",
-                "entmName": "ATX_ENTM_Apparel_Headwear_Lookout"
+                "szItemName": "Utility Wall Shelf",
+                "entmName": "ATX_ENTM_CAMP_WallDeco_VaultTecUtilityWallShelf"
               },
               {
-                "szItemName": "Medium Fire",
-                "entmName": "ATX_ENTM_CAMP_FloorDecor_MediumFire"
+                "szItemName": "Goat Weather Vane",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_WeatherVane_Goat"
               },
               {
-                "szItemName": "Mounted Radhog Head",
-                "entmName": "ATX_ENTM_CAMP_WallDecor_MountedRadhogHead"
+                "szItemName": "Rooster Weather Vane",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_WeatherVane_Rooster"
+              },
+              {
+                "szItemName": "Fox Weather Vane",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_WeatherVane_Fox"
+              },
+              {
+                "szItemName": "Wooden Barrel",
+                "entmName": "ATX_ENTM_CAMP_FloorDecor_WoodenBarrel"
               }
             ],
             "lowPrice": {
               "isLto": true,
-              "originalAmount": 1260,
-              "amount": 1260,
-              "ltoTimer": "2026-08-18T12:00:00.000Z"
+              "ltoTimer": "2026-08-25T12:00:00.000Z",
+              "originalAmount": 1050,
+              "amount": 1050
             },
             "lowestPurchasablePrice": {
               "originalAmount": 0,
-              "amount": 1260
+              "amount": 1050
             },
             "highPrice": {
-              "originalAmount": 1800,
+              "originalAmount": 1500,
               "amount": 0
             },
             "isZeus": false,
             "isClown": false
           },
           {
-            "itemID": 2603703,
-            "itemName": "Executioner Outfit",
-            "itemNameShort": "Executioner Outfit",
-            "itemDesc": "Smite your enemies in morbid style with this grim Executioner Outfit!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemID": 2606882,
+            "itemName": "Grognak Sidekick Bundle",
+            "itemNameShort": "Grognak Sidekick Bundle",
+            "itemDesc": "Be the best Grognak superfan with the Grognak Sidekick Bundle.\n\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
             "primaryImage": {
-              "imageName": "atx_apparel_outfit_executioner.webp",
-              "directory": "/textures/atx/storefront/player/outfit/"
+              "imageName": "945bc7892369f11f01ee5f3343cdfea0.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Grognak Wallpaper",
+                "entmName": "SCORE_S6_ENTM_CAMP_WallPaper_Grognak"
+              },
+              {
+                "szItemName": "Grognak Tile Floor and Foundations",
+                "entmName": "SCORE_S6_ENTM_CAMP_Floor_Grognak"
+              },
+              {
+                "szItemName": "Grognak the Barbarian Poster",
+                "entmName": "SCORE_S6_ENTM_CAMP_WallDeco_Poster_HubrisComics_Grognak"
+              },
+              {
+                "szItemName": "Grognak Sidekick Costume and Underarmor",
+                "entmName": "SCORE_S6_ENTM_Apparel_Outfit_Sidekick_Grognak"
+              },
+              {
+                "szItemName": "Grognak Backpack Flair",
+                "entmName": "SCORE_S6_ENTM_Skin_BackpackFlair_Grognak"
+              },
+              {
+                "szItemName": "Grognak Sidekick Mask",
+                "entmName": "SCORE_S6_ENTM_Apparel_Headwear_Sidekick_Grognak"
+              },
+              {
+                "szItemName": "Grognak's Other Axe (Grognak's Axe)",
+                "entmName": "SCORE_S6_ENTM_Skin_WeaponSkin_GrognakAxe_Guitar"
+              },
+              {
+                "szItemName": "Grognak Player Icon",
+                "entmName": "SCORE_S6_ENTM_PlayerIcon_Grognak"
+              }
+            ],
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-08-25T12:00:00.000Z",
+              "originalAmount": 840,
+              "amount": 840
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 840
+            },
+            "highPrice": {
+              "originalAmount": 1200,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2606120,
+            "EDID": "ATX_ENTM_Skin_PowerArmor_Paint_LibertyPrime_Patriot",
+            "itemName": "Liberty Prime Power Armor Skin Set",
+            "itemNameShort": "Liberty Prime Power Armor Skin Set",
+            "itemDesc": "DEMOCRACY IS NON-NEGOTIABLE. Eradicate communism with these two Liberty Prime Power Armor Skins.\nThis is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on the Excavator, Raider, T-45, T-51, T-60, Ultracite and X-01 Power Armors.\n\nThe Power Armor Skin will play new, fully voiced sound effects while equipped.\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "5aa93fca271c357fd7b4351050d960ee.dds",
+              "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_apparel_headwear_executioner.webp",
-                "directory": "/textures/atx/storefront/player/headwear/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Executioner Mask",
-                "entmName": "ATX_ENTM_Headwear_Executioner"
+                "imageName": "atx_skin_powerarmor_paint_libertyprime_patriot_c1.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
               },
               {
-                "szItemName": "Executioner Outfit",
-                "entmName": "ATX_ENTM_Apparel_Outfit_Executioner"
+                "imageName": "atx_skin_powerarmor_paint_libertyprime_patriot_c2.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "atx_skin_powerarmor_paint_libertyprime_patriot_c3.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
               }
             ],
+            "dynamicBundleItems": [],
             "lowPrice": {
               "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
+              "ltoTimer": "2026-08-25T12:00:00.000Z",
+              "originalAmount": 1350,
+              "amount": 1350
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 1350
+            },
+            "highPrice": {
+              "originalAmount": 1800,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2606572,
+            "EDID": "ATX_ENTM_CAMP_Utility_WeatherStation_FallFoliage",
+            "itemName": "Weather Control Station (Fall)",
+            "itemNameShort": "Weather Station (Fall)",
+            "itemDesc": "This weather station allows you to have fall foliage rain from the sky in your C.A.M.P.\n\nWeather Control Station will change weather in the C.A.M.P. radius when connected to power.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_utility_weatherstation_fallfoliage_l.dds",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_utility_weatherstation_fallfoliage_c1.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_utility_weatherstation_fallfoliage_c2.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              },
+              {
+                "imageName": "atx_camp_utility_weatherstation_fallfoliage_c3.dds",
+                "directory": "/textures/atx/storefront/camp/utility/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 900,
+              "amount": 900,
+              "ltoTimer": "2026-08-25T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 900
+            },
+            "highPrice": {
+              "originalAmount": 1200,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2606784,
+            "EDID": "ATX_ENTM_CAMP_CAMPPets_Cat_RoboPaw",
+            "itemName": "RoboPaw Steel Cat",
+            "itemNameShort": "RoboPaw Cat",
+            "itemDesc": "The purrrfect companion that technology has to offer.\n\n- C.A.M.P. PETS  APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_camppets_cat_robopaw.dds",
+              "directory": "/textures/atx/storefront/camp/floordecoration/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "atx_camp_camppets_cat_robopaw_c1.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              },
+              {
+                "imageName": "atx_camp_camppets_cat_robopaw_c2.dds",
+                "directory": "/textures/atx/storefront/camp/floordecoration/"
+              }
+            ],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 600,
+              "amount": 600,
+              "ltoTimer": "2026-08-25T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 600
+            },
+            "highPrice": {
+              "originalAmount": 800,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2606176,
+            "EDID": "ATX_ENTM_Apparel_Outfit_SilverShroud",
+            "itemName": "The Silver Shroud Costume",
+            "itemNameShort": "Silver Shroud Costume",
+            "itemDesc": "Become death's Shroud and help wipe out evil-doers across Appalachia. By the shadows, it's dangerous!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "primaryImage": {
+              "imageName": "atx_apparel_outfit_silvershroud_l.webp",
+              "directory": "/textures/atx/storefront/player/outfit/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-08-25T12:00:00.000Z",
+              "originalAmount": 600,
+              "amount": 600
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 600
+            },
+            "highPrice": {
+              "originalAmount": 800,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2606482,
+            "EDID": "ATX_ENTM_CAMP_Utility_RepairBot_Enclave",
+            "itemName": "Enclave Repair Bot",
+            "itemNameShort": "Enclave Repair Bot",
+            "itemDesc": "Trust the Enclave to keep your C.A.M.P. at tip-top shape.\n\nDoes not repair destroyed C.A.M.P. objects.\n\nThis item cannot be built inside of a Shelter.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_utility_repairbot_enclave.dds",
+              "directory": "/textures/atx/storefront/camp/utility/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-08-25T12:00:00.000Z",
               "originalAmount": 525,
               "amount": 525
             },
@@ -2020,184 +2165,28 @@
             "isClown": false
           },
           {
-            "itemID": 2603147,
-            "EDID": "ATX_ENTM_Apparel_Outfit_ChallyMascot_Clean",
-            "itemName": "Clean Chally The Moo-Moo Outfit",
-            "itemNameShort": "Clean Chally Outfit",
-            "itemDesc": "Become the sweetheart of Appalachia with the Clean Chally The Moo-Moo Outfit!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+            "itemID": 2606798,
+            "itemName": "Little Devil Backpack Flair",
+            "itemNameShort": "Little Devil Flair",
+            "itemDesc": "Everyone has a little devil in them. Show yours off with the Little Devil Backpack Flair.\n\nFlairs can be applied to most Backpacks.\n\n- FLAIRS ARE APPLIED AT ARMOR WORKBENCHES. -",
             "primaryImage": {
-              "imageName": "atx_apparel_outfit_challymascot_clean_l.webp",
-              "directory": "/textures/atx/storefront/player/outfit/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_apparel_headwear_headwear_challymascot_clean_l.dds",
-                "directory": "/textures/atx/storefront/player/headwear/"
-              },
-              {
-                "imageName": "atx_apparel_outfit_challymascot_clean_l.dds",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 600,
-              "amount": 600
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 600
-            },
-            "highPrice": {
-              "originalAmount": 800,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false
-          },
-          {
-            "itemID": 2603704,
-            "itemName": "Dr. Zorbo Robes",
-            "itemNameShort": "Dr. Zorbo Robes",
-            "itemDesc": "Deliver your revenge and finally conquer the galaxy with these Dr. Zorbo Robes! And do it with flair!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage": {
-              "imageName": "score_s7_apparel_outfit_zorbo_l.webp",
-              "directory": "/textures/atx/storefront/player/outfit/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "score_s7_apparel_headwear_zorbo_l.webp",
-                "directory": "/textures/atx/storefront/player/headwear/"
-              }
-            ],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Dr. Zorbo Helmet",
-                "entmName": "SCORE_S7_ENTM_Apparel_Headwear_Zorbo"
-              },
-              {
-                "szItemName": "Dr. Zorbo Robes",
-                "entmName": "SCORE_S7_ENTM_Apparel_Outfit_Zorbo"
-              }
-            ],
-            "lowPrice": {
-              "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 600,
-              "amount": 600
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 600
-            },
-            "highPrice": {
-              "originalAmount": 800,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false
-          },
-          {
-            "itemID": 2603190,
-            "EDID": "ATX_ENTM_Apparel_Outfit_MantaMan",
-            "itemName": "Manta Man Costume",
-            "itemNameShort": "Manta Man",
-            "itemDesc": "Now you can be ready to defend Appalachia from the evil clutches of Commie-Kazi!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage": {
-              "imageName": "atx_apparel_outfit_mantaman_l.dds",
-              "directory": "/textures/atx/storefront/player/outfit/"
+              "imageName": "atx_skin_backpackflair_littledevil.dds",
+              "directory": "/textures/atx/storefront/player/flair/"
             },
             "carouselImages": [],
             "dynamicBundleItems": [],
             "lowPrice": {
               "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 600,
-              "amount": 600
+              "ltoTimer": "2026-08-25T12:00:00.000Z",
+              "originalAmount": 225,
+              "amount": 225
             },
             "lowestPurchasablePrice": {
               "originalAmount": 0,
-              "amount": 600
+              "amount": 225
             },
             "highPrice": {
-              "originalAmount": 800,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false
-          },
-          {
-            "itemID": 2602930,
-            "EDID": "ATX_ENTM_Apparel_Outfit_Vampire",
-            "itemName": "Halloween Vampire Costume",
-            "itemNameShort": "Vampire Costume",
-            "itemDesc": "Get ready for a spooktacular time with this terrifyingly convincing Vampire Costume.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage": {
-              "imageName": "atx_apparel_outfit_vampire_l.dds",
-              "directory": "/textures/atx/storefront/player/outfit/"
-            },
-            "carouselImages": [],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 600,
-              "amount": 600
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 600
-            },
-            "highPrice": {
-              "originalAmount": 800,
-              "amount": 0
-            },
-            "isZeus": false,
-            "isClown": false
-          },
-          {
-            "itemID": 2602968,
-            "EDID": "ATX_ENTM_Apparel_Outfit_CryptCrook",
-            "itemName": "Crypt Crook Outfit",
-            "itemNameShort": "Crypt Crook",
-            "itemDesc": "Elegant, yet morbid; probably best to leave the jacket at home so you don't rip it on the rebar!\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
-            "primaryImage": {
-              "imageName": "atx_apparel_outfit_cryptcrook_l.webp",
-              "directory": "/textures/atx/storefront/player/outfit/"
-            },
-            "carouselImages": [
-              {
-                "imageName": "atx_apparel_outfit_cryptcrook_c1.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_apparel_outfit_cryptcrook_c2.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_apparel_outfit_cryptcrook_c3.webp",
-                "directory": "/textures/atx/storefront/player/outfit/"
-              },
-              {
-                "imageName": "atx_apparel_headwear_cryptcrook_l.dds",
-                "directory": "/textures/atx/storefront/player/headwear/"
-              }
-            ],
-            "dynamicBundleItems": [],
-            "lowPrice": {
-              "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
-              "originalAmount": 600,
-              "amount": 600
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 600
-            },
-            "highPrice": {
-              "originalAmount": 800,
+              "originalAmount": 250,
               "amount": 0
             },
             "isZeus": false,
@@ -2215,7 +2204,36 @@
         },
         "items": [
           {
-            "itemID": 2599383,
+            "itemID": 2606453,
+            "EDID": "HTO_ENTM_Emotes_TeamUp_RequestingBackup",
+            "itemName": "Requesting Backup",
+            "itemNameShort": "Backup",
+            "itemDesc": "Come Join! Requesting Backup!\n\n- UNLOCKS AN EMOTE OPTION. -",
+            "primaryImage": {
+              "imageName": "infestation1.webp",
+              "directory": "/textures/emotes/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": false,
+              "originalAmount": 0,
+              "amount": 0
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 0
+            },
+            "highPrice": {
+              "originalAmount": 0,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isNew": 1,
+            "isClown": false
+          },
+          {
+            "itemID": 2606418,
             "EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_StripedAxolotl",
             "itemName": "Striped Alotolotl Plushie",
             "itemNameShort": "Striped Alotolotl",
@@ -2237,7 +2255,6 @@
             "dynamicBundleItems": [],
             "lowPrice": {
               "isLto": true,
-              "ltoTimer": "2026-09-01T12:00:00.000Z",
               "originalAmount": 0,
               "amount": 0
             },
@@ -2250,31 +2267,26 @@
               "amount": 0
             },
             "isZeus": false,
-            "isClown": false,
-            "isNew": 1
+            "isNew": 1,
+            "isClown": false
           },
           {
-            "itemID": 2603115,
-            "EDID": "ATX_ENTM_CAMP_Decoration_Flaggardening_04",
-            "itemName": "Sunflowers Flag",
-            "itemNameShort": "Sunflowers Flag",
-            "itemDesc": "Celebrate all things gardening with the Sunflowers Flag.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemID": 2606378,
+            "EDID": "ATX_ENTM_CAMP_Utility_PunchBowl",
+            "itemName": "Punch Bowl",
+            "itemNameShort": "Punch Bowl",
+            "itemDesc": "Host a party and serve up mixed drinks to all your Wasteland friends! The Punch Bowl is a container which can dispense mixed drinks in your C.A.M.P.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "atx_camp_decoration_flaggardening_04_l.dds",
-              "directory": "/textures/atx/storefront/camp/flags/"
+              "imageName": "atx_camp_utility_punchbowl_l.webp",
+              "directory": "/textures/atx/storefront/camp/utility/"
             },
-            "carouselImages": [
-              {
-                "imageName": "atx_camp_decoration_flaggardening_04_c1.dds",
-                "directory": "/textures/atx/storefront/camp/flags/"
-              }
-            ],
+            "carouselImages": [],
             "dynamicBundleItems": [],
             "lowPrice": {
               "isLto": true,
-              "ltoTimer": "2026-08-18T12:00:00.000Z",
               "originalAmount": 0,
-              "amount": 0
+              "amount": 0,
+              "ltoTimer": "2026-08-25T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "originalAmount": 0,
@@ -2289,11 +2301,11 @@
           },
           {
             "itemID": 2316946,
-            "itemName": "Free Lunchbox",
-            "itemNameShort": "Free Lunchbox",
-            "itemDesc": "Open a Lunchbox for you and your friends! You and players nearby receive an XP Boost and a random Buff Effect for a hour!\n\nFor Odds and Effects Information, visit Help > Lunchboxes.\n\n- LUNCHBOXES ARE UNDER AID IN THE PIP-BOY. LUNCHBOXES WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
+            "itemName": "Free Scrap Kit",
+            "itemNameShort": "Free Scrap Kit",
+            "itemDesc": "When you can't make it back to your C.A.M.P., a Scrap Kit can scrap all your junk and then send it directly to your stash!\n\n- USE FROM YOUR PIP-BOY UNDER THE MISC ITEMS TAB. SCRAP KITS WILL BE GRANTED TO THE CHOSEN CHARACTER.-",
             "primaryImage": {
-              "imageName": "atx_store_lunchbox001_l.dds",
+              "imageName": "atx_utility_repairkit_scraptostash_l.dds",
               "directory": "/textures/atx/storefront/utility/"
             },
             "carouselImages": [],
@@ -2316,27 +2328,26 @@
           },
           {
             "itemID": 101,
-            "itemName": "Alien Vending Machine",
-            "itemNameShort": "Alien Vending Machine",
-            "itemDesc": "The deals at this vendor might just be out of this world!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemName": "Farmers Market Letters Set",
+            "itemNameShort": "Farmers Market Letters",
+            "itemDesc": "This fancy letter kit would be great for any farmers market.\n\nThis set includes a unique, placable item for each letter of the alphabet, numbers, and some punctuation!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
             "primaryImage": {
-              "imageName": "atx_entm_camp_vendor_playervendingmachine_alien_l.dds",
-              "directory": "/textures/atx/storefront/camp/vendors/"
+              "imageName": "atx_camp_walldeco_letters_farmersmarketletterkit.dds",
+              "directory": "/textures/atx/storefront/camp/walldecoration/"
             },
             "carouselImages": [
               {
-                "imageName": "atx_entm_camp_vendor_playervendingmachine_alien_c1.dds",
-                "directory": "/textures/atx/storefront/camp/vendors/"
+                "imageName": "atx_camp_walldeco_letters_farmersmarketletterkit_c1.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
               },
               {
-                "imageName": "atx_entm_camp_vendor_playervendingmachine_alien_c2.dds",
-                "directory": "/textures/atx/storefront/camp/vendors/"
+                "imageName": "atx_camp_walldeco_letters_farmersmarketletterkit_c2.dds",
+                "directory": "/textures/atx/storefront/camp/walldecoration/"
               }
             ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "isLto": true,
-              "ltoTimer": "2026-08-05T12:00:00.000Z",
               "originalAmount": 250,
               "amount": 250
             },
@@ -2352,116 +2363,51 @@
             "isClown": false
           },
           {
-            "itemID": 2603708,
-            "itemName": "New Home Mega-Bundle",
-            "itemNameShort": "New Home Mega-Bundle",
-            "itemDesc": "Everything you need to start building your new home!\n\n- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemID": 2606886,
+            "itemName": "Best of Season 7 Bundle",
+            "itemNameShort": "Best of Season 7 Bundle",
+            "itemDesc": "Celebrate the best of Season 7 with your own Best of Season 7 Bundle.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
             "primaryImage": {
-              "imageName": "a6b0871811f09a8c471abddb4c2424ba.dds",
+              "imageName": "0d2c64b10c58930411bb326f1e2b95db.dds",
               "directory": "/textures/atomic_shop_media/"
             },
             "carouselImages": [],
             "dynamicBundleItems": [
               {
-                "szItemName": "Fall Elm Trees"
+                "szItemName": "Skellscream Power Armor Paint"
               },
               {
-                "szItemName": "Small Vault-Tec Prototype Generator"
+                "szItemName": "Octosaw Plushie"
               },
               {
-                "szItemName": "Summer Elm Trees"
+                "szItemName": "Wavy Willard's Bubble Machine"
               },
               {
-                "szItemName": "Dark Wood Laminate Floor and Foundations"
+                "szItemName": "West Virginia Slot Machine"
               },
               {
-                "szItemName": "Wildwood Tavern"
-              },
-              {
-                "szItemName": "Vault 76 New Home Neon Sign"
-              },
-              {
-                "szItemName": "Cash Register Vending Machine"
-              },
-              {
-                "szItemName": "Winter Elm Trees"
-              },
-              {
-                "szItemName": "Contemporary Housing Kit"
-              },
-              {
-                "szItemName": "Light Wood Laminate Floor and Foundations"
-              },
-              {
-                "szItemName": "White Wallpaper"
+                "szItemName": "Samurai Sword Paint (Sword)"
               }
             ],
             "lowPrice": {
               "isLto": true,
-              "originalAmount": 1250,
-              "amount": 1250,
-              "ltoTimer": "2026-08-18T12:00:00.000Z"
+              "originalAmount": 1000,
+              "amount": 855,
+              "ltoTimer": "2026-08-25T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "originalAmount": 0,
-              "amount": 1250
+              "amount": 1000
             },
             "highPrice": {
-              "originalAmount": 2500,
+              "originalAmount": 2000,
               "amount": 0
             },
             "isZeus": false,
             "isClown": false
           },
           {
-            "itemID": 2603709,
-            "EDID": "ATX_ENTM_BNDL_COZY_NIGHT_IN_BUNDLE",
-            "itemName": "Cozy Night In Bundle",
-            "itemNameShort": "Cozy Night In Bundle",
-            "itemDesc": "Spend a cozy night home in the C.A.M.P. with this Cozy Night In Bundle.\n\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n\nPRODUCES:\n[url=https://www.theduchessflame.com/post/camp-resource-company-tea-kettle]✦ Tea  [/url]",
-            "primaryImage": {
-              "imageName": "70e48bcbe6e14944f612be587d51d5c6.dds",
-              "directory": "/textures/atomic_shop_media/"
-            },
-            "carouselImages": [],
-            "dynamicBundleItems": [
-              {
-                "szItemName": "Clean Bathtub",
-                "entmName": "SCORE_S12_ENTM_CAMP_FloorDecor_CleanBathtub"
-              },
-              {
-                "szItemName": "✦ Jumpy Juice Company Tea Machine",
-                "entmName": "ATX_ENTM_CAMP_Collector_JumpyJuiceCompanyTeaMachine"
-              },
-              {
-                "szItemName": "Grey Tabby Cat",
-                "entmName": "ATX_ENTM_CAMP_CAMPPets_Cat_GreyTabby"
-              },
-              {
-                "szItemName": "Vault-Tec Pajamas",
-                "entmName": "ATX_ENTM_Apparel_Outfit_Pajamas_VaultTec"
-              }
-            ],
-            "lowPrice": {
-              "isLto": true,
-              "originalAmount": 900,
-              "amount": 900,
-              "ltoTimer": "2026-08-18T12:00:00.000Z"
-            },
-            "lowestPurchasablePrice": {
-              "originalAmount": 0,
-              "amount": 0
-            },
-            "highPrice": {
-              "originalAmount": 1800,
-              "amount": 0
-            },
-            "isZeus": true,
-            "isClown": false
-          },
-          {
-            "itemID": 2599294,
-            "EDID": "ATX_F1_ENTM_SurvivalTent_Skin_GNNVan",
+            "itemID": 2606312,
             "itemName": "GNN News Van (Survival Tent)",
             "itemNameShort": "GNN News Van",
             "itemDesc": "The GNN News Van is perfect for setting up where news is breaking, like on the outskirts of a nuclear blast!\n\nThe Survival Tent can be placed through the Favorites Menu.\n\nThis offer is exclusive to Fallout 1st Members. \n\n- UNLOCKS A VARIANT OF THE SURVIVAL TENT.-",
@@ -2498,8 +2444,54 @@
               "amount": 0
             },
             "isZeus": true,
-            "isClown": false,
-            "isNew": true
+            "isNew": 1,
+            "isClown": false
+          },
+          {
+            "itemID": 2606887,
+            "EDID": "ATX_ENTM_BNDL_LIGHT_EM_UP_WEAPON_BUNDLE",
+            "itemName": "Light Em Up Weapon Bundle",
+            "itemNameShort": "Light Em Up Weapon Bundle",
+            "itemDesc": "Add some Neon style to your guns with the Light Em Up Weapon Bundle.\n\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "1ba78cecc71fd973d4f0dd689fcd9c38.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Light 'Em Up Paint (Gatling Gun)",
+                "entmName": "ATX_ENTM_Skin_WeaponModel_GatlingGun_LightEmUp"
+              },
+              {
+                "szItemName": "Light 'Em Up Paint  (Pump Action Shotgun)",
+                "entmName": "ATX_ENTM_Skin_WeaponModel_PumpActionShotgun_LightEmUp"
+              },
+              {
+                "szItemName": "Light 'Em Up Paint (Handmade Rifle)",
+                "entmName": "ATX_ENTM_Skin_WeaponModel_HandmadeGun_LightEmUp"
+              },
+              {
+                "szItemName": "Light 'Em Up Weapon Rack",
+                "entmName": "ATX_ENTM_CAMP_WallDeco_Display_WeaponRacks_LightEmUp"
+              }
+            ],
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-08-25T12:00:00.000Z",
+              "originalAmount": 900,
+              "amount": 900
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 0
+            },
+            "highPrice": {
+              "originalAmount": 1800,
+              "amount": 0
+            },
+            "isZeus": true,
+            "isClown": false
           }
         ]
       },
