@@ -613,7 +613,8 @@
       "imageName": "atx_apparel_outfit_barbershopper.webp",
       "directory": "/textures/atx/storefront/player/outfit/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_Structure_Furniture_AtomicDryer",
@@ -625,7 +626,8 @@
       "imageName": "atx__structure_furniture_atomicdryer.webp",
       "directory": "/textures/atx/storefront/camp/furniture/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_Barbershopper",
@@ -707,7 +709,88 @@
       "imageName": "atx_camp_structure_barbershop_l.webp",
       "directory": "/textures/atx/storefront/camp/structures/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 700
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_BARBERSHOP_BUNDLE",
+    "desc": "No matter what happens folks are always gonna need to get their hair cut.",
+    "disclaimer": "- UNLOCKS AN EMOTE OPTION.\nEMOTES ARE SELECTABLE IN THE EMOTE WHEEL. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains one previously released item.[/h]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Barbershop Bundle",
+    "primaryImage": {
+      "imageName": "6ada840f5af501e7a59010b33f59b7bd.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 2000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Barber Shop"
+      },
+      {
+        "szItemName": "Barber's Chair"
+      },
+      {
+        "szItemName": "Atomic Hair Dryer"
+      },
+      {
+        "szItemName": "Shop Door"
+      },
+      {
+        "szItemName": "Greasin' Up Emote"
+      },
+      {
+        "szItemName": "Barbershop Mirror"
+      },
+      {
+        "szItemName": "Barbershop Pole Light"
+      },
+      {
+        "szItemName": "Super Duper Mart Register"
+      },
+      {
+        "szItemName": "\"Buzzin'\" Player Title Prefix"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_HIGH_NOTE_BUNDLE",
+    "desc": "Hello my honey / Hello my baby / Hello my rad-time gal!",
+    "disclaimer": "- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n[h]*This Bundle contains previously released items, bundled together as new.[/h]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "High Note Bundle",
+    "primaryImage": {
+      "imageName": "4d2b17b44d0ce93f4a8a01cc1443e27f.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1700,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Queue Barrier"
+      },
+      {
+        "szItemName": "Turnstile"
+      },
+      {
+        "szItemName": "Hollywood Gramophone"
+      },
+      {
+        "szItemName": "Barbershopper Hat"
+      },
+      {
+        "szItemName": "Barbershopper Outfit"
+      },
+      {
+        "szItemName": "Tip Box Stash Box"
+      },
+      {
+        "szItemName": "\"Beauty\" Player Title Suffix"
+      }
+    ]
   },
   {
     "EDID": "SCORE_MiniSeason_2026_SockHop_ENTM_CAMP_WallDecor_SockHopPoster",
@@ -867,7 +950,8 @@
       "imageName": "atx_camp_walldecor_barbershopmirror_l.webp",
       "directory": "/textures/atx/storefront/camp/walldecoration/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDeco_WindChime_SausageRack",
@@ -39564,7 +39648,8 @@
     },
     "carouselImages": [],
     "itemName": "Black Combat Dagger (Combat Knife Skin)",
-    "itemNameShort": "Black Combat Dagger"
+    "itemNameShort": "Black Combat Dagger",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Cactus_Set_03",
@@ -55932,7 +56017,8 @@
     },
     "carouselImages": [],
     "itemName": "Barber's Chair",
-    "itemNameShort": "Barber's Chair"
+    "itemNameShort": "Barber's Chair",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_Nurse",
@@ -59849,7 +59935,8 @@
     },
     "carouselImages": [],
     "itemName": "Enclave Repair Bot",
-    "itemNameShort": "Enclave Repair Bot"
+    "itemNameShort": "Enclave Repair Bot",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "zzzzz_ATX_ENTM_CAMP_WallDeco_Pennant_PTS_P56",
@@ -68616,7 +68703,8 @@
     },
     "carouselImages": [],
     "itemName": "Little Devil Backpack Flair",
-    "itemNameShort": "Little Devil Flair"
+    "itemNameShort": "Little Devil Flair",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_TrilobiteFossil",
@@ -113939,6 +114027,52 @@
       {
         "szItemName": "Wavy Willard's Fake Boulder Set",
         "entmName": "ATX_ENTM_CAMP_FloorDecor_WavyWillards_FakeBoulderSet"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_BACK_TO_SCHOOL_BUNDLE",
+    "desc": "Bring school back to the Wasteland. Parents will love you, but their kids sure won't.",
+    "disclaimer": "- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- UNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Back to School Bundle",
+    "primaryImage": {
+      "imageName": "9461be6e62a7fa950f8e6885a798cc20.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "School House C.A.M.P. Kit"
+      },
+      {
+        "szItemName": "Bulletin Board"
+      },
+      {
+        "szItemName": "Miner Lunch Pail Loot Bag"
+      },
+      {
+        "szItemName": "Student Combo Desk"
+      },
+      {
+        "szItemName": "School House Wallpaper"
+      },
+      {
+        "szItemName": "Chalkboard Secret Door"
+      },
+      {
+        "szItemName": "Dunce Cap"
+      },
+      {
+        "szItemName": "Grafton High School Poster"
+      },
+      {
+        "szItemName": "Dunce Stool Chair"
+      },
+      {
+        "szItemName": "Teacher's Desk Table"
       }
     ]
   }
