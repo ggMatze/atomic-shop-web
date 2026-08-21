@@ -1246,6 +1246,10 @@ let searchDebounceTimer;
 const searchDebounceDelay = 200;
 
 // Event listeners
+const defaultSearchPlaceholder = searchInput.getAttribute('placeholder');
+searchInput.addEventListener('focus', () => {
+    searchInput.setAttribute('placeholder', 'Search item or bundles names / IDs...');
+});
 searchInput.addEventListener('input', (e) => {
     clearTimeout(searchDebounceTimer);
     searchDebounceTimer = setTimeout(() => {
@@ -1255,6 +1259,7 @@ searchInput.addEventListener('input', (e) => {
     updateClearButtonVisibility();
 });
 searchInput.addEventListener('blur', () => {
+    searchInput.setAttribute('placeholder', defaultSearchPlaceholder);
     updateSearchUrlImmediately(searchInput.value);
 });
 
@@ -1834,6 +1839,13 @@ function closeOverlay() {
 // Keyboard navigation
 
 document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'f') {
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.select();
+        return;
+    }
+
     if (overlay.classList.contains('hidden')) return;
 
     if (e.key === 'Tab' || e.key === 'Escape') {
