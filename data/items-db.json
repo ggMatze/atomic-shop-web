@@ -267,7 +267,8 @@
       "imageName": "atx_skin_weaponskin_powerfist_offtherecord_l.webp",
       "directory": "/textures/atx/storefront/player/weaponskin/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_Skin_BackpackFlair_PressPass",
@@ -328,6 +329,46 @@
       "directory": "/textures/emotes/"
     },
     "carouselImages": []
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_GNN_REPORTER_BUNDLE",
+    "desc": "Breaking News: Strange Eyebot Spotted in Appalachia! Investigate this visitor with the GNN Reporter Bundle.",
+    "disclaimer": "- ALLIES  APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- WEAPON SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- ALLIES APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "GNN Reporter Bundle",
+    "primaryImage": {
+      "imageName": "877136e066c983a9935e850ba880838e.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 2000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Lite Ally: Cambot Nine",
+        "entmName": "ATX_ENTM_CAMP_Ally_CamBot"
+      },
+      {
+        "szItemName": "Stringer Outfit",
+        "entmName": "ATX_ENTM_Apparel_Outfit_Stringer"
+      },
+      {
+        "szItemName": "Stringer Fedora",
+        "entmName": "ATX_ENTM_Apparel_Headwear_Stringer"
+      },
+      {
+        "szItemName": "Press Pass Backpack Flair",
+        "entmName": "ATX_ENTM_Skin_BackpackFlair_PressPass"
+      },
+      {
+        "szItemName": "Off The Record (Power Fist)",
+        "entmName": "ATX_ENTM_Skin_WeaponSkin_PowerFist_OffTheRecord"
+      },
+      {
+        "szItemName": "Taking Notes Emote",
+        "entmName": "atx_entm_emotes_takingnotes"
+      }
+    ]
   },
   {
     "EDID": "zzzATX_ENTM_Emotes_ParadeMarch",
@@ -675,7 +716,8 @@
       "imageName": "atx_camp_ally_cambot_l.webp",
       "directory": "/textures/atx/storefront/camp/ally/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 1200
   },
   {
     "EDID": "HTO_ENTM_Emotes_TeamUp_RequestingBackup",
@@ -12023,7 +12065,8 @@
     },
     "carouselImages": [],
     "itemName": "Radstag Field Dressing Station",
-    "itemNameShort": "Radstag Field Dressing Station"
+    "itemNameShort": "Radstag Field Dressing Station",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S12_ENTM_CAMP_Ally_Scarberry",
@@ -31625,6 +31668,39 @@
     "carouselImages": [],
     "itemName": "Raider Sentry",
     "itemNameShort": "Raider Sentry"
+  },
+  {
+    "EDID": "ATX_ENTM_SET_DOLLS",
+    "desc": "A set of perfect friends for your C.A.M.P. Get all 3 Porcelain Dolls with the Doll Set Bundle.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Doll Set Bundle",
+    "primaryImage": {
+      "imageName": "e5a8422c36bff3d00f61d069fc21fb8b.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_entm_camp_floordecor_annebelleproceliandoll_l.webp",
+        "directory": "/textures/atx/storefront/camp/floordecoration/"
+      }
+    ],
+    "highPriceOriginal": 600,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Heirloom Blue Porcelain Doll",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_HeirloomBluePorcelainDoll"
+      },
+      {
+        "szItemName": "Porcelain Doll",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_PorcelainDoll"
+      },
+      {
+        "szItemName": "Annabelle Porcelain Doll",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_AnnabellePorcelainDoll"
+      }
+    ]
   },
   {
     "EDID": "ATX_ENTM_CAMP_Structure_GoldMill",
@@ -114099,6 +114175,182 @@
       {
         "szItemName": "Teacher's Desk Table",
         "entmName": "ATX_ENTM_CAMP_Furniture_Table_TeachersDesk_Variant"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_RADIATION_TEST_BUNDLE",
+    "desc": "Find a safe space to perform all your science experiments with the Radiation Test Bundle.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Radiation Test Bundle",
+    "primaryImage": {
+      "imageName": "44dba85fa572e3c91c9a90bce8a9e8bb.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Radiation Mutant Dummy",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_RadiationMutantDummy"
+      },
+      {
+        "szItemName": "Greenhouse Dome",
+        "entmName": "ATX_ENTM_CAMP_Structure_Greenhouse_Small01"
+      },
+      {
+        "szItemName": "Alien Radiation Dummy",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_AlienRadiationDummy"
+      },
+      {
+        "szItemName": "Clean Shower",
+        "entmName": "ATX_ENTM_CAMP_Decoration_Clean_Shower"
+      },
+      {
+        "szItemName": "Radiation Test Dummy",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_RadiationDummy"
+      },
+      {
+        "szItemName": "Radiation Glove Box",
+        "entmName": "SCORE_S10_ENTM_CAMP_Utility_Radiation_Glove_Box"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_THE_TRUE_POWER_BUNDLE",
+    "desc": "Show the Wasteland who is really in charge with the True Power Bundle.",
+    "disclaimer": "- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "The True Power Bundle",
+    "primaryImage": {
+      "imageName": "241f5b7f6b82ef37306844c457b9f967.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Enclave Light Machine Gun Paint",
+        "entmName": "ATX_ENTM_Skin_WeaponSkin_MG42_Enclave"
+      },
+      {
+        "szItemName": "Enclave Power Armor Station",
+        "entmName": "ATX_ENTM_CAMP_Machinery_Workbench_PowerArmor_Enclave"
+      },
+      {
+        "szItemName": "Enclave Power Armor Paint",
+        "entmName": "ATX_ENTM_Skin_PowerArmor_Paint_Enclave"
+      },
+      {
+        "szItemName": "Enclave Paint (Pump Action Shotgun)",
+        "entmName": "ATX_ENTM_Skin_WeaponSkin_PumpActionShotgun_Enclave"
+      },
+      {
+        "szItemName": "Enclave Jetpack",
+        "entmName": "ATX_ENTM_Skin_PowerArmor_Jetpack_Enclave"
+      },
+      {
+        "szItemName": "Enclave Chassis Display Frame",
+        "entmName": "ATX_ENTM_CAMP_Display_ChassisDisplayFrame_Enclave"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_NEWSROOM_BUNDLE",
+    "desc": "Everything you need to create Appalachia's number one newsroom!",
+    "disclaimer": "- BACKPACKS ARE CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Newsroom Bundle",
+    "primaryImage": {
+      "imageName": "8b48bb61f6f63fb7548f9ce68b2ae86f.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 2000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Steel Performance Stage",
+        "entmName": "ATX_ENTM_CAMP_Structure_PerformanceStage_Metal"
+      },
+      {
+        "szItemName": "Framed Prison Break Newspaper",
+        "entmName": "SCORE_MiniSeason_2025_AppalachianOutlaws_ENTM_CAMP_WallDecor_FramedNewsPaper"
+      },
+      {
+        "szItemName": "Sound Stage Shelter",
+        "entmName": "SCORE_S13_Shelters_ENTM_ShelterEntrance_SoundStage"
+      },
+      {
+        "szItemName": "Studio Lights Set",
+        "entmName": "score_s13_entm_camp_lights_ceiling_studiolights"
+      },
+      {
+        "szItemName": "Clean Striped Suit",
+        "entmName": "ATX_TP_ENTM_Apparel_Outfit_SuitClean_Striped"
+      },
+      {
+        "szItemName": "Camera Pack Backpack",
+        "entmName": "SCORE_S13_ENTM_Skin_Backpack_CameraPack"
+      },
+      {
+        "szItemName": "White Crocodile Camera Paint",
+        "entmName": "ATX_ENTM_Skin_CameraSkin_CrocSkin"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_FALL_IS_HERE_BUNDLE",
+    "desc": "Not too hot, not too cold, and beautiful crunchy leaves everywhere. Nothing beats autumn!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Fall is Here Bundle",
+    "primaryImage": {
+      "imageName": "7b631cfb3dd9b8060bed0f4064eae0b2.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 2000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Tool Shed",
+        "entmName": "ATX_ENTM_CAMP_Structure_ToolShed"
+      },
+      {
+        "szItemName": "German Shepherd",
+        "entmName": "ATX_ENTM_CAMP_CAMPPets_Dog_GermanShepherd"
+      },
+      {
+        "szItemName": "Red Wooden Backyard Chair",
+        "entmName": "ATX_ENTM_CAMP_Furniture_Chair_BackyardChair"
+      },
+      {
+        "szItemName": "Silver BBQ Grill",
+        "entmName": "ATX_ENTM_CAMP_Machinery_Workbench_Cooking_BBQ_Grill_Silver"
+      },
+      {
+        "szItemName": "Fall Shrub",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_FallShrub"
+      },
+      {
+        "szItemName": "Fall Elm Trees",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_ElmTrees_Fall"
+      },
+      {
+        "szItemName": "Dog Leaf Pile",
+        "entmName": "SCORE_S19_ENTM_CAMP_CAMPPets_IdleFurniture_DogLeafPile"
+      },
+      {
+        "szItemName": "Tire Swing Tree",
+        "entmName": "SCORE_S11_ENTM_CAMP_Furniture_TireSwingTree"
+      },
+      {
+        "szItemName": "Leaf Pile Set",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_LeafPile"
       }
     ]
   }
