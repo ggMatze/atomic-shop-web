@@ -67,11 +67,11 @@
         </div>
         <div id="details-content" class="collapsible-content open">
           <div class="fields-grid">
-            <div class="field-row">
-              <label>Item ID:</label>
+            <div hidden class="field-row">
+              <label hidden>Item ID:</label>
               <input type="number" id="itemID" />
             </div>
-            <div class="field-row">
+            <div hidden class="field-row">
               <label>Replace ID:</label>
               <input type="number" id="replaceItemID" />
             </div>
@@ -90,6 +90,14 @@
             <label>Item Name (Short):</label>
             <input type="text" id="itemNameShort" />
           </div>
+          <div class="field-row">
+              <label>Low Price:</label>
+              <input type="number" id="lowPriceAmount" />
+            </div>
+            <div class="field-row">
+              <label>High Price:</label>
+              <input type="number" id="highPriceAmount" />
+            </div>
           <div class="field-row full">
             <label>Description:</label>
             <div style="display: flex; flex-direction: column; gap: 6px;">
@@ -98,14 +106,7 @@
             </div>
           </div>
           <div class="fields-grid">
-            <div class="field-row">
-              <label>Low Price:</label>
-              <input type="number" id="lowPriceAmount" />
-            </div>
-            <div class="field-row">
-              <label>High Price:</label>
-              <input type="number" id="highPriceAmount" />
-            </div>
+            
             <div class="field-row">
               <label>Start Time:</label>
               <input type="datetime-local" id="startTime" />
@@ -178,6 +179,19 @@ function normalizeDir(dir) {
   if (d.charAt(0) !== '/') d = '/' + d;
   if (d.charAt(d.length - 1) !== '/') d = d + '/';
   return d;
+}
+
+function computeHalfPrice(value) {
+  const high = Number(value);
+  if (!Number.isFinite(high)) return 0;
+  return parseFloat((high / 2).toFixed(2));
+}
+
+function updateLowPriceFromHigh() {
+  const highInput = document.getElementById('highPriceAmount');
+  const lowInput = document.getElementById('lowPriceAmount');
+  if (!highInput || !lowInput) return;
+  lowInput.value = computeHalfPrice(highInput.value);
 }
 
 function getRichTextFrame() {
@@ -452,10 +466,8 @@ function addDbItemToCurrentWeek() {
   }
   const items = dailyData.DailySalesByWeek[currentWeek];
   const itemName = titleCase(dbItem.itemName || dbItem.EDID || 'Unnamed Item');
-  const lowestPriceAmount = typeof dbItem.lowestPurchasablePrice?.Amount === 'number'
-    ? dbItem.lowestPurchasablePrice.Amount
-    : (typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : 0);
   const highPriceAmount = typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : 0;
+  const lowestPriceAmount = computeHalfPrice(highPriceAmount);
   const item = {
     itemID: generateRandomItemID(),
     replaceItemID: 0,
@@ -510,12 +522,10 @@ function replaceCurrentItemWithSelectedDbItem() {
   }
   const itemName = titleCase(dbItem.itemName || dbItem.EDID || 'Unnamed Item');
   const existing = items[currentItemIdx] || {};
-  const lowestPriceAmount = typeof dbItem.lowestPurchasablePrice?.Amount === 'number'
-    ? dbItem.lowestPurchasablePrice.Amount
-    : (typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : (existing.lowestPurchasablePrice?.Amount || 0));
   const highPriceAmount = typeof dbItem.highPriceOriginal === 'number'
     ? dbItem.highPriceOriginal
     : (existing.highPrice?.originalAmount || 0);
+  const lowestPriceAmount = computeHalfPrice(highPriceAmount);
   const replacement = {
     itemID: existing.itemID || generateRandomItemID(),
     replaceItemID: existing.replaceItemID || 0,
@@ -629,8 +639,8 @@ function selectItem(idx) {
   document.getElementById('itemName').value = item.itemName || '';
   document.getElementById('itemNameShort').value = item.itemNameShort || '';
   setRichTextContent(item.itemDesc || '');
-  document.getElementById('lowPriceAmount').value = item.lowestPurchasablePrice?.Amount || '';
   document.getElementById('highPriceAmount').value = item.highPrice?.originalAmount || '';
+  updateLowPriceFromHigh();
   document.getElementById('startTime').value = isoToLocalInput(item.startTime);
   document.getElementById('endTime').value = isoToLocalInput(item.endTime);
   document.getElementById('ltoTimer').value = isoToLocalInput(item.lowPrice?.ltoTimer);
@@ -991,11 +1001,10 @@ function saveItem() {
   item.itemNameShort = document.getElementById('itemNameShort').value;
   item.itemDesc = getRichTextContent();
   
-  if (!item.lowestPurchasablePrice) item.lowestPurchasablePrice = {};
-  item.lowestPurchasablePrice.Amount = parseInt(document.getElementById('lowPriceAmount').value) || 0;
-  
   if (!item.highPrice) item.highPrice = {};
-  item.highPrice.originalAmount = parseInt(document.getElementById('highPriceAmount').value) || 0;
+  item.highPrice.originalAmount = parseFloat(document.getElementById('highPriceAmount').value) || 0;
+  if (!item.lowestPurchasablePrice) item.lowestPurchasablePrice = {};
+  item.lowestPurchasablePrice.Amount = computeHalfPrice(item.highPrice.originalAmount);
   
   item.startTime = localInputToIso(document.getElementById('startTime').value);
   item.endTime = localInputToIso(document.getElementById('endTime').value);
@@ -1023,9 +1032,9 @@ window.addNewItem = function() {
     itemDesc: '',
     primaryImage: { directory: '/textures/atx/storefront/', imageName: 'item_l.webp' },
     carouselImages: [],
-    lowestPurchasablePrice: { Amount: 0, ltoTimer: 1813682 },
-    lowPrice: { ltoTimer: new Date().toISOString(), isLto: true },
     highPrice: { originalAmount: 0 },
+    lowestPurchasablePrice: { Amount: computeHalfPrice(0), ltoTimer: 1813682 },
+    lowPrice: { ltoTimer: new Date().toISOString(), isLto: true },
     startTime: new Date().toISOString(),
     endTime: new Date(Date.now() + 86400000).toISOString(),
     isZeus: false
@@ -1109,6 +1118,7 @@ document.getElementById('load-json').addEventListener('click', async () => {
 });
 
 document.getElementById('save-item').addEventListener('click', saveItem);
+document.getElementById('highPriceAmount').addEventListener('input', updateLowPriceFromHigh);
 
 document.getElementById('db-search-input').addEventListener('input', searchDbItems);
 document.getElementById('add-db-item-btn').addEventListener('click', addDbItemToCurrentWeek);

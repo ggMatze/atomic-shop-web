@@ -23,6 +23,11 @@
   <button onclick="stripJSON()">Strip &amp; Anzeigen</button>
   <button onclick="downloadJSON()">Speichern als Datei</button>
   <br>
+  <label style="display: inline-flex; align-items: center; gap: 8px; margin-top: 1em;">
+    <input type="checkbox" id="stripCarouselImages">
+    <span>Strip carouselImages (empty arrays)</span>
+  </label>
+  <br>
   <button onclick="copyAll()" style="margin-top:1em;">Alles kopieren</button>
   <h3>Ergebnis:</h3>
   <pre id="output" class="language-json"></pre>
@@ -78,32 +83,64 @@
       return result;
     }
 
-    function stripItem(item) {
-      if (!item || typeof item !== "object") return {};
-      const result = {};
-      Object.keys(item).forEach(key => {
-        if (!allowedKeys.includes(key)) return;
-        if (["lowPrice", "lowestPurchasablePrice", "highPrice"].includes(key)) {
-          result[key] = stripPrice(item[key]);
-        } else if (key === "primaryImage") {
-          result[key] = stripImage(item[key]);
-        } else if (key === "carouselImages" && Array.isArray(item[key])) {
-          result[key] = item[key].map(stripImage);
-        } else if (key === "dynamicBundleItems" && Array.isArray(item[key])) {
-          result[key] = item[key].map(stripBundleItem);
-        } else {
-          result[key] = item[key];
-        }
-      });
-      // Remove any private/metadata keys that start with '_' if present
-      // (some source data contains _detectedSuffixInfo and similar fields)
-      Object.keys(result).forEach(k => {
-        if (k && k.charAt(0) === '_') delete result[k];
-      });
-      // Also defensively remove a commonly seen metadata field if it slipped through
-      if (result._detectedSuffixInfo) delete result._detectedSuffixInfo;
-      return result;
+const itemKeyOrder = [
+  "itemID",
+  "EDID",
+  "itemName",
+  "itemNameShort",
+  "itemDesc",
+  "primaryImage",
+  "carouselImages",
+  "dynamicBundleItems",
+  "lowPrice",
+  "lowestPurchasablePrice",
+  "highPrice",
+  "isZeus",
+  "isClown",
+  "isNew",
+];
+
+function stripItem(item) {
+  if (!item || typeof item !== "object") return {};
+  const temp = {};
+
+  Object.keys(item).forEach(key => {
+    if (!allowedKeys.includes(key)) return;
+
+    if (["lowPrice", "lowestPurchasablePrice", "highPrice"].includes(key)) {
+      temp[key] = stripPrice(item[key]);
+
+    } else if (key === "primaryImage") {
+      temp[key] = stripImage(item[key]);
+
+    } else if (key === "carouselImages" && Array.isArray(item[key])) {
+      const shouldStrip = document.getElementById('stripCarouselImages')?.checked;
+      temp[key] = shouldStrip ? [] : item[key].map(stripImage);
+
+    } else if (key === "dynamicBundleItems" && Array.isArray(item[key])) {
+      temp[key] = item[key].map(stripBundleItem);
+
+    } else {
+      temp[key] = item[key];
     }
+  });
+
+  // private keys entfernen
+  Object.keys(temp).forEach(k => {
+    if (k && k.charAt(0) === '_') delete temp[k];
+  });
+  if (temp._detectedSuffixInfo) delete temp._detectedSuffixInfo;
+
+  // 👉 HIER sortieren
+  const result = {};
+  itemKeyOrder.forEach(key => {
+    if (temp.hasOwnProperty(key)) {
+      result[key] = temp[key];
+    }
+  });
+
+  return result;
+}
 
     function stripPage(page) {
       const p = {};
@@ -125,6 +162,7 @@
       if (Array.isArray(data.items)) return [data];
       return [];
     }
+
 
     function stripJSON() {
       let input = document.getElementById('input').value;
