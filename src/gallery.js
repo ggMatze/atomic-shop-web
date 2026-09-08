@@ -216,22 +216,12 @@ function buildItemImageAssets(item, itemsDb = null) {
   const seen = new Set();
   resolvedImages.forEach((img) => {
     const normalizedValue = (img.explicit ? img.imageName : buildImageUrl(img.directory, img.imageName)) || '';
-    
-    // If this is a bundle item with an entmId, ALWAYS keep it even if same image
-    // Different item IDs should display separately in carousel even with identical images
-    if (img.entmId) {
-      const dedupeKey = `${normalizedValue}|${img.entmId}`.toLowerCase();
-      console.log('[buildItemImageAssets] Bundle item with ID:', { imageName: img.imageName, entmId: img.entmId, dedupeKey });
-      if (!seen.has(dedupeKey)) {
-        seen.add(dedupeKey);
-        uniqueImages.push(img);
-      }
-      return;
-    }
-    
-    // For non-bundle items, deduplicate on image URL only
+
+    // Deduplicate by the rendered image URL regardless of whether the source
+    // image came from a bundle entry or a carousel item. A per-entmId key here
+    // is what allows shared bundle artwork to be repeated in the gallery.
     const key = normalizedValue.toLowerCase();
-    console.log('[buildItemImageAssets] Dedup check (non-bundle):', { normalizedValue, isDuplicate: seen.has(key) });
+    console.log('[buildItemImageAssets] Dedup check:', { normalizedValue, isDuplicate: seen.has(key) });
     if (!normalizedValue || seen.has(key)) return;
     seen.add(key);
     uniqueImages.push(img);
