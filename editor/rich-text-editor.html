@@ -40,15 +40,6 @@
     background: #1177bb;
   }
 
-  .rte-link-input {
-    padding: 6px 10px;
-    background: #3c3c3c;
-    color: #e0e0e0;
-    border: 1px solid #555;
-    border-radius: 3px;
-    font-size: 0.85em;
-  }
-
   .rte-fields {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -158,8 +149,8 @@
     <input type="color" id="rte-color-picker" style="display:none" />
     <button class="rte-btn" onclick="rteApplyFormat('B')">B</button>
     <button class="rte-btn" onclick="rteApplyFormat('U')">U</button>
-    <input type="text" id="rte-link-input" class="rte-link-input" placeholder="https://...">
     <button class="rte-btn" onclick="rteApplyLink()">Link</button>
+    <button class="rte-btn" onclick="rteAddDisclaimers()">Disc</button>
     <button class="rte-btn" onclick="rteInsertBreak()">\n</button>
     <button class="rte-btn" onclick="rteInsertPara()">\n\n</button>
   </div>
@@ -185,6 +176,13 @@
 <script>
   const RTE_DEBUG = true;
   let rawTextarea;
+  let disclaimersData = [];
+
+  // Load disclaimers from JSON
+  fetch('../data/disclaimers.json')
+    .then(response => response.json())
+    .then(data => { disclaimersData = data; })
+    .catch(err => logDebug('Failed to load disclaimers:', err));
 
   function logDebug(...args) {
     if (RTE_DEBUG) console.debug('[RTE]', ...args);
@@ -423,9 +421,6 @@
   }
 
   function rteApplyLink() {
-    const url = document.getElementById('rte-link-input').value.trim();
-    if (!url) return;
-
     const descDiv = document.getElementById('rte-description');
     const discDiv = document.getElementById('rte-disclaimer');
 
@@ -435,11 +430,38 @@
     }
 
     const selection = window.getSelection();
-    if (selection.rangeCount > 0) {
-      const range = selection.getRangeAt(0);
-      const selectedText = range.toString();
+    if (selection.rangeCount === 0) return;
 
-      if (selectedText) {
+    const range = selection.getRangeAt(0);
+    const selectedText = range.toString();
+    if (!selectedText.trim()) return;
+
+    // Get the bounding rect of the selection
+    const rect = range.getBoundingClientRect();
+    const container = document.querySelector('.rte-container');
+
+    // Create the popup input
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.placeholder = 'https://...';
+    input.style.position = 'absolute';
+    input.style.left = (rect.left - container.getBoundingClientRect().left) + 'px';
+    input.style.top = (rect.bottom - container.getBoundingClientRect().top + 5) + 'px';
+    input.style.zIndex = '1000';
+    input.style.padding = '4px 8px';
+    input.style.background = '#3c3c3c';
+    input.style.color = '#e0e0e0';
+    input.style.border = '1px solid #555';
+    input.style.borderRadius = '3px';
+    input.style.fontSize = '0.85em';
+    input.style.width = '200px';
+
+    container.appendChild(input);
+    input.focus();
+
+    function applyLink() {
+      const url = input.value.trim();
+      if (url) {
         const a = document.createElement('a');
         a.href = url;
         a.target = '_blank';
@@ -448,9 +470,118 @@
         range.deleteContents();
         range.insertNode(a);
 
+        // Move cursor after the link
+        const newRange = document.createRange();
+        newRange.setStartAfter(a);
+        newRange.setEndAfter(a);
+        selection.removeAllRanges();
+        selection.addRange(newRange);
+
         updateRaw();
       }
+      container.removeChild(input);
     }
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applyLink();
+      } else if (e.key === 'Escape') {
+        container.removeChild(input);
+      }
+    });
+
+    input.addEventListener('blur', () => {
+      applyLink();
+    });
+  }
+
+  function rteAddDisclaimers() {
+    logDebug('rteAddDisclaimers called');
+    if (disclaimersData.length === 0) {
+      logDebug('Disclaimers not loaded yet');
+      return;
+    }
+
+    logDebug('disclaimersData loaded:', disclaimersData.length, 'items');
+
+    // Get images from parent
+    let images = [];
+    try {
+      if (window.parent && typeof window.parent.getTempImages === 'function') {
+        images = window.parent.getTempImages();
+        logDebug('Got images from parent:', images.length);
+        images.forEach((img, idx) => {
+          logDebug(`  Image ${idx}: directory=${img.directory}`);
+        });
+      } else {
+        logDebug('getTempImages not available on parent');
+      }
+    } catch (e) {
+      logDebug('Could not get images from parent:', e);
+    }
+
+    // Get current disclaimer content
+    const discDiv = document.getElementById('rte-disclaimer');
+    const currentHtml = discDiv.innerHTML.toLowerCase();
+    logDebug('Current disclaimer HTML:', currentHtml);
+
+    // Collect applicable disclaimers not already present
+    const applicableDisclaimers = [];
+    disclaimersData.forEach(item => {
+      const { paths, disclaimer } = item;
+      const disclaimerLower = disclaimer.toLowerCase();
+      if (currentHtml.includes(disclaimerLower)) {
+        logDebug('Disclaimer already present:', disclaimer);
+        return; // Already present
+      }
+
+      // Check if any path matches
+      const hasMatch = images.some(img => {
+        if (!img.directory) {
+          logDebug(`  Checking disclaimer "${disclaimer}": img has no directory`);
+          return false;
+        }
+        const dir = img.directory.toLowerCase();
+        logDebug(`  Checking disclaimer "${disclaimer}": dir=${dir}, paths=${paths.join(',')}`);
+        const matches = paths.some(path => dir.includes('/' + path + '/'));
+        if (matches) {
+          logDebug(`  ✓ Path match found for "${disclaimer}" in dir: ${dir}`);
+        }
+        return matches;
+      });
+
+      if (hasMatch) {
+        applicableDisclaimers.push(disclaimer);
+      }
+    });
+
+    logDebug('Applicable disclaimers found:', applicableDisclaimers.length);
+
+    if (applicableDisclaimers.length === 0) {
+      logDebug('No new applicable disclaimers');
+      // Show brief feedback that button worked but nothing new was added
+      const btn = document.querySelector('button[onclick="rteAddDisclaimers()"]');
+      if (btn) {
+        const originalText = btn.textContent;
+        btn.textContent = '(no new)';
+        btn.style.opacity = '0.6';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.opacity = '';
+        }, 1500);
+      }
+      return;
+    }
+
+    // Format disclaimers
+    const disclaimerTexts = applicableDisclaimers.map(text => `- ${text.replace(/\n/g, '<br>')} -`);
+    const disclaimerHtml = disclaimerTexts.join('<br>') + '<br><br>';
+
+    // Prepend to disclaimer div
+    discDiv.innerHTML = disclaimerHtml + discDiv.innerHTML;
+
+    updateRaw();
   }
 
   function rteInsertBreak() {

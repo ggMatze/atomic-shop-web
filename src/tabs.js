@@ -868,7 +868,7 @@ if (typeof window !== 'undefined') {
       const dateLabel = renderDateRange(item);
 
   // Safe JSON for embedding in attribute
-  const dataItemObj = { title: item.itemName, itemDesc: item.itemDesc, includes, dynamicBundleItems: item.dynamicBundleItems || [], storefrontImage, images, priceOriginal: atomPriceOriginal, priceFinal: atomPriceFinal, discount, isNew, isZeus, isClown: !!item.isClown, isHighlight: isHighlighted, disabled: !!item.disabled, expired: isExpired, itemID: item.itemID, EDID: item.EDID || item.edid || undefined, entmName: item.entmName || undefined };
+  const dataItemObj = { title: item.itemName, itemDesc: item.itemDesc, includes, dynamicBundleItems: item.dynamicBundleItems || [], storefrontImage, images, carouselImages: Array.isArray(item.carouselImages) ? item.carouselImages.slice() : [], priceOriginal: atomPriceOriginal, priceFinal: atomPriceFinal, discount, isNew, isZeus, isClown: !!item.isClown, isHighlight: isHighlighted, disabled: !!item.disabled, expired: isExpired, itemID: item.itemID, EDID: item.EDID || item.edid || undefined, entmName: item.entmName || undefined };
       let dataItemStr = JSON.stringify(dataItemObj).replace(/'/g, "&apos;").replace(/\r\n|\n|\\n/, "\\n");
 
       shopGridEl.innerHTML += `

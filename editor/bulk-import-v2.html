@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulk Import v2 - Clean Rewrite</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1e1e1e;
+      color: #e0e0e0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1, h2 {
+      color: #4a9eff;
+      margin-bottom: 15px;
+    }
+
+    h1 { font-size: 28px; }
+    h2 { font-size: 20px; }
+
+    .section {
+      background: #252526;
+      border: 1px solid #3e3e42;
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    input[type="file"],
+    button {
+      padding: 10px 15px;
+      border: 1px solid #3e3e42;
+      background: #2d2d2d;
+      color: #e0e0e0;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #3e3e42;
+    }
+
+    button:active {
+      background: #1e1e1e;
+    }
+
+    .status {
+      padding: 12px 15px;
+      background: #1e3a1e;
+      border: 1px solid #3a5a3a;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .status.error {
+      background: #3a1e1e;
+      border-color: #5a3a3a;
+      color: #ff6b6b;
+    }
+
+    .status.success {
+      background: #1e3a1e;
+      border-color: #3a5a3a;
+      color: #6bff6b;
+    }
+
+    .status.warning {
+      background: #3a3a1e;
+      border-color: #5a5a3a;
+      color: #ffff6b;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .stat-box {
+      background: #2d2d2d;
+      border: 1px solid #3e3e42;
+      border-radius: 4px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4a9eff;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #888;
+      margin-top: 5px;
+    }
+
+    .items-grid {
+      display: grid;
+      gap: 15px;
+    }
+
+    .item-card {
+      background: #2d2d2d;
+      border: 1px solid #3e3e42;
+      border-radius: 4px;
+      padding: 15px;
+      border-left: 4px solid #0078d4;
+    }
+
+    .item-card.matched {
+      border-left-color: #6bff6b;
+    }
+
+    .item-card.unmatched {
+      border-left-color: #ff6b6b;
+    }
+
+    .item-card.conflict {
+      border-left-color: #ffff6b;
+    }
+
+    .item-header {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .item-name {
+      font-weight: bold;
+      color: #e0e0e0;
+      flex: 1;
+    }
+
+    .item-status {
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: bold;
+      background: #3e3e42;
+    }
+
+    .item-status.matched {
+      background: #1e5a1e;
+      color: #6bff6b;
+    }
+
+    .item-status.unmatched {
+      background: #5a1e1e;
+      color: #ff6b6b;
+    }
+
+    .item-status.conflict {
+      background: #5a5a1e;
+      color: #ffff6b;
+    }
+
+    .item-details {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      background: #3e3e42;
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    .badge.carousel {
+      color: #4a9eff;
+      border: 1px solid #4a9eff;
+      background: transparent;
+    }
+
+    .badge.bundle {
+      color: #6bff6b;
+      border: 1px solid #6bff6b;
+      background: transparent;
+    }
+
+    .conflict-resolution {
+      background: #2d2d2d;
+      border: 1px solid #3e3e42;
+      border-radius: 4px;
+      padding: 15px;
+      margin-top: 10px;
+    }
+
+    .suggested-images {
+      background: #2a3a2a;
+      border: 1px solid #3a5a3a;
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .suggested-images strong {
+      color: #6bff6b;
+    }
+
+    .suggested-images .image-list {
+      margin-top: 8px;
+      padding-left: 20px;
+    }
+
+    .image-list li {
+      color: #888;
+      margin-bottom: 4px;
+    }
+
+    .image-thumbnails {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .thumb-container {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      border: 1px solid #555;
+      border-radius: 2px;
+      overflow: hidden;
+      background: #000;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .thumb-container:hover {
+      border-color: #4a9eff;
+    }
+
+    .thumb-container[style*="border-color: rgb(107, 255, 107)"] {
+      border-color: #6bff6b !important;
+      border-width: 2px !important;
+      box-shadow: 0 0 8px rgba(107, 255, 107, 0.4);
+    }
+
+    .thumb-container .thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumb-label {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 4px;
+      border-radius: 2px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .edit-panel {
+      background: #3a3a3a;
+      border: 1px solid #4a4a4a;
+      border-radius: 4px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+
+    .edit-section {
+      margin-bottom: 15px;
+    }
+
+    .edit-section label {
+      font-weight: bold;
+      color: #4a9eff;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .image-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .image-option {
+      background: #2d2d2d;
+      border: 2px solid #3e3e42;
+      border-radius: 4px;
+      padding: 8px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 11px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: all 0.2s;
+    }
+
+    .image-option:hover {
+      border-color: #4a9eff;
+    }
+
+    .image-option.selected {
+      border-color: #6bff6b;
+      background: #1e3a1e;
+    }
+
+    .edit-buttons {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .edit-buttons button {
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔧 Bulk Importer v2 - Atomic Shop Database</h1>
+    
+    <div class="section">
+      <h2>Choose Mode</h2>
+      <div class="controls">
+        <button onclick="app.switchMode('import')" style="background: #0078d4; font-weight: bold;">📥 Import New Items from JSON</button>
+        <button onclick="app.switchMode('indexdb')" style="background: #6b9f15; font-weight: bold;">🖼️ Index Database with Textures</button>
+      </div>
+    </div>
+
+    <div class="section hidden" id="importMode">
+      <h2>1. Load Import Files</h2>
+      <div class="controls">
+        <input type="file" id="fileInput" multiple accept=".json" />
+        <button onclick="app.loadFiles()">Load & Analyze</button>
+        <button onclick="app.reset()">Reset</button>
+      </div>
+      <div id="statusArea"></div>
+    </div>
+
+    <div class="section hidden" id="dbIndexMode">
+      <h2>1. Index Database with Textures</h2>
+      <div class="controls">
+        <button onclick="app.loadDatabaseIndex()">📂 Load Database & Scan Textures</button>
+        <button onclick="app.reset()">Reset</button>
+      </div>
+      <div id="statusArea2"></div>
+    </div>
+
+    <div class="section hidden" id="statsSection">
+      <h2>2. Analysis Results</h2>
+      <div class="stats" id="statsContainer"></div>
+    </div>
+
+    <div class="section hidden" id="itemsSection">
+      <h2>3. Items Review</h2>
+      <div class="controls" id="filterControls">
+        <button onclick="app.filterItems('all')">All</button>
+        <button onclick="app.filterItems('matched')">Matched</button>
+        <button onclick="app.filterItems('conflict')">Conflicts</button>
+        <button onclick="app.filterItems('unmatched')">Unmatched</button>
+      </div>
+      <div class="items-grid" id="itemsContainer"></div>
+    </div>
+
+    <div class="section hidden" id="saveSection">
+      <h2>4. Save to Database</h2>
+      <div class="controls">
+        <button onclick="app.saveDatabase()" style="background: #1e5a1e; color: #6bff6b;">✓ Save Changes</button>
+        <button onclick="app.reset()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const app = {
+      dbArray: [],
+      loadedItems: [],
+      matchedItems: [],
+      conflictItems: [],
+      unmatchedItems: [],
+      filter: 'all',
+      textureCache: null,
+      mode: 'import', // 'import' or 'indexdb'
+
+      // ===== MODE SWITCHING =====
+      switchMode(newMode) {
+        this.mode = newMode;
+        this.reset();
+        
+        document.getElementById('importMode').classList.toggle('hidden', newMode !== 'import');
+        document.getElementById('dbIndexMode').classList.toggle('hidden', newMode !== 'indexdb');
+        document.getElementById('statsSection').classList.add('hidden');
+        document.getElementById('itemsSection').classList.add('hidden');
+        document.getElementById('saveSection').classList.add('hidden');
+      },
+
+      // ===== MAIN ENTRY POINTS =====
+      async loadFiles() {
+        const fileInput = document.getElementById('fileInput');
+        if (fileInput.files.length === 0) {
+          this.showStatus('Please select JSON files', 'error');
+          return;
+        }
+
+        this.reset();
+        this.showStatus('Loading and analyzing files...', 'success');
+
+        try {
+          console.log('Starting file load...');
+          
+          // Load JSON files
+          for (let file of fileInput.files) {
+            console.log('Loading file:', file.name);
+            const text = await file.text();
+            const data = JSON.parse(text);
+            this.extractItems(data);
+          }
+          
+          console.log(`Loaded ${this.loadedItems.length} items from files`);
+
+          // Load database
+          console.log('Fetching database...');
+          const dbResponse = await fetch('../data/items-db.json');
+          
+          if (!dbResponse.ok) {
+            throw new Error(`Failed to load database: ${dbResponse.status} ${dbResponse.statusText}`);
+          }
+          
+          this.dbArray = await dbResponse.json();
+          console.log(`Database loaded: ${this.dbArray.length} items`);
+
+          // Load texture index (pre-built from physical files)
+          console.log('Loading texture index...');
+          const texResponse = await fetch('../data/texture-index.json?_=' + Date.now());
+          if (texResponse.ok) {
+            this.textureCache = await texResponse.json();
+            console.log(`Texture index loaded: ${Object.keys(this.textureCache).length} unique filenames`);
+          } else {
+            console.warn('Failed to load texture index');
+            this.textureCache = {};
+          }
+
+          // Match items
+          console.log('Matching items...');
+          this.matchItems();
+
+          // Detect image conflicts
+          console.log('Detecting conflicts...');
+          this.detectConflicts();
+
+          // Render UI
+          console.log('Rendering stats and items...');
+          this.renderStats();
+          this.renderItems();
+          
+          document.getElementById('statsSection').classList.remove('hidden');
+          document.getElementById('itemsSection').classList.remove('hidden');
+          document.getElementById('saveSection').classList.remove('hidden');
+
+          this.showStatus(`✓ Loaded ${this.loadedItems.length} items. Matched: ${this.matchedItems.length}, Conflicts: ${this.conflictItems.length}, Unmatched: ${this.unmatchedItems.length}`, 'success');
+        } catch (err) {
+          console.error('ERROR in loadFiles:', err);
+          this.showStatus(`ERROR: ${err.message}`, 'error');
+        }
+      },
+
+      async loadDatabaseIndex() {
+        this.reset();
+        this.showStatus('Loading database and texture index...', 'success');
+
+        try {
+          // Load database
+          console.log('Loading database...');
+          const dbResponse = await fetch('../data/items-db.json');
+          if (!dbResponse.ok) throw new Error(`Failed to load DB: ${dbResponse.status}`);
+          this.dbArray = await dbResponse.json();
+          console.log(`Database loaded: ${this.dbArray.length} items`);
+
+          // Load texture index
+          console.log('Loading texture index...');
+          const texResponse = await fetch('../data/texture-index.json?_=' + Date.now());
+          if (!texResponse.ok) throw new Error('Failed to load texture index');
+          this.textureCache = await texResponse.json();
+          console.log(`Texture index loaded: ${Object.keys(this.textureCache).length} unique files`);
+
+          // Index database items
+          let indexed = 0;
+          let skipped = 0;
+          let added = 0;
+          let bundlesSkipped = 0;
+          let alreadyHadImages = 0;
+
+          this.dbArray.forEach((item, idx) => {
+            const lowerEdid = (item.EDID || '').toLowerCase();
+            
+            // Skip cut/unused items (begin with zzz)
+            if (lowerEdid.startsWith('zzz')) {
+              skipped++;
+              return;
+            }
+
+            // Skip emotes, player icons, and reuse placeholders
+            if (lowerEdid.includes('emote') || lowerEdid.includes('camp') || lowerEdid.includes('playericon') || lowerEdid.includes('playericon_reuse')) {
+              skipped++;
+              return;
+            }
+
+            // Skip bundle items - they're too complex to auto-match accurately
+            if (lowerEdid.includes('bndl')) {
+              bundlesSkipped++;
+              skipped++;
+              return;
+            }
+
+            // Skip items that already have ANY images (primary or carousel)
+            if ((item.primaryImage) || (item.carouselImages && item.carouselImages.length > 0)) {
+              alreadyHadImages++;
+              skipped++;
+              return;
+            }
+
+            const edid = item.EDID || '';
+            if (!edid) {
+              skipped++;
+              return;
+            }
+
+            // Clean up EDID for matching - remove _ENTM_ first, then prefixes (same approach as texture)
+            let cleanedEDID = lowerEdid
+              .replace(/_entm_/g, '_')  // Replace _entm_ with underscore
+              .replace(/^(atx_|score_s\d+_|babylon_|f1_|f1_entm_|score_s\d+_score_s\d+_)/, ''); // Remove known prefixes
+
+            // TWO-STAGE MATCHING: exact match first, then keyword matching
+            
+            // Stage 1: Try EXACT FULL NAME MATCH
+            let matches = Object.entries(this.textureCache).filter(([fileName]) => {
+              const lower = fileName.toLowerCase();
+              const normalized = lower
+                .replace(/^(atx_|score_s\d+_|babylon_|f1_|f1_entm_|score_s\d+_score_s\d+_)/, '')
+                .replace(/(_l|_c\d+|_r)$/, '');
+              return normalized === cleanedEDID;
+            });
+
+            // Stage 2: If no exact match, try KEYWORD MATCHING (VERY strict: ALL keywords must match)
+            if (matches.length === 0) {
+              // Extract keywords from cleanedEDID (split by underscore, min 3 chars)
+              const keywords = cleanedEDID.split('_').filter(w => w.length >= 3);
+
+              // Only attempt keyword matching if we have at least 3 keywords
+              // AND require ALL keywords to match (no partial matches)
+              if (keywords.length >= 3) {
+                matches = Object.entries(this.textureCache).filter(([fileName]) => {
+                  const lower = fileName.toLowerCase();
+                  const matchedCount = keywords.filter(kw => lower.includes(kw)).length;
+                  // ALL keywords must be present (strict, no exceptions)
+                  return matchedCount === keywords.length;
+                });
+              } else {
+                // For EDIDs with 1-2 keywords, only exact match; no keyword relaxation
+                matches = [];
+              }
+            }
+
+            if (matches.length === 0) {
+              // No match found - add to suggestions for manual search
+              this.unmatchedItems.push({
+                ...item,
+                dbIndex: idx
+              });
+              skipped++;
+              return;
+            }
+
+            // Filter with fallback priorities (no false positives):
+            // 1. Prefer _L variants (primary images)
+            let primaryImages = matches.filter(([f]) => /_l$/i.test(f.toLowerCase()));
+            
+            // 2. If no _L, try base variants (no suffix at all)
+            if (primaryImages.length === 0) {
+              primaryImages = matches.filter(([f]) => {
+                const lower = f.toLowerCase();
+                // Only accept if it has NO suffix at END (_l, _c#, _r)
+                return !/((_l|_r|_c\d+)$)/i.test(lower);
+              });
+            }
+            
+            if (primaryImages.length === 0) {
+              // No suitable variant found - add to suggestions
+              this.unmatchedItems.push({
+                ...item,
+                dbIndex: idx
+              });
+              skipped++;
+              return;
+            }
+
+            // Use the FIRST _L variant as primaryImage (not carousel)
+            const selectedImage = primaryImages[0];
+            const variant = selectedImage[1][0];
+            const fullName = variant.fileName;
+            
+            item.primaryImage = {
+              imageName: fullName,
+              directory: variant.fullPath.substring(0, variant.fullPath.lastIndexOf('/') + 1)
+            };
+            
+            this.matchedItems.push({
+              ...item,
+              newImagesAdded: 1,
+              matchedImages: 1,
+              dbIndexMode: true
+            });
+            indexed++;
+            added++;
+          });
+
+          console.log(`Indexed: ${indexed}, Added images: ${added}, Unmatched (need manual): ${this.unmatchedItems.length}, Total Skipped: ${skipped} (Bundles: ${bundlesSkipped}, Had Images: ${alreadyHadImages})`);
+
+          // Show results
+          this.renderIndexStats(indexed, added, skipped);
+          
+          // Show matched items first (if any)
+          if (this.matchedItems.length > 0) {
+            this.renderDatabaseItems();
+          } else {
+            document.getElementById('itemsContainer').innerHTML = '<p style="color: #888; text-align: center; padding: 20px;">No items auto-matched. See "Need Manual Search" section below.</p>';
+          }
+          
+          // Show unmatched items for manual search
+          if (this.unmatchedItems.length > 0) {
+            console.log('Rendering unmatched items:', this.unmatchedItems.length);
+            this.renderUnmatchedItems();
+          }
+          
+          // Show results sections
+          document.getElementById('statsSection').classList.remove('hidden');
+          document.getElementById('itemsSection').classList.remove('hidden');
+          document.getElementById('saveSection').classList.remove('hidden');
+
+          const textureCount = Object.keys(this.textureCache).length;
+          this.showStatus(`✓ Done: ${indexed} auto-indexed, ${this.unmatchedItems.length} need manual search (${textureCount} textures available for search)`, 'success');
+        } catch (err) {
+          console.error('ERROR in loadDatabaseIndex:', err);
+          this.showStatus(`ERROR: ${err.message}`, 'error');
+        }
+      },
+
+      renderIndexStats(indexed, added, skipped) {
+        const unmatchedCount = this.unmatchedItems ? this.unmatchedItems.length : 0;
+        const html = `
+          <div class="stat-box">
+            <div class="stat-number">${this.dbArray.length}</div>
+            <div class="stat-label">Total Items</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" style="color: #6bff6b;">${indexed}</div>
+            <div class="stat-label">Auto-Indexed</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" style="color: #ffff6b;">${added}</div>
+            <div class="stat-label">Images Added</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" style="color: #ff9800;">${unmatchedCount}</div>
+            <div class="stat-label">Need Manual Search</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" style="color: #888;">${skipped - unmatchedCount}</div>
+            <div class="stat-label">Skipped (Bundles/Had Images)</div>
+          </div>
+        `;
+        document.getElementById('statsContainer').innerHTML = html;
+      },
+
+      renderDatabaseItems() {
+        const items = this.matchedItems;
+        const html = items.map((item, idx) => {
+          // For DB index mode, show primaryImage; otherwise show new carousel images
+          let imagesToShow = [];
+          if (item.dbIndexMode && item.primaryImage) {
+            imagesToShow = [item.primaryImage];
+          } else {
+            imagesToShow = item.carouselImages.slice(-item.newImagesAdded);
+          }
+          
+          return `
+          <div class="item-card matched" id="dbitem-${idx}" style="border-left-color: #6bff6b;">
+            <div class="item-header">
+              <div class="item-name">${item.itemName}</div>
+              <div style="display: flex; gap: 8px; align-items: center;">
+                <div class="item-status matched">✓ Indexed</div>
+                <button onclick="app.toggleEditDB(${idx})" style="padding: 4px 8px; font-size: 12px;">Edit</button>
+                <button onclick="app.cancelIndexItem(${idx})" style="padding: 4px 8px; font-size: 12px; background: #5a1e1e; color: #ff6b6b;">✕ Cancel</button>
+              </div>
+            </div>
+            <div class="badges">
+              <div class="badge" style="background: #1e5a1e; color: #6bff6b;">✓ ${item.newImagesAdded} added</div>
+              <div class="badge">Total: ${item.carouselImages.length || (item.primaryImage ? 1 : 0)}</div>
+            </div>
+            
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+              <strong style="color: #aaffaa; font-size: 12px;">New Images Added:</strong>
+              <div class="image-thumbnails" style="margin-top: 8px;">
+                ${imagesToShow.map((img, i) => {
+                  const fullPath = img.directory + img.imageName;
+                  return `<div class="thumb-container" title="${img.imageName}" style="cursor: help;">
+                    <img src="${fullPath}" alt="${img.imageName}" class="thumb" onerror="this.style.display='none'" style="width: 80px; height: 80px; object-fit: cover;" />
+                    <span class="thumb-label" style="background: #1e5a1e; font-size: 11px; padding: 2px 4px;">${img.imageName}</span>
+                  </div>`;
+                }).join('')}
+              </div>
+            </div>
+            
+            <div class="item-details">
+              <strong>EDID:</strong> ${item.EDID}
+              <br/><strong>All ${item.dbIndexMode ? 'Primary' : 'Carousel'} Images:</strong> ${item.carouselImages.length || (item.primaryImage ? 1 : 0)} total
+            </div>
+            
+            <div class="edit-panel hidden" id="edit-dbitem-${idx}" style="margin-top: 15px; padding: 15px; background: #3a3a3a; border: 1px solid #4a4a4a; border-radius: 4px;">
+              
+              ${item.dbIndexMode && item.primaryImage ? `
+              <div style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #4a4a4a;">
+                <label style="font-weight: bold; color: #ffff6b; display: block; margin-bottom: 8px;">⭐ Primary Image (Auto-matched):</label>
+                <div style="background: #2d2d2d; border: 1px solid #4a4a4a; border-radius: 3px; padding: 12px; text-align: center;">
+                  <img src="${item.primaryImage.directory + item.primaryImage.imageName}" alt="Primary" style="width: 100%; max-height: 150px; object-fit: contain; margin-bottom: 8px; border-radius: 2px;" onerror="this.style.display='none'" />
+                  <div style="font-size: 11px; color: #aaa; word-break: break-all;">${item.primaryImage.imageName}</div>
+                </div>
+              </div>
+              ` : ''}
+              
+              <div style="margin-bottom: 20px;">
+                <label style="font-weight: bold; color: #4a9eff; display: block; margin-bottom: 8px;">Current Carousel Images (${item.carouselImages.length}):</label>
+                <div class="image-selector" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px;">
+                  ${item.carouselImages.map((img, i) => {
+                    const fullPath = img.directory + img.imageName;
+                    const isNew = i >= (item.carouselImages.length - item.newImagesAdded);
+                    const bgColor = isNew ? '#1e5a1e' : '#2d2d2d';
+                    return `<div style="background: ${bgColor}; border: 1px solid #3e3e42; border-radius: 3px; padding: 6px; text-align: center; position: relative;">
+                      <img src="${fullPath}" alt="${img.imageName}" style="width: 100%; height: 70px; object-fit: cover; border-radius: 2px; margin-bottom: 4px;" onerror="this.style.display='none'" />
+                      <div style="font-size: 9px; color: #888; word-break: break-all; margin-bottom: 4px;">${img.imageName}</div>
+                      <button onclick="app.removeCarouselImage(${idx}, ${i})" style="width: 100%; padding: 3px; font-size: 11px; background: #5a1e1e; color: #ff6b6b; border: 1px solid #7a2e2e; border-radius: 2px; cursor: pointer;">Remove</button>
+                      ${isNew ? '<div style=\"font-size: 9px; color: #6bff6b; margin-top: 4px; font-weight: bold;\">NEW</div>' : ''}
+                    </div>`;
+                  }).join('')}
+                </div>
+              </div>
+
+              <div style="border-top: 1px solid #4a4a4a; padding-top: 15px; margin-top: 15px;">
+                <label style="font-weight: bold; color: #ffff6b; display: block; margin-bottom: 8px;">🔍 Find Alternative Images (searches as you type):</label>
+                <input type="text" id="search-${idx}" placeholder="Search by filename or pattern..." oninput="app.searchAlternativeImages(${idx})"
+                  style="width: 100%; padding: 8px; background: #2d2d2d; border: 1px solid #3e3e42; color: #e0e0e0; border-radius: 3px; margin-bottom: 8px;" />
+                <div id="search-results-${idx}" style="max-height: 300px; overflow-y: auto;"></div>
+              </div>
+
+              <div style="margin-top: 12px; border-top: 1px solid #4a4a4a; padding-top: 12px; display: flex; gap: 8px;">
+                <button onclick="app.toggleEditDB(${idx})" style="flex: 1; padding: 8px 12px; background: #3e3e42; border: 1px solid #4a4a4a; color: #e0e0e0; border-radius: 3px; cursor: pointer;">Close</button>
+              </div>
+            </div>
+          </div>
+        `;
+        }).join('');
+        
+        document.getElementById('itemsContainer').innerHTML = html || '<p style="color: #888;">No items indexed</p>';
+      },
+
+      toggleEditDB(idx) {
+        const editPanel = document.getElementById(`edit-dbitem-${idx}`);
+        if (editPanel) {
+          editPanel.classList.toggle('hidden');
+          // Clear search results when closing
+          if (editPanel.classList.contains('hidden')) {
+            const searchResults = document.getElementById(`search-results-${idx}`);
+            if (searchResults) searchResults.innerHTML = '';
+          }
+        }
+      },
+
+      searchAlternativeImages(idx) {
+        const item = this.matchedItems[idx];
+        if (!item) {
+          console.warn(`Item not found at index ${idx}`);
+          return;
+        }
+        
+        if (!this.textureCache || Object.keys(this.textureCache).length === 0) {
+          console.warn('Texture cache not loaded or empty');
+          document.getElementById(`search-results-${idx}`).innerHTML = '<p style="color: #ff6b6b; font-size: 12px;">⚠️ Texture index not loaded. Please reload the page.</p>';
+          return;
+        }
+
+        const searchInput = document.getElementById(`search-${idx}`);
+        if (!searchInput) {
+          console.warn(`Search input not found: search-${idx}`);
+          return;
+        }
+        
+        const query = searchInput.value.toLowerCase().trim();
+        
+        if (!query) {
+          document.getElementById(`search-results-${idx}`).innerHTML = '<p style="color: #888; font-size: 12px;">Enter search term...</p>';
+          return;
+        }
+
+        console.log(`Searching for "${query}" in ${Object.keys(this.textureCache).length} textures`);
+
+        // Find matching files - prioritize _L variants, then no-suffix variants
+        const allMatches = Object.entries(this.textureCache)
+          .filter(([fileName]) => fileName.toLowerCase().includes(query));
+
+        console.log(`Found ${allMatches.length} matches for "${query}": ${allMatches.slice(0, 5).map(([f]) => f).join(', ')}${allMatches.length > 5 ? '...' : ''}`);
+
+        // PRIMARY: Get _L variants (primary/left images)
+        const primaryMatches = allMatches.filter(([f]) => /_l$/i.test(f.toLowerCase()));
+
+        // SECONDARY: Get images without costume suffixes (_C1-_C9)
+        const secondaryMatches = allMatches.filter(([f]) => {
+          const lower = f.toLowerCase();
+          // Exclude if it has costume suffix (_C followed by digit)
+          return !/_c\d$/i.test(lower);
+        }).filter(([f]) => !f.toLowerCase().endsWith('_l')); // And exclude _L (already in primary)
+
+        // Combine: primary first, then secondary, limit to 30 total
+        const matches = [...primaryMatches, ...secondaryMatches].slice(0, 30);
+
+        if (matches.length === 0) {
+          document.getElementById(`search-results-${idx}`).innerHTML = '<p style="color: #ff6b6b; font-size: 12px;">No matches found for "' + query + '"' + (allMatches.length > 0 ? ` (but found ${allMatches.length} raw matches - checking filters)` : '') + '</p>';
+          return;
+        }
+
+        const isPrimaryImageMode = item.dbIndexMode && item.primaryImage;
+        const resultsHtml = `
+          <div style="font-size: 11px; color: #aaffaa; margin-bottom: 8px;">Found ${matches.length} images (primary variants first):</div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 6px;">
+            ${matches.map(([fileName, variants]) => {
+              const variant = variants[0];
+              const fullName = variant.fileName;
+              const fullPath = variant.fullPath;
+              const alreadyAdded = item.carouselImages.some(img => img.imageName === fullName);
+              const isPrimary = variant.fileName.toLowerCase().endsWith('_l.webp');
+              const borderColor = isPrimary ? '#6bff6b' : '#4a9eff';
+              return `<div style="background: ${alreadyAdded ? '#3a2d2d' : '#2d3a2d'}; border: 2px solid ${alreadyAdded ? '#7a3e3e' : borderColor}; border-radius: 3px; padding: 4px; text-align: center;">
+                <img src="${fullPath}" alt="${fullName}" style="width: 100%; height: 60px; object-fit: cover; border-radius: 2px; margin-bottom: 4px; cursor: pointer;" onerror="this.style.display='none'" title="${fullName}" />
+                <div style="font-size: 8px; color: #888; word-break: break-all; margin-bottom: 3px; max-height: 30px; overflow: hidden;">${fileName}</div>
+                ${isPrimary ? '<div style="font-size: 8px; color: #6bff6b; margin-bottom: 3px;">PRIMARY</div>' : ''}
+                ${isPrimaryImageMode && alreadyAdded
+                  ? '<div style="font-size: 9px; color: #ffff6b;">✓ Current</div>'
+                  : isPrimaryImageMode
+                  ? `<button onclick="app.replacePrimaryImage(${idx}, '${fullName}', '${fullPath.substring(0, fullPath.lastIndexOf('/') + 1)}')" style="width: 100%; padding: 2px; font-size: 10px; background: #5a5a1e; color: #ffff6b; border: 1px solid #7a7a3e; border-radius: 2px; cursor: pointer;">↻ Replace</button>`
+                  : alreadyAdded
+                  ? '<div style="font-size: 9px; color: #ffff6b;">✓ Added</div>'
+                  : `<button onclick="app.addCarouselImage(${idx}, '${fullName}', '${fullPath.substring(0, fullPath.lastIndexOf('/') + 1)}')" style="width: 100%; padding: 2px; font-size: 10px; background: #1e5a1e; color: #6bff6b; border: 1px solid #3a7a3a; border-radius: 2px; cursor: pointer;">+ Add</button>`
+                }
+              </div>`;
+            }).join('')}
+          </div>
+        `;
+        document.getElementById(`search-results-${idx}`).innerHTML = resultsHtml;
+      },
+
+      replacePrimaryImage(idx, imageName, directory) {
+        const item = this.matchedItems[idx];
+        if (!item) return;
+
+        const oldImage = item.primaryImage?.imageName || 'unknown';
+        item.primaryImage = {
+          imageName,
+          directory
+        };
+
+        this.showStatus(`✓ Replaced ${oldImage} with ${imageName}`, 'success');
+        this.renderDatabaseItems();
+      },
+
+      addCarouselImage(idx, imageName, directory) {
+        const item = this.matchedItems[idx];
+        if (!item) return;
+
+        // Check if already exists
+        if (item.carouselImages.some(img => img.imageName === imageName)) {
+          this.showStatus('Image already in carousel', 'warning');
+          return;
+        }
+
+        // Add it
+        item.carouselImages.push({
+          imageName,
+          directory
+        });
+
+        this.showStatus(`✓ Added ${imageName}`, 'success');
+        this.renderDatabaseItems();
+      },
+
+      removeCarouselImage(idx, imgIdx) {
+        const item = this.matchedItems[idx];
+        if (!item || !item.carouselImages[imgIdx]) return;
+
+        const removed = item.carouselImages[imgIdx].imageName;
+        item.carouselImages.splice(imgIdx, 1);
+        this.showStatus(`✓ Removed ${removed}`, 'success');
+        this.renderDatabaseItems();
+      },
+
+      cancelIndexItem(idx) {
+        if (confirm(`Cancel indexing "${this.matchedItems[idx].itemName}"?`)) {
+          this.matchedItems.splice(idx, 1);
+          this.showStatus(`✓ Cancelled`, 'success');
+          this.renderDatabaseItems();
+          // Update stats
+          const indexed = this.matchedItems.length;
+          this.renderIndexStats(indexed, this.matchedItems.reduce((sum, item) => sum + item.newImagesAdded, 0), this.dbArray.length - indexed);
+        }
+      },
+
+      renderUnmatchedItems() {
+        if (this.unmatchedItems.length === 0) return;
+        
+        // Create unmatched section if it doesn't exist
+        let unmatchedSection = document.getElementById('unmatchedSection');
+        if (!unmatchedSection) {
+          const itemsContainer = document.getElementById('itemsContainer');
+          unmatchedSection = document.createElement('div');
+          unmatchedSection.id = 'unmatchedSection';
+          unmatchedSection.style.marginTop = '30px';
+          itemsContainer.parentNode.insertBefore(unmatchedSection, itemsContainer.nextSibling);
+        }
+
+        const heading = `
+          <div style="background: #3a2d2d; border: 2px solid #ff9800; border-radius: 4px; padding: 15px; margin: 15px 0;">
+            <h2 style="margin: 0 0 10px 0; color: #ff9800; font-size: 18px;">⚠️ ${this.unmatchedItems.length} Items Need Manual Search</h2>
+            <p style="margin: 0; color: #aaa; font-size: 12px;">These couldn't be auto-matched. Search keywords to find and set their primary images.</p>
+          </div>
+        `;
+
+        const html = this.unmatchedItems.map((item, idx) => {
+          const itemId = `unmatched-item-${idx}`;
+          return `
+          <div class="item-card" style="border-left-color: #ff9800; background: #3a2d2d; margin-bottom: 15px; border: 1px solid #5a3e3e;">
+            <div class="item-header">
+              <div class="item-name">${item.itemName || '(No name)'}</div>
+              <div class="item-status" style="background: #5a3e1e; color: #ffff6b; padding: 4px 10px;">⚠️ No Match</div>
+            </div>
+            <div class="item-details" style="margin: 10px 0;">
+              <strong>EDID:</strong> <code style="background: #2d2d2d; padding: 2px 6px; font-size: 11px;">${item.EDID}</code>
+            </div>
+
+            <div style="background: #2d2d2d; padding: 12px; border-radius: 3px; margin: 10px 0;">
+              <label style="font-weight: bold; color: #ffff6b; display: block; margin-bottom: 8px;">🔍 Search Keywords (searches as you type):</label>
+              <input type="text" id="unmatched-search-${idx}" placeholder="e.g., 'outfit vault' or 'weapon laser'..." oninput="app.searchUnmatchedImages(${idx})"
+                style="width: 100%; padding: 8px; background: #1a1a1a; border: 1px solid #3e3e42; color: #e0e0e0; border-radius: 3px; font-size: 13px; margin-bottom: 10px;" />
+              <div id="unmatched-results-${idx}" style="min-height: 40px; max-height: 400px; overflow-y: auto; background: #1a1a1a; border: 1px solid #3e3e42; border-radius: 3px; padding: 10px;"></div>
+            </div>
+          </div>
+        `;
+        }).join('');
+
+        unmatchedSection.innerHTML = heading + html;
+      },
+
+      searchUnmatchedImages(idx) {
+        const item = this.unmatchedItems[idx];
+        const searchInput = document.getElementById(`unmatched-search-${idx}`);
+        const query = searchInput.value.toLowerCase().trim();
+
+        if (!query) {
+          document.getElementById(`unmatched-results-${idx}`).innerHTML = '<p style="color: #888;">Enter keywords to search...</p>';
+          return;
+        }
+
+        if (!this.textureCache || Object.keys(this.textureCache).length === 0) {
+          console.warn('Texture cache not loaded');
+          document.getElementById(`unmatched-results-${idx}`).innerHTML = '<p style="color: #ff6b6b; font-size: 12px;">⚠️ Texture index not loaded. Please reload the page.</p>';
+          return;
+        }
+
+        // Multi-keyword matching - same as auto-match
+        const keywords = query.split(/\s+/).filter(w => w.length >= 2);
+        console.log(`Searching for keywords: ${keywords.join(', ')} in ${Object.keys(this.textureCache).length} textures`);
+        
+        let results = Object.entries(this.textureCache).filter(([fileName]) => {
+          const lower = fileName.toLowerCase();
+          return keywords.every(kw => lower.includes(kw));
+        });
+
+        console.log(`Found ${results.length} matches for keywords`);
+
+        // Combine _L and base variants (no costumes):
+        // 1. Get _L variants (primary images)
+        const primaryMatches = results.filter(([f]) => /_l$/i.test(f.toLowerCase()));
+        
+        // 2. Get base variants (no suffix at all)
+        const baseMatches = results.filter(([f]) => {
+          const lower = f.toLowerCase();
+          // Only accept if it has NO suffix at END (_l, _c#, _r)
+          return !/((_l|_r|_c\d+)$)/i.test(lower);
+        });
+        
+        // Combine both: _L first (preferred), then base variants
+        const allMatches = [...primaryMatches, ...baseMatches].slice(0, 20);
+
+        if (allMatches.length === 0) {
+          const resultsMsg = results.length > 0 
+            ? `Found ${results.length} images but none match the filter (no primary _L variant or base variant).`
+            : 'No images match these keywords.';
+          document.getElementById(`unmatched-results-${idx}`).innerHTML = `<p style="color: #ff6b6b;">${resultsMsg}</p>`;
+          return;
+        }
+
+        const resultsHtml = `
+          <div style="font-size: 11px; color: #6bff6b; margin-bottom: 8px;">Found ${allMatches.length} images:</div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px;">
+            ${allMatches.map(([fileName, variants]) => {
+              const variant = variants[0];
+              const fullName = variant.fileName;
+              const fullPath = variant.fullPath;
+              return `<div style="background: #2d2d2d; border: 2px solid #4a7eff; border-radius: 3px; padding: 6px; text-align: center;">
+                <img src="${fullPath}" alt="${fullName}" style="width: 100%; height: 70px; object-fit: cover; border-radius: 2px; margin-bottom: 4px;" onerror="this.style.display='none'" title="${fullName}" />
+                <div style="font-size: 8px; color: #888; word-break: break-all; margin-bottom: 6px; max-height: 24px; overflow: hidden;">${fullName}</div>
+                <button onclick="app.setUnmatchedPrimaryImage(${idx}, '${fullName}', '${fullPath.substring(0, fullPath.lastIndexOf('/') + 1)}')" style="width: 100%; padding: 4px; font-size: 10px; background: #1e5a1e; color: #6bff6b; border: 1px solid #3a7a3a; border-radius: 2px; cursor: pointer; font-weight: bold;">✓ Set</button>
+              </div>`;
+            }).join('')}
+          </div>
+        `;
+        document.getElementById(`unmatched-results-${idx}`).innerHTML = resultsHtml;
+      },
+
+      setUnmatchedPrimaryImage(idx, imageName, directory) {
+        const item = this.unmatchedItems[idx];
+        item.primaryImage = {
+          imageName: imageName,
+          directory: directory
+        };
+        item.carouselImages = [];
+        
+        // Move to matched items
+        this.matchedItems.push({
+          ...item,
+          newImagesAdded: 1,
+          matchedImages: 1,
+          dbIndexMode: true
+        });
+        
+        // Remove from unmatched
+        this.unmatchedItems.splice(idx, 1);
+        
+        this.showStatus(`✓ Set primary image for "${item.itemName}"`, 'success');
+        
+        // Re-render both sections
+        this.renderDatabaseItems();
+        if (this.unmatchedItems.length > 0) {
+          document.getElementById('statusArea').innerHTML = document.getElementById('statusArea').innerHTML.split('⚠️')[0];
+          this.renderUnmatchedItems();
+        } else {
+          document.getElementById('statusArea').innerHTML = document.getElementById('statusArea').innerHTML.split('⚠️')[0];
+        }
+      },
+
+      reset() {
+        this.dbArray = [];
+        this.loadedItems = [];
+        this.matchedItems = [];
+        this.conflictItems = [];
+        this.unmatchedItems = [];
+        this.filter = 'all';
+        document.getElementById('statusArea').innerHTML = '';
+        document.getElementById('statusArea2').innerHTML = '';
+        document.getElementById('statsSection').classList.add('hidden');
+        document.getElementById('itemsSection').classList.add('hidden');
+        document.getElementById('saveSection').classList.add('hidden');
+      },
+
+      // ===== DATA EXTRACTION =====
+      extractItems(data) {
+        const items = [];
+
+        // Handle storepagedata format
+        if (data.StorePageData?.pages) {
+          data.StorePageData.pages.forEach(page => {
+            page.items?.forEach(item => {
+              if (item.itemName && item.itemDesc) {
+                items.push({
+                  itemName: item.itemName,
+                  desc: item.itemDesc,
+                  price: item.highPrice || item.price,
+                  primaryImage: item.primaryImage,
+                  carouselImages: item.carouselImages || [],
+                  dynamicBundleItems: item.dynamicBundleItems || [],
+                  source: 'storepagedata'
+                });
+              }
+            });
+          });
+        }
+
+        // Handle dailyitems format
+        if (data.daily) {
+          data.daily.forEach(item => {
+            if (item.itemName && item.desc) {
+              items.push({
+                itemName: item.itemName,
+                desc: item.desc,
+                disclaimer: item.disclaimer,
+                carouselImages: item.carouselImages || [],
+                dynamicBundleItems: item.dynamicBundleItems || [],
+                source: 'dailyitems'
+              });
+            }
+          });
+        }
+
+        // Handle dailyitems weekly paid sales format
+        if (data.DailySalesByWeek) {
+          Object.values(data.DailySalesByWeek).forEach(weekArr => {
+            if (Array.isArray(weekArr)) {
+              weekArr.forEach(item => {
+                if (item.itemName && item.itemDesc) {
+                  items.push({
+                    itemName: item.itemName,
+                    desc: item.itemDesc,
+                    disclaimer: item.disclaimer,
+                    price: item.highPrice || item.price,
+                    highPrice: item.highPrice,
+                    primaryImage: item.primaryImage,
+                    carouselImages: item.carouselImages || [],
+                    dynamicBundleItems: item.dynamicBundleItems || [],
+                    source: 'dailyitems'
+                  });
+                }
+              });
+            }
+          });
+        }
+
+        // Handle direct array
+        if (Array.isArray(data)) {
+          data.forEach(item => {
+            if (item.itemName && (item.itemDesc || item.desc)) {
+              items.push({
+                itemName: item.itemName,
+                desc: item.itemDesc || item.desc,
+                disclaimer: item.disclaimer,
+                price: item.highPrice || item.price,
+                primaryImage: item.primaryImage,
+                carouselImages: item.carouselImages || [],
+                dynamicBundleItems: item.dynamicBundleItems || [],
+                source: 'array'
+              });
+            }
+          });
+        }
+
+        this.loadedItems.push(...items);
+      },
+
+      // ===== MATCHING LOGIC =====
+      matchItems() {
+        console.log('matchItems() called');
+        this.matchedItems = [];
+        this.conflictItems = [];
+        this.unmatchedItems = [];
+
+        this.loadedItems.forEach((item, idx) => {
+          try {
+            const match = this.findDatabaseMatch(item);
+            if (match) {
+              const match_obj = { ...item, dbMatch: match };
+              
+              // Check for carousel conflicts
+              const carouselMatch = this.analyzeCarouselImages(item, match);
+              if (carouselMatch.hasConflict) {
+                match_obj.carouselConflict = carouselMatch;
+                this.conflictItems.push(match_obj);
+              } else {
+                this.matchedItems.push(match_obj);
+              }
+            } else {
+              this.unmatchedItems.push(item);
+            }
+          } catch (e) {
+            console.error(`Error matching item ${idx}:`, e);
+            this.unmatchedItems.push(item);
+          }
+        });
+        
+        console.log('matchItems() complete:', {
+          matched: this.matchedItems.length,
+          conflicts: this.conflictItems.length,
+          unmatched: this.unmatchedItems.length
+        });
+      },
+
+      findDatabaseMatch(item) {
+        const norm = (s) => (s || '').toString().trim().toLowerCase();
+        const itemNameNorm = norm(item.itemName);
+
+        // Try exact name match first
+        let match = this.dbArray.find(db => norm(db.itemName) === itemNameNorm);
+        if (match) return match;
+
+        // Try description match
+        const desc1 = (item.desc || '').split('\n')[0].trim();
+        const desc1Norm = norm(desc1);
+        if (desc1Norm) {
+          match = this.dbArray.find(db => {
+            const dbDesc = (db.desc || db.customdesc || '').split('\n')[0].trim();
+            return norm(dbDesc) === desc1Norm;
+          });
+          if (match) return match;
+        }
+
+        // Fuzzy match as last resort
+        const scored = this.dbArray.map(db => ({
+          db,
+          score: this.stringSimilarity(itemNameNorm, norm(db.itemName))
+        }));
+        const best = scored.filter(s => s.score > 0.7).sort((a, b) => b.score - a.score)[0];
+        return best?.db || null;
+      },
+
+      analyzeCarouselImages(loadedItem, dbItem) {
+        const bundleItemCount = loadedItem.dynamicBundleItems?.length || 0;
+
+        // If no bundle items, don't flag as conflict even if carousel has images
+        if (bundleItemCount === 0) {
+          return { hasConflict: false };
+        }
+
+        const loadedCarousel = (loadedItem.carouselImages || [])
+          .filter(img => !img.imageName?.match(/_C\d+\./i)); // Remove color variants
+        
+        const dbCarousel = (dbItem.carouselImages || [])
+          .filter(img => !img.imageName?.match(/_C\d+\./i));
+
+        // Check for mismatch with expected count
+        const loadedCount = loadedCarousel.length;
+        const dbCount = dbCarousel.length;
+        const hasConflict = loadedCount !== bundleItemCount || dbCount !== bundleItemCount;
+
+        if (hasConflict) {
+          return {
+            hasConflict: true,
+            loadedCount,
+            dbCount,
+            expectedImages: bundleItemCount,
+            loadedCarousel,
+            dbCarousel,
+            suggestions: this.suggestMissingImages(loadedItem)
+          };
+        }
+
+        return { hasConflict: false };
+      },
+
+      detectConflicts() {
+        // Already done in matchItems
+      },
+
+      // ===== IMAGE SUGGESTIONS =====
+      suggestMissingImages(item) {
+        if (!this.textureCache || Object.keys(this.textureCache).length === 0) {
+          console.warn('suggestMissingImages: Empty texture cache');
+          return [];
+        }
+
+        const bundle = item.dynamicBundleItems || [];
+        if (bundle.length === 0) return [];
+        
+        // Match using EDID, not item name
+        const edid = item.dbMatch?.EDID || '';
+        if (!edid || edid.includes('BNDL')) {
+          console.log(`skipping: EDID=$edid`);
+          return [];
+        }
+
+        const suggestions = [];
+        const edidLower = edid.toLowerCase();
+        
+        try {
+          // Find files matching EDID pattern
+          const matches = Object.entries(this.textureCache).filter(([fileName]) => {
+            const fileLower = fileName.toLowerCase();
+            return fileLower.includes(edidLower);
+          });
+
+          console.log(`suggestMissingImages for "${item.itemName}":`, {
+            edid,
+            cacheSamples: Object.keys(this.textureCache).slice(0, 3),
+            matchFound: matches.length,
+            firstMatches: matches.slice(0, 3).map(([k]) => k)
+          });
+
+          // Only _L variants (primary/left) - exclude _C1, _C2, etc. (costume variants)
+          const primaryImages = matches
+            .filter(([f]) => {
+              const lower = f.toLowerCase();
+              return /_l$/i.test(lower);
+            })
+            .slice(0, bundle.length);
+          
+          if (primaryImages.length > 0) {
+            suggestions.push(...primaryImages.map(([fileName, variants]) => ({
+              fileName: variants[0].fileName,
+              fullPath: variants[0].fullPath
+            })));
+            console.log(`  → Found ${primaryImages.length} primary images`);
+          }
+        } catch (e) {
+          console.warn('Error suggesting images:', e);
+        }
+
+        return suggestions.slice(0, bundle.length);
+      },
+
+      async scanTextureDirectory() {
+        // Kept for backward compatibility - texture cache is now loaded from texture-index.json
+        return {};
+      },
+
+      // ===== STRING UTILITIES =====
+      stringSimilarity(s1, s2) {
+        const longer = s1.length > s2.length ? s1 : s2;
+        const shorter = s1.length > s2.length ? s2 : s1;
+        if (longer.length === 0) return 1.0;
+        const editDistance = this.levenshteinDistance(longer, shorter);
+        return (longer.length - editDistance) / longer.length;
+      },
+
+      levenshteinDistance(s1, s2) {
+        const costs = [];
+        for (let i = 0; i <= s1.length; i++) {
+          let lastValue = i;
+          for (let j = 0; j <= s2.length; j++) {
+            if (i === 0) {
+              costs[j] = j;
+            } else if (j > 0) {
+              let newValue = costs[j - 1];
+              if (s1.charAt(i - 1) !== s2.charAt(j - 1)) {
+                newValue = Math.min(newValue, lastValue, costs[j]) + 1;
+              }
+              costs[j - 1] = lastValue;
+              lastValue = newValue;
+            }
+          }
+          if (i > 0) costs[s2.length] = lastValue;
+        }
+        return costs[s2.length];
+      },
+
+      // ===== UI RENDERING =====
+      renderStats() {
+        console.log('Rendering stats...');
+        const html = `
+          <div class="stat-box">
+            <div class="stat-number">${this.loadedItems.length}</div>
+            <div class="stat-label">Total Loaded</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" style="color: #6bff6b;">${this.matchedItems.length}</div>
+            <div class="stat-label">Matched</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" style="color: #ffff6b;">${this.conflictItems.length}</div>
+            <div class="stat-label">Conflicts</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" style="color: #ff6b6b;">${this.unmatchedItems.length}</div>
+            <div class="stat-label">Unmatched</div>
+          </div>
+        `;
+        document.getElementById('statsContainer').innerHTML = html;
+        console.log('Stats rendered');
+      },
+
+      renderItems() {
+        console.log('Rendering items...');
+        const items = this.getFilteredItems();
+        console.log(`Rendering ${items.length} items`);
+        const html = items.map((item, idx) => this.createItemCard(item, idx)).join('');
+        document.getElementById('itemsContainer').innerHTML = html || '<p style="color: #888;">No items to display</p>';
+        console.log('Items rendered');
+      },
+
+      getFilteredItems() {
+        switch (this.filter) {
+          case 'matched': return this.matchedItems;
+          case 'conflict': return this.conflictItems;
+          case 'unmatched': return this.unmatchedItems;
+          default: return [...this.matchedItems, ...this.conflictItems, ...this.unmatchedItems];
+        }
+      },
+
+      createItemCard(item, idx) {
+        const isMatched = this.matchedItems.includes(item);
+        const isConflict = this.conflictItems.includes(item);
+        const status = isConflict ? 'conflict' : isMatched ? 'matched' : 'unmatched';
+        const statusText = isConflict ? 'Image Conflict' : isMatched ? 'Matched' : 'Unmatched';
+        const hasBundle = item.dynamicBundleItems?.length > 0;
+        const hasCarousel = item.carouselImages?.length > 0;
+        const itemId = `item-${idx}`;
+
+        let html = `
+          <div class="item-card ${status}" id="${itemId}">
+            <div class="item-header">
+              <div class="item-name">${item.itemName}</div>
+              <div style="display: flex; gap: 8px; align-items: center;">
+                <div class="item-status ${status}">${statusText}</div>
+                <button onclick="app.toggleEdit('${itemId}')" style="padding: 4px 8px; font-size: 12px;">Edit</button>
+              </div>
+            </div>
+            <div class="badges">
+        `;
+
+        if (hasBundle) {
+          html += `<div class="badge bundle">📦 Bundle (${item.dynamicBundleItems.length})</div>`;
+        }
+        if (hasCarousel) {
+          html += `<div class="badge carousel">🖼️ Carousel (${item.carouselImages.length})</div>`;
+        }
+
+        html += `</div>`;
+
+        if (isMatched || isConflict) {
+          html += `<div class="item-details">
+            <strong>DB Match:</strong> ${item.dbMatch.itemName}
+            <br/><strong>DB EDID:</strong> ${item.dbMatch.EDID}
+          </div>`;
+        }
+
+        if (isConflict && item.carouselConflict) {
+          const conf = item.carouselConflict;
+          html += `
+            <div class="conflict-resolution">
+              <strong>⚠️ Image Count Mismatch</strong>
+              <div style="margin-top: 8px; font-size: 13px; color: #888;">
+                Need: ${conf.expectedImages} images | Have: ${conf.loadedCount} | Database has: ${conf.dbCount}
+              </div>
+          `;
+
+          if (conf.suggestions.length > 0) {
+            html += `
+              <div class="suggested-images" style="margin-top: 12px; padding: 12px; background: #1e5a1e; border: 1px solid #3a7a3a; border-radius: 3px;">
+                <strong style="color: #6bff6b;">✓ Found ${conf.suggestions.length} images:</strong>
+                <div style="font-size: 11px; color: #aaffaa; margin-bottom: 8px;">👆 Click images to select them, then click the Edit button</div>
+                <div class="image-thumbnails">
+                  ${conf.suggestions.map((suggest, i) => {
+                    const fullPath = suggest.fullPath || suggest;
+                    const fileName = suggest.fileName || suggest;
+                    return `<div class="thumb-container" title="${fileName}" onclick="app.selectImage('${itemId}', '${i}', '${fileName}')" style="cursor: pointer;">
+                      <img src="${fullPath}" alt="${fileName}" class="thumb" onerror="this.style.display='none'" />
+                      <span class="thumb-label">${i+1}</span>
+                    </div>`;
+                  }).join('')}
+                </div>
+              </div>
+            `;
+          } else {
+            html += `
+              <div style="margin-top: 10px; padding: 10px; background: #3a3a1e; color: #ffff6b; border-radius: 3px; font-size: 12px;">
+                ℹ️ No matching images found in database. You can manually select images in the Edit panel below.
+              </div>
+            `;
+          }
+
+          html += `</div>`;
+        }
+
+        // Edit panel (hidden by default)
+        html += `
+          <div class="edit-panel hidden" id="edit-${itemId}">
+            <div class="edit-section">
+              <label>Carousel Images (${item.carouselImages?.length || 0}/${hasBundle ? item.dynamicBundleItems.length : 1})</label>
+        `;
+
+        // Show current images
+        if (item.carouselImages?.length > 0) {
+          html += `<div style="font-size: 12px; color: #888; margin-bottom: 8px;">Current:</div>`;
+          html += `<div class="image-selector">`;
+          item.carouselImages.forEach((img, i) => {
+            const name = img.imageName || img;
+            html += `<div class="image-option selected" title="${name}">${name.substring(0, 20)}...</div>`;
+          });
+          html += `</div>`;
+        }
+
+        // Show suggestions
+        if (isConflict && item.carouselConflict?.suggestions?.length > 0) {
+          html += `<div style="font-size: 12px; color: #888; margin-top: 12px; margin-bottom: 8px;">Suggestions:</div>`;
+          html += `<div class="image-selector" id="suggestions-${itemId}">`;
+          item.carouselConflict.suggestions.forEach((img, i) => {
+            html += `
+              <div class="image-option" onclick="app.selectSuggestedImage('${itemId}', ${i})" title="${img}">
+                ${img.substring(0, 20)}...
+              </div>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        html += `
+            </div>
+            <div class="edit-buttons">
+              <button onclick="app.applyEdit('${itemId}')" style="background: #1e5a1e; color: #6bff6b;">✓ Apply</button>
+              <button onclick="app.toggleEdit('${itemId}')">Cancel</button>
+            </div>
+          </div>
+        </div>
+        `;
+
+        return html;
+      },
+
+      toggleEdit(itemId) {
+        const editPanel = document.getElementById(`edit-${itemId}`);
+        editPanel.classList.toggle('hidden');
+      },
+
+      selectImage(itemId, suggestIdx, fileName) {
+        // Called when clicking thumbnail in conflict-resolution section
+        const items = this.getFilteredItems();
+        const itemIdx = parseInt(itemId.split('-')[1]);
+        const item = items[itemIdx];
+        
+        if (item && item.carouselConflict?.suggestions && item.carouselConflict.suggestions[suggestIdx]) {
+          const suggestion = item.carouselConflict.suggestions[suggestIdx];
+          
+          // Add to selected images
+          if (!item.selectedImages) {
+            item.selectedImages = [];
+          }
+          item.selectedImages.push({
+            imageName: suggestion.fileName,
+            directory: suggestion.fullPath.substring(0, suggestion.fullPath.lastIndexOf('/') + 1)
+          });
+          
+          const selected = item.selectedImages.length;
+          const needed = item.dynamicBundleItems.length;
+          console.log(`Selected image: ${fileName}, total: ${selected}/${needed}`);
+          this.showStatus(`Selected ${selected}/${needed} images for "${item.itemName}"`, 'success');
+          
+          // Highlight the thumbnail in green
+          const thumb = document.querySelector(`#${itemId} .thumb-container[title="${fileName}"]`);
+          if (thumb) {
+            thumb.style.borderColor = '#6bff6b';
+            thumb.style.borderWidth = '2px';
+            thumb.style.boxShadow = '0 0 8px rgba(107, 255, 107, 0.4)';
+          }
+          
+          // If all images selected, show confirmation
+          if (selected === needed) {
+            this.showStatus(`✓ All ${needed} images selected! Click Edit to add them.`, 'success');
+          }
+        }
+      },
+
+      selectSuggestedImage(itemId, suggestIdx) {
+        // Find the item
+        const allItems = [...this.matchedItems, ...this.conflictItems, ...this.unmatchedItems];
+        const item = allItems.find(it => `item-${allItems.indexOf(it)}` === itemId);
+        
+        if (item && item.carouselConflict?.suggestions[suggestIdx]) {
+          // Update carousel images with the selected image
+          const suggestion = item.carouselConflict.suggestions[suggestIdx];
+          if (!item.selectedImages) {
+            item.selectedImages = [];
+          }
+          item.selectedImages.push({
+            imageName: suggestion,
+            directory: '/textures/atx/storefront/' // Default directory
+          });
+          
+          // Visual feedback
+          const options = document.querySelectorAll(`#suggestions-${itemId} .image-option`);
+          options[suggestIdx].classList.add('selected');
+        }
+      },
+
+      applyEdit(itemId) {
+        const allItems = [...this.matchedItems, ...this.conflictItems, ...this.unmatchedItems];
+        const itemIdx = parseInt(itemId.split('-')[1]);
+        const item = allItems[itemIdx];
+        
+        if (item && item.selectedImages) {
+          item.carouselImages = [...(item.carouselImages || []), ...item.selectedImages];
+          const count = item.selectedImages.length;
+          item.selectedImages = [];
+          this.showStatus(`✓ Added ${count} image(s) to ${item.itemName}`, 'success');
+          this.renderItems();
+        }
+        
+        this.toggleEdit(itemId);
+      },
+
+      filterItems(type) {
+        this.filter = type;
+        if (this.mode === 'indexdb') {
+          // In DB index mode, just show all indexed items
+          this.renderDatabaseItems();
+        } else {
+          this.renderItems();
+        }
+      },
+
+      // ===== SAVE =====
+      async saveDatabase() {
+        if (this.mode === 'indexdb') {
+          return this.saveIndexedDatabase();
+        } else {
+          return this.saveImportedItems();
+        }
+      },
+
+      async saveIndexedDatabase() {
+        if (this.matchedItems.length === 0) {
+          this.showStatus('No items to save', 'error');
+          return;
+        }
+
+        try {
+          console.log(`Saving ${this.matchedItems.length} enriched items...`);
+          
+          // Create a map of EDID -> updated item
+          const updates = {};
+          this.matchedItems.forEach(item => {
+            updates[item.EDID] = item;
+          });
+
+          // Merge with database
+          const updated = this.dbArray.map(dbItem => {
+            const itemUpdate = updates[dbItem.EDID];
+            if (!itemUpdate) return dbItem;
+
+            return {
+              ...dbItem,
+              ...itemUpdate,
+              itemName: dbItem.itemName || itemUpdate.itemName,
+              desc: dbItem.desc || itemUpdate.desc,
+              disclaimer: dbItem.disclaimer || itemUpdate.disclaimer
+            };
+          });
+
+          console.log(`Updated database: ${updated.length} items`);
+
+          // Download
+          const json = JSON.stringify(updated, null, 2);
+          const blob = new Blob([json], { type: 'application/json' });
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'items-db-indexed.json';
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+          document.body.removeChild(a);
+
+          this.showStatus(`✓ Downloaded items-db-indexed.json (${this.matchedItems.length} items enriched)`, 'success');
+        } catch (err) {
+          console.error('ERROR saving indexed database:', err);
+          this.showStatus(`ERROR: ${err.message}`, 'error');
+        }
+      },
+
+      async saveImportedItems() {
+        const itemsToSave = [...this.matchedItems, ...this.conflictItems];
+        
+        if (itemsToSave.length === 0) {
+          this.showStatus('No matched items to save', 'error');
+          return;
+        }
+
+        try {
+          console.log('Starting save process...');
+          
+          const updates = {};
+
+          // Group updates by EDID to avoid duplicates
+          itemsToSave.forEach(item => {
+            if (!item.dbMatch) return;
+            
+            const edid = item.dbMatch.EDID;
+            if (!updates[edid]) {
+              updates[edid] = {
+                ...item.dbMatch,
+                carouselImages: item.carouselImages || [],
+                desc: item.dbMatch.desc || item.desc,
+                disclaimer: item.dbMatch.disclaimer || item.disclaimer,
+                itemName: item.dbMatch.itemName || item.itemName,
+                highPrice: item.highPrice || item.dbMatch.highPrice,
+                price: item.price || item.dbMatch.price
+              };
+
+              if (item.highPrice && item.highPrice.originalAmount != null) {
+                updates[edid].highPriceOriginal = item.highPrice.originalAmount;
+              } else if (item.price != null) {
+                updates[edid].highPriceOriginal = item.price;
+              }
+            }
+          });
+
+          console.log(`Preparing to save ${Object.keys(updates).length} unique items`);
+
+          // Apply updates to database
+          const updated = this.dbArray.map(dbItem => {
+            const itemUpdate = updates[dbItem.EDID];
+            if (!itemUpdate) return dbItem;
+
+            const merged = {
+              ...dbItem,
+              ...itemUpdate,
+              itemName: dbItem.itemName || itemUpdate.itemName,
+              desc: dbItem.desc || itemUpdate.desc,
+              disclaimer: dbItem.disclaimer || itemUpdate.disclaimer
+            };
+
+            if (itemUpdate.highPrice && itemUpdate.highPrice.originalAmount != null) {
+              if (!merged.highPriceOriginal || merged.highPriceOriginal === 0) {
+                merged.highPriceOriginal = itemUpdate.highPrice.originalAmount;
+              }
+            } else if (itemUpdate.price != null) {
+              if (!merged.highPriceOriginal || merged.highPriceOriginal === 0) {
+                merged.highPriceOriginal = itemUpdate.price;
+              }
+            }
+
+            return merged;
+          });
+
+          // Download updated database
+          const json = JSON.stringify(updated, null, 2);
+          const blob = new Blob([json], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'items-db-updated.json';
+          a.click();
+          URL.revokeObjectURL(url);
+
+          this.showStatus(`✓ Downloaded updated database! Replace ../data/items-db.json with the downloaded file. Updated ${itemsToSave.length} items.`, 'success');
+          console.log('Save complete');
+        } catch (err) {
+          this.showStatus(`ERROR: ${err.message}`, 'error');
+          console.error(err);
+        }
+      },
+
+      // ===== UTILITIES =====
+      showStatus(msg, type = 'success') {
+        console.log(`[${type.toUpperCase()}] ${msg}`);
+        const statusId = this.mode === 'indexdb' ? 'statusArea2' : 'statusArea';
+        const el = document.getElementById(statusId);
+        const html = `<div class="status ${type}">${msg}</div>`;
+        el.innerHTML = html + el.innerHTML;
+        
+        // Keep error messages visible longer
+        if (type === 'error') {
+          setTimeout(() => {
+            const first = el.firstChild;
+            if (first) first.remove();
+          }, 10000);
+        } else {
+          setTimeout(() => {
+            const first = el.firstChild;
+            if (first) first.remove();
+          }, 5000);
+        }
+      }
+    };
+
+    // Initialize - show import mode by default
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        app.switchMode('import');
+      });
+    } else {
+      app.switchMode('import');
+    }
+
+    // Suppress image 404 errors
+    console.error = function(...args) {
+      if (args[0]?.toString?.().includes('Failed to load resource')) return;
+      console.warn(...args);
+    };
+  </script>
+</body>
+</html>

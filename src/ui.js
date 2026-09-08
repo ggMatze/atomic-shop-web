@@ -77,12 +77,15 @@ function attachTileClickHandlers() {
       }
       if (!item) item = { title: tile.querySelector('.tile-footer') ? tile.querySelector('.tile-footer').textContent.trim() : 'No title', itemDesc: '', includes: [], storefrontImage: '', images: [] };
 
-      // Reconstruct item for gallery resolution - only pass bundle data and primary image, not pre-resolved images
-      // This ensures bundle items are resolved fresh from items-db without duplication
+      // Reconstruct item for gallery resolution while retaining the authored
+      // carousel list and any manual image URLs so the resolver can see the
+      // same image inventory the tile was built from.
       const itemForGallery = {
         dynamicBundleItems: item.dynamicBundleItems || [],
         primaryImage: item.primaryImage,
-        storefrontImage: item.storefrontImage || ''  // Use storefrontImage as fallback if no primaryImage
+        storefrontImage: item.storefrontImage || '',
+        images: Array.isArray(item.images) ? item.images.slice() : [],
+        carouselImages: Array.isArray(item.carouselImages) ? item.carouselImages.slice() : []
       };
 
       const initialGalleryImages = [];

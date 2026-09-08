@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bundle Creator</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body{margin:0;padding:0;background:#222;color:#eee}
+    .page{max-width:1100px;margin:0 auto;padding:12px 12px 24px;box-sizing:border-box}
+    h2{margin:0 0 10px;font-size:1.15rem}
+    .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+    .panel{border:1px solid #444;padding:10px 12px;border-radius:6px;margin-bottom:10px;background:#2a2a2a}
+    .results{max-height:260px;overflow:auto;border:1px solid #444;padding:6px;background:#1e1e1e}
+    .item{display:flex;align-items:center;gap:8px;padding:6px;border-bottom:1px solid #333}
+    .item img{width:44px;height:44px;object-fit:cover;border-radius:4px;flex-shrink:0}
+    .item > div{min-width:0}
+    button{padding:5px 9px;border-radius:4px;border:1px solid #1177bb;background:#0e639c;color:#fff;cursor:pointer}
+    button.primary{background:#0e639c;color:#fff;border-color:#1177bb}
+    .bundle-list{margin-top:8px}
+    .bundle-item{padding:6px;border:1px solid #333;margin-bottom:6px;background:#252526;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+    .small{font-size:0.9em;color:#ccc}
+    label{display:block;font-weight:600;margin-bottom:4px;color:#eee}
+    textarea, input[type=text], input[type=number], select{background:#1e1e1e;color:#eee;border:1px solid #444;width:100%;box-sizing:border-box}
+    .toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .toolbar .spacer{flex:1}
+  </style>
+</head>
+<body class="dark-theme">
+  <div class="page">
+    <h2>Tiny Bundle Creator</h2>
+    <div class="panel">
+    <div style="display:flex;gap:8px;align-items:flex-start;">
+      <div style="flex:1">
+        <label>Bundle EDID</label>
+        <input id="edid" type="text" placeholder="ATX_ENTM_BNDL_EXAMPLE" />
+      </div>
+      <div style="width:160px">
+        <label>High price</label>
+        <input id="highPrice" type="number" value="0" />
+      </div>
+    </div>
+    <div style="margin-top:8px" class="row">
+      <div style="flex:1">
+        <label>Description</label>
+        <textarea id="desc" rows="2" placeholder="Short description"></textarea>
+      </div>
+      <div style="flex:1">
+        <label>Disclaimer</label>
+        <textarea id="disclaimer" rows="2" placeholder="Disclaimer text"></textarea>
+      </div>
+    </div>
+    <div style="margin-top:8px">
+      <label>Bundle Display Name</label>
+      <input id="itemName" type="text" placeholder="Welcome to C.A.M.P. - Pioneer Starter Bundle" />
+    </div>
+    <div style="margin-top:8px" class="row">
+      <div style="flex:1">
+        <label>Primary Image (imageName)</label>
+        <input id="primaryImageName" type="text" placeholder="81089...webp" />
+      </div>
+      <div style="width:320px">
+        <label>Primary Image Directory</label>
+        <input id="primaryImageDir" type="text" value="/textures/atomic_shop_media/" />
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <label>Search database</label>
+    <div class="row">
+      <input id="search" type="text" placeholder="Search name, entmName, EDID..." />
+      <button id="clearSearch">Clear</button>
+    </div>
+    <div id="results" class="results"></div>
+  </div>
+
+  <div class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div>
+        <button id="clearBundle">Clear</button>
+      </div>
+    </div>
+    <div id="bundleList" class="bundle-list"></div>
+  </div>
+
+  <div class="panel">
+    <div class="toolbar">
+      <button id="generate" class="primary">Generate JSON</button>
+      <button id="copy">Copy JSON</button>
+      <button id="download">Download .json</button>
+      <div class="spacer"></div>
+    </div>
+    <div style="margin-top:8px">
+      <label>Generated JSON</label>
+      <textarea id="output" rows="12"></textarea>
+    </div>
+  </div>
+
+  <script>
+    // Path relative to this file
+    const DB_PATH = '../data/items-db.json';
+    let db = null;
+    let bundle = [];
+
+    async function loadDB(){
+      try{
+        const res = await fetch(DB_PATH);
+        db = await res.json();
+      }catch(e){
+        console.warn('Failed loading DB from',DB_PATH,e);
+        db = null;
+      }
+    }
+
+    function norm(s){return (s||'').toString().toLowerCase();}
+
+    function deriveName(item){
+      return item.szItemName || item.itemName || item.name || item.displayName || item.title || item.szName || item.EDID || item.entmName || '';
+    }
+    function deriveEntm(item){
+      return item.entmName || item.EDID || item.edid || item.id || '';
+    }
+    function deriveImage(item){
+      if(item.primaryImage){
+        const n = item.primaryImage.imageName || item.primaryImage.image || item.imageName;
+        const d = item.primaryImage.directory || item.primaryImage.directory || '';
+        return (d||'') + (n||'');
+      }
+      if(item.imageName) return item.imageName;
+      if(item.image) return item.image;
+      return '';
+    }
+
+    function renderResults(list){
+      const el = document.getElementById('results');
+      el.innerHTML = '';
+      if(!list || list.length===0){el.innerHTML='<div class="small">No results</div>';return}
+      list.slice(0,200).forEach(it=>{
+        const div = document.createElement('div');
+        div.className='item';
+        const img = document.createElement('img');
+        const imagePath = deriveImage(it);
+        img.src = imagePath || (deriveEntm(it) ? ('/textures/atomic_shop_media/placeholder.png') : '');
+        img.onerror = ()=>{img.src=''; img.style.background='#eee';}
+        const info = document.createElement('div');
+        info.style.flex='1';
+        const name = document.createElement('div'); name.textContent = deriveName(it);
+        const meta = document.createElement('div'); meta.className='small'; meta.textContent = deriveEntm(it) + (it.price ? (' — '+it.price) : '');
+        info.appendChild(name); info.appendChild(meta);
+        const btn = document.createElement('button'); btn.textContent='Add';
+        btn.onclick = ()=>{ addToBundle(it); };
+        div.appendChild(img); div.appendChild(info); div.appendChild(btn);
+        el.appendChild(div);
+      });
+    }
+
+    function renderBundle(){
+      const el = document.getElementById('bundleList');
+      el.innerHTML = '';
+      bundle.forEach((b,i)=>{
+        const div = document.createElement('div'); div.className='bundle-item';
+        const left = document.createElement('div'); left.innerHTML = '<strong>'+escapeHtml(b.szItemName)+'</strong><div class="small">'+escapeHtml(b.entmName)+'</div>';
+        const right = document.createElement('div');
+        const up = document.createElement('button'); up.textContent='↑'; up.onclick = ()=>{ if(i>0){ [bundle[i-1],bundle[i]]=[bundle[i],bundle[i-1]]; renderBundle(); }};
+        const down = document.createElement('button'); down.textContent='↓'; down.onclick = ()=>{ if(i<bundle.length-1){ [bundle[i+1],bundle[i]]=[bundle[i],bundle[i+1]]; renderBundle(); }};
+        const rm = document.createElement('button'); rm.textContent='Remove'; rm.onclick = ()=>{ bundle.splice(i,1); renderBundle(); };
+        right.appendChild(up); right.appendChild(down); right.appendChild(rm);
+        div.appendChild(left); div.appendChild(right);
+        el.appendChild(div);
+      });
+    }
+
+    function addToBundle(item){
+      const obj = { szItemName: deriveName(item), entmName: deriveEntm(item) };
+      bundle.push(obj);
+      renderBundle();
+    }
+
+    function generateJSON(){
+      const out = {
+        EDID: document.getElementById('edid').value || ('BNDL_'+Date.now()),
+        desc: document.getElementById('desc').value || '',
+        disclaimer: document.getElementById('disclaimer').value || '',
+        customdesc: '',
+        customdisclaimer: '',
+        itemName: document.getElementById('itemName').value || '',
+        primaryImage: {
+          imageName: document.getElementById('primaryImageName').value || '',
+          directory: document.getElementById('primaryImageDir').value || ''
+        },
+        carouselImages: [],
+        highPriceOriginal: Number(document.getElementById('highPrice').value) || 0,
+        dynamicBundleItems: bundle.map(b=>({ szItemName: b.szItemName, entmName: b.entmName }))
+      };
+      const json = JSON.stringify(out, null, 2);
+      document.getElementById('output').value = json;
+      return json;
+    }
+
+    function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+    document.getElementById('generate').addEventListener('click',generateJSON);
+    document.getElementById('copy').addEventListener('click',async ()=>{
+      const txt = document.getElementById('output').value || generateJSON();
+      try{ await navigator.clipboard.writeText(txt); alert('Copied to clipboard'); }catch(e){ alert('Copy failed — select and copy manually'); }
+    });
+    document.getElementById('download').addEventListener('click',()=>{
+      const txt = document.getElementById('output').value || generateJSON();
+      const blob = new Blob([txt],{type:'application/json'});
+      const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=(document.getElementById('edid').value||'bundle')+'.json'; a.click();
+    });
+
+    document.getElementById('clearBundle').addEventListener('click',()=>{ bundle=[]; renderBundle(); });
+    document.getElementById('clearSearch').addEventListener('click',()=>{ document.getElementById('search').value=''; renderResults([]); });
+
+    // search
+    let timer = null;
+    document.getElementById('search').addEventListener('input',e=>{
+      clearTimeout(timer);
+      timer = setTimeout(()=>doSearch(e.target.value),220);
+    });
+
+    function doSearch(q){
+      if(!q || q.trim().length<1){ renderResults([]); return; }
+      q = q.toLowerCase();
+      if(!db){ renderResults([]); return; }
+      const out = db.filter(it=>{
+        return norm(deriveName(it)).includes(q) || norm(deriveEntm(it)).includes(q) || norm(JSON.stringify(it)).includes(q);
+      }).slice(0,300);
+      renderResults(out);
+    }
+
+    // init
+    (async ()=>{ await loadDB(); if(!db){ document.getElementById('results').innerHTML='<div class="small">Could not load ../data/items-db.json — open this file via a local webserver or ensure path is correct.</div>'; }
+    })();
+  </script>
+  </div>
+</body>
+</html>

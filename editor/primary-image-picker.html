@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Primary Image Picker</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Arial; margin: 0; background: #222; color: #eee; padding: 20px; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    h1 { color: #4a9eff; margin-bottom: 10px; }
+    .section { background: #2d2d2d; padding: 15px; border: 1px solid #3e3e42; border-radius: 4px; margin-bottom: 15px; }
+    input[type="file"] { margin-bottom: 10px; padding: 5px; }
+    button { padding: 10px 15px; background: #0e639c; color: #fff; border: none; cursor: pointer; border-radius: 3px; margin: 5px 5px 5px 0; }
+    button:hover { background: #1177bb; }
+    button:disabled { background: #999; cursor: not-allowed; }
+    .primary { background: #28a745; }
+    .primary:hover { background: #218838; }
+    .skip { background: #ff9800; }
+    .skip:hover { background: #e68900; }
+    .download { background: #6f42c1; margin-top: 10px; }
+    .download:hover { background: #5a32a3; }
+    
+    .stats { background: #333; padding: 10px; border-radius: 3px; margin: 15px 0; }
+    .stat-item { margin: 5px 0; }
+    .stat-count { color: #6bff6b; font-weight: bold; }
+    
+    .item-view { display: none; }
+    .item-view.active { display: block; }
+    .item-info { background: #333; padding: 15px; border-radius: 3px; margin-bottom: 15px; }
+    .item-info h2 { margin: 0 0 10px 0; color: #ffff6b; }
+    .item-meta { font-size: 12px; color: #aaa; margin-bottom: 10px; }
+    
+    .images-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin: 15px 0; }
+    .image-card { background: #1a1a1a; border: 2px solid #444; border-radius: 3px; padding: 10px; text-align: center; cursor: pointer; transition: all 0.2s; }
+    .image-card:hover { border-color: #666; transform: scale(1.05); }
+    .image-card.selected { border-color: #28a745; background: #1a2d1a; box-shadow: 0 0 10px rgba(40, 167, 69, 0.3); }
+    .image-card img { width: 100%; height: 80px; object-fit: cover; border-radius: 2px; margin-bottom: 8px; }
+    .image-name { font-size: 10px; color: #888; word-break: break-all; margin-bottom: 8px; }
+    .select-btn { width: 100%; padding: 6px; font-size: 12px; background: #4a7eff; color: white; border: none; border-radius: 2px; cursor: pointer; }
+    .select-btn:hover { background: #6a9eff; }
+    
+    .button-group { display: flex; gap: 10px; margin-top: 15px; }
+    .button-group button { flex: 1; }
+    
+    .nav-info { text-align: center; font-size: 14px; color: #aaa; margin: 15px 0; }
+    .error { color: #ff6b6b; background: #3a2d2d; padding: 10px; border-radius: 3px; }
+    .success { color: #6bff6b; background: #2d3a2d; padding: 10px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🖼️ Primary Image Picker</h1>
+    <p>Fix items missing primaryImage. Select which carousel image should be primary.</p>
+
+    <div class="section">
+      <h3>Load Database</h3>
+      <input type="file" id="dbFile" accept=".json" />
+      <button onclick="loadDB()">Load items-db.json</button>
+    </div>
+
+    <div id="main-view" style="display: none;">
+      <div class="stats">
+        <div class="stat-item">📋 Items to fix manually: <span class="stat-count" id="stat-count">0</span></div>
+        <div class="stat-item">⏳ Current: <span id="stat-current">1/1</span></div>
+      </div>
+
+      <div class="item-view active" id="item-view">
+        <div class="item-info">
+          <h2 id="item-name">Item Name</h2>
+          <div class="item-meta">
+            <div>EDID: <code id="item-edid"></code></div>
+            <div>Current: <span id="item-current">No primary image</span></div>
+          </div>
+        </div>
+
+        <label><strong>Select primary image from carousel:</strong></label>
+        <div class="images-grid" id="images-grid"></div>
+
+        <div class="nav-info" id="nav-info"></div>
+
+        <div class="button-group">
+          <button onclick="skipItem()" class="skip">⏭️ Skip This</button>
+          <button onclick="prevItem()">← Previous</button>
+          <button onclick="nextItem()">Next →</button>
+          <button onclick="finishAndDownload()" class="download">✅ Finish & Download</button>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button onclick="downloadDB()" class="download" id="download-only-btn" style="display: none; margin-top: 15px;">⬇️ Download Auto-Fixed Database</button>
+      </div>
+    </div>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    let dbData = null;
+    let problematicItems = [];
+    let currentIndex = 0;
+    let selectedImages = {}; // itemIndex -> selected carousel image index
+
+    function loadDB() {
+      const file = document.getElementById('dbFile').files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          dbData = JSON.parse(e.target.result);
+          findProblematicItems();
+        } catch (err) {
+          showMessage('❌ Invalid JSON', 'error');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function findProblematicItems() {
+      problematicItems = [];
+      let autoFixed = 0;
+      
+      dbData.forEach((item, idx) => {
+        // Find items with NO primaryImage but HAS carouselImages
+        //if (!item.primaryImage) {
+        if (!item.primaryImage && item.carouselImages && item.carouselImages.length > 0) {
+          // AUTO-FIX: If only 1 carousel image, move it to primary
+          if (item.carouselImages.length === 1) {
+            const carouselImg = item.carouselImages[0];
+            dbData[idx].primaryImage = {
+              imageName: carouselImg.imageName,
+              directory: carouselImg.directory
+            };
+            dbData[idx].carouselImages = [];
+            autoFixed++;
+          } else {
+            // Multiple carousel images - needs manual selection
+            problematicItems.push({
+              dbIndex: idx,
+              item: item
+            });
+          }
+        }
+      });
+
+      if (autoFixed > 0) {
+        showMessage(`✅ Auto-fixed ${autoFixed} items with single carousel image!`, 'success');
+      }
+
+      if (problematicItems.length === 0) {
+        if (autoFixed > 0) {
+          showMessage(`✅ Done! All ${autoFixed} items fixed automatically. Ready to download!`, 'success');
+          document.getElementById('download-only-btn').style.display = 'inline-block';
+        } else {
+          showMessage('✅ No problematic items found!', 'success');
+        }
+        return;
+      }
+
+      document.getElementById('stat-count').textContent = problematicItems.length;
+      document.getElementById('main-view').style.display = 'block';
+      currentIndex = 0;
+      selectedImages = {};
+      displayCurrentItem();
+    }
+
+    function displayCurrentItem() {
+      if (currentIndex >= problematicItems.length) {
+        showMessage('✅ All items processed!', 'success');
+        return;
+      }
+
+      const { item, dbIndex } = problematicItems[currentIndex];
+      
+      document.getElementById('item-name').textContent = item.itemName || '(No name)';
+      document.getElementById('item-edid').textContent = item.EDID;
+      document.getElementById('item-current').textContent = item.primaryImage ? item.primaryImage.imageName : 'No primary image';
+      document.getElementById('stat-current').textContent = `${currentIndex + 1}/${problematicItems.length}`;
+
+      const grid = document.getElementById('images-grid');
+      grid.innerHTML = '';
+
+      item.carouselImages.forEach((img, idx) => {
+        const card = document.createElement('div');
+        card.className = 'image-card';
+        if (selectedImages[currentIndex] === idx) card.classList.add('selected');
+
+        const fullPath = img.directory + img.imageName;
+        card.innerHTML = `
+          <img src="${fullPath}" alt="${img.imageName}" onerror="this.style.display='none'">
+          <div class="image-name">${img.imageName}</div>
+          <button class="select-btn" onclick="selectImage(${idx})">Select</button>
+        `;
+        grid.appendChild(card);
+      });
+
+      document.getElementById('nav-info').innerHTML = `
+        <div>Items left: <strong>${problematicItems.length - currentIndex - 1}</strong></div>
+      `;
+    }
+
+    function selectImage(idx) {
+      selectedImages[currentIndex] = idx;
+      displayCurrentItem();
+    }
+
+    function skipItem() {
+      delete selectedImages[currentIndex];
+      nextItem();
+    }
+
+    function nextItem() {
+      if (currentIndex < problematicItems.length - 1) {
+        currentIndex++;
+        displayCurrentItem();
+      }
+    }
+
+    function prevItem() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        displayCurrentItem();
+      }
+    }
+
+    function finishAndDownload() {
+      if (Object.keys(selectedImages).length === 0) {
+        showMessage('❌ No images selected', 'error');
+        return;
+      }
+
+      // Apply selections to dbData
+      let applied = 0;
+      Object.entries(selectedImages).forEach(([itemIdx, imgIdx]) => {
+        const itemData = problematicItems[itemIdx];
+        const selectedImg = itemData.item.carouselImages[imgIdx];
+        
+        if (selectedImg) {
+          dbData[itemData.dbIndex].primaryImage = {
+            imageName: selectedImg.imageName,
+            directory: selectedImg.directory
+          };
+          // Clear carousel since we moved it to primary
+          dbData[itemData.dbIndex].carouselImages = [];
+          applied++;
+        }
+      });
+
+      downloadDB();
+      showMessage(`✅ Fixed ${applied} items. Download started!`, 'success');
+    }
+
+    function downloadDB() {
+      const json = JSON.stringify(dbData, null, 2);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'items-db.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function showMessage(msg, type = 'error') {
+      const el = document.getElementById('message');
+      el.textContent = msg;
+      el.className = type;
+      el.style.marginTop = '15px';
+    }
+  </script>
+</body>
+</html>

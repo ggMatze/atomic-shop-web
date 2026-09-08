@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Atomic Shop Editor v2</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, system-ui, sans-serif;
+      color: #e8ecf0;
+      background: #101318;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #11151c 0%, #0d1117 100%);
+      color: #e8ecf0;
+      padding: 20px;
+    }
+
+    .page-shell {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    header.editor-header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 18px 20px;
+      border: 1px solid #262b34;
+      border-radius: 16px;
+      background: rgba(18, 23, 31, 0.94);
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.25);
+    }
+
+    header.editor-header .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    header.editor-header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .header-actions button {
+      min-width: 160px;
+    }
+
+    .page-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .page-controls select,
+    .page-controls button {
+      min-height: 44px;
+    }
+
+    .page-controls select {
+      min-width: 260px;
+      flex: 1;
+    }
+
+    .page-controls button {
+      white-space: nowrap;
+    }
+
+    .preview-search {
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid #222931;
+      background: rgba(17, 22, 29, 0.94);
+      align-items: center;
+    }
+
+    .preview-search label {
+      display: block;
+      margin-bottom: 8px;
+      color: #9aa9c2;
+      font-size: 0.95rem;
+    }
+
+    .preview-search input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #283245;
+      background: #11161f;
+      color: #e8ecf0;
+    }
+
+    .small-preview {
+      display: grid;
+      gap: 10px;
+      border: 1px solid #283245;
+      border-radius: 14px;
+      padding: 12px;
+      background: #0c1119;
+      min-height: 118px;
+    }
+
+    .small-preview strong {
+      color: #f4f7ff;
+    }
+
+    .small-preview .preview-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .small-preview button {
+      flex: 1;
+      min-width: 120px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #283245;
+    }
+
+    .main-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .panel {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(15, 20, 28, 0.96);
+      border: 1px solid #1f2834;
+    }
+
+    .panel .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .panel .panel-header span {
+      color: #9cb7d7;
+      font-size: 0.94rem;
+    }
+
+    .panel label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: #b8c3d6;
+    }
+
+    .panel input,
+    .panel select,
+    .panel button,
+    .panel textarea {
+      width: 100%;
+      font: inherit;
+    }
+
+    .page-items-panel .filters,
+    .db-panel .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .page-items-panel .filters button,
+    .db-panel .filters button {
+      flex: 1;
+      min-width: 130px;
+    }
+
+    .item-list,
+    .db-results {
+      min-height: 320px;
+      max-height: 720px;
+      overflow-y: auto;
+      border: 1px solid #222c38;
+      border-radius: 14px;
+      background: #0f1520;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .item-card,
+    .db-result-card {
+      border: 1px solid #1c2632;
+      border-radius: 12px;
+      padding: 12px;
+      background: #121924;
+      display: grid;
+      gap: 8px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .item-card:hover,
+    .db-result-card:hover {
+      transform: translateY(-1px);
+      border-color: #395c94;
+      background: #17233a;
+    }
+
+    .item-card .item-meta,
+    .db-result-card .item-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: #a8b8d8;
+    }
+
+    .item-card strong,
+    .db-result-card strong {
+      color: #f0f6ff;
+    }
+
+    .item-card .item-actions,
+    .db-result-card .item-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .item-actions button,
+    .db-result-card .item-actions button {
+      flex: 1;
+      min-width: 100px;
+    }
+
+    .item-actions button.danger,
+    .page-controls button.danger,
+    .header-actions button.danger {
+      background: #b43838;
+      border-color: #8d2f2f;
+    }
+
+    .item-actions button.secondary,
+    .page-controls button.secondary,
+    .header-actions button.secondary {
+      background: #2f5371;
+      border-color: #24405a;
+    }
+
+    .panel small {
+      color: #7a8ca6;
+    }
+
+    .fields-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .field-row {
+      margin-bottom: 12px;
+      width: 100%;
+    }
+
+    .field-row.full {
+      grid-column: 1 / -1;
+    }
+
+    .field-row label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      color: #b8c3d6;
+      font-weight: 500;
+    }
+
+    .field-row input,
+    .field-row select,
+    .field-row textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #283245;
+      border-radius: 8px;
+      background: #11161f;
+      color: #e8ecf0;
+      font: inherit;
+      font-size: 0.9rem;
+    }
+
+    .field-row input:focus,
+    .field-row select:focus,
+    .field-row textarea:focus {
+      outline: none;
+      border-color: #569cd6;
+      background: #151b28;
+    }
+
+    .collapsible-header {
+      cursor: pointer;
+      background: #1a2332;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      border: 1px solid #283245;
+      font-weight: 600;
+      color: #e8ecf0;
+    }
+
+    .collapsible-header:hover {
+      background: #202939;
+      border-color: #334557;
+    }
+
+    .collapsible-content {
+      max-height: 3000px;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .collapsible-content.collapsed {
+      max-height: 0;
+    }
+
+    .img-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 14px 0;
+      width: 100%;
+    }
+
+    .img-item {
+      width: 180px;
+      flex-shrink: 0;
+      padding: 10px;
+      border: 1px solid #283245;
+      border-radius: 8px;
+      background: #0f1520;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .img-item img {
+      max-width: 100%;
+      max-height: 140px;
+      border-radius: 6px;
+    }
+
+    .img-item button {
+      padding: 6px 8px;
+      font-size: 0.85rem;
+      background: #b43838;
+      border: 1px solid #8d2f2f;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .img-item button:hover {
+      background: #c53030;
+    }
+
+    .status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: rgba(12, 17, 24, 0.9);
+      border: 1px solid #1f2933;
+      color: #9bb3d5;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1140px) {
+      .main-layout,
+      .preview-search {
+        grid-template-columns: 1fr;
+      }
+
+      .page-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .fields-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .editor-controls h2 {
+      margin: 18px 0 12px;
+      font-size: 1.1rem;
+      color: #e8ecf0;
+      font-weight: 600;
+    }
+
+    .editor-controls button {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      border: 1px solid #283245;
+      border-radius: 8px;
+      background: #2f5371;
+      color: #e8ecf0;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .editor-controls button:hover {
+      background: #3d7fbf;
+    }
+
+    .editor-controls button.danger {
+      background: #b43838;
+      border-color: #8d2f2f;
+    }
+
+    .editor-controls button.danger:hover {
+      background: #c53030;
+    }
+
+    #editor {
+      overflow-y: auto;
+      max-height: calc(100vh - 200px);
+      padding-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="editor-header">
+      <div class="header-top">
+        <h1>Atomic Shop Editor v2</h1>
+        <div class="header-actions">
+          <button id="load-data-btn" type="button">Load data</button>
+          <button id="download-data-btn" type="button">Download data</button>
+        </div>
+      </div>
+
+      <div class="page-controls">
+        <label for="page-select">Page / tab</label>
+        <select id="page-select" aria-label="Page selector">
+          <option value="">Select a page</option>
+        </select>
+        <button id="move-page-up" type="button" class="secondary">↑ Move page up</button>
+        <button id="move-page-down" type="button" class="secondary">↓ Move page down</button>
+        <button id="delete-page" type="button" class="danger">Delete page</button>
+        <button id="add-page" type="button">Add empty page after selected</button>
+      </div>
+    </header>
+
+    <section class="preview-search">
+      <div>
+        <label for="db-search-input">DB search</label>
+        <input id="db-search-input" type="search" placeholder="Search items / bundles" />
+      </div>
+
+      <div class="small-preview">
+        <strong>Selected DB preview</strong>
+        <div class="preview-row">
+          <button id="preview-replace" type="button" class="secondary">Replace selected item</button>
+          <button id="preview-add" type="button">Add as new item</button>
+        </div>
+        <div style="color: #9aa9c2; font-size: 0.95rem;">Preview tiles appear here when an item or bundle is selected from search.</div>
+      </div>
+    </section>
+
+    <main class="main-layout">
+      <section class="panel page-items-panel">
+        <div class="panel-header">
+          <div>
+            <h2>Page items</h2>
+            <span>Items and bundles in the selected page/tab.</span>
+          </div>
+        </div>
+
+        <div class="filters">
+          <button id="add-empty-item" type="button">Add empty item</button>
+          <button id="add-empty-bundle" type="button">Add empty bundle</button>
+          <button id="add-db-item" type="button" class="secondary">Add from database</button>
+        </div>
+
+        <div class="item-list" id="page-item-list">
+          <div class="item-card">
+            <strong>Item / bundle entry</strong>
+            <div class="item-meta">
+              <span>ID placeholder</span>
+              <span>Type: item</span>
+            </div>
+            <div class="item-actions">
+              <button type="button" class="secondary">Reorder</button>
+              <button type="button" class="danger">Delete</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="status-bar">
+          <span>Drag items to reorder the page.</span>
+          <span>Use the controls to add or remove page entries.</span>
+        </div>
+      </section>
+
+      <section class="panel db-panel">
+        <div id="editor">
+          <h3 id="editor-title">Item Editor</h3>
+          <div class="editor-row">
+            <div class="editor-controls">
+              <div class="collapsible-header" onclick="toggleCollapsible()">
+                📋 Item Details
+                <span id="collapse-arrow">▼</span>
+              </div>
+              <div id="details-content" class="collapsible-content open">
+                <div class="fields-grid">
+                  <div class="field-row">
+                    <label>Item ID:</label>
+                    <input type="number" id="itemID" />
+                  </div>
+                  <div class="field-row">
+                    <label style="display: flex; align-items: center; margin-bottom: 0;">
+                      <input type="checkbox" id="isZeus" />
+                      Is Zeus
+                    </label>
+                  </div>
+                  <div class="field-row">
+                    <label style="display: flex; align-items: center; margin-bottom: 0;">
+                      <input type="checkbox" id="isClown" />
+                      Is Clown
+                    </label>
+                  </div>
+                </div>
+                <div class="field-row full">
+                  <label>Item Name:</label>
+                  <input type="text" id="itemName" />
+                </div>
+                <div class="field-row full">
+                  <label>Item Name (Short):</label>
+                  <input type="text" id="itemNameShort" />
+                </div>
+                <div class="field-row full">
+                  <label>Description:</label>
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <iframe id="rte-frame" class="active" src="rich-text-editor.html" style="width:100%; height:400px; border:1px solid #555; border-radius: 4px;" title="Rich Text Editor"></iframe>
+                    <textarea id="itemDesc" style="display:none;"></textarea>
+                  </div>
+                </div>
+                <div class="fields-grid">
+                  <div class="field-row">
+                    <label>Low Price:</label>
+                    <input type="number" id="lowPriceAmount" />
+                  </div>
+                  <div class="field-row">
+                    <label>Lowest Price:</label>
+                    <input type="number" id="lowestPriceAmount" />
+                  </div>
+                  <div class="field-row">
+                    <label>High Price:</label>
+                    <input type="number" id="highPriceAmount" />
+                  </div>
+                </div>
+                <div class="fields-grid">
+                  <div class="field-row">
+                    <label>LTO Timer:</label>
+                    <input type="datetime-local" id="ltoTimer" />
+                  </div>
+                  <div class="field-row">
+                    <label>New Label:</label>
+                    <select id="newLabelType">
+                      <option value="none">None</option>
+                      <option value="new">New</option>
+                      <option value="new*">New*</option>
+                    </select>
+                  </div>
+                  <div class="field-row">
+                    <label>Timer Type:</label>
+                    <select id="timerType">
+                      <option value="both">Both</option>
+                      <option value="primary">Primary</option>
+                      <option value="badge">Badge</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <h2>Images</h2>
+              <div style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; margin-bottom: 14px; align-items: flex-end;">
+                <div>
+                  <label for="new-image-name" style="display: block; margin-bottom: 6px; font-size: 0.9rem; color: #b8c3d6; font-weight: 500;">Image Name</label>
+                  <input id="new-image-name" type="text" placeholder="e.g. item_l.webp" style="width: 100%; padding: 8px 10px; border: 1px solid #283245; border-radius: 8px; background: #11161f; color: #e8ecf0; font-size: 0.9rem;" />
+                </div>
+                <div>
+                  <label for="new-image-dir" style="display: block; margin-bottom: 6px; font-size: 0.9rem; color: #b8c3d6; font-weight: 500;">Directory</label>
+                  <input id="new-image-dir" type="text" placeholder="e.g. /textures/atx/storefront/" style="width: 100%; padding: 8px 10px; border: 1px solid #283245; border-radius: 8px; background: #11161f; color: #e8ecf0; font-size: 0.9rem;" />
+                </div>
+                <button onclick="addImage()" style="width: 100%; padding: 8px 12px; border: 1px solid #283245; border-radius: 8px; background: #2f5371; color: #e8ecf0; cursor: pointer; font-weight: 500; white-space: nowrap;">Add Image</button>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 10px; margin-bottom: 14px; align-items: flex-end;">
+                <div>
+                  <label for="full-image-path" style="display: block; margin-bottom: 6px; font-size: 0.9rem; color: #b8c3d6; font-weight: 500;">Full Path</label>
+                  <input id="full-image-path" type="text" placeholder="D:\\path\\to\\textures\\..." style="width: 100%; padding: 8px 10px; border: 1px solid #283245; border-radius: 8px; background: #11161f; color: #e8ecf0; font-size: 0.9rem;" />
+                </div>
+                <button class="full-path-button" onclick="addImageFromFullPath()" style="width: 100%; padding: 8px 12px; border: 1px solid #283245; border-radius: 8px; background: #2f5371; color: #e8ecf0; cursor: pointer; font-weight: 500; white-space: nowrap;">Add from Path</button>
+              </div>
+              <div class="img-list" id="img-list"></div>
+
+              <button id="save-item">💾 Save Item</button>
+              <button id="add-item" onclick="addNewItem()">➕ Add New Item</button>
+              <button id="delete-item" class="danger" onclick="deleteItem()">🗑 Delete Item</button>
+              <button id="export-json" onclick="exportJson()">📥 Export JSON</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="status" class="status-bar">
+      <span>Editor ready. Build the UI first, then wire the page/item functions step by step.</span>
+    </div>
+  </div>
+
+  <script>
+    // Planned editor functions:
+    // loadData(), downloadData(), selectPage(), movePageUp(), movePageDown(), deletePage(), addNewPage()
+    // selectItem(), reorderPageItems(), deletePageItem(), addEmptyItem(), addEmptyBundle()
+    // searchDatabase(), selectDbResult(), previewDbSelection()
+    // replaceSelectedItem(), addDbItemAsNew(), startDrag(), dropItem(), confirmDeletePage()
+
+let storeData = null;
+let currentTabIndex = null;
+let currentItemIdx = null;
+let dbItems = [];
+let selectedDbIndex = null;
+let tempImages = [];
+let lastItem = null;
+const STORE_DATA_PATH = '../data/storepagedata.json';
+const DB_DATA_PATH = '../data/items-db.json';
+
+function escapeHtml(value) {
+  return String(value || '').replace(/[&<>"]+/g, (match) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;'
+  })[match]);
+}
+
+function generateRandomItemID() {
+  return Math.floor(Math.random() * 900000000) + 100000000;
+}
+
+function titleCase(value) {
+  return String(value || '').toLowerCase().replace(/\b([a-z])/g, (m) => m.toUpperCase());
+}
+
+function normalizeDir(dir) {
+  if (!dir) return '';
+  let d = String(dir).trim().replace(/\\/g, '/').replace(/\/+/g, '/').toLowerCase();
+  if (!d) return '';
+  if (d.charAt(0) !== '/') d = '/' + d;
+  if (d.charAt(d.length - 1) !== '/') d = d + '/';
+  return d;
+}
+
+function getRichTextFrame() {
+  return document.getElementById('rte-frame');
+}
+
+function setRichTextContent(text) {
+  const frame = getRichTextFrame();
+  if (!frame) return;
+  const apply = () => {
+    if (frame.contentWindow && typeof frame.contentWindow.initRichTextEditor === 'function') {
+      frame.contentWindow.initRichTextEditor(text || '');
+    }
+  };
+  if (frame.contentWindow && typeof frame.contentWindow.initRichTextEditor === 'function') {
+    apply();
+  } else {
+    frame.addEventListener('load', apply, { once: true });
+  }
+}
+
+function getRichTextContent() {
+  const frame = getRichTextFrame();
+  if (frame && frame.contentWindow && typeof frame.contentWindow.getRichTextCode === 'function') {
+    return frame.contentWindow.getRichTextCode();
+  }
+  const ta = document.getElementById('itemDesc');
+  return ta ? ta.value : '';
+}
+
+function parseDroppedPath(text) {
+  if (!text) return null;
+  text = text.trim().replace(/^["']|["']$/g, '');
+  try {
+    if (/^[a-zA-Z]+:\/\//.test(text.trim())) {
+      const u = new URL(text.trim());
+      text = u.pathname || u.href || text;
+    }
+  } catch (e) {}
+  let s = text.replace(/\\/g, '/');
+  const lower = s.toLowerCase();
+  let idx = lower.indexOf('/textures/');
+  if (idx === -1) idx = lower.indexOf('textures/');
+  if (idx === -1) return null;
+  if (s[idx] !== '/') s = '/' + s.slice(idx);
+  else s = s.slice(idx);
+  const lastSlash = s.lastIndexOf('/');
+  const dir = s.slice(0, lastSlash + 1);
+  const possibleName = s.slice(lastSlash + 1).split('\n')[0].trim();
+  const hasFileExtension = /\.(webp|png|dds|jpg|jpeg|gif|bmp|tiff|tif|svg)$/i.test(possibleName);
+  return {
+    directory: (hasFileExtension ? dir : (dir + possibleName + '/')).replace(/\\/g, '/').toLowerCase(),
+    name: hasFileExtension ? possibleName.toLowerCase() : null
+  };
+}
+
+function isoToLocalInput(isoStr) {
+  if (!isoStr) return '';
+  try {
+    const date = new Date(isoStr);
+    const y = date.getUTCFullYear();
+    const m = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const d = String(date.getUTCDate()).padStart(2, '0');
+    const h = String(date.getUTCHours()).padStart(2, '0');
+    const min = String(date.getUTCMinutes()).padStart(2, '0');
+    return `${y}-${m}-${d}T${h}:${min}`;
+  } catch {
+    return '';
+  }
+}
+
+function localInputToIso(localStr) {
+  if (!localStr) return '';
+  try {
+    const m = localStr.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+    if (!m) return '';
+    const date = new Date(Date.UTC(
+      parseInt(m[1]),
+      parseInt(m[2]) - 1,
+      parseInt(m[3]),
+      parseInt(m[4]),
+      parseInt(m[5]),
+      0
+    ));
+    return date.toISOString();
+  } catch {
+    return '';
+  }
+}
+
+function showStatus(msg, type = 'info') {
+  const status = document.getElementById('status');
+  status.textContent = msg;
+  status.className = `status show ${type}`;
+  setTimeout(() => status.classList.remove('show'), 3000);
+}
+
+function toggleCollapsible() {
+  const content = document.getElementById('details-content');
+  const arrow = document.getElementById('collapse-arrow');
+  content.classList.toggle('open');
+  arrow.textContent = content.classList.contains('open') ? '▼' : '▶';
+}
+
+// Tab Management Functions
+function loadStoreData() {
+  fetch(STORE_DATA_PATH)
+    .then(res => {
+      if (!res.ok) throw new Error('Could not load ' + STORE_DATA_PATH);
+      return res.json();
+    })
+    .then(data => {
+      storeData = data || { StorePageData: { pages: [] } };
+      if (!storeData.StorePageData) storeData.StorePageData = { pages: [] };
+      if (!Array.isArray(storeData.StorePageData.pages)) storeData.StorePageData.pages = [];
+      renderTabSelector();
+      if (storeData.StorePageData.pages.length > 0) {
+        selectTab(0);
+      }
+      showStatus('Loaded storepagedata.json', 'success');
+    })
+    .catch(err => showStatus(err.message, 'error'));
+}
+
+function renderTabSelector() {
+  const select = document.getElementById('page-select');
+  select.innerHTML = '';
+  if (!storeData.StorePageData.pages.length) {
+    select.innerHTML = '<option value="">No tabs available</option>';
+    return;
+  }
+  storeData.StorePageData.pages.forEach((page, index) => {
+    const option = document.createElement('option');
+    option.value = index;
+    option.textContent = page.name || page.pageName || page.tabName || page.tabid || 'Tab ' + (index + 1);
+    select.appendChild(option);
+  });
+  select.value = currentTabIndex || 0;
+}
+
+function selectTab(index) {
+  currentTabIndex = parseInt(index);
+  currentItemIdx = null;
+  document.getElementById('page-select').value = currentTabIndex;
+  showItemsList();
+  document.getElementById('editor').style.display = 'none';
+}
+
+function createTab() {
+  const name = document.getElementById('new-tab-name').value.trim();
+  if (!name) {
+    showStatus('Enter a tab name first.', 'error');
+    return;
+  }
+  if (!storeData.StorePageData.pages) storeData.StorePageData.pages = [];
+  storeData.StorePageData.pages.push({
+    name: name,
+    items: []
+  });
+  renderTabSelector();
+  selectTab(storeData.StorePageData.pages.length - 1);
+  document.getElementById('new-tab-name').value = '';
+  showStatus('Created tab "' + name + '"', 'success');
+}
+
+function renameTab() {
+  if (currentTabIndex === null) {
+    showStatus('Select a tab first.', 'error');
+    return;
+  }
+  const name = document.getElementById('new-tab-name').value.trim();
+  if (!name) {
+    showStatus('Enter a new tab name first.', 'error');
+    return;
+  }
+  storeData.StorePageData.pages[currentTabIndex].name = name;
+  renderTabSelector();
+  document.getElementById('new-tab-name').value = '';
+  showStatus('Renamed tab to "' + name + '"', 'success');
+}
+
+function deleteTab() {
+  if (currentTabIndex === null) {
+    showStatus('Select a tab first.', 'error');
+    return;
+  }
+  if (storeData.StorePageData.pages.length <= 1) {
+    showStatus('Cannot delete the last tab.', 'error');
+    return;
+  }
+  const tabName = storeData.StorePageData.pages[currentTabIndex].name;
+  storeData.StorePageData.pages.splice(currentTabIndex, 1);
+  currentTabIndex = Math.min(currentTabIndex, storeData.StorePageData.pages.length - 1);
+  renderTabSelector();
+  selectTab(currentTabIndex);
+  showStatus('Deleted tab "' + tabName + '"', 'success');
+}
+
+function moveTabUp() {
+  if (currentTabIndex === null || currentTabIndex <= 0) {
+    showStatus('Cannot move tab up.', 'error');
+    return;
+  }
+  const temp = storeData.StorePageData.pages[currentTabIndex];
+  storeData.StorePageData.pages[currentTabIndex] = storeData.StorePageData.pages[currentTabIndex - 1];
+  storeData.StorePageData.pages[currentTabIndex - 1] = temp;
+  currentTabIndex--;
+  renderTabSelector();
+  document.getElementById('page-select').value = currentTabIndex;
+  showItemsList();
+  showStatus('Moved tab up', 'success');
+}
+
+function moveTabDown() {
+  if (currentTabIndex === null || currentTabIndex >= storeData.StorePageData.pages.length - 1) {
+    showStatus('Cannot move tab down.', 'error');
+    return;
+  }
+  const temp = storeData.StorePageData.pages[currentTabIndex];
+  storeData.StorePageData.pages[currentTabIndex] = storeData.StorePageData.pages[currentTabIndex + 1];
+  storeData.StorePageData.pages[currentTabIndex + 1] = temp;
+  currentTabIndex++;
+  renderTabSelector();
+  document.getElementById('page-select').value = currentTabIndex;
+  showItemsList();
+  showStatus('Moved tab down', 'success');
+}
+
+// DB Functions
+function loadDbData() {
+  fetch(DB_DATA_PATH)
+    .then(res => {
+      if (!res.ok) throw new Error('Could not load ' + DB_DATA_PATH);
+      return res.json();
+    })
+    .then(data => {
+      dbItems = Array.isArray(data) ? data : [];
+      showStatus('Loaded items-db.json (' + dbItems.length + ' items)', 'success');
+      searchDbItems();
+    })
+    .catch(err => showStatus(err.message, 'error'));
+}
+
+function searchDbItems() {
+  const query = document.getElementById('db-search-input').value.trim().toLowerCase();
+  if (!query) {
+    selectedDbIndex = null;
+    renderDbSearchResults(null);
+    return;
+  }
+  const results = dbItems.filter(item => {
+    return [item.itemName, item.EDID, item.desc, item.disclaimer]
+      .filter(Boolean)
+      .some(field => String(field).toLowerCase().includes(query));
+  }).slice(0, 50);
+  renderDbSearchResults(results);
+}
+
+function renderDbSearchResults(results) {
+  const dbSearchResults = document.getElementById('db-search-results');
+  dbSearchResults.innerHTML = '';
+  if (results === null) {
+    dbSearchResults.textContent = 'Type to search DB items...';
+    return;
+  }
+  if (!results.length) {
+    dbSearchResults.textContent = 'No DB items found.';
+    return;
+  }
+  results.forEach((item) => {
+    const dbIndex = dbItems.indexOf(item);
+    const row = document.createElement('div');
+    row.className = 'list-item' + (selectedDbIndex === dbIndex ? ' selected' : '');
+    row.dataset.dbIndex = dbIndex;
+    const imageSrc = item.primaryImage && item.primaryImage.imageName
+      ? ((item.primaryImage.directory || '').startsWith('/') ? '..' + item.primaryImage.directory : '../' + (item.primaryImage.directory || '')) + item.primaryImage.imageName
+      : null;
+    row.innerHTML = `
+      <div style="display:flex; gap:10px; align-items:center;">
+        <div style="width:40px; height:40px; flex-shrink:0;">
+          ${imageSrc ? `<img src="${imageSrc}" alt="${item.itemName || ''}" style="width:100%; height:100%; object-fit:cover; border:1px solid #333; border-radius:6px;">` : '<div style="width:100%; height:100%; background:#222; border:1px solid #333; border-radius:6px; display:flex; align-items:center; justify-content:center; color:#666; font-size:0.75rem;">No Img</div>'}
+        </div>
+        <div style="min-width:0;">
+          <div style="font-weight:700; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(item.itemName || item.EDID || 'Unnamed')}</div>
+          <div style="font-size:0.85rem; color:#999; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(item.EDID || 'no EDID')}</div>
+        </div>
+      </div>
+    `;
+    row.addEventListener('click', () => {
+      if (dbIndex === -1) return;
+      selectedDbIndex = dbIndex;
+      Array.from(dbSearchResults.children).forEach(child => child.classList.remove('selected'));
+      row.classList.add('selected');
+      showStatus('Selected DB item "' + (item.itemName || item.EDID) + '".');
+    });
+    dbSearchResults.appendChild(row);
+  });
+}
+
+// Item Management Functions
+function showItemsList() {
+  if (!storeData || currentTabIndex === null) return;
+  const page = storeData.StorePageData.pages[currentTabIndex];
+  if (!page) return;
+  const items = page.items || [];
+  const list = document.getElementById('items-list');
+  list.innerHTML = '';
+  if (!items.length) {
+    list.innerHTML = '<div style="padding: 15px; text-align: center; color: #999;">No items in this tab</div>';
+    return;
+  }
+  items.forEach((item, idx) => {
+    const row = document.createElement('div');
+    row.className = 'item-row';
+    row.innerHTML = `
+      <div class="item-info">
+        <span class="item-id">#${item.itemID}</span>
+        <span class="item-name">${item.itemName || '(no name)'}</span>
+      </div>
+    `;
+    row.onclick = () => selectItem(idx);
+    list.appendChild(row);
+  });
+}
+
+function selectItem(idx) {
+  currentItemIdx = idx;
+  const page = storeData.StorePageData.pages[currentTabIndex];
+  const item = page.items[idx];
+  lastItem = item;
+
+  document.querySelectorAll('.item-row').forEach((row, i) => {
+    row.classList.toggle('selected', i === idx);
+  });
+
+  document.getElementById('editor-title').textContent = item.itemName || 'Edit Item';
+  document.getElementById('itemID').value = item.itemID || '';
+  document.getElementById('replaceItemID').value = item.replaceItemID || '';
+  document.getElementById('itemName').value = item.itemName || '';
+  document.getElementById('itemNameShort').value = item.itemNameShort || '';
+  setRichTextContent(item.itemDesc || '');
+  document.getElementById('lowPriceAmount').value = item.lowestPurchasablePrice?.Amount || '';
+  document.getElementById('highPriceAmount').value = item.highPrice?.originalAmount || '';
+  document.getElementById('startTime').value = isoToLocalInput(item.startTime);
+  document.getElementById('endTime').value = isoToLocalInput(item.endTime);
+  document.getElementById('ltoTimer').value = isoToLocalInput(item.lowPrice?.ltoTimer);
+  document.getElementById('isZeus').checked = item.isZeus || false;
+
+  tempImages = [];
+  if (item.primaryImage && item.primaryImage.imageName) {
+    tempImages.push({ imageName: String(item.primaryImage.imageName).toLowerCase(), directory: normalizeDir(item.primaryImage.directory), _isPrimary: true });
+  }
+  if (Array.isArray(item.carouselImages)) {
+    tempImages.push(...item.carouselImages.map(img => ({ imageName: String(img.imageName || '').toLowerCase(), directory: normalizeDir(img.directory), _isPrimary: false })));
+  }
+
+  // Show/hide bundle section
+  const bundleSection = document.getElementById('bundle-section');
+  const isBundle = item.szitemnames && Array.isArray(item.szitemnames) && item.szitemnames.length > 0;
+  bundleSection.style.display = isBundle ? 'block' : 'none';
+  if (isBundle) {
+    renderBundleItems(item.szitemnames);
+  }
+
+  renderImages();
+  document.getElementById('editor').style.display = 'block';
+}
+
+function addDbItemToCurrentTab() {
+  if (currentTabIndex === null) {
+    showStatus('Select a tab first.', 'error');
+    return;
+  }
+  if (selectedDbIndex === null || selectedDbIndex < 0 || selectedDbIndex >= dbItems.length) {
+    showStatus('Select a DB item first.', 'error');
+    return;
+  }
+  const dbItem = dbItems[selectedDbIndex];
+  if (!dbItem) {
+    showStatus('Selected DB item is invalid.', 'error');
+    return;
+  }
+  const page = storeData.StorePageData.pages[currentTabIndex];
+  if (!page.items) page.items = [];
+  const itemName = titleCase(dbItem.itemName || dbItem.EDID || 'Unnamed Item');
+  const item = {
+    itemID: generateRandomItemID(),
+    replaceItemID: 0,
+    isZeus: false,
+    itemName: itemName,
+    itemNameShort: itemName,
+    itemDesc: combineDbDescription(dbItem),
+    lowestPurchasablePrice: { Amount: typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : 0 },
+    highPrice: { originalAmount: typeof dbItem.highPriceOriginal === 'number' ? dbItem.highPriceOriginal : 0 },
+    lowPrice: { ltoTimer: '' },
+    startTime: '',
+    endTime: '',
+    ltoTimer: '',
+    primaryImage: dbItem.primaryImage ? {
+      directory: normalizeDir(dbItem.primaryImage.directory || ''),
+      imageName: String(dbItem.primaryImage.imageName || '').toLowerCase()
+    } : { directory: '', imageName: '' },
+    carouselImages: Array.isArray(dbItem.carouselImages) ? dbItem.carouselImages.map(img => ({
+      directory: normalizeDir(img.directory || ''),
+      imageName: String(img.imageName || '').toLowerCase()
+    })) : []
+  };
+  page.items.push(item);
+  currentItemIdx = page.items.length - 1;
+  showItemsList();
+  selectItem(currentItemIdx);
+  showStatus('Added "' + itemName + '" from DB to current tab.');
+}
+
+function createBundle() {
+  if (currentTabIndex === null) {
+    showStatus('Select a tab first.', 'error');
+    return;
+  }
+  const page = storeData.StorePageData.pages[currentTabIndex];
+  if (!page.items) page.items = [];
+  const item = {
+    itemID: generateRandomItemID(),
+    replaceItemID: 0,
+    isZeus: false,
+    itemName: 'Bundle',
+    itemNameShort: 'Bundle',
+    itemDesc: 'Bundle item',
+    lowestPurchasablePrice: { Amount: 0 },
+    highPrice: { originalAmount: 0 },
+    lowPrice: { ltoTimer: '' },
+    startTime: '',
+    endTime: '',
+    ltoTimer: '',
+    primaryImage: { directory: '', imageName: '' },
+    carouselImages: [],
+    szitemnames: []
+  };
+  page.items.push(item);
+  currentItemIdx = page.items.length - 1;
+  showItemsList();
+  selectItem(currentItemIdx);
+  showStatus('Created new bundle item.');
+}
+
+function addSelectedDbToBundle() {
+  if (currentItemIdx === null) {
+    showStatus('Select a bundle item first.', 'error');
+    return;
+  }
+  if (selectedDbIndex === null) {
+    showStatus('Select a DB item first.', 'error');
+    return;
+  }
+  const page = storeData.StorePageData.pages[currentTabIndex];
+  const item = page.items[currentItemIdx];
+  if (!item.szitemnames) item.szitemnames = [];
+  const dbItem = dbItems[selectedDbIndex];
+  const itemName = dbItem.itemName || dbItem.EDID || 'Unnamed';
+  item.szitemnames.push(itemName);
+
+  // Add to carousel images if the DB item has them
+  if (dbItem.primaryImage && dbItem.primaryImage.imageName) {
+    if (!item.carouselImages) item.carouselImages = [];
+    item.carouselImages.push({
+      directory: normalizeDir(dbItem.primaryImage.directory || ''),
+      imageName: String(dbItem.primaryImage.imageName).toLowerCase()
+    });
+  }
+
+  renderBundleItems(item.szitemnames);
+  renderImages();
+  showStatus('Added "' + itemName + '" to bundle.');
+}
+
+function renderBundleItems(szitemnames) {
+  const list = document.getElementById('bundle-items-list');
+  list.innerHTML = '';
+  if (!szitemnames || !szitemnames.length) {
+    list.innerHTML = '<div style="padding: 10px; color: #999;">No items in bundle</div>';
+    return;
+  }
+  szitemnames.forEach((name, idx) => {
+    const div = document.createElement('div');
+    div.className = 'bundle-item';
+    div.innerHTML = `
+      <span>${escapeHtml(name)}</span>
+      <button onclick="removeFromBundle(${idx})">Remove</button>
+    `;
+    list.appendChild(div);
+  });
+}
+
+function removeFromBundle(idx) {
+  if (currentItemIdx === null) return;
+  const page = storeData.StorePageData.pages[currentTabIndex];
+  const item = page.items[currentItemIdx];
+  if (item.szitemnames && item.szitemnames[idx]) {
+    item.szitemnames.splice(idx, 1);
+    renderBundleItems(item.szitemnames);
+    showStatus('Removed item from bundle.');
+  }
+}
+
+function combineDbDescription(dbItem) {
+  const description = String(dbItem.desc || '').trim();
+  const disclaimer = String(dbItem.disclaimer || '').trim();
+  if (description && disclaimer) {
+    return description + '\n\n' + disclaimer;
+  }
+  return description || disclaimer || '';
+}
+
+function addNewItem() {
+  if (currentTabIndex === null) {
+    showStatus('Select a tab first.', 'error');
+    return;
+  }
+  const page = storeData.StorePageData.pages[currentTabIndex];
+  if (!page.items) page.items = [];
+  const item = {
+    itemID: generateRandomItemID(),
+    replaceItemID: 0,
+    isZeus: false,
+    itemName: 'New Item',
+    itemNameShort: 'New Item',
+    itemDesc: '',
+    lowestPurchasablePrice: { Amount: 0 },
+    highPrice: { originalAmount: 0 },
+    lowPrice: { ltoTimer: '' },
+    startTime: '',
+    endTime: '',
+    ltoTimer: '',
+    primaryImage: { directory: '', imageName: '' },
+    carouselImages: []
+  };
+  page.items.push(item);
+  currentItemIdx = page.items.length - 1;
+  showItemsList();
+  selectItem(currentItemIdx);
+  showStatus('Added new item.');
+}
+
+function deleteItem() {
+  if (currentTabIndex === null || currentItemIdx === null) {
+    showStatus('Select an item first.', 'error');
+    return;
+  }
+  const page = storeData.StorePageData.pages[currentTabIndex];
+  page.items.splice(currentItemIdx, 1);
+  currentItemIdx = Math.min(currentItemIdx, page.items.length - 1);
+  showItemsList();
+  if (page.items.length > 0) {
+    selectItem(currentItemIdx);
+  } else {
+    document.getElementById('editor').style.display = 'none';
+  }
+  showStatus('Deleted item.');
+}
+
+function saveItem() {
+  if (currentItemIdx === null) {
+    showStatus('Select an item first.', 'error');
+    return;
+  }
+  const page = storeData.StorePageData.pages[currentTabIndex];
+  const item = page.items[currentItemIdx];
+
+  item.itemID = parseInt(document.getElementById('itemID').value) || item.itemID;
+  item.replaceItemID = parseInt(document.getElementById('replaceItemID').value) || 0;
+  item.itemName = document.getElementById('itemName').value;
+  item.itemNameShort = document.getElementById('itemNameShort').value;
+  item.itemDesc = getRichTextContent();
+  item.lowestPurchasablePrice = { Amount: parseFloat(document.getElementById('lowPriceAmount').value) || 0 };
+  item.highPrice = { originalAmount: parseFloat(document.getElementById('highPriceAmount').value) || 0 };
+  item.startTime = localInputToIso(document.getElementById('startTime').value);
+  item.endTime = localInputToIso(document.getElementById('endTime').value);
+  item.lowPrice = { ltoTimer: localInputToIso(document.getElementById('ltoTimer').value) };
+  item.isZeus = document.getElementById('isZeus').checked;
+
+  // Save images
+  const primaryImg = tempImages.find(img => img._isPrimary);
+  const carouselImgs = tempImages.filter(img => !img._isPrimary);
+
+  item.primaryImage = primaryImg ? {
+    directory: normalizeDir(primaryImg.directory),
+    imageName: primaryImg.imageName
+  } : { directory: '', imageName: '' };
+
+  item.carouselImages = carouselImgs.map(img => ({
+    directory: normalizeDir(img.directory),
+    imageName: img.imageName
+  }));
+
+  showItemsList();
+  selectItem(currentItemIdx);
+  showStatus('Item saved.');
+}
+
+function renderImages() {
+  const list = document.getElementById('img-list');
+  list.innerHTML = '';
+  list.ondragover = (e) => { e.preventDefault(); list.style.border = '2px dashed #9ad1ff'; };
+  list.ondragleave = (e) => { list.style.border = ''; };
+  list.ondrop = (e) => {
+    e.preventDefault(); list.style.border = '';
+    const dt = e.dataTransfer;
+    const textData = (dt && dt.getData) ? (dt.getData('text/uri-list') || dt.getData('text/plain') || '') : '';
+    if (dt && dt.files && dt.files.length) {
+      const parsedText = parseDroppedPath(textData);
+      const detectedDir = parsedText && parsedText.directory ? normalizeDir(parsedText.directory) : '';
+      for (let i = 0; i < dt.files.length; i++) {
+        const f = dt.files[i];
+        tempImages.push({ imageName: f.name.toLowerCase(), directory: detectedDir || '' });
+      }
+      renderImages();
+      return;
+    }
+    if (textData) {
+      const parsed = parseDroppedPath(textData);
+      if (parsed && parsed.name) {
+        tempImages.push({ imageName: parsed.name.toLowerCase(), directory: normalizeDir(parsed.directory) });
+        renderImages();
+        return;
+      }
+    }
+  };
+
+  tempImages.forEach((img, idx) => {
+    const div = document.createElement('div');
+    div.className = 'img-item';
+    div.setAttribute('draggable', 'true');
+    div.setAttribute('data-idx', idx);
+
+    const imgUrl = ('../' + img.directory + img.imageName).toLowerCase().replace(/\.(dds|png)$/i, '.webp');
+
+    // Detect current suffix
+    let currentSuffix = '';
+    if (img.imageName) {
+      const m = img.imageName.match(/(_C(\d+)|_L)(?=\.[^.]+$)/i);
+      currentSuffix = m ? (m[0].toUpperCase()) : '';
+    }
+
+    // Detect all existing suffixes to build dropdown options
+    const cNumbers = new Set();
+    let hasL = false;
+    let hasNone = false;
+    tempImages.forEach(ti => {
+      if (!ti || !ti.imageName) return;
+      const m = ti.imageName.match(/(_C(\d+)|_L)(?=\.[^.]+$)/i);
+      if (m) {
+        if (m[2]) cNumbers.add(parseInt(m[2]));
+        else if (m[0] === '_L') hasL = true;
+      } else {
+        hasNone = true;
+      }
+    });
+
+    const options = [];
+    if (hasNone) options.push({ value: '', text: 'Default' });
+    if (hasL) options.push({ value: '_L', text: 'Large (_L)' });
+    for (let i = 1; i <= Math.max(10, ...Array.from(cNumbers)); i++) {
+      if (cNumbers.has(i)) options.push({ value: `_C${i}`, text: `Carousel ${i} (_C${i})` });
+    }
+
+    div.innerHTML = `
+      <div style="position:relative;">
+        <img src="${imgUrl}" alt="${img.imageName}" style="width:100%; height:180px; object-fit:cover; border:1px solid #333; border-radius:6px;" onerror="this.src='../media/bundles/items/missing.webp'">
+        <div style="position:absolute; top:5px; right:5px;">
+          <select onchange="changeImageVariant(${idx}, this.value)" style="background:#000; color:#fff; border:1px solid #555; border-radius:3px; font-size:0.75rem;">
+            ${options.map(opt => `<option value="${opt.value}" ${opt.value === currentSuffix ? 'selected' : ''}>${opt.text}</option>`).join('')}
+          </select>
+        </div>
+        <div style="position:absolute; bottom:5px; left:5px; right:5px;">
+          <div style="background:rgba(0,0,0,0.7); color:#fff; padding:2px 4px; border-radius:3px; font-size:0.7rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${img.imageName}</div>
+        </div>
+        <button onclick="removeImage(${idx})" style="position:absolute; top:5px; left:5px; background:#f00; color:#fff; border:none; border-radius:50%; width:20px; height:20px; cursor:pointer; font-size:0.8rem;">×</button>
+      </div>
+    `;
+    div.ondragstart = (e) => {
+      e.dataTransfer.setData('text/plain', idx);
+    };
+    list.appendChild(div);
+  });
+}
+
+function changeImageVariant(idx, newSuffix) {
+  const img = tempImages[idx];
+  if (!img) return;
+
+  // Remove existing suffix
+  img.imageName = img.imageName.replace(/(_C\d+|_L)(?=\.[^.]+$)/i, '');
+
+  // Add new suffix
+  if (newSuffix) {
+    const extMatch = img.imageName.match(/(\.[^.]+)$/);
+    if (extMatch) {
+      img.imageName = img.imageName.replace(extMatch[1], newSuffix + extMatch[1]);
+    }
+  }
+
+  renderImages();
+}
+
+function removeImage(idx) {
+  tempImages.splice(idx, 1);
+  renderImages();
+}
+
+function addImage() {
+  const name = document.getElementById('new-image-name').value.trim();
+  const dir = document.getElementById('new-image-dir').value.trim();
+  if (!name) {
+    showStatus('Enter image name.', 'error');
+    return;
+  }
+  tempImages.push({ imageName: name.toLowerCase(), directory: normalizeDir(dir) });
+  document.getElementById('new-image-name').value = '';
+  renderImages();
+  showStatus('Added image.');
+}
+
+function addImageFromFullPath() {
+  const path = document.getElementById('full-image-path').value.trim();
+  if (!path) {
+    showStatus('Enter full path.', 'error');
+    return;
+  }
+  const parsed = parseDroppedPath(path);
+  if (parsed && parsed.name) {
+    tempImages.push({ imageName: parsed.name.toLowerCase(), directory: normalizeDir(parsed.directory) });
+    document.getElementById('full-image-path').value = '';
+    renderImages();
+    showStatus('Added image from path.');
+  } else {
+    showStatus('Could not parse path.', 'error');
+  }
+}
+
+function exportJson() {
+  const dataStr = JSON.stringify(storeData, null, 2);
+  const blob = new Blob([dataStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'storepagedata.modified.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showStatus('Downloaded storepagedata.modified.json');
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', () => {
+  loadStoreData();
+  loadDbData();
+
+  document.getElementById('page-select').addEventListener('change', (e) => selectTab(e.target.value));
+  document.getElementById('create-tab-btn').addEventListener('click', createTab);
+  document.getElementById('rename-tab-btn').addEventListener('click', renameTab);
+  document.getElementById('delete-tab-btn').addEventListener('click', deleteTab);
+  document.getElementById('move-up-btn').addEventListener('click', moveTabUp);
+  document.getElementById('move-down-btn').addEventListener('click', moveTabDown);
+
+  document.getElementById('db-search-input').addEventListener('input', searchDbItems);
+  document.getElementById('add-db-item-btn').addEventListener('click', addDbItemToCurrentTab);
+  document.getElementById('create-bundle-btn').addEventListener('click', createBundle);
+});
+  </script>
+</body>
+</html>

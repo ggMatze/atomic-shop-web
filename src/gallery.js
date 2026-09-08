@@ -160,6 +160,12 @@ function buildItemImageAssets(item, itemsDb = null) {
   const db = Array.isArray(itemsDb) ? itemsDb : itemsDbCache;
   const resolvedImages = [];
 
+  // Preserve the true primary image as the gallery lead before any carousel images
+  // are appended. This prevents a carousel URL from being promoted to storefrontImage.
+  if (item?.primaryImage?.imageName && item.primaryImage.directory) {
+    resolvedImages.push({ directory: item.primaryImage.directory, imageName: item.primaryImage.imageName });
+  }
+
   const explicitImages = Array.isArray(item?.images)
     ? item.images.filter(value => typeof value === 'string' && value.trim())
     : [];
@@ -173,8 +179,24 @@ function buildItemImageAssets(item, itemsDb = null) {
     if (normalized) resolvedImages.push({ directory: '', imageName: normalized, explicit: true });
   }
 
-  if (item?.primaryImage?.imageName && item.primaryImage.directory) {
-    resolvedImages.push({ directory: item.primaryImage.directory, imageName: item.primaryImage.imageName });
+  // Respect the store item’s authored carousel image objects/URLs when present.
+  if (Array.isArray(item?.carouselImages)) {
+    item.carouselImages.forEach((carouselImage) => {
+      if (!carouselImage) return;
+      if (typeof carouselImage === 'string') {
+        const normalized = carouselImage.trim();
+        if (normalized) resolvedImages.push({ directory: '', imageName: normalized, explicit: true });
+        return;
+      }
+      if (typeof carouselImage?.url === 'string' && carouselImage.url.trim()) {
+        const normalized = carouselImage.url.trim();
+        if (normalized) resolvedImages.push({ directory: '', imageName: normalized, explicit: true });
+        return;
+      }
+      if (carouselImage?.imageName && carouselImage?.directory) {
+        resolvedImages.push({ directory: carouselImage.directory, imageName: carouselImage.imageName });
+      }
+    });
   }
 
   console.log('[buildItemImageAssets] Processing dynamicBundleItems:', item?.dynamicBundleItems?.length || 0);
@@ -301,7 +323,7 @@ async function resolveItemGalleryImages(item, itemsDb = null) {
 
   const resolvePromise = (async () => {
     const { storefrontImage, images } = buildItemImageAssets(item, itemsDb);
-    
+
     // Images array from buildItemImageAssets already contains storefrontImage as first item
     // and is properly deduplicated with entmId awareness. Start with the known images and
     // add a few variant candidates in the background rather than blocking the overlay.

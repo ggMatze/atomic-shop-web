@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulk Import to Database</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1e1e1e;
+      color: #e0e0e0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .section {
+      background: #252526;
+      border: 1px solid #3e3e42;
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    input[type="file"],
+    button {
+      padding: 10px 15px;
+      border: 1px solid #3e3e42;
+      background: #2d2d2d;
+      color: #e0e0e0;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #3e3e42;
+    }
+
+    button:active {
+      background: #1e1e1e;
+    }
+
+    .status {
+      padding: 10px 15px;
+      background: #1e3a1e;
+      border: 1px solid #3a5a3a;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .status.error {
+      background: #3a1e1e;
+      border-color: #5a3a3a;
+      color: #ff6b6b;
+    }
+
+    .status.success {
+      background: #1e3a1e;
+      border-color: #3a5a3a;
+      color: #6bff6b;
+    }
+
+    .items-grid {
+      display: grid;
+      gap: 15px;
+    }
+
+    .item-card {
+      background: #2d2d2d;
+      border: 1px solid #3e3e42;
+      border-radius: 4px;
+      padding: 15px;
+      border-left: 4px solid #0078d4;
+    }
+
+    .item-card.matched {
+      border-left-color: #6bff6b;
+    }
+
+    .item-card.unmatched {
+      border-left-color: #ff6b6b;
+    }
+
+    .item-card.pending-match {
+      border-left-color: #ffaa00;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .item-name {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .item-badge {
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .badge-matched {
+      background: #1e3a1e;
+      color: #6bff6b;
+    }
+
+    .badge-unmatched {
+      background: #3a1e1e;
+      color: #ff6b6b;
+    }
+
+    .badge-pending {
+      background: #3a2d1e;
+      color: #ffaa00;
+    }
+
+    .item-desc {
+      font-size: 13px;
+      color: #b0b0b0;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .item-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button.small {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    .db-match {
+      background: #1e3a1e;
+      border: 1px solid #3a5a3a;
+      padding: 10px;
+      border-radius: 3px;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .db-match strong {
+      color: #6bff6b;
+    }
+
+    .unmatched-items-list {
+      margin-bottom: 20px;
+    }
+
+    .unmatched-count {
+      color: #ff6b6b;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .manual-match-form {
+      background: #3a2d1e;
+      border: 1px solid #5a4a2a;
+      padding: 15px;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 5px;
+      color: #b0b0b0;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 8px;
+      background: #2d2d2d;
+      border: 1px solid #3e3e42;
+      color: #e0e0e0;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 12px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .stat-box {
+      background: #2d2d2d;
+      border: 1px solid #3e3e42;
+      padding: 15px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0078d4;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #b0b0b0;
+    }
+
+    .scroll-container {
+      max-height: 600px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .carousel-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 15px 0;
+      background: #1e1e1e;
+      padding: 10px;
+      border-radius: 3px;
+    }
+
+    .carousel-side {
+      border: 1px solid #3e3e42;
+      padding: 10px;
+      border-radius: 3px;
+    }
+
+    .carousel-title {
+      font-size: 12px;
+      font-weight: bold;
+      color: #0078d4;
+      margin-bottom: 10px;
+    }
+
+    .carousel-title.loaded {
+      color: #6bff6b;
+    }
+
+    .carousel-title.db {
+      color: #ffaa00;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+      gap: 8px;
+    }
+
+    .image-item {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .image-thumbnail {
+      width: 64px;
+      height: 64px;
+      background: #3e3e42;
+      border: 2px solid #555;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      text-align: center;
+      padding: 2px;
+      overflow: hidden;
+    }
+
+    .image-thumbnail img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .image-label {
+      font-size: 9px;
+      color: #888;
+      margin-top: 3px;
+      word-break: break-all;
+      line-height: 1.2;
+    }
+
+    .image-item.selected .image-thumbnail {
+      border: 2px solid #6bff6b;
+      box-shadow: 0 0 8px #6bff6b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bulk Import to Database</h1>
+
+    <div class="section">
+      <h2>Step 1: Load Files</h2>
+      <div class="controls">
+        <input type="file" id="fileInput" multiple accept=".json" />
+        <button onclick="loadFiles()">Load JSON Files</button>
+        <button onclick="clearAll()">Clear All</button>
+      </div>
+      <div id="statusBox" class="status" style="display: none;"></div>
+    </div>
+
+    <div class="section" id="statsSection" style="display: none;">
+      <h2>Statistics</h2>
+      <div class="stats">
+        <div class="stat-box">
+          <div class="stat-number" id="totalItems">0</div>
+          <div class="stat-label">Total Items</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number" id="matchedCount">0</div>
+          <div class="stat-label" style="color: #6bff6b;">Matched</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number" id="unmatchedCount">0</div>
+          <div class="stat-label" style="color: #ff6b6b;">Unmatched</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="itemsSection" style="display: none;">
+      <h2>Step 2: Review & Match Items</h2>
+      <div class="scroll-container">
+        <div id="itemsList" class="items-grid"></div>
+      </div>
+    </div>
+
+    <div class="section" id="verifySection" style="display: none;">
+      <h2>Step 3: Verify Carousel Images</h2>
+      <div class="controls">
+        <button onclick="confirmSelectionsAndSave()">Confirm Selections & Save</button>
+        <button onclick="skipCarouselVerification()">Skip All</button>
+      </div>
+      <div class="scroll-container">
+        <div id="carouselList" class="items-grid"></div>
+      </div>
+    </div>
+
+    <div class="section" id="saveSection" style="display: none;">
+      <h2>Step 4: Save to Database</h2>
+      <div class="controls">
+        <button onclick="saveAllMatched()">Save All Matched Items</button>
+        <button onclick="savePricesOnly()">Merge Prices Only</button>
+        <button onclick="downloadDatabase()">Download Database</button>
+      </div>
+      <div id="saveStatus" style="display: none;"></div>
+    </div>
+  </div>
+
+  <script>
+    // Suppress 404 image errors from console - keep it clean for debug logs
+    const originalError = console.error;
+    console.error = function(...args) {
+      const msg = args.join(' ');
+      if (!msg.includes('404') && !msg.includes('GET http')) {
+        originalError.apply(console, args);
+      }
+    };
+
+    let loadedItems = [];
+    let dbArray = [];
+    let matchedItems = [];
+    let unmatchedItems = [];
+    let fuzzyMatchCache = {}; // Cache fuzzy matches to avoid recalculating
+    let carouselConflicts = []; // Items with carousel image conflicts
+    let carouselChoices = {}; // User choices for conflicts: { dbEDID: 'loaded' | 'db' }
+    let carouselSelections = {}; // Individual image selections: { dbEDID: { loaded: [indices], db: [indices] } }
+
+    async function loadFiles() {
+      const fileInput = document.getElementById('fileInput');
+      const files = fileInput.files;
+
+      if (files.length === 0) {
+        showStatus('Please select JSON files', 'error');
+        return;
+      }
+
+      loadedItems = [];
+      matchedItems = [];
+      unmatchedItems = [];
+
+      showStatus('Loading files...', 'success');
+
+      for (let file of files) {
+        try {
+          const text = await file.text();
+          const data = JSON.parse(text);
+          extractItems(data);
+        } catch (err) {
+          showStatus(`Error loading ${file.name}: ${err.message}`, 'error');
+        }
+      }
+
+      // Load database
+      try {
+        const dbResponse = await fetch('../data/items-db.json');
+        dbArray = await dbResponse.json();
+        if (!Array.isArray(dbArray)) dbArray = [];
+        // Clean all carousel and primary images in the database
+        dbArray = dbArray.map(item => ({
+          ...item,
+          primaryImage: item.primaryImage ? cleanImageObject(item.primaryImage) : null,
+          carouselImages: (item.carouselImages || []).map(img => cleanImageObject(img))
+        }));
+      } catch (err) {
+        showStatus('Could not load items-db.json', 'error');
+        return;
+      }
+
+      // Try to match items
+      matchItems();
+      renderItems();
+      updateStats();
+
+      // Detect carousel image conflicts
+      detectCarouselConflicts();
+
+      showStatus(`Loaded ${loadedItems.length} items from ${files.length} file(s)`, 'success');
+      document.getElementById('statsSection').style.display = 'block';
+      document.getElementById('itemsSection').style.display = 'block';
+      
+      // Show verification section if there are conflicts
+      if (carouselConflicts.length > 0) {
+        renderCarouselConflicts();
+        document.getElementById('verifySection').style.display = 'block';
+      } else {
+        document.getElementById('saveSection').style.display = 'block';
+      }
+    }
+
+    function extractItems(data) {
+      // Handle storepagedata format
+      if (data.StorePageData && data.StorePageData.pages) {
+        data.StorePageData.pages.forEach(page => {
+          if (Array.isArray(page.items)) {
+            page.items.forEach(item => {
+              if (item.itemName && item.itemDesc) {
+                addLoadedItem({
+                  itemName: item.itemName,
+                  itemDesc: item.itemDesc,
+                  primaryImage: cleanImageObject(item.primaryImage),
+                  carouselImages: filterCarouselImages(item.carouselImages || []),
+                  highPrice: item.highPrice,
+                  dynamicBundleItems: item.dynamicBundleItems || [],
+                  source: 'storepagedata'
+                });
+              }
+            });
+          }
+        });
+      }
+
+      // Handle dailyitems format
+      if (data.daily) {
+        data.daily.forEach(item => {
+          if (item.itemName && item.desc) {
+            addLoadedItem({
+              itemName: item.itemName,
+              itemDesc: item.desc + (item.disclaimer ? '\n\n' + item.disclaimer : ''),
+              carouselImages: filterCarouselImages(item.carouselImages || []),
+              dynamicBundleItems: item.dynamicBundleItems || [],
+              source: 'dailyitems'
+            });
+          }
+        });
+      }
+
+      // Handle dailyitems weekly paid sales format
+      if (data.DailySalesByWeek) {
+        Object.values(data.DailySalesByWeek).forEach(weekArr => {
+          if (Array.isArray(weekArr)) {
+            weekArr.forEach(item => {
+              if (item.itemName && item.itemDesc) {
+                addLoadedItem({
+                  itemName: item.itemName,
+                  itemDesc: item.itemDesc,
+                  primaryImage: cleanImageObject(item.primaryImage),
+                  carouselImages: filterCarouselImages(item.carouselImages || []),
+                  highPrice: item.highPrice,
+                  dynamicBundleItems: item.dynamicBundleItems || [],
+                  source: 'dailyitems'
+                });
+              }
+            });
+          }
+        });
+      }
+
+      // Handle direct items array
+      if (Array.isArray(data)) {
+        data.forEach(item => {
+          if (item.itemName && (item.itemDesc || item.desc)) {
+            addLoadedItem({
+              itemName: item.itemName,
+              itemDesc: item.itemDesc || (item.desc + (item.disclaimer ? '\n\n' + item.disclaimer : '')),
+              primaryImage: cleanImageObject(item.primaryImage),
+              carouselImages: filterCarouselImages(item.carouselImages || []),
+              highPrice: item.highPrice,
+              dynamicBundleItems: item.dynamicBundleItems || [],
+              source: 'array'
+            });
+          }
+        });
+      }
+    }
+
+    function filterCarouselImages(images) {
+      // Only keep images with _L suffix or no color suffix (no _C1, _C2, etc.)
+      // Also clean the image objects to remove fixtureType and assocMediaPayload
+      if (!Array.isArray(images)) return [];
+      return images
+        .filter(img => {
+          const imageName = img.imageName || '';
+          // Exclude any _C# variants (C1, C2, C3, etc.)
+          if (/_C\d+\./i.test(imageName)) return false;
+          // Keep _L variants and images without color suffixes
+          return true;
+        })
+        .map(img => cleanImageObject(img));
+    }
+
+    function normalizeDynamicBundleItems(items) {
+      if (!Array.isArray(items)) return [];
+
+      const uniqueItems = new Map();
+
+      items.forEach(entry => {
+        if (!entry) return;
+
+        let name = null;
+        if (typeof entry === 'string') {
+          name = entry.trim();
+        } else if (entry.szItemName) {
+          name = String(entry.szItemName).trim();
+        }
+
+        if (!name) return;
+
+        const key = name.toLowerCase();
+        if (!uniqueItems.has(key)) {
+          uniqueItems.set(key, name);
+        }
+      });
+
+      return Array.from(uniqueItems.values()).map(name => ({ szItemName: name }));
+    }
+
+    function addLoadedItem(item) {
+      // Clean and preserve bundle entries as objects with szItemName
+      if (item.dynamicBundleItems) {
+        item.dynamicBundleItems = normalizeDynamicBundleItems(item.dynamicBundleItems);
+      }
+
+      // Check if we already have this item (by normalized description)
+      const normalizeDesc = (str) => str.trim().replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ');
+      const newDescNorm = normalizeDesc(item.itemDesc);
+
+      const existingIdx = loadedItems.findIndex(existing => {
+        const existingDescNorm = normalizeDesc(existing.itemDesc);
+        return existingDescNorm === newDescNorm;
+      });
+
+      if (existingIdx === -1) {
+        // New item, add it
+        loadedItems.push(item);
+      } else {
+        // Duplicate found - merge by keeping the one with more info
+        const existing = loadedItems[existingIdx];
+        if (item.primaryImage && !existing.primaryImage) {
+          existing.primaryImage = item.primaryImage;
+        }
+        if (item.highPrice && !existing.highPrice) {
+          existing.highPrice = item.highPrice;
+        }
+        const mergedDynamicBundleItems = [...(existing.dynamicBundleItems || []), ...(item.dynamicBundleItems || [])]
+          .reduce((map, entry) => {
+            if (!entry || !entry.szItemName) return map;
+            const name = String(entry.szItemName).trim();
+            if (!name) return map;
+            const key = name.toLowerCase();
+            if (!map.has(key)) {
+              map.set(key, { szItemName: name });
+            }
+            return map;
+          }, new Map());
+
+        if (mergedDynamicBundleItems.size > 0) {
+          existing.dynamicBundleItems = Array.from(mergedDynamicBundleItems.values());
+        }
+        // Keep source info merged
+        if (!existing.sources) {
+          existing.sources = [existing.source];
+        }
+        existing.sources.push(item.source);
+      }
+    }
+
+    function matchItems() {
+      matchedItems = [];
+      unmatchedItems = [];
+      fuzzyMatchCache = {};
+
+      loadedItems.forEach((item, idx) => {
+        const match = findDatabaseMatch(item);
+        if (match) {
+          matchedItems.push({
+            ...item,
+            dbMatch: match
+          });
+        } else {
+          unmatchedItems.push(item);
+          // Pre-cache fuzzy matches for this item to avoid recalculating during render
+          fuzzyMatchCache[idx] = findFuzzyMatches(item, 5);
+        }
+      });
+    }
+
+    function findDatabaseMatch(item) {
+      // Normalize helpers
+      const normalize = (str) => (str || '').toString().trim().toLowerCase();
+      const normalizeDesc = (str) => (str || '').toString().trim().replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ');
+
+      const itemNameNorm = normalize(item.itemName);
+      const itemDescNorm = normalizeDesc(item.itemDesc.split('\n\n')[0]);
+
+      for (let dbItem of dbArray) {
+        // Match by itemName first (best accuracy for same name entries)
+        if (itemNameNorm && normalize(dbItem.itemName) === itemNameNorm) {
+          return dbItem;
+        }
+
+        // Match by EDID when we can derive one from itemName
+        const dbEDIDNorm = normalize(dbItem.EDID);
+        const impliedEDID = normalize(item.itemName ? item.itemName.toString().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '') : '');
+        if (dbEDIDNorm && impliedEDID && dbEDIDNorm === impliedEDID) {
+          return dbItem;
+        }
+
+        // Match by normalized description
+        const dbDescNorm = normalizeDesc(((dbItem.desc || dbItem.customdesc || '')).split('\n\n')[0]);
+        if (dbDescNorm && itemDescNorm && dbDescNorm === itemDescNorm) {
+          return dbItem;
+        }
+      }
+
+      return null;
+    }
+
+    function findFuzzyMatches(item, limit = 5) {
+      // Find close matches by description similarity
+      const normalizeDesc = (str) => str.trim().replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ');
+      const itemDescNorm = normalizeDesc(item.itemDesc.split('\n\n')[0]);
+      const itemWords = itemDescNorm.split(' ').filter(w => w.length > 2);
+
+      const scored = dbArray.map(dbItem => {
+        const dbDescNorm = normalizeDesc((dbItem.desc || '').split('\n\n')[0]);
+        const dbWords = dbDescNorm.split(' ').filter(w => w.length > 2);
+
+        // Calculate similarity: how many words match
+        const matches = dbWords.filter(word => itemWords.includes(word)).length;
+        const score = matches / Math.max(itemWords.length, dbWords.length);
+
+        return { dbItem, score };
+      });
+
+      return scored
+        .filter(s => s.score > 0.2) // At least 20% similar
+        .sort((a, b) => b.score - a.score)
+        .slice(0, limit)
+        .map(s => s.dbItem);
+    }
+
+    function detectCarouselConflicts() {
+      carouselConflicts = [];
+      carouselChoices = {};
+
+      matchedItems.forEach(item => {
+        const loadedCarousel = filterCarouselImages(item.carouselImages || []);
+        const dbCarousel = filterCarouselImages(item.dbMatch.carouselImages || []);
+
+        // Update the item's carouselImages to use the filtered/cleaned version
+        // This ensures selection indices match during save
+        item.carouselImages = loadedCarousel;
+        item.dbMatch.carouselImages = dbCarousel;
+
+        // Check if carousels are different
+        const same = loadedCarousel.length === dbCarousel.length &&
+          loadedCarousel.every((img, idx) => {
+            const dbImg = dbCarousel[idx];
+            return img.imageName === dbImg.imageName && img.directory === dbImg.directory;
+          });
+
+        if (!same && (loadedCarousel.length > 0 || dbCarousel.length > 0)) {
+          carouselConflicts.push({
+            item,
+            loadedCarousel,
+            dbCarousel
+          });
+        }
+      });
+    }
+
+    function renderCarouselConflicts() {
+      const container = document.getElementById('carouselList');
+      container.innerHTML = '';
+
+      if (carouselConflicts.length === 0) {
+        container.innerHTML = '<p style="color: #6bff6b;">No carousel conflicts found!</p>';
+        return;
+      }
+
+      const header = document.createElement('h3');
+      header.textContent = `⚠ Review ${carouselConflicts.length} Carousel Conflicts`;
+      header.style.color = '#ffaa00';
+      header.style.marginBottom = '15px';
+      container.appendChild(header);
+
+      carouselConflicts.forEach((conflict, idx) => {
+        const card = createCarouselCard(conflict, idx);
+        container.appendChild(card);
+      });
+    }
+
+    function createCarouselCard(conflict, idx) {
+      const card = document.createElement('div');
+      card.className = 'item-card';
+
+      const edid = conflict.item.dbMatch.EDID;
+      const choice = carouselChoices[edid];
+      
+      // Initialize selections if not present
+      if (!carouselSelections[edid]) {
+        carouselSelections[edid] = {
+          loaded: choice === 'loaded' ? conflict.loadedCarousel.map((_, i) => i) : [],
+          db: choice === 'db' ? conflict.dbCarousel.map((_, i) => i) : []
+        };
+      }
+      
+      const selections = carouselSelections[edid];
+      const loadedSelected = selections.loaded || [];
+      const dbSelected = selections.db || [];
+      const totalSelected = loadedSelected.length + dbSelected.length;
+
+      let html = `
+        <div class="item-header">
+          <div class="item-name">${escapeHtml(conflict.item.itemName)}</div>
+          <div class="item-desc">EDID: ${escapeHtml(edid)} | Selected: ${totalSelected} images</div>
+        </div>
+        <div class="carousel-comparison">
+          <div class="carousel-side">
+            <div class="carousel-title loaded">📦 Loaded (${conflict.loadedCarousel.length}) | Selected: ${loadedSelected.length}</div>
+            <div class="image-grid">
+              ${conflict.loadedCarousel.map((img, i) => `
+                <div class="image-item ${loadedSelected.includes(i) ? 'selected' : ''}" onclick="toggleImage('${edid}', 'loaded', ${i})">
+                  <div class="image-thumbnail">
+                    <img src="../${img.directory}${img.imageName}" alt="${img.imageName}" onerror="handleImageError(this)"/>
+                  </div>
+                  <div class="image-label">${escapeHtml(img.imageName.substring(0, 20))}</div>
+                </div>
+              `).join('')}
+            </div>
+            <div style="margin-top: 8px; display: flex; gap: 5px;">
+              <button class="small" style="font-size: 11px; padding: 4px 8px;" onclick="selectAllImages('${edid}', 'loaded')">Select All</button>
+              <button class="small" style="font-size: 11px; padding: 4px 8px;" onclick="deselectAllImages('${edid}', 'loaded')">Clear</button>
+            </div>
+          </div>
+          <div class="carousel-side">
+            <div class="carousel-title db">🗄️ Database (${conflict.dbCarousel.length}) | Selected: ${dbSelected.length}</div>
+            <div class="image-grid">
+              ${conflict.dbCarousel.map((img, i) => `
+                <div class="image-item ${dbSelected.includes(i) ? 'selected' : ''}" onclick="toggleImage('${edid}', 'db', ${i})">
+                  <div class="image-thumbnail">
+                    <img src="../${img.directory}${img.imageName}" alt="${img.imageName}" onerror="handleImageError(this)"/>
+                  </div>
+                  <div class="image-label">${escapeHtml(img.imageName.substring(0, 20))}</div>
+                </div>
+              `).join('')}
+            </div>
+            <div style="margin-top: 8px; display: flex; gap: 5px;">
+              <button class="small" style="font-size: 11px; padding: 4px 8px;" onclick="selectAllImages('${edid}', 'db')">Select All</button>
+              <button class="small" style="font-size: 11px; padding: 4px 8px;" onclick="deselectAllImages('${edid}', 'db')">Clear</button>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+          <button class="small accept" onclick="useAllFrom('${edid}', 'loaded')">⚡ Use All Loaded</button>
+          <button class="small accept" onclick="useAllFrom('${edid}', 'db')">⚡ Use All Database</button>
+          <button class="small skip" onclick="clearAllImages('${edid}')">🗑️ Clear Selection</button>
+        </div>
+      `;
+      
+      card.innerHTML = html;
+      return card;
+    }
+
+    function toggleImage(edid, source, imageIdx) {
+      if (!carouselSelections[edid]) {
+        carouselSelections[edid] = { loaded: [], db: [] };
+      }
+
+      const selected = carouselSelections[edid][source];
+      const idx = selected.indexOf(imageIdx);
+      
+      if (idx > -1) {
+        // Deselect
+        selected.splice(idx, 1);
+        console.log(`Deselected ${edid} ${source}[${imageIdx}]`);
+      } else {
+        // Select
+        selected.push(imageIdx);
+        console.log(`Selected ${edid} ${source}[${imageIdx}]`);
+      }
+
+      console.log(`${edid} selections:`, carouselSelections[edid]);
+      renderCarouselConflicts();
+    }
+
+    function selectAllImages(edid, source) {
+      if (!carouselSelections[edid]) {
+        carouselSelections[edid] = { loaded: [], db: [] };
+      }
+
+      const conflict = carouselConflicts.find(c => c.item.dbMatch.EDID === edid);
+      if (!conflict) return;
+
+      const carousel = source === 'loaded' ? conflict.loadedCarousel : conflict.dbCarousel;
+      carouselSelections[edid][source] = carousel.map((_, i) => i);
+
+      renderCarouselConflicts();
+    }
+
+    function deselectAllImages(edid, source) {
+      if (!carouselSelections[edid]) {
+        carouselSelections[edid] = { loaded: [], db: [] };
+      }
+
+      carouselSelections[edid][source] = [];
+      renderCarouselConflicts();
+    }
+
+    function clearAllImages(edid) {
+      carouselSelections[edid] = { loaded: [], db: [] };
+      renderCarouselConflicts();
+    }
+
+    function useAllFrom(edid, source) {
+      deselectAllImages(edid, source === 'loaded' ? 'db' : 'loaded');
+      selectAllImages(edid, source);
+    }
+
+    function confirmSelectionsAndSave() {
+      console.log('🔍 confirmSelectionsAndSave called');
+      console.log('All carouselSelections:', carouselSelections);
+      console.log('All matchedItems:', matchedItems.map(i => i.dbMatch.EDID));
+      
+      document.getElementById('verifySection').style.display = 'none';
+      document.getElementById('saveSection').style.display = 'block';
+      showStatus('Your carousel selections saved! Ready to save to database.', 'success');
+    }
+
+    function skipCarouselVerification() {
+      // Skip to save section
+      document.getElementById('verifySection').style.display = 'none';
+      document.getElementById('saveSection').style.display = 'block';
+      showStatus('Carousel verification skipped - using current choices', 'success');
+    }
+
+    function renderItems() {
+      const container = document.getElementById('itemsList');
+      container.innerHTML = '';
+
+      // Render matched items
+      if (matchedItems.length > 0) {
+        const matchedHeader = document.createElement('h3');
+        matchedHeader.textContent = `✓ Matched (${matchedItems.length})`;
+        matchedHeader.style.color = '#6bff6b';
+        matchedHeader.style.marginTop = '20px';
+        matchedHeader.style.marginBottom = '15px';
+        container.appendChild(matchedHeader);
+
+        matchedItems.forEach((item, idx) => {
+          const card = createItemCard(item, 'matched', idx);
+          container.appendChild(card);
+        });
+      }
+
+      // Render unmatched items
+      if (unmatchedItems.length > 0) {
+        const unmatchedHeader = document.createElement('h3');
+        unmatchedHeader.textContent = `✗ Unmatched (${unmatchedItems.length}) - Need Manual Match`;
+        unmatchedHeader.style.color = '#ff6b6b';
+        unmatchedHeader.style.marginTop = '30px';
+        unmatchedHeader.style.marginBottom = '15px';
+        container.appendChild(unmatchedHeader);
+
+        unmatchedItems.forEach((item, idx) => {
+          const card = createItemCard(item, 'unmatched', idx);
+          container.appendChild(card);
+        });
+      }
+    }
+
+    function createItemCard(item, status, idx) {
+      const card = document.createElement('div');
+      card.className = `item-card ${status}`;
+
+      let badgeClass = status === 'matched' ? 'badge-matched' : 'badge-unmatched';
+      let badgeText = status === 'matched' ? 'MATCHED' : 'UNMATCHED';
+
+      let html = `
+        <div class="item-header">
+          <div style="flex: 1;">
+            <div class="item-name">${escapeHtml(item.itemName)}</div>
+            <div class="item-desc">${escapeHtml(item.itemDesc.substring(0, 150))}${item.itemDesc.length > 150 ? '...' : ''}</div>
+          </div>
+          <div class="item-badge ${badgeClass}">${badgeText}</div>
+        </div>
+      `;
+
+      if (item.dbMatch) {
+        html += `
+          <div class="db-match">
+            <strong>Matched to:</strong> ${escapeHtml(item.dbMatch.itemName || item.dbMatch.EDID)}
+          </div>
+        `;
+      } else {
+        // Use cached fuzzy matches (pre-calculated)
+        const unmatchedIdx = unmatchedItems.indexOf(item);
+        const fuzzyMatches = fuzzyMatchCache[loadedItems.indexOf(item)] || [];
+        
+        html += `<div class="manual-match-form">`;
+        
+        // Show suggested matches if available
+        if (fuzzyMatches.length > 0) {
+          html += `
+            <label>Suggested matches (click to assign):</label>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+          `;
+          fuzzyMatches.forEach((match, midx) => {
+            html += `
+              <button class="small" style="text-align: left; background: #2d2d2d;" onclick="assignMatch(${unmatchedIdx}, '${escapeHtml(match.EDID)}')">
+                ${escapeHtml(match.itemName || match.EDID)}<br>
+                <span style="font-size: 11px; color: #888;">${escapeHtml((match.desc || '').substring(0, 80))}...</span>
+              </button>
+            `;
+          });
+          html += `
+            </div>
+            <div style="margin-top: 10px;">
+              <label>Or enter EDID manually:</label>
+            </div>
+          `;
+        } else {
+          html += `<label style="color: #ffaa00;">No suggestions found - Enter EDID manually:</label>`;
+        }
+        
+        // Always show manual input
+        html += `
+          <input type="text" id="manual-edid-${idx}" placeholder="Enter EDID" style="margin-bottom: 8px;" value="${generateSuggestedEDID(item)}">
+          <button class="small" onclick="assignMatchByEDID(${unmatchedIdx}, 'manual-edid-${idx}')">Assign Custom EDID</button>
+        </div>
+        `;
+      }
+
+
+      card.innerHTML = html;
+      return card;
+    }
+
+    function getUnmatchedIndex(item) {
+      return unmatchedItems.indexOf(item);
+    }
+
+    function assignMatch(unmatchedIdx, edid) {
+      if (unmatchedIdx < 0 || unmatchedIdx >= unmatchedItems.length) return;
+
+      const item = unmatchedItems[unmatchedIdx];
+      const dbMatch = dbArray.find(d => d.EDID === edid);
+
+      if (dbMatch) {
+        // Match to existing database entry
+        unmatchedItems.splice(unmatchedIdx, 1);
+        matchedItems.push({ ...item, dbMatch });
+        updateStats();
+        
+        // Minimal re-render: just update the items section
+        renderMatchedOnly();
+      } else {
+        // Create new database entry with custom EDID
+        const newDbEntry = {
+          EDID: edid,
+          desc: '',
+          disclaimer: '',
+          customdesc: '',
+          customdisclaimer: '',
+          itemName: '',
+          primaryImage: null,
+          highPriceOriginal: 0,
+          dynamicBundleItems: []
+        };
+        
+        unmatchedItems.splice(unmatchedIdx, 1);
+        matchedItems.push({ ...item, dbMatch: newDbEntry });
+        updateStats();
+        
+        // Minimal re-render: just update the items section
+        renderMatchedOnly();
+      }
+    }
+
+    function renderMatchedOnly() {
+      // Quick update: remove from unmatched section without full re-render
+      const container = document.getElementById('itemsList');
+      
+      // For now, do a full re-render but at least we reduced other overhead
+      renderItems();
+    }
+
+    function assignMatchByEDID(unmatchedIdx, inputId) {
+      const edid = document.getElementById(inputId).value.trim();
+      if (!edid) {
+        alert('Please enter an EDID');
+        return;
+      }
+
+      assignMatch(unmatchedIdx, edid);
+    }
+
+    function updateStats() {
+      document.getElementById('totalItems').textContent = loadedItems.length;
+      document.getElementById('matchedCount').textContent = matchedItems.length;
+      document.getElementById('unmatchedCount').textContent = unmatchedItems.length;
+    }
+
+    async function saveAllMatched() {
+      if (matchedItems.length === 0) {
+        showStatus('No matched items to save', 'error');
+        return;
+      }
+
+      // Deduplicate matchedItems - keep only first occurrence of each EDID
+      matchedItems = matchedItems.filter((item, index, self) =>
+        index === self.findIndex(t => t.dbMatch.EDID === item.dbMatch.EDID)
+      );
+
+      console.log('=== SAVE START ===');
+      console.log('carouselSelections object:', carouselSelections);
+      console.log('Number of matched items:', matchedItems.length);
+
+      try {
+        const finalArray = [...dbArray];
+
+        matchedItems.forEach(item => {
+          const existingIdx = finalArray.findIndex(db => db.EDID === item.dbMatch.EDID);
+          if (existingIdx !== -1) {
+            // Update existing: preserve custom fields, add image and bundle if loaded item has them
+            const existing = finalArray[existingIdx];
+            if (!existing.itemName || !existing.itemName.toString().trim()) {
+              existing.itemName = item.itemName;
+            }
+            
+            // Update image if loaded item has one and DB entry doesn't
+            if (item.primaryImage && !existing.primaryImage) {
+              existing.primaryImage = cleanImageObject(item.primaryImage);
+            }
+            
+            // Handle carousel images: build from user selections
+            const edid = existing.EDID;
+            const selections = carouselSelections[edid];
+            
+            console.log(`\n[${edid}]`);
+            console.log(`  Selections for this item:`, selections);
+            console.log(`  Loaded carousel length:`, item.carouselImages ? item.carouselImages.length : 0);
+            console.log(`  DB carousel length:`, item.dbMatch.carouselImages ? item.dbMatch.carouselImages.length : 0);
+            
+            if (selections && (selections.loaded.length > 0 || selections.db.length > 0)) {
+              // User made custom selections - build merged carousel
+              const mergedCarousel = [];
+              
+              // Add selected images from loaded
+              if (selections.loaded.length > 0) {
+                selections.loaded.forEach(idx => {
+                  if (item.carouselImages && item.carouselImages[idx]) {
+                    mergedCarousel.push(cleanImageObject(item.carouselImages[idx]));
+                  }
+                });
+              }
+              
+              // Add selected images from database
+              if (selections.db.length > 0) {
+                selections.db.forEach(idx => {
+                  if (item.dbMatch.carouselImages && item.dbMatch.carouselImages[idx]) {
+                    mergedCarousel.push(cleanImageObject(item.dbMatch.carouselImages[idx]));
+                  }
+                });
+              }
+              
+              console.log(`  ✓ Created merged carousel with ${mergedCarousel.length} images`);
+              if (mergedCarousel.length > 0) {
+                existing.carouselImages = mergedCarousel;
+              }
+            } else {
+              console.log(`  ✗ No selections found for ${edid}`);
+              // No selections made - use default logic
+              const userChoice = carouselChoices[existing.EDID];
+              if (userChoice === 'loaded') {
+                existing.carouselImages = (item.carouselImages || []).map(img => cleanImageObject(img));
+              } else if (!userChoice && item.carouselImages && item.carouselImages.length > 0 && (!existing.carouselImages || existing.carouselImages.length === 0)) {
+                existing.carouselImages = item.carouselImages.map(img => cleanImageObject(img));
+              }
+            }
+            
+            // Update highPrice if loaded item has one and DB entry doesn't
+            if (item.highPrice && !existing.highPriceOriginal) {
+              existing.highPriceOriginal = item.highPrice.originalAmount || 0;
+            }
+            
+            // Merge dynamicBundleItems: keep unique entries
+            if (item.dynamicBundleItems && item.dynamicBundleItems.length > 0) {
+              const existingBundles = existing.dynamicBundleItems || [];
+              const itemBundles = item.dynamicBundleItems || [];
+              const merged = new Map();
+              
+              [...existingBundles, ...itemBundles].forEach(entry => {
+                if (entry && entry.szItemName) {
+                  const key = String(entry.szItemName).trim().toLowerCase();
+                  if (!merged.has(key)) {
+                    merged.set(key, entry);
+                  }
+                }
+              });
+              
+              if (merged.size > 0) {
+                existing.dynamicBundleItems = Array.from(merged.values());
+              }
+            }
+            
+            // customdesc and customdisclaimer are preserved via existing object
+          } else {
+            // Add new
+            finalArray.push({
+              EDID: item.dbMatch.EDID || generateEDID(item),
+              desc: item.itemDesc.split('\n\n')[0],
+              disclaimer: item.itemDesc.split('\n\n')[1] || '',
+              customdesc: '',
+              customdisclaimer: '',
+              itemName: item.itemName,
+              primaryImage: cleanImageObject(item.primaryImage) || null,
+              carouselImages: (item.carouselImages || []).map(img => cleanImageObject(img)),
+              highPriceOriginal: item.highPrice ? item.highPrice.originalAmount : 0,
+              dynamicBundleItems: item.dynamicBundleItems || []
+            });
+          }
+        });
+
+        dbArray = finalArray;
+        console.log('=== SAVE END - Success ===');
+        showStatus(`Saved ${matchedItems.length} items to database`, 'success');
+      } catch (err) {
+        console.error('=== SAVE ERROR ===', err);
+        showStatus(`Error saving: ${err.message}`, 'error');
+      }
+    }
+
+    async function savePricesOnly() {
+      if (matchedItems.length === 0) {
+        showStatus('No matched items to save', 'error');
+        return;
+      }
+
+      const pricesArray = [...dbArray];
+      const dedupedMatches = matchedItems.filter((item, index, self) =>
+        index === self.findIndex(t => t.dbMatch.EDID === item.dbMatch.EDID)
+      );
+
+      dedupedMatches.forEach(item => {
+        const existingIdx = pricesArray.findIndex(db => db.EDID === item.dbMatch.EDID);
+        if (existingIdx === -1) return;
+
+        const existing = pricesArray[existingIdx];
+        const priceValue = item.highPrice?.originalAmount ?? item.price;
+        if (priceValue != null && priceValue !== '' && priceValue !== 0) {
+          if (!existing.highPriceOriginal || existing.highPriceOriginal === 0) {
+            existing.highPriceOriginal = priceValue;
+          }
+        }
+      });
+
+      dbArray = pricesArray;
+      console.log('=== PRICE MERGE END - Success ===');
+      showStatus(`Merged prices for ${dedupedMatches.length} matched items`, 'success');
+    }
+
+    function cleanImageObject(img) {
+      // Keep only imageName and directory, strip fixtureType and assocMediaPayload
+      if (!img) return null;
+      return {
+        imageName: img.imageName || '',
+        directory: img.directory || ''
+      };
+    }
+
+    function generateEDID(item) {
+      return item.itemName.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+    }
+
+    function generateSuggestedEDID(item) {
+      // Check if it's a bundle by looking for "bundle" in the name or if it has dynamicBundleItems
+      const isBundle = item.dynamicBundleItems && item.dynamicBundleItems.length > 0 || 
+                      item.itemName.toLowerCase().includes('bundle');
+      
+      const prefix = isBundle ? 'ATX_ENTM_BNDL_' : 'ATX_ENTM_';
+      
+      return prefix + item.itemName
+        .toUpperCase()
+        .replace(/\s+/g, '_')
+        .replace(/[^A-Z0-9_]/g, '');
+    }
+
+    async function downloadDatabase() {
+      if (dbArray.length === 0) {
+        showStatus('No database to download', 'error');
+        return;
+      }
+
+      const dataStr = JSON.stringify(dbArray, null, 2);
+      const dataBlob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(dataBlob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'items-db.json';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      showStatus('Database downloaded as items-db.json', 'success');
+    }
+
+    function showStatus(message, type = 'success') {
+      const statusBox = document.getElementById('statusBox');
+      statusBox.textContent = message;
+      statusBox.className = `status ${type}`;
+      statusBox.style.display = 'block';
+    }
+
+    function clearAll() {
+      loadedItems = [];
+      dbArray = [];
+      matchedItems = [];
+      unmatchedItems = [];
+      document.getElementById('fileInput').value = '';
+      document.getElementById('itemsList').innerHTML = '';
+      document.getElementById('statsSection').style.display = 'none';
+      document.getElementById('itemsSection').style.display = 'none';
+      document.getElementById('saveSection').style.display = 'none';
+      showStatus('All cleared', 'success');
+    }
+
+    function handleImageError(imgElement) {
+      // Get the current src
+      const currentSrc = imgElement.src;
+      
+      // If it's a .dds file, try .webp instead
+      if (currentSrc.endsWith('.dds')) {
+        const webpSrc = currentSrc.replace(/\.dds$/i, '.webp');
+        imgElement.src = webpSrc;
+        // If webp also fails, hide the image (use a one-time handler)
+        imgElement.onerror = function() {
+          this.style.display = 'none';
+          this.onerror = null; // Prevent infinite loop
+        };
+      } else {
+        // Already tried fallback or not a dds file, just hide it
+        imgElement.style.display = 'none';
+      }
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>
