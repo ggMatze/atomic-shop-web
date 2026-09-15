@@ -46,7 +46,7 @@ const filterGroups = {
     'Apparel': ['Outfits', 'Headwear', 'Underarmor', 'Armor','PipBoy', 'Flairs', 'Backpack'],
     'Player Appearance': ['Hairstyle', 'Tattoos', 'Facepaint'],
     'Photo Mode': [ 'Frames', 'Pose', 'Vanity Lights'],
-    'Seasons': ['Season 1', 'Season 2', 'Season 3', 'Season 4', 'Season 5', 'Season 6', 'Season 7', 'Season 8', 'Season 9', 'Season 10', 'Season 11', 'Season 12', 'Season 13', 'Season 14', 'Season 15', 'Season 16', 'Season 17', 'Season 18', 'Season 19', 'Season 20', 'Season 21', 'Season 22', 'Season 23', 'Season 24', 'Season 25'],
+    'Seasons': ['Season 1', 'Season 2', 'Season 3', 'Season 4', 'Season 5', 'Season 6', 'Season 7', 'Season 8', 'Season 9', 'Season 10', 'Season 11', 'Season 12', 'Season 13', 'Season 14', 'Season 15', 'Season 16', 'Season 17', 'Season 18', 'Season 19', 'Season 20', 'Season 21', 'Season 22', 'Season 23', 'Season 24', 'Season 25', 'Season 26'],
     'Mini Seasons': ['Appalachian Outlaws', 'Marvelous Fishing Excursion', 'Night at the Morgue', 'Weapons Expert Extraordinaire', 'Sunset Stranger', 'Love Hurts', 'Sock Hop' ],
     'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundles', 'Sets', '\u200BCut Content','Misc','Bobbers', 'Support Item List','P2W', 'No Image'],
     'My Items': ['Owned', 'Favorites/Wished'],
@@ -314,6 +314,7 @@ function getItemCategories(item) {
         'Season 23': ['score_s23_'],
         'Season 24': ['score_s24_'],
         'Season 25': ['score_s25_'],
+        'Season 26': ['score_s26_'],
 
         'Appalachian Outlaws': ['_appalachianoutlaws_'],
         'Marvelous Fishing Excursion': ['_mmmfe_'],
