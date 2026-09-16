@@ -15,7 +15,7 @@
             "EDID": "ATX_ENTM_BNDL_RAIDER_OUTPOST_BUNDLE",
             "itemName": "Raider Encampment Seasons Bundle",
             "itemNameShort": "Raider Encampment Seasons Bundle",
-            "itemDesc": "Build the raider camp of your dreams, or nightmares.\n\n- UNLOCKS A VARIANT OF THE SURVIVAL TENT.- \n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "itemDesc": "Build the raider camp of your dreams, or nightmares.\n\n- UNLOCKS A VARIANT OF THE SURVIVAL TENT.- \n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n*This Bundle contains previously released items, packaged as new.",
             "primaryImage": {
               "imageName": "ca83ee8cc874787fd84c4b58de82eadf.dds",
               "directory": "/textures/atomic_shop_media/"
@@ -62,7 +62,7 @@
               "amount": 0
             },
             "isZeus": true,
-            "isNew": 1,
+            "isNew": 2,
             "isClown": false
           },
           {
@@ -128,7 +128,24 @@
               "imageName": "27119b0dd2c5534221ab5dfdb0916619.dds",
               "directory": "/textures/atomic_shop_media/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "score_utility_scorebooster_l.webp",
+                "directory": "/textures/atx/storefront/utility/"
+              },
+              {
+                "imageName": "score_utility_reroller_l.webp",
+                "directory": "/textures/atx/storefront/utility/"
+              },
+              {
+                "imageName": "score_item_perkcardpack_l.webp",
+                "directory": "/textures/atx/storefront/utility/"
+              },
+              {
+                "imageName": "score_coen_utility_banner_l.webp",
+                "directory": "/textures/atx/storefront/utility/"
+              }
+            ],
             "dynamicBundleItems": [],
             "lowPrice": {
               "isLto": true,
