@@ -408,6 +408,12 @@ async function initTabs() {
         <div class="tile-img">
           <img src="${storefrontImageSrc}" alt="${(item && item.itemName) || ''}" onerror="if(!this.src.endsWith('_l.webp')){this.src=this.src.replace('.webp','_l.webp');}else{this.onerror=null;}" />
         </div>
+        ${item?.isZeus ? `
+          <div class="tile-fo1st-overlay" aria-label="Fo1st member item">
+            <span class="tile-fo1st-title">Exclusive to</span>
+            <img class="tile-fo1st-svg" src="fo1st.svg" alt="Fo1st" />
+          </div>
+        ` : ''}
         ${highlightBadgeHTML}
         <div class="tile-badge">
           <div class="badge-top">
@@ -563,10 +569,8 @@ async function initTabs() {
       const tileEls = shopGridEl.querySelectorAll('.shop-tile');
       tileEls.forEach((tile) => {
         const data = JSON.parse(tile.getAttribute('data-item').replace(/&apos;/g, "'"));
-        // Zeus / 1st badge: toggle hidden class based on data.isZeus
         const firstDiv = tile.querySelector('.tile-1st');
         if (firstDiv) firstDiv.classList.toggle('hidden', !data.isZeus);
-        // Clown badge
         tile.querySelectorAll('.clown-label').forEach(n => n.classList.toggle('hidden', !data.isClown));
       });
     }, 0);
@@ -882,6 +886,12 @@ if (typeof window !== 'undefined') {
           <div class="tile-img">
             <img src="${storefrontImageSrc}" alt="${item.itemName}" onerror="if(!this.src.endsWith('_l.webp')){this.src=this.src.replace('.webp','_l.webp');}else{this.onerror=null;}" />
           </div>
+          ${isZeus ? `
+            <div class="tile-fo1st-overlay" aria-label="Fo1st member item">
+              <span class="tile-fo1st-title">Exclusive to</span>
+              <img class="tile-fo1st-svg" src="fo1st.svg" alt="Fo1st" />
+            </div>
+          ` : ''}
           ${highlightBadgeHTML}
           <div class="tile-price">
             <span class="old-price"></span>
@@ -892,7 +902,7 @@ if (typeof window !== 'undefined') {
             ${newLabel}
           </div>
           <div class="tile-badge-r">
-            <span class="tile-1st hidden">&nbsp;</span>
+            <span class="tile-1st hidden" title="This item is for Fo1st members only.">&nbsp;</span>
             <span class="clown-label hidden" title="Bethesda made a fool of themselves again!">&nbsp;</span>
           </div>
           ${dateLabel}

@@ -1118,7 +1118,86 @@ filter: saturate(0.5);
   padding-right: 10px;
 }
 
+.tile-fo1st-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.18s ease, visibility 0.18s ease;
+}
 
+.tile-fo1st-overlay::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 360px;
+  height: 360px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.877) 5%, rgba(0, 0, 0, 0.46) 38%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+}
+
+.tile-fo1st-overlay > * {
+  position: relative;
+  z-index: 1;
+}
+
+.shop-tile:hover .tile-fo1st-overlay,
+.shop-tile:focus-within .tile-fo1st-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.20s ease, visibility 0.20s ease;
+}
+
+.tile-price,
+.tile-badge,
+.tile-badge-r,
+.tile-timer,
+.tile-timer-secondary,
+.tile-1st-secondary {
+  z-index: 2;
+}
+
+.tile-fo1st-title {
+  order: 1;
+  font-family: Roboto Condensed;
+  font-size: 35px;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 0.6em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.7);
+  margin: 0;
+  transform: translateY(0);
+}
+
+.tile-fo1st-svg {
+  order: 1;
+  height: 50px;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.shop-tile.small .tile-fo1st-overlay {
+  transform: translate(-50%, -50%) scale(0.65);
+
+}
 
 .discount::after {
   content: " Off!";
