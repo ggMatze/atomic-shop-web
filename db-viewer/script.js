@@ -36,8 +36,67 @@ const overlayImageProbePromiseCache = new Map();
 
 // Valid categories to filter by
 const validCategories = new Set([
-    'CAMP', 'Clothing', 'Kits', 'Beds', 'Collectors', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Player Icons', 'Emotes', 'Owned', 'Favorites/Wished'
+    'CAMP', 'Clothing', 'Kits', 'Beds', 'Collectors', 'Defenses', 'PipBoy', 'Floors/Foundation', 'Roof', 'Doors','Armor', 'Apparel', 'Skins', 'Floor', 'Decoration', 'Wall', 'Ceiling', 'Lights', 'Utility', 'Weapons', 'Weaponmodel', 'Furniture', 'Entertainment', 'Bundle', 'Powerarmor', 'Settlement', 'Workshop', 'Vendors','Hairstyle', 'Structures', 'Headwear', 'Outfit', 'Player Icons', 'Emotes', 'Owned', 'Favorites/Wished', 'Currently in Shop'
 ]);
+
+const CURRENT_SHOP_CATEGORY = 'Currently in Shop';
+const currentShopEdids = new Set();
+
+function normalizeEdidValue(value) {
+    return String(value || '').trim().toLowerCase();
+}
+
+function collectCurrentShopEdidsFromJson(data, targetSet = currentShopEdids) {
+    if (!data || typeof data !== 'object') return targetSet;
+
+    const visit = (node) => {
+        if (!node || typeof node !== 'object') return;
+
+        if (Array.isArray(node)) {
+            node.forEach(visit);
+            return;
+        }
+
+        if (typeof node.EDID === 'string') {
+            const edid = normalizeEdidValue(node.EDID);
+            if (edid) targetSet.add(edid);
+        }
+
+        if (typeof node.entmName === 'string') {
+            const edid = normalizeEdidValue(node.entmName);
+            if (edid) targetSet.add(edid);
+        }
+
+        Object.values(node).forEach(visit);
+    };
+
+    visit(data);
+    return targetSet;
+}
+
+async function loadCurrentShopEdids() {
+    currentShopEdids.clear();
+    try {
+        const [storeResponse, dailyResponse] = await Promise.all([
+            fetch('/data/storepagedata.json'),
+            fetch('/data/dailyitems.json')
+        ]);
+
+        if (storeResponse.ok) {
+            const storeData = await storeResponse.json();
+            collectCurrentShopEdidsFromJson(storeData, currentShopEdids);
+        }
+
+        if (dailyResponse.ok) {
+            const dailyData = await dailyResponse.json();
+            collectCurrentShopEdidsFromJson(dailyData, currentShopEdids);
+        }
+    } catch (error) {
+        console.warn('Failed to load current shop EDIDs:', error);
+    }
+
+    return currentShopEdids;
+}
 
 // Grouped categories for filters
 const filterGroups = {
@@ -48,7 +107,7 @@ const filterGroups = {
     'Photo Mode': [ 'Frames', 'Pose', 'Vanity Lights'],
     'Seasons': ['Season 1', 'Season 2', 'Season 3', 'Season 4', 'Season 5', 'Season 6', 'Season 7', 'Season 8', 'Season 9', 'Season 10', 'Season 11', 'Season 12', 'Season 13', 'Season 14', 'Season 15', 'Season 16', 'Season 17', 'Season 18', 'Season 19', 'Season 20', 'Season 21', 'Season 22', 'Season 23', 'Season 24', 'Season 25', 'Season 26'],
     'Mini Seasons': ['Appalachian Outlaws', 'Marvelous Fishing Excursion', 'Night at the Morgue', 'Weapons Expert Extraordinaire', 'Sunset Stranger', 'Love Hurts', 'Sock Hop' ],
-    'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundles', 'Sets', '\u200BCut Content','Misc','Bobbers', 'Support Item List','P2W', 'No Image'],
+    'Other': ['Player Icons', 'Titles', 'Emotes', 'Bundles', 'Sets', '\u200BCut Content','Misc','Bobbers', 'Support Item List','P2W', 'No Image', 'Currently in Shop'],
     'My Items': ['Owned', 'Favorites/Wished'],
 };
 
@@ -157,6 +216,10 @@ function isItemFavorite(item, favoriteIds = null) {
 // Get categories for an item
 function getItemCategories(item) {
     const categories = new Set();
+
+    if (item && item.EDID && currentShopEdids.has(String(item.EDID).trim().toLowerCase())) {
+        categories.add(CURRENT_SHOP_CATEGORY);
+    }
     
     // Try to get categories from directory path first (most reliable)
     if (item.primaryImage && item.primaryImage.directory) {
@@ -679,6 +742,8 @@ function getSupportItemListHint() {
 // Load database
 async function loadDatabase() {
     try {
+        await loadCurrentShopEdids();
+
         const response = await fetch('/data/items-db.json');
         if (!response.ok) throw new Error('Failed to load database');
         dbData = await response.json();
