@@ -1737,13 +1737,22 @@
             "EDID": "ATX_ENTM_BNDL_BROTHERHOOD_FOREVER_BUNDLE",
             "itemName": "Brotherhood Forever Bundle",
             "itemNameShort": "Brotherhood Forever Bundle",
-            "itemDesc": "Rebuild in the name of the Brotherhood of Steel to last the ages.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "itemDesc": "Rebuild in the name of the Brotherhood of Steel to last the ages.\n[h]✨︎ This bundle also grants crafting of some of rewards tied to the The Coming Storm limited time event. If this is intentional or a bug is unclear.[/h]\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
             "primaryImage": {
               "imageName": "4f5002f2e36b66a91b58c10855b8acc1.dds",
               "directory": "/textures/atomic_shop_media/"
             },
-            "carouselImages": [],
+            "carouselImages": [
+              {
+                "imageName": "atx_apparel_headwear_bosreconhelmet_l.webp",
+                "directory": "/textures/atx/storefront/player/headwear/"
+              }
+            ],
             "dynamicBundleItems": [
+              {
+                "szItemName": "✨︎ Brotherhood of Steel Recon Helmet",
+                "entmName": "ATX_ENTM_Apparel_Headwear_BOSReconHelmet"
+              },
               {
                 "szItemName": "Brotherhood of Steel Salute",
                 "entmName": "ATX_Upgrade2020_BoS_ENTM_Emotes_BoSSalute"
@@ -1757,7 +1766,7 @@
                 "entmName": "ATX_ENTM_Apparel_Headwear_BOSHeadwrap"
               },
               {
-                "szItemName": "Brotherhood of Steel Flag 2",
+                "szItemName": "✨︎ Brotherhood of Steel Flag 2",
                 "entmName": "ATX_ENTM_CAMP_Decoration_FlagWaving_BoS_02"
               },
               {
@@ -1765,11 +1774,11 @@
                 "entmName": "ATX_ENTM_CAMP_Display_ChassisDisplayFrame_BrotherhoodofSteel"
               },
               {
-                "szItemName": "Brotherhood of Steel Flag 3",
+                "szItemName": "✨︎ Brotherhood of Steel Flag 3",
                 "entmName": "ATX_ENTM_CAMP_Decoration_FlagWaving_BoS_03"
               },
               {
-                "szItemName": "Brotherhood of Steel Flag 1",
+                "szItemName": "✨︎ Brotherhood of Steel Flag 1",
                 "entmName": "ATX_ENTM_CAMP_Decoration_FlagWaving_BoS_01"
               },
               {
@@ -1789,11 +1798,11 @@
                 "entmName": "score_s2_entm_camp_structure_bosfieldstation"
               },
               {
-                "szItemName": "Brotherhood of Steel Paint",
+                "szItemName": "✨︎ Brotherhood of Steel Paint",
                 "entmName": "ATX_ENTM_Skin_PipBoySkin_BoSSteelReign"
               },
               {
-                "szItemName": "Brotherhood Tactical Field Pack",
+                "szItemName": "✨︎ Brotherhood Tactical Field Pack",
                 "entmName": "ATX_Upgrade2020_BoS_ENTM_Skin_Backpack_BosTacticalFieldPack"
               },
               {
