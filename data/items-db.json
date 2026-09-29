@@ -511,7 +511,8 @@
       "imageName": "atx_camp_vendor_playervendingmachine_morty.webp",
       "directory": "/textures/atx/storefront/camp/vendors/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_FloorLamps_VaultTecHazardLight",
@@ -1048,7 +1049,8 @@
       "imageName": "atx_camp_floordecor_canaryreviver_l.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponSkin_GaussRifle_BoSShockTrooper",
@@ -1072,7 +1074,8 @@
       "imageName": "atx_skin_weaponskin_2h_veinsplitter.webp",
       "directory": "/textures/atx/storefront/player/weaponmodel/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDecor_AnatomyScreenHuman",
@@ -1552,6 +1555,43 @@
     "carouselImages": []
   },
   {
+    "EDID": "ATX_ENTM_BNDL_A_MINERS_RESPITE_BUNDLE",
+    "desc": "\"We lost a lot of good canaries in that mine, never again!\" - Canary Reviver inventor",
+    "disclaimer": "- C.A.M.P. TITLES ARE SELECTABLE IN THE C.A.M.P. MENU ON THE MAP -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n[h]*This bundle contains some previously released items bundled with new ones.[/h]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "A Miner's Respite Bundle",
+    "primaryImage": {
+      "imageName": "11d6bb059f8fea9be314c03d20ccfc8e.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Ragtime Automatic Piano"
+      },
+      {
+        "szItemName": "Old West Bar Set"
+      },
+      {
+        "szItemName": "Morty Vending Machine"
+      },
+      {
+        "szItemName": "Antique Chandelier"
+      },
+      {
+        "szItemName": "Canary Reviver"
+      },
+      {
+        "szItemName": "Veinsplitter Paint (Pickaxe)"
+      },
+      {
+        "szItemName": "\"Saloon\" C.A.M.P. Title Suffix"
+      }
+    ]
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_RagtimeAutomaticPiano",
     "itemName": "Ragtime Automatic Piano",
     "itemNameShort": "Ragtime Automatic Piano",
@@ -1561,7 +1601,8 @@
       "imageName": "atx_entm_camp_floordecor_ragtimeautomaticpiano_l.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponSkin_GatlingGun_SlocumNeonGatling",
@@ -3989,7 +4030,8 @@
       "imageName": "score_s25_camp_utility_camdenparkdumpster_l.webp",
       "directory": "/textures/atx/storefront/camp/utility/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_NukaGirlHelmet_NukaVictory",
@@ -20402,7 +20444,8 @@
     },
     "carouselImages": [],
     "itemName": "Death Ray Bug Zapper",
-    "itemNameShort": "Death Ray Bug Zapper"
+    "itemNameShort": "Death Ray Bug Zapper",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Furniture_Table_HuntingLodge",
@@ -24701,7 +24744,8 @@
     },
     "carouselImages": [],
     "itemName": "Icebreaker (Power Fist)",
-    "itemNameShort": "Icebreaker"
+    "itemNameShort": "Icebreaker",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S4_ENTM_CAMP_Floor_Brick_Starburst",
@@ -26724,7 +26768,8 @@
     },
     "carouselImages": [],
     "itemName": "Hanging Wall Planter Set (x3)",
-    "itemNameShort": "Hanging Planters"
+    "itemNameShort": "Hanging Planters",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "Shelters_ENTM_ShelterEntrance_NuclearMissileSilo",
@@ -54345,6 +54390,15 @@
     "itemNameShort": "Enclave Foundation"
   },
   {
+    "EDID": "ATX_ENTM_CAMP_Foundation_Enclave2",
+    "itemName": "Enclave Foundation",
+    "itemNameShort": "Enclave Foundation",
+    "desc": "Build your Enclave base on solid ground with this high-tech Enclave Foundation.",
+    "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
+    "primaryImage": null,
+    "carouselImages": []
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_Collector_RailroadWaterTower",
     "desc": "Keep your C.A.M.P. hydrated with this rustic Railroad Water Tower. Generates Dirty Water. This item cannot be built inside of a Shelter.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -68383,7 +68437,8 @@
     },
     "carouselImages": [],
     "itemName": "Hellfire Regulator Prototype Power Armor Paint Set",
-    "itemNameShort": "Hellfire Regulator Prototype Paint"
+    "itemNameShort": "Hellfire Regulator Prototype Paint",
+    "highPriceOriginal": 1200
   },
   {
     "EDID": "ATX_ENTM_Skin_PowerArmor_Skin_SantaSuit",
@@ -70885,7 +70940,8 @@
     },
     "carouselImages": [],
     "itemName": "Cryptid Hunter Backpack",
-    "itemNameShort": "Cryptid Hunter Backpack"
+    "itemNameShort": "Cryptid Hunter Backpack",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDecor_BigBossAdvertisementPoster_v02",
@@ -78166,7 +78222,8 @@
     },
     "carouselImages": [],
     "itemName": "Fishing Rod Grenade Bobber Mod",
-    "itemNameShort": "Fishing Rod Grenade Bobber Mod"
+    "itemNameShort": "Fishing Rod Grenade Bobber Mod",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "SCORE_S21_ENTM_Skin_Backpack_OxygenTank",
@@ -92620,7 +92677,7 @@
     "EDID": "ATX_ENTM_BNDL_BROTHERHOOD_FOREVER_BUNDLE",
     "desc": "Rebuild in the name of the Brotherhood of Steel to last the ages.",
     "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
-    "customdesc": "",
+    "customdesc": "Rebuild in the name of the Brotherhood of Steel to last the ages.\n[h]✨︎ This bundle also grants crafting of some of rewards tied to the The Coming Storm limited time event. If this is intentional or a bug is unclear.[/h]",
     "customdisclaimer": "",
     "itemName": "Brotherhood Forever Bundle",
     "primaryImage": {
@@ -116793,6 +116850,71 @@
       {
         "szItemName": "Mothman Cultist Icon",
         "entmName": "ATX_ENTM_PlayerIcon_MothmanCultist_01"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_BUSY_KITCHEN_BUNDLE",
+    "desc": "It's time to get busy in the kitchen - these pumpkin pies won't eat themselves, hopefully.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]PRODUCES:[/h]\n[url=https://www.youtube.com/watch?v=65FdZBWxF4Y]✦ Pumpkin Pie    [/url]\n[url=https://www.reddit.com/r/fo76FilthyCasuals/comments/15yhd8m/cookie_jar_inventory_and_production_rates/]✦ Pastries and Cookies    [/url]\n[url=https://www.youtube.com/watch?v=sjYaGqusuC0]✦ Cooked Meats    [/url]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Busy Kitchen Bundle",
+    "primaryImage": {
+      "imageName": "c57bf0d224aef7227b372962373360be.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "White Modern Home Kitchen Set"
+      },
+      {
+        "szItemName": "Pink Modern Home Kitchen Set"
+      },
+      {
+        "szItemName": "✦ Pumpkin Pie"
+      },
+      {
+        "szItemName": "✦ Cookie Jar"
+      },
+      {
+        "szItemName": "✦ Wall-mounted Oven"
+      },
+      {
+        "szItemName": "Sugar Bombs Refrigerator"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_A_CURIOUS_ARMORY_BUNDLE",
+    "desc": "Exotic weapons that are sure to turn heads - or worse...",
+    "disclaimer": "- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- SKINS ARE CRAFTABLE AT WEAPON WORKBENCHES. -\n[h]*This Bundle contains only previously released items, packaged as \"NEW\".[/h]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "A Curious Armory Bundle",
+    "primaryImage": {
+      "imageName": "650f18a55e6767a20b050f93ef82b0ca.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Circuit Breaker"
+      },
+      {
+        "szItemName": "Cold Shoulder Crafting"
+      },
+      {
+        "szItemName": "Cremator"
+      },
+      {
+        "szItemName": "Auto Axe Crafting"
+      },
+      {
+        "szItemName": "Nuka-Launcher"
       }
     ]
   }
