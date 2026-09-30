@@ -895,6 +895,7 @@ function getContainingBundleMatches(item, candidates) {
 // Search function
 function search(query) {
     let results = dbData;
+    const exactEdidSearch = /\s$/.test(query) && /^[a-z0-9_]+$/i.test(query.trim()) && query.includes('_');
     
     const { included, excluded } = getSelectedCategories();
     
@@ -936,7 +937,7 @@ function search(query) {
 
     // Apply text search
     if (query.trim()) {
-        const lowerQuery = query.toLowerCase();
+        const lowerQuery = query.trim().toLowerCase();
         const shareIdCandidate = lowerQuery.replace(/^0x/, '');
         if (/^[0-9a-f]{6}$/.test(shareIdCandidate)) {
             const shareItem = getItemByShareId(shareIdCandidate);
@@ -946,7 +947,9 @@ function search(query) {
                 results = [];
             }
         } else {
-            const directMatches = results.filter(item => itemMatchesTextSearch(item, lowerQuery));
+            const directMatches = results.filter(item => exactEdidSearch
+                ? getTextSearchTerms(item).edid === lowerQuery
+                : itemMatchesTextSearch(item, lowerQuery));
 
             if (directMatches.length === 1) {
                 const onlyMatch = directMatches[0];
@@ -974,7 +977,7 @@ function search(query) {
     }
     
     const supportHint = getSupportItemListHint();
-    const hintMessages = [expandedReason, supportHint].filter(Boolean);
+    const hintMessages = [exactEdidSearch ? 'Exact EDID match' : '', expandedReason, supportHint].filter(Boolean);
 
     statsText.innerHTML = `Found ${results.length} of ${dbData.length} items${hintMessages.length ? ` <span class="search-expansion-hint">${hintMessages.join('<br>')}</span>` : ''}`;
     resetAndRender(results);
@@ -1099,13 +1102,14 @@ function updateUrlForCurrentItem(item) {
 function getSearchParamFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const searchValue = params.get('search') || '';
-    return searchValue.trim();
+    return searchValue;
 }
 
 function setSearchParamInUrl(value) {
     const params = new URLSearchParams(window.location.search);
     if (value && value.trim()) {
-        params.set('search', value.trim().replace(/\s+/g, ' '));
+        const normalizedValue = value.trim().replace(/\s+/g, ' ');
+        params.set('search', normalizedValue + (/\s$/.test(value) ? ' ' : ''));
     } else {
         params.delete('search');
     }
@@ -1314,7 +1318,7 @@ const searchDebounceDelay = 200;
 // Event listeners
 const defaultSearchPlaceholder = searchInput.getAttribute('placeholder');
 searchInput.addEventListener('focus', () => {
-    searchInput.setAttribute('placeholder', 'Search item or bundles names / IDs...');
+    searchInput.setAttribute('placeholder', 'Search names / IDs; add a space after a full ID for exact match');
 });
 searchInput.addEventListener('input', (e) => {
     clearTimeout(searchDebounceTimer);
@@ -1323,6 +1327,7 @@ searchInput.addEventListener('input', (e) => {
         scheduleSearchUrlUpdate(e.target.value);
     }, searchDebounceDelay);
     updateClearButtonVisibility();
+    updateSearchHintVisibility();
 });
 searchInput.addEventListener('blur', () => {
     searchInput.setAttribute('placeholder', defaultSearchPlaceholder);
@@ -1339,6 +1344,10 @@ function updateClearButtonVisibility() {
         clearSearchBtn.style.display = 'none';
         searchInput.classList.remove('has-clear-btn');
     }
+}
+
+function updateSearchHintVisibility() {
+    searchHint.classList.toggle('is-visible', searchInput.value.includes('_'));
 }
 
 clearSearchBtn.addEventListener('click', () => {
