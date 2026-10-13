@@ -871,7 +871,8 @@
       "imageName": "atx_camp_displaycase_modulardisplaycubes_l.webp",
       "directory": "/textures/atx/storefront/camp/displays/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 0
   },
   {
     "EDID": "ATX_ENTM_CAMP_Displaycase_ModularDisplayCubes_Concrete",
@@ -1000,7 +1001,8 @@
       "imageName": "atx_camp_structure_large_greenhousedome.webp",
       "directory": "/textures/atx/storefront/camp/structures/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_NeonSign_CoffeeShop",
@@ -1383,7 +1385,8 @@
       "imageName": "atx_camp_stashbox_seedvault_l.webp",
       "directory": "/textures/atx/storefront/camp/stash/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 400
   },
   {
     "EDID": "ATX_ENTM_CAMP_Collector_CropMister",
@@ -1395,7 +1398,8 @@
       "imageName": "atx_camp_collector_cropmister.webp",
       "directory": "/textures/atx/storefront/camp/utility/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Blasted_BarrelPlanter",
@@ -1407,7 +1411,8 @@
       "imageName": "atx_camp_floordecor_barrelplanter_l.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_CAMP_Furniture_Couch_SlocumsJoeDinerBooth",
@@ -1552,7 +1557,8 @@
       "imageName": "atx_entm_camp_floordecor_soilradstester.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 350
   },
   {
     "EDID": "ATX_ENTM_BNDL_A_MINERS_RESPITE_BUNDLE",
@@ -1588,6 +1594,9 @@
       },
       {
         "szItemName": "\"Saloon\" C.A.M.P. Title Suffix"
+      },
+      {
+        "szItemName": "̶A̶n̶t̶i̶q̶u̶e̶ ̶C̶h̶a̶n̶d̶e̶l̶i̶e̶r̶"
       }
     ]
   },
@@ -1711,6 +1720,43 @@
     "highPriceOriginal": 800
   },
   {
+    "EDID": "ATX_ENTM_BNDL_SEEDS__SOIL_BUNDLE",
+    "desc": "Get back to your roots with the Seeds & Soil Bundle!",
+    "disclaimer": "- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- BACKPACKS ARE CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Seeds & Soil Bundle",
+    "primaryImage": {
+      "imageName": "4fb06068704738cf802e610bdf5beda8.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1900,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Forager's Rucksack Backpack"
+      },
+      {
+        "szItemName": "Seed Vault Stash Box"
+      },
+      {
+        "szItemName": "Blasted Barrel Plant Set"
+      },
+      {
+        "szItemName": "Large Greenhouse Dome"
+      },
+      {
+        "szItemName": "Crop Mister"
+      },
+      {
+        "szItemName": "Soil Rads Tester"
+      },
+      {
+        "szItemName": "Harvester"
+      }
+    ]
+  },
+  {
     "EDID": "ATX_ENTM_Skin_Backpack_ForagersRucksack",
     "itemName": "Forager's Rucksack Backpack",
     "itemNameShort": "Forager's Rucksack Backpack",
@@ -1720,7 +1766,8 @@
       "imageName": "atx_entm_skin_backpack_foragersrucksack_l.webp",
       "directory": "/textures/atx/storefront/player/backpack/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 400
   },
   {
     "EDID": "ATX_ENTM_PlayerTitles_Suffix_CozyCamper",
@@ -12634,7 +12681,8 @@
     },
     "carouselImages": [],
     "itemName": "Ghoulish Paint",
-    "itemNameShort": "Ghoulish Paint"
+    "itemNameShort": "Ghoulish Paint",
+    "highPriceOriginal": 400
   },
   {
     "EDID": "ATX_ENTM_CAMP_Floor_Factory",
@@ -15625,7 +15673,8 @@
     },
     "carouselImages": [],
     "itemName": "Mothman Museum Sign",
-    "itemNameShort": "Mothman Museum Sign"
+    "itemNameShort": "Mothman Museum Sign",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "SCORE_S22_ENTM_CAMP_FloorDecor_BowlingBall_Saturnite",
@@ -15866,7 +15915,8 @@
     },
     "carouselImages": [],
     "itemName": "Mothman Museum Rug",
-    "itemNameShort": "Mothman Museum Rug"
+    "itemNameShort": "Mothman Museum Rug",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "SCORE_S22_ENTM_CAMP_Utility_Refrigerator_MillersFridge",
@@ -17112,7 +17162,8 @@
     },
     "carouselImages": [],
     "itemName": "Jack O'Lantern Loot Bag",
-    "itemNameShort": "Jack O'Lantern"
+    "itemNameShort": "Jack O'Lantern",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Skin_LootBag_Guts",
@@ -30541,7 +30592,8 @@
     },
     "carouselImages": [],
     "itemName": "Pumpkin Smasher Paint (Assault Rifle)",
-    "itemNameShort": "Pumpkin Smasher Paint"
+    "itemNameShort": "Pumpkin Smasher Paint",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_Kit_BurnedHouse",
@@ -42274,7 +42326,8 @@
     },
     "carouselImages": [],
     "itemName": "Trick Candy Bowl",
-    "itemNameShort": "Trick Candy Bowl"
+    "itemNameShort": "Trick Candy Bowl",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_Gladiator_Hat",
@@ -50760,7 +50813,12 @@
       "imageName": "atx_apparel_headwear_fortuneteller_l.webp",
       "directory": "/textures/atx/storefront/player/headwear/"
     },
-    "carouselImages": [],
+    "carouselImages": [
+      {
+        "imageName": "atx_apparel_outfit_fortuneteller.webp",
+        "directory": "/textures/atx/storefront/player/outfit/"
+      }
+    ],
     "itemName": "Fortune Teller Headband",
     "itemNameShort": "Fortune Teller Headband",
     "highPriceOriginal": 700
@@ -58318,7 +58376,8 @@
     },
     "carouselImages": [],
     "itemName": "Honeycomb Paper Jack O' Lantern",
-    "itemNameShort": "Honeycomb Paper Jack O' Lantern"
+    "itemNameShort": "Honeycomb Paper Jack O' Lantern",
+    "highPriceOriginal": 100
   },
   {
     "EDID": "ATX_ENTM_Photomode_Pose_RoastedHotDog",
@@ -69849,7 +69908,8 @@
     },
     "carouselImages": [],
     "itemName": "Spotted Alotolotl Plushie",
-    "itemNameShort": "Spotted Alotolotl"
+    "itemNameShort": "Spotted Alotolotl",
+    "highPriceOriginal": 0
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_ShadowAxolotl",
@@ -82635,6 +82695,9 @@
       {
         "szItemName": "Untarnished Paint (Alien Blaster)",
         "entmName": "ATX_ENTM_Skin_WeaponSkin_AlienBlaster_Untarnished"
+      },
+      {
+        "szItemName": "The Invader"
       }
     ],
     "carouselImages": [
@@ -116986,6 +117049,71 @@
       },
       {
         "szItemName": "Nuka-Launcher"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_WELL_RUSTED_BUNDLE",
+    "desc": "Rusted but perfectly functional!",
+    "disclaimer": "- - UNLOCKS A VARIANT OF THE SURVIVAL TENT.-  -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Well Rusted Bundle",
+    "primaryImage": {
+      "imageName": "7d8eb03e45ec843d2f496675afb969bb.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Rusted Paint (Handmade Rifle)"
+      },
+      {
+        "szItemName": "Rusted Junkyard Power Armor Paint"
+      },
+      {
+        "szItemName": "Rust Bucket Hammer (Super Sledge)"
+      },
+      {
+        "szItemName": "Rusted Paint (Minigun)"
+      },
+      {
+        "szItemName": "Rusted APC Survival Tent"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_UPSTAGED_BUNDLE",
+    "desc": "Put on a custom performance with the Upstaged Bundle!",
+    "disclaimer": "- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Upstaged Bundle",
+    "primaryImage": {
+      "imageName": "ec9f9e95084f00afb6515dac17415de3.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Ringmaster Outfit"
+      },
+      {
+        "szItemName": "Lite Ally: Joey Bello"
+      },
+      {
+        "szItemName": "Xylophone"
+      },
+      {
+        "szItemName": "The Dancer Pose"
+      },
+      {
+        "szItemName": "Drum Set"
+      },
+      {
+        "szItemName": "Classic Performance Stage"
       }
     ]
   }
