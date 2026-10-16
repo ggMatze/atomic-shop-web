@@ -286,7 +286,7 @@ async function initTabs() {
   function buildTileHTML(item, tileSize, idx, options = {}) {
     const tileDisabled = (item && (item.disabled === true)) ? 'tile-disabled' : '';
     const isHighlighted = item?.isHighlight === true;
-    const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge" title="My recommendation">âœ¨ï¸Ž</div>' : '';
+    const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge" title="My recommendation">✨︎</div>' : '';
 
     const lp = item?.lowPrice;
     const lowIsLto = !!(lp && lp.isLto);
@@ -868,7 +868,7 @@ if (typeof window !== 'undefined') {
       } catch (e) { /* defensive */ }
       const tileDisabled = (item.disabled === true || isExpired) ? 'tile-disabled' : '';
       const isHighlighted = item?.isHighlight === true;
-      const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge">âœ¨ï¸Ž</div>' : '';
+      const highlightBadgeHTML = isHighlighted ? '<div class="tile-highlight-badge">✨︎</div>' : '';
       const dateLabel = renderDateRange(item);
 
   // Safe JSON for embedding in attribute
