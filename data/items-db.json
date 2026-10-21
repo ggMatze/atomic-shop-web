@@ -9,7 +9,8 @@
       "imageName": "atx_camp_floordecor_westvirginiaguardtower.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_CAMP_Machinery_Generator_Large_SolarPanel_SolarGenerator",
@@ -132,6 +133,40 @@
     "carouselImages": []
   },
   {
+    "EDID": "ATX_ENTM_BNDL_GOTHIC_PENITENTIARY_CAMP_BUNDLE",
+    "desc": "Build the 19th century prison of your... dreams?",
+    "disclaimer": "- C.A.M.P. TITLES ARE SELECTABLE IN THE C.A.M.P. MENU ON THE MAP -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Gothic Penitentiary C.A.M.P. Bundle",
+    "primaryImage": {
+      "imageName": "d3cef28ffea9799b3cbaac087c9547f0.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1600,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Penitentiary C.A.M.P. Kit"
+      },
+      {
+        "szItemName": "Stone Bramble Pot"
+      },
+      {
+        "szItemName": "Penitentiary Porch Kit"
+      },
+      {
+        "szItemName": "\"Prison\" C.A.M.P. Title Suffix"
+      },
+      {
+        "szItemName": "West Virginia Guard Tower"
+      },
+      {
+        "szItemName": "Prison Chain Fences"
+      }
+    ]
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_Kit_Penitentiary",
     "itemName": "Penitentiary C.A.M.P. Kit",
     "itemNameShort": "Penitentiary Kit",
@@ -141,7 +176,8 @@
       "imageName": "atx_camp_kit_penitentiary.webp",
       "directory": "/textures/atx/storefront/camp/kits/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 700
   },
   {
     "EDID": "ATX_ENTM_CAMP_Structure_PoseidonTrailer",
@@ -201,7 +237,8 @@
       "imageName": "atx_skin_powerarmor_model_apexpowerarmorpaint.webp",
       "directory": "/textures/atx/storefront/player/powerarmor/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 1500
   },
   {
     "EDID": "ATX_ENTM_PlayerTitles_Prefix_Apex",
@@ -237,7 +274,8 @@
       "imageName": "atx_camp_kit_penitentiaryporchkit_porch.webp",
       "directory": "/textures/atx/storefront/camp/kits/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDecor_WVGothicPainting",
@@ -417,7 +455,8 @@
       "imageName": "atx_camp_defense_barrier_prisonchainfence_prisonfence.webp",
       "directory": "/textures/atx/storefront/camp/defenses/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_Apparel_Outfit_BrotherhoodEldersCoat_BoSElder",
@@ -2159,7 +2198,7 @@
     "customdisclaimer": "",
     "itemName": "Seeds & Soil Bundle",
     "primaryImage": {
-      "imageName": "4fb06068704738cf802e610bdf5beda8.dds",
+      "imageName": "4fb06068704738cf802e610bdf5beda8.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [],
@@ -22773,7 +22812,8 @@
     },
     "carouselImages": [],
     "itemName": "Cardboard Halloween Cutouts",
-    "itemNameShort": "Cardboard Halloween Cutouts"
+    "itemNameShort": "Cardboard Halloween Cutouts",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_AnimatronicBlackCat",
@@ -22963,7 +23003,8 @@
     },
     "carouselImages": [],
     "itemName": "Spooky Sound Machine",
-    "itemNameShort": "Spooky Sound Machine"
+    "itemNameShort": "Spooky Sound Machine",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_Structure_FlyingFortress",
@@ -28086,7 +28127,8 @@
     },
     "carouselImages": [],
     "itemName": "Haunted House Kit",
-    "itemNameShort": "Haunted House Kit"
+    "itemNameShort": "Haunted House Kit",
+    "highPriceOriginal": 700
   },
   {
     "EDID": "SCORE_S6_ENTM_CAMP_Utility_Collectron_FETCH",
@@ -28461,7 +28503,8 @@
     },
     "carouselImages": [],
     "itemName": "Undead Tombstone",
-    "itemNameShort": "Undead Tombstone"
+    "itemNameShort": "Undead Tombstone",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Tombstones_Royal",
@@ -32611,7 +32654,8 @@
     },
     "carouselImages": [],
     "itemName": "Crania Candy Bowl",
-    "itemNameShort": "Crania Candy Bowl"
+    "itemNameShort": "Crania Candy Bowl",
+    "highPriceOriginal": 0
   },
   {
     "EDID": "SCORE_S12_ENTM_CAMP_Lights_Ceiling_MothwingChandelier",
@@ -42735,7 +42779,8 @@
     },
     "carouselImages": [],
     "itemName": "Vintage Halloween Décor",
-    "itemNameShort": "Vintage Halloween Décor"
+    "itemNameShort": "Vintage Halloween Décor",
+    "highPriceOriginal": 300
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Cutout_VaultBoy_Vampire",
@@ -57323,7 +57368,8 @@
     },
     "carouselImages": [],
     "itemName": "Creepy Candy Bowl",
-    "itemNameShort": "Creepy Candy Bowl"
+    "itemNameShort": "Creepy Candy Bowl",
+    "highPriceOriginal": 0
   },
   {
     "EDID": "SCORE_S14_ENTM_CAMP_FloorDecor_UndetonatedBomb",
@@ -62511,7 +62557,8 @@
     },
     "carouselImages": [],
     "itemName": "Ghostly Lantern",
-    "itemNameShort": "Ghostly Lantern"
+    "itemNameShort": "Ghostly Lantern",
+    "highPriceOriginal": 250
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_NewZetanCrate",
@@ -73777,7 +73824,8 @@
     },
     "carouselImages": [],
     "itemName": "Wraith Scarecrow",
-    "itemNameShort": "Wraith Scarecrow"
+    "itemNameShort": "Wraith Scarecrow",
+    "highPriceOriginal": 500
   },
   {
     "EDID": "SCORE_S2_ENTM_Skin_ArmorSkin_Robot_RedViper",
@@ -75220,7 +75268,8 @@
     },
     "carouselImages": [],
     "itemName": "Spooky Candy Bowl",
-    "itemNameShort": "Spooky Candy Bowl"
+    "itemNameShort": "Spooky Candy Bowl",
+    "highPriceOriginal": 0
   },
   {
     "EDID": "zzzATX_ENTM_Outfit_BlueridgeTrader",
@@ -117496,7 +117545,7 @@
     "customdisclaimer": "",
     "itemName": "Well Rusted Bundle",
     "primaryImage": {
-      "imageName": "7d8eb03e45ec843d2f496675afb969bb.dds",
+      "imageName": "7d8eb03e45ec843d2f496675afb969bb.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [],
@@ -117527,7 +117576,7 @@
     "customdisclaimer": "",
     "itemName": "Upstaged Bundle",
     "primaryImage": {
-      "imageName": "ec9f9e95084f00afb6515dac17415de3.dds",
+      "imageName": "ec9f9e95084f00afb6515dac17415de3.webp",
       "directory": "/textures/atomic_shop_media/"
     },
     "carouselImages": [],
@@ -117550,6 +117599,189 @@
       },
       {
         "szItemName": "Classic Performance Stage"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_HALLOWEEN_COSTUME_BUNDLE",
+    "desc": "Get ready for Halloween with these spectacular costumes",
+    "disclaimer": "Includes: Silver Shroud Outfit, Manta Man Outfit, The Inspector Outfit, Captain Cosmos Outfit, Grognak Outfit and The Gladiator Outfit",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Halloween Costume Bundle",
+    "primaryImage": {
+      "imageName": "0432f34ccb42eedda44a4b35271c96bb.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "The Silver Shroud Costume"
+      },
+      {
+        "szItemName": "The Silver Shroud Fedora"
+      },
+      {
+        "szItemName": "Captain Cosmos Helmet"
+      },
+      {
+        "szItemName": "Manta Man Costume"
+      },
+      {
+        "szItemName": "The Inspector's Top Hat"
+      },
+      {
+        "szItemName": "Grognak the Barbarian Costume"
+      },
+      {
+        "szItemName": "Gladiator Helmet"
+      },
+      {
+        "szItemName": "The Inspector Costume"
+      },
+      {
+        "szItemName": "Gladiator Outfit"
+      },
+      {
+        "szItemName": "Captain Cosmos Suit"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_WASTELAND_WANDERER_BUNDLE",
+    "desc": "Celebrate history as you wander the wasteland with this Wasteland Wanderer Bundle!",
+    "disclaimer": "",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Wasteland Wanderer Bundle",
+    "primaryImage": {
+      "imageName": "atx_apparel_outfit_wastelandwanderer_l.webp",
+      "directory": "/textures/atx/storefront/player/outfit/"
+    },
+    "carouselImages": [
+      {
+        "imageName": "atx_apparel_headwear_wastelandwanderer_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      },
+      {
+        "imageName": "atx_apparel_headwear_wastelandwanderer2_l.webp",
+        "directory": "/textures/atx/storefront/player/headwear/"
+      },
+      {
+        "imageName": "atx_anniversary_entm_skin_backpack_wastelandwanderer_l.webp",
+        "directory": "/textures/atx/storefront/player/backpack/"
+      }
+    ],
+    "highPriceOriginal": 800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Wasteland Wanderer Outfit"
+      },
+      {
+        "szItemName": "Wasteland Wanderer Headwear with Cap"
+      },
+      {
+        "szItemName": "Wasteland Wanderer Backpack"
+      },
+      {
+        "szItemName": "Wasteland Wanderer Headwear"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_PINTSIZED_SLASHER_RETURNS_BUNDLE",
+    "desc": "The Pint-Sized Slasher Returns!",
+    "disclaimer": "- APPERAL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Pint-Sized Slasher Returns Bundle",
+    "primaryImage": {
+      "imageName": "589d5d668739088e8126b757bfdf01d1.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1200,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Pint-Sized Slasher Costume"
+      },
+      {
+        "szItemName": "Pint-Sized Slasher Mask"
+      },
+      {
+        "szItemName": "Pint-Sized Slasher Knife Skin (Machete)"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_CREATURES_OF_THE_NIGHT_BUNDLE",
+    "desc": "Celebrate Appalachia's legendary cryptids with this collection of curious collectibles.",
+    "disclaimer": "- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- UNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Creatures of the Night Bundle",
+    "primaryImage": {
+      "imageName": "9ebdab3b2b60a3e01c905d66d4417050.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Jack O'Lantern Loot Bag"
+      },
+      {
+        "szItemName": "World of Cryptids Trunk"
+      },
+      {
+        "szItemName": "Ghostly Lantern"
+      },
+      {
+        "szItemName": "Flatwoods Sign"
+      },
+      {
+        "szItemName": "Black Rider Power Armor Skin"
+      },
+      {
+        "szItemName": "Mothman Museum Sign"
+      },
+      {
+        "szItemName": "Flatwoods Monster Plushie"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_HAUNTED_WEST_VIRGINIA_BUNDLE",
+    "desc": "Bring the spirit of haunted Appalachia home with the Haunted West Virginia Bundle!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Haunted West Virginia Bundle",
+    "primaryImage": {
+      "imageName": "6f9ce145218a928af29f8463ff7a0450.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1300,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Lady Ghoul Painting"
+      },
+      {
+        "szItemName": "Black Knight Paint (Gatling Gun)"
+      },
+      {
+        "szItemName": "Spider Webs Suite"
+      },
+      {
+        "szItemName": "Fake Taxidermy Mermaid"
+      },
+      {
+        "szItemName": "Haunted Mansion"
+      },
+      {
+        "szItemName": "Creepy Well"
       }
     ]
   }
