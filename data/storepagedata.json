@@ -1263,6 +1263,139 @@
         },
         "items": [
           {
+            "itemID": 2660946,
+            "itemName": "Blackbird Elite Power Armor Paint",
+            "itemNameShort": "Blackbird Elite Paint",
+            "itemDesc": "Escape Dread Island with this Blackbird Elite Power Armor Paint!\n\nThis is a unique skin that completely alters the appearance of your Power Armor. It can be equipped on all main Power Armors.\n\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+            "primaryImage": {
+              "imageName": "d4b6065ed6e43d40a6d41e9ec967d231.dds",
+              "directory": "/textures/atomic_shop_media/"
+            },
+            "carouselImages": [
+              {
+                "imageName": "score_s9_skin_powerarmor_model_blackbird_elite_l.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              },
+              {
+                "imageName": "score_s9_skin_powerarmor_jetpack_blackbird_elite_l.dds",
+                "directory": "/textures/atx/storefront/player/powerarmor/"
+              }
+            ],
+            "dynamicBundleItems": [
+              {
+                "szItemName": "Blackbird Elite Power Armor Paint",
+                "entmName": "SCORE_S9_ENTM_Skin_PowerArmor_Model_Blackbird_Elite"
+              },
+              {
+                "szItemName": "Blackbird Elite Jet Pack",
+                "entmName": "SCORE_S9_ENTM_Skin_PowerArmor_Jetpack_Blackbird_Elite"
+              }
+            ],
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 1050,
+              "amount": 1050,
+              "ltoTimer": "2026-11-03T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 1050
+            },
+            "highPrice": {
+              "originalAmount": 1500,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2660485,
+            "EDID": "ATX_ENTM_CAMP_Floor_OctagonTile",
+            "itemName": "White and Red Tiles Floor and Foundations",
+            "itemNameShort": "White and Red Tiles",
+            "itemDesc": "The White and Red Tiles Floor can give your C.A.M.P. a more traditional feel.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_floor_octagonaltile01_l.dds",
+              "directory": "/textures/atx/storefront/camp/floors/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "originalAmount": 350,
+              "amount": 350,
+              "ltoTimer": "2026-11-03T12:00:00.000Z"
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 350
+            },
+            "highPrice": {
+              "originalAmount": 500,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2660440,
+            "EDID": "ATX_ENTM_CAMP_Structure_SnackShack",
+            "itemName": "Snack Shack",
+            "itemNameShort": "Snack Shack",
+            "itemDesc": "It's always the right time for snacks at the Snack Shack!\n\nSnack Shack door is included and built separately.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_entm_camp_structure_snackshack_l.dds",
+              "directory": "/textures/atx/storefront/camp/structures/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-11-03T12:00:00.000Z",
+              "originalAmount": 490,
+              "amount": 490
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 490
+            },
+            "highPrice": {
+              "originalAmount": 700,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2660802,
+            "EDID": "ATX_ENTM_Skin_LootBag_Miner_LunchPail",
+            "itemName": "Miner Lunch Pail Loot Bag",
+            "itemNameShort": "Miner Lunch Pail",
+            "itemDesc": "Toughen up your loot bag with the Miner Lunch Pail Lootbag.\n\nThis item replaces the appearance of your dropped Paper Bag.\n\n- UNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS. -",
+            "primaryImage": {
+              "imageName": "atx_skin_lootbag_lunchpail_l.dds",
+              "directory": "/textures/atx/storefront/player/lootbags/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-11-03T12:00:00.000Z",
+              "originalAmount": 175,
+              "amount": 175
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 175
+            },
+            "highPrice": {
+              "originalAmount": 250,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
             "itemID": 2660645,
             "EDID": "ATX_ENTM_CAMP_FloorDecor_BloodTransfusionPump",
             "itemName": "Blood Transfusion Pump",
@@ -1276,20 +1409,136 @@
             "dynamicBundleItems": [],
             "lowPrice": {
               "isLto": true,
-              "ltoTimer": "2026-11-03T12:00:00.000Z",
               "originalAmount": 560,
-              "amount": 560
+              "amount": 560,
+              "ltoTimer": "2026-11-03T12:00:00.000Z"
             },
             "lowestPurchasablePrice": {
               "originalAmount": 0,
-              "amount": 560
+              "amount": 490
             },
             "highPrice": {
               "originalAmount": 700,
               "amount": 0
             },
             "isZeus": false,
-            "isClown": true
+            "isClown": false
+          },
+          {
+            "itemID": 2660497,
+            "EDID": "SCORE_S20_ENTM_CAMP_WallDecor_Poster_Ghoul_02",
+            "itemName": "Glow of the Ghoul ",
+            "itemNameShort": "",
+            "itemDesc": "Use this Glow of the Ghoul Poster as a reminder that the light is not always to be trusted!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "score_s20_camp_walldecor_poster_ghoul_02_l.dds",
+              "directory": "/textures/atx/storefront/camp/walldecoration/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-11-03T12:00:00.000Z",
+              "originalAmount": 210,
+              "amount": 210
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 210
+            },
+            "highPrice": {
+              "originalAmount": 300,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2660907,
+            "EDID": "ATX_ENTM_CAMP_WallDecor_BigBossAdvertisementPoster_v02",
+            "itemName": "Big Boss Doctor Poster",
+            "itemNameShort": "Big Boss Doctor Poster",
+            "itemDesc": "Big Boss and this poster are doctor approved.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_walldecor_poster_bigboss_l.dds",
+              "directory": "/textures/atx/storefront/camp/walldecoration/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-11-03T12:00:00.000Z",
+              "originalAmount": 175,
+              "amount": 175
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 175
+            },
+            "highPrice": {
+              "originalAmount": 250,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2660341,
+            "EDID": "ATX_ENTM_CAMP_Furniture_CoinOp_GolfCart",
+            "itemName": "Golf Cart Ride",
+            "itemNameShort": "Golf Cart Ride",
+            "itemDesc": "Travel the greens anytime you want!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_furniture_coinop_golfcart_l.dds",
+              "directory": "/textures/atx/storefront/camp/furniture/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-11-03T12:00:00.000Z",
+              "originalAmount": 350,
+              "amount": 350
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 350
+            },
+            "highPrice": {
+              "originalAmount": 500,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
+          },
+          {
+            "itemID": 2660630,
+            "EDID": "ATX_ENTM_CAMP_Door_GarageRedRocket",
+            "itemName": "Rolling Red Rocket Door",
+            "itemNameShort": "Red Rocket Door",
+            "itemDesc": "The first step to having your own service station.\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+            "primaryImage": {
+              "imageName": "atx_camp_door_garageredrocket_l.dds",
+              "directory": "/textures/atx/storefront/camp/doors/"
+            },
+            "carouselImages": [],
+            "dynamicBundleItems": [],
+            "lowPrice": {
+              "isLto": true,
+              "ltoTimer": "2026-11-03T12:00:00.000Z",
+              "originalAmount": 350,
+              "amount": 350
+            },
+            "lowestPurchasablePrice": {
+              "originalAmount": 0,
+              "amount": 350
+            },
+            "highPrice": {
+              "originalAmount": 500,
+              "amount": 0
+            },
+            "isZeus": false,
+            "isClown": false
           }
         ]
       },
