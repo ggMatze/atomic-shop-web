@@ -842,7 +842,7 @@
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_BoSStandingFlagBanner",
-    "itemName": "BoS Standing Flag Banner",
+    "itemName": "Brotherhood of Steel Standing Flag Banner",
     "itemNameShort": "BoS Standing Flag Banner",
     "desc": "Show your loyalty to the Brotherhood.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -990,6 +990,54 @@
     },
     "carouselImages": [],
     "highPriceOriginal": 500
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_EDGE_OF_SCIENCE_BUNDLE",
+    "desc": "Walk the edge of science with this bundle of rare Enclave tech!",
+    "disclaimer": "- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Edge of Science Bundle",
+    "primaryImage": {
+      "imageName": "9f2a2fd72b40765f99fe841814bc9575.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 2200,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Enclave Lab Shelter",
+        "entmName": "Shelters_ENTM_ShelterEntrance_GleamingDepths"
+      },
+      {
+        "szItemName": "Harmaceutical Chemistry Workstation",
+        "entmName": "SCORE_S8_CAMP_Machinery_Workbench_Chemistry_Harmaceutical"
+      },
+      {
+        "szItemName": "Enclave Scientist Outfit",
+        "entmName": "ATX_ENTM_Apparel_Outfit_EnclaveScientist"
+      },
+      {
+        "szItemName": "Lab Experiment Note Board",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_LabNoteBoard"
+      },
+      {
+        "szItemName": "Body Scanner",
+        "entmName": "ATX_ENTM_Utility_PlayerBuffs_BodyScanner"
+      },
+      {
+        "szItemName": "Operating Table - Super Mutant",
+        "entmName": "SCORE_S19_ENTM_CAMP_FloorDecor_OperatingTable_SuperMutant"
+      },
+      {
+        "szItemName": "Enclave Sigma Squad Paint (Tesla Rifle)",
+        "entmName": "ATX_ENTM_Skin_WeaponSkin_LightningGun_GreenGlow_EnclaveSigmaSquad"
+      },
+      {
+        "szItemName": "Anatomy Screen (Human)",
+        "entmName": "ATX_ENTM_CAMP_WallDecor_AnatomyScreenHuman"
+      }
+    ]
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_FloorLamps_VaultTecHazardLight",
@@ -1413,7 +1461,7 @@
   },
   {
     "EDID": "ATX_ENTM_Utility_PlayerBuffs_Furniture_BoSVertibirdTrainingSimulator",
-    "itemName": "BoS Vertibird Training Simulator",
+    "itemName": "Brotherhood of Steel Vertibird Training Simulator",
     "itemNameShort": "BoS Vertibird Training Simulator",
     "desc": "Get the best training available in the post-nuclear world!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
@@ -1533,7 +1581,7 @@
   },
   {
     "EDID": "ATX_ENTM_Skin_WeaponSkin_GaussRifle_BoSShockTrooper",
-    "itemName": "BoS Shock Trooper Paint (Gauss Rifle)",
+    "itemName": "Brotherhood of Steel Shock Trooper Paint (Gauss Rifle)",
     "itemNameShort": "BoS Shock Trooper Paint (Gauss Rifle)",
     "desc": "Ad Victorium! Storm the wastes with the Brotherhood of Steel.",
     "disclaimer": "SKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
@@ -62485,7 +62533,7 @@
     "EDID": "ATX_ENTM_CAMP_FloorDecor_FlatwoodsMonsterWaxFigure",
     "desc": "Immortalize the Flatwoods Monster with this wax figure!",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "itemName": "Flatwoods Monster WaxFigure",
+    "itemName": "Flatwoods Monster Wax Figure",
     "dynamicBundleItems": [],
     "primaryImage": {
       "imageName": "atx_entm_camp_floordecor_flatwoodsmonsterwaxsculpture_l.webp",
@@ -62493,7 +62541,7 @@
     },
     "highPriceOriginal": 500,
     "carouselImages": [],
-    "itemNameShort": "Flatwoods Monster WaxFigure"
+    "itemNameShort": "Flatwoods Monster Wax Figure"
   },
   {
     "EDID": "ATX_ENTM_CAMP_WallDecor_WallMountedUSFlag",
@@ -118424,6 +118472,262 @@
       },
       {
         "szItemName": "Pirate Ship Door"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_ROBOTIC_FRIENDS_BUNDLE",
+    "desc": "Just because they're a robot doesn't mean they don't love you!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Robotic Friends Bundle",
+    "primaryImage": {
+      "imageName": "dbc3aa7cae78337d5a2be04edc644551.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "F.E.T.C.H. Collectron Station",
+        "entmName": "SCORE_S6_ENTM_CAMP_Utility_Collectron_FETCH"
+      },
+      {
+        "szItemName": "Company Repair Bot",
+        "entmName": "ATX_ENTM_CAMP_Utility_RepairBot_Company"
+      },
+      {
+        "szItemName": "RoboPaw Steel Cat",
+        "entmName": "ATX_ENTM_CAMP_CAMPPets_Cat_RoboPaw"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_BROTHERHOOD_PERSONNEL_BUNDLE",
+    "desc": "Keeping the wasteland safe - one guard post at a time.",
+    "disclaimer": "- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Brotherhood Personnel Bundle",
+    "primaryImage": {
+      "imageName": "28a6db1892c22e24d6611a67e35e722e.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Night Strike Power Armor Paint",
+        "entmName": "ATX_ENTM_Skin_PowerArmor_Skin_T51_NightStrike"
+      },
+      {
+        "szItemName": "BoS Advanced Power Armor Station",
+        "entmName": "ATX_ENTM_CAMP_Machinery_Workbench_PowerArmor_BoSAdvanced"
+      },
+      {
+        "szItemName": "Brotherhood of Steel Guard Post",
+        "entmName": "ATX_ENTM_CAMP_Defense_GuardPost_BrotherhoodofSteel"
+      },
+      {
+        "szItemName": "Brotherhood of Steel Shock Trooper Paint (Gauss Rifle),",
+        "entmName": "atx_entm_skin_weaponskin_gaussrifle_bosshocktrooper"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_BROTHERHOOD_TRAINING_FACILITY_BUNDLE",
+    "desc": "Train for the worst - hope for the best!",
+    "disclaimer": "- C.A.M.P. TITLES ARE SELECTABLE IN THE C.A.M.P. MENU ON THE MAP -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Brotherhood Training Facility Bundle",
+    "primaryImage": {
+      "imageName": "f0f0f3f36c7f4af21afbd84a70775acc.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1700,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Brotherhood of Steel Standing Flag Banner",
+        "entmName": "atx_entm_camp_floordecor_bosstandingflagbanner"
+      },
+      {
+        "szItemName": "Brotherhood of Steel Searchlight",
+        "entmName": "ATX_ENTM_CAMP_Lights_Lamp_Large_BoSSearchlight"
+      },
+      {
+        "szItemName": "Brotherhood of Steel Armory",
+        "entmName": "ATX_ENTM_CAMP_Structure_BoSArmory"
+      },
+      {
+        "szItemName": "BoS Comm Station Tinker's Workbench",
+        "entmName": "ATX_ENTM_CAMP_Machinery_Workbench_Tinkers_BoSCommStation"
+      },
+      {
+        "szItemName": "Brotherhood of Steel Vertibird Training Simulator",
+        "entmName": "atx_entm_utility_playerbuffs_furniture_bosvertibirdtrainingsimulator"
+      },
+      {
+        "szItemName": "\"Base\" C.A.M.P. Title Suffix",
+        "entmName": "ATX_ENTM_CAMPTitles_Suffix_Base"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_MAD_SCIENTIST_BUNDLE",
+    "desc": "Show them all that you're not crazy, they just don't understand. SHOW THEM ALL!",
+    "disclaimer": "- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Mad Scientist Bundle",
+    "primaryImage": {
+      "imageName": "cfc6cacfb8f51e9f5d93d069e25812f3.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1200,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Vault-Tec Lab Coat",
+        "entmName": "ATX_ENTM_Apparel_Outfit_VaultTecScientist"
+      },
+      {
+        "szItemName": "Scientist Goggles",
+        "entmName": "ATX_ENTM_Apparel_Headwear_ScientistGoggles"
+      },
+      {
+        "szItemName": "Arktos Pharma Excavator Power Armor Paint",
+        "entmName": "ATX_ENTM_Skin_PowerArmor_Paint_Excavator_Arktos"
+      },
+      {
+        "szItemName": "Bloody Arktos Refrigerator",
+        "entmName": "ATX_ENTM_CAMP_Utility_Refrigerator_Arktos"
+      },
+      {
+        "szItemName": "Amateur Inventor's Laser Gun Paint",
+        "entmName": "ATX_ENTM_Skin_WeaponSkin_LaserGun_Inventor"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_CRYPTID_SERIES_SHEEPSQUATCH_BUNDLE",
+    "desc": "A must-have bundle for every cryptid hunter's collection!",
+    "disclaimer": "- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Cryptid Series: Sheepsquatch Bundle",
+    "primaryImage": {
+      "imageName": "160562b905befc3cdd88c7e8d103008c.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Imposter Assaultron Head",
+        "entmName": "ATX_ENTM_Skin_WeaponModel_AssaultronHead_Sheepsquatch"
+      },
+      {
+        "szItemName": "Sheepsquatch Icon",
+        "entmName": "SCORE_S12_ENTM_PlayerIcon_SheepsquatchIcon"
+      },
+      {
+        "szItemName": "Sheepsquatch Rug",
+        "entmName": "SCORE_S13_ENTM_CAMP_FloorDecor_Rug_SheepsquatchRug"
+      },
+      {
+        "szItemName": "Mounted Sheepsquatch Rack",
+        "entmName": "ATX_ENTM_CAMP_WallDeco_Taxidermy_Sheepsquatch_Rack"
+      },
+      {
+        "szItemName": "Mounted Sheepsquatch Head",
+        "entmName": "REUSE_ATX_ENTM_CAMP_WallDeco_Taxidermy_Head_Sheepsquatch"
+      },
+      {
+        "szItemName": "Giant Sheepsquatch Plushie",
+        "entmName": "SCORE_S1_ENTM_CAMP_FloorDecor_Plushie_SheepsquatchGiant"
+      },
+      {
+        "szItemName": "Sheepsquatch Union Power Armor Paint",
+        "entmName": "SCORE_S12_ENTM_Skin_PowerArmor_Paint_Union_Sheepsquatch"
+      },
+      {
+        "szItemName": "Sheepsquatch T-65 Power Armor Paint",
+        "entmName": "SCORE_S12_ENTM_Skin_PowerArmor_Paint_T65_Sheepsquatch"
+      },
+      {
+        "szItemName": "Sheepsquatch T-60 Power Armor Paint",
+        "entmName": "SCORE_S12_ENTM_Skin_PowerArmor_Paint_T60_Sheepsquatch"
+      },
+      {
+        "szItemName": "Sheepsquatch Ate My Brother! Poster",
+        "entmName": "ATX_ENTM_CAMP_WallDeco_Poster_ShearTerror"
+      },
+      {
+        "szItemName": "Sheepsquatch X-01 Power Armor Paint",
+        "entmName": "SCORE_S12_ENTM_Skin_PowerArmor_Paint_X01_Sheepsquatch"
+      },
+      {
+        "szItemName": "Sheepsquatch Ultracite Power Armor Paint",
+        "entmName": "SCORE_S12_ENTM_Skin_PowerArmor_Paint_Ultracite_Sheepsquatch"
+      },
+      {
+        "szItemName": "Sheepsquatch T-51 Power Armor Paint",
+        "entmName": "SCORE_S12_ENTM_Skin_PowerArmor_Paint_T51_Sheepsquatch"
+      },
+      {
+        "szItemName": "Sheepsquatch Hellcat Power Armor Paint",
+        "entmName": "SCORE_S12_ENTM_Skin_PowerArmor_Paint_Hellcat_Sheepsquatch"
+      },
+      {
+        "szItemName": "Sheepsquatch T-45 Power Armor Paint",
+        "entmName": "SCORE_S12_ENTM_Skin_PowerArmor_Paint_T45_Sheepsquatch"
+      },
+      {
+        "szItemName": "Sheepsquatch Excavator Power Armor Paint",
+        "entmName": "SCORE_S12_ENTM_Skin_PowerArmor_Paint_Excavator_Sheepsquatch"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_CRYPTID_SERIES_FLATWOODS_MONSTER_BUNDLE",
+    "desc": "Bring some otherworldly terror to your C.A.M.P. with Appalachia's favorite... cryptid?",
+    "disclaimer": "- WALLPAPER ITEMS APPEAR WHILE IN C.A.M.P. EDIT MODE. -\n- SKIN IS CRAFTABLE AT POWER ARMOR STATIONS. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Cryptid Series: Flatwoods Monster Bundle",
+    "primaryImage": {
+      "imageName": "ee13661c2237c9a6cca8dcb64d58bb71.dds",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1800,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Flatwoods Monster Power Armor Paint",
+        "entmName": "ATX_ENTM_Skin_PowerArmor_Model_FlatwoodsMonster"
+      },
+      {
+        "szItemName": "Flatwoods Monster Wax Figure",
+        "entmName": "atx_entm_camp_floordecor_flatwoodsmonsterwaxfigure"
+      },
+      {
+        "szItemName": "Flatwoods Monster Paint",
+        "entmName": "ATX_ENTM_Skin_WeaponSkin_AlienRifle_FlatwoodsMonster"
+      },
+      {
+        "szItemName": "Flatwoods Sign",
+        "entmName": "SCORE_S12_ENTM_CAMP_WallDecor_HomeOfTheCryptidSign"
+      },
+      {
+        "szItemName": "Flatwoods 'Green' Monster Wallpaper",
+        "entmName": "ATX_ENTM_CAMP_WallPaper_Sport_01"
+      },
+      {
+        "szItemName": "Flatwoods Monster Plushie",
+        "entmName": "SCORE_S12_ENTM_CAMP_FloorDecor_Plushie_FlatwoodsMonster"
       }
     ]
   }
