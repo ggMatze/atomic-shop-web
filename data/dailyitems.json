@@ -546,7 +546,7 @@
         "EDID": "ATX_ENTM_CAMP_WallDecor_VINES_SET",
         "replaceItemID": 101,
         "isZeus": false,
-        "itemName": "Vines Set",
+        "itemName": "Wall Vines Set",
         "itemNameShort": "Vines Set",
         "itemDesc": "Some greenery never hurt the walls of your humble abode. Comes in three sizes of overgrowth!\n\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
         "lowestPurchasablePrice": {
@@ -566,7 +566,20 @@
           "imageName": "4c1f2c2f1227abc52b04f2f98ec155d4.webp"
         },
         "carouselImages": [],
-        "dynamicBundleItems": []
+        "dynamicBundleItems": [
+          {
+            "szItemName": "Vines",
+            "entmName": "atx_entm_camp_walldecor_vines"
+          },
+          {
+            "szItemName": "Heavy Vines",
+            "entmName": "atx_entm_camp_walldecor_heavyvines"
+          },
+          {
+            "szItemName": "Light Vines",
+            "entmName": "atx_entm_camp_walldecor_lightvines"
+          }
+           ]
       },
       {
         "itemID": 106,
