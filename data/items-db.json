@@ -58,7 +58,8 @@
       "imageName": "atx_skin_weaponskin_cryolator_quantum.webp",
       "directory": "/textures/atx/storefront/player/weaponskin/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_CAMPPets_Dog_HuntingDog",
@@ -94,7 +95,8 @@
       "imageName": "atx_camp_floordecor_exerciseequipment_enclaveendurancetrainer.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_StoneBramblePot",
@@ -317,7 +319,8 @@
       "imageName": "atx_camp_collector_abandonednest.webp",
       "directory": "/textures/atx/storefront/camp/utility/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 0
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_RadscorpionHabitat",
@@ -341,7 +344,8 @@
       "imageName": "atx_camp_structure_anniversaryparadefloat_l.webp",
       "directory": "/textures/atx/storefront/camp/structures/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 600
   },
   {
     "EDID": "ATX_ENTM_CAMPTitles_Prefix_Shocking",
@@ -368,6 +372,46 @@
     "carouselImages": []
   },
   {
+    "EDID": "ATX_ENTM_BNDL_FALLOUT_FANATIC_BUNDLE",
+    "desc": "Prove that sanity is relative with the Fallout Fanatic bundle!",
+    "disclaimer": "- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Fallout Fanatic Bundle",
+    "primaryImage": {
+      "imageName": "d3c8d4cf35e2124be18cd9cc9de3fa2c.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 2000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Vat of FEV",
+        "entmName": "ATX_ENTM_Utility_PlayerBuffs_Furniture_VatofFEV_FEVVat"
+      },
+      {
+        "szItemName": "Quantum Paint (Cryolator)",
+        "entmName": "ATX_ENTM_Skin_WeaponSkin_Cryolator_Quantum"
+      },
+      {
+        "szItemName": "Assaultron Assembly Platform",
+        "entmName": "ATX_ENTM_Utility_PlayerBuffs_Furniture_AssaultronAssemblyPlatform_AssaultronPlatform"
+      },
+      {
+        "szItemName": "Enclave Endurance Trainer",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_ExerciseEquipment_EnclaveEnduranceTrainer"
+      },
+      {
+        "szItemName": "Brotherhood Elders Coat",
+        "entmName": "ATX_ENTM_Apparel_Outfit_BrotherhoodEldersCoat_BoSElder"
+      },
+      {
+        "szItemName": "\"Favorite\" Player Title Prefix",
+        "entmName": "ATX_ENTM_PlayerTitles_Prefix_Favorite"
+      }
+    ]
+  },
+  {
     "EDID": "ATX_ENTM_Utility_PlayerBuffs_Furniture_AssaultronAssemblyPlatform_AssaultronPlatform",
     "itemName": "Assaultron Assembly Platform",
     "itemNameShort": "Assaultron Assembly Platform",
@@ -377,7 +421,8 @@
       "imageName": "atx_utility_playerbuffs_furniture_assaultronassemblyplatform_l.webp",
       "directory": "/textures/atx/storefront/camp/furniture/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Utility_PlayerBuffs_Furniture_VatofFEV_FEVVat",
@@ -389,7 +434,8 @@
       "imageName": "atx_utility_playerbuffs_furniture_vatoffev.webp",
       "directory": "/textures/atx/storefront/camp/furniture/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_CornDolly",
@@ -37630,7 +37676,8 @@
     },
     "carouselImages": [],
     "itemName": "Punch Bowl",
-    "itemNameShort": "Punch Bowl"
+    "itemNameShort": "Punch Bowl",
+    "highPriceOriginal": 0
   },
   {
     "EDID": "ATX_ENTM_CAMP_Decoration_FreeStates_T2_A",
@@ -61716,7 +61763,8 @@
     },
     "carouselImages": [],
     "itemName": "Fort Fortress Wall Walk",
-    "itemNameShort": "Fort Fortress Wall Walk"
+    "itemNameShort": "Fort Fortress Wall Walk",
+    "highPriceOriginal": 150
   },
   {
     "EDID": "ATX_ENTM_CAMP_Lights_Wall_HangingLantern",
@@ -70577,7 +70625,8 @@
     },
     "carouselImages": [],
     "itemName": "Speckled Alotolotl Plushie",
-    "itemNameShort": "Speckled Alotolotl"
+    "itemNameShort": "Speckled Alotolotl",
+    "highPriceOriginal": 0
   },
   {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_StripedAxolotl",
@@ -86447,7 +86496,20 @@
       "directory": "/textures/atx/storefront/camp/walldecoration/"
     },
     "highPriceOriginal": 500,
-    "dynamicBundleItems": [],
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Vines",
+        "entmName": "atx_entm_camp_walldecor_vines"
+      },
+      {
+        "szItemName": "Heavy Vines",
+        "entmName": "atx_entm_camp_walldecor_heavyvines"
+      },
+      {
+        "szItemName": "Light Vines",
+        "entmName": "atx_entm_camp_walldecor_lightvines"
+      }
+    ],
     "carouselImages": []
   },
   {
@@ -118554,6 +118616,10 @@
       {
         "szItemName": "Brotherhood of Steel Shock Trooper Paint (Gauss Rifle),",
         "entmName": "atx_entm_skin_weaponskin_gaussrifle_bosshocktrooper"
+      },
+      {
+        "szItemName": "Brotherhood of Steel Shock Trooper Paint (Gauss Rifle)",
+        "entmName": "ATX_ENTM_Skin_WeaponSkin_GaussRifle_BoSShockTrooper"
       }
     ]
   },
@@ -118750,6 +118816,265 @@
       {
         "szItemName": "Flatwoods Monster Plushie",
         "entmName": "SCORE_S12_ENTM_CAMP_FloorDecor_Plushie_FlatwoodsMonster"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_FALLOUT_FIRST_GHOULISH_CATCH_UP_BUNDLE",
+    "desc": "New to Fallout First or missed an item from Season 20? This Bundle will let you find some of those items.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- UNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Fallout First Ghoulish Catch Up Bundle",
+    "primaryImage": {
+      "imageName": "52224927e52e5e3b778297660af8c799.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 2000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Miniature Ghoul Vault Girl Statue",
+        "entmName": "SCORE_S20_ENTM_CAMP_Floordecor_Statue_Miniature_Ghoul_VaultGirl"
+      },
+      {
+        "szItemName": "Toxic Gooler Cooler",
+        "entmName": "SCORE_S20_ENTM_CAMP_Collector_ToxicGoo"
+      },
+      {
+        "szItemName": "Ultracite Wall Lights",
+        "entmName": "SCORE_S20_ENTM_CAMP_Lights_UltraciteWallLight"
+      },
+      {
+        "szItemName": "Mutated Guts Loot Bag",
+        "entmName": "SCORE_S20_ENTM_Skin_LootBag_MutatedGuts"
+      },
+      {
+        "szItemName": "Nosey Glasses",
+        "entmName": "SCORE_S20_ENTM_Apparel_Headwear_NoseyGlasses"
+      },
+      {
+        "szItemName": "Posing Skeletons",
+        "entmName": "SCORE_S20_ENTM_CAMP_FloorDecor_PosingSkeletons"
+      },
+      {
+        "szItemName": "Toilet Paper Holder",
+        "entmName": "SCORE_S20_ENTM_CAMP_WallDecor_BathroomToiletPaperHolder"
+      },
+      {
+        "szItemName": "Mr. Ghoulie Plushie",
+        "entmName": "SCORE_S20_ENTM_CAMP_FloorDecor_Plushie_Ghoul_MrFuzzy"
+      },
+      {
+        "szItemName": "Stack of Chems Set",
+        "entmName": "SCORE_S20_ENTM_CAMP_FloorDecor_Chem_Clutter"
+      },
+      {
+        "szItemName": "\"Cannibal\" Player Title Suffix",
+        "entmName": "SCORE_S20_ENTM_PlayerTitles_Suffix_Cannibal"
+      },
+      {
+        "szItemName": "\"Ghoulish\" Player Title Prefix",
+        "entmName": "SCORE_S20_ENTM_PlayerTitles_Prefix_Ghoulish"
+      },
+      {
+        "szItemName": "\"Undead\" Player Title Prefix",
+        "entmName": "SCORE_S20_ENTM_PlayerTitles_Prefix_Undead"
+      },
+      {
+        "szItemName": "Action Ghoul Girl Player Icon",
+        "entmName": "SCORE_S20_ENTM_PlayerIcon_ActionGhoul_Girl"
+      },
+      {
+        "szItemName": "Chem Diet Player Icon",
+        "entmName": "SCORE_S20_ENTM_PlayerIcon_ChemDiet"
+      },
+      {
+        "szItemName": "Mad Scientist Player Icon",
+        "entmName": "SCORE_S20_ENTM_PlayerIcon_MadScientist"
+      },
+      {
+        "szItemName": "Battle Diet Player Icon",
+        "entmName": "SCORE_S20_ENTM_PlayerIcon_BattleDiet"
+      },
+      {
+        "szItemName": "Bomb Scientist Player Icon",
+        "entmName": "SCORE_S20_ENTM_PlayerIcon_BombScientist"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_FALLOUT_FIRST_IRRADIATED_RADIUM_CATCH_UP_BUNDLE",
+    "desc": "New to Fallout First or missed an item from Season 20? This Bundle will let you find some of those items.",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- SKIN IS CRAFTABLE AT WEAPON WORKBENCHES. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Fallout First Irradiated Radium Catch Up Bundle",
+    "primaryImage": {
+      "imageName": "be811f92827bdad31fb23c461e50a3bd.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 2000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Radium Secret Service Armor Paint",
+        "entmName": "SCORE_S20_ENTM_Skin_ArmorSkin_SecretService_Radium"
+      },
+      {
+        "szItemName": "Irradiated Paint (Flamer)",
+        "entmName": "SCORE_S20_ENTM_Skin_WeaponSkin_Flamer_Irradiated"
+      },
+      {
+        "szItemName": "Merc Charmer Helmet",
+        "entmName": "SCORE_S20_ENTM_Apparel_Headwear_GreyMercHelmet"
+      },
+      {
+        "szItemName": "Nuclear-Powered Jetpack",
+        "entmName": "SCORE_S20_ENTM_Skin_ArmorSkin_Jetpack_NuclearPowered"
+      },
+      {
+        "szItemName": "Merc Charmer Blouse Outfit",
+        "entmName": "SCORE_S20_ENTM_Apparel_Outfit_GreyMerc_Blouse"
+      },
+      {
+        "szItemName": "Irradiated Paint (Fat Man)",
+        "entmName": "SCORE_S20_ENTM_Skin_WeaponSkin_FatMan_Irradiated"
+      },
+      {
+        "szItemName": "Radium Armor Paint (Robot)",
+        "entmName": "SCORE_S20_ENTM_Skin_ArmorSkin_Robot_Radium"
+      },
+      {
+        "szItemName": "Irradiated Paint (Gatling Gun)",
+        "entmName": "SCORE_S20_ENTM_Skin_WeaponSkin_GatlingGun_Irradiated"
+      },
+      {
+        "szItemName": "Merc Charmer Helmet (Hooded)",
+        "entmName": "SCORE_S20_ENTM_Apparel_Headwear_GreyMercHelmet_Hooded"
+      },
+      {
+        "szItemName": "Nuke Fusion Generator",
+        "entmName": "SCORE_S20_ENTM_CAMP_Utility_NukeGenerator"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_VAULT_76_ANNIVERSARY_BUNDLE",
+    "desc": "Celebrate 76's 8th Anniversary in style with the Vault 76 Anniversary Bundle!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. --\n[h]*This Bundle contains mostly previously released items, packaged together with a new item.[/h]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Vault 76 Anniversary Bundle",
+    "primaryImage": {
+      "imageName": "2cc9cb1b25dd7e6a3201af6b92275905.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1200,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Anniversary Parade Float",
+        "entmName": "ATX_ENTM_CAMP_Structure_AnniversaryParadeFloat"
+      },
+      {
+        "szItemName": "Birthday Banner",
+        "entmName": "SCORE_S14_ENTM_CAMP_WallDecor_BirthdayBanner"
+      },
+      {
+        "szItemName": "You're SPECIAL Perk Card Machine",
+        "entmName": "ATX_ENTM_CAMP_Utility_PunchCardMachine_MilitaryTrunk"
+      },
+      {
+        "szItemName": "Vault Boy Patriot Head",
+        "entmName": "ATX_Upgrade2018_Tricen_ENTM_Apparel_Headwear_VaultBoy_Tricen"
+      },
+      {
+        "szItemName": "Patriotic Paint (The Fixer)"
+      },
+      {
+        "szItemName": "Patriotic Uncle Sam Outfit",
+        "entmName": "ATX_Upgrade2018_Tricen_ENTM_Apparel_Outfit_Patriot_Tricen"
+      },
+      {
+        "szItemName": "Birthday Cake",
+        "entmName": "ATX_ENTM_CAMP_Utility_BirthdayCake"
+      },
+      {
+        "szItemName": "Vault 76 New Home Neon Sign",
+        "entmName": "ATX_ENTM_CAMP_Lights_NeonSign_Vault76_NewHome"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_NUKACOLA_COLLECTIBLES_BUNDLE",
+    "desc": "Collect some of the best Nuka-Cola memorabilia in the wasteland with the Nuka-Cola Collectibles Bundle!",
+    "disclaimer": "- SKIN IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. --\n[h]*This Bundle contains only previously released items, packaged together as \"NEW\".[/h]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Nuka-Cola Collectibles Bundle",
+    "primaryImage": {
+      "imageName": "87421be8456cc4f13aa5276a08b9d71f.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Nuka-Cola Popcorn Machine",
+        "entmName": "zzzATX_ENTM_CAMP_Utility_PopcornMachine_NukaCola"
+      },
+      {
+        "szItemName": "Nuka-Cola Mr. Fuzzy Plushie",
+        "entmName": "SCORE_S11_ENTM_CAMP_FloorDecor_Plushie_NukaColaMrFuzzy"
+      },
+      {
+        "szItemName": "Nuka-Cola Pip-Boy Paint",
+        "entmName": "SCORE_S14_ENTM_Skin_PipBoySkin_NukaCola"
+      },
+      {
+        "szItemName": "Nuka-Cola Quantum Mr. Fuzzy Plushie",
+        "entmName": "SCORE_S11_ENTM_CAMP_FloorDecor_Plushie_NukaQuantumMrFuzzy"
+      },
+      {
+        "szItemName": "Nuka-Cola Jukebox",
+        "entmName": "SCORE_S22_ENTM_CAMP_Furniture_Jukebox_NukaColaJuke"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_DEATHCLAW_DELIGHT_BUNDLE",
+    "desc": "Celebrate the wasteland's favorite genetically engineered mutaant hybrid reptile!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -\n[h]*This Bundle contains only previously released items, packaged together as \"NEW\".[/h]",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Deathclaw Delight Bundle",
+    "primaryImage": {
+      "imageName": "3d6fa28224dd897b72edf8a153724859.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Deathclaw Pelt Rug",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_Rug_DeathClaw"
+      },
+      {
+        "szItemName": "Deathclaw Topiary",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_Topiary_Deathclaw"
+      },
+      {
+        "szItemName": "Deathclaw Radiation Dummy",
+        "entmName": "ATX_ENTM_CAMP_FloorDecor_DeathclawRadiationDummy"
+      },
+      {
+        "szItemName": "Beware of Deathclaw Sign",
+        "entmName": "SCORE_S14_ENTM_CAMP_WallDecor_BewareOfDeathclawSign"
+      },
+      {
+        "szItemName": "Deathclaw Slow Roaster",
+        "entmName": "ATX_ENTM_CAMP_Collector_DeathclawSlowRoaster"
       }
     ]
   }
