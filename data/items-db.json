@@ -71,7 +71,8 @@
       "imageName": "atx_camp_camppets_dog_huntingdog.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 800
   },
   {
     "EDID": "ATX_ENTM_CAMP_Structure_Catwalk_PoweredIndustrial",
@@ -209,7 +210,8 @@
       "imageName": "atx_entm_camp_floordecor_bonfire.webp",
       "directory": "/textures/atx/storefront/camp/floordecoration/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_PoseidonOutfit",
@@ -438,6 +440,40 @@
     "highPriceOriginal": 500
   },
   {
+    "EDID": "ATX_ENTM_BNDL_THANKFUL_FEAST_BUNDLE",
+    "desc": "Give thanks for another year of survival and minimal mutation!",
+    "disclaimer": "- PLAYER TITLES ARE SELECTABLE IN THE PIP-BOY. -\n- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Thankful Feast Bundle",
+    "primaryImage": {
+      "imageName": "9cc236d110693479326ec724ccef1bd1.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1500,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Corn Dolly"
+      },
+      {
+        "szItemName": "Harvest Mask"
+      },
+      {
+        "szItemName": "Hunting Dog"
+      },
+      {
+        "szItemName": "Bonfire"
+      },
+      {
+        "szItemName": "Feast Side Table"
+      },
+      {
+        "szItemName": "Rugged Player Title Prefix"
+      }
+    ]
+  },
+  {
     "EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_CornDolly",
     "itemName": "Corn Dolly",
     "itemNameShort": "Corn Dolly",
@@ -459,7 +495,8 @@
       "imageName": "atx_camp_collector_feastsidetable_l.webp",
       "directory": "/textures/atx/storefront/camp/utility/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 500
   },
   {
     "EDID": "ATX_ENTM_Apparel_Headwear_Mask_HarvestMask",
@@ -471,7 +508,8 @@
       "imageName": "atx_apparel_headwear_mask_harvestmask.webp",
       "directory": "/textures/atx/storefront/player/headwear/"
     },
-    "carouselImages": []
+    "carouselImages": [],
+    "highPriceOriginal": 350
   },
   {
     "EDID": "ATX_ENTM_CAMP_Bed_MakeshiftBed",
@@ -36344,7 +36382,10 @@
     "EDID": "zzzATX_ENTM_CAMP_Structure_PoseidonEnergyGasStation_PoseidonGasStation_Copy01",
     "desc": "PoseidonEnergyGasStation door is included and built separately.",
     "disclaimer": "C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.",
-    "primaryImage": null,
+    "primaryImage": {
+      "imageName": "atx_camp_structure_poseidonenergygasstation.webp",
+      "directory": "/textures/atx/storefront/camp/structures/"
+    },
     "carouselImages": [],
     "itemName": "Poseidon Energy Gas Station",
     "itemNameShort": "Poseidon Energy Gas Station",
@@ -118900,6 +118941,36 @@
       {
         "szItemName": "Bomb Scientist Player Icon",
         "entmName": "SCORE_S20_ENTM_PlayerIcon_BombScientist"
+      },
+      {
+        "szItemName": "Radium Secret Service Armor Paint"
+      },
+      {
+        "szItemName": "Irradiated Paint (Flamer)"
+      },
+      {
+        "szItemName": "Merc Charmer Helmet"
+      },
+      {
+        "szItemName": "Nuclear-Powered Jetpack"
+      },
+      {
+        "szItemName": "Merc Charmer Blouse Outfit"
+      },
+      {
+        "szItemName": "Irradiated Paint (Fat Man)"
+      },
+      {
+        "szItemName": "Radium Armor Paint (Robot)"
+      },
+      {
+        "szItemName": "Irradiated Paint (Gatling Gun)"
+      },
+      {
+        "szItemName": "Merc Charmer Helmet (Hooded)"
+      },
+      {
+        "szItemName": "Nuke Fusion Generator"
       }
     ]
   },
@@ -119075,6 +119146,68 @@
       {
         "szItemName": "Deathclaw Slow Roaster",
         "entmName": "ATX_ENTM_CAMP_Collector_DeathclawSlowRoaster"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_WASTELAND_HARVEST_BUNDLE",
+    "desc": "Harvest comes early this year with the Wasteland Harvest Bundle!",
+    "disclaimer": "- APPAREL IS CRAFTABLE AT ARMOR WORKBENCHES. -\n- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Wasteland Harvest Bundle",
+    "primaryImage": {
+      "imageName": "f6eeb209655f84ba8062902dc5a2275a.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1300,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Thanksgiving Corn Husk Wreath"
+      },
+      {
+        "szItemName": "Free States Survivalist Outfit"
+      },
+      {
+        "szItemName": "Brahmin Hide Tanning Rack"
+      },
+      {
+        "szItemName": "Curing Shed"
+      },
+      {
+        "szItemName": "Fish Tank Display Case"
+      }
+    ]
+  },
+  {
+    "EDID": "ATX_ENTM_BNDL_APPALACHIAN_THANKSGIVING_BUNDLE",
+    "desc": "Celebrate Thanksgiving Appalachian style!",
+    "disclaimer": "- C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE. -",
+    "customdesc": "",
+    "customdisclaimer": "",
+    "itemName": "Appalachian Thanksgiving Bundle",
+    "primaryImage": {
+      "imageName": "a7af703832a50ec4e2cab06181c2f60d.webp",
+      "directory": "/textures/atomic_shop_media/"
+    },
+    "carouselImages": [],
+    "highPriceOriginal": 1000,
+    "dynamicBundleItems": [
+      {
+        "szItemName": "Thanksgiving Feast Table"
+      },
+      {
+        "szItemName": "Drip Candles"
+      },
+      {
+        "szItemName": "Cooking Stove - Minecart"
+      },
+      {
+        "szItemName": "Cardinal Bird Cage"
+      },
+      {
+        "szItemName": "Axolotl Aquarium Display Case"
       }
     ]
   }
