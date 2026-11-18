@@ -791,6 +791,8 @@
   function syncOverlayOwnedMessage(tile) {
     const overlay = document.getElementById('item-overlay');
     const msgEl = document.getElementById('overlay-owned-msg');
+    const titleEl = overlay?.querySelector('.overlay-title');
+    titleEl?.classList.remove('has-owned-msg');
     const tileData = tile ? parseTileData(tile) : null;
     const stateValue = tile ? tile.getAttribute(ATTR_STATE) : '';
     const ownedByState = stateValue === 'owned';
@@ -818,7 +820,11 @@
       msg.textContent = '(You own this item)';
     }
 
-    overlay.appendChild(msg);
+    if (titleEl) {
+      titleEl.classList.add('has-owned-msg');
+      titleEl.insertAdjacentElement('afterend', msg);
+    }
+    else overlay.appendChild(msg);
   }
 
   function installOverlaySync() {

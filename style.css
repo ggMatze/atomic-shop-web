@@ -1903,7 +1903,7 @@ clip-path: polygon( 0% 20.9%, 100% 0%, 90% 87%, 8% 80.8% );
   background: #0F1314f5;
   z-index: 999;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   border-top: 2px solid #F4CA5A;
@@ -1920,16 +1920,34 @@ clip-path: polygon( 0% 20.9%, 100% 0%, 90% 87%, 8% 80.8% );
 .overlay-title {
   font-family: 'Futura Condensed Bold', 'roboto condensed', sans-serif;
   font-size: 2.4rem;
+  position: relative;
+  top: -15px;
   margin-bottom: 40px;
   text-transform: uppercase;
   color: #F4CA5A;
   font-weight: 100;
 }
 
+.overlay-title.has-owned-msg {
+  margin-bottom: 4px;
+}
+
 .overlay-description {
   margin: 15px 0;
   font-size: 1.2rem;
   color: #FAF8D2;
+}
+
+.overlay-description.has-item-info > p:last-of-type {
+  margin-bottom: 0;
+}
+
+.overlay-item-description.from-disclaimer {
+  color: #faf8d294;
+}
+
+.overlay-item-description.from-producer {
+  color: #c8ff00;
 }
 
 /* Utility classes for in-description highlights */
@@ -2560,11 +2578,11 @@ body.uah-currency .price-label-final::after {
   font-weight: 600;
 }
 .overlay-owned-msg {
-  position: absolute;
-  top: 80px;
+  position: relative;
+  top: -15px;
   color: #FAF8D2;
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  margin: 0 0 4px;
   font-weight: 500;
 }
 /* ######## Background Video CSS ####### */

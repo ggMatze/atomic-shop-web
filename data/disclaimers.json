@@ -26,9 +26,35 @@
    },
    {
       "paths":[
+         "defenses"
+      ],
+      "disclaimer":"APPEARS UNDER DEFENSES WHILE IN C.A.M.P. MODE."
+   },
+   {
+      "paths":[
+         "camppets"
+      ],
+      "disclaimer":"C.A.M.P. PETS APPEAR ONCE THEIR FURNITURE IS PLACED IN C.A.M.P. MODE.",
+      "filterDisclaimers":[
+         "UNLOCKS A PET COMMAND OPTION."
+      ]
+   },
+   {
+      "paths":[
+         "shelters"
+      ],
+      "disclaimer":"SHELTER ENTRANCES CAN BE PLACED IN C.A.M.P. MODE."
+   },
+   {
+      "paths":[
          "tents"
       ],
-      "disclaimer":"- UNLOCKS A VARIANT OF THE SURVIVAL TENT.- "
+      "disclaimer":"UNLOCKS A VARIANT OF THE SURVIVAL TENT.",
+      "filterDisclaimers":[
+         "UNLOCKS A HOLIDAY VARIANT OF THE SURVIVAL TENT.",
+         "UNLOCKS A RAIDER VARIANT OF THE SURVIVAL TENT.",
+         "UNLOCKS A RESPONDERS VARIANT OF THE SURVIVAL TENT."
+         ]
    },
    {
       "paths":[
@@ -59,14 +85,20 @@
          "armorskin",
          "pipboy"
       ],
-      "disclaimer":"SKIN IS CRAFTABLE AT ARMOR WORKBENCHES."
+      "disclaimer":"SKIN IS CRAFTABLE AT ARMOR WORKBENCHES.",
+      "filterDisclaimers":[
+         "SKIN IS CRAFTABLE AT ARMOR STATIONS."
+      ]
    },
    {
       "paths":[
          "weaponskin",
          "weaponmodel"
       ],
-      "disclaimer":"SKIN IS CRAFTABLE AT WEAPON WORKBENCHES."
+      "disclaimer":"SKIN IS CRAFTABLE AT WEAPON WORKBENCHES.",
+      "filterDisclaimers":[
+         "WEAPON IS CRAFTABLE AT WEAPON WORKBENCHES."
+      ]
    },
    {
       "paths":[
@@ -117,5 +149,47 @@
          "lootbags"
       ],
       "disclaimer":"UNLOCKS A PLAYER LOOT BAG SKIN FOR ALL CHARACTERS."
+   },
+   {
+      "paths":[
+         "playericons"
+      ],
+      "disclaimer":"UNLOCKS A PLAYER ICON."
+   },
+   {
+      "paths":[
+         "photoframe"
+      ],
+      "disclaimer":"UNLOCKS A PHOTOMODE FRAME."
+   },
+   {
+      "paths":[
+         "photopose"
+      ],
+      "disclaimer":"UNLOCKS A PHOTOMODE POSE."
+   },
+   {
+      "paths":[
+         "flair"
+      ],
+      "disclaimer":"FLAIRS ARE APPLIED AT ARMOR WORKBENCHES."
+   },
+   {
+      "paths":[
+         "specialloadout"
+      ],
+      "disclaimer":"UNLOCKS AN EXTRA LOADOUT FOR ALL CHARACTERS ON YOUR ACCOUNT."
+   },
+   {
+      "paths":[
+         "tattoo"
+      ],
+      "disclaimer":"UNLOCKS A TATTOO OPTION."
+   },
+   {
+      "paths":[
+         "premiumbattlepass"
+      ],
+      "disclaimer":"UNLOCKS BOOST FOR ALL CHARACTERS ON YOUR ACCOUNT."
    }
 ]

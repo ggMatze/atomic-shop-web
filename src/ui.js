@@ -2,6 +2,32 @@
 import { buildImageUrl } from './utils.js';
 import { resolveItemGalleryImages, loadItemsDb } from './gallery.js';
 
+let genericDisclaimerLinesPromise = null;
+
+function normalizeDisclaimerLine(line) {
+  return String(line || '')
+    .toLowerCase()
+    .replace(/^[\s-]+|[\s-]+$/g, '')
+    .replace(/[^a-z0-9\s]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function loadGenericDisclaimerLines() {
+  if (!genericDisclaimerLinesPromise) {
+    genericDisclaimerLinesPromise = fetch(new URL('data/disclaimers.json', window.location.href))
+      .then(response => {
+        if (!response.ok) throw new Error(`Failed to load disclaimer templates (${response.status})`);
+        return response.json();
+      })
+      .then(entries => new Set((Array.isArray(entries) ? entries : []).flatMap(entry =>
+        String(entry?.disclaimer || '').split(/\r?\n/).map(normalizeDisclaimerLine).filter(Boolean)
+      )))
+      .catch(() => new Set([normalizeDisclaimerLine('C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.')]));
+  }
+  return genericDisclaimerLinesPromise;
+}
+
 // We'll expose functions on window.__ui for legacy script.js to call
 function renderGallery(images, current = 0) {
   if (window.__gallery && typeof window.__gallery.renderGallery === 'function') {
@@ -61,7 +87,7 @@ function attachTileClickHandlers() {
         renderGallery([], 0);
       }
       overlay.classList.add('hidden');
-      await loadItemsDb();
+      const [itemsDb, genericDisclaimerLines] = await Promise.all([loadItemsDb(), loadGenericDisclaimerLines()]);
       const currencySelect = document.getElementById('currency-select');
       if (currencySelect) currencySelect.disabled = true;
 
@@ -172,7 +198,50 @@ function attachTileClickHandlers() {
         const safe = transformShortTags(stripScriptTags(decoded));
         const paras = String(safe).split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
         descEl.innerHTML = paras.length ? paras.map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('') : '';
+        descEl.classList.remove('has-item-info');
       }
+
+      const includedItemDescriptionEl = descEl ? document.createElement('div') : null;
+      if (includedItemDescriptionEl) {
+        includedItemDescriptionEl.className = 'overlay-item-description';
+        descEl.appendChild(includedItemDescriptionEl);
+      }
+
+      const updateIncludedItemDescription = (bundleIdx) => {
+        if (!includedItemDescriptionEl) return;
+        includedItemDescriptionEl.innerHTML = '';
+        descEl?.classList.remove('has-item-info');
+        const bundleItems = Array.isArray(item.dynamicBundleItems) ? item.dynamicBundleItems : [];
+        const bundleEntry = Number.isInteger(bundleIdx) ? bundleItems[bundleIdx] : null;
+        if (!bundleEntry || !Array.isArray(itemsDb)) return;
+
+        const entryId = bundleEntry.EDID || bundleEntry.edid || bundleEntry.entmName || bundleEntry.entm || bundleEntry.id || bundleEntry.itemID;
+        if (entryId == null || !String(entryId).trim()) return;
+        const normalizedId = String(entryId).trim().toLowerCase();
+        const dbItem = itemsDb.find((candidate) => {
+          if (!candidate) return false;
+          return [candidate.EDID, candidate.edid, candidate.entmName, candidate.entm, candidate.id, candidate.itemID]
+            .some(id => id != null && String(id).trim().toLowerCase() === normalizedId);
+        });
+        if (!dbItem) return;
+
+        const getSpecificLines = (text) => String(text || '').split(/\r?\n/).map(line => line.trim()).filter(line =>
+          line && !genericDisclaimerLines.has(normalizeDisclaimerLine(line))
+        );
+        const disclaimerLines = getSpecificLines(dbItem.disclaimer);
+        const isDisclaimer = disclaimerLines.length > 0;
+        const lines = isDisclaimer ? disclaimerLines : getSpecificLines(dbItem.desc);
+        if (!lines.length) return;
+        const isProducerInfo = lines.some(line => 
+  /\b(?:generates?(?!\s+(?:power|electricity|heat|energy))|generated|generating|produces?|produced|producing|collects?|collected|collecting)\b/i.test(line));
+        includedItemDescriptionEl.classList.toggle('from-disclaimer', isDisclaimer);
+        includedItemDescriptionEl.classList.toggle('from-producer', isProducerInfo);
+        descEl?.classList.add('has-item-info');
+        lines.forEach((line, index) => {
+          if (index > 0) includedItemDescriptionEl.appendChild(document.createElement('br'));
+          includedItemDescriptionEl.appendChild(document.createTextNode(line));
+        });
+      };
 
       // render disclaimer
       const disclaimerEl = document.getElementById('overlay-disclaimer');
@@ -259,12 +328,14 @@ function attachTileClickHandlers() {
               }
             }
             if (window.__debugGalleryHighlight) console.debug('updateHighlight', { cur, bundleIdx, map, imagesLen: (gs.images || []).length, includeEls: includeEls.length });
+            updateIncludedItemDescription(bundleIdx);
             if (bundleIdx == null) {
               includeEls.forEach(el => el.classList.remove('include-highlight'));
             } else {
               includeEls.forEach(el => el.classList.toggle('include-highlight', Number(el.getAttribute('data-include-index')) === bundleIdx));
             }
           } else {
+            updateIncludedItemDescription(null);
             includeEls.forEach(el => el.classList.remove('include-highlight'));
           }
         } catch (e) { /* ignore */ }
