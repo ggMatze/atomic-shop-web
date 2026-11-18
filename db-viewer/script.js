@@ -462,12 +462,167 @@ function saveFilterStates() {
         states[checkbox.dataset.category] = checkbox.dataset.state;
     });
     localStorage.setItem('filterStates', JSON.stringify(states));
+    updateFilterUrl(states);
 }
 
 // Load checkbox states from localStorage
 function loadFilterStates() {
     const saved = localStorage.getItem('filterStates');
+    const urlStates = getFilterStatesFromUrl();
+    if (urlStates) return urlStates;
     return saved ? JSON.parse(saved) : {};
+}
+
+const FILTER_URL_PARAM = 'filters';
+const LEGACY_FILTER_URL_PARAM = 'f';
+
+function getFilterCategoryOrder() {
+    return [...new Set(Object.values(filterGroups).flat())];
+}
+
+function getFilterStatesFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const encoded = params.get(FILTER_URL_PARAM) || params.get(LEGACY_FILTER_URL_PARAM);
+    if (!encoded) return null;
+
+    const separatorIndex = encoded.indexOf('.');
+    if (separatorIndex < 1) return null;
+    const version = encoded.slice(0, separatorIndex);
+    const payload = encoded.slice(separatorIndex + 1);
+    if (!payload) return null;
+
+    try {
+        const states = {};
+        const categories = getFilterCategoryOrder();
+
+        if (version === '2') {
+            let index = 0;
+            for (const run of payload.split('.')) {
+                const match = run.match(/^([012])-([0-9a-z]+)$/);
+                if (!match) return null;
+                const stateCode = Number(match[1]);
+                const runLength = parseInt(match[2], 36);
+                if (!runLength || runLength > 10000) return null;
+
+                for (let offset = 0; offset < runLength && index < categories.length; offset++, index++) {
+                    if (stateCode === 1) states[categories[index]] = 'included';
+                    if (stateCode === 2) states[categories[index]] = 'excluded';
+                }
+            }
+            return states;
+        }
+
+        if (version === '3') {
+            for (const entry of payload.split('.')) {
+                const match = entry.match(/^([0-9a-z]+)-([12])$/);
+                if (!match) return null;
+                const index = parseInt(match[1], 36);
+                if (index >= categories.length) return null;
+                states[categories[index]] = match[2] === '1' ? 'included' : 'excluded';
+            }
+            return states;
+        }
+
+        if (version === '4') {
+            for (const entry of payload.split('.')) {
+                const match = entry.match(/^([0-9a-z]+)-([12])-([0-9a-z]+)$/);
+                if (!match) return null;
+                const start = parseInt(match[1], 36);
+                const stateCode = Number(match[2]);
+                const runLength = parseInt(match[3], 36);
+                if (start >= categories.length || !runLength || runLength > 10000) return null;
+
+                for (let offset = 0; offset < runLength && start + offset < categories.length; offset++) {
+                    states[categories[start + offset]] = stateCode === 1 ? 'included' : 'excluded';
+                }
+            }
+            return states;
+        }
+
+        if (version !== '1') return null;
+        const base64 = payload.replace(/-/g, '+').replace(/_/g, '/');
+        const padded = base64 + '='.repeat((4 - base64.length % 4) % 4);
+        const bytes = Uint8Array.from(atob(padded), character => character.charCodeAt(0));
+
+        categories.forEach((category, index) => {
+            const stateCode = (bytes[Math.floor(index / 4)] >> ((index % 4) * 2)) & 3;
+            if (stateCode === 3) throw new Error('Invalid filter state');
+            if (stateCode === 1) states[category] = 'included';
+            if (stateCode === 2) states[category] = 'excluded';
+        });
+
+        return states;
+    } catch (error) {
+        return null;
+    }
+}
+
+function encodeFilterStates(states) {
+    const categories = getFilterCategoryOrder();
+    const bytes = new Uint8Array(Math.ceil(categories.length / 4));
+    const stateCodes = { unchecked: 0, included: 1, excluded: 2 };
+    const categoryStates = [];
+    const sparseEntries = [];
+    const runs = [];
+    const activeRuns = [];
+    let runState = null;
+    let runLength = 0;
+
+    categories.forEach((category, index) => {
+        const stateCode = stateCodes[states[category]] || 0;
+        categoryStates.push(stateCode);
+        bytes[Math.floor(index / 4)] |= stateCode << ((index % 4) * 2);
+        if (stateCode) sparseEntries.push(`${index.toString(36)}-${stateCode}`);
+
+        if (stateCode === runState) {
+            runLength++;
+        } else {
+            if (runState !== null) runs.push(`${runState}-${runLength.toString(36)}`);
+            runState = stateCode;
+            runLength = 1;
+        }
+    });
+    if (runState !== null) runs.push(`${runState}-${runLength.toString(36)}`);
+
+    for (let index = 0; index < categoryStates.length;) {
+        const stateCode = categoryStates[index];
+        if (!stateCode) {
+            index++;
+            continue;
+        }
+
+        const start = index;
+        while (index < categoryStates.length && categoryStates[index] === stateCode) index++;
+        activeRuns.push(`${start.toString(36)}-${stateCode}-${(index - start).toString(36)}`);
+    }
+
+    if (bytes.every(byte => byte === 0)) return '';
+
+    let binary = '';
+    bytes.forEach(byte => { binary += String.fromCharCode(byte); });
+    const payload = btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    const encodings = [
+        `1.${payload}`,
+        `2.${runs.join('.')}`,
+        `3.${sparseEntries.join('.')}`,
+        `4.${activeRuns.join('.')}`
+    ];
+    return encodings.reduce((shortest, candidate) => candidate.length < shortest.length ? candidate : shortest);
+}
+
+function updateFilterUrl(states) {
+    const params = new URLSearchParams(window.location.search);
+    const encoded = encodeFilterStates(states);
+    if (encoded) {
+        params.set(FILTER_URL_PARAM, encoded);
+    } else {
+        params.delete(FILTER_URL_PARAM);
+    }
+    params.delete(LEGACY_FILTER_URL_PARAM);
+
+    const query = params.toString();
+    const hash = window.location.hash || '';
+    history.replaceState(null, '', `${window.location.pathname}${query ? `?${query}` : ''}${hash}`);
 }
 
 // Apply state to a checkbox (handles data-state, checked, and indeterminate)
@@ -498,6 +653,7 @@ function resetFilters() {
         applyCheckboxState(checkbox, 'unchecked');
     });
     localStorage.removeItem('filterStates');
+    updateFilterUrl({});
     search(searchInput.value);
 }
 
@@ -782,6 +938,7 @@ async function loadDatabase() {
         allCategories = Array.from(catSet).sort();
         
         populateFilters();
+        updateFilterUrl(loadFilterStates());
         updateFilterIndicator();
         statsText.textContent = `Loaded ${dbData.length} items`;
 
@@ -2069,6 +2226,7 @@ const filterPanel = document.getElementById('filter-panel');
 if (filterToggleBtn && !document.getElementById('filter-reset')) {
     const resetBtn = document.createElement('button');
     resetBtn.id = 'filter-reset';
+    resetBtn.type = 'button';
     resetBtn.textContent = ""; // Unicode reset symbol
     resetBtn.title = 'Reset Filters';
     resetBtn.style.cssText = window.getComputedStyle(filterToggleBtn).cssText;
