@@ -20,10 +20,35 @@ function loadGenericDisclaimerLines() {
         if (!response.ok) throw new Error(`Failed to load disclaimer templates (${response.status})`);
         return response.json();
       })
-      .then(entries => new Set((Array.isArray(entries) ? entries : []).flatMap(entry =>
-        String(entry?.disclaimer || '').split(/\r?\n/).map(normalizeDisclaimerLine).filter(Boolean)
-      )))
-      .catch(() => new Set([normalizeDisclaimerLine('C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.')]));
+      .then(entries => {
+        const globalLines = new Set();
+        const itemLines = new Map();
+        (Array.isArray(entries) ? entries : []).forEach(entry => {
+          const templates = [
+            entry?.disclaimer,
+            ...(Array.isArray(entry?.filterDisclaimers) ? entry.filterDisclaimers : [])
+          ];
+          const lines = templates.flatMap(template =>
+            String(template || '').split(/\r?\n/).map(normalizeDisclaimerLine).filter(Boolean)
+          );
+          const itemIds = Array.isArray(entry?.itemIds)
+            ? entry.itemIds.map(id => String(id || '').trim().toLowerCase()).filter(Boolean)
+            : [];
+          if (itemIds.length) {
+            itemIds.forEach(id => {
+              if (!itemLines.has(id)) itemLines.set(id, new Set());
+              lines.forEach(line => itemLines.get(id).add(line));
+            });
+          } else {
+            lines.forEach(line => globalLines.add(line));
+          }
+        });
+        return { globalLines, itemLines };
+      })
+      .catch(() => ({
+        globalLines: new Set([normalizeDisclaimerLine('C.A.M.P. ITEMS APPEAR WHILE IN C.A.M.P. MODE.')]),
+        itemLines: new Map()
+      }));
   }
   return genericDisclaimerLinesPromise;
 }
@@ -226,7 +251,9 @@ function attachTileClickHandlers() {
         if (!dbItem) return;
 
         const getSpecificLines = (text) => String(text || '').split(/\r?\n/).map(line => line.trim()).filter(line =>
-          line && !genericDisclaimerLines.has(normalizeDisclaimerLine(line))
+          line
+          && !genericDisclaimerLines.globalLines.has(normalizeDisclaimerLine(line))
+          && !genericDisclaimerLines.itemLines.get(normalizedId)?.has(normalizeDisclaimerLine(line))
         );
         const disclaimerLines = getSpecificLines(dbItem.disclaimer);
         const isDisclaimer = disclaimerLines.length > 0;

@@ -96,7 +96,7 @@ body {
 }
 
 body:has(.item-overlay:not(.hidden)) {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 /* Add to your style.css */
@@ -1972,13 +1972,31 @@ clip-path: polygon( 0% 20.9%, 100% 0%, 90% 87%, 8% 80.8% );
 }
 
 .overlay-description {
-  margin: 15px 0;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  overflow-y: visible;
+  scrollbar-width: auto;
+  margin: -15px 0 0;
   font-size: 1.2rem;
   color: #FAF8D2;
 }
 
 .overlay-description.has-item-info > p:last-of-type {
   margin-bottom: 0;
+}
+
+.overlay-item-description {
+  width: 1500px;
+  margin-top: 5px;
+  max-width: calc(100% - 120px);
+  margin-left: auto;
+  margin-right: auto;
+  max-height: none;
+  overflow-y: visible;
+  scrollbar-width: auto;
 }
 
 .overlay-item-description.from-disclaimer {
@@ -2052,16 +2070,17 @@ clip-path: polygon( 0% 20.9%, 100% 0%, 90% 87%, 8% 80.8% );
 }
 
 .overlay-includes {
+  
   box-sizing: border-box;
-  height: 120px;
-  max-height: 260px;
+  min-height: 0;
+  max-height: 120px;
   overflow-x: auto;
   overflow-y: auto;
   margin-top: 5px;
   color: #FAF8D2;
   font-weight: normal;
   font-size: 1.2rem;
-  padding: 0px 60px 30px;
+  padding: 0px 20px 0px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
