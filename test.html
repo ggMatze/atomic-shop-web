@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saber Color</title>
+<meta name="theme-color" content="#0b0d12">
+<style>
+:root{
+  --bg:#0b0d12; --panel:#141822; --panel2:#1b2030; --line:#262c3d;
+  --text:#e7eaf2; --muted:#8a93a8; --accent:#5aa9ff; --ok:#3ddc97; --err:#ff6b6b;
+  --glow:#5aa9ff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:640px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:22px;margin:0 0 4px;letter-spacing:.3px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.card h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:0 0 12px;font-weight:600}
+button{font:inherit;color:var(--text);background:var(--panel2);border:1px solid var(--line);
+  border-radius:10px;padding:10px 14px;cursor:pointer}
+button:hover{border-color:#3a4360}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.primary{background:var(--accent);border-color:var(--accent);color:#07111f;font-weight:600}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.status{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
+.dot{width:10px;height:10px;border-radius:50%;background:#555}
+.dot.on{background:var(--ok);box-shadow:0 0 8px var(--ok)}
+.battery{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;color:var(--muted)}
+.battery-track{width:160px;height:8px;border:1px solid var(--line);border-radius:4px;background:#0a0c11;overflow:hidden}
+.battery-fill{width:0;height:100%;background:var(--ok);transition:width .25s,background .25s}
+.battery-fill.low{background:var(--err)}
+.battery-fill.medium{background:#f3c58b}
+.blade{height:14px;border-radius:7px;margin:14px 0 4px;background:var(--glow);
+  box-shadow:0 0 12px var(--glow),0 0 28px var(--glow);transition:background .25s, box-shadow .25s}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tile{position:relative;aspect-ratio:1/1;border-radius:12px;border:1px solid var(--line);
+  background:var(--panel2);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:4px;text-align:center;font-size:12px;overflow:hidden}
+.tile .num{font-size:20px;font-weight:700}
+.tile .lbl{font-size:12px;color:var(--muted);max-width:100%;white-space:nowrap}
+.tile.sel{outline:2px solid var(--text);outline-offset:1px}
+.log{font:12px/1.5 ui-monospace,Menlo,Consolas,monospace;color:var(--muted);background:#0a0c11;
+  border:1px solid var(--line);border-radius:10px;padding:10px;max-height:180px;overflow:auto;white-space:pre-wrap;word-break:break-all}
+.warn{border-color:#5c3b1e;background:#1e160d;color:#f3c58b;font-size:14px}
+.hint{color:var(--muted);font-size:13px;margin:8px 0 0}
+@media (max-width:380px){.grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Saber Color</h1>
+  <p class="sub">Sets the blade light color on the Jedi Challenges lightsaber over Bluetooth. You don't need the old app or the headset.</p>
+
+  <div id="unsupported" class="card warn" hidden>
+    This browser can't use Bluetooth from a web page. Use <b>Chrome</b> or <b>Edge</b> on Android, Windows, macOS or ChromeOS.
+    On iPhone, use the free <b>Bluefy</b> browser. The page must be opened over <b>https://</b> or <b>localhost</b>.
+  </div>
+
+  <div class="card">
+    <h2>Connection</h2>
+    <div class="row">
+      <button id="connect" class="primary">Connect saber</button>
+      <button id="disconnect" disabled>Disconnect</button>
+      <div class="status"><span id="dot" class="dot"></span><span id="status">Not connected</span></div>
+    </div>
+    <div class="battery">
+      <span>Battery</span>
+      <div class="battery-track" role="progressbar" aria-label="Battery level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="batteryFill" class="battery-fill"></div></div>
+      <span id="batteryValue">--%</span>
+    </div>
+    <p class="hint">Turn the saber on first. If it doesn't appear in the list, unpair it from your phone's Bluetooth settings and try again. If the old app is installed, close it.</p>
+    <div class="blade" id="blade"></div>
+  </div>
+
+  <div class="card">
+    <h2>Color</h2>
+    <div class="grid" id="grid"></div>
+    <p class="hint">Tap a number to send that preset color to the saber.</p>
+  </div>
+
+  <div class="card">
+    <h2>Log</h2>
+    <div class="log" id="log"></div>
+  </div>
+</main>
+
+<script>
+(() => {
+  // ---- Protocol (reverse-engineered from the Ximmerse SDK in com.disney.mirage 1.6.1) ----
+  // Packet is 20 bytes, zero-filled.
+  //   Default/persistent color (kMessage_ChangeBlobColorDefault = 7):
+  //       [0x04, (id - 0x80) & 0xFF, 0, 0...]
+  //   Temporary color (kMessage_ChangeBlobColorTemp = 6):
+  //       [0x04, (id + 0x10) & 0xFF, 0...]
+  // Written to the controller's "RX" characteristic.
+  const U = n => `0000${n}-0000-1000-8000-00805f9b34fb`;
+  const UUID_GROUPS = [
+    { service: U('faea'), write: U('faeb'), notify: U('faec') },
+    { service: U('f000'), write: U('f002'), notify: U('f001') },
+    { service: U('f010'), write: U('f012'), notify: U('f011') },
+    { service: U('f020'), write: U('f021'), notify: U('f022') },
+    { service: U('fe55'), write: '00000003-1000-1000-8000-00805f9b34fb', notify: '00000001-1000-1000-8000-00805f9b34fb' },
+  ];
+  const BATTERY_SVC = U('180f'), BATTERY_CHR = U('2a19');
+
+  const $ = id => document.getElementById(id);
+  const logEl = $('log');
+  const log = (msg, cls) => {
+    const t = new Date().toLocaleTimeString();
+    logEl.textContent = `[${t}] ${msg}\n` + logEl.textContent;
+  };
+  const hex = a => Array.from(a, b => b.toString(16).padStart(2, '0')).join(' ');
+
+  let device = null, writeChr = null, busy = Promise.resolve();
+  let previousButtonMask = 0;
+  let selected = 0;
+  try {
+    const saved = Number(localStorage.getItem('saber-selected-color-v1'));
+    if (Number.isInteger(saved) && saved >= 0 && saved <= 6) selected = saved;
+  } catch {}
+
+  function setBattery(percent) {
+    const fill = $('batteryFill');
+    if (percent === null) {
+      fill.style.width = '0%';
+      fill.classList.remove('low', 'medium');
+      $('batteryValue').textContent = '--%';
+      fill.parentElement.setAttribute('aria-valuenow', '0');
+      return;
+    }
+    const value = Math.max(0, Math.min(100, percent | 0));
+    fill.style.width = `${value}%`;
+    fill.classList.toggle('low', value <= 20);
+    fill.classList.toggle('medium', value > 20 && value <= 50);
+    $('batteryValue').textContent = `${value}%`;
+    fill.parentElement.setAttribute('aria-valuenow', value);
+  }
+  const REMEMBERED_DEVICE_KEY = 'saber-bluetooth-device-v1';
+
+  if (!navigator.bluetooth) $('unsupported').hidden = false;
+
+  // ---- grid ----
+  const grid = $('grid');
+  function renderGrid() {
+    grid.innerHTML = '';
+    const names = ['Red', 'Green', 'Teal / Luke', 'Blue', 'Purple', 'Pink', 'White'];
+    for (let i = 0; i <= 6; i++) {
+      const b = document.createElement('button');
+      b.className = 'tile' + (i === selected ? ' sel' : '');
+      b.innerHTML = `<span class="num">${i}</span><span class="lbl">${names[i]}</span>`;
+      b.onclick = () => { select(i); send(i); };
+      grid.appendChild(b);
+    }
+  }
+  function select(i) {
+    selected = i;
+    try { localStorage.setItem('saber-selected-color-v1', String(selected)); } catch {}
+    renderGrid();
+  }
+
+  function handleSaberNotification(characteristicUuid, value) {
+    const bytes = new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+    if (characteristicUuid !== U('f001') || bytes[0] !== 0x20 || bytes.length < 17) return;
+
+    const buttonMask = bytes[16];
+    const pressed = buttonMask & ~previousButtonMask;
+    previousButtonMask = buttonMask;
+
+    if (pressed & 0x02) {
+      const next = (selected + 1) % 7;
+      select(next);
+      send(next);
+      log(`Saber button: next color → #${next}`);
+    }
+    if (pressed & 0x01) {
+      const previous = (selected + 6) % 7;
+      select(previous);
+      send(previous);
+      log(`Saber button: previous color → #${previous}`);
+    }
+  }
+
+  // ---- Bluetooth ----
+  function setStatus(text, on) { $('status').textContent = text; $('dot').classList.toggle('on', !!on); }
+
+  $('connect').onclick = async () => {
+    if (!navigator.bluetooth) { log('Web Bluetooth not available in this browser.'); return; }
+    try {
+      setStatus('Choose the saber…');
+      device = await navigator.bluetooth.requestDevice({
+        acceptAllDevices: true,
+        optionalServices: [...UUID_GROUPS.map(g => g.service), BATTERY_SVC, U('180a')],
+      });
+      localStorage.setItem(REMEMBERED_DEVICE_KEY, JSON.stringify({ id: device.id, name: device.name || '' }));
+      log(`Picked device: "${device.name || '(no name)'}"`);
+      device.addEventListener('gattserverdisconnected', onDisconnected);
+      await connectWithRetry(4);
+    } catch (e) {
+      if (e.name === 'NotFoundError') { setStatus('Not connected'); log('No device chosen.'); return; }
+      setStatus('Not connected'); log(`Error (${e.name}): ${e.message}`);
+    }
+  };
+
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  let connecting = false, connectedOnce = false;
+
+  let connectAt = 0;
+  const since = () => `${Date.now() - connectAt} ms after connect`;
+  const ua = navigator.userAgent;
+  const OS = /Windows/.test(ua) ? 'windows' : /Android/.test(ua) ? 'android' : /Mac OS X|iPhone|iPad/.test(ua) ? 'apple' : /CrOS/.test(ua) ? 'chromeos' : /Linux/.test(ua) ? 'linux' : 'other';
+
+  async function connectWithRetry(tries) {
+    connecting = true;
+    log(`Browser: ${ua}`);
+    try {
+      for (let a = 1; a <= tries; a++) {
+        try {
+          setStatus(`Connecting… (attempt ${a}/${tries})`);
+          log(`Step 1: GATT connect (attempt ${a})`);
+          const server = await device.gatt.connect();
+          connectAt = Date.now();
+          log('Step 1 OK: link up');
+          // Start discovery right away: the saber drops a link that sits idle for about a second.
+          await setup(server);
+          connectedOnce = true;
+          return;
+        } catch (e) {
+          log(`Attempt ${a} failed (${e.name}): ${e.message}` + (connectAt ? ` [${since()}]` : ''));
+          try { device.gatt.disconnect(); } catch {}
+          connectAt = 0;
+          // The saber needs a few seconds to start advertising again after a dropped link.
+          await sleep(3000 + 1000 * a);
+        }
+      }
+      setStatus('Could not connect');
+      log('Giving up. See the troubleshooting tips at the top of this log.');
+      log('TIP: ' + ({
+        windows: 'Open Settings → Bluetooth & devices. If the saber is listed there, choose "Remove device". Then turn the saber off and on and try again.',
+        android: 'Open Bluetooth settings. If the saber is listed under paired devices, choose "Forget". Turn off Bluetooth on any other phone the saber was used with, then turn the saber off and on.',
+        apple: 'On macOS, open System Settings → Bluetooth and remove the saber if it is listed. On iPhone, use Bluefy, and in Settings → Bluetooth choose "Forget This Device" for the saber.',
+        linux: 'In a terminal, run: bluetoothctl devices. If the saber is listed, run: bluetoothctl remove <its address>. Then turn the saber off and on.',
+      }[OS] || 'Remove the saber from your system Bluetooth settings, then turn the saber off and on.') + ' Make sure no other phone or app is connected to the saber, since it accepts only one connection.');
+    } finally { connecting = false; }
+  }
+
+  async function setup(server) {
+    previousButtonMask = 0;
+    log('Step 2: looking for the control service');
+    writeChr = null;
+    let groupIdx = -1, svc = null, lastErr = null;
+    for (let i = 0; i < UUID_GROUPS.length; i++) {
+      const g = UUID_GROUPS[i];
+      if (!device.gatt.connected) break;
+      try {
+        svc = await server.getPrimaryService(g.service);
+        writeChr = await svc.getCharacteristic(g.write);
+        groupIdx = i;
+        log(`Step 3: control service ${g.service.slice(4, 8)} → write char ${g.write.slice(4, 8)} (props: ${['read','write','writeWithoutResponse','notify','indicate'].filter(k => writeChr.properties[k]).join(',')})`);
+        break;
+      } catch (e) { lastErr = e; }
+    }
+    if (!device.gatt.connected) throw new Error(`saber dropped the link during service discovery [${since()}]`);
+    if (!writeChr) {
+      // Only now list everything, so the log shows what this device does have.
+      try {
+        const all = await server.getPrimaryServices();
+        log('Services found: ' + (all.map(s => s.uuid.startsWith('0000') ? s.uuid.slice(4, 8) : s.uuid).join(', ') || '(none)'));
+      } catch (e) { log('Could not list services: ' + e.message); }
+      throw new Error('saber control service not found' + (lastErr ? ` (${lastErr.message})` : ''));
+    }
+    const g = UUID_GROUPS[groupIdx];
+
+    // Listen for notifications and log raw data from every subscribed characteristic.
+    let primaryNotify = null;
+    try {
+      primaryNotify = await svc.getCharacteristic(g.notify);
+      primaryNotify.addEventListener('characteristicvaluechanged', ev => {
+        handleSaberNotification(primaryNotify.uuid, ev.target.value);
+      });
+      await primaryNotify.startNotifications();
+      log('Step 4: notifications on');
+    } catch (e) { log('Step 4: notifications not enabled: ' + e.message); }
+
+    try {
+      const subscribed = new Set(primaryNotify ? [primaryNotify.uuid] : []);
+      const services = await server.getPrimaryServices();
+      for (const service of services) {
+        let characteristics;
+        try { characteristics = await service.getCharacteristics(); }
+        catch (e) { continue; }
+        for (const characteristic of characteristics) {
+          if (subscribed.has(characteristic.uuid) || (!characteristic.properties.notify && !characteristic.properties.indicate)) continue;
+          subscribed.add(characteristic.uuid);
+          characteristic.addEventListener('characteristicvaluechanged', ev => {
+            handleSaberNotification(characteristic.uuid, ev.target.value);
+          });
+          await characteristic.startNotifications();
+          log(`Button scan: notifications on ${service.uuid} → ${characteristic.uuid}`);
+        }
+      }
+    } catch (e) { log('Could not enumerate extra control notifications: ' + e.message); }
+
+    // …then, for the f000 firmware variant, send the start command 00 20 00…
+    if (g.service === U('f000')) {
+      await sleep(750);
+      const start = new Uint8Array(20); start[1] = 0x20;
+      try { await rawWrite(start); log('Step 5: sent start command ' + hex(start)); }
+      catch (e) { log('Step 5: start command failed: ' + e.message); }
+    }
+
+    // Battery: read once and subscribe (the original app subscribes too).
+    try {
+      const bs = await server.getPrimaryService(BATTERY_SVC);
+      const bc = await bs.getCharacteristic(BATTERY_CHR);
+      const v = await bc.readValue();
+      const battery = v.getUint8(0);
+      setBattery(battery);
+      log(`Battery: ${battery}%`);
+    } catch {}
+
+    setStatus(`Connected: ${device.name || 'saber'}`, true);
+    $('disconnect').disabled = false;
+    log('Ready.');
+    await send(selected);
+    log(`Restored selected color #${selected}.`);
+  }
+
+  async function rawWrite(pkt) {
+    if (writeChr.properties.write && writeChr.writeValueWithResponse) return writeChr.writeValueWithResponse(pkt);
+    if (writeChr.writeValueWithoutResponse) return writeChr.writeValueWithoutResponse(pkt);
+    return writeChr.writeValue(pkt);
+  }
+
+  async function connectRememberedDevice() {
+    if (!navigator.bluetooth || typeof navigator.bluetooth.getDevices !== 'function') return;
+    try {
+      let remembered = null;
+      try { remembered = JSON.parse(localStorage.getItem(REMEMBERED_DEVICE_KEY) || 'null'); } catch {}
+      if (!remembered) return;
+
+      const devices = await navigator.bluetooth.getDevices();
+      device = devices.find(d => d.id === remembered.id)
+        || (remembered.name ? devices.find(d => d.name === remembered.name) : null);
+      if (!device) {
+        log('Remembered saber is not in this browser\'s permitted devices.');
+        return;
+      }
+
+      log(`Reconnecting remembered device: "${device.name || '(no name)'}"`);
+      setStatus('Reconnecting remembered saber…');
+      device.addEventListener('gattserverdisconnected', onDisconnected);
+      await connectWithRetry(4);
+    } catch (e) {
+      log(`Could not reconnect remembered saber: ${e.message}`);
+      setStatus('Not connected');
+    }
+  }
+
+  let manualDisconnect = false;
+  function onDisconnected() {
+    previousButtonMask = 0;
+    setBattery(null);
+    writeChr = null; $('disconnect').disabled = true;
+    if (connecting) { if (connectAt) log(`(link dropped ${since()})`); return; } // handled by the retry loop
+    if (manualDisconnect) { manualDisconnect = false; setStatus('Disconnected'); log('Disconnected.'); return; }
+    log('Saber dropped the connection, so reconnecting once…');
+    if (connectedOnce) connectWithRetry(2);
+  }
+  $('disconnect').onclick = () => { manualDisconnect = true; if (device && device.gatt.connected) device.gatt.disconnect(); };
+
+  function buildPacket(id) {
+    const p = new Uint8Array(20);
+    p[0] = 0x04;
+    p[1] = (id - 0x80) & 0xff;
+    p[2] = 0;
+    return p;
+  }
+
+  function send(tile) {
+    tile = Math.max(0, Math.min(6, tile | 0));
+    const id = tile === 6 ? 28 : tile;
+    // Queue writes: GATT allows one operation at a time.
+    busy = busy.then(async () => {
+      const pkt = buildPacket(id);
+      if (!writeChr) { log(`(not connected) would send #${id}: ${hex(pkt)}`); return; }
+      try {
+        await rawWrite(pkt);
+        log(`Sent color #${id}: ${hex(pkt)}`);
+      } catch (e) { log(`Write failed for #${id}: ${e.message}`); }
+    });
+    return busy;
+  }
+
+  select(selected);
+  connectRememberedDevice();
+})();
+</script>
+</body>
+</html>
